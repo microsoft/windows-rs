@@ -371,7 +371,7 @@ pub struct IAdaptiveNotificationText_Vtbl {
     pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBadgeNotification, IBadgeNotification_Vtbl, 0x46043226_357f_5e81_9b8e_1a03cc98e62e);
+windows_core::imp::define_interface!(IBadgeNotification, IBadgeNotification_Vtbl, 0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
 impl windows_core::RuntimeType for IBadgeNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -386,7 +386,7 @@ pub struct IBadgeNotification_Vtbl {
     pub SetExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBadgeNotificationFactory, IBadgeNotificationFactory_Vtbl, 0x8bd01509_8de8_53ec_86cd_4174bee2884d);
+windows_core::imp::define_interface!(IBadgeNotificationFactory, IBadgeNotificationFactory_Vtbl, 0xedf255ce_0618_4d59_948a_5a61040c52f9);
 impl windows_core::RuntimeType for IBadgeNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -399,7 +399,7 @@ pub struct IBadgeNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateBadgeNotification: usize,
 }
-windows_core::imp::define_interface!(IBadgeUpdateManagerForUser, IBadgeUpdateManagerForUser_Vtbl, 0xaaef02e3_398e_53ce_bbd9_abb81f863f8d);
+windows_core::imp::define_interface!(IBadgeUpdateManagerForUser, IBadgeUpdateManagerForUser_Vtbl, 0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
 impl windows_core::RuntimeType for IBadgeUpdateManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -444,7 +444,7 @@ pub struct IBadgeUpdateManagerStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IBadgeUpdater, IBadgeUpdater_Vtbl, 0x13b776e8_38ab_58db_b1d5_acf8a6a898e4);
+windows_core::imp::define_interface!(IBadgeUpdater, IBadgeUpdater_Vtbl, 0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
 impl windows_core::RuntimeType for IBadgeUpdater {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -511,7 +511,7 @@ pub struct IKnownNotificationBindingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToastGeneric: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INotification, INotification_Vtbl, 0x9b46e101_17f6_5efc_ba63_b4417c97185c);
+windows_core::imp::define_interface!(INotification, INotification_Vtbl, 0x108037fe_eb76_4f82_97bc_da07530a2e20);
 impl windows_core::RuntimeType for INotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -524,7 +524,7 @@ pub struct INotification_Vtbl {
     pub Visual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INotificationBinding, INotificationBinding_Vtbl, 0xcc54542c_c688_51ba_98d2_08f6fa323677);
+windows_core::imp::define_interface!(INotificationBinding, INotificationBinding_Vtbl, 0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
 impl windows_core::RuntimeType for INotificationBinding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -539,7 +539,7 @@ pub struct INotificationBinding_Vtbl {
     pub Hints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTextElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INotificationData, INotificationData_Vtbl, 0xd6320979_ff0d_5a0a_8820_fe5596184ab6);
+windows_core::imp::define_interface!(INotificationData, INotificationData_Vtbl, 0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
 impl windows_core::RuntimeType for INotificationData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -575,7 +575,7 @@ pub struct INotificationVisual_Vtbl {
     pub Bindings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBinding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IScheduledTileNotification, IScheduledTileNotification_Vtbl, 0xdd209be9_fe34_57ed_84e5_295368a68cf7);
+windows_core::imp::define_interface!(IScheduledTileNotification, IScheduledTileNotification_Vtbl, 0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
 impl windows_core::RuntimeType for IScheduledTileNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -641,7 +641,7 @@ pub struct IScheduledToastNotification2_Vtbl {
     pub SetSuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IScheduledToastNotification3, IScheduledToastNotification3_Vtbl, 0x38710ff1_4e0d_565e_b92c_a47ef6ba50d2);
+windows_core::imp::define_interface!(IScheduledToastNotification3, IScheduledToastNotification3_Vtbl, 0x98429e8b_bd32_4a3b_9d15_22aea49462a1);
 impl windows_core::RuntimeType for IScheduledToastNotification3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -654,7 +654,7 @@ pub struct IScheduledToastNotification3_Vtbl {
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IScheduledToastNotification4, IScheduledToastNotification4_Vtbl, 0x6556d51d_f30f_5088_be84_21717116a860);
+windows_core::imp::define_interface!(IScheduledToastNotification4, IScheduledToastNotification4_Vtbl, 0x1d4761fd_bdef_4e4a_96be_0101369b58d2);
 impl windows_core::RuntimeType for IScheduledToastNotification4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -665,7 +665,7 @@ pub struct IScheduledToastNotification4_Vtbl {
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IScheduledToastNotificationFactory, IScheduledToastNotificationFactory_Vtbl, 0x5bd17faa_3c1c_5e1c_bcb2_211044ab923d);
+windows_core::imp::define_interface!(IScheduledToastNotificationFactory, IScheduledToastNotificationFactory_Vtbl, 0xe7bed191_0bb9_4189_8394_31761b476fd7);
 impl windows_core::RuntimeType for IScheduledToastNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -682,7 +682,7 @@ pub struct IScheduledToastNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateScheduledToastNotificationRecurring: usize,
 }
-windows_core::imp::define_interface!(IScheduledToastNotificationShowingEventArgs, IScheduledToastNotificationShowingEventArgs_Vtbl, 0xbcb460f6_12b4_5b3e_ac2c_ae0edd09cd3c);
+windows_core::imp::define_interface!(IScheduledToastNotificationShowingEventArgs, IScheduledToastNotificationShowingEventArgs_Vtbl, 0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
 impl windows_core::RuntimeType for IScheduledToastNotificationShowingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -749,7 +749,7 @@ pub struct ITileFlyoutUpdateManagerStatics_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     GetTemplateContent: usize,
 }
-windows_core::imp::define_interface!(ITileFlyoutUpdater, ITileFlyoutUpdater_Vtbl, 0xf881262a_e03a_567e_a618_6de252cea2c2);
+windows_core::imp::define_interface!(ITileFlyoutUpdater, ITileFlyoutUpdater_Vtbl, 0x8d40c76a_c465_4052_a740_5c2654c1a089);
 impl windows_core::RuntimeType for ITileFlyoutUpdater {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -794,7 +794,7 @@ pub struct ITileNotificationFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateTileNotification: usize,
 }
-windows_core::imp::define_interface!(ITileUpdateManagerForUser, ITileUpdateManagerForUser_Vtbl, 0x1129b508_0e8e_5bf7_8515_0555d81f36cd);
+windows_core::imp::define_interface!(ITileUpdateManagerForUser, ITileUpdateManagerForUser_Vtbl, 0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
 impl windows_core::RuntimeType for ITileUpdateManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -826,7 +826,7 @@ pub struct ITileUpdateManagerStatics_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     GetTemplateContent: usize,
 }
-windows_core::imp::define_interface!(ITileUpdateManagerStatics2, ITileUpdateManagerStatics2_Vtbl, 0xd2079b14_2afd_55a3_9d07_00c1f1986b2c);
+windows_core::imp::define_interface!(ITileUpdateManagerStatics2, ITileUpdateManagerStatics2_Vtbl, 0x731c1ddc_8e14_4b7c_a34b_9d22de76c84d);
 impl windows_core::RuntimeType for ITileUpdateManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -872,7 +872,7 @@ pub struct ITileUpdater2_Vtbl {
     pub EnableNotificationQueueForWide310x150: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub EnableNotificationQueueForSquare310x310: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastActivatedEventArgs, IToastActivatedEventArgs_Vtbl, 0x0fd7504f_528c_5af8_8f68_c69f4ec3e2cf);
+windows_core::imp::define_interface!(IToastActivatedEventArgs, IToastActivatedEventArgs_Vtbl, 0xe3bf92f3_c197_436f_8265_0625824f8dac);
 impl windows_core::RuntimeType for IToastActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -882,7 +882,7 @@ pub struct IToastActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastActivatedEventArgs2, IToastActivatedEventArgs2_Vtbl, 0x75571fb1_2cae_5738_aed7_63ed420a96f2);
+windows_core::imp::define_interface!(IToastActivatedEventArgs2, IToastActivatedEventArgs2_Vtbl, 0xab7da512_cc61_568e_81be_304ac31038fa);
 impl windows_core::RuntimeType for IToastActivatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -911,7 +911,7 @@ pub struct IToastCollection_Vtbl {
     pub Icon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastCollectionFactory, IToastCollectionFactory_Vtbl, 0xb762b9c5_31e2_576d_bf47_8d13664cb86a);
+windows_core::imp::define_interface!(IToastCollectionFactory, IToastCollectionFactory_Vtbl, 0x164dd3d7_73c4_44f7_b4ff_fb6d4bf1f4c6);
 impl windows_core::RuntimeType for IToastCollectionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -940,7 +940,7 @@ pub struct IToastCollectionManager_Vtbl {
     User: usize,
     pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastDismissedEventArgs, IToastDismissedEventArgs_Vtbl, 0x3cb794f8_cfb8_587c_8143_c0f13c49cac4);
+windows_core::imp::define_interface!(IToastDismissedEventArgs, IToastDismissedEventArgs_Vtbl, 0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
 impl windows_core::RuntimeType for IToastDismissedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -950,7 +950,7 @@ pub struct IToastDismissedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastDismissalReason) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastFailedEventArgs, IToastFailedEventArgs_Vtbl, 0x23bcb1dd_d44e_546e_b5f0_a2dcc94c1d30);
+windows_core::imp::define_interface!(IToastFailedEventArgs, IToastFailedEventArgs_Vtbl, 0x35176862_cfd4_44f8_ad64_f500fd896c3b);
 impl windows_core::RuntimeType for IToastFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -960,7 +960,7 @@ pub struct IToastFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotification, IToastNotification_Vtbl, 0x509365e5_01a4_57fe_a06b_9653f69ae90e);
+windows_core::imp::define_interface!(IToastNotification, IToastNotification_Vtbl, 0x997e2675_059e_4e60_8b06_1760917c8b80);
 impl windows_core::RuntimeType for IToastNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -981,7 +981,7 @@ pub struct IToastNotification_Vtbl {
     pub Failed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveFailed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotification2, IToastNotification2_Vtbl, 0x90a5adcd_1ee3_55fe_b39b_e6bbc4a08550);
+windows_core::imp::define_interface!(IToastNotification2, IToastNotification2_Vtbl, 0x9dfb9fd1_143a_490e_90bf_b9fba7132de7);
 impl windows_core::RuntimeType for IToastNotification2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -996,7 +996,7 @@ pub struct IToastNotification2_Vtbl {
     pub SetSuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SuppressPopup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotification3, IToastNotification3_Vtbl, 0xa959a782_9dba_50f0_820a_7531132e7abf);
+windows_core::imp::define_interface!(IToastNotification3, IToastNotification3_Vtbl, 0x31e8aed8_8141_4f99_bc0a_c4ed21297d77);
 impl windows_core::RuntimeType for IToastNotification3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1009,7 +1009,7 @@ pub struct IToastNotification3_Vtbl {
     pub RemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotification4, IToastNotification4_Vtbl, 0x6b5ca891_c422_598a_9298_18d284aab67b);
+windows_core::imp::define_interface!(IToastNotification4, IToastNotification4_Vtbl, 0x15154935_28ea_4727_88e9_c58680e2d118);
 impl windows_core::RuntimeType for IToastNotification4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1033,7 +1033,7 @@ pub struct IToastNotification6_Vtbl {
     pub ExpiresOnReboot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetExpiresOnReboot: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationActionTriggerDetail, IToastNotificationActionTriggerDetail_Vtbl, 0x65db06ed_10f9_5d0b_b75d_cb6363c08f5a);
+windows_core::imp::define_interface!(IToastNotificationActionTriggerDetail, IToastNotificationActionTriggerDetail_Vtbl, 0x9445135a_38f3_42f6_96aa_7955b0f03da2);
 impl windows_core::RuntimeType for IToastNotificationActionTriggerDetail {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1047,7 +1047,7 @@ pub struct IToastNotificationActionTriggerDetail_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     UserInput: usize,
 }
-windows_core::imp::define_interface!(IToastNotificationFactory, IToastNotificationFactory_Vtbl, 0xf46c6161_34b2_51cf_a0de_f4c2838425db);
+windows_core::imp::define_interface!(IToastNotificationFactory, IToastNotificationFactory_Vtbl, 0x04124b20_82c6_4229_b109_fd9ed4662b53);
 impl windows_core::RuntimeType for IToastNotificationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1076,7 +1076,7 @@ pub struct IToastNotificationHistory_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearWithId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationHistory2, IToastNotificationHistory2_Vtbl, 0xe16efc4e_bccc_541e_9562_92a842d825a7);
+windows_core::imp::define_interface!(IToastNotificationHistory2, IToastNotificationHistory2_Vtbl, 0x3bc3d253_2f31_4092_9129_8ad5abf067da);
 impl windows_core::RuntimeType for IToastNotificationHistory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1087,7 +1087,7 @@ pub struct IToastNotificationHistory2_Vtbl {
     pub GetHistory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetHistoryWithId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerDetail, IToastNotificationHistoryChangedTriggerDetail_Vtbl, 0xf58cb185_b64b_532d_9000_2fa886c388da);
+windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerDetail, IToastNotificationHistoryChangedTriggerDetail_Vtbl, 0xdb037ffa_0068_412c_9c83_267c37f65670);
 impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerDetail {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1097,7 +1097,7 @@ pub struct IToastNotificationHistoryChangedTriggerDetail_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ToastHistoryChangedType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerDetail2, IToastNotificationHistoryChangedTriggerDetail2_Vtbl, 0xd81a016e_35bd_57cf_9a49_967ff8514c7a);
+windows_core::imp::define_interface!(IToastNotificationHistoryChangedTriggerDetail2, IToastNotificationHistoryChangedTriggerDetail2_Vtbl, 0x0b36e982_c871_49fb_babb_25bdbc4cc45b);
 impl windows_core::RuntimeType for IToastNotificationHistoryChangedTriggerDetail2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1107,7 +1107,7 @@ pub struct IToastNotificationHistoryChangedTriggerDetail2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CollectionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationManagerForUser, IToastNotificationManagerForUser_Vtbl, 0x464e8e5b_4997_5ff7_be29_913b56aa68f0);
+windows_core::imp::define_interface!(IToastNotificationManagerForUser, IToastNotificationManagerForUser_Vtbl, 0x79ab57f6_43fe_487b_8a7f_99567200ae94);
 impl windows_core::RuntimeType for IToastNotificationManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1123,7 +1123,7 @@ pub struct IToastNotificationManagerForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IToastNotificationManagerForUser2, IToastNotificationManagerForUser2_Vtbl, 0x84e083ba_edac_5e4e_9c2a_14a734f5b5be);
+windows_core::imp::define_interface!(IToastNotificationManagerForUser2, IToastNotificationManagerForUser2_Vtbl, 0x679c64b7_81ab_42c2_8819_c958767753f4);
 impl windows_core::RuntimeType for IToastNotificationManagerForUser2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1148,7 +1148,7 @@ pub struct IToastNotificationManagerForUser3_Vtbl {
     pub NotificationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveNotificationModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationManagerStatics, IToastNotificationManagerStatics_Vtbl, 0x8149e0f2_8835_524a_8e29_23d69739aad7);
+windows_core::imp::define_interface!(IToastNotificationManagerStatics, IToastNotificationManagerStatics_Vtbl, 0x50ac103f_d235_4598_bbef_98fe4d1a3ad4);
 impl windows_core::RuntimeType for IToastNotificationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1187,7 +1187,7 @@ pub struct IToastNotificationManagerStatics4_Vtbl {
     GetForUser: usize,
     pub ConfigureNotificationMirroring: unsafe extern "system" fn(*mut core::ffi::c_void, NotificationMirroring) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotificationManagerStatics5, IToastNotificationManagerStatics5_Vtbl, 0x6234b662_a722_5fda_9c14_eef2a068e055);
+windows_core::imp::define_interface!(IToastNotificationManagerStatics5, IToastNotificationManagerStatics5_Vtbl, 0xd6f5f569_d40d_407c_8989_88cab42cfd14);
 impl windows_core::RuntimeType for IToastNotificationManagerStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1197,7 +1197,7 @@ pub struct IToastNotificationManagerStatics5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotifier, IToastNotifier_Vtbl, 0xd298dd9d_e85a_56b0_b826_4bbe504c46b7);
+windows_core::imp::define_interface!(IToastNotifier, IToastNotifier_Vtbl, 0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
 impl windows_core::RuntimeType for IToastNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1212,7 +1212,7 @@ pub struct IToastNotifier_Vtbl {
     pub RemoveFromSchedule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetScheduledToastNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotifier2, IToastNotifier2_Vtbl, 0x9ba6bd85_4575_51e3_a5c9_8ecdc9745303);
+windows_core::imp::define_interface!(IToastNotifier2, IToastNotifier2_Vtbl, 0x354389c6_7c01_4bd5_9c20_604340cd2b74);
 impl windows_core::RuntimeType for IToastNotifier2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1223,7 +1223,7 @@ pub struct IToastNotifier2_Vtbl {
     pub UpdateWithTagAndGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut NotificationUpdateResult) -> windows_core::HRESULT,
     pub UpdateWithTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut NotificationUpdateResult) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IToastNotifier3, IToastNotifier3_Vtbl, 0xf9b61082_7774_505b_8137_0a359c321491);
+windows_core::imp::define_interface!(IToastNotifier3, IToastNotifier3_Vtbl, 0xae75a04a_3b0c_51ad_b7e8_b08ab6052549);
 impl windows_core::RuntimeType for IToastNotifier3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1234,7 +1234,7 @@ pub struct IToastNotifier3_Vtbl {
     pub ScheduledToastNotificationShowing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveScheduledToastNotificationShowing: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserNotification, IUserNotification_Vtbl, 0xcec0ced0_5bfa_530e_85a7_32a2011cefe7);
+windows_core::imp::define_interface!(IUserNotification, IUserNotification_Vtbl, 0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
 impl windows_core::RuntimeType for IUserNotification {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

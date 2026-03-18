@@ -4,9 +4,9 @@ pub unsafe fn ChangeServiceConfig2A(hservice: SC_HANDLE, dwinfolevel: SERVICE_CO
     unsafe { ChangeServiceConfig2A(hservice, dwinfolevel, lpinfo) }
 }
 #[inline]
-pub unsafe fn ChangeServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn ChangeServiceConfig2W(hservice : SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpinfo : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ChangeServiceConfig2W(hservice, dwinfolevel, lpinfo as _) }
+pub unsafe fn ChangeServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn ChangeServiceConfig2W(hservice : SC_HANDLE, dwinfolevel : SERVICE_CONFIG, lpinfo : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ChangeServiceConfig2W(hservice, dwinfolevel, lpinfo) }
 }
 #[inline]
 pub unsafe fn ChangeServiceConfigA<P4, P5, P7, P8, P9, P10>(hservice: SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P4, lploadordergroup: P5, lpdwtagid: *mut u32, lpdependencies: P7, lpservicestartname: P8, lppassword: P9, lpdisplayname: P10) -> windows_core::BOOL
@@ -129,13 +129,12 @@ pub unsafe fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirect
     unsafe { GetServiceDirectory(hservicestatus, edirectorytype, core::mem::transmute(lppathbuffer), cchpathbufferlength, lpcchrequiredbufferlength as _) }
 }
 #[inline]
-pub unsafe fn GetServiceDisplayNameA<P1, P2>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: P2, lpcchbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetServiceDisplayNameA<P1>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: windows_core::PSTR, lpcchbuffer: *mut u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetServiceDisplayNameA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
-    unsafe { GetServiceDisplayNameA(hscmanager, lpservicename.param().abi(), lpdisplayname.param().abi(), lpcchbuffer as _) }
+    windows_core::link!("advapi32.dll" "system" fn GetServiceDisplayNameA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
+    unsafe { GetServiceDisplayNameA(hscmanager, lpservicename.param().abi(), core::mem::transmute(lpdisplayname), lpcchbuffer as _) }
 }
 #[inline]
 pub unsafe fn GetServiceDisplayNameW<P1>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: windows_core::PWSTR, lpcchbuffer: *mut u32) -> windows_core::BOOL
@@ -146,22 +145,20 @@ where
     unsafe { GetServiceDisplayNameW(hscmanager, lpservicename.param().abi(), core::mem::transmute(lpdisplayname), lpcchbuffer as _) }
 }
 #[inline]
-pub unsafe fn GetServiceKeyNameA<P1, P2>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: P2, lpcchbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetServiceKeyNameA<P1>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: windows_core::PSTR, lpcchbuffer: *mut u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameA(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCSTR, lpservicename : windows_core::PCSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
-    unsafe { GetServiceKeyNameA(hscmanager, lpdisplayname.param().abi(), lpservicename.param().abi(), lpcchbuffer as _) }
+    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameA(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCSTR, lpservicename : windows_core::PSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
+    unsafe { GetServiceKeyNameA(hscmanager, lpdisplayname.param().abi(), core::mem::transmute(lpservicename), lpcchbuffer as _) }
 }
 #[inline]
-pub unsafe fn GetServiceKeyNameW<P1, P2>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: P2, lpcchbuffer: *mut u32) -> windows_core::BOOL
+pub unsafe fn GetServiceKeyNameW<P1>(hscmanager: SC_HANDLE, lpdisplayname: P1, lpservicename: windows_core::PWSTR, lpcchbuffer: *mut u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameW(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCWSTR, lpservicename : windows_core::PCWSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
-    unsafe { GetServiceKeyNameW(hscmanager, lpdisplayname.param().abi(), lpservicename.param().abi(), lpcchbuffer as _) }
+    windows_core::link!("advapi32.dll" "system" fn GetServiceKeyNameW(hscmanager : SC_HANDLE, lpdisplayname : windows_core::PCWSTR, lpservicename : windows_core::PWSTR, lpcchbuffer : *mut u32) -> windows_core::BOOL);
+    unsafe { GetServiceKeyNameW(hscmanager, lpdisplayname.param().abi(), core::mem::transmute(lpservicename), lpcchbuffer as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -196,9 +193,9 @@ pub unsafe fn NotifyServiceStatusChangeA(hservice: SC_HANDLE, dwnotifymask: SERV
     unsafe { NotifyServiceStatusChangeA(hservice, dwnotifymask, pnotifybuffer) }
 }
 #[inline]
-pub unsafe fn NotifyServiceStatusChangeW(hservice: SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *mut SERVICE_NOTIFY_2W) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn NotifyServiceStatusChangeW(hservice : SC_HANDLE, dwnotifymask : SERVICE_NOTIFY, pnotifybuffer : *mut SERVICE_NOTIFY_2W) -> u32);
-    unsafe { NotifyServiceStatusChangeW(hservice, dwnotifymask, pnotifybuffer as _) }
+pub unsafe fn NotifyServiceStatusChangeW(hservice: SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn NotifyServiceStatusChangeW(hservice : SC_HANDLE, dwnotifymask : SERVICE_NOTIFY, pnotifybuffer : *const SERVICE_NOTIFY_2W) -> u32);
+    unsafe { NotifyServiceStatusChangeW(hservice, dwnotifymask, pnotifybuffer) }
 }
 #[inline]
 pub unsafe fn OpenSCManagerA<P0, P1>(lpmachinename: P0, lpdatabasename: P1, dwdesiredaccess: u32) -> SC_HANDLE
@@ -273,7 +270,7 @@ pub unsafe fn QueryServiceLockStatusW(hscmanager: SC_HANDLE, lplockstatus: *mut 
 #[inline]
 pub unsafe fn QueryServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn QueryServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : u32, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { QueryServiceObjectSecurity(hservice, dwsecurityinformation, lpsecuritydescriptor, cbbufsize, pcbbytesneeded as _) }
+    unsafe { QueryServiceObjectSecurity(hservice, dwsecurityinformation, lpsecuritydescriptor as _, cbbufsize, pcbbytesneeded as _) }
 }
 #[inline]
 pub unsafe fn QueryServiceStatus(hservice: SC_HANDLE, lpservicestatus: *mut SERVICE_STATUS) -> windows_core::BOOL {
@@ -302,12 +299,12 @@ where
     unsafe { RegisterServiceCtrlHandlerExA(lpservicename.param().abi(), lphandlerproc, lpcontext) }
 }
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerExW<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *mut core::ffi::c_void) -> SERVICE_STATUS_HANDLE
+pub unsafe fn RegisterServiceCtrlHandlerExW<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const core::ffi::c_void) -> SERVICE_STATUS_HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : windows_core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *mut core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
-    unsafe { RegisterServiceCtrlHandlerExW(lpservicename.param().abi(), lphandlerproc, lpcontext as _) }
+    windows_core::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : windows_core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
+    unsafe { RegisterServiceCtrlHandlerExW(lpservicename.param().abi(), lphandlerproc, lpcontext) }
 }
 #[inline]
 pub unsafe fn RegisterServiceCtrlHandlerW<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE
@@ -329,19 +326,19 @@ pub unsafe fn SetServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformatio
     unsafe { SetServiceObjectSecurity(hservice, dwsecurityinformation, lpsecuritydescriptor) }
 }
 #[inline]
-pub unsafe fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: *mut SERVICE_STATUS) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *mut SERVICE_STATUS) -> windows_core::BOOL);
-    unsafe { SetServiceStatus(hservicestatus, lpservicestatus as _) }
+pub unsafe fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: *const SERVICE_STATUS) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn SetServiceStatus(hservicestatus : SERVICE_STATUS_HANDLE, lpservicestatus : *const SERVICE_STATUS) -> windows_core::BOOL);
+    unsafe { SetServiceStatus(hservicestatus, lpservicestatus) }
 }
 #[inline]
-pub unsafe fn StartServiceA(hservice: SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *mut windows_core::PSTR) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn StartServiceA(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *mut windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { StartServiceA(hservice, dwnumserviceargs, lpserviceargvectors as _) }
+pub unsafe fn StartServiceA(hservice: SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *const windows_core::PCSTR) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn StartServiceA(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const windows_core::PCSTR) -> windows_core::BOOL);
+    unsafe { StartServiceA(hservice, dwnumserviceargs, lpserviceargvectors) }
 }
 #[inline]
-pub unsafe fn StartServiceCtrlDispatcherA(lpservicestarttable: *mut SERVICE_TABLE_ENTRYA) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherA(lpservicestarttable : *mut SERVICE_TABLE_ENTRYA) -> windows_core::BOOL);
-    unsafe { StartServiceCtrlDispatcherA(lpservicestarttable as _) }
+pub unsafe fn StartServiceCtrlDispatcherA(lpservicestarttable: *const SERVICE_TABLE_ENTRYA) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn StartServiceCtrlDispatcherA(lpservicestarttable : *const SERVICE_TABLE_ENTRYA) -> windows_core::BOOL);
+    unsafe { StartServiceCtrlDispatcherA(lpservicestarttable) }
 }
 #[inline]
 pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TABLE_ENTRYW) -> windows_core::BOOL {
@@ -354,9 +351,9 @@ pub unsafe fn StartServiceW(hservice: SC_HANDLE, dwnumserviceargs: u32, lpservic
     unsafe { StartServiceW(hservice, dwnumserviceargs, lpserviceargvectors) }
 }
 #[inline]
-pub unsafe fn SubscribeServiceChangeNotifications(hservice: SC_HANDLE, eeventtype: SC_EVENT_TYPE, pcallback: PSC_NOTIFICATION_CALLBACK, pcallbackcontext: *mut core::ffi::c_void, psubscription: *mut PSC_NOTIFICATION_REGISTRATION) -> u32 {
-    windows_core::link!("sechost.dll" "system" fn SubscribeServiceChangeNotifications(hservice : SC_HANDLE, eeventtype : SC_EVENT_TYPE, pcallback : PSC_NOTIFICATION_CALLBACK, pcallbackcontext : *mut core::ffi::c_void, psubscription : *mut PSC_NOTIFICATION_REGISTRATION) -> u32);
-    unsafe { SubscribeServiceChangeNotifications(hservice, eeventtype, pcallback, pcallbackcontext as _, psubscription as _) }
+pub unsafe fn SubscribeServiceChangeNotifications(hservice: SC_HANDLE, eeventtype: SC_EVENT_TYPE, pcallback: PSC_NOTIFICATION_CALLBACK, pcallbackcontext: *const core::ffi::c_void, psubscription: *mut PSC_NOTIFICATION_REGISTRATION) -> u32 {
+    windows_core::link!("sechost.dll" "system" fn SubscribeServiceChangeNotifications(hservice : SC_HANDLE, eeventtype : SC_EVENT_TYPE, pcallback : PSC_NOTIFICATION_CALLBACK, pcallbackcontext : *const core::ffi::c_void, psubscription : *mut PSC_NOTIFICATION_REGISTRATION) -> u32);
+    unsafe { SubscribeServiceChangeNotifications(hservice, eeventtype, pcallback, pcallbackcontext, psubscription as _) }
 }
 #[inline]
 pub unsafe fn UnlockServiceDatabase(sclock: *const core::ffi::c_void) -> windows_core::BOOL {
@@ -456,7 +453,7 @@ pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REG
 pub const NAMED_PIPE_EVENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55);
 pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245);
 pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcc4ba62a_162e_4648_847a_b6bdf993e335);
-pub type PFN_SC_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(pparameter: *mut core::ffi::c_void)>;
+pub type PFN_SC_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(pparameter: *const core::ffi::c_void)>;
 pub type PSC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

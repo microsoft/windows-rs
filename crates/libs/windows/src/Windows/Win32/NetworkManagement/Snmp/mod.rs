@@ -69,12 +69,9 @@ pub unsafe fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, 
     unsafe { SnmpEncodeMsg(session, srcentity, dstentity, context, pdu, msgbufdesc as _) }
 }
 #[inline]
-pub unsafe fn SnmpEntityToStr<P2>(entity: isize, size: u32, string: P2) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_core::PCSTR) -> u32);
-    unsafe { SnmpEntityToStr(entity, size, string.param().abi()) }
+pub unsafe fn SnmpEntityToStr(entity: isize, size: u32, string: windows_core::PSTR) -> u32 {
+    windows_core::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_core::PSTR) -> u32);
+    unsafe { SnmpEntityToStr(entity, size, core::mem::transmute(string)) }
 }
 #[inline]
 pub unsafe fn SnmpFreeContext(context: isize) -> u32 {
@@ -239,9 +236,9 @@ pub unsafe fn SnmpSendMsg(session: isize, srcentity: isize, dstentity: isize, co
     unsafe { SnmpSendMsg(session, srcentity, dstentity, context, pdu) }
 }
 #[inline]
-pub unsafe fn SnmpSetPduData(pdu: isize, pdu_type: *mut i32, request_id: *mut i32, non_repeaters: *mut i32, max_repetitions: *mut i32, varbindlist: *mut isize) -> u32 {
-    windows_core::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *mut i32, request_id : *mut i32, non_repeaters : *mut i32, max_repetitions : *mut i32, varbindlist : *mut isize) -> u32);
-    unsafe { SnmpSetPduData(pdu, pdu_type as _, request_id as _, non_repeaters as _, max_repetitions as _, varbindlist as _) }
+pub unsafe fn SnmpSetPduData(pdu: isize, pdu_type: *const i32, request_id: *const i32, non_repeaters: *const i32, max_repetitions: *const i32, varbindlist: *const isize) -> u32 {
+    windows_core::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *const i32, request_id : *const i32, non_repeaters : *const i32, max_repetitions : *const i32, varbindlist : *const isize) -> u32);
+    unsafe { SnmpSetPduData(pdu, pdu_type, request_id, non_repeaters, max_repetitions, varbindlist) }
 }
 #[inline]
 pub unsafe fn SnmpSetPort(hentity: isize, nport: u32) -> u32 {

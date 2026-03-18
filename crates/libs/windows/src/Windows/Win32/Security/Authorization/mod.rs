@@ -11,9 +11,9 @@ pub unsafe fn AuthzAddSidsToContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HA
     unsafe { AuthzAddSidsToContext(hauthzclientcontext, sids, sidcount, restrictedsids, restrictedsidcount, phnewauthzclientcontext as _) }
 }
 #[inline]
-pub unsafe fn AuthzCachedAccessCheck(flags: u32, haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest: *mut AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, preply: *mut AUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzCachedAccessCheck(flags : u32, haccesscheckresults : AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest : *mut AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, preply : *mut AUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
-    unsafe { AuthzCachedAccessCheck(flags, haccesscheckresults, prequest as _, hauditevent, preply as _) }
+pub unsafe fn AuthzCachedAccessCheck(flags: u32, haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, preply: *mut AUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzCachedAccessCheck(flags : u32, haccesscheckresults : AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, preply : *mut AUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
+    unsafe { AuthzCachedAccessCheck(flags, haccesscheckresults, prequest, hauditevent, preply as _) }
 }
 #[inline]
 pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: *mut u32, pdwlength: *mut u32) -> windows_core::BOOL {
@@ -21,9 +21,9 @@ pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTH
     unsafe { AuthzEnumerateSecurityEventSources(dwflags, buffer as _, pdwcount as _, pdwlength as _) }
 }
 #[inline]
-pub unsafe fn AuthzEvaluateSacl(authzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *mut AUTHZ_ACCESS_REQUEST, sacl: *mut super::ACL, grantedaccess: u32, accessgranted: bool, pbgenerateaudit: *mut windows_core::BOOL) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzEvaluateSacl(authzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *mut AUTHZ_ACCESS_REQUEST, sacl : *mut super:: ACL, grantedaccess : u32, accessgranted : windows_core::BOOL, pbgenerateaudit : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { AuthzEvaluateSacl(authzclientcontext, prequest as _, sacl as _, grantedaccess, accessgranted.into(), pbgenerateaudit as _) }
+pub unsafe fn AuthzEvaluateSacl(authzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, sacl: *const super::ACL, grantedaccess: u32, accessgranted: bool, pbgenerateaudit: *mut windows_core::BOOL) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzEvaluateSacl(authzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, sacl : *const super:: ACL, grantedaccess : u32, accessgranted : windows_core::BOOL, pbgenerateaudit : *mut windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { AuthzEvaluateSacl(authzclientcontext, prequest, sacl, grantedaccess, accessgranted.into(), pbgenerateaudit as _) }
 }
 #[inline]
 pub unsafe fn AuthzFreeAuditEvent(hauditevent: AUTHZ_AUDIT_EVENT_HANDLE) -> windows_core::BOOL {
@@ -61,19 +61,19 @@ pub unsafe fn AuthzInitializeCompoundContext(usercontext: AUTHZ_CLIENT_CONTEXT_H
     unsafe { AuthzInitializeCompoundContext(usercontext, devicecontext, phcompoundcontext as _) }
 }
 #[inline]
-pub unsafe fn AuthzInitializeContextFromAuthzContext(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: *mut i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *mut core::ffi::c_void, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromAuthzContext(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime : *mut i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *mut core::ffi::c_void, phnewauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext, pexpirationtime as _, core::mem::transmute(identifier), dynamicgroupargs as _, phnewauthzclientcontext as _) }
+pub unsafe fn AuthzInitializeContextFromAuthzContext(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const core::ffi::c_void, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromAuthzContext(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime : *const i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *const core::ffi::c_void, phnewauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
+    unsafe { AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext, pexpirationtime, core::mem::transmute(identifier), dynamicgroupargs, phnewauthzclientcontext as _) }
 }
 #[inline]
-pub unsafe fn AuthzInitializeContextFromSid(flags: u32, usersid: super::PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *mut i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *mut core::ffi::c_void, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromSid(flags : u32, usersid : super:: PSID, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *mut i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *mut core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeContextFromSid(flags, usersid, hauthzresourcemanager, pexpirationtime as _, core::mem::transmute(identifier), dynamicgroupargs as _, phauthzclientcontext as _) }
+pub unsafe fn AuthzInitializeContextFromSid(flags: u32, usersid: super::PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const core::ffi::c_void, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromSid(flags : u32, usersid : super:: PSID, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *const i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
+    unsafe { AuthzInitializeContextFromSid(flags, usersid, hauthzresourcemanager, pexpirationtime, core::mem::transmute(identifier), dynamicgroupargs, phauthzclientcontext as _) }
 }
 #[inline]
-pub unsafe fn AuthzInitializeContextFromToken(flags: u32, tokenhandle: super::super::Foundation::HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *mut i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *mut core::ffi::c_void, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromToken(flags : u32, tokenhandle : super::super::Foundation:: HANDLE, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *mut i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *mut core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeContextFromToken(flags, tokenhandle, hauthzresourcemanager, pexpirationtime as _, core::mem::transmute(identifier), dynamicgroupargs as _, phauthzclientcontext as _) }
+pub unsafe fn AuthzInitializeContextFromToken(flags: u32, tokenhandle: super::super::Foundation::HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const core::ffi::c_void, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromToken(flags : u32, tokenhandle : super::super::Foundation:: HANDLE, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *const i64, identifier : super::super::Foundation:: LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
+    unsafe { AuthzInitializeContextFromToken(flags, tokenhandle, hauthzresourcemanager, pexpirationtime, core::mem::transmute(identifier), dynamicgroupargs, phauthzclientcontext as _) }
 }
 #[inline]
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent<P2, P3, P4, P5>(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: P2, szobjecttype: P3, szobjectname: P4, szadditionalinfo: P5, phauditevent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwadditionalparametercount: u32) -> windows_core::BOOL
@@ -99,9 +99,9 @@ where
     unsafe { AuthzInitializeObjectAccessAuditEvent2(flags, hauditeventtype, szoperationtype.param().abi(), szobjecttype.param().abi(), szobjectname.param().abi(), szadditionalinfo.param().abi(), szadditionalinfo2.param().abi(), phauditevent as _, dwadditionalparametercount) }
 }
 #[inline]
-pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *mut AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeRemoteResourceManager(prpcinitinfo : *mut AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeRemoteResourceManager(prpcinitinfo as _, phauthzresourcemanager as _) }
+pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeRemoteResourceManager(prpcinitinfo : *const AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
+    unsafe { AuthzInitializeRemoteResourceManager(prpcinitinfo, phauthzresourcemanager as _) }
 }
 #[inline]
 pub unsafe fn AuthzInitializeResourceManager<P4>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: P4, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL
@@ -112,19 +112,19 @@ where
     unsafe { AuthzInitializeResourceManager(flags, pfndynamicaccesscheck, pfncomputedynamicgroups, pfnfreedynamicgroups, szresourcemanagername.param().abi(), phauthzresourcemanager as _) }
 }
 #[inline]
-pub unsafe fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: *mut AUTHZ_INIT_INFO, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInitializeResourceManagerEx(flags : AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo : *mut AUTHZ_INIT_INFO, phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeResourceManagerEx(flags, pauthzinitinfo as _, phauthzresourcemanager as _) }
+pub unsafe fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: *const AUTHZ_INIT_INFO, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInitializeResourceManagerEx(flags : AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo : *const AUTHZ_INIT_INFO, phauthzresourcemanager : *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> windows_core::BOOL);
+    unsafe { AuthzInitializeResourceManagerEx(flags, pauthzinitinfo, phauthzresourcemanager as _) }
 }
 #[inline]
-pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzInstallSecurityEventSource(dwflags : u32, pregistration : *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL);
-    unsafe { AuthzInstallSecurityEventSource(dwflags, pregistration as _) }
+pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *const AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzInstallSecurityEventSource(dwflags : u32, pregistration : *const AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> windows_core::BOOL);
+    unsafe { AuthzInstallSecurityEventSource(dwflags, pregistration) }
 }
 #[inline]
-pub unsafe fn AuthzModifyClaims(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: *mut AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: *mut AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzModifyClaims(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass : AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations : *mut AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims : *mut AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> windows_core::BOOL);
-    unsafe { AuthzModifyClaims(hauthzclientcontext, claimclass, pclaimoperations as _, pclaims as _) }
+pub unsafe fn AuthzModifyClaims(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzModifyClaims(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass : AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations : *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims : *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> windows_core::BOOL);
+    unsafe { AuthzModifyClaims(hauthzclientcontext, claimclass, pclaimoperations, pclaims) }
 }
 #[inline]
 pub unsafe fn AuthzModifySecurityAttributes(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, poperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> windows_core::BOOL {
@@ -132,14 +132,14 @@ pub unsafe fn AuthzModifySecurityAttributes(hauthzclientcontext: AUTHZ_CLIENT_CO
     unsafe { AuthzModifySecurityAttributes(hauthzclientcontext, poperations, pattributes) }
 }
 #[inline]
-pub unsafe fn AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: *mut AUTHZ_SID_OPERATION, psids: *mut super::TOKEN_GROUPS) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzModifySids(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass : AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations : *mut AUTHZ_SID_OPERATION, psids : *mut super:: TOKEN_GROUPS) -> windows_core::BOOL);
-    unsafe { AuthzModifySids(hauthzclientcontext, sidclass, psidoperations as _, psids as _) }
+pub unsafe fn AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: *const AUTHZ_SID_OPERATION, psids: *const super::TOKEN_GROUPS) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzModifySids(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass : AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations : *const AUTHZ_SID_OPERATION, psids : *const super:: TOKEN_GROUPS) -> windows_core::BOOL);
+    unsafe { AuthzModifySids(hauthzclientcontext, sidclass, psidoperations, psids) }
 }
 #[inline]
-pub unsafe fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *mut AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *mut super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *mut AUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
-    windows_core::link!("authz.dll" "system" fn AuthzOpenObjectAudit(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *mut AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *mut super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : *mut AUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
-    unsafe { AuthzOpenObjectAudit(flags, hauthzclientcontext, prequest as _, hauditevent, psecuritydescriptor, optionalsecuritydescriptorarray as _, optionalsecuritydescriptorcount, preply as _) }
+pub unsafe fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const super::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *const AUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
+    windows_core::link!("authz.dll" "system" fn AuthzOpenObjectAudit(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super:: PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : *const AUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
+    unsafe { AuthzOpenObjectAudit(flags, hauthzclientcontext, prequest, hauditevent, psecuritydescriptor, optionalsecuritydescriptorarray, optionalsecuritydescriptorcount, preply) }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
@@ -213,22 +213,22 @@ where
     unsafe { BuildImpersonateExplicitAccessWithNameA(pexplicitaccess as _, ptrusteename.param().abi(), ptrustee, accesspermissions, accessmode, inheritance) }
 }
 #[inline]
-pub unsafe fn BuildImpersonateExplicitAccessWithNameW<P1>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: P1, ptrustee: *mut TRUSTEE_W, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
+pub unsafe fn BuildImpersonateExplicitAccessWithNameW<P1>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: P1, ptrustee: *const TRUSTEE_W, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32)
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn BuildImpersonateExplicitAccessWithNameW(pexplicitaccess : *mut EXPLICIT_ACCESS_W, ptrusteename : windows_core::PCWSTR, ptrustee : *mut TRUSTEE_W, accesspermissions : u32, accessmode : ACCESS_MODE, inheritance : u32));
-    unsafe { BuildImpersonateExplicitAccessWithNameW(pexplicitaccess as _, ptrusteename.param().abi(), ptrustee as _, accesspermissions, accessmode, inheritance) }
+    windows_core::link!("advapi32.dll" "system" fn BuildImpersonateExplicitAccessWithNameW(pexplicitaccess : *mut EXPLICIT_ACCESS_W, ptrusteename : windows_core::PCWSTR, ptrustee : *const TRUSTEE_W, accesspermissions : u32, accessmode : ACCESS_MODE, inheritance : u32));
+    unsafe { BuildImpersonateExplicitAccessWithNameW(pexplicitaccess as _, ptrusteename.param().abi(), ptrustee, accesspermissions, accessmode, inheritance) }
 }
 #[inline]
-pub unsafe fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: *mut TRUSTEE_A) {
-    windows_core::link!("advapi32.dll" "system" fn BuildImpersonateTrusteeA(ptrustee : *mut TRUSTEE_A, pimpersonatetrustee : *mut TRUSTEE_A));
-    unsafe { BuildImpersonateTrusteeA(ptrustee as _, pimpersonatetrustee as _) }
+pub unsafe fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: *const TRUSTEE_A) {
+    windows_core::link!("advapi32.dll" "system" fn BuildImpersonateTrusteeA(ptrustee : *mut TRUSTEE_A, pimpersonatetrustee : *const TRUSTEE_A));
+    unsafe { BuildImpersonateTrusteeA(ptrustee as _, pimpersonatetrustee) }
 }
 #[inline]
-pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: *mut TRUSTEE_W) {
-    windows_core::link!("advapi32.dll" "system" fn BuildImpersonateTrusteeW(ptrustee : *mut TRUSTEE_W, pimpersonatetrustee : *mut TRUSTEE_W));
-    unsafe { BuildImpersonateTrusteeW(ptrustee as _, pimpersonatetrustee as _) }
+pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: *const TRUSTEE_W) {
+    windows_core::link!("advapi32.dll" "system" fn BuildImpersonateTrusteeW(ptrustee : *mut TRUSTEE_W, pimpersonatetrustee : *const TRUSTEE_W));
+    unsafe { BuildImpersonateTrusteeW(ptrustee as _, pimpersonatetrustee) }
 }
 #[inline]
 pub unsafe fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_A, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_A, poldsd: super::PSECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> windows_core::WIN32_ERROR {
@@ -236,9 +236,9 @@ pub unsafe fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const 
     unsafe { BuildSecurityDescriptorA(powner, pgroup, ccountofaccessentries, plistofaccessentries, ccountofauditentries, plistofauditentries, poldsd, psizenewsd as _, pnewsd as _) }
 }
 #[inline]
-pub unsafe fn BuildSecurityDescriptorW(powner: *mut TRUSTEE_W, pgroup: *mut TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *mut EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *mut EXPLICIT_ACCESS_W, poldsd: super::PSECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> windows_core::WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn BuildSecurityDescriptorW(powner : *mut TRUSTEE_W, pgroup : *mut TRUSTEE_W, ccountofaccessentries : u32, plistofaccessentries : *mut EXPLICIT_ACCESS_W, ccountofauditentries : u32, plistofauditentries : *mut EXPLICIT_ACCESS_W, poldsd : super:: PSECURITY_DESCRIPTOR, psizenewsd : *mut u32, pnewsd : *mut super:: PSECURITY_DESCRIPTOR) -> windows_core:: WIN32_ERROR);
-    unsafe { BuildSecurityDescriptorW(powner as _, pgroup as _, ccountofaccessentries, plistofaccessentries as _, ccountofauditentries, plistofauditentries as _, poldsd, psizenewsd as _, pnewsd as _) }
+pub unsafe fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_W, poldsd: super::PSECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut super::PSECURITY_DESCRIPTOR) -> windows_core::WIN32_ERROR {
+    windows_core::link!("advapi32.dll" "system" fn BuildSecurityDescriptorW(powner : *const TRUSTEE_W, pgroup : *const TRUSTEE_W, ccountofaccessentries : u32, plistofaccessentries : *const EXPLICIT_ACCESS_W, ccountofauditentries : u32, plistofauditentries : *const EXPLICIT_ACCESS_W, poldsd : super:: PSECURITY_DESCRIPTOR, psizenewsd : *mut u32, pnewsd : *mut super:: PSECURITY_DESCRIPTOR) -> windows_core:: WIN32_ERROR);
+    unsafe { BuildSecurityDescriptorW(powner, pgroup, ccountofaccessentries, plistofaccessentries, ccountofauditentries, plistofauditentries, poldsd, psizenewsd as _, pnewsd as _) }
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithNameA<P1>(ptrustee: *mut TRUSTEE_A, pname: P1)
@@ -267,14 +267,14 @@ where
     unsafe { BuildTrusteeWithObjectsAndNameA(ptrustee as _, pobjname, objecttype, objecttypename.param().abi(), inheritedobjecttypename.param().abi(), name.param().abi()) }
 }
 #[inline]
-pub unsafe fn BuildTrusteeWithObjectsAndNameW<P3, P4, P5>(ptrustee: *mut TRUSTEE_W, pobjname: *mut OBJECTS_AND_NAME_W, objecttype: SE_OBJECT_TYPE, objecttypename: P3, inheritedobjecttypename: P4, name: P5)
+pub unsafe fn BuildTrusteeWithObjectsAndNameW<P3, P4, P5>(ptrustee: *mut TRUSTEE_W, pobjname: *const OBJECTS_AND_NAME_W, objecttype: SE_OBJECT_TYPE, objecttypename: P3, inheritedobjecttypename: P4, name: P5)
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndNameW(ptrustee : *mut TRUSTEE_W, pobjname : *mut OBJECTS_AND_NAME_W, objecttype : SE_OBJECT_TYPE, objecttypename : windows_core::PCWSTR, inheritedobjecttypename : windows_core::PCWSTR, name : windows_core::PCWSTR));
-    unsafe { BuildTrusteeWithObjectsAndNameW(ptrustee as _, pobjname as _, objecttype, objecttypename.param().abi(), inheritedobjecttypename.param().abi(), name.param().abi()) }
+    windows_core::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndNameW(ptrustee : *mut TRUSTEE_W, pobjname : *const OBJECTS_AND_NAME_W, objecttype : SE_OBJECT_TYPE, objecttypename : windows_core::PCWSTR, inheritedobjecttypename : windows_core::PCWSTR, name : windows_core::PCWSTR));
+    unsafe { BuildTrusteeWithObjectsAndNameW(ptrustee as _, pobjname, objecttype, objecttypename.param().abi(), inheritedobjecttypename.param().abi(), name.param().abi()) }
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithObjectsAndSidA(ptrustee: *mut TRUSTEE_A, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const windows_core::GUID, pinheritedobjectguid: *const windows_core::GUID, psid: super::PSID) {
@@ -282,9 +282,9 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidA(ptrustee: *mut TRUSTEE_A, pobjsid: 
     unsafe { BuildTrusteeWithObjectsAndSidA(ptrustee as _, pobjsid, pobjectguid, pinheritedobjectguid, psid) }
 }
 #[inline]
-pub unsafe fn BuildTrusteeWithObjectsAndSidW(ptrustee: *mut TRUSTEE_W, pobjsid: *mut OBJECTS_AND_SID, pobjectguid: *mut windows_core::GUID, pinheritedobjectguid: *mut windows_core::GUID, psid: super::PSID) {
-    windows_core::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndSidW(ptrustee : *mut TRUSTEE_W, pobjsid : *mut OBJECTS_AND_SID, pobjectguid : *mut windows_core::GUID, pinheritedobjectguid : *mut windows_core::GUID, psid : super:: PSID));
-    unsafe { BuildTrusteeWithObjectsAndSidW(ptrustee as _, pobjsid as _, pobjectguid as _, pinheritedobjectguid as _, psid) }
+pub unsafe fn BuildTrusteeWithObjectsAndSidW(ptrustee: *mut TRUSTEE_W, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const windows_core::GUID, pinheritedobjectguid: *const windows_core::GUID, psid: super::PSID) {
+    windows_core::link!("advapi32.dll" "system" fn BuildTrusteeWithObjectsAndSidW(ptrustee : *mut TRUSTEE_W, pobjsid : *const OBJECTS_AND_SID, pobjectguid : *const windows_core::GUID, pinheritedobjectguid : *const windows_core::GUID, psid : super:: PSID));
+    unsafe { BuildTrusteeWithObjectsAndSidW(ptrustee as _, pobjsid, pobjectguid, pinheritedobjectguid, psid) }
 }
 #[inline]
 pub unsafe fn BuildTrusteeWithSidA(ptrustee: *mut TRUSTEE_A, psid: super::PSID) {
@@ -349,19 +349,19 @@ where
     unsafe { ConvertStringSidToSidW(stringsid.param().abi(), sid as _) }
 }
 #[inline]
-pub unsafe fn FreeInheritedFromArray(pinheritarray: *mut INHERITED_FROMW, acecnt: u16, pfnarray: *mut FN_OBJECT_MGR_FUNCTS) -> windows_core::WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn FreeInheritedFromArray(pinheritarray : *mut INHERITED_FROMW, acecnt : u16, pfnarray : *mut FN_OBJECT_MGR_FUNCTS) -> windows_core:: WIN32_ERROR);
-    unsafe { FreeInheritedFromArray(pinheritarray as _, acecnt, pfnarray as _) }
+pub unsafe fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTS) -> windows_core::WIN32_ERROR {
+    windows_core::link!("advapi32.dll" "system" fn FreeInheritedFromArray(pinheritarray : *const INHERITED_FROMW, acecnt : u16, pfnarray : *const FN_OBJECT_MGR_FUNCTS) -> windows_core:: WIN32_ERROR);
+    unsafe { FreeInheritedFromArray(pinheritarray, acecnt, pfnarray) }
 }
 #[inline]
-pub unsafe fn GetAuditedPermissionsFromAclA(pacl: *mut super::ACL, ptrustee: *mut TRUSTEE_A, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> windows_core::WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn GetAuditedPermissionsFromAclA(pacl : *mut super:: ACL, ptrustee : *mut TRUSTEE_A, psuccessfulauditedrights : *mut u32, pfailedauditrights : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { GetAuditedPermissionsFromAclA(pacl as _, ptrustee as _, psuccessfulauditedrights as _, pfailedauditrights as _) }
+pub unsafe fn GetAuditedPermissionsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> windows_core::WIN32_ERROR {
+    windows_core::link!("advapi32.dll" "system" fn GetAuditedPermissionsFromAclA(pacl : *const super:: ACL, ptrustee : *const TRUSTEE_A, psuccessfulauditedrights : *mut u32, pfailedauditrights : *mut u32) -> windows_core:: WIN32_ERROR);
+    unsafe { GetAuditedPermissionsFromAclA(pacl, ptrustee, psuccessfulauditedrights as _, pfailedauditrights as _) }
 }
 #[inline]
-pub unsafe fn GetAuditedPermissionsFromAclW(pacl: *mut super::ACL, ptrustee: *mut TRUSTEE_W, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> windows_core::WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn GetAuditedPermissionsFromAclW(pacl : *mut super:: ACL, ptrustee : *mut TRUSTEE_W, psuccessfulauditedrights : *mut u32, pfailedauditrights : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { GetAuditedPermissionsFromAclW(pacl as _, ptrustee as _, psuccessfulauditedrights as _, pfailedauditrights as _) }
+pub unsafe fn GetAuditedPermissionsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> windows_core::WIN32_ERROR {
+    windows_core::link!("advapi32.dll" "system" fn GetAuditedPermissionsFromAclW(pacl : *const super:: ACL, ptrustee : *const TRUSTEE_W, psuccessfulauditedrights : *mut u32, pfailedauditrights : *mut u32) -> windows_core:: WIN32_ERROR);
+    unsafe { GetAuditedPermissionsFromAclW(pacl, ptrustee, psuccessfulauditedrights as _, pfailedauditrights as _) }
 }
 #[inline]
 pub unsafe fn GetEffectiveRightsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, paccessrights: *mut u32) -> windows_core::WIN32_ERROR {
@@ -374,9 +374,9 @@ pub unsafe fn GetEffectiveRightsFromAclW(pacl: *const super::ACL, ptrustee: *con
     unsafe { GetEffectiveRightsFromAclW(pacl, ptrustee, paccessrights as _) }
 }
 #[inline]
-pub unsafe fn GetExplicitEntriesFromAclA(pacl: *mut super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_A) -> windows_core::WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn GetExplicitEntriesFromAclA(pacl : *mut super:: ACL, pccountofexplicitentries : *mut u32, plistofexplicitentries : *mut *mut EXPLICIT_ACCESS_A) -> windows_core:: WIN32_ERROR);
-    unsafe { GetExplicitEntriesFromAclA(pacl as _, pccountofexplicitentries as _, plistofexplicitentries as _) }
+pub unsafe fn GetExplicitEntriesFromAclA(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_A) -> windows_core::WIN32_ERROR {
+    windows_core::link!("advapi32.dll" "system" fn GetExplicitEntriesFromAclA(pacl : *const super:: ACL, pccountofexplicitentries : *mut u32, plistofexplicitentries : *mut *mut EXPLICIT_ACCESS_A) -> windows_core:: WIN32_ERROR);
+    unsafe { GetExplicitEntriesFromAclA(pacl, pccountofexplicitentries as _, plistofexplicitentries as _) }
 }
 #[inline]
 pub unsafe fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_W) -> windows_core::WIN32_ERROR {
@@ -405,14 +405,14 @@ pub unsafe fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A 
     unsafe { GetMultipleTrusteeA(ptrustee) }
 }
 #[inline]
-pub unsafe fn GetMultipleTrusteeOperationA(ptrustee: *mut TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION {
-    windows_core::link!("advapi32.dll" "system" fn GetMultipleTrusteeOperationA(ptrustee : *mut TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION);
-    unsafe { GetMultipleTrusteeOperationA(ptrustee as _) }
+pub unsafe fn GetMultipleTrusteeOperationA(ptrustee: *const TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION {
+    windows_core::link!("advapi32.dll" "system" fn GetMultipleTrusteeOperationA(ptrustee : *const TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION);
+    unsafe { GetMultipleTrusteeOperationA(ptrustee) }
 }
 #[inline]
-pub unsafe fn GetMultipleTrusteeOperationW(ptrustee: *mut TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION {
-    windows_core::link!("advapi32.dll" "system" fn GetMultipleTrusteeOperationW(ptrustee : *mut TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION);
-    unsafe { GetMultipleTrusteeOperationW(ptrustee as _) }
+pub unsafe fn GetMultipleTrusteeOperationW(ptrustee: *const TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION {
+    windows_core::link!("advapi32.dll" "system" fn GetMultipleTrusteeOperationW(ptrustee : *const TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION);
+    unsafe { GetMultipleTrusteeOperationW(ptrustee) }
 }
 #[inline]
 pub unsafe fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W {
@@ -441,9 +441,9 @@ pub unsafe fn GetSecurityInfo(handle: super::super::Foundation::HANDLE, objectty
     unsafe { GetSecurityInfo(handle, objecttype, securityinfo, ppsidowner as _, ppsidgroup as _, ppdacl as _, ppsacl as _, ppsecuritydescriptor as _) }
 }
 #[inline]
-pub unsafe fn GetTrusteeFormA(ptrustee: *mut TRUSTEE_A) -> TRUSTEE_FORM {
-    windows_core::link!("advapi32.dll" "system" fn GetTrusteeFormA(ptrustee : *mut TRUSTEE_A) -> TRUSTEE_FORM);
-    unsafe { GetTrusteeFormA(ptrustee as _) }
+pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
+    windows_core::link!("advapi32.dll" "system" fn GetTrusteeFormA(ptrustee : *const TRUSTEE_A) -> TRUSTEE_FORM);
+    unsafe { GetTrusteeFormA(ptrustee) }
 }
 #[inline]
 pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
@@ -451,19 +451,19 @@ pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
     unsafe { GetTrusteeFormW(ptrustee) }
 }
 #[inline]
-pub unsafe fn GetTrusteeNameA(ptrustee: *mut TRUSTEE_A) -> windows_core::PSTR {
-    windows_core::link!("advapi32.dll" "system" fn GetTrusteeNameA(ptrustee : *mut TRUSTEE_A) -> windows_core::PSTR);
-    unsafe { GetTrusteeNameA(ptrustee as _) }
+pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> windows_core::PSTR {
+    windows_core::link!("advapi32.dll" "system" fn GetTrusteeNameA(ptrustee : *const TRUSTEE_A) -> windows_core::PSTR);
+    unsafe { GetTrusteeNameA(ptrustee) }
 }
 #[inline]
-pub unsafe fn GetTrusteeNameW(ptrustee: *mut TRUSTEE_W) -> windows_core::PWSTR {
-    windows_core::link!("advapi32.dll" "system" fn GetTrusteeNameW(ptrustee : *mut TRUSTEE_W) -> windows_core::PWSTR);
-    unsafe { GetTrusteeNameW(ptrustee as _) }
+pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> windows_core::PWSTR {
+    windows_core::link!("advapi32.dll" "system" fn GetTrusteeNameW(ptrustee : *const TRUSTEE_W) -> windows_core::PWSTR);
+    unsafe { GetTrusteeNameW(ptrustee) }
 }
 #[inline]
-pub unsafe fn GetTrusteeTypeA(ptrustee: *mut TRUSTEE_A) -> TRUSTEE_TYPE {
-    windows_core::link!("advapi32.dll" "system" fn GetTrusteeTypeA(ptrustee : *mut TRUSTEE_A) -> TRUSTEE_TYPE);
-    unsafe { GetTrusteeTypeA(ptrustee as _) }
+pub unsafe fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE {
+    windows_core::link!("advapi32.dll" "system" fn GetTrusteeTypeA(ptrustee : *const TRUSTEE_A) -> TRUSTEE_TYPE);
+    unsafe { GetTrusteeTypeA(ptrustee) }
 }
 #[inline]
 pub unsafe fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE {
@@ -481,22 +481,22 @@ pub unsafe fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgro
     unsafe { LookupSecurityDescriptorPartsW(ppowner as _, ppgroup as _, pccountofaccessentries as _, pplistofaccessentries as _, pccountofauditentries as _, pplistofauditentries as _, psd) }
 }
 #[inline]
-pub unsafe fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *mut EXPLICIT_ACCESS_A, oldacl: *mut super::ACL, newacl: *mut *mut super::ACL) -> windows_core::WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn SetEntriesInAclA(ccountofexplicitentries : u32, plistofexplicitentries : *mut EXPLICIT_ACCESS_A, oldacl : *mut super:: ACL, newacl : *mut *mut super:: ACL) -> windows_core:: WIN32_ERROR);
-    unsafe { SetEntriesInAclA(ccountofexplicitentries, plistofexplicitentries as _, oldacl as _, newacl as _) }
+pub unsafe fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_A, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> windows_core::WIN32_ERROR {
+    windows_core::link!("advapi32.dll" "system" fn SetEntriesInAclA(ccountofexplicitentries : u32, plistofexplicitentries : *const EXPLICIT_ACCESS_A, oldacl : *const super:: ACL, newacl : *mut *mut super:: ACL) -> windows_core:: WIN32_ERROR);
+    unsafe { SetEntriesInAclA(ccountofexplicitentries, plistofexplicitentries, oldacl, newacl as _) }
 }
 #[inline]
-pub unsafe fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *mut EXPLICIT_ACCESS_W, oldacl: *mut super::ACL, newacl: *mut *mut super::ACL) -> windows_core::WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn SetEntriesInAclW(ccountofexplicitentries : u32, plistofexplicitentries : *mut EXPLICIT_ACCESS_W, oldacl : *mut super:: ACL, newacl : *mut *mut super:: ACL) -> windows_core:: WIN32_ERROR);
-    unsafe { SetEntriesInAclW(ccountofexplicitentries, plistofexplicitentries as _, oldacl as _, newacl as _) }
+pub unsafe fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_W, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> windows_core::WIN32_ERROR {
+    windows_core::link!("advapi32.dll" "system" fn SetEntriesInAclW(ccountofexplicitentries : u32, plistofexplicitentries : *const EXPLICIT_ACCESS_W, oldacl : *const super:: ACL, newacl : *mut *mut super:: ACL) -> windows_core:: WIN32_ERROR);
+    unsafe { SetEntriesInAclW(ccountofexplicitentries, plistofexplicitentries, oldacl, newacl as _) }
 }
 #[inline]
-pub unsafe fn SetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::PSID, psidgroup: super::PSID, pdacl: *mut super::ACL, psacl: *mut super::ACL) -> windows_core::WIN32_ERROR
+pub unsafe fn SetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::PSID, psidgroup: super::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn SetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, psidowner : super:: PSID, psidgroup : super:: PSID, pdacl : *mut super:: ACL, psacl : *mut super:: ACL) -> windows_core:: WIN32_ERROR);
-    unsafe { SetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, psidowner, psidgroup, pdacl as _, psacl as _) }
+    windows_core::link!("advapi32.dll" "system" fn SetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, psidowner : super:: PSID, psidgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL) -> windows_core:: WIN32_ERROR);
+    unsafe { SetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, psidowner, psidgroup, pdacl, psacl) }
 }
 #[inline]
 pub unsafe fn SetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::PSID, psidgroup: super::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> windows_core::WIN32_ERROR
@@ -512,20 +512,20 @@ pub unsafe fn SetSecurityInfo(handle: super::super::Foundation::HANDLE, objectty
     unsafe { SetSecurityInfo(handle, objecttype, securityinfo, psidowner, psidgroup, pdacl, psacl) }
 }
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: super::PSID, pgroup: super::PSID, pdacl: *mut super::ACL, psacl: *mut super::ACL, keepexplicit: bool, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *mut core::ffi::c_void) -> windows_core::WIN32_ERROR
+pub unsafe fn TreeResetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: super::PSID, pgroup: super::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: bool, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const core::ffi::c_void) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *mut super:: ACL, psacl : *mut super:: ACL, keepexplicit : windows_core::BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *mut core::ffi::c_void) -> windows_core:: WIN32_ERROR);
-    unsafe { TreeResetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner, pgroup, pdacl as _, psacl as _, keepexplicit.into(), fnprogress, progressinvokesetting, args as _) }
+    windows_core::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(pobjectname : windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : windows_core::BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> windows_core:: WIN32_ERROR);
+    unsafe { TreeResetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner, pgroup, pdacl, psacl, keepexplicit.into(), fnprogress, progressinvokesetting, args) }
 }
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: super::PSID, pgroup: super::PSID, pdacl: *mut super::ACL, psacl: *mut super::ACL, keepexplicit: bool, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *mut core::ffi::c_void) -> windows_core::WIN32_ERROR
+pub unsafe fn TreeResetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: super::PSID, pgroup: super::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: bool, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const core::ffi::c_void) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *mut super:: ACL, psacl : *mut super:: ACL, keepexplicit : windows_core::BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *mut core::ffi::c_void) -> windows_core:: WIN32_ERROR);
-    unsafe { TreeResetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner, pgroup, pdacl as _, psacl as _, keepexplicit.into(), fnprogress, progressinvokesetting, args as _) }
+    windows_core::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : windows_core::BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> windows_core:: WIN32_ERROR);
+    unsafe { TreeResetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner, pgroup, pdacl, psacl, keepexplicit.into(), fnprogress, progressinvokesetting, args) }
 }
 #[inline]
 pub unsafe fn TreeSetNamedSecurityInfoA<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: super::PSID, pgroup: super::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const core::ffi::c_void) -> windows_core::WIN32_ERROR
@@ -536,12 +536,12 @@ where
     unsafe { TreeSetNamedSecurityInfoA(pobjectname.param().abi(), objecttype, securityinfo, powner, pgroup, pdacl, psacl, dwaction, fnprogress, progressinvokesetting, args) }
 }
 #[inline]
-pub unsafe fn TreeSetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: super::PSID, pgroup: super::PSID, pdacl: *mut super::ACL, psacl: *mut super::ACL, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *mut core::ffi::c_void) -> windows_core::WIN32_ERROR
+pub unsafe fn TreeSetNamedSecurityInfoW<P0>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: super::PSID, pgroup: super::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const core::ffi::c_void) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *mut super:: ACL, psacl : *mut super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *mut core::ffi::c_void) -> windows_core:: WIN32_ERROR);
-    unsafe { TreeSetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner, pgroup, pdacl as _, psacl as _, dwaction, fnprogress, progressinvokesetting, args as _) }
+    windows_core::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super:: PSID, pgroup : super:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const core::ffi::c_void) -> windows_core:: WIN32_ERROR);
+    unsafe { TreeSetNamedSecurityInfoW(pobjectname.param().abi(), objecttype, securityinfo, powner, pgroup, pdacl, psacl, dwaction, fnprogress, progressinvokesetting, args) }
 }
 pub const ACCCTRL_DEFAULT_PROVIDER: windows_core::PCWSTR = windows_core::w!("Windows NT Access Provider");
 pub const ACCCTRL_DEFAULT_PROVIDERA: windows_core::PCSTR = windows_core::s!("Windows NT Access Provider");
@@ -2820,7 +2820,7 @@ impl IAzApplication2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzApplication2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzApplication3, IAzApplication3_Vtbl, 0xd4014f33_5b24_5534_bf48_daca30417705);
+windows_core::imp::define_interface!(IAzApplication3, IAzApplication3_Vtbl, 0x181c845e_7196_4a7d_ac2e_020c0bb7a303);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzApplication3 {
     type Target = IAzApplication2;
@@ -3890,7 +3890,7 @@ impl IAzApplicationGroup2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzApplicationGroup2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzApplicationGroups, IAzApplicationGroups_Vtbl, 0x39fc9dc3_14b3_50da_8055_9ff89d061d34);
+windows_core::imp::define_interface!(IAzApplicationGroups, IAzApplicationGroups_Vtbl, 0x4ce66ad5_9f3c_469d_a911_b99887a7e685);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzApplicationGroups {
     type Target = super::super::System::Com::IDispatch;
@@ -4096,7 +4096,7 @@ impl IAzApplications_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzApplications {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzAuthorizationStore, IAzAuthorizationStore_Vtbl, 0x3b74eaff_965d_581e_86b8_33a3e54ead5a);
+windows_core::imp::define_interface!(IAzAuthorizationStore, IAzAuthorizationStore_Vtbl, 0xedbd9ca9_9b82_4f6a_9e8b_98301e450f14);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzAuthorizationStore {
     type Target = super::super::System::Com::IDispatch;
@@ -5156,7 +5156,7 @@ impl IAzAuthorizationStore2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzAuthorizationStore2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzAuthorizationStore3, IAzAuthorizationStore3_Vtbl, 0x525be4de_f8c6_51d1_94e7_55a5276c9e60);
+windows_core::imp::define_interface!(IAzAuthorizationStore3, IAzAuthorizationStore3_Vtbl, 0xabc08425_0c86_4fa0_9be3_7189956c926e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzAuthorizationStore3 {
     type Target = IAzAuthorizationStore2;
@@ -5385,7 +5385,7 @@ impl IAzBizRuleContext_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzBizRuleContext {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzBizRuleInterfaces, IAzBizRuleInterfaces_Vtbl, 0xc0b53258_b97d_54ef_9d0b_e606b2144ff5);
+windows_core::imp::define_interface!(IAzBizRuleInterfaces, IAzBizRuleInterfaces_Vtbl, 0xe94128c7_e9da_44cc_b0bd_53036f3aab3d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzBizRuleInterfaces {
     type Target = super::super::System::Com::IDispatch;
@@ -5514,7 +5514,7 @@ impl IAzBizRuleInterfaces_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzBizRuleInterfaces {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzBizRuleParameters, IAzBizRuleParameters_Vtbl, 0xebb4a4f2_4d8e_5b8d_8588_4ae1540a03a7);
+windows_core::imp::define_interface!(IAzBizRuleParameters, IAzBizRuleParameters_Vtbl, 0xfc17685f_e25d_4dcd_bae1_276ec9533cb5);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzBizRuleParameters {
     type Target = super::super::System::Com::IDispatch;
@@ -5652,7 +5652,7 @@ impl IAzBizRuleParameters_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzBizRuleParameters {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzClientContext, IAzClientContext_Vtbl, 0x478b80e3_e38d_5c41_ab1c_46a630901536);
+windows_core::imp::define_interface!(IAzClientContext, IAzClientContext_Vtbl, 0xeff1f00b_488a_466d_afd9_a401c5f9eef5);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzClientContext {
     type Target = super::super::System::Com::IDispatch;
@@ -6097,7 +6097,7 @@ impl IAzClientContext2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzClientContext2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzClientContext3, IAzClientContext3_Vtbl, 0x090e0be2_d0a3_5df9_a740_fe586191e604);
+windows_core::imp::define_interface!(IAzClientContext3, IAzClientContext3_Vtbl, 0x11894fde_1deb_4b4b_8907_6d1cda1f5d4f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzClientContext3 {
     type Target = IAzClientContext2;
@@ -6309,7 +6309,7 @@ impl IAzClientContext3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzClientContext3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzNameResolver, IAzNameResolver_Vtbl, 0x6a67f97b_61ef_5038_bc52_b841b1c6f9a9);
+windows_core::imp::define_interface!(IAzNameResolver, IAzNameResolver_Vtbl, 0x504d0f15_73e2_43df_a870_a64f40714f53);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzNameResolver {
     type Target = super::super::System::Com::IDispatch;
@@ -6373,7 +6373,7 @@ impl IAzNameResolver_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzNameResolver {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzObjectPicker, IAzObjectPicker_Vtbl, 0x3f65d206_5153_5203_ade1_d964b4662129);
+windows_core::imp::define_interface!(IAzObjectPicker, IAzObjectPicker_Vtbl, 0x63130a48_699a_42d8_bf01_c62ac3fb79f9);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzObjectPicker {
     type Target = super::super::System::Com::IDispatch;
@@ -6746,7 +6746,7 @@ impl IAzOperation2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzOperation2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzOperations, IAzOperations_Vtbl, 0x210c4724_67a4_517e_be61_d3ca209809e5);
+windows_core::imp::define_interface!(IAzOperations, IAzOperations_Vtbl, 0x90ef9c07_9706_49d9_af80_0438a5f3ec35);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzOperations {
     type Target = super::super::System::Com::IDispatch;
@@ -6849,7 +6849,7 @@ impl IAzOperations_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzOperations {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzPrincipalLocator, IAzPrincipalLocator_Vtbl, 0x58848e27_3673_5181_93c3_a3e7293f8133);
+windows_core::imp::define_interface!(IAzPrincipalLocator, IAzPrincipalLocator_Vtbl, 0xe5c3507d_ad6a_4992_9c7f_74ab480b44cc);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzPrincipalLocator {
     type Target = super::super::System::Com::IDispatch;
@@ -6927,7 +6927,7 @@ impl IAzPrincipalLocator_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzPrincipalLocator {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzRole, IAzRole_Vtbl, 0x3d8aa31f_2694_50b2_bfea_1e102d216bee);
+windows_core::imp::define_interface!(IAzRole, IAzRole_Vtbl, 0x859e0d8d_62d7_41d8_a034_c0cd5d43fdfa);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzRole {
     type Target = super::super::System::Com::IDispatch;
@@ -7457,7 +7457,7 @@ impl IAzRole_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzRole {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzRoleAssignment, IAzRoleAssignment_Vtbl, 0xd11929c3_7c13_5916_b774_7f9fce98e379);
+windows_core::imp::define_interface!(IAzRoleAssignment, IAzRoleAssignment_Vtbl, 0x55647d31_0d5a_4fa3_b4ac_2b5f9ad5ab76);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzRoleAssignment {
     type Target = IAzRole;
@@ -7559,7 +7559,7 @@ impl IAzRoleAssignment_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzRoleAssignment {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzRoleAssignments, IAzRoleAssignments_Vtbl, 0xe42f3c86_860a_5508_93a1_4258f722b974);
+windows_core::imp::define_interface!(IAzRoleAssignments, IAzRoleAssignments_Vtbl, 0x9c80b900_fceb_4d73_a0f4_c83b0bbf2481);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzRoleAssignments {
     type Target = super::super::System::Com::IDispatch;
@@ -7764,7 +7764,7 @@ impl IAzRoleDefinition_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzRoleDefinition {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzRoleDefinitions, IAzRoleDefinitions_Vtbl, 0xc79d881f_230c_58d4_b7fe_0c7b82a0e20e);
+windows_core::imp::define_interface!(IAzRoleDefinitions, IAzRoleDefinitions_Vtbl, 0x881f25a5_d755_4550_957a_d503a3b34001);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzRoleDefinitions {
     type Target = super::super::System::Com::IDispatch;
@@ -7970,7 +7970,7 @@ impl IAzRoles_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzRoles {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzScope, IAzScope_Vtbl, 0x5cdc9c1f_d60e_52cb_94b9_f75354c14273);
+windows_core::imp::define_interface!(IAzScope, IAzScope_Vtbl, 0x00e52487_e08d_4514_b62e_877d5645f5ab);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzScope {
     type Target = super::super::System::Com::IDispatch;
@@ -8746,7 +8746,7 @@ impl IAzScope_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzScope {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzScope2, IAzScope2_Vtbl, 0xdcac2c05_433c_5423_9266_a654c06fcf32);
+windows_core::imp::define_interface!(IAzScope2, IAzScope2_Vtbl, 0xee9fe8c9_c9f3_40e2_aa12_d1d8599727fd);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzScope2 {
     type Target = IAzScope;
@@ -8932,7 +8932,7 @@ impl IAzScope2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzScope2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzScopes, IAzScopes_Vtbl, 0x46d354c0_7caa_5757_b3ae_51919ae8161d);
+windows_core::imp::define_interface!(IAzScopes, IAzScopes_Vtbl, 0x78e14853_9f5e_406d_9b91_6bdba6973510);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzScopes {
     type Target = super::super::System::Com::IDispatch;
@@ -9035,7 +9035,7 @@ impl IAzScopes_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzScopes {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzTask, IAzTask_Vtbl, 0x4701d9de_b0e6_59e0_85f0_fded886a03a0);
+windows_core::imp::define_interface!(IAzTask, IAzTask_Vtbl, 0xcb94e592_2e0e_4a6c_a336_b89a6dc1e388);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzTask {
     type Target = super::super::System::Com::IDispatch;
@@ -9526,7 +9526,7 @@ impl IAzTask_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzTask {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzTask2, IAzTask2_Vtbl, 0xa25cb4ce_d014_59e0_9af0_eb74e1709808);
+windows_core::imp::define_interface!(IAzTask2, IAzTask2_Vtbl, 0x03a9a5ee_48c8_4832_9025_aad503c46526);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzTask2 {
     type Target = IAzTask;
@@ -9580,7 +9580,7 @@ impl IAzTask2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAzTask2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAzTasks, IAzTasks_Vtbl, 0xb05ac09c_5fa7_535a_9083_e40583f05311);
+windows_core::imp::define_interface!(IAzTasks, IAzTasks_Vtbl, 0xb338ccab_4c85_4388_8c0a_c58592bad398);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAzTasks {
     type Target = super::super::System::Com::IDispatch;
@@ -9735,10 +9735,10 @@ impl Default for OBJECTS_AND_SID {
 }
 pub const OLESCRIPT_E_SYNTAX: windows_core::HRESULT = windows_core::HRESULT(0x80020101_u32 as _);
 pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> windows_core::BOOL>;
-pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *mut super::ACE_HEADER, pargs: *mut core::ffi::c_void, pbaceapplicable: *mut windows_core::BOOL) -> windows_core::BOOL>;
-pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: *mut core::ffi::c_void)>;
-pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(psidattrarray: *mut super::SID_AND_ATTRIBUTES)>;
-pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: *mut core::ffi::c_void, pcentralaccesspolicyapplicable: *mut windows_core::BOOL, ppcentralaccesspolicy: *mut *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const core::ffi::c_void, pbaceapplicable: *mut windows_core::BOOL) -> windows_core::BOOL>;
+pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(pcentralaccesspolicy: *const core::ffi::c_void)>;
+pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
+pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::PSID, pargs: *const core::ffi::c_void, pcentralaccesspolicyapplicable: *mut windows_core::BOOL, ppcentralaccesspolicy: *mut *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROG_INVOKE_SETTING(pub i32);

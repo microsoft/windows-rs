@@ -36,13 +36,12 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
     unsafe { FindTextW(param0 as _) }
 }
 #[inline]
-pub unsafe fn GetFileTitleA<P0, P1>(param0: P0, buf: P1, cchsize: u16) -> i16
+pub unsafe fn GetFileTitleA<P0>(param0: P0, buf: windows_core::PSTR, cchsize: u16) -> i16
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_core::PCSTR, buf : windows_core::PCSTR, cchsize : u16) -> i16);
-    unsafe { GetFileTitleA(param0.param().abi(), buf.param().abi(), cchsize) }
+    windows_core::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_core::PCSTR, buf : windows_core::PSTR, cchsize : u16) -> i16);
+    unsafe { GetFileTitleA(param0.param().abi(), core::mem::transmute(buf), cchsize) }
 }
 #[inline]
 pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: windows_core::PWSTR, cchsize: u16) -> i16

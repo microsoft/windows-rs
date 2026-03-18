@@ -720,7 +720,7 @@ pub struct IFileOpenPicker_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     PickMultipleFilesAsync: usize,
 }
-windows_core::imp::define_interface!(IFileOpenPicker2, IFileOpenPicker2_Vtbl, 0x0a8cbddf_fb5c_5880_9ed1_4cb2fb6b2261);
+windows_core::imp::define_interface!(IFileOpenPicker2, IFileOpenPicker2_Vtbl, 0x8ceb6cd2_b446_46f7_b265_90f8e55ad650);
 impl windows_core::RuntimeType for IFileOpenPicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -748,7 +748,7 @@ pub struct IFileOpenPicker3_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IFileOpenPickerStatics, IFileOpenPickerStatics_Vtbl, 0x145a4201_57ad_5e2e_93e4_fb82b53ab5fc);
+windows_core::imp::define_interface!(IFileOpenPickerStatics, IFileOpenPickerStatics_Vtbl, 0x6821573b_2f02_4833_96d4_abbfad72b67b);
 impl windows_core::RuntimeType for IFileOpenPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -761,7 +761,7 @@ pub struct IFileOpenPickerStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ResumePickSingleFileAsync: usize,
 }
-windows_core::imp::define_interface!(IFileOpenPickerStatics2, IFileOpenPickerStatics2_Vtbl, 0x50fcb5bc_9d2a_5cc2_a914_1097a3c192c6);
+windows_core::imp::define_interface!(IFileOpenPickerStatics2, IFileOpenPickerStatics2_Vtbl, 0xe8917415_eddd_5c98_b6f3_366fdfcad392);
 impl windows_core::RuntimeType for IFileOpenPickerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -774,7 +774,7 @@ pub struct IFileOpenPickerStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     CreateForUser: usize,
 }
-windows_core::imp::define_interface!(IFileOpenPickerWithOperationId, IFileOpenPickerWithOperationId_Vtbl, 0x0c7ed8a9_a3c1_5fab_965c_d9df9cf041ba);
+windows_core::imp::define_interface!(IFileOpenPickerWithOperationId, IFileOpenPickerWithOperationId_Vtbl, 0x3f57b569_2522_4ca5_aa73_a15509f1fcbf);
 impl windows_core::RuntimeType for IFileOpenPickerWithOperationId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -819,7 +819,7 @@ pub struct IFileSavePicker_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     PickSaveFileAsync: usize,
 }
-windows_core::imp::define_interface!(IFileSavePicker2, IFileSavePicker2_Vtbl, 0x1a7c84ae_7fd6_56e4_9438_e8ccdf0d559d);
+windows_core::imp::define_interface!(IFileSavePicker2, IFileSavePicker2_Vtbl, 0x0ec313a2_d24b_449a_8197_e89104fd42cc);
 impl windows_core::RuntimeType for IFileSavePicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -833,7 +833,7 @@ pub struct IFileSavePicker2_Vtbl {
     ContinuationData: usize,
     pub PickSaveFileAndContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IFileSavePicker3, IFileSavePicker3_Vtbl, 0x5b3ea9ab_da1f_5439_a7fa_f03aec06f2d4);
+windows_core::imp::define_interface!(IFileSavePicker3, IFileSavePicker3_Vtbl, 0x698aec69_ba3c_4e51_bd90_4abcbbf4cfaf);
 impl windows_core::RuntimeType for IFileSavePicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -857,7 +857,7 @@ pub struct IFileSavePicker4_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IFileSavePickerStatics, IFileSavePickerStatics_Vtbl, 0x7874c498_4e3c_5b56_8bd1_2c1316aa072d);
+windows_core::imp::define_interface!(IFileSavePickerStatics, IFileSavePickerStatics_Vtbl, 0x28e3cf9e_961c_5e2c_aed7_e64737f4ce37);
 impl windows_core::RuntimeType for IFileSavePickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -870,7 +870,7 @@ pub struct IFileSavePickerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     CreateForUser: usize,
 }
-windows_core::imp::define_interface!(IFolderPicker, IFolderPicker_Vtbl, 0xc38e50a4_846e_51fd_876b_e443411538d6);
+windows_core::imp::define_interface!(IFolderPicker, IFolderPicker_Vtbl, 0x084f7799_f3fb_400a_99b1_7b4a772fd60d);
 impl windows_core::RuntimeType for IFolderPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -919,7 +919,7 @@ pub struct IFolderPicker3_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IFolderPickerStatics, IFolderPickerStatics_Vtbl, 0x9f49a889_0ccd_54db_9fd7_6e2f0666cabe);
+windows_core::imp::define_interface!(IFolderPickerStatics, IFolderPickerStatics_Vtbl, 0x9be34740_7ca1_5942_a3c8_46f2551ecff3);
 impl windows_core::RuntimeType for IFolderPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

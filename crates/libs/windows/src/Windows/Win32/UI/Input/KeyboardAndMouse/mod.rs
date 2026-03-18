@@ -49,12 +49,9 @@ pub unsafe fn GetKBCodePage() -> u32 {
     unsafe { GetKBCodePage() }
 }
 #[inline]
-pub unsafe fn GetKeyNameTextA<P1>(lparam: i32, lpstring: P1, cchsize: i32) -> i32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : windows_core::PCSTR, cchsize : i32) -> i32);
-    unsafe { GetKeyNameTextA(lparam, lpstring.param().abi(), cchsize) }
+pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: windows_core::PSTR, cchsize: i32) -> i32 {
+    windows_core::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : windows_core::PSTR, cchsize : i32) -> i32);
+    unsafe { GetKeyNameTextA(lparam, core::mem::transmute(lpstring), cchsize) }
 }
 #[inline]
 pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: windows_core::PWSTR, cchsize: i32) -> i32 {
@@ -82,12 +79,9 @@ pub unsafe fn GetKeyboardLayoutNameA(pwszklid: windows_core::PSTR) -> windows_co
     unsafe { GetKeyboardLayoutNameA(core::mem::transmute(pwszklid)) }
 }
 #[inline]
-pub unsafe fn GetKeyboardLayoutNameW<P0>(pwszklid: P0) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { GetKeyboardLayoutNameW(pwszklid.param().abi()) }
+pub unsafe fn GetKeyboardLayoutNameW(pwszklid: windows_core::PWSTR) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : windows_core::PWSTR) -> windows_core::BOOL);
+    unsafe { GetKeyboardLayoutNameW(core::mem::transmute(pwszklid)) }
 }
 #[inline]
 pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> windows_core::BOOL {
@@ -105,9 +99,9 @@ pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> windows_core::BOOL {
     unsafe { GetLastInputInfo(plii as _) }
 }
 #[inline]
-pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *mut MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32 {
-    windows_core::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : *mut MOUSEMOVEPOINT, lpptbuf : *mut MOUSEMOVEPOINT, nbufpoints : i32, resolution : GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32);
-    unsafe { GetMouseMovePointsEx(cbsize, lppt as _, lpptbuf as _, nbufpoints, resolution) }
+pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32 {
+    windows_core::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : *const MOUSEMOVEPOINT, lpptbuf : *mut MOUSEMOVEPOINT, nbufpoints : i32, resolution : GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32);
+    unsafe { GetMouseMovePointsEx(cbsize, lppt, lpptbuf as _, nbufpoints, resolution) }
 }
 #[inline]
 pub unsafe fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> windows_core::BOOL {
@@ -191,9 +185,9 @@ pub unsafe fn SetFocus(hwnd: super::super::super::Foundation::HWND) -> super::su
     unsafe { SetFocus(hwnd) }
 }
 #[inline]
-pub unsafe fn SetKeyboardState(lpkeystate: *mut u8) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : *mut u8) -> windows_core::BOOL);
-    unsafe { SetKeyboardState(lpkeystate as _) }
+pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : *const u8) -> windows_core::BOOL);
+    unsafe { SetKeyboardState(lpkeystate) }
 }
 #[inline]
 pub unsafe fn SwapMouseButton(fswap: bool) -> windows_core::BOOL {

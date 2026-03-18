@@ -18,9 +18,9 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE {
-    windows_core::link!("msajapi.dll" "system" fn AllJoynCreateBus(outbuffersize : u32, inbuffersize : u32, lpsecurityattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    unsafe { AllJoynCreateBus(outbuffersize, inbuffersize, lpsecurityattributes as _) }
+pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE {
+    windows_core::link!("msajapi.dll" "system" fn AllJoynCreateBus(outbuffersize : u32, inbuffersize : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
+    unsafe { AllJoynCreateBus(outbuffersize, inbuffersize, lpsecurityattributes) }
 }
 #[inline]
 pub unsafe fn AllJoynEnumEvents(connectedbushandle: super::super::Foundation::HANDLE, eventtoreset: super::super::Foundation::HANDLE, eventtypes: *mut u32) -> windows_core::BOOL {
@@ -38,9 +38,9 @@ pub unsafe fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation
     unsafe { AllJoynReceiveFromBus(connectedbushandle, buffer as _, bytestoread, bytestransferred as _, reserved as _) }
 }
 #[inline]
-pub unsafe fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("msajapi.dll" "system" fn AllJoynSendToBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bytestowrite : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { AllJoynSendToBus(connectedbushandle, buffer as _, bytestowrite, bytestransferred as _, reserved as _) }
+pub unsafe fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *const core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("msajapi.dll" "system" fn AllJoynSendToBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *const core::ffi::c_void, bytestowrite : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { AllJoynSendToBus(connectedbushandle, buffer, bytestowrite, bytestransferred as _, reserved as _) }
 }
 #[inline]
 pub unsafe fn QCC_StatusText(status: QStatus) -> windows_core::PSTR {
@@ -161,9 +161,9 @@ where
     unsafe { alljoyn_aboutdata_getfield(data, name.param().abi(), value as _, language.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: *mut *mut i8, num_fields: usize) -> usize {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdata_getfields(data : alljoyn_aboutdata, fields : *mut *mut i8, num_fields : usize) -> usize);
-    unsafe { alljoyn_aboutdata_getfields(data, fields as _, num_fields) }
+pub unsafe fn alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: *const *const i8, num_fields: usize) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdata_getfields(data : alljoyn_aboutdata, fields : *const *const i8, num_fields : usize) -> usize);
+    unsafe { alljoyn_aboutdata_getfields(data, fields, num_fields) }
 }
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getfieldsignature<P1>(data: alljoyn_aboutdata, fieldname: P1) -> windows_core::PSTR
@@ -197,9 +197,9 @@ pub unsafe fn alljoyn_aboutdata_getsoftwareversion(data: alljoyn_aboutdata, soft
     unsafe { alljoyn_aboutdata_getsoftwareversion(data, softwareversion as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getsupportedlanguages(data: alljoyn_aboutdata, languagetags: *mut *mut i8, num: usize) -> usize {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdata_getsupportedlanguages(data : alljoyn_aboutdata, languagetags : *mut *mut i8, num : usize) -> usize);
-    unsafe { alljoyn_aboutdata_getsupportedlanguages(data, languagetags as _, num) }
+pub unsafe fn alljoyn_aboutdata_getsupportedlanguages(data: alljoyn_aboutdata, languagetags: *const *const i8, num: usize) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdata_getsupportedlanguages(data : alljoyn_aboutdata, languagetags : *const *const i8, num : usize) -> usize);
+    unsafe { alljoyn_aboutdata_getsupportedlanguages(data, languagetags, num) }
 }
 #[inline]
 pub unsafe fn alljoyn_aboutdata_getsupporturl(data: alljoyn_aboutdata, supporturl: *mut *mut i8) -> QStatus {
@@ -361,9 +361,9 @@ where
     unsafe { alljoyn_aboutdata_setsupporturl(data, supporturl.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *mut alljoyn_aboutdatalistener_callbacks, context: *mut core::ffi::c_void) -> alljoyn_aboutdatalistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdatalistener_create(callbacks : *mut alljoyn_aboutdatalistener_callbacks, context : *mut core::ffi::c_void) -> alljoyn_aboutdatalistener);
-    unsafe { alljoyn_aboutdatalistener_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutdatalistener_callbacks, context: *const core::ffi::c_void) -> alljoyn_aboutdatalistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdatalistener_create(callbacks : *const alljoyn_aboutdatalistener_callbacks, context : *const core::ffi::c_void) -> alljoyn_aboutdatalistener);
+    unsafe { alljoyn_aboutdatalistener_create(callbacks, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener) {
@@ -386,14 +386,18 @@ pub unsafe fn alljoyn_abouticon_destroy(icon: alljoyn_abouticon) {
     unsafe { alljoyn_abouticon_destroy(icon) }
 }
 #[inline]
-pub unsafe fn alljoyn_abouticon_getcontent(icon: alljoyn_abouticon, data: *mut *mut u8, size: *mut usize) {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_abouticon_getcontent(icon : alljoyn_abouticon, data : *mut *mut u8, size : *mut usize));
-    unsafe { alljoyn_abouticon_getcontent(icon, data as _, size as _) }
+pub unsafe fn alljoyn_abouticon_getcontent(icon: alljoyn_abouticon, data: *const *const u8) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_abouticon_getcontent(icon : alljoyn_abouticon, data : *const *const u8, size : *mut usize));
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        alljoyn_abouticon_getcontent(icon, data, &mut result__);
+        result__
+    }
 }
 #[inline]
-pub unsafe fn alljoyn_abouticon_geturl(icon: alljoyn_abouticon, r#type: *mut *mut i8, url: *mut *mut i8) {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_abouticon_geturl(icon : alljoyn_abouticon, r#type : *mut *mut i8, url : *mut *mut i8));
-    unsafe { alljoyn_abouticon_geturl(icon, r#type as _, url as _) }
+pub unsafe fn alljoyn_abouticon_geturl(icon: alljoyn_abouticon, r#type: *const *const i8, url: *const *const i8) {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_abouticon_geturl(icon : alljoyn_abouticon, r#type : *const *const i8, url : *const *const i8));
+    unsafe { alljoyn_abouticon_geturl(icon, r#type, url) }
 }
 #[inline]
 pub unsafe fn alljoyn_abouticon_setcontent<P1>(icon: alljoyn_abouticon, r#type: P1, data: *mut u8, csize: usize, ownsdata: u8) -> QStatus
@@ -451,9 +455,9 @@ pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: alljoyn_abouticonproxy, v
     unsafe { alljoyn_abouticonproxy_getversion(proxy, version as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_aboutlistener_create(callback: *mut alljoyn_aboutlistener_callback, context: *mut core::ffi::c_void) -> alljoyn_aboutlistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutlistener_create(callback : *mut alljoyn_aboutlistener_callback, context : *mut core::ffi::c_void) -> alljoyn_aboutlistener);
-    unsafe { alljoyn_aboutlistener_create(callback as _, context as _) }
+pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistener_callback, context: *const core::ffi::c_void) -> alljoyn_aboutlistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutlistener_create(callback : *const alljoyn_aboutlistener_callback, context : *const core::ffi::c_void) -> alljoyn_aboutlistener);
+    unsafe { alljoyn_aboutlistener_create(callback, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener) {
@@ -519,12 +523,12 @@ where
     unsafe { alljoyn_aboutobjectdescription_getinterfacepaths(description, interfacename.param().abi(), paths, numpaths) }
 }
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<P1>(description: alljoyn_aboutobjectdescription, path: P1, interfaces: *mut *mut i8, numinterfaces: usize) -> usize
+pub unsafe fn alljoyn_aboutobjectdescription_getinterfaces<P1>(description: alljoyn_aboutobjectdescription, path: P1, interfaces: *const *const i8, numinterfaces: usize) -> usize
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutobjectdescription_getinterfaces(description : alljoyn_aboutobjectdescription, path : windows_core::PCSTR, interfaces : *mut *mut i8, numinterfaces : usize) -> usize);
-    unsafe { alljoyn_aboutobjectdescription_getinterfaces(description, path.param().abi(), interfaces as _, numinterfaces) }
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutobjectdescription_getinterfaces(description : alljoyn_aboutobjectdescription, path : windows_core::PCSTR, interfaces : *const *const i8, numinterfaces : usize) -> usize);
+    unsafe { alljoyn_aboutobjectdescription_getinterfaces(description, path.param().abi(), interfaces, numinterfaces) }
 }
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg(description: alljoyn_aboutobjectdescription, msgarg: alljoyn_msgarg) -> QStatus {
@@ -532,9 +536,9 @@ pub unsafe fn alljoyn_aboutobjectdescription_getmsgarg(description: alljoyn_abou
     unsafe { alljoyn_aboutobjectdescription_getmsgarg(description, msgarg) }
 }
 #[inline]
-pub unsafe fn alljoyn_aboutobjectdescription_getpaths(description: alljoyn_aboutobjectdescription, paths: *mut *mut i8, numpaths: usize) -> usize {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutobjectdescription_getpaths(description : alljoyn_aboutobjectdescription, paths : *mut *mut i8, numpaths : usize) -> usize);
-    unsafe { alljoyn_aboutobjectdescription_getpaths(description, paths as _, numpaths) }
+pub unsafe fn alljoyn_aboutobjectdescription_getpaths(description: alljoyn_aboutobjectdescription, paths: *const *const i8, numpaths: usize) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutobjectdescription_getpaths(description : alljoyn_aboutobjectdescription, paths : *const *const i8, numpaths : usize) -> usize);
+    unsafe { alljoyn_aboutobjectdescription_getpaths(description, paths, numpaths) }
 }
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_hasinterface<P1>(description: alljoyn_aboutobjectdescription, interfacename: P1) -> u8
@@ -603,9 +607,9 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy(listener: alljoyn_applica
     unsafe { alljoyn_applicationstatelistener_destroy(listener) }
 }
 #[inline]
-pub unsafe fn alljoyn_authlistener_create(callbacks: *mut alljoyn_authlistener_callbacks, context: *mut core::ffi::c_void) -> alljoyn_authlistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_authlistener_create(callbacks : *mut alljoyn_authlistener_callbacks, context : *mut core::ffi::c_void) -> alljoyn_authlistener);
-    unsafe { alljoyn_authlistener_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener_callbacks, context: *const core::ffi::c_void) -> alljoyn_authlistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_authlistener_create(callbacks : *const alljoyn_authlistener_callbacks, context : *const core::ffi::c_void) -> alljoyn_authlistener);
+    unsafe { alljoyn_authlistener_create(callbacks, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_authlistener_destroy(listener: alljoyn_authlistener) {
@@ -618,9 +622,9 @@ pub unsafe fn alljoyn_authlistener_requestcredentialsresponse(listener: alljoyn_
     unsafe { alljoyn_authlistener_requestcredentialsresponse(listener, authcontext as _, accept, credentials) }
 }
 #[inline]
-pub unsafe fn alljoyn_authlistener_setsharedsecret(listener: alljoyn_authlistener, sharedsecret: *mut u8, sharedsecretsize: usize) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_authlistener_setsharedsecret(listener : alljoyn_authlistener, sharedsecret : *mut u8, sharedsecretsize : usize) -> QStatus);
-    unsafe { alljoyn_authlistener_setsharedsecret(listener, sharedsecret as _, sharedsecretsize) }
+pub unsafe fn alljoyn_authlistener_setsharedsecret(listener: alljoyn_authlistener, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_authlistener_setsharedsecret(listener : alljoyn_authlistener, sharedsecret : *const u8, sharedsecretsize : usize) -> QStatus);
+    unsafe { alljoyn_authlistener_setsharedsecret(listener, sharedsecret, sharedsecretsize) }
 }
 #[inline]
 pub unsafe fn alljoyn_authlistener_verifycredentialsresponse(listener: alljoyn_authlistener, authcontext: *mut core::ffi::c_void, accept: i32) -> QStatus {
@@ -628,9 +632,9 @@ pub unsafe fn alljoyn_authlistener_verifycredentialsresponse(listener: alljoyn_a
     unsafe { alljoyn_authlistener_verifycredentialsresponse(listener, authcontext as _, accept) }
 }
 #[inline]
-pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *mut alljoyn_authlistenerasync_callbacks, context: *mut core::ffi::c_void) -> alljoyn_authlistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_authlistenerasync_create(callbacks : *mut alljoyn_authlistenerasync_callbacks, context : *mut core::ffi::c_void) -> alljoyn_authlistener);
-    unsafe { alljoyn_authlistenerasync_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlistenerasync_callbacks, context: *const core::ffi::c_void) -> alljoyn_authlistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_authlistenerasync_create(callbacks : *const alljoyn_authlistenerasync_callbacks, context : *const core::ffi::c_void) -> alljoyn_authlistener);
+    unsafe { alljoyn_authlistenerasync_create(callbacks, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener) {
@@ -763,9 +767,9 @@ where
     unsafe { alljoyn_busattachment_cancelwhoimplements_interface(bus, implementsinterface.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *mut *mut i8, numberinterfaces: usize) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_cancelwhoimplements_interfaces(bus : alljoyn_busattachment, implementsinterfaces : *mut *mut i8, numberinterfaces : usize) -> QStatus);
-    unsafe { alljoyn_busattachment_cancelwhoimplements_interfaces(bus, implementsinterfaces as _, numberinterfaces) }
+pub unsafe fn alljoyn_busattachment_cancelwhoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_cancelwhoimplements_interfaces(bus : alljoyn_busattachment, implementsinterfaces : *const *const i8, numberinterfaces : usize) -> QStatus);
+    unsafe { alljoyn_busattachment_cancelwhoimplements_interfaces(bus, implementsinterfaces, numberinterfaces) }
 }
 #[inline]
 pub unsafe fn alljoyn_busattachment_clearkeys<P1>(bus: alljoyn_busattachment, guid: P1) -> QStatus
@@ -932,9 +936,9 @@ where
     unsafe { alljoyn_busattachment_getinterface(bus, name.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_busattachment_getinterfaces(bus: alljoyn_busattachment, ifaces: *mut alljoyn_interfacedescription, numifaces: usize) -> usize {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getinterfaces(bus : alljoyn_busattachment, ifaces : *mut alljoyn_interfacedescription, numifaces : usize) -> usize);
-    unsafe { alljoyn_busattachment_getinterfaces(bus, ifaces as _, numifaces) }
+pub unsafe fn alljoyn_busattachment_getinterfaces(bus: alljoyn_busattachment, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getinterfaces(bus : alljoyn_busattachment, ifaces : *const alljoyn_interfacedescription, numifaces : usize) -> usize);
+    unsafe { alljoyn_busattachment_getinterfaces(bus, ifaces, numifaces) }
 }
 #[inline]
 pub unsafe fn alljoyn_busattachment_getkeyexpiration<P1>(bus: alljoyn_busattachment, guid: P1, timeout: *mut u32) -> QStatus
@@ -1235,9 +1239,9 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interfaces(bus: alljoyn_busatt
     unsafe { alljoyn_busattachment_whoimplements_interfaces(bus, implementsinterfaces, numberinterfaces) }
 }
 #[inline]
-pub unsafe fn alljoyn_buslistener_create(callbacks: *mut alljoyn_buslistener_callbacks, context: *mut core::ffi::c_void) -> alljoyn_buslistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_buslistener_create(callbacks : *mut alljoyn_buslistener_callbacks, context : *mut core::ffi::c_void) -> alljoyn_buslistener);
-    unsafe { alljoyn_buslistener_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_callbacks, context: *const core::ffi::c_void) -> alljoyn_buslistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_buslistener_create(callbacks : *const alljoyn_buslistener_callbacks, context : *const core::ffi::c_void) -> alljoyn_buslistener);
+    unsafe { alljoyn_buslistener_create(callbacks, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_buslistener_destroy(listener: alljoyn_buslistener) {
@@ -1260,9 +1264,9 @@ pub unsafe fn alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member:
     unsafe { alljoyn_busobject_addmethodhandler(bus, core::mem::transmute(member), handler, context as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *mut alljoyn_busobject_methodentry, numentries: usize) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_addmethodhandlers(bus : alljoyn_busobject, entries : *mut alljoyn_busobject_methodentry, numentries : usize) -> QStatus);
-    unsafe { alljoyn_busobject_addmethodhandlers(bus, entries as _, numentries) }
+pub unsafe fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_addmethodhandlers(bus : alljoyn_busobject, entries : *const alljoyn_busobject_methodentry, numentries : usize) -> QStatus);
+    unsafe { alljoyn_busobject_addmethodhandlers(bus, entries, numentries) }
 }
 #[inline]
 pub unsafe fn alljoyn_busobject_cancelsessionlessmessage(bus: alljoyn_busobject, msg: alljoyn_message) -> QStatus {
@@ -1275,12 +1279,12 @@ pub unsafe fn alljoyn_busobject_cancelsessionlessmessage_serial(bus: alljoyn_bus
     unsafe { alljoyn_busobject_cancelsessionlessmessage_serial(bus, serialnumber) }
 }
 #[inline]
-pub unsafe fn alljoyn_busobject_create<P0>(path: P0, isplaceholder: i32, callbacks_in: *mut alljoyn_busobject_callbacks, context_in: *mut core::ffi::c_void) -> alljoyn_busobject
+pub unsafe fn alljoyn_busobject_create<P0>(path: P0, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const core::ffi::c_void) -> alljoyn_busobject
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_create(path : windows_core::PCSTR, isplaceholder : i32, callbacks_in : *mut alljoyn_busobject_callbacks, context_in : *mut core::ffi::c_void) -> alljoyn_busobject);
-    unsafe { alljoyn_busobject_create(path.param().abi(), isplaceholder, callbacks_in as _, context_in as _) }
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_create(path : windows_core::PCSTR, isplaceholder : i32, callbacks_in : *const alljoyn_busobject_callbacks, context_in : *const core::ffi::c_void) -> alljoyn_busobject);
+    unsafe { alljoyn_busobject_create(path.param().abi(), isplaceholder, callbacks_in, context_in) }
 }
 #[inline]
 pub unsafe fn alljoyn_busobject_destroy(bus: alljoyn_busobject) {
@@ -1305,9 +1309,9 @@ where
     unsafe { alljoyn_busobject_emitpropertychanged(bus, ifcname.param().abi(), propname.param().abi(), val, id) }
 }
 #[inline]
-pub unsafe fn alljoyn_busobject_getannouncedinterfacenames(bus: alljoyn_busobject, interfaces: *mut *mut i8, numinterfaces: usize) -> usize {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_getannouncedinterfacenames(bus : alljoyn_busobject, interfaces : *mut *mut i8, numinterfaces : usize) -> usize);
-    unsafe { alljoyn_busobject_getannouncedinterfacenames(bus, interfaces as _, numinterfaces) }
+pub unsafe fn alljoyn_busobject_getannouncedinterfacenames(bus: alljoyn_busobject, interfaces: *const *const i8, numinterfaces: usize) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_getannouncedinterfacenames(bus : alljoyn_busobject, interfaces : *const *const i8, numinterfaces : usize) -> usize);
+    unsafe { alljoyn_busobject_getannouncedinterfacenames(bus, interfaces, numinterfaces) }
 }
 #[inline]
 pub unsafe fn alljoyn_busobject_getbusattachment(bus: alljoyn_busobject) -> alljoyn_busattachment {
@@ -1616,9 +1620,9 @@ where
     unsafe { alljoyn_interfacedescription_getdescriptionforlanguage(iface, description.param().abi(), maxlanguagelength, languagetag.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages(iface: alljoyn_interfacedescription, languages: *mut *mut i8, size: usize) -> usize {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_interfacedescription_getdescriptionlanguages(iface : alljoyn_interfacedescription, languages : *mut *mut i8, size : usize) -> usize);
-    unsafe { alljoyn_interfacedescription_getdescriptionlanguages(iface, languages as _, size) }
+pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages(iface: alljoyn_interfacedescription, languages: *const *const i8, size: usize) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_interfacedescription_getdescriptionlanguages(iface : alljoyn_interfacedescription, languages : *const *const i8, size : usize) -> usize);
+    unsafe { alljoyn_interfacedescription_getdescriptionlanguages(iface, languages, size) }
 }
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<P1>(iface: alljoyn_interfacedescription, languages: P1, languagessize: usize) -> usize
@@ -1951,9 +1955,9 @@ where
     unsafe { alljoyn_interfacedescription_setpropertydescriptionforlanguage(iface, name.param().abi(), description.param().abi(), languagetag.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_keystorelistener_create(callbacks: *mut alljoyn_keystorelistener_callbacks, context: *mut core::ffi::c_void) -> alljoyn_keystorelistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_keystorelistener_create(callbacks : *mut alljoyn_keystorelistener_callbacks, context : *mut core::ffi::c_void) -> alljoyn_keystorelistener);
-    unsafe { alljoyn_keystorelistener_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const core::ffi::c_void) -> alljoyn_keystorelistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_keystorelistener_create(callbacks : *const alljoyn_keystorelistener_callbacks, context : *const core::ffi::c_void) -> alljoyn_keystorelistener);
+    unsafe { alljoyn_keystorelistener_create(callbacks, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener) {
@@ -1978,9 +1982,9 @@ where
     unsafe { alljoyn_keystorelistener_putkeys(listener, keystore, source.param().abi(), password.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *mut alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut core::ffi::c_void) -> alljoyn_keystorelistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_keystorelistener_with_synchronization_create(callbacks : *mut alljoyn_keystorelistener_with_synchronization_callbacks, context : *mut core::ffi::c_void) -> alljoyn_keystorelistener);
-    unsafe { alljoyn_keystorelistener_with_synchronization_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut core::ffi::c_void) -> alljoyn_keystorelistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_keystorelistener_with_synchronization_create(callbacks : *const alljoyn_keystorelistener_with_synchronization_callbacks, context : *mut core::ffi::c_void) -> alljoyn_keystorelistener);
+    unsafe { alljoyn_keystorelistener_with_synchronization_create(callbacks, context as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_message_create(bus: alljoyn_busattachment) -> alljoyn_message {
@@ -2498,9 +2502,9 @@ where
     unsafe { alljoyn_msgarg_set_objectpath(arg, o.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_objectpath_array(arg: alljoyn_msgarg, length: usize, ao: *mut *mut i8) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_set_objectpath_array(arg : alljoyn_msgarg, length : usize, ao : *mut *mut i8) -> QStatus);
-    unsafe { alljoyn_msgarg_set_objectpath_array(arg, length, ao as _) }
+pub unsafe fn alljoyn_msgarg_set_objectpath_array(arg: alljoyn_msgarg, length: usize, ao: *const *const i8) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_set_objectpath_array(arg : alljoyn_msgarg, length : usize, ao : *const *const i8) -> QStatus);
+    unsafe { alljoyn_msgarg_set_objectpath_array(arg, length, ao) }
 }
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_signature<P1>(arg: alljoyn_msgarg, g: P1) -> QStatus
@@ -2511,9 +2515,9 @@ where
     unsafe { alljoyn_msgarg_set_signature(arg, g.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_signature_array(arg: alljoyn_msgarg, length: usize, ag: *mut *mut i8) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_set_signature_array(arg : alljoyn_msgarg, length : usize, ag : *mut *mut i8) -> QStatus);
-    unsafe { alljoyn_msgarg_set_signature_array(arg, length, ag as _) }
+pub unsafe fn alljoyn_msgarg_set_signature_array(arg: alljoyn_msgarg, length: usize, ag: *const *const i8) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_set_signature_array(arg : alljoyn_msgarg, length : usize, ag : *const *const i8) -> QStatus);
+    unsafe { alljoyn_msgarg_set_signature_array(arg, length, ag) }
 }
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_string<P1>(arg: alljoyn_msgarg, s: P1) -> QStatus
@@ -2524,9 +2528,9 @@ where
     unsafe { alljoyn_msgarg_set_string(arg, s.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_msgarg_set_string_array(arg: alljoyn_msgarg, length: usize, r#as: *mut *mut i8) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_set_string_array(arg : alljoyn_msgarg, length : usize, r#as : *mut *mut i8) -> QStatus);
-    unsafe { alljoyn_msgarg_set_string_array(arg, length, r#as as _) }
+pub unsafe fn alljoyn_msgarg_set_string_array(arg: alljoyn_msgarg, length: usize, r#as: *const *const i8) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_set_string_array(arg : alljoyn_msgarg, length : usize, r#as : *const *const i8) -> QStatus);
+    unsafe { alljoyn_msgarg_set_string_array(arg, length, r#as) }
 }
 #[inline]
 pub unsafe fn alljoyn_msgarg_set_uint16(arg: alljoyn_msgarg, q: u16) -> QStatus {
@@ -2600,9 +2604,9 @@ where
     unsafe { alljoyn_msgarg_tostring(arg, str.param().abi(), buf, indent) }
 }
 #[inline]
-pub unsafe fn alljoyn_observer_create(bus: alljoyn_busattachment, mandatoryinterfaces: *mut *mut i8, nummandatoryinterfaces: usize) -> alljoyn_observer {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_observer_create(bus : alljoyn_busattachment, mandatoryinterfaces : *mut *mut i8, nummandatoryinterfaces : usize) -> alljoyn_observer);
-    unsafe { alljoyn_observer_create(bus, mandatoryinterfaces as _, nummandatoryinterfaces) }
+pub unsafe fn alljoyn_observer_create(bus: alljoyn_busattachment, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_observer_create(bus : alljoyn_busattachment, mandatoryinterfaces : *const *const i8, nummandatoryinterfaces : usize) -> alljoyn_observer);
+    unsafe { alljoyn_observer_create(bus, mandatoryinterfaces, nummandatoryinterfaces) }
 }
 #[inline]
 pub unsafe fn alljoyn_observer_destroy(observer: alljoyn_observer) {
@@ -2663,9 +2667,9 @@ where
     unsafe { alljoyn_passwordmanager_setcredentials(authmechanism.param().abi(), password.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *mut alljoyn_permissionconfigurationlistener_callbacks, context: *mut core::ffi::c_void) -> alljoyn_permissionconfigurationlistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurationlistener_create(callbacks : *mut alljoyn_permissionconfigurationlistener_callbacks, context : *mut core::ffi::c_void) -> alljoyn_permissionconfigurationlistener);
-    unsafe { alljoyn_permissionconfigurationlistener_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const core::ffi::c_void) -> alljoyn_permissionconfigurationlistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurationlistener_create(callbacks : *const alljoyn_permissionconfigurationlistener_callbacks, context : *const core::ffi::c_void) -> alljoyn_permissionconfigurationlistener);
+    unsafe { alljoyn_permissionconfigurationlistener_create(callbacks, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_permissionconfigurationlistener) {
@@ -2862,9 +2866,9 @@ pub unsafe fn alljoyn_permissionconfigurator_updatepolicy(configurator: alljoyn_
     unsafe { alljoyn_permissionconfigurator_updatepolicy(configurator, policyxml as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_pinglistener_create(callback: *mut alljoyn_pinglistener_callback, context: *mut core::ffi::c_void) -> alljoyn_pinglistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_pinglistener_create(callback : *mut alljoyn_pinglistener_callback, context : *mut core::ffi::c_void) -> alljoyn_pinglistener);
-    unsafe { alljoyn_pinglistener_create(callback as _, context as _) }
+pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_callback, context: *const core::ffi::c_void) -> alljoyn_pinglistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_pinglistener_create(callback : *const alljoyn_pinglistener_callback, context : *const core::ffi::c_void) -> alljoyn_pinglistener);
+    unsafe { alljoyn_pinglistener_create(callback, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener) {
@@ -2960,9 +2964,9 @@ where
     unsafe { alljoyn_proxybusobject_getinterface(proxyobj, iface.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobject, ifaces: *mut alljoyn_interfacedescription, numifaces: usize) -> usize {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getinterfaces(proxyobj : alljoyn_proxybusobject, ifaces : *mut alljoyn_interfacedescription, numifaces : usize) -> usize);
-    unsafe { alljoyn_proxybusobject_getinterfaces(proxyobj, ifaces as _, numifaces) }
+pub unsafe fn alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobject, ifaces: *const alljoyn_interfacedescription, numifaces: usize) -> usize {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getinterfaces(proxyobj : alljoyn_proxybusobject, ifaces : *const alljoyn_interfacedescription, numifaces : usize) -> usize);
+    unsafe { alljoyn_proxybusobject_getinterfaces(proxyobj, ifaces, numifaces) }
 }
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_getpath(proxyobj: alljoyn_proxybusobject) -> windows_core::PSTR {
@@ -3169,9 +3173,9 @@ pub unsafe fn alljoyn_routershutdown() -> QStatus {
     unsafe { alljoyn_routershutdown() }
 }
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *mut u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_claim(proxy : alljoyn_securityapplicationproxy, cakey : *mut i8, identitycertificatechain : *mut i8, groupid : *mut u8, groupsize : usize, groupauthority : *mut i8, manifestsxmls : *mut *mut i8, manifestscount : usize) -> QStatus);
-    unsafe { alljoyn_securityapplicationproxy_claim(proxy, cakey as _, identitycertificatechain as _, groupid as _, groupsize, groupauthority as _, manifestsxmls as _, manifestscount) }
+pub unsafe fn alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_claim(proxy : alljoyn_securityapplicationproxy, cakey : *mut i8, identitycertificatechain : *mut i8, groupid : *const u8, groupsize : usize, groupauthority : *mut i8, manifestsxmls : *mut *mut i8, manifestscount : usize) -> QStatus);
+    unsafe { alljoyn_securityapplicationproxy_claim(proxy, cakey as _, identitycertificatechain as _, groupid, groupsize, groupauthority as _, manifestsxmls as _, manifestscount) }
 }
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, digest: *mut *mut u8, digestsize: *mut usize) -> QStatus {
@@ -3294,9 +3298,9 @@ pub unsafe fn alljoyn_securityapplicationproxy_resetpolicy(proxy: alljoyn_securi
     unsafe { alljoyn_securityapplicationproxy_resetpolicy(proxy) }
 }
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *mut u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml : *mut i8, identitycertificatepem : *mut i8, signature : *mut u8, signaturesize : usize, signedmanifestxml : *mut *mut i8) -> QStatus);
-    unsafe { alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml as _, identitycertificatepem as _, signature as _, signaturesize, signedmanifestxml as _) }
+pub unsafe fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signature: *const u8, signaturesize: usize, signedmanifestxml: *mut *mut i8) -> QStatus {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml : *mut i8, identitycertificatepem : *mut i8, signature : *const u8, signaturesize : usize, signedmanifestxml : *mut *mut i8) -> QStatus);
+    unsafe { alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml as _, identitycertificatepem as _, signature, signaturesize, signedmanifestxml as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: *mut i8, identitycertificatepem: *mut i8, signingprivatekeypem: *mut i8, signedmanifestxml: *mut *mut i8) -> QStatus {
@@ -3389,9 +3393,9 @@ pub unsafe fn alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, tran
     unsafe { alljoyn_sessionopts_set_transports(opts, transports) }
 }
 #[inline]
-pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *mut alljoyn_sessionportlistener_callbacks, context: *mut core::ffi::c_void) -> alljoyn_sessionportlistener {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_sessionportlistener_create(callbacks : *mut alljoyn_sessionportlistener_callbacks, context : *mut core::ffi::c_void) -> alljoyn_sessionportlistener);
-    unsafe { alljoyn_sessionportlistener_create(callbacks as _, context as _) }
+pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessionportlistener_callbacks, context: *const core::ffi::c_void) -> alljoyn_sessionportlistener {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_sessionportlistener_create(callbacks : *const alljoyn_sessionportlistener_callbacks, context : *const core::ffi::c_void) -> alljoyn_sessionportlistener);
+    unsafe { alljoyn_sessionportlistener_create(callbacks, context) }
 }
 #[inline]
 pub unsafe fn alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener) {
@@ -3906,7 +3910,7 @@ pub const QCC_TRUE: u32 = 1u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QStatus(pub i32);
 pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
-pub type alljoyn_about_announced_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, busname: windows_core::PCSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
+pub type alljoyn_about_announced_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busname: windows_core::PCSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_about_announceflag(pub i32);
@@ -3922,8 +3926,8 @@ pub struct alljoyn_aboutdatalistener_callbacks {
     pub about_datalistener_getaboutdata: alljoyn_aboutdatalistener_getaboutdata_ptr,
     pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
 }
-pub type alljoyn_aboutdatalistener_getaboutdata_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, msgarg: alljoyn_msgarg, language: windows_core::PCSTR) -> QStatus>;
-pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus>;
+pub type alljoyn_aboutdatalistener_getaboutdata_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, msgarg: alljoyn_msgarg, language: windows_core::PCSTR) -> QStatus>;
+pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_abouticon(pub isize);
@@ -3965,7 +3969,7 @@ pub type alljoyn_applicationstatelistener_state_ptr = Option<unsafe extern "syst
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_authlistener(pub isize);
-pub type alljoyn_authlistener_authenticationcomplete_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, success: i32)>;
+pub type alljoyn_authlistener_authenticationcomplete_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, success: i32)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct alljoyn_authlistener_callbacks {
@@ -3974,10 +3978,10 @@ pub struct alljoyn_authlistener_callbacks {
     pub security_violation: alljoyn_authlistener_securityviolation_ptr,
     pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
 }
-pub type alljoyn_authlistener_requestcredentials_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, credentials: alljoyn_credentials) -> i32>;
-pub type alljoyn_authlistener_requestcredentialsasync_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, authcontext: *mut core::ffi::c_void) -> QStatus>;
+pub type alljoyn_authlistener_requestcredentials_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, credentials: alljoyn_credentials) -> i32>;
+pub type alljoyn_authlistener_requestcredentialsasync_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, authcount: u16, username: windows_core::PCSTR, credmask: u16, authcontext: *mut core::ffi::c_void) -> QStatus>;
 pub type alljoyn_authlistener_securityviolation_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, status: QStatus, msg: alljoyn_message)>;
-pub type alljoyn_authlistener_verifycredentials_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, credentials: alljoyn_credentials) -> i32>;
+pub type alljoyn_authlistener_verifycredentials_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, credentials: alljoyn_credentials) -> i32>;
 pub type alljoyn_authlistener_verifycredentialsasync_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: windows_core::PCSTR, peername: windows_core::PCSTR, credentials: alljoyn_credentials, authcontext: *mut core::ffi::c_void) -> QStatus>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -3991,7 +3995,7 @@ pub struct alljoyn_authlistenerasync_callbacks {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_autopinger(pub isize);
 pub type alljoyn_autopinger_destination_found_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, group: windows_core::PCSTR, destination: windows_core::PCSTR)>;
-pub type alljoyn_autopinger_destination_lost_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, group: windows_core::PCSTR, destination: windows_core::PCSTR)>;
+pub type alljoyn_autopinger_destination_lost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, group: windows_core::PCSTR, destination: windows_core::PCSTR)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_busattachment(pub isize);
@@ -4018,7 +4022,7 @@ pub struct alljoyn_buslistener_callbacks {
 pub type alljoyn_buslistener_found_advertised_name_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, name: windows_core::PCSTR, transport: u16, nameprefix: windows_core::PCSTR)>;
 pub type alljoyn_buslistener_listener_registered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, bus: alljoyn_busattachment)>;
 pub type alljoyn_buslistener_listener_unregistered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_buslistener_lost_advertised_name_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, name: windows_core::PCSTR, transport: u16, nameprefix: windows_core::PCSTR)>;
+pub type alljoyn_buslistener_lost_advertised_name_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, name: windows_core::PCSTR, transport: u16, nameprefix: windows_core::PCSTR)>;
 pub type alljoyn_buslistener_name_owner_changed_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, busname: windows_core::PCSTR, previousowner: windows_core::PCSTR, newowner: windows_core::PCSTR)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -4042,7 +4046,7 @@ impl Default for alljoyn_busobject_methodentry {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type alljoyn_busobject_object_registration_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type alljoyn_busobject_object_registration_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 pub type alljoyn_busobject_prop_get_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifcname: windows_core::PCSTR, propname: windows_core::PCSTR, val: alljoyn_msgarg) -> QStatus>;
 pub type alljoyn_busobject_prop_set_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifcname: windows_core::PCSTR, propname: windows_core::PCSTR, val: alljoyn_msgarg) -> QStatus>;
 #[repr(C)]
@@ -4129,8 +4133,8 @@ pub struct alljoyn_keystorelistener_callbacks {
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
 }
 pub type alljoyn_keystorelistener_loadrequest_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
-pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, listener: alljoyn_keystorelistener)>;
-pub type alljoyn_keystorelistener_storerequest_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
+pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener)>;
+pub type alljoyn_keystorelistener_storerequest_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
@@ -4153,9 +4157,9 @@ impl Default for alljoyn_manifestarray {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_message(pub isize);
-pub type alljoyn_messagereceiver_methodhandler_ptr = Option<unsafe extern "system" fn(bus: alljoyn_busobject, member: *mut alljoyn_interfacedescription_member, message: alljoyn_message)>;
+pub type alljoyn_messagereceiver_methodhandler_ptr = Option<unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message)>;
 pub type alljoyn_messagereceiver_replyhandler_ptr = Option<unsafe extern "system" fn(message: alljoyn_message, context: *mut core::ffi::c_void)>;
-pub type alljoyn_messagereceiver_signalhandler_ptr = Option<unsafe extern "system" fn(member: *mut alljoyn_interfacedescription_member, srcpath: windows_core::PCSTR, message: alljoyn_message)>;
+pub type alljoyn_messagereceiver_signalhandler_ptr = Option<unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: windows_core::PCSTR, message: alljoyn_message)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_messagetype(pub i32);
@@ -4166,7 +4170,7 @@ pub struct alljoyn_msgarg(pub isize);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_observer(pub isize);
 pub type alljoyn_observer_object_discovered_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
-pub type alljoyn_observer_object_lost_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
+pub type alljoyn_observer_object_lost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_observerlistener(pub isize);
@@ -4187,10 +4191,10 @@ pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub start_management: alljoyn_permissionconfigurationlistener_startmanagement_ptr,
     pub end_management: alljoyn_permissionconfigurationlistener_endmanagement_ptr,
 }
-pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> QStatus>;
 pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_permissionconfigurator(pub isize);
@@ -4227,9 +4231,9 @@ pub struct alljoyn_sessionlistener_callbacks {
     pub session_member_added: alljoyn_sessionlistener_sessionmemberadded_ptr,
     pub session_member_removed: alljoyn_sessionlistener_sessionmemberremoved_ptr,
 }
-pub type alljoyn_sessionlistener_sessionlost_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason)>;
+pub type alljoyn_sessionlistener_sessionlost_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason)>;
 pub type alljoyn_sessionlistener_sessionmemberadded_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, uniquename: windows_core::PCSTR)>;
-pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, sessionid: u32, uniquename: windows_core::PCSTR)>;
+pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionid: u32, uniquename: windows_core::PCSTR)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_sessionlostreason(pub i32);
@@ -4239,7 +4243,7 @@ pub struct alljoyn_sessionopts(pub isize);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_sessionportlistener(pub isize);
-pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, sessionport: u16, joiner: windows_core::PCSTR, opts: alljoyn_sessionopts) -> i32>;
+pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionport: u16, joiner: windows_core::PCSTR, opts: alljoyn_sessionopts) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct alljoyn_sessionportlistener_callbacks {

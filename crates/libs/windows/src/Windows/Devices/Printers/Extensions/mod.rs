@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPrint3DWorkflow, IPrint3DWorkflow_Vtbl, 0x4e020d0a_0fa6_5559_9232_28e0afd9cdd4);
+windows_core::imp::define_interface!(IPrint3DWorkflow, IPrint3DWorkflow_Vtbl, 0xc56f74bd_3669_4a66_ab42_c8151930cd34);
 impl windows_core::RuntimeType for IPrint3DWorkflow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -13,7 +13,7 @@ pub struct IPrint3DWorkflow_Vtbl {
     pub PrintRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePrintRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrint3DWorkflow2, IPrint3DWorkflow2_Vtbl, 0x68107318_747c_57de_970f_e975227c833f);
+windows_core::imp::define_interface!(IPrint3DWorkflow2, IPrint3DWorkflow2_Vtbl, 0xa2a6c54f_8ac1_4918_9741_e34f3004239e);
 impl windows_core::RuntimeType for IPrint3DWorkflow2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -24,7 +24,7 @@ pub struct IPrint3DWorkflow2_Vtbl {
     pub PrinterChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemovePrinterChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrint3DWorkflowPrintRequestedEventArgs, IPrint3DWorkflowPrintRequestedEventArgs_Vtbl, 0x04bbf6ba_72ce_5f9b_8dff_7b2435c2ea7a);
+windows_core::imp::define_interface!(IPrint3DWorkflowPrintRequestedEventArgs, IPrint3DWorkflowPrintRequestedEventArgs_Vtbl, 0x19f8c858_5ac8_4b55_8a5f_e61567dafb4d);
 impl windows_core::RuntimeType for IPrint3DWorkflowPrintRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -37,7 +37,7 @@ pub struct IPrint3DWorkflowPrintRequestedEventArgs_Vtbl {
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSourceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrint3DWorkflowPrinterChangedEventArgs, IPrint3DWorkflowPrinterChangedEventArgs_Vtbl, 0xefb833db_53dd_51ee_a18c_f699328957cb);
+windows_core::imp::define_interface!(IPrint3DWorkflowPrinterChangedEventArgs, IPrint3DWorkflowPrinterChangedEventArgs_Vtbl, 0x45226402_95fc_4847_93b3_134dbf5c60f7);
 impl windows_core::RuntimeType for IPrint3DWorkflowPrinterChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -47,7 +47,7 @@ pub struct IPrint3DWorkflowPrinterChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NewDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintExtensionContextStatic, IPrintExtensionContextStatic_Vtbl, 0x1bc27a0d_c97f_555d_bfe4_6da877731221);
+windows_core::imp::define_interface!(IPrintExtensionContextStatic, IPrintExtensionContextStatic_Vtbl, 0xe70d9fc1_ff79_4aa4_8c9b_0c93aedfde8a);
 impl windows_core::RuntimeType for IPrintExtensionContextStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -69,7 +69,7 @@ pub struct IPrintNotificationEventDetails_Vtbl {
     pub EventData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEventData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintTaskConfiguration, IPrintTaskConfiguration_Vtbl, 0xafecb5ce_9ec8_5ac3_bda9_fe32bf741f9e);
+windows_core::imp::define_interface!(IPrintTaskConfiguration, IPrintTaskConfiguration_Vtbl, 0xe3c22451_3aa4_4885_9240_311f5f8fbe9d);
 impl windows_core::RuntimeType for IPrintTaskConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -81,7 +81,7 @@ pub struct IPrintTaskConfiguration_Vtbl {
     pub SaveRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSaveRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintTaskConfigurationSaveRequest, IPrintTaskConfigurationSaveRequest_Vtbl, 0x005cbd0d_0832_50a7_8ad2_4cbf8c6b077e);
+windows_core::imp::define_interface!(IPrintTaskConfigurationSaveRequest, IPrintTaskConfigurationSaveRequest_Vtbl, 0xeeaf2fcb_621e_4b62_ac77_b281cce08d60);
 impl windows_core::RuntimeType for IPrintTaskConfigurationSaveRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -94,7 +94,7 @@ pub struct IPrintTaskConfigurationSaveRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintTaskConfigurationSaveRequestedDeferral, IPrintTaskConfigurationSaveRequestedDeferral_Vtbl, 0x831cca13_da6b_5cb8_892b_9622e4946a07);
+windows_core::imp::define_interface!(IPrintTaskConfigurationSaveRequestedDeferral, IPrintTaskConfigurationSaveRequestedDeferral_Vtbl, 0xe959d568_f729_44a4_871d_bd0628696a33);
 impl windows_core::RuntimeType for IPrintTaskConfigurationSaveRequestedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -104,7 +104,7 @@ pub struct IPrintTaskConfigurationSaveRequestedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintTaskConfigurationSaveRequestedEventArgs, IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl, 0xce6a9dda_672e_55c0_a645_2fe9d6bdd275);
+windows_core::imp::define_interface!(IPrintTaskConfigurationSaveRequestedEventArgs, IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl, 0xe06c2879_0d61_4938_91d0_96a45bee8479);
 impl windows_core::RuntimeType for IPrintTaskConfigurationSaveRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

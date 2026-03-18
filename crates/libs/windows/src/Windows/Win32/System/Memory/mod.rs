@@ -40,12 +40,12 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileMappingFromApp<P4>(hfile: super::super::Foundation::HANDLE, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: u64, name: P4) -> super::super::Foundation::HANDLE
+pub unsafe fn CreateFileMappingFromApp<P4>(hfile: super::super::Foundation::HANDLE, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, pageprotection: PAGE_PROTECTION_FLAGS, maximumsize: u64, name: P4) -> super::super::Foundation::HANDLE
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::super::Foundation:: HANDLE, securityattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, pageprotection : PAGE_PROTECTION_FLAGS, maximumsize : u64, name : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateFileMappingFromApp(hfile, securityattributes as _, pageprotection, maximumsize, name.param().abi()) }
+    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingFromApp(hfile : super::super::Foundation:: HANDLE, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, pageprotection : PAGE_PROTECTION_FLAGS, maximumsize : u64, name : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    unsafe { CreateFileMappingFromApp(hfile, securityattributes, pageprotection, maximumsize, name.param().abi()) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -58,21 +58,21 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileMappingNumaW<P5>(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5, nndpreferred: u32) -> super::super::Foundation::HANDLE
+pub unsafe fn CreateFileMappingNumaW<P5>(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5, nndpreferred: u32) -> super::super::Foundation::HANDLE
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR, nndpreferred : u32) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateFileMappingNumaW(hfile, lpfilemappingattributes as _, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.param().abi(), nndpreferred) }
+    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingNumaW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR, nndpreferred : u32) -> super::super::Foundation:: HANDLE);
+    unsafe { CreateFileMappingNumaW(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.param().abi(), nndpreferred) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateFileMappingW<P5>(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5) -> super::super::Foundation::HANDLE
+pub unsafe fn CreateFileMappingW<P5>(hfile: super::super::Foundation::HANDLE, lpfilemappingattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flprotect: PAGE_PROTECTION_FLAGS, dwmaximumsizehigh: u32, dwmaximumsizelow: u32, lpname: P5) -> super::super::Foundation::HANDLE
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateFileMappingW(hfile, lpfilemappingattributes as _, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.param().abi()) }
+    windows_core::link!("kernel32.dll" "system" fn CreateFileMappingW(hfile : super::super::Foundation:: HANDLE, lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flprotect : PAGE_PROTECTION_FLAGS, dwmaximumsizehigh : u32, dwmaximumsizelow : u32, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    unsafe { CreateFileMappingW(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.param().abi()) }
 }
 #[inline]
 pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> super::super::Foundation::HANDLE {
@@ -85,14 +85,14 @@ pub unsafe fn DiscardVirtualMemory(virtualaddress: *mut core::ffi::c_void, size:
     unsafe { DiscardVirtualMemory(virtualaddress as _, size) }
 }
 #[inline]
-pub unsafe fn FlushViewOfFile(lpbaseaddress: *mut core::ffi::c_void, dwnumberofbytestoflush: usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FlushViewOfFile(lpbaseaddress : *mut core::ffi::c_void, dwnumberofbytestoflush : usize) -> windows_core::BOOL);
-    unsafe { FlushViewOfFile(lpbaseaddress as _, dwnumberofbytestoflush) }
+pub unsafe fn FlushViewOfFile(lpbaseaddress: *const core::ffi::c_void, dwnumberofbytestoflush: usize) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FlushViewOfFile(lpbaseaddress : *const core::ffi::c_void, dwnumberofbytestoflush : usize) -> windows_core::BOOL);
+    unsafe { FlushViewOfFile(lpbaseaddress, dwnumberofbytestoflush) }
 }
 #[inline]
-pub unsafe fn FreeUserPhysicalPages(hprocess: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *mut usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *mut usize) -> windows_core::BOOL);
-    unsafe { FreeUserPhysicalPages(hprocess, numberofpages as _, pagearray as _) }
+pub unsafe fn FreeUserPhysicalPages(hprocess: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *const usize) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *const usize) -> windows_core::BOOL);
+    unsafe { FreeUserPhysicalPages(hprocess, numberofpages as _, pagearray) }
 }
 #[inline]
 pub unsafe fn GetLargePageMinimum() -> usize {
@@ -125,9 +125,9 @@ pub unsafe fn GetSystemFileCacheSize(lpminimumfilecachesize: *mut usize, lpmaxim
     unsafe { GetSystemFileCacheSize(lpminimumfilecachesize as _, lpmaximumfilecachesize as _, lpflags as _) }
 }
 #[inline]
-pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *mut core::ffi::c_void, dwregionsize: usize, lpaddresses: *mut *mut core::ffi::c_void, lpdwcount: *mut usize, lpdwgranularity: *mut u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetWriteWatch(dwflags : u32, lpbaseaddress : *mut core::ffi::c_void, dwregionsize : usize, lpaddresses : *mut *mut core::ffi::c_void, lpdwcount : *mut usize, lpdwgranularity : *mut u32) -> u32);
-    unsafe { GetWriteWatch(dwflags, lpbaseaddress as _, dwregionsize, lpaddresses as _, lpdwcount as _, lpdwgranularity as _) }
+pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const core::ffi::c_void, dwregionsize: usize, lpaddresses: *mut *mut core::ffi::c_void, lpdwcount: *mut usize, lpdwgranularity: *mut u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetWriteWatch(dwflags : u32, lpbaseaddress : *const core::ffi::c_void, dwregionsize : usize, lpaddresses : *mut *mut core::ffi::c_void, lpdwcount : *mut usize, lpdwgranularity : *mut u32) -> u32);
+    unsafe { GetWriteWatch(dwflags, lpbaseaddress, dwregionsize, lpaddresses as _, lpdwcount as _, lpdwgranularity as _) }
 }
 #[inline]
 pub unsafe fn GlobalAlloc(uflags: GLOBAL_ALLOC_FLAGS, dwbytes: usize) -> super::super::Foundation::HGLOBAL {
@@ -205,14 +205,14 @@ pub unsafe fn HeapReAlloc(hheap: super::super::Foundation::HANDLE, dwflags: HEAP
     unsafe { HeapReAlloc(hheap as _, dwflags, lpmem, dwbytes) }
 }
 #[inline]
-pub unsafe fn HeapSetInformation(heaphandle: super::super::Foundation::HANDLE, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *mut core::ffi::c_void, heapinformationlength: usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn HeapSetInformation(heaphandle : super::super::Foundation:: HANDLE, heapinformationclass : HEAP_INFORMATION_CLASS, heapinformation : *mut core::ffi::c_void, heapinformationlength : usize) -> windows_core::BOOL);
-    unsafe { HeapSetInformation(heaphandle, heapinformationclass, heapinformation as _, heapinformationlength) }
+pub unsafe fn HeapSetInformation(heaphandle: super::super::Foundation::HANDLE, heapinformationclass: HEAP_INFORMATION_CLASS, heapinformation: *const core::ffi::c_void, heapinformationlength: usize) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn HeapSetInformation(heaphandle : super::super::Foundation:: HANDLE, heapinformationclass : HEAP_INFORMATION_CLASS, heapinformation : *const core::ffi::c_void, heapinformationlength : usize) -> windows_core::BOOL);
+    unsafe { HeapSetInformation(heaphandle, heapinformationclass, heapinformation, heapinformationlength) }
 }
 #[inline]
-pub unsafe fn HeapSize(hheap: super::super::Foundation::HANDLE, dwflags: HEAP_FLAGS, lpmem: *mut core::ffi::c_void) -> usize {
-    windows_core::link!("kernel32.dll" "system" fn HeapSize(hheap : super::super::Foundation:: HANDLE, dwflags : HEAP_FLAGS, lpmem : *mut core::ffi::c_void) -> usize);
-    unsafe { HeapSize(hheap, dwflags, lpmem as _) }
+pub unsafe fn HeapSize(hheap: super::super::Foundation::HANDLE, dwflags: HEAP_FLAGS, lpmem: *const core::ffi::c_void) -> usize {
+    windows_core::link!("kernel32.dll" "system" fn HeapSize(hheap : super::super::Foundation:: HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> usize);
+    unsafe { HeapSize(hheap, dwflags, lpmem) }
 }
 #[inline]
 pub unsafe fn HeapSummary(hheap: super::super::Foundation::HANDLE, dwflags: u32, lpsummary: *mut HEAP_SUMMARY) -> windows_core::BOOL {
@@ -225,9 +225,9 @@ pub unsafe fn HeapUnlock(hheap: super::super::Foundation::HANDLE) -> windows_cor
     unsafe { HeapUnlock(hheap) }
 }
 #[inline]
-pub unsafe fn HeapValidate(hheap: super::super::Foundation::HANDLE, dwflags: HEAP_FLAGS, lpmem: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn HeapValidate(hheap : super::super::Foundation:: HANDLE, dwflags : HEAP_FLAGS, lpmem : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { HeapValidate(hheap, dwflags, lpmem as _) }
+pub unsafe fn HeapValidate(hheap: super::super::Foundation::HANDLE, dwflags: HEAP_FLAGS, lpmem: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn HeapValidate(hheap : super::super::Foundation:: HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { HeapValidate(hheap, dwflags, lpmem) }
 }
 #[inline]
 pub unsafe fn HeapWalk(hheap: super::super::Foundation::HANDLE, lpentry: *mut PROCESS_HEAP_ENTRY) -> windows_core::BOOL {
@@ -276,9 +276,9 @@ pub unsafe fn LocalFlags(hmem: super::super::Foundation::HLOCAL) -> u32 {
     unsafe { LocalFlags(hmem) }
 }
 #[inline]
-pub unsafe fn LocalHandle(pmem: *mut core::ffi::c_void) -> super::super::Foundation::HLOCAL {
-    windows_core::link!("kernel32.dll" "system" fn LocalHandle(pmem : *mut core::ffi::c_void) -> super::super::Foundation:: HLOCAL);
-    unsafe { LocalHandle(pmem as _) }
+pub unsafe fn LocalHandle(pmem: *const core::ffi::c_void) -> super::super::Foundation::HLOCAL {
+    windows_core::link!("kernel32.dll" "system" fn LocalHandle(pmem : *const core::ffi::c_void) -> super::super::Foundation:: HLOCAL);
+    unsafe { LocalHandle(pmem) }
 }
 #[inline]
 pub unsafe fn LocalLock(hmem: super::super::Foundation::HLOCAL) -> *mut core::ffi::c_void {
@@ -301,14 +301,14 @@ pub unsafe fn LocalUnlock(hmem: super::super::Foundation::HLOCAL) -> windows_cor
     unsafe { LocalUnlock(hmem) }
 }
 #[inline]
-pub unsafe fn MapUserPhysicalPages(virtualaddress: *mut core::ffi::c_void, numberofpages: usize, pagearray: *mut usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *mut core::ffi::c_void, numberofpages : usize, pagearray : *mut usize) -> windows_core::BOOL);
-    unsafe { MapUserPhysicalPages(virtualaddress as _, numberofpages, pagearray as _) }
+pub unsafe fn MapUserPhysicalPages(virtualaddress: *const core::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : *const usize) -> windows_core::BOOL);
+    unsafe { MapUserPhysicalPages(virtualaddress, numberofpages, pagearray) }
 }
 #[inline]
-pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *mut *mut core::ffi::c_void, numberofpages: usize, pagearray: *mut usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPagesScatter(virtualaddresses : *mut *mut core::ffi::c_void, numberofpages : usize, pagearray : *mut usize) -> windows_core::BOOL);
-    unsafe { MapUserPhysicalPagesScatter(virtualaddresses as _, numberofpages, pagearray as _) }
+pub unsafe fn MapUserPhysicalPagesScatter(virtualaddresses: *const *const core::ffi::c_void, numberofpages: usize, pagearray: *const usize) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPagesScatter(virtualaddresses : *const *const core::ffi::c_void, numberofpages : usize, pagearray : *const usize) -> windows_core::BOOL);
+    unsafe { MapUserPhysicalPagesScatter(virtualaddresses, numberofpages, pagearray) }
 }
 #[inline]
 pub unsafe fn MapViewOfFile(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize) -> MEMORY_MAPPED_VIEW_ADDRESS {
@@ -321,19 +321,19 @@ pub unsafe fn MapViewOfFile3(filemapping: super::super::Foundation::HANDLE, proc
     unsafe { MapViewOfFile3(filemapping, process, baseaddress, offset, viewsize, allocationtype, pageprotection, extendedparameters as _, parametercount) }
 }
 #[inline]
-pub unsafe fn MapViewOfFile3FromApp(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *mut core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> MEMORY_MAPPED_VIEW_ADDRESS {
-    windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3FromApp(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *mut core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
-    unsafe { MapViewOfFile3FromApp(filemapping, process, baseaddress as _, offset, viewsize, allocationtype, pageprotection, extendedparameters as _, parametercount) }
+pub unsafe fn MapViewOfFile3FromApp(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> MEMORY_MAPPED_VIEW_ADDRESS {
+    windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3FromApp(filemapping : super::super::Foundation:: HANDLE, process : super::super::Foundation:: HANDLE, baseaddress : *const core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
+    unsafe { MapViewOfFile3FromApp(filemapping, process, baseaddress, offset, viewsize, allocationtype, pageprotection, extendedparameters as _, parametercount) }
 }
 #[inline]
-pub unsafe fn MapViewOfFileEx(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *mut core::ffi::c_void) -> MEMORY_MAPPED_VIEW_ADDRESS {
-    windows_core::link!("kernel32.dll" "system" fn MapViewOfFileEx(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *mut core::ffi::c_void) -> MEMORY_MAPPED_VIEW_ADDRESS);
-    unsafe { MapViewOfFileEx(hfilemappingobject, dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, lpbaseaddress as _) }
+pub unsafe fn MapViewOfFileEx(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const core::ffi::c_void) -> MEMORY_MAPPED_VIEW_ADDRESS {
+    windows_core::link!("kernel32.dll" "system" fn MapViewOfFileEx(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const core::ffi::c_void) -> MEMORY_MAPPED_VIEW_ADDRESS);
+    unsafe { MapViewOfFileEx(hfilemappingobject, dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, lpbaseaddress) }
 }
 #[inline]
-pub unsafe fn MapViewOfFileExNuma(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *mut core::ffi::c_void, nndpreferred: u32) -> MEMORY_MAPPED_VIEW_ADDRESS {
-    windows_core::link!("kernel32.dll" "system" fn MapViewOfFileExNuma(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *mut core::ffi::c_void, nndpreferred : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
-    unsafe { MapViewOfFileExNuma(hfilemappingobject, dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, lpbaseaddress as _, nndpreferred) }
+pub unsafe fn MapViewOfFileExNuma(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const core::ffi::c_void, nndpreferred: u32) -> MEMORY_MAPPED_VIEW_ADDRESS {
+    windows_core::link!("kernel32.dll" "system" fn MapViewOfFileExNuma(hfilemappingobject : super::super::Foundation:: HANDLE, dwdesiredaccess : FILE_MAP, dwfileoffsethigh : u32, dwfileoffsetlow : u32, dwnumberofbytestomap : usize, lpbaseaddress : *const core::ffi::c_void, nndpreferred : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
+    unsafe { MapViewOfFileExNuma(hfilemappingobject, dwdesiredaccess, dwfileoffsethigh, dwfileoffsetlow, dwnumberofbytestomap, lpbaseaddress, nndpreferred) }
 }
 #[inline]
 pub unsafe fn MapViewOfFileFromApp(hfilemappingobject: super::super::Foundation::HANDLE, desiredaccess: FILE_MAP, fileoffset: u64, numberofbytestomap: usize) -> MEMORY_MAPPED_VIEW_ADDRESS {
@@ -341,9 +341,9 @@ pub unsafe fn MapViewOfFileFromApp(hfilemappingobject: super::super::Foundation:
     unsafe { MapViewOfFileFromApp(hfilemappingobject, desiredaccess, fileoffset, numberofbytestomap) }
 }
 #[inline]
-pub unsafe fn MapViewOfFileNuma2(filemappinghandle: super::super::Foundation::HANDLE, processhandle: super::super::Foundation::HANDLE, offset: u64, baseaddress: *mut core::ffi::c_void, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> MEMORY_MAPPED_VIEW_ADDRESS {
-    windows_core::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn MapViewOfFileNuma2(filemappinghandle : super::super::Foundation:: HANDLE, processhandle : super::super::Foundation:: HANDLE, offset : u64, baseaddress : *mut core::ffi::c_void, viewsize : usize, allocationtype : u32, pageprotection : u32, preferrednode : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
-    unsafe { MapViewOfFileNuma2(filemappinghandle, processhandle, offset, baseaddress as _, viewsize, allocationtype, pageprotection, preferrednode) }
+pub unsafe fn MapViewOfFileNuma2(filemappinghandle: super::super::Foundation::HANDLE, processhandle: super::super::Foundation::HANDLE, offset: u64, baseaddress: *const core::ffi::c_void, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> MEMORY_MAPPED_VIEW_ADDRESS {
+    windows_core::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn MapViewOfFileNuma2(filemappinghandle : super::super::Foundation:: HANDLE, processhandle : super::super::Foundation:: HANDLE, offset : u64, baseaddress : *const core::ffi::c_void, viewsize : usize, allocationtype : u32, pageprotection : u32, preferrednode : u32) -> MEMORY_MAPPED_VIEW_ADDRESS);
+    unsafe { MapViewOfFileNuma2(filemappinghandle, processhandle, offset, baseaddress, viewsize, allocationtype, pageprotection, preferrednode) }
 }
 #[inline]
 pub unsafe fn OfferVirtualMemory(virtualaddress: *mut core::ffi::c_void, size: usize, priority: OFFER_PRIORITY) -> u32 {
@@ -380,9 +380,9 @@ where
     unsafe { OpenFileMappingW(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) }
 }
 #[inline]
-pub unsafe fn PrefetchVirtualMemory(hprocess: super::super::Foundation::HANDLE, numberofentries: usize, virtualaddresses: *mut WIN32_MEMORY_RANGE_ENTRY, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::super::Foundation:: HANDLE, numberofentries : usize, virtualaddresses : *mut WIN32_MEMORY_RANGE_ENTRY, flags : u32) -> windows_core::BOOL);
-    unsafe { PrefetchVirtualMemory(hprocess, numberofentries, virtualaddresses as _, flags) }
+pub unsafe fn PrefetchVirtualMemory(hprocess: super::super::Foundation::HANDLE, numberofentries: usize, virtualaddresses: *const WIN32_MEMORY_RANGE_ENTRY, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::super::Foundation:: HANDLE, numberofentries : usize, virtualaddresses : *const WIN32_MEMORY_RANGE_ENTRY, flags : u32) -> windows_core::BOOL);
+    unsafe { PrefetchVirtualMemory(hprocess, numberofentries, virtualaddresses, flags) }
 }
 #[inline]
 pub unsafe fn QueryMemoryResourceNotification(resourcenotificationhandle: super::super::Foundation::HANDLE, resourcestate: *mut windows_core::BOOL) -> windows_core::BOOL {
@@ -395,9 +395,9 @@ pub unsafe fn QueryPartitionInformation(partition: super::super::Foundation::HAN
     unsafe { QueryPartitionInformation(partition, partitioninformationclass, partitioninformation as _, partitioninformationlength) }
 }
 #[inline]
-pub unsafe fn QueryVirtualMemoryInformation(process: super::super::Foundation::HANDLE, virtualaddress: *mut core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationsize: usize, returnsize: *mut usize) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-4.dll" "system" fn QueryVirtualMemoryInformation(process : super::super::Foundation:: HANDLE, virtualaddress : *mut core::ffi::c_void, memoryinformationclass : WIN32_MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationsize : usize, returnsize : *mut usize) -> windows_core::BOOL);
-    unsafe { QueryVirtualMemoryInformation(process, virtualaddress as _, memoryinformationclass, memoryinformation as _, memoryinformationsize, returnsize as _) }
+pub unsafe fn QueryVirtualMemoryInformation(process: super::super::Foundation::HANDLE, virtualaddress: *const core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationsize: usize, returnsize: *mut usize) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-4.dll" "system" fn QueryVirtualMemoryInformation(process : super::super::Foundation:: HANDLE, virtualaddress : *const core::ffi::c_void, memoryinformationclass : WIN32_MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationsize : usize, returnsize : *mut usize) -> windows_core::BOOL);
+    unsafe { QueryVirtualMemoryInformation(process, virtualaddress, memoryinformationclass, memoryinformation as _, memoryinformationsize, returnsize as _) }
 }
 #[inline]
 pub unsafe fn ReclaimVirtualMemory(virtualaddress: *const core::ffi::c_void, size: usize) -> u32 {
@@ -420,9 +420,9 @@ pub unsafe fn ResetWriteWatch(lpbaseaddress: *const core::ffi::c_void, dwregions
     unsafe { ResetWriteWatch(lpbaseaddress, dwregionsize) }
 }
 #[inline]
-pub unsafe fn RtlCompareMemory(source1: *mut core::ffi::c_void, source2: *mut core::ffi::c_void, length: usize) -> usize {
-    windows_core::link!("kernel32.dll" "system" fn RtlCompareMemory(source1 : *mut core::ffi::c_void, source2 : *mut core::ffi::c_void, length : usize) -> usize);
-    unsafe { RtlCompareMemory(source1 as _, source2 as _, length) }
+pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: usize) -> usize {
+    windows_core::link!("kernel32.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : usize) -> usize);
+    unsafe { RtlCompareMemory(source1, source2, length) }
 }
 #[inline]
 pub unsafe fn RtlCrc32(buffer: *const core::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
@@ -430,24 +430,24 @@ pub unsafe fn RtlCrc32(buffer: *const core::ffi::c_void, size: usize, initialcrc
     unsafe { RtlCrc32(buffer, size, initialcrc) }
 }
 #[inline]
-pub unsafe fn RtlCrc64(buffer: *mut core::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
-    windows_core::link!("ntdll.dll" "system" fn RtlCrc64(buffer : *mut core::ffi::c_void, size : usize, initialcrc : u64) -> u64);
-    unsafe { RtlCrc64(buffer as _, size, initialcrc) }
+pub unsafe fn RtlCrc64(buffer: *const core::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
+    windows_core::link!("ntdll.dll" "system" fn RtlCrc64(buffer : *const core::ffi::c_void, size : usize, initialcrc : u64) -> u64);
+    unsafe { RtlCrc64(buffer, size, initialcrc) }
 }
 #[inline]
-pub unsafe fn RtlIsZeroMemory(buffer: *mut core::ffi::c_void, length: usize) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : *mut core::ffi::c_void, length : usize) -> bool);
-    unsafe { RtlIsZeroMemory(buffer as _, length) }
+pub unsafe fn RtlIsZeroMemory(buffer: *const core::ffi::c_void, length: usize) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : *const core::ffi::c_void, length : usize) -> bool);
+    unsafe { RtlIsZeroMemory(buffer, length) }
 }
 #[inline]
-pub unsafe fn SetProcessValidCallTargets(hprocess: super::super::Foundation::HANDLE, virtualaddress: *mut core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::super::Foundation:: HANDLE, virtualaddress : *mut core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut CFG_CALL_TARGET_INFO) -> windows_core::BOOL);
-    unsafe { SetProcessValidCallTargets(hprocess, virtualaddress as _, regionsize, numberofoffsets, offsetinformation as _) }
+pub unsafe fn SetProcessValidCallTargets(hprocess: super::super::Foundation::HANDLE, virtualaddress: *const core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::super::Foundation:: HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut CFG_CALL_TARGET_INFO) -> windows_core::BOOL);
+    unsafe { SetProcessValidCallTargets(hprocess, virtualaddress, regionsize, numberofoffsets, offsetinformation as _) }
 }
 #[inline]
-pub unsafe fn SetProcessValidCallTargetsForMappedView(process: super::super::Foundation::HANDLE, virtualaddress: *mut core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO, section: super::super::Foundation::HANDLE, expectedfileoffset: u64) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::super::Foundation:: HANDLE, virtualaddress : *mut core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut CFG_CALL_TARGET_INFO, section : super::super::Foundation:: HANDLE, expectedfileoffset : u64) -> windows_core::BOOL);
-    unsafe { SetProcessValidCallTargetsForMappedView(process, virtualaddress as _, regionsize, numberofoffsets, offsetinformation as _, section, expectedfileoffset) }
+pub unsafe fn SetProcessValidCallTargetsForMappedView(process: super::super::Foundation::HANDLE, virtualaddress: *const core::ffi::c_void, regionsize: usize, numberofoffsets: u32, offsetinformation: *mut CFG_CALL_TARGET_INFO, section: super::super::Foundation::HANDLE, expectedfileoffset: u64) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::super::Foundation:: HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut CFG_CALL_TARGET_INFO, section : super::super::Foundation:: HANDLE, expectedfileoffset : u64) -> windows_core::BOOL);
+    unsafe { SetProcessValidCallTargetsForMappedView(process, virtualaddress, regionsize, numberofoffsets, offsetinformation as _, section, expectedfileoffset) }
 }
 #[inline]
 pub unsafe fn SetProcessWorkingSetSizeEx(hprocess: super::super::Foundation::HANDLE, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize, flags: SETPROCESSWORKINGSETSIZEEX_FLAGS) -> windows_core::BOOL {
@@ -475,19 +475,19 @@ pub unsafe fn UnmapViewOfFileEx(baseaddress: MEMORY_MAPPED_VIEW_ADDRESS, unmapfl
     unsafe { UnmapViewOfFileEx(baseaddress, unmapflags) }
 }
 #[inline]
-pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn UnregisterBadMemoryNotification(registrationhandle : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { UnregisterBadMemoryNotification(registrationhandle as _) }
+pub unsafe fn UnregisterBadMemoryNotification(registrationhandle: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn UnregisterBadMemoryNotification(registrationhandle : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { UnregisterBadMemoryNotification(registrationhandle) }
 }
 #[inline]
-pub unsafe fn VirtualAlloc(lpaddress: *mut core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void {
-    windows_core::link!("kernel32.dll" "system" fn VirtualAlloc(lpaddress : *mut core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void);
-    unsafe { VirtualAlloc(lpaddress as _, dwsize, flallocationtype, flprotect) }
+pub unsafe fn VirtualAlloc(lpaddress: *const core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void {
+    windows_core::link!("kernel32.dll" "system" fn VirtualAlloc(lpaddress : *const core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void);
+    unsafe { VirtualAlloc(lpaddress, dwsize, flallocationtype, flprotect) }
 }
 #[inline]
-pub unsafe fn VirtualAlloc2(process: super::super::Foundation::HANDLE, baseaddress: *mut core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut core::ffi::c_void {
-    windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2(process : super::super::Foundation:: HANDLE, baseaddress : *mut core::ffi::c_void, size : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut core::ffi::c_void);
-    unsafe { VirtualAlloc2(process, baseaddress as _, size, allocationtype, pageprotection, extendedparameters as _, parametercount) }
+pub unsafe fn VirtualAlloc2(process: super::super::Foundation::HANDLE, baseaddress: *const core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut core::ffi::c_void {
+    windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2(process : super::super::Foundation:: HANDLE, baseaddress : *const core::ffi::c_void, size : usize, allocationtype : VIRTUAL_ALLOCATION_TYPE, pageprotection : u32, extendedparameters : *mut MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut core::ffi::c_void);
+    unsafe { VirtualAlloc2(process, baseaddress, size, allocationtype, pageprotection, extendedparameters as _, parametercount) }
 }
 #[inline]
 pub unsafe fn VirtualAlloc2FromApp(process: super::super::Foundation::HANDLE, baseaddress: *const core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut core::ffi::c_void {
@@ -495,14 +495,14 @@ pub unsafe fn VirtualAlloc2FromApp(process: super::super::Foundation::HANDLE, ba
     unsafe { VirtualAlloc2FromApp(process, baseaddress, size, allocationtype, pageprotection, extendedparameters as _, parametercount) }
 }
 #[inline]
-pub unsafe fn VirtualAllocEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *mut core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void {
-    windows_core::link!("kernel32.dll" "system" fn VirtualAllocEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *mut core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void);
-    unsafe { VirtualAllocEx(hprocess, lpaddress as _, dwsize, flallocationtype, flprotect) }
+pub unsafe fn VirtualAllocEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *const core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void {
+    windows_core::link!("kernel32.dll" "system" fn VirtualAllocEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : PAGE_PROTECTION_FLAGS) -> *mut core::ffi::c_void);
+    unsafe { VirtualAllocEx(hprocess, lpaddress, dwsize, flallocationtype, flprotect) }
 }
 #[inline]
-pub unsafe fn VirtualAllocExNuma(hprocess: super::super::Foundation::HANDLE, lpaddress: *mut core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: u32, nndpreferred: u32) -> *mut core::ffi::c_void {
-    windows_core::link!("kernel32.dll" "system" fn VirtualAllocExNuma(hprocess : super::super::Foundation:: HANDLE, lpaddress : *mut core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : u32, nndpreferred : u32) -> *mut core::ffi::c_void);
-    unsafe { VirtualAllocExNuma(hprocess, lpaddress as _, dwsize, flallocationtype, flprotect, nndpreferred) }
+pub unsafe fn VirtualAllocExNuma(hprocess: super::super::Foundation::HANDLE, lpaddress: *const core::ffi::c_void, dwsize: usize, flallocationtype: VIRTUAL_ALLOCATION_TYPE, flprotect: u32, nndpreferred: u32) -> *mut core::ffi::c_void {
+    windows_core::link!("kernel32.dll" "system" fn VirtualAllocExNuma(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, flallocationtype : VIRTUAL_ALLOCATION_TYPE, flprotect : u32, nndpreferred : u32) -> *mut core::ffi::c_void);
+    unsafe { VirtualAllocExNuma(hprocess, lpaddress, dwsize, flallocationtype, flprotect, nndpreferred) }
 }
 #[inline]
 pub unsafe fn VirtualAllocFromApp(baseaddress: *const core::ffi::c_void, size: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, protection: u32) -> *mut core::ffi::c_void {
@@ -530,19 +530,19 @@ pub unsafe fn VirtualProtect(lpaddress: *const core::ffi::c_void, dwsize: usize,
     unsafe { VirtualProtect(lpaddress, dwsize, flnewprotect, lpfloldprotect as _) }
 }
 #[inline]
-pub unsafe fn VirtualProtectEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *mut core::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn VirtualProtectEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *mut core::ffi::c_void, dwsize : usize, flnewprotect : PAGE_PROTECTION_FLAGS, lpfloldprotect : *mut PAGE_PROTECTION_FLAGS) -> windows_core::BOOL);
-    unsafe { VirtualProtectEx(hprocess, lpaddress as _, dwsize, flnewprotect, lpfloldprotect as _) }
+pub unsafe fn VirtualProtectEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *const core::ffi::c_void, dwsize: usize, flnewprotect: PAGE_PROTECTION_FLAGS, lpfloldprotect: *mut PAGE_PROTECTION_FLAGS) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn VirtualProtectEx(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, flnewprotect : PAGE_PROTECTION_FLAGS, lpfloldprotect : *mut PAGE_PROTECTION_FLAGS) -> windows_core::BOOL);
+    unsafe { VirtualProtectEx(hprocess, lpaddress, dwsize, flnewprotect, lpfloldprotect as _) }
 }
 #[inline]
-pub unsafe fn VirtualProtectFromApp(address: *mut core::ffi::c_void, size: usize, newprotection: u32, oldprotection: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn VirtualProtectFromApp(address : *mut core::ffi::c_void, size : usize, newprotection : u32, oldprotection : *mut u32) -> windows_core::BOOL);
-    unsafe { VirtualProtectFromApp(address as _, size, newprotection, oldprotection as _) }
+pub unsafe fn VirtualProtectFromApp(address: *const core::ffi::c_void, size: usize, newprotection: u32, oldprotection: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn VirtualProtectFromApp(address : *const core::ffi::c_void, size : usize, newprotection : u32, oldprotection : *mut u32) -> windows_core::BOOL);
+    unsafe { VirtualProtectFromApp(address, size, newprotection, oldprotection as _) }
 }
 #[inline]
-pub unsafe fn VirtualQuery(lpaddress: *mut core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
-    windows_core::link!("kernel32.dll" "system" fn VirtualQuery(lpaddress : *mut core::ffi::c_void, lpbuffer : *mut MEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
-    unsafe { VirtualQuery(lpaddress as _, lpbuffer as _, dwlength) }
+pub unsafe fn VirtualQuery(lpaddress: *const core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
+    windows_core::link!("kernel32.dll" "system" fn VirtualQuery(lpaddress : *const core::ffi::c_void, lpbuffer : *mut MEMORY_BASIC_INFORMATION, dwlength : usize) -> usize);
+    unsafe { VirtualQuery(lpaddress, lpbuffer as _, dwlength) }
 }
 #[inline]
 pub unsafe fn VirtualQueryEx(hprocess: super::super::Foundation::HANDLE, lpaddress: *const core::ffi::c_void, lpbuffer: *mut MEMORY_BASIC_INFORMATION, dwlength: usize) -> usize {
@@ -550,14 +550,14 @@ pub unsafe fn VirtualQueryEx(hprocess: super::super::Foundation::HANDLE, lpaddre
     unsafe { VirtualQueryEx(hprocess, lpaddress, lpbuffer as _, dwlength) }
 }
 #[inline]
-pub unsafe fn VirtualUnlock(lpaddress: *mut core::ffi::c_void, dwsize: usize) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn VirtualUnlock(lpaddress : *mut core::ffi::c_void, dwsize : usize) -> windows_core::BOOL);
-    unsafe { VirtualUnlock(lpaddress as _, dwsize) }
+pub unsafe fn VirtualUnlock(lpaddress: *const core::ffi::c_void, dwsize: usize) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn VirtualUnlock(lpaddress : *const core::ffi::c_void, dwsize : usize) -> windows_core::BOOL);
+    unsafe { VirtualUnlock(lpaddress, dwsize) }
 }
 #[inline]
-pub unsafe fn VirtualUnlockEx(process: super::super::Foundation::HANDLE, address: *mut core::ffi::c_void, size: usize) -> windows_core::BOOL {
-    windows_core::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn VirtualUnlockEx(process : super::super::Foundation:: HANDLE, address : *mut core::ffi::c_void, size : usize) -> windows_core::BOOL);
-    unsafe { VirtualUnlockEx(process, address as _, size) }
+pub unsafe fn VirtualUnlockEx(process: super::super::Foundation::HANDLE, address: *const core::ffi::c_void, size: usize) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-5.dll" "system" fn VirtualUnlockEx(process : super::super::Foundation:: HANDLE, address : *const core::ffi::c_void, size : usize) -> windows_core::BOOL);
+    unsafe { VirtualUnlockEx(process, address, size) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -1091,7 +1091,7 @@ impl Default for PROCESS_HEAP_ENTRY_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *mut core::ffi::c_void, range: usize) -> bool>;
+pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> bool>;
 pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = SETPROCESSWORKINGSETSIZEEX_FLAGS(8u32);
 pub const QUOTA_LIMITS_HARDWS_MAX_ENABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = SETPROCESSWORKINGSETSIZEEX_FLAGS(4u32);
 pub const QUOTA_LIMITS_HARDWS_MIN_DISABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = SETPROCESSWORKINGSETSIZEEX_FLAGS(2u32);

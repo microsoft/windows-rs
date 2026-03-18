@@ -33,13 +33,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn GetDeviceManagementConfigInfo<P0, P2>(providerid: P0, configstringbufferlength: *mut u32, configstring: P2) -> windows_core::Result<()>
+pub unsafe fn GetDeviceManagementConfigInfo<P0>(providerid: P0, configstringbufferlength: *mut u32, configstring: windows_core::PWSTR) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mdmregistration.dll" "system" fn GetDeviceManagementConfigInfo(providerid : windows_core::PCWSTR, configstringbufferlength : *mut u32, configstring : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { GetDeviceManagementConfigInfo(providerid.param().abi(), configstringbufferlength as _, configstring.param().abi()).ok() }
+    windows_core::link!("mdmregistration.dll" "system" fn GetDeviceManagementConfigInfo(providerid : windows_core::PCWSTR, configstringbufferlength : *mut u32, configstring : windows_core::PWSTR) -> windows_core::HRESULT);
+    unsafe { GetDeviceManagementConfigInfo(providerid.param().abi(), configstringbufferlength as _, core::mem::transmute(configstring)).ok() }
 }
 #[inline]
 pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -47,20 +46,14 @@ pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INF
     unsafe { GetDeviceRegistrationInfo(deviceinformationclass, ppdeviceregistrationinfo as _).ok() }
 }
 #[inline]
-pub unsafe fn GetManagementAppHyperlink<P1>(cchhyperlink: u32, pszhyperlink: P1) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { GetManagementAppHyperlink(cchhyperlink, pszhyperlink.param().abi()).ok() }
+pub unsafe fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: windows_core::PWSTR) -> windows_core::Result<()> {
+    windows_core::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : windows_core::PWSTR) -> windows_core::HRESULT);
+    unsafe { GetManagementAppHyperlink(cchhyperlink, core::mem::transmute(pszhyperlink)).ok() }
 }
 #[inline]
-pub unsafe fn IsDeviceRegisteredWithManagement<P2>(pfisdeviceregisteredwithmanagement: *mut windows_core::BOOL, cchupn: u32, pszupn: P2) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut windows_core::BOOL, cchupn : u32, pszupn : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement as _, cchupn, pszupn.param().abi()).ok() }
+pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut windows_core::BOOL, cchupn: u32, pszupn: windows_core::PWSTR) -> windows_core::Result<()> {
+    windows_core::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut windows_core::BOOL, cchupn : u32, pszupn : windows_core::PWSTR) -> windows_core::HRESULT);
+    unsafe { IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement as _, cchupn, core::mem::transmute(pszupn)).ok() }
 }
 #[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> windows_core::Result<windows_core::BOOL> {

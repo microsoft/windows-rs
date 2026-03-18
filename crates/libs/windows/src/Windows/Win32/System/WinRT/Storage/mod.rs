@@ -162,7 +162,7 @@ impl IOplockBreakingHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IOplockBreakingHandler {}
-windows_core::imp::define_interface!(IRandomAccessStreamFileAccessMode, IRandomAccessStreamFileAccessMode_Vtbl, 0xe3cbcf5f_f924_52cd_81a1_7577859b3faa);
+windows_core::imp::define_interface!(IRandomAccessStreamFileAccessMode, IRandomAccessStreamFileAccessMode_Vtbl, 0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, windows_core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> windows_core::Result<u32> {
@@ -202,7 +202,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRandomAccessStreamFileAccessMode {}
-windows_core::imp::define_interface!(IStorageFolderHandleAccess, IStorageFolderHandleAccess_Vtbl, 0xb25ffabc_860a_5975_a951_0f257a17ed0b);
+windows_core::imp::define_interface!(IStorageFolderHandleAccess, IStorageFolderHandleAccess_Vtbl, 0xdf19938f_5462_48a0_be65_d2a3271a08d6);
 windows_core::imp::interface_hierarchy!(IStorageFolderHandleAccess, windows_core::IUnknown);
 impl IStorageFolderHandleAccess {
     pub unsafe fn Create<P0, P5>(&self, filename: P0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P5) -> windows_core::Result<super::super::super::Foundation::HANDLE>
@@ -246,7 +246,7 @@ impl IStorageFolderHandleAccess_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IStorageFolderHandleAccess {}
-windows_core::imp::define_interface!(IStorageItemHandleAccess, IStorageItemHandleAccess_Vtbl, 0x17b49460_d6ca_580b_bca3_abf86f4e44ab);
+windows_core::imp::define_interface!(IStorageItemHandleAccess, IStorageItemHandleAccess_Vtbl, 0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
 windows_core::imp::interface_hierarchy!(IStorageItemHandleAccess, windows_core::IUnknown);
 impl IStorageItemHandleAccess {
     pub unsafe fn Create<P3>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P3) -> windows_core::Result<super::super::super::Foundation::HANDLE>
@@ -289,7 +289,7 @@ impl IStorageItemHandleAccess_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IStorageItemHandleAccess {}
-windows_core::imp::define_interface!(IUnbufferedFileHandleOplockCallback, IUnbufferedFileHandleOplockCallback_Vtbl, 0x7d873286_3d4f_5efe_a157_c3ac8f990779);
+windows_core::imp::define_interface!(IUnbufferedFileHandleOplockCallback, IUnbufferedFileHandleOplockCallback_Vtbl, 0xd1019a0e_6243_4329_8497_2e75894d7710);
 windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, windows_core::IUnknown);
 impl IUnbufferedFileHandleOplockCallback {
     pub unsafe fn OnBrokenCallback(&self) -> windows_core::Result<()> {
@@ -320,7 +320,7 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUnbufferedFileHandleOplockCallback {}
-windows_core::imp::define_interface!(IUnbufferedFileHandleProvider, IUnbufferedFileHandleProvider_Vtbl, 0xe932fea4_1bd7_55c4_ac23_2ab91a7766da);
+windows_core::imp::define_interface!(IUnbufferedFileHandleProvider, IUnbufferedFileHandleProvider_Vtbl, 0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
 windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleProvider, windows_core::IUnknown);
 impl IUnbufferedFileHandleProvider {
     pub unsafe fn OpenUnbufferedFileHandle<P0>(&self, oplockbreakcallback: P0) -> windows_core::Result<usize>

@@ -19,9 +19,9 @@ pub unsafe fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY
     unsafe { PssQuerySnapshot(snapshothandle, informationclass, buffer as _, bufferlength) }
 }
 #[inline]
-pub unsafe fn PssWalkMarkerCreate(allocator: *mut PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn PssWalkMarkerCreate(allocator : *mut PSS_ALLOCATOR, walkmarkerhandle : *mut HPSSWALK) -> u32);
-    unsafe { PssWalkMarkerCreate(allocator as _, walkmarkerhandle as _) }
+pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn PssWalkMarkerCreate(allocator : *const PSS_ALLOCATOR, walkmarkerhandle : *mut HPSSWALK) -> u32);
+    unsafe { PssWalkMarkerCreate(allocator, walkmarkerhandle as _) }
 }
 #[inline]
 pub unsafe fn PssWalkMarkerFree(walkmarkerhandle: HPSSWALK) -> u32 {

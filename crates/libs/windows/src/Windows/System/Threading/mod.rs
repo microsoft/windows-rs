@@ -1,6 +1,6 @@
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
-windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0x423422b6_2bef_5d09_ac49_c41676dd53ed);
+windows_core::imp::define_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 impl windows_core::RuntimeType for IThreadPoolStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -12,7 +12,7 @@ pub struct IThreadPoolStatics_Vtbl {
     pub RunWithPriorityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RunWithPriorityAndOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WorkItemPriority, WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0xb2f50b70_c752_5d43_b2bd_09668defc0bd);
+windows_core::imp::define_interface!(IThreadPoolTimer, IThreadPoolTimer_Vtbl, 0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
 impl windows_core::RuntimeType for IThreadPoolTimer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -24,7 +24,7 @@ pub struct IThreadPoolTimer_Vtbl {
     pub Delay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x6baf1004_f2d0_5647_afed_e60302bc6406);
+windows_core::imp::define_interface!(IThreadPoolTimerStatics, IThreadPoolTimerStatics_Vtbl, 0x1a8a9d02_e482_461b_b8c7_8efad1cce590);
 impl windows_core::RuntimeType for IThreadPoolTimerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -152,7 +152,7 @@ impl windows_core::RuntimeName for ThreadPoolTimer {
 }
 unsafe impl Send for ThreadPoolTimer {}
 unsafe impl Sync for ThreadPoolTimer {}
-windows_core::imp::define_interface!(TimerDestroyedHandler, TimerDestroyedHandler_Vtbl, 0x8e28b3c1_ec33_5a1c_bda6_646027c431c8);
+windows_core::imp::define_interface!(TimerDestroyedHandler, TimerDestroyedHandler_Vtbl, 0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 impl windows_core::RuntimeType for TimerDestroyedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -228,7 +228,7 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
         }
     }
 }
-windows_core::imp::define_interface!(TimerElapsedHandler, TimerElapsedHandler_Vtbl, 0x8d1896b5_db88_57b1_a207_a80996c18fcf);
+windows_core::imp::define_interface!(TimerElapsedHandler, TimerElapsedHandler_Vtbl, 0xfaaea667_fbeb_49cb_adb2_71184c556e43);
 impl windows_core::RuntimeType for TimerElapsedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -304,7 +304,7 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
         }
     }
 }
-windows_core::imp::define_interface!(WorkItemHandler, WorkItemHandler_Vtbl, 0x6c260668_a152_5d7f_9c01_ab762c61a4ec);
+windows_core::imp::define_interface!(WorkItemHandler, WorkItemHandler_Vtbl, 0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
 impl windows_core::RuntimeType for WorkItemHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -45,23 +45,29 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn HcsCreateComputeSystem<P0, P1>(id: P0, configuration: P1, operation: HCS_OPERATION, securitydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, computesystem: *mut HCS_SYSTEM) -> windows_core::Result<()>
+pub unsafe fn HcsCreateComputeSystem<P0, P1>(id: P0, configuration: P1, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> windows_core::Result<HCS_SYSTEM>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *mut super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
-    unsafe { HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation, securitydescriptor as _, computesystem as _).ok() }
+    windows_core::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation, securitydescriptor, &mut result__).map(|| result__)
+    }
 }
 #[inline]
-pub unsafe fn HcsCreateComputeSystemInNamespace<P0, P1, P2>(idnamespace: P0, id: P1, configuration: P2, operation: HCS_OPERATION, options: *mut HCS_CREATE_OPTIONS, computesystem: *mut HCS_SYSTEM) -> windows_core::Result<()>
+pub unsafe fn HcsCreateComputeSystemInNamespace<P0, P1, P2>(idnamespace: P0, id: P1, configuration: P2, operation: HCS_OPERATION, options: *const HCS_CREATE_OPTIONS) -> windows_core::Result<HCS_SYSTEM>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : windows_core::PCWSTR, id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, options : *mut HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
-    unsafe { HcsCreateComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), configuration.param().abi(), operation, options as _, computesystem as _).ok() }
+    windows_core::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : windows_core::PCWSTR, id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, options : *const HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        HcsCreateComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), configuration.param().abi(), operation, options, &mut result__).map(|| result__)
+    }
 }
 #[inline]
 pub unsafe fn HcsCreateEmptyGuestStateFile<P0>(gueststatefilepath: P0) -> windows_core::Result<()>
@@ -80,14 +86,14 @@ where
     unsafe { HcsCreateEmptyRuntimeStateFile(runtimestatefilepath.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn HcsCreateOperation(context: *mut core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
-    windows_core::link!("computecore.dll" "system" fn HcsCreateOperation(context : *mut core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
-    unsafe { HcsCreateOperation(context as _, callback) }
+pub unsafe fn HcsCreateOperation(context: *const core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
+    windows_core::link!("computecore.dll" "system" fn HcsCreateOperation(context : *const core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
+    unsafe { HcsCreateOperation(context, callback) }
 }
 #[inline]
-pub unsafe fn HcsCreateOperationWithNotifications(eventtypes: HCS_OPERATION_OPTIONS, context: *mut core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> HCS_OPERATION {
-    windows_core::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *mut core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
-    unsafe { HcsCreateOperationWithNotifications(eventtypes, context as _, callback) }
+pub unsafe fn HcsCreateOperationWithNotifications(eventtypes: HCS_OPERATION_OPTIONS, context: *const core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> HCS_OPERATION {
+    windows_core::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
+    unsafe { HcsCreateOperationWithNotifications(eventtypes, context, callback) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -398,9 +404,9 @@ where
     unsafe { HcsSaveComputeSystem(computesystem, operation, options.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *mut core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> windows_core::Result<()> {
-    windows_core::link!("computecore.dll" "system" fn HcsSetComputeSystemCallback(computesystem : HCS_SYSTEM, callbackoptions : HCS_EVENT_OPTIONS, context : *mut core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_core::HRESULT);
-    unsafe { HcsSetComputeSystemCallback(computesystem, callbackoptions, context as _, callback).ok() }
+pub unsafe fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> windows_core::Result<()> {
+    windows_core::link!("computecore.dll" "system" fn HcsSetComputeSystemCallback(computesystem : HCS_SYSTEM, callbackoptions : HCS_EVENT_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_core::HRESULT);
+    unsafe { HcsSetComputeSystemCallback(computesystem, callbackoptions, context, callback).ok() }
 }
 #[inline]
 pub unsafe fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> windows_core::Result<()> {
@@ -408,14 +414,14 @@ pub unsafe fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const 
     unsafe { HcsSetOperationCallback(operation, context, callback).ok() }
 }
 #[inline]
-pub unsafe fn HcsSetOperationContext(operation: HCS_OPERATION, context: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("computecore.dll" "system" fn HcsSetOperationContext(operation : HCS_OPERATION, context : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { HcsSetOperationContext(operation, context as _).ok() }
+pub unsafe fn HcsSetOperationContext(operation: HCS_OPERATION, context: *const core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("computecore.dll" "system" fn HcsSetOperationContext(operation : HCS_OPERATION, context : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { HcsSetOperationContext(operation, context).ok() }
 }
 #[inline]
-pub unsafe fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *mut core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> windows_core::Result<()> {
-    windows_core::link!("computecore.dll" "system" fn HcsSetProcessCallback(process : HCS_PROCESS, callbackoptions : HCS_EVENT_OPTIONS, context : *mut core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_core::HRESULT);
-    unsafe { HcsSetProcessCallback(process, callbackoptions, context as _, callback).ok() }
+pub unsafe fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> windows_core::Result<()> {
+    windows_core::link!("computecore.dll" "system" fn HcsSetProcessCallback(process : HCS_PROCESS, callbackoptions : HCS_EVENT_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_core::HRESULT);
+    unsafe { HcsSetProcessCallback(process, callbackoptions, context, callback).ok() }
 }
 #[inline]
 pub unsafe fn HcsSetupBaseOSLayer<P0, P2>(layerpath: P0, vhdhandle: super::super::Foundation::HANDLE, options: P2) -> windows_core::Result<()>
@@ -540,7 +546,7 @@ pub struct HCS_EVENT {
     pub EventData: windows_core::PCWSTR,
     pub Operation: HCS_OPERATION,
 }
-pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *mut HCS_EVENT, context: *mut core::ffi::c_void)>;
+pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_EVENT_OPTIONS(pub i32);
@@ -583,7 +589,7 @@ pub struct HCS_EVENT_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_NOTIFICATIONS(pub i32);
-pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *mut core::ffi::c_void, notificationstatus: windows_core::HRESULT, notificationdata: windows_core::PCWSTR)>;
+pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_core::HRESULT, notificationdata: windows_core::PCWSTR)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);

@@ -10,17 +10,17 @@ where
     }
 }
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorMakeCredential(hwnd: super::super::Foundation::HWND, prpinformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *mut WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *mut WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *mut WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation: *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::Result<()> {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::super::Foundation:: HWND, prpinformation : *mut WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *mut WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *mut WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *mut WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *mut WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::HRESULT);
-    unsafe { WebAuthNAuthenticatorMakeCredential(hwnd, prpinformation as _, puserinformation as _, ppubkeycredparams as _, pwebauthnclientdata as _, pwebauthnmakecredentialoptions as _, ppwebauthncredentialattestation as _).ok() }
-}
-#[inline]
-pub unsafe fn WebAuthNCancelCurrentOperation() -> windows_core::Result<windows_core::GUID> {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNCancelCurrentOperation(pcancellationid : *mut windows_core::GUID) -> windows_core::HRESULT);
+pub unsafe fn WebAuthNAuthenticatorMakeCredential(hwnd: super::super::Foundation::HWND, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS) -> windows_core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION> {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::super::Foundation:: HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WebAuthNCancelCurrentOperation(&mut result__).map(|| result__)
+        WebAuthNAuthenticatorMakeCredential(hwnd, prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, pwebauthnmakecredentialoptions, &mut result__).map(|| result__)
     }
+}
+#[inline]
+pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const windows_core::GUID) -> windows_core::Result<()> {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNCancelCurrentOperation(pcancellationid : *const windows_core::GUID) -> windows_core::HRESULT);
+    unsafe { WebAuthNCancelCurrentOperation(pcancellationid).ok() }
 }
 #[inline]
 pub unsafe fn WebAuthNDeletePlatformCredential(cbcredentialid: u32, pbcredentialid: *const u8) -> windows_core::Result<()> {
@@ -28,23 +28,19 @@ pub unsafe fn WebAuthNDeletePlatformCredential(cbcredentialid: u32, pbcredential
     unsafe { WebAuthNDeletePlatformCredential(cbcredentialid, pbcredentialid).ok() }
 }
 #[inline]
-pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *mut WEBAUTHN_ASSERTION) {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : *mut WEBAUTHN_ASSERTION));
-    unsafe { WebAuthNFreeAssertion(pwebauthnassertion as _) }
+pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : *const WEBAUTHN_ASSERTION));
+    unsafe { WebAuthNFreeAssertion(pwebauthnassertion) }
 }
 #[inline]
-pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: *mut WEBAUTHN_CREDENTIAL_ATTESTATION) {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : *mut WEBAUTHN_CREDENTIAL_ATTESTATION));
-    unsafe { WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation as _) }
+pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: *const WEBAUTHN_CREDENTIAL_ATTESTATION) {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : *const WEBAUTHN_CREDENTIAL_ATTESTATION));
+    unsafe { WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation) }
 }
 #[inline]
-pub unsafe fn WebAuthNFreePlatformCredentialList() -> WEBAUTHN_CREDENTIAL_DETAILS_LIST {
-    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : *mut WEBAUTHN_CREDENTIAL_DETAILS_LIST));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WebAuthNFreePlatformCredentialList(&mut result__);
-        result__
-    }
+pub unsafe fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist: *const WEBAUTHN_CREDENTIAL_DETAILS_LIST) {
+    windows_core::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : *const WEBAUTHN_CREDENTIAL_DETAILS_LIST));
+    unsafe { WebAuthNFreePlatformCredentialList(pcredentialdetailslist) }
 }
 #[inline]
 pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
@@ -86,19 +82,19 @@ pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> windows
     }
 }
 #[inline]
-pub unsafe fn WsAbandonCall(serviceproxy: *mut WS_SERVICE_PROXY, callid: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAbandonCall(serviceproxy : *mut WS_SERVICE_PROXY, callid : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAbandonCall(serviceproxy as _, callid, error as _).ok() }
+pub unsafe fn WsAbandonCall(serviceproxy: *const WS_SERVICE_PROXY, callid: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAbandonCall(serviceproxy : *const WS_SERVICE_PROXY, callid : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAbandonCall(serviceproxy, callid, error).ok() }
 }
 #[inline]
-pub unsafe fn WsAbandonMessage(channel: *mut WS_CHANNEL, message: *mut WS_MESSAGE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAbandonMessage(channel : *mut WS_CHANNEL, message : *mut WS_MESSAGE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAbandonMessage(channel as _, message as _, error as _).ok() }
+pub unsafe fn WsAbandonMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAbandonMessage(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAbandonMessage(channel, message, error).ok() }
 }
 #[inline]
-pub unsafe fn WsAbortChannel(channel: *mut WS_CHANNEL, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAbortChannel(channel : *mut WS_CHANNEL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAbortChannel(channel as _, error as _).ok() }
+pub unsafe fn WsAbortChannel(channel: *const WS_CHANNEL, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAbortChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAbortChannel(channel, error).ok() }
 }
 #[inline]
 pub unsafe fn WsAbortListener(listener: *const WS_LISTENER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -106,9 +102,9 @@ pub unsafe fn WsAbortListener(listener: *const WS_LISTENER, error: *const WS_ERR
     unsafe { WsAbortListener(listener, error).ok() }
 }
 #[inline]
-pub unsafe fn WsAbortServiceHost(servicehost: *mut WS_SERVICE_HOST, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAbortServiceHost(servicehost : *mut WS_SERVICE_HOST, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAbortServiceHost(servicehost as _, error as _).ok() }
+pub unsafe fn WsAbortServiceHost(servicehost: *const WS_SERVICE_HOST, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAbortServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAbortServiceHost(servicehost, error).ok() }
 }
 #[inline]
 pub unsafe fn WsAbortServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -116,14 +112,14 @@ pub unsafe fn WsAbortServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: 
     unsafe { WsAbortServiceProxy(serviceproxy, error).ok() }
 }
 #[inline]
-pub unsafe fn WsAcceptChannel(listener: *mut WS_LISTENER, channel: *mut WS_CHANNEL, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAcceptChannel(listener : *mut WS_LISTENER, channel : *mut WS_CHANNEL, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAcceptChannel(listener as _, channel as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsAcceptChannel(listener: *const WS_LISTENER, channel: *const WS_CHANNEL, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAcceptChannel(listener : *const WS_LISTENER, channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAcceptChannel(listener, channel, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsAddCustomHeader(message: *mut WS_MESSAGE, headerdescription: *mut WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *mut core::ffi::c_void, valuesize: u32, headerattributes: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAddCustomHeader(message : *mut WS_MESSAGE, headerdescription : *mut WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *mut core::ffi::c_void, valuesize : u32, headerattributes : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAddCustomHeader(message as _, headerdescription as _, writeoption, value as _, valuesize, headerattributes, error as _).ok() }
+pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, headerattributes: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAddCustomHeader(message : *const WS_MESSAGE, headerdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, headerattributes : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAddCustomHeader(message, headerdescription, writeoption, value, valuesize, headerattributes, error).ok() }
 }
 #[inline]
 pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING) -> windows_core::Result<()> {
@@ -131,9 +127,9 @@ pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING)
     unsafe { WsAddErrorString(error, string).ok() }
 }
 #[inline]
-pub unsafe fn WsAddMappedHeader(message: *mut WS_MESSAGE, headername: *mut WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAddMappedHeader(message : *mut WS_MESSAGE, headername : *mut WS_XML_STRING, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAddMappedHeader(message as _, headername as _, valuetype, writeoption, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAddMappedHeader(message : *const WS_MESSAGE, headername : *const WS_XML_STRING, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAddMappedHeader(message, headername, valuetype, writeoption, value, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsAddressMessage(message: *const WS_MESSAGE, address: *const WS_ENDPOINT_ADDRESS, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -141,9 +137,9 @@ pub unsafe fn WsAddressMessage(message: *const WS_MESSAGE, address: *const WS_EN
     unsafe { WsAddressMessage(message, address, error).ok() }
 }
 #[inline]
-pub unsafe fn WsAlloc(heap: *mut WS_HEAP, size: usize, ptr: *mut *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsAlloc(heap : *mut WS_HEAP, size : usize, ptr : *mut *mut core::ffi::c_void, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsAlloc(heap as _, size, ptr as _, error as _).ok() }
+pub unsafe fn WsAlloc(heap: *const WS_HEAP, size: usize, ptr: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsAlloc(heap : *const WS_HEAP, size : usize, ptr : *mut *mut core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsAlloc(heap, size, ptr as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -151,34 +147,34 @@ pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_AS
     unsafe { WsAsyncExecute(asyncstate, operation, callbackmodel, callbackstate, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCall(serviceproxy: *mut WS_SERVICE_PROXY, operation: *mut WS_OPERATION_DESCRIPTION, arguments: *mut *mut core::ffi::c_void, heap: *mut WS_HEAP, callproperties: *mut WS_CALL_PROPERTY, callpropertycount: u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCall(serviceproxy : *mut WS_SERVICE_PROXY, operation : *mut WS_OPERATION_DESCRIPTION, arguments : *mut *mut core::ffi::c_void, heap : *mut WS_HEAP, callproperties : *mut WS_CALL_PROPERTY, callpropertycount : u32, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCall(serviceproxy as _, operation as _, arguments as _, heap as _, callproperties as _, callpropertycount, asynccontext as _, error as _).ok() }
+pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: *const *const core::ffi::c_void, heap: *const WS_HEAP, callproperties: *const WS_CALL_PROPERTY, callpropertycount: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCall(serviceproxy : *const WS_SERVICE_PROXY, operation : *const WS_OPERATION_DESCRIPTION, arguments : *const *const core::ffi::c_void, heap : *const WS_HEAP, callproperties : *const WS_CALL_PROPERTY, callpropertycount : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCall(serviceproxy, operation, arguments, heap, callproperties, callpropertycount, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCheckMustUnderstandHeaders(message: *mut WS_MESSAGE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCheckMustUnderstandHeaders(message : *mut WS_MESSAGE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCheckMustUnderstandHeaders(message as _, error as _).ok() }
+pub unsafe fn WsCheckMustUnderstandHeaders(message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCheckMustUnderstandHeaders(message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCheckMustUnderstandHeaders(message, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCloseChannel(channel: *mut WS_CHANNEL, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCloseChannel(channel : *mut WS_CHANNEL, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCloseChannel(channel as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsCloseChannel(channel: *const WS_CHANNEL, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCloseChannel(channel : *const WS_CHANNEL, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCloseChannel(channel, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCloseListener(listener: *mut WS_LISTENER, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCloseListener(listener : *mut WS_LISTENER, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCloseListener(listener as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsCloseListener(listener: *const WS_LISTENER, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCloseListener(listener : *const WS_LISTENER, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCloseListener(listener, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCloseServiceHost(servicehost: *mut WS_SERVICE_HOST, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCloseServiceHost(servicehost : *mut WS_SERVICE_HOST, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCloseServiceHost(servicehost as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsCloseServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCloseServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCloseServiceHost(servicehost, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCloseServiceProxy(serviceproxy: *mut WS_SERVICE_PROXY, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCloseServiceProxy(serviceproxy : *mut WS_SERVICE_PROXY, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCloseServiceProxy(serviceproxy as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsCloseServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCloseServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCloseServiceProxy(serviceproxy, asynccontext, error).ok() }
 }
 #[inline]
 pub unsafe fn WsCombineUrl(baseurl: *const WS_STRING, referenceurl: *const WS_STRING, flags: u32, heap: *const WS_HEAP, resulturl: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -186,9 +182,9 @@ pub unsafe fn WsCombineUrl(baseurl: *const WS_STRING, referenceurl: *const WS_ST
     unsafe { WsCombineUrl(baseurl, referenceurl, flags, heap, resulturl as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCopyError(source: *mut WS_ERROR, destination: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCopyError(source : *mut WS_ERROR, destination : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCopyError(source as _, destination as _).ok() }
+pub unsafe fn WsCopyError(source: *const WS_ERROR, destination: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCopyError(source : *const WS_ERROR, destination : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCopyError(source, destination).ok() }
 }
 #[inline]
 pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_READER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -196,9 +192,9 @@ pub unsafe fn WsCopyNode(writer: *const WS_XML_WRITER, reader: *const WS_XML_REA
     unsafe { WsCopyNode(writer, reader, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *mut WS_CHANNEL_PROPERTY, propertycount: u32, securitydescription: *mut WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateChannel(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *mut WS_CHANNEL_PROPERTY, propertycount : u32, securitydescription : *mut WS_SECURITY_DESCRIPTION, channel : *mut *mut WS_CHANNEL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateChannel(channeltype, channelbinding, properties as _, propertycount, securitydescription as _, channel as _, error as _).ok() }
+pub unsafe fn WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *const WS_CHANNEL_PROPERTY, propertycount: u32, securitydescription: *const WS_SECURITY_DESCRIPTION, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateChannel(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_CHANNEL_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, channel : *mut *mut WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateChannel(channeltype, channelbinding, properties, propertycount, securitydescription, channel as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, properties: *const WS_CHANNEL_PROPERTY, propertycount: u32, channel: *mut *mut WS_CHANNEL, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -206,29 +202,32 @@ pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, propertie
     unsafe { WsCreateChannelForListener(listener, properties, propertycount, channel as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateError(properties: *mut WS_ERROR_PROPERTY, propertycount: u32, error: *mut *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateError(properties : *mut WS_ERROR_PROPERTY, propertycount : u32, error : *mut *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateError(properties as _, propertycount, error as _).ok() }
+pub unsafe fn WsCreateError(properties: *const WS_ERROR_PROPERTY, propertycount: u32) -> windows_core::Result<*mut WS_ERROR> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : u32, error : *mut *mut WS_ERROR) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        WsCreateError(properties, propertycount, &mut result__).map(|| result__)
+    }
 }
 #[inline]
-pub unsafe fn WsCreateFaultFromError(error: *mut WS_ERROR, faulterrorcode: windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *mut WS_HEAP, fault: *mut WS_FAULT) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateFaultFromError(error : *mut WS_ERROR, faulterrorcode : windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, heap : *mut WS_HEAP, fault : *mut WS_FAULT) -> windows_core::HRESULT);
-    unsafe { WsCreateFaultFromError(error as _, faulterrorcode, faultdisclosure, heap as _, fault as _).ok() }
+pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP, fault: *mut WS_FAULT) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateFaultFromError(error : *const WS_ERROR, faulterrorcode : windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, heap : *const WS_HEAP, fault : *mut WS_FAULT) -> windows_core::HRESULT);
+    unsafe { WsCreateFaultFromError(error, faulterrorcode, faultdisclosure, heap, fault as _).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: *mut WS_HEAP_PROPERTY, propertycount: u32, heap: *mut *mut WS_HEAP, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateHeap(maxsize : usize, trimsize : usize, properties : *mut WS_HEAP_PROPERTY, propertycount : u32, heap : *mut *mut WS_HEAP, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateHeap(maxsize, trimsize, properties as _, propertycount, heap as _, error as _).ok() }
+pub unsafe fn WsCreateHeap(maxsize: usize, trimsize: usize, properties: *const WS_HEAP_PROPERTY, propertycount: u32, heap: *mut *mut WS_HEAP, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateHeap(maxsize : usize, trimsize : usize, properties : *const WS_HEAP_PROPERTY, propertycount : u32, heap : *mut *mut WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateHeap(maxsize, trimsize, properties, propertycount, heap as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *mut WS_LISTENER_PROPERTY, propertycount: u32, securitydescription: *mut WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateListener(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *mut WS_LISTENER_PROPERTY, propertycount : u32, securitydescription : *mut WS_SECURITY_DESCRIPTION, listener : *mut *mut WS_LISTENER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateListener(channeltype, channelbinding, properties as _, propertycount, securitydescription as _, listener as _, error as _).ok() }
+pub unsafe fn WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: *const WS_LISTENER_PROPERTY, propertycount: u32, securitydescription: *const WS_SECURITY_DESCRIPTION, listener: *mut *mut WS_LISTENER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateListener(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, properties : *const WS_LISTENER_PROPERTY, propertycount : u32, securitydescription : *const WS_SECURITY_DESCRIPTION, listener : *mut *mut WS_LISTENER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateListener(channeltype, channelbinding, properties, propertycount, securitydescription, listener as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: *mut WS_MESSAGE_PROPERTY, propertycount: u32, message: *mut *mut WS_MESSAGE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateMessage(envelopeversion : WS_ENVELOPE_VERSION, addressingversion : WS_ADDRESSING_VERSION, properties : *mut WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateMessage(envelopeversion, addressingversion, properties as _, propertycount, message as _, error as _).ok() }
+pub unsafe fn WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: *const WS_MESSAGE_PROPERTY, propertycount: u32, message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateMessage(envelopeversion : WS_ENVELOPE_VERSION, addressingversion : WS_ADDRESSING_VERSION, properties : *const WS_MESSAGE_PROPERTY, propertycount : u32, message : *mut *mut WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateMessage(envelopeversion, addressingversion, properties, propertycount, message as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: *const WS_MESSAGE_PROPERTY, propertycount: u32, message: *mut *mut WS_MESSAGE, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -236,14 +235,14 @@ pub unsafe fn WsCreateMessageForChannel(channel: *const WS_CHANNEL, properties: 
     unsafe { WsCreateMessageForChannel(channel, properties, propertycount, message as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateMetadata(properties: *mut WS_METADATA_PROPERTY, propertycount: u32, metadata: *mut *mut WS_METADATA, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateMetadata(properties : *mut WS_METADATA_PROPERTY, propertycount : u32, metadata : *mut *mut WS_METADATA, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateMetadata(properties as _, propertycount, metadata as _, error as _).ok() }
+pub unsafe fn WsCreateMetadata(properties: *const WS_METADATA_PROPERTY, propertycount: u32, metadata: *mut *mut WS_METADATA, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateMetadata(properties : *const WS_METADATA_PROPERTY, propertycount : u32, metadata : *mut *mut WS_METADATA, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateMetadata(properties, propertycount, metadata as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateReader(properties: *mut WS_XML_READER_PROPERTY, propertycount: u32, reader: *mut *mut WS_XML_READER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateReader(properties : *mut WS_XML_READER_PROPERTY, propertycount : u32, reader : *mut *mut WS_XML_READER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateReader(properties as _, propertycount, reader as _, error as _).ok() }
+pub unsafe fn WsCreateReader(properties: *const WS_XML_READER_PROPERTY, propertycount: u32, reader: *mut *mut WS_XML_READER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateReader(properties : *const WS_XML_READER_PROPERTY, propertycount : u32, reader : *mut *mut WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateReader(properties, propertycount, reader as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount: u32, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const core::ffi::c_void, templatesize: u32, templatedescription: *const core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -256,9 +255,9 @@ pub unsafe fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, 
     unsafe { WsCreateServiceHost(endpoints, endpointcount, serviceproperties, servicepropertycount, servicehost as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *mut WS_SECURITY_DESCRIPTION, properties: *mut WS_PROXY_PROPERTY, propertycount: u32, channelproperties: *mut WS_CHANNEL_PROPERTY, channelpropertycount: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateServiceProxy(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, securitydescription : *mut WS_SECURITY_DESCRIPTION, properties : *mut WS_PROXY_PROPERTY, propertycount : u32, channelproperties : *mut WS_CHANNEL_PROPERTY, channelpropertycount : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateServiceProxy(channeltype, channelbinding, securitydescription as _, properties as _, propertycount, channelproperties as _, channelpropertycount, serviceproxy as _, error as _).ok() }
+pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: *const WS_PROXY_PROPERTY, propertycount: u32, channelproperties: *const WS_CHANNEL_PROPERTY, channelpropertycount: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateServiceProxy(channeltype : WS_CHANNEL_TYPE, channelbinding : WS_CHANNEL_BINDING, securitydescription : *const WS_SECURITY_DESCRIPTION, properties : *const WS_PROXY_PROPERTY, propertycount : u32, channelproperties : *const WS_CHANNEL_PROPERTY, channelpropertycount : u32, serviceproxy : *mut *mut WS_SERVICE_PROXY, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateServiceProxy(channeltype, channelbinding, securitydescription, properties, propertycount, channelproperties, channelpropertycount, serviceproxy as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_PROXY_PROPERTY, propertycount: u32, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const core::ffi::c_void, templatesize: u32, templatedescription: *const core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -271,24 +270,24 @@ pub unsafe fn WsCreateWriter(properties: *const WS_XML_WRITER_PROPERTY, property
     unsafe { WsCreateWriter(properties, propertycount, writer as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateXmlBuffer(heap: *mut WS_HEAP, properties: *mut WS_XML_BUFFER_PROPERTY, propertycount: u32, buffer: *mut *mut WS_XML_BUFFER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateXmlBuffer(heap : *mut WS_HEAP, properties : *mut WS_XML_BUFFER_PROPERTY, propertycount : u32, buffer : *mut *mut WS_XML_BUFFER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateXmlBuffer(heap as _, properties as _, propertycount, buffer as _, error as _).ok() }
+pub unsafe fn WsCreateXmlBuffer(heap: *const WS_HEAP, properties: *const WS_XML_BUFFER_PROPERTY, propertycount: u32, buffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateXmlBuffer(heap : *const WS_HEAP, properties : *const WS_XML_BUFFER_PROPERTY, propertycount : u32, buffer : *mut *mut WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateXmlBuffer(heap, properties, propertycount, buffer as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsCreateXmlSecurityToken(tokenxml: *mut WS_XML_BUFFER, tokenkey: *mut WS_SECURITY_KEY_HANDLE, properties: *mut WS_XML_SECURITY_TOKEN_PROPERTY, propertycount: u32, token: *mut *mut WS_SECURITY_TOKEN, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *mut WS_XML_BUFFER, tokenkey : *mut WS_SECURITY_KEY_HANDLE, properties : *mut WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsCreateXmlSecurityToken(tokenxml as _, tokenkey as _, properties as _, propertycount, token as _, error as _).ok() }
+pub unsafe fn WsCreateXmlSecurityToken(tokenxml: *const WS_XML_BUFFER, tokenkey: *const WS_SECURITY_KEY_HANDLE, properties: *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount: u32, token: *mut *mut WS_SECURITY_TOKEN, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsCreateXmlSecurityToken(tokenxml : *const WS_XML_BUFFER, tokenkey : *const WS_SECURITY_KEY_HANDLE, properties : *const WS_XML_SECURITY_TOKEN_PROPERTY, propertycount : u32, token : *mut *mut WS_SECURITY_TOKEN, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsCreateXmlSecurityToken(tokenxml, tokenkey, properties, propertycount, token as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsDateTimeToFileTime(datetime: *mut WS_DATETIME, filetime: *mut super::super::Foundation::FILETIME, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *mut WS_DATETIME, filetime : *mut super::super::Foundation:: FILETIME, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsDateTimeToFileTime(datetime as _, filetime as _, error as _).ok() }
+pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut super::super::Foundation::FILETIME, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *const WS_DATETIME, filetime : *mut super::super::Foundation:: FILETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsDateTimeToFileTime(datetime, filetime as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsDecodeUrl(url: *mut WS_STRING, flags: u32, heap: *mut WS_HEAP, outurl: *mut *mut WS_URL, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsDecodeUrl(url : *mut WS_STRING, flags : u32, heap : *mut WS_HEAP, outurl : *mut *mut WS_URL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsDecodeUrl(url as _, flags, heap as _, outurl as _, error as _).ok() }
+pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEAP, outurl: *mut *mut WS_URL, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsDecodeUrl(url : *const WS_STRING, flags : u32, heap : *const WS_HEAP, outurl : *mut *mut WS_URL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsDecodeUrl(url, flags, heap, outurl as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsEncodeUrl(url: *const WS_URL, flags: u32, heap: *const WS_HEAP, outurl: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -296,34 +295,34 @@ pub unsafe fn WsEncodeUrl(url: *const WS_URL, flags: u32, heap: *const WS_HEAP, 
     unsafe { WsEncodeUrl(url, flags, heap, outurl as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsEndReaderCanonicalization(reader: *mut WS_XML_READER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsEndReaderCanonicalization(reader : *mut WS_XML_READER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsEndReaderCanonicalization(reader as _, error as _).ok() }
+pub unsafe fn WsEndReaderCanonicalization(reader: *const WS_XML_READER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsEndReaderCanonicalization(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsEndReaderCanonicalization(reader, error).ok() }
 }
 #[inline]
-pub unsafe fn WsEndWriterCanonicalization(writer: *mut WS_XML_WRITER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsEndWriterCanonicalization(writer : *mut WS_XML_WRITER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsEndWriterCanonicalization(writer as _, error as _).ok() }
+pub unsafe fn WsEndWriterCanonicalization(writer: *const WS_XML_WRITER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsEndWriterCanonicalization(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsEndWriterCanonicalization(writer, error).ok() }
 }
 #[inline]
-pub unsafe fn WsFileTimeToDateTime(filetime: *mut super::super::Foundation::FILETIME, datetime: *mut WS_DATETIME, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *mut super::super::Foundation:: FILETIME, datetime : *mut WS_DATETIME, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsFileTimeToDateTime(filetime as _, datetime as _, error as _).ok() }
+pub unsafe fn WsFileTimeToDateTime(filetime: *const super::super::Foundation::FILETIME, datetime: *mut WS_DATETIME, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *const super::super::Foundation:: FILETIME, datetime : *mut WS_DATETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsFileTimeToDateTime(filetime, datetime as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsFillBody(message: *mut WS_MESSAGE, minsize: u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsFillBody(message : *mut WS_MESSAGE, minsize : u32, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsFillBody(message as _, minsize, asynccontext as _, error as _).ok() }
+pub unsafe fn WsFillBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsFillBody(message : *const WS_MESSAGE, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsFillBody(message, minsize, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsFillReader(reader: *mut WS_XML_READER, minsize: u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsFillReader(reader : *mut WS_XML_READER, minsize : u32, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsFillReader(reader as _, minsize, asynccontext as _, error as _).ok() }
+pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsFillReader(reader : *const WS_XML_READER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsFillReader(reader, minsize, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsFindAttribute(reader: *mut WS_XML_READER, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, required: bool, attributeindex: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsFindAttribute(reader : *mut WS_XML_READER, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, required : windows_core::BOOL, attributeindex : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsFindAttribute(reader as _, localname as _, ns as _, required.into(), attributeindex as _, error as _).ok() }
+pub unsafe fn WsFindAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: bool, attributeindex: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsFindAttribute(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, required : windows_core::BOOL, attributeindex : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsFindAttribute(reader, localname, ns, required.into(), attributeindex as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsFlushBody(message: *const WS_MESSAGE, minsize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -331,9 +330,9 @@ pub unsafe fn WsFlushBody(message: *const WS_MESSAGE, minsize: u32, asynccontext
     unsafe { WsFlushBody(message, minsize, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsFlushWriter(writer: *mut WS_XML_WRITER, minsize: u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsFlushWriter(writer : *mut WS_XML_WRITER, minsize : u32, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsFlushWriter(writer as _, minsize, asynccontext as _, error as _).ok() }
+pub unsafe fn WsFlushWriter(writer: *const WS_XML_WRITER, minsize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsFlushWriter(writer : *const WS_XML_WRITER, minsize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsFlushWriter(writer, minsize, asynccontext, error).ok() }
 }
 #[inline]
 pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
@@ -341,40 +340,24 @@ pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
     unsafe { WsFreeChannel(channel) }
 }
 #[inline]
-pub unsafe fn WsFreeError() -> WS_ERROR {
-    windows_core::link!("webservices.dll" "system" fn WsFreeError(error : *mut WS_ERROR));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeError(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeError(error: *const WS_ERROR) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeError(error : *const WS_ERROR));
+    unsafe { WsFreeError(error) }
 }
 #[inline]
-pub unsafe fn WsFreeHeap() -> WS_HEAP {
-    windows_core::link!("webservices.dll" "system" fn WsFreeHeap(heap : *mut WS_HEAP));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeHeap(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeHeap(heap: *const WS_HEAP) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeHeap(heap : *const WS_HEAP));
+    unsafe { WsFreeHeap(heap) }
 }
 #[inline]
-pub unsafe fn WsFreeListener() -> WS_LISTENER {
-    windows_core::link!("webservices.dll" "system" fn WsFreeListener(listener : *mut WS_LISTENER));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeListener(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeListener(listener: *const WS_LISTENER) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeListener(listener : *const WS_LISTENER));
+    unsafe { WsFreeListener(listener) }
 }
 #[inline]
-pub unsafe fn WsFreeMessage() -> WS_MESSAGE {
-    windows_core::link!("webservices.dll" "system" fn WsFreeMessage(message : *mut WS_MESSAGE));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeMessage(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeMessage(message: *const WS_MESSAGE) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeMessage(message : *const WS_MESSAGE));
+    unsafe { WsFreeMessage(message) }
 }
 #[inline]
 pub unsafe fn WsFreeMetadata(metadata: *const WS_METADATA) {
@@ -387,45 +370,29 @@ pub unsafe fn WsFreeReader(reader: *const WS_XML_READER) {
     unsafe { WsFreeReader(reader) }
 }
 #[inline]
-pub unsafe fn WsFreeSecurityToken() -> WS_SECURITY_TOKEN {
-    windows_core::link!("webservices.dll" "system" fn WsFreeSecurityToken(token : *mut WS_SECURITY_TOKEN));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeSecurityToken(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeSecurityToken(token : *const WS_SECURITY_TOKEN));
+    unsafe { WsFreeSecurityToken(token) }
 }
 #[inline]
-pub unsafe fn WsFreeServiceHost() -> WS_SERVICE_HOST {
-    windows_core::link!("webservices.dll" "system" fn WsFreeServiceHost(servicehost : *mut WS_SERVICE_HOST));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeServiceHost(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeServiceHost(servicehost : *const WS_SERVICE_HOST));
+    unsafe { WsFreeServiceHost(servicehost) }
 }
 #[inline]
-pub unsafe fn WsFreeServiceProxy() -> WS_SERVICE_PROXY {
-    windows_core::link!("webservices.dll" "system" fn WsFreeServiceProxy(serviceproxy : *mut WS_SERVICE_PROXY));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeServiceProxy(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeServiceProxy(serviceproxy : *const WS_SERVICE_PROXY));
+    unsafe { WsFreeServiceProxy(serviceproxy) }
 }
 #[inline]
-pub unsafe fn WsFreeWriter() -> WS_XML_WRITER {
-    windows_core::link!("webservices.dll" "system" fn WsFreeWriter(writer : *mut WS_XML_WRITER));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsFreeWriter(&mut result__);
-        result__
-    }
+pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
+    windows_core::link!("webservices.dll" "system" fn WsFreeWriter(writer : *const WS_XML_WRITER));
+    unsafe { WsFreeWriter(writer) }
 }
 #[inline]
-pub unsafe fn WsGetChannelProperty(channel: *mut WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetChannelProperty(channel : *mut WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetChannelProperty(channel as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetChannelProperty(channel, id, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, headerattributes: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -433,14 +400,14 @@ pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescript
     unsafe { WsGetCustomHeader(message, customheaderdescription, repeatingoption, headerindex, readoption, heap, value as _, valuesize, headerattributes as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetDictionary(encoding : WS_ENCODING, dictionary : *mut *mut WS_XML_DICTIONARY, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetDictionary(encoding, dictionary as _, error as _).ok() }
+pub unsafe fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetDictionary(encoding : WS_ENCODING, dictionary : *mut *mut WS_XML_DICTIONARY, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetDictionary(encoding, dictionary as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetErrorProperty(error: *mut WS_ERROR, id: WS_ERROR_PROPERTY_ID, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetErrorProperty(error : *mut WS_ERROR, id : WS_ERROR_PROPERTY_ID, buffer : *mut core::ffi::c_void, buffersize : u32) -> windows_core::HRESULT);
-    unsafe { WsGetErrorProperty(error as _, id, buffer as _, buffersize).ok() }
+pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetErrorProperty(error : *const WS_ERROR, id : WS_ERROR_PROPERTY_ID, buffer : *mut core::ffi::c_void, buffersize : u32) -> windows_core::HRESULT);
+    unsafe { WsGetErrorProperty(error, id, buffer as _, buffersize).ok() }
 }
 #[inline]
 pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> windows_core::Result<WS_STRING> {
@@ -451,9 +418,9 @@ pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> windows_co
     }
 }
 #[inline]
-pub unsafe fn WsGetFaultErrorDetail(error: *mut WS_ERROR, faultdetaildescription: *mut WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetFaultErrorDetail(error : *mut WS_ERROR, faultdetaildescription : *mut WS_FAULT_DETAIL_DESCRIPTION, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
-    unsafe { WsGetFaultErrorDetail(error as _, faultdetaildescription as _, readoption, heap as _, value as _, valuesize).ok() }
+pub unsafe fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
+    unsafe { WsGetFaultErrorDetail(error, faultdetaildescription, readoption, heap, value as _, valuesize).ok() }
 }
 #[inline]
 pub unsafe fn WsGetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()> {
@@ -461,19 +428,19 @@ pub unsafe fn WsGetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR
     unsafe { WsGetFaultErrorProperty(error, id, buffer as _, buffersize).ok() }
 }
 #[inline]
-pub unsafe fn WsGetHeader(message: *mut WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetHeader(message : *mut WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetHeader(message as _, headertype, valuetype, readoption, heap as _, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetHeader(message, headertype, valuetype, readoption, heap, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetHeaderAttributes(message: *mut WS_MESSAGE, reader: *mut WS_XML_READER, headerattributes: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetHeaderAttributes(message : *mut WS_MESSAGE, reader : *mut WS_XML_READER, headerattributes : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetHeaderAttributes(message as _, reader as _, headerattributes as _, error as _).ok() }
+pub unsafe fn WsGetHeaderAttributes(message: *const WS_MESSAGE, reader: *const WS_XML_READER, headerattributes: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetHeaderAttributes(message : *const WS_MESSAGE, reader : *const WS_XML_READER, headerattributes : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetHeaderAttributes(message, reader, headerattributes as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetHeapProperty(heap: *mut WS_HEAP, id: WS_HEAP_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetHeapProperty(heap : *mut WS_HEAP, id : WS_HEAP_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetHeapProperty(heap as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetHeapProperty(heap: *const WS_HEAP, id: WS_HEAP_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetHeapProperty(heap : *const WS_HEAP, id : WS_HEAP_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetHeapProperty(heap, id, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsGetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -486,24 +453,24 @@ pub unsafe fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const W
     unsafe { WsGetMappedHeader(message, headername, repeatingoption, headerindex, valuetype, readoption, heap, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetMessageProperty(message: *mut WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetMessageProperty(message : *mut WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetMessageProperty(message as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetMessageProperty(message, id, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetMetadataEndpoints(metadata: *mut WS_METADATA, endpoints: *mut WS_METADATA_ENDPOINTS, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetMetadataEndpoints(metadata : *mut WS_METADATA, endpoints : *mut WS_METADATA_ENDPOINTS, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetMetadataEndpoints(metadata as _, endpoints as _, error as _).ok() }
+pub unsafe fn WsGetMetadataEndpoints(metadata: *const WS_METADATA, endpoints: *mut WS_METADATA_ENDPOINTS, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetMetadataEndpoints(metadata : *const WS_METADATA, endpoints : *mut WS_METADATA_ENDPOINTS, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetMetadataEndpoints(metadata, endpoints as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetMetadataProperty(metadata: *mut WS_METADATA, id: WS_METADATA_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetMetadataProperty(metadata : *mut WS_METADATA, id : WS_METADATA_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetMetadataProperty(metadata as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADATA_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetMetadataProperty(metadata : *const WS_METADATA, id : WS_METADATA_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetMetadataProperty(metadata, id, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *mut WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetMissingMetadataDocumentAddress(metadata : *mut WS_METADATA, address : *mut *mut WS_ENDPOINT_ADDRESS, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetMissingMetadataDocumentAddress(metadata as _, address as _, error as _).ok() }
+pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetMissingMetadataDocumentAddress(metadata : *const WS_METADATA, address : *mut *mut WS_ENDPOINT_ADDRESS, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetMissingMetadataDocumentAddress(metadata, address as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: bool, ns: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -511,9 +478,9 @@ pub unsafe fn WsGetNamespaceFromPrefix(reader: *const WS_XML_READER, prefix: *co
     unsafe { WsGetNamespaceFromPrefix(reader, prefix, required.into(), ns as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetOperationContextProperty(context: *mut WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetOperationContextProperty(context : *mut WS_OPERATION_CONTEXT, id : WS_OPERATION_CONTEXT_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetOperationContextProperty(context as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetOperationContextProperty(context: *const WS_OPERATION_CONTEXT, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetOperationContextProperty(context : *const WS_OPERATION_CONTEXT, id : WS_OPERATION_CONTEXT_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetOperationContextProperty(context, id, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsGetPolicyAlternativeCount(policy: *const WS_POLICY, count: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -521,19 +488,19 @@ pub unsafe fn WsGetPolicyAlternativeCount(policy: *const WS_POLICY, count: *mut 
     unsafe { WsGetPolicyAlternativeCount(policy, count as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetPolicyProperty(policy: *mut WS_POLICY, id: WS_POLICY_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetPolicyProperty(policy : *mut WS_POLICY, id : WS_POLICY_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetPolicyProperty(policy as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetPolicyProperty(policy : *const WS_POLICY, id : WS_POLICY_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetPolicyProperty(policy, id, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetPrefixFromNamespace(writer: *mut WS_XML_WRITER, ns: *mut WS_XML_STRING, required: bool, prefix: *mut *mut WS_XML_STRING, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *mut WS_XML_WRITER, ns : *mut WS_XML_STRING, required : windows_core::BOOL, prefix : *mut *mut WS_XML_STRING, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetPrefixFromNamespace(writer as _, ns as _, required.into(), prefix as _, error as _).ok() }
+pub unsafe fn WsGetPrefixFromNamespace(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: bool, prefix: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetPrefixFromNamespace(writer : *const WS_XML_WRITER, ns : *const WS_XML_STRING, required : windows_core::BOOL, prefix : *mut *mut WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetPrefixFromNamespace(writer, ns, required.into(), prefix as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetReaderNode(xmlreader: *mut WS_XML_READER, node: *mut *mut WS_XML_NODE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetReaderNode(xmlreader : *mut WS_XML_READER, node : *mut *mut WS_XML_NODE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetReaderNode(xmlreader as _, node as _, error as _).ok() }
+pub unsafe fn WsGetReaderNode(xmlreader: *const WS_XML_READER, node: *mut *mut WS_XML_NODE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetReaderNode(xmlreader : *const WS_XML_READER, node : *mut *mut WS_XML_NODE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetReaderNode(xmlreader, node as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsGetReaderPosition(reader: *const WS_XML_READER, nodeposition: *mut WS_XML_NODE_POSITION, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -541,24 +508,24 @@ pub unsafe fn WsGetReaderPosition(reader: *const WS_XML_READER, nodeposition: *m
     unsafe { WsGetReaderPosition(reader, nodeposition as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetReaderProperty(reader: *mut WS_XML_READER, id: WS_XML_READER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetReaderProperty(reader : *mut WS_XML_READER, id : WS_XML_READER_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetReaderProperty(reader as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetReaderProperty(reader: *const WS_XML_READER, id: WS_XML_READER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetReaderProperty(reader : *const WS_XML_READER, id : WS_XML_READER_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetReaderProperty(reader, id, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetSecurityContextProperty(securitycontext: *mut WS_SECURITY_CONTEXT, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetSecurityContextProperty(securitycontext : *mut WS_SECURITY_CONTEXT, id : WS_SECURITY_CONTEXT_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetSecurityContextProperty(securitycontext as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetSecurityContextProperty(securitycontext: *const WS_SECURITY_CONTEXT, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetSecurityContextProperty(securitycontext : *const WS_SECURITY_CONTEXT, id : WS_SECURITY_CONTEXT_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetSecurityContextProperty(securitycontext, id, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetSecurityTokenProperty(securitytoken: *mut WS_SECURITY_TOKEN, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, heap: *mut WS_HEAP, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetSecurityTokenProperty(securitytoken : *mut WS_SECURITY_TOKEN, id : WS_SECURITY_TOKEN_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, heap : *mut WS_HEAP, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetSecurityTokenProperty(securitytoken as _, id, value as _, valuesize, heap as _, error as _).ok() }
+pub unsafe fn WsGetSecurityTokenProperty(securitytoken: *const WS_SECURITY_TOKEN, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, heap: *const WS_HEAP, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetSecurityTokenProperty(securitytoken : *const WS_SECURITY_TOKEN, id : WS_SECURITY_TOKEN_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetSecurityTokenProperty(securitytoken, id, value as _, valuesize, heap, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetServiceHostProperty(servicehost: *mut WS_SERVICE_HOST, id: WS_SERVICE_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetServiceHostProperty(servicehost : *mut WS_SERVICE_HOST, id : WS_SERVICE_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetServiceHostProperty(servicehost as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetServiceHostProperty(servicehost: *const WS_SERVICE_HOST, id: WS_SERVICE_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetServiceHostProperty(servicehost : *const WS_SERVICE_HOST, id : WS_SERVICE_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetServiceHostProperty(servicehost, id, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsGetServiceProxyProperty(serviceproxy: *const WS_SERVICE_PROXY, id: WS_PROXY_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -566,14 +533,14 @@ pub unsafe fn WsGetServiceProxyProperty(serviceproxy: *const WS_SERVICE_PROXY, i
     unsafe { WsGetServiceProxyProperty(serviceproxy, id, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetWriterPosition(writer: *mut WS_XML_WRITER, nodeposition: *mut WS_XML_NODE_POSITION, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetWriterPosition(writer : *mut WS_XML_WRITER, nodeposition : *mut WS_XML_NODE_POSITION, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetWriterPosition(writer as _, nodeposition as _, error as _).ok() }
+pub unsafe fn WsGetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *mut WS_XML_NODE_POSITION, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetWriterPosition(writer : *const WS_XML_WRITER, nodeposition : *mut WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetWriterPosition(writer, nodeposition as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsGetWriterProperty(writer: *mut WS_XML_WRITER, id: WS_XML_WRITER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsGetWriterProperty(writer : *mut WS_XML_WRITER, id : WS_XML_WRITER_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsGetWriterProperty(writer as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsGetWriterProperty(writer: *const WS_XML_WRITER, id: WS_XML_WRITER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsGetWriterProperty(writer : *const WS_XML_WRITER, id : WS_XML_WRITER_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsGetWriterProperty(writer, id, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsGetXmlAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, heap: *const WS_HEAP, valuechars: *mut *mut u16, valuecharcount: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -586,14 +553,14 @@ pub unsafe fn WsInitializeMessage(message: *const WS_MESSAGE, initialization: WS
     unsafe { WsInitializeMessage(message, initialization, sourcemessage, error).ok() }
 }
 #[inline]
-pub unsafe fn WsMarkHeaderAsUnderstood(message: *mut WS_MESSAGE, headerposition: *mut WS_XML_NODE_POSITION, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsMarkHeaderAsUnderstood(message : *mut WS_MESSAGE, headerposition : *mut WS_XML_NODE_POSITION, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsMarkHeaderAsUnderstood(message as _, headerposition as _, error as _).ok() }
+pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerposition: *const WS_XML_NODE_POSITION, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsMarkHeaderAsUnderstood(message : *const WS_MESSAGE, headerposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsMarkHeaderAsUnderstood(message, headerposition, error).ok() }
 }
 #[inline]
-pub unsafe fn WsMatchPolicyAlternative(policy: *mut WS_POLICY, alternativeindex: u32, policyconstraints: *mut WS_POLICY_CONSTRAINTS, matchrequired: bool, heap: *mut WS_HEAP, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *mut WS_POLICY, alternativeindex : u32, policyconstraints : *mut WS_POLICY_CONSTRAINTS, matchrequired : windows_core::BOOL, heap : *mut WS_HEAP, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsMatchPolicyAlternative(policy as _, alternativeindex, policyconstraints as _, matchrequired.into(), heap as _, error as _).ok() }
+pub unsafe fn WsMatchPolicyAlternative(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: bool, heap: *const WS_HEAP, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsMatchPolicyAlternative(policy : *const WS_POLICY, alternativeindex : u32, policyconstraints : *const WS_POLICY_CONSTRAINTS, matchrequired : windows_core::BOOL, heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsMatchPolicyAlternative(policy, alternativeindex, policyconstraints, matchrequired.into(), heap, error).ok() }
 }
 #[inline]
 pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: *mut windows_core::BOOL, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -601,14 +568,14 @@ pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, fou
     unsafe { WsMoveReader(reader, moveto, found as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsMoveWriter(writer: *mut WS_XML_WRITER, moveto: WS_MOVE_TO, found: *mut windows_core::BOOL, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsMoveWriter(writer : *mut WS_XML_WRITER, moveto : WS_MOVE_TO, found : *mut windows_core::BOOL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsMoveWriter(writer as _, moveto, found as _, error as _).ok() }
+pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: *mut windows_core::BOOL, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsMoveWriter(writer : *const WS_XML_WRITER, moveto : WS_MOVE_TO, found : *mut windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsMoveWriter(writer, moveto, found as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsOpenChannel(channel: *mut WS_CHANNEL, endpointaddress: *mut WS_ENDPOINT_ADDRESS, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsOpenChannel(channel : *mut WS_CHANNEL, endpointaddress : *mut WS_ENDPOINT_ADDRESS, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsOpenChannel(channel as _, endpointaddress as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsOpenChannel(channel : *const WS_CHANNEL, endpointaddress : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsOpenChannel(channel, endpointaddress, asynccontext, error).ok() }
 }
 #[inline]
 pub unsafe fn WsOpenListener(listener: *const WS_LISTENER, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -616,19 +583,19 @@ pub unsafe fn WsOpenListener(listener: *const WS_LISTENER, url: *const WS_STRING
     unsafe { WsOpenListener(listener, url, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsOpenServiceHost(servicehost: *mut WS_SERVICE_HOST, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsOpenServiceHost(servicehost : *mut WS_SERVICE_HOST, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsOpenServiceHost(servicehost as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsOpenServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsOpenServiceHost(servicehost : *const WS_SERVICE_HOST, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsOpenServiceHost(servicehost, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsOpenServiceProxy(serviceproxy: *mut WS_SERVICE_PROXY, address: *mut WS_ENDPOINT_ADDRESS, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsOpenServiceProxy(serviceproxy : *mut WS_SERVICE_PROXY, address : *mut WS_ENDPOINT_ADDRESS, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsOpenServiceProxy(serviceproxy as _, address as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsOpenServiceProxy(serviceproxy : *const WS_SERVICE_PROXY, address : *const WS_ENDPOINT_ADDRESS, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsOpenServiceProxy(serviceproxy, address, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsPullBytes(writer: *mut WS_XML_WRITER, callback: WS_PULL_BYTES_CALLBACK, callbackstate: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsPullBytes(writer : *mut WS_XML_WRITER, callback : WS_PULL_BYTES_CALLBACK, callbackstate : *mut core::ffi::c_void, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsPullBytes(writer as _, callback, callbackstate as _, error as _).ok() }
+pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_CALLBACK, callbackstate: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsPullBytes(writer : *const WS_XML_WRITER, callback : WS_PULL_BYTES_CALLBACK, callbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsPullBytes(writer, callback, callbackstate, error).ok() }
 }
 #[inline]
 pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -636,42 +603,39 @@ pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_
     unsafe { WsPushBytes(writer, callback, callbackstate, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadArray(reader: *mut WS_XML_READER, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *mut core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadArray(reader : *mut WS_XML_READER, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *mut core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, actualitemcount : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadArray(reader as _, localname as _, ns as _, valuetype, array as _, arraysize, itemoffset, itemcount, actualitemcount as _, error as _).ok() }
+pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *mut core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadArray(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, valuetype : WS_VALUE_TYPE, array : *mut core::ffi::c_void, arraysize : u32, itemoffset : u32, itemcount : u32, actualitemcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadArray(reader, localname, ns, valuetype, array as _, arraysize, itemoffset, itemcount, actualitemcount as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadAttribute(reader: *mut WS_XML_READER, attributedescription: *mut WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadAttribute(reader : *mut WS_XML_READER, attributedescription : *mut WS_ATTRIBUTE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadAttribute(reader as _, attributedescription as _, readoption, heap as _, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadAttribute(reader : *const WS_XML_READER, attributedescription : *const WS_ATTRIBUTE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadAttribute(reader, attributedescription, readoption, heap, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadBody(message: *mut WS_MESSAGE, bodydescription: *mut WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadBody(message : *mut WS_MESSAGE, bodydescription : *mut WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadBody(message as _, bodydescription as _, readoption, heap as _, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsReadBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadBody(message : *const WS_MESSAGE, bodydescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadBody(message, bodydescription, readoption, heap, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadBytes(reader: *mut WS_XML_READER, bytes: *mut core::ffi::c_void, maxbytecount: u32, actualbytecount: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadBytes(reader : *mut WS_XML_READER, bytes : *mut core::ffi::c_void, maxbytecount : u32, actualbytecount : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadBytes(reader as _, bytes as _, maxbytecount, actualbytecount as _, error as _).ok() }
+pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut core::ffi::c_void, maxbytecount: u32, actualbytecount: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadBytes(reader : *const WS_XML_READER, bytes : *mut core::ffi::c_void, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadBytes(reader, bytes as _, maxbytecount, actualbytecount as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadChars<P1>(reader: *mut WS_XML_READER, chars: P1, maxcharcount: u32, actualcharcount: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()>
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("webservices.dll" "system" fn WsReadChars(reader : *mut WS_XML_READER, chars : windows_core::PCWSTR, maxcharcount : u32, actualcharcount : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadChars(reader as _, chars.param().abi(), maxcharcount, actualcharcount as _, error as _).ok() }
+pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: windows_core::PWSTR, maxcharcount: u32, actualcharcount: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadChars(reader : *const WS_XML_READER, chars : windows_core::PWSTR, maxcharcount : u32, actualcharcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadChars(reader, core::mem::transmute(chars), maxcharcount, actualcharcount as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadCharsUtf8(reader: *mut WS_XML_READER, bytes: *mut u8, maxbytecount: u32, actualbytecount: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadCharsUtf8(reader : *mut WS_XML_READER, bytes : *mut u8, maxbytecount : u32, actualbytecount : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadCharsUtf8(reader as _, bytes as _, maxbytecount, actualbytecount as _, error as _).ok() }
+pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: *mut u8, maxbytecount: u32, actualbytecount: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadCharsUtf8(reader : *const WS_XML_READER, bytes : *mut u8, maxbytecount : u32, actualbytecount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadCharsUtf8(reader, bytes as _, maxbytecount, actualbytecount as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadElement(reader: *mut WS_XML_READER, elementdescription: *mut WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadElement(reader : *mut WS_XML_READER, elementdescription : *mut WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadElement(reader as _, elementdescription as _, readoption, heap as _, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadElement(reader : *const WS_XML_READER, elementdescription : *const WS_ELEMENT_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadElement(reader, elementdescription, readoption, heap, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsReadEndAttribute(reader: *const WS_XML_READER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -679,14 +643,14 @@ pub unsafe fn WsReadEndAttribute(reader: *const WS_XML_READER, error: *const WS_
     unsafe { WsReadEndAttribute(reader, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadEndElement(reader: *mut WS_XML_READER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadEndElement(reader : *mut WS_XML_READER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadEndElement(reader as _, error as _).ok() }
+pub unsafe fn WsReadEndElement(reader: *const WS_XML_READER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadEndElement(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadEndElement(reader, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadEndpointAddressExtension(reader: *mut WS_XML_READER, endpointaddress: *mut WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadEndpointAddressExtension(reader : *mut WS_XML_READER, endpointaddress : *mut WS_ENDPOINT_ADDRESS, extensiontype : WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadEndpointAddressExtension(reader as _, endpointaddress as _, extensiontype, readoption, heap as _, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadEndpointAddressExtension(reader : *const WS_XML_READER, endpointaddress : *const WS_ENDPOINT_ADDRESS, extensiontype : WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadEndpointAddressExtension(reader, endpointaddress, extensiontype, readoption, heap, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -694,29 +658,29 @@ pub unsafe fn WsReadEnvelopeEnd(message: *const WS_MESSAGE, error: *const WS_ERR
     unsafe { WsReadEnvelopeEnd(message, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadEnvelopeStart(message: *mut WS_MESSAGE, reader: *mut WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadEnvelopeStart(message : *mut WS_MESSAGE, reader : *mut WS_XML_READER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *mut core::ffi::c_void, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadEnvelopeStart(message as _, reader as _, donecallback, donecallbackstate as _, error as _).ok() }
+pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadEnvelopeStart(message : *const WS_MESSAGE, reader : *const WS_XML_READER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadEnvelopeStart(message, reader, donecallback, donecallbackstate, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadMessageEnd(channel: *mut WS_CHANNEL, message: *mut WS_MESSAGE, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadMessageEnd(channel : *mut WS_CHANNEL, message : *mut WS_MESSAGE, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadMessageEnd(channel as _, message as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsReadMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadMessageEnd(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadMessageEnd(channel, message, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadMessageStart(channel: *mut WS_CHANNEL, message: *mut WS_MESSAGE, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadMessageStart(channel : *mut WS_CHANNEL, message : *mut WS_MESSAGE, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadMessageStart(channel as _, message as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsReadMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadMessageStart(channel, message, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadMetadata(metadata: *mut WS_METADATA, reader: *mut WS_XML_READER, url: *mut WS_STRING, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadMetadata(metadata : *mut WS_METADATA, reader : *mut WS_XML_READER, url : *mut WS_STRING, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadMetadata(metadata as _, reader as _, url as _, error as _).ok() }
+pub unsafe fn WsReadMetadata(metadata: *const WS_METADATA, reader: *const WS_XML_READER, url: *const WS_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadMetadata(metadata : *const WS_METADATA, reader : *const WS_XML_READER, url : *const WS_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadMetadata(metadata, reader, url, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadNode(reader: *mut WS_XML_READER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadNode(reader : *mut WS_XML_READER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadNode(reader as _, error as _).ok() }
+pub unsafe fn WsReadNode(reader: *const WS_XML_READER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadNode(reader : *const WS_XML_READER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadNode(reader, error).ok() }
 }
 #[inline]
 pub unsafe fn WsReadQualifiedName(reader: *const WS_XML_READER, heap: *const WS_HEAP, prefix: *mut WS_XML_STRING, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -734,19 +698,19 @@ pub unsafe fn WsReadStartElement(reader: *const WS_XML_READER, error: *const WS_
     unsafe { WsReadStartElement(reader, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadToStartElement(reader: *mut WS_XML_READER, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, found: *mut windows_core::BOOL, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadToStartElement(reader : *mut WS_XML_READER, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, found : *mut windows_core::BOOL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadToStartElement(reader as _, localname as _, ns as _, found as _, error as _).ok() }
+pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, found: *mut windows_core::BOOL, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadToStartElement(reader : *const WS_XML_READER, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, found : *mut windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadToStartElement(reader, localname, ns, found as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadType(reader: *mut WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *mut core::ffi::c_void, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadType(reader : *mut WS_XML_READER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *mut core::ffi::c_void, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadType(reader as _, typemapping, r#type, typedescription as _, readoption, heap as _, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *const core::ffi::c_void, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadType(reader : *const WS_XML_READER, typemapping : WS_TYPE_MAPPING, r#type : WS_TYPE, typedescription : *const core::ffi::c_void, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadType(reader, typemapping, r#type, typedescription, readoption, heap, value as _, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsReadValue(reader: *mut WS_XML_READER, valuetype: WS_VALUE_TYPE, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsReadValue(reader : *mut WS_XML_READER, valuetype : WS_VALUE_TYPE, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsReadValue(reader as _, valuetype, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsReadValue(reader: *const WS_XML_READER, valuetype: WS_VALUE_TYPE, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsReadValue(reader : *const WS_XML_READER, valuetype : WS_VALUE_TYPE, value : *mut core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsReadValue(reader, valuetype, value as _, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsReadXmlBuffer(reader: *const WS_XML_READER, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -764,9 +728,9 @@ pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_ME
     unsafe { WsReceiveMessage(channel, message, messagedescriptions, messagedescriptioncount, receiveoption, readbodyoption, heap, value as _, valuesize, index as _, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsRegisterOperationForCancel(context: *mut WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsRegisterOperationForCancel(context : *mut WS_OPERATION_CONTEXT, cancelcallback : WS_OPERATION_CANCEL_CALLBACK, freestatecallback : WS_OPERATION_FREE_STATE_CALLBACK, userstate : *mut core::ffi::c_void, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsRegisterOperationForCancel(context as _, cancelcallback, freestatecallback, userstate as _, error as _).ok() }
+pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsRegisterOperationForCancel(context : *const WS_OPERATION_CONTEXT, cancelcallback : WS_OPERATION_CANCEL_CALLBACK, freestatecallback : WS_OPERATION_FREE_STATE_CALLBACK, userstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsRegisterOperationForCancel(context, cancelcallback, freestatecallback, userstate, error).ok() }
 }
 #[inline]
 pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, headerns: *const WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -774,9 +738,9 @@ pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *cons
     unsafe { WsRemoveCustomHeader(message, headername, headerns, error).ok() }
 }
 #[inline]
-pub unsafe fn WsRemoveHeader(message: *mut WS_MESSAGE, headertype: WS_HEADER_TYPE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsRemoveHeader(message : *mut WS_MESSAGE, headertype : WS_HEADER_TYPE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsRemoveHeader(message as _, headertype, error as _).ok() }
+pub unsafe fn WsRemoveHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsRemoveHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsRemoveHeader(message, headertype, error).ok() }
 }
 #[inline]
 pub unsafe fn WsRemoveMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -784,14 +748,14 @@ pub unsafe fn WsRemoveMappedHeader(message: *const WS_MESSAGE, headername: *cons
     unsafe { WsRemoveMappedHeader(message, headername, error).ok() }
 }
 #[inline]
-pub unsafe fn WsRemoveNode(nodeposition: *mut WS_XML_NODE_POSITION, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsRemoveNode(nodeposition : *mut WS_XML_NODE_POSITION, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsRemoveNode(nodeposition as _, error as _).ok() }
+pub unsafe fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsRemoveNode(nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsRemoveNode(nodeposition, error).ok() }
 }
 #[inline]
-pub unsafe fn WsRequestReply(channel: *mut WS_CHANNEL, requestmessage: *mut WS_MESSAGE, requestmessagedescription: *mut WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: *mut core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *mut WS_MESSAGE, replymessagedescription: *mut WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsRequestReply(channel : *mut WS_CHANNEL, requestmessage : *mut WS_MESSAGE, requestmessagedescription : *mut WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, requestbodyvalue : *mut core::ffi::c_void, requestbodyvaluesize : u32, replymessage : *mut WS_MESSAGE, replymessagedescription : *mut WS_MESSAGE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *mut WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsRequestReply(channel as _, requestmessage as _, requestmessagedescription as _, writeoption, requestbodyvalue as _, requestbodyvaluesize, replymessage as _, replymessagedescription as _, readoption, heap as _, value as _, valuesize, asynccontext as _, error as _).ok() }
+pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: *const core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsRequestReply(channel : *const WS_CHANNEL, requestmessage : *const WS_MESSAGE, requestmessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, requestbodyvalue : *const core::ffi::c_void, requestbodyvaluesize : u32, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, readoption : WS_READ_OPTION, heap : *const WS_HEAP, value : *mut core::ffi::c_void, valuesize : u32, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsRequestReply(channel, requestmessage, requestmessagedescription, writeoption, requestbodyvalue, requestbodyvaluesize, replymessage, replymessagedescription, readoption, heap, value as _, valuesize, asynccontext, error).ok() }
 }
 #[inline]
 pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount: u32, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -799,22 +763,19 @@ pub unsafe fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: *co
     unsafe { WsRequestSecurityToken(channel, properties, propertycount, token as _, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsResetChannel(channel: *mut WS_CHANNEL, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsResetChannel(channel : *mut WS_CHANNEL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsResetChannel(channel as _, error as _).ok() }
+pub unsafe fn WsResetChannel(channel: *const WS_CHANNEL, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsResetChannel(channel : *const WS_CHANNEL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsResetChannel(channel, error).ok() }
 }
 #[inline]
-pub unsafe fn WsResetError() -> windows_core::Result<WS_ERROR> {
-    windows_core::link!("webservices.dll" "system" fn WsResetError(error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WsResetError(&mut result__).map(|| result__)
-    }
+pub unsafe fn WsResetError(error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsResetError(error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsResetError(error).ok() }
 }
 #[inline]
-pub unsafe fn WsResetHeap(heap: *mut WS_HEAP, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsResetHeap(heap : *mut WS_HEAP, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsResetHeap(heap as _, error as _).ok() }
+pub unsafe fn WsResetHeap(heap: *const WS_HEAP, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsResetHeap(heap : *const WS_HEAP, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsResetHeap(heap, error).ok() }
 }
 #[inline]
 pub unsafe fn WsResetListener(listener: *const WS_LISTENER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -822,9 +783,9 @@ pub unsafe fn WsResetListener(listener: *const WS_LISTENER, error: *const WS_ERR
     unsafe { WsResetListener(listener, error).ok() }
 }
 #[inline]
-pub unsafe fn WsResetMessage(message: *mut WS_MESSAGE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsResetMessage(message : *mut WS_MESSAGE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsResetMessage(message as _, error as _).ok() }
+pub unsafe fn WsResetMessage(message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsResetMessage(message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsResetMessage(message, error).ok() }
 }
 #[inline]
 pub unsafe fn WsResetMetadata(metadata: *const WS_METADATA, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -832,9 +793,9 @@ pub unsafe fn WsResetMetadata(metadata: *const WS_METADATA, error: *const WS_ERR
     unsafe { WsResetMetadata(metadata, error).ok() }
 }
 #[inline]
-pub unsafe fn WsResetServiceHost(servicehost: *mut WS_SERVICE_HOST, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsResetServiceHost(servicehost : *mut WS_SERVICE_HOST, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsResetServiceHost(servicehost as _, error as _).ok() }
+pub unsafe fn WsResetServiceHost(servicehost: *const WS_SERVICE_HOST, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsResetServiceHost(servicehost : *const WS_SERVICE_HOST, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsResetServiceHost(servicehost, error).ok() }
 }
 #[inline]
 pub unsafe fn WsResetServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -847,9 +808,9 @@ pub unsafe fn WsRevokeSecurityContext(securitycontext: *const WS_SECURITY_CONTEX
     unsafe { WsRevokeSecurityContext(securitycontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsSendFaultMessageForError(channel: *mut WS_CHANNEL, replymessage: *mut WS_MESSAGE, faulterror: *mut WS_ERROR, faulterrorcode: windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: *mut WS_MESSAGE, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSendFaultMessageForError(channel : *mut WS_CHANNEL, replymessage : *mut WS_MESSAGE, faulterror : *mut WS_ERROR, faulterrorcode : windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, requestmessage : *mut WS_MESSAGE, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSendFaultMessageForError(channel as _, replymessage as _, faulterror as _, faulterrorcode, faultdisclosure, requestmessage as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsSendFaultMessageForError(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, faulterror: *const WS_ERROR, faulterrorcode: windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSendFaultMessageForError(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, faulterror : *const WS_ERROR, faulterrorcode : windows_core::HRESULT, faultdisclosure : WS_FAULT_DISCLOSURE, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSendFaultMessageForError(channel, replymessage, faulterror, faulterrorcode, faultdisclosure, requestmessage, asynccontext, error).ok() }
 }
 #[inline]
 pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, bodyvalue: *const core::ffi::c_void, bodyvaluesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -857,14 +818,14 @@ pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSA
     unsafe { WsSendMessage(channel, message, messagedescription, writeoption, bodyvalue, bodyvaluesize, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsSendReplyMessage(channel: *mut WS_CHANNEL, replymessage: *mut WS_MESSAGE, replymessagedescription: *mut WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: *mut core::ffi::c_void, replybodyvaluesize: u32, requestmessage: *mut WS_MESSAGE, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSendReplyMessage(channel : *mut WS_CHANNEL, replymessage : *mut WS_MESSAGE, replymessagedescription : *mut WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, replybodyvalue : *mut core::ffi::c_void, replybodyvaluesize : u32, requestmessage : *mut WS_MESSAGE, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSendReplyMessage(channel as _, replymessage as _, replymessagedescription as _, writeoption, replybodyvalue as _, replybodyvaluesize, requestmessage as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: *const core::ffi::c_void, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSendReplyMessage(channel : *const WS_CHANNEL, replymessage : *const WS_MESSAGE, replymessagedescription : *const WS_MESSAGE_DESCRIPTION, writeoption : WS_WRITE_OPTION, replybodyvalue : *const core::ffi::c_void, replybodyvaluesize : u32, requestmessage : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSendReplyMessage(channel, replymessage, replymessagedescription, writeoption, replybodyvalue, replybodyvaluesize, requestmessage, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsSetChannelProperty(channel: *mut WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetChannelProperty(channel : *mut WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetChannelProperty(channel as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsSetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetChannelProperty(channel : *const WS_CHANNEL, id : WS_CHANNEL_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSetChannelProperty(channel, id, value, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
@@ -872,24 +833,24 @@ pub unsafe fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_I
     unsafe { WsSetErrorProperty(error, id, value, valuesize).ok() }
 }
 #[inline]
-pub unsafe fn WsSetFaultErrorDetail(error: *mut WS_ERROR, faultdetaildescription: *mut WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *mut core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetFaultErrorDetail(error : *mut WS_ERROR, faultdetaildescription : *mut WS_FAULT_DETAIL_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *mut core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
-    unsafe { WsSetFaultErrorDetail(error as _, faultdetaildescription as _, writeoption, value as _, valuesize).ok() }
+pub unsafe fn WsSetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetFaultErrorDetail(error : *const WS_ERROR, faultdetaildescription : *const WS_FAULT_DETAIL_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
+    unsafe { WsSetFaultErrorDetail(error, faultdetaildescription, writeoption, value, valuesize).ok() }
 }
 #[inline]
-pub unsafe fn WsSetFaultErrorProperty(error: *mut WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetFaultErrorProperty(error : *mut WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
-    unsafe { WsSetFaultErrorProperty(error as _, id, value as _, valuesize).ok() }
+pub unsafe fn WsSetFaultErrorProperty(error: *const WS_ERROR, id: WS_FAULT_ERROR_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetFaultErrorProperty(error : *const WS_ERROR, id : WS_FAULT_ERROR_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32) -> windows_core::HRESULT);
+    unsafe { WsSetFaultErrorProperty(error, id, value, valuesize).ok() }
 }
 #[inline]
-pub unsafe fn WsSetHeader(message: *mut WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetHeader(message : *mut WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetHeader(message as _, headertype, valuetype, writeoption, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsSetHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetHeader(message : *const WS_MESSAGE, headertype : WS_HEADER_TYPE, valuetype : WS_TYPE, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSetHeader(message, headertype, valuetype, writeoption, value, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsSetInput(reader: *mut WS_XML_READER, encoding: *mut WS_XML_READER_ENCODING, input: *mut WS_XML_READER_INPUT, properties: *mut WS_XML_READER_PROPERTY, propertycount: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetInput(reader : *mut WS_XML_READER, encoding : *mut WS_XML_READER_ENCODING, input : *mut WS_XML_READER_INPUT, properties : *mut WS_XML_READER_PROPERTY, propertycount : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetInput(reader as _, encoding as _, input as _, properties as _, propertycount, error as _).ok() }
+pub unsafe fn WsSetInput(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, input: *const WS_XML_READER_INPUT, properties: *const WS_XML_READER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetInput(reader : *const WS_XML_READER, encoding : *const WS_XML_READER_ENCODING, input : *const WS_XML_READER_INPUT, properties : *const WS_XML_READER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSetInput(reader, encoding, input, properties, propertycount, error).ok() }
 }
 #[inline]
 pub unsafe fn WsSetInputToBuffer(reader: *const WS_XML_READER, buffer: *const WS_XML_BUFFER, properties: *const WS_XML_READER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -902,9 +863,9 @@ pub unsafe fn WsSetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENE
     unsafe { WsSetListenerProperty(listener, id, value, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsSetMessageProperty(message: *mut WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetMessageProperty(message : *mut WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetMessageProperty(message as _, id, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsSetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetMessageProperty(message : *const WS_MESSAGE, id : WS_MESSAGE_PROPERTY_ID, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSetMessageProperty(message, id, value, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: *const WS_XML_WRITER_ENCODING, output: *const WS_XML_WRITER_OUTPUT, properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -912,14 +873,14 @@ pub unsafe fn WsSetOutput(writer: *const WS_XML_WRITER, encoding: *const WS_XML_
     unsafe { WsSetOutput(writer, encoding, output, properties, propertycount, error).ok() }
 }
 #[inline]
-pub unsafe fn WsSetOutputToBuffer(writer: *mut WS_XML_WRITER, buffer: *mut WS_XML_BUFFER, properties: *mut WS_XML_WRITER_PROPERTY, propertycount: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetOutputToBuffer(writer : *mut WS_XML_WRITER, buffer : *mut WS_XML_BUFFER, properties : *mut WS_XML_WRITER_PROPERTY, propertycount : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetOutputToBuffer(writer as _, buffer as _, properties as _, propertycount, error as _).ok() }
+pub unsafe fn WsSetOutputToBuffer(writer: *const WS_XML_WRITER, buffer: *const WS_XML_BUFFER, properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetOutputToBuffer(writer : *const WS_XML_WRITER, buffer : *const WS_XML_BUFFER, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSetOutputToBuffer(writer, buffer, properties, propertycount, error).ok() }
 }
 #[inline]
-pub unsafe fn WsSetReaderPosition(reader: *mut WS_XML_READER, nodeposition: *mut WS_XML_NODE_POSITION, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsSetReaderPosition(reader : *mut WS_XML_READER, nodeposition : *mut WS_XML_NODE_POSITION, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsSetReaderPosition(reader as _, nodeposition as _, error as _).ok() }
+pub unsafe fn WsSetReaderPosition(reader: *const WS_XML_READER, nodeposition: *const WS_XML_NODE_POSITION, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsSetReaderPosition(reader : *const WS_XML_READER, nodeposition : *const WS_XML_NODE_POSITION, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsSetReaderPosition(reader, nodeposition, error).ok() }
 }
 #[inline]
 pub unsafe fn WsSetWriterPosition(writer: *const WS_XML_WRITER, nodeposition: *const WS_XML_NODE_POSITION, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -937,22 +898,22 @@ pub unsafe fn WsSkipNode(reader: *const WS_XML_READER, error: *const WS_ERROR) -
     unsafe { WsSkipNode(reader, error).ok() }
 }
 #[inline]
-pub unsafe fn WsStartReaderCanonicalization(reader: *mut WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *mut core::ffi::c_void, properties: *mut WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsStartReaderCanonicalization(reader : *mut WS_XML_READER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *mut core::ffi::c_void, properties : *mut WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsStartReaderCanonicalization(reader as _, writecallback, writecallbackstate as _, properties as _, propertycount, error as _).ok() }
+pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsStartReaderCanonicalization(reader : *const WS_XML_READER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsStartReaderCanonicalization(reader, writecallback, writecallbackstate, properties, propertycount, error).ok() }
 }
 #[inline]
-pub unsafe fn WsStartWriterCanonicalization(writer: *mut WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *mut core::ffi::c_void, properties: *mut WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsStartWriterCanonicalization(writer : *mut WS_XML_WRITER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *mut core::ffi::c_void, properties : *mut WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsStartWriterCanonicalization(writer as _, writecallback, writecallbackstate as _, properties as _, propertycount, error as _).ok() }
+pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsStartWriterCanonicalization(writer : *const WS_XML_WRITER, writecallback : WS_WRITE_CALLBACK, writecallbackstate : *const core::ffi::c_void, properties : *const WS_XML_CANONICALIZATION_PROPERTY, propertycount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsStartWriterCanonicalization(writer, writecallback, writecallbackstate, properties, propertycount, error).ok() }
 }
 #[inline]
-pub unsafe fn WsTrimXmlWhitespace<P0>(chars: P0, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()>
+pub unsafe fn WsTrimXmlWhitespace<P0>(chars: P0, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("webservices.dll" "system" fn WsTrimXmlWhitespace(chars : windows_core::PCWSTR, charcount : u32, trimmedchars : *mut *mut u16, trimmedcount : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsTrimXmlWhitespace(chars.param().abi(), charcount, trimmedchars as _, trimmedcount as _, error as _).ok() }
+    windows_core::link!("webservices.dll" "system" fn WsTrimXmlWhitespace(chars : windows_core::PCWSTR, charcount : u32, trimmedchars : *mut *mut u16, trimmedcount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsTrimXmlWhitespace(chars.param().abi(), charcount, trimmedchars as _, trimmedcount as _, error).ok() }
 }
 #[inline]
 pub unsafe fn WsVerifyXmlNCName<P0>(ncnamechars: P0, ncnamecharcount: u32, error: *const WS_ERROR) -> windows_core::Result<()>
@@ -978,17 +939,17 @@ pub unsafe fn WsWriteBody(message: *const WS_MESSAGE, bodydescription: *const WS
     unsafe { WsWriteBody(message, bodydescription, writeoption, value, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteBytes(writer: *mut WS_XML_WRITER, bytes: *mut core::ffi::c_void, bytecount: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteBytes(writer : *mut WS_XML_WRITER, bytes : *mut core::ffi::c_void, bytecount : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteBytes(writer as _, bytes as _, bytecount, error as _).ok() }
+pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const core::ffi::c_void, bytecount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteBytes(writer : *const WS_XML_WRITER, bytes : *const core::ffi::c_void, bytecount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteBytes(writer, bytes, bytecount, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteChars<P1>(writer: *mut WS_XML_WRITER, chars: P1, charcount: u32, error: *mut WS_ERROR) -> windows_core::Result<()>
+pub unsafe fn WsWriteChars<P1>(writer: *const WS_XML_WRITER, chars: P1, charcount: u32, error: *const WS_ERROR) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("webservices.dll" "system" fn WsWriteChars(writer : *mut WS_XML_WRITER, chars : windows_core::PCWSTR, charcount : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteChars(writer as _, chars.param().abi(), charcount, error as _).ok() }
+    windows_core::link!("webservices.dll" "system" fn WsWriteChars(writer : *const WS_XML_WRITER, chars : windows_core::PCWSTR, charcount : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteChars(writer, chars.param().abi(), charcount, error).ok() }
 }
 #[inline]
 pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: *const u8, bytecount: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -996,9 +957,9 @@ pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: *const u8, b
     unsafe { WsWriteCharsUtf8(writer, bytes, bytecount, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteElement(writer: *mut WS_XML_WRITER, elementdescription: *mut WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteElement(writer : *mut WS_XML_WRITER, elementdescription : *mut WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteElement(writer as _, elementdescription as _, writeoption, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsWriteElement(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteElement(writer : *const WS_XML_WRITER, elementdescription : *const WS_ELEMENT_DESCRIPTION, writeoption : WS_WRITE_OPTION, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteElement(writer, elementdescription, writeoption, value, valuesize, error).ok() }
 }
 #[inline]
 pub unsafe fn WsWriteEndAttribute(writer: *const WS_XML_WRITER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -1006,9 +967,9 @@ pub unsafe fn WsWriteEndAttribute(writer: *const WS_XML_WRITER, error: *const WS
     unsafe { WsWriteEndAttribute(writer, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteEndCData(writer: *mut WS_XML_WRITER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteEndCData(writer : *mut WS_XML_WRITER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteEndCData(writer as _, error as _).ok() }
+pub unsafe fn WsWriteEndCData(writer: *const WS_XML_WRITER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteEndCData(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteEndCData(writer, error).ok() }
 }
 #[inline]
 pub unsafe fn WsWriteEndElement(writer: *const WS_XML_WRITER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -1016,19 +977,19 @@ pub unsafe fn WsWriteEndElement(writer: *const WS_XML_WRITER, error: *const WS_E
     unsafe { WsWriteEndElement(writer, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteEndStartElement(writer: *mut WS_XML_WRITER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteEndStartElement(writer : *mut WS_XML_WRITER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteEndStartElement(writer as _, error as _).ok() }
+pub unsafe fn WsWriteEndStartElement(writer: *const WS_XML_WRITER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteEndStartElement(writer : *const WS_XML_WRITER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteEndStartElement(writer, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteEnvelopeEnd(message: *mut WS_MESSAGE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteEnvelopeEnd(message : *mut WS_MESSAGE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteEnvelopeEnd(message as _, error as _).ok() }
+pub unsafe fn WsWriteEnvelopeEnd(message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteEnvelopeEnd(message : *const WS_MESSAGE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteEnvelopeEnd(message, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteEnvelopeStart(message: *mut WS_MESSAGE, writer: *mut WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteEnvelopeStart(message : *mut WS_MESSAGE, writer : *mut WS_XML_WRITER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *mut core::ffi::c_void, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteEnvelopeStart(message as _, writer as _, donecallback, donecallbackstate as _, error as _).ok() }
+pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteEnvelopeStart(message : *const WS_MESSAGE, writer : *const WS_XML_WRITER, donecallback : WS_MESSAGE_DONE_CALLBACK, donecallbackstate : *const core::ffi::c_void, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteEnvelopeStart(message, writer, donecallback, donecallbackstate, error).ok() }
 }
 #[inline]
 pub unsafe fn WsWriteMessageEnd(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -1036,24 +997,24 @@ pub unsafe fn WsWriteMessageEnd(channel: *const WS_CHANNEL, message: *const WS_M
     unsafe { WsWriteMessageEnd(channel, message, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteMessageStart(channel: *mut WS_CHANNEL, message: *mut WS_MESSAGE, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteMessageStart(channel : *mut WS_CHANNEL, message : *mut WS_MESSAGE, asynccontext : *mut WS_ASYNC_CONTEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteMessageStart(channel as _, message as _, asynccontext as _, error as _).ok() }
+pub unsafe fn WsWriteMessageStart(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteMessageStart(channel : *const WS_CHANNEL, message : *const WS_MESSAGE, asynccontext : *const WS_ASYNC_CONTEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteMessageStart(channel, message, asynccontext, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteNode(writer: *mut WS_XML_WRITER, node: *mut WS_XML_NODE, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteNode(writer : *mut WS_XML_WRITER, node : *mut WS_XML_NODE, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteNode(writer as _, node as _, error as _).ok() }
+pub unsafe fn WsWriteNode(writer: *const WS_XML_WRITER, node: *const WS_XML_NODE, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteNode(writer : *const WS_XML_WRITER, node : *const WS_XML_NODE, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteNode(writer, node, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteQualifiedName(writer: *mut WS_XML_WRITER, prefix: *mut WS_XML_STRING, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteQualifiedName(writer : *mut WS_XML_WRITER, prefix : *mut WS_XML_STRING, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteQualifiedName(writer as _, prefix as _, localname as _, ns as _, error as _).ok() }
+pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteQualifiedName(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteQualifiedName(writer, prefix, localname, ns, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteStartAttribute(writer: *mut WS_XML_WRITER, prefix: *mut WS_XML_STRING, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, singlequote: bool, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *mut WS_XML_WRITER, prefix : *mut WS_XML_STRING, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, singlequote : windows_core::BOOL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteStartAttribute(writer as _, prefix as _, localname as _, ns as _, singlequote.into(), error as _).ok() }
+pub unsafe fn WsWriteStartAttribute(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: bool, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteStartAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteStartAttribute(writer, prefix, localname, ns, singlequote.into(), error).ok() }
 }
 #[inline]
 pub unsafe fn WsWriteStartCData(writer: *const WS_XML_WRITER, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -1061,14 +1022,14 @@ pub unsafe fn WsWriteStartCData(writer: *const WS_XML_WRITER, error: *const WS_E
     unsafe { WsWriteStartCData(writer, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteStartElement(writer: *mut WS_XML_WRITER, prefix: *mut WS_XML_STRING, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteStartElement(writer : *mut WS_XML_WRITER, prefix : *mut WS_XML_STRING, localname : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteStartElement(writer as _, prefix as _, localname as _, ns as _, error as _).ok() }
+pub unsafe fn WsWriteStartElement(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteStartElement(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, localname : *const WS_XML_STRING, ns : *const WS_XML_STRING, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteStartElement(writer, prefix, localname, ns, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteText(writer: *mut WS_XML_WRITER, text: *mut WS_XML_TEXT, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteText(writer : *mut WS_XML_WRITER, text : *mut WS_XML_TEXT, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteText(writer as _, text as _, error as _).ok() }
+pub unsafe fn WsWriteText(writer: *const WS_XML_WRITER, text: *const WS_XML_TEXT, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteText(writer : *const WS_XML_WRITER, text : *const WS_XML_TEXT, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteText(writer, text, error).ok() }
 }
 #[inline]
 pub unsafe fn WsWriteType(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *const core::ffi::c_void, writeoption: WS_WRITE_OPTION, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -1076,24 +1037,24 @@ pub unsafe fn WsWriteType(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAP
     unsafe { WsWriteType(writer, typemapping, r#type, typedescription, writeoption, value, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteValue(writer: *mut WS_XML_WRITER, valuetype: WS_VALUE_TYPE, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteValue(writer : *mut WS_XML_WRITER, valuetype : WS_VALUE_TYPE, value : *mut core::ffi::c_void, valuesize : u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteValue(writer as _, valuetype, value as _, valuesize, error as _).ok() }
+pub unsafe fn WsWriteValue(writer: *const WS_XML_WRITER, valuetype: WS_VALUE_TYPE, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteValue(writer : *const WS_XML_WRITER, valuetype : WS_VALUE_TYPE, value : *const core::ffi::c_void, valuesize : u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteValue(writer, valuetype, value, valuesize, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteXmlBuffer(writer: *mut WS_XML_WRITER, xmlbuffer: *mut WS_XML_BUFFER, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteXmlBuffer(writer : *mut WS_XML_WRITER, xmlbuffer : *mut WS_XML_BUFFER, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteXmlBuffer(writer as _, xmlbuffer as _, error as _).ok() }
+pub unsafe fn WsWriteXmlBuffer(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteXmlBuffer(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteXmlBuffer(writer, xmlbuffer, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteXmlBufferToBytes(writer: *mut WS_XML_WRITER, xmlbuffer: *mut WS_XML_BUFFER, encoding: *mut WS_XML_WRITER_ENCODING, properties: *mut WS_XML_WRITER_PROPERTY, propertycount: u32, heap: *mut WS_HEAP, bytes: *mut *mut core::ffi::c_void, bytecount: *mut u32, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *mut WS_XML_WRITER, xmlbuffer : *mut WS_XML_BUFFER, encoding : *mut WS_XML_WRITER_ENCODING, properties : *mut WS_XML_WRITER_PROPERTY, propertycount : u32, heap : *mut WS_HEAP, bytes : *mut *mut core::ffi::c_void, bytecount : *mut u32, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteXmlBufferToBytes(writer as _, xmlbuffer as _, encoding as _, properties as _, propertycount, heap as _, bytes as _, bytecount as _, error as _).ok() }
+pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: *const WS_XML_WRITER_ENCODING, properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, heap: *const WS_HEAP, bytes: *mut *mut core::ffi::c_void, bytecount: *mut u32, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, encoding : *const WS_XML_WRITER_ENCODING, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, heap : *const WS_HEAP, bytes : *mut *mut core::ffi::c_void, bytecount : *mut u32, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteXmlBufferToBytes(writer, xmlbuffer, encoding, properties, propertycount, heap, bytes as _, bytecount as _, error).ok() }
 }
 #[inline]
-pub unsafe fn WsWriteXmlnsAttribute(writer: *mut WS_XML_WRITER, prefix: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, singlequote: bool, error: *mut WS_ERROR) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *mut WS_XML_WRITER, prefix : *mut WS_XML_STRING, ns : *mut WS_XML_STRING, singlequote : windows_core::BOOL, error : *mut WS_ERROR) -> windows_core::HRESULT);
-    unsafe { WsWriteXmlnsAttribute(writer as _, prefix as _, ns as _, singlequote.into(), error as _).ok() }
+pub unsafe fn WsWriteXmlnsAttribute(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: bool, error: *const WS_ERROR) -> windows_core::Result<()> {
+    windows_core::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : windows_core::BOOL, error : *const WS_ERROR) -> windows_core::HRESULT);
+    unsafe { WsWriteXmlnsAttribute(writer, prefix, ns, singlequote.into(), error).ok() }
 }
 #[inline]
 pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: *const WS_ERROR) -> windows_core::Result<()> {
@@ -1122,7 +1083,7 @@ impl Default for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
 }
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: u32 = 1u32;
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: u32 = 1u32;
-windows_core::imp::define_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0xc39b9e25_5b29_5037_a3b9_0d4ea526079d);
+windows_core::imp::define_interface!(IContentPrefetcherTaskTrigger, IContentPrefetcherTaskTrigger_Vtbl, 0x1b35a14a_6094_4799_a60e_e474e15d4dc9);
 windows_core::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, windows_core::IUnknown, windows_core::IInspectable);
 impl IContentPrefetcherTaskTrigger {
     pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> windows_core::Result<()>
@@ -1659,10 +1620,10 @@ impl Default for WEBAUTHN_X5C {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type WS_ABANDON_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, message: *mut WS_MESSAGE, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ABORT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ABORT_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *mut core::ffi::c_void, channelinstance: *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ABANDON_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ABORT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ABORT_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub const WS_ACTION_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1698,7 +1659,7 @@ pub const WS_ANY_ATTRIBUTES_TYPE: WS_TYPE = WS_TYPE(34i32);
 pub const WS_ANY_CONTENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(11i32);
 pub const WS_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(9i32);
 pub const WS_ANY_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(4i32);
-pub type WS_ASYNC_CALLBACK = Option<unsafe extern "system" fn(errorcode: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *mut core::ffi::c_void)>;
+pub type WS_ASYNC_CALLBACK = Option<unsafe extern "system" fn(errorcode: windows_core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct WS_ASYNC_CONTEXT {
@@ -1825,7 +1786,7 @@ pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
 }
 pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(3i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
-pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *mut super::super::Security::Cryptography::CERT_CONTEXT, state: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type WS_CERTIFICATE_VALIDATION_CALLBACK = Option<unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug)]
@@ -1860,7 +1821,7 @@ pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
 pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *mut core::ffi::c_void, issuerlist: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -2054,8 +2015,8 @@ pub struct WS_CHAR_ARRAY_DESCRIPTION {
     pub maxCharCount: u32,
 }
 pub const WS_CHAR_ARRAY_TYPE: WS_TYPE = WS_TYPE(22i32);
-pub type WS_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CLOSE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CLOSE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_CONTRACT_DESCRIPTION {
@@ -2071,10 +2032,10 @@ impl Default for WS_CONTRACT_DESCRIPTION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_COOKIE_MODE(pub i32);
 pub type WS_CREATE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, channelparameters: *const core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *mut core::ffi::c_void, channelparameters: *mut core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_DECODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *mut core::ffi::c_void, readcallback: WS_READ_CALLBACK, readcontext: *mut core::ffi::c_void, decodercontext: *mut *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, channelparameters: *const core::ffi::c_void, channelparameterssize: u32, channelinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_DECODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *const core::ffi::c_void, readcallback: WS_READ_CALLBACK, readcontext: *const core::ffi::c_void, decodercontext: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_CREATE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(createcontext: *const core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecontext: *const core::ffi::c_void, encodercontext: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_CREATE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *mut core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_CREATE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 #[derive(Clone, Copy, Debug)]
@@ -2180,10 +2141,10 @@ impl Default for WS_DECIMAL_DESCRIPTION {
 }
 pub const WS_DECIMAL_TYPE: WS_TYPE = WS_TYPE(11i32);
 pub const WS_DECIMAL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(11i32);
-pub type WS_DECODER_DECODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DECODER_END_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *mut core::ffi::c_void, contenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, newcontenttype: *mut WS_STRING, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_DECODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_DECODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_END_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *const core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DECODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_DEFAULT_VALUE {
@@ -2242,7 +2203,7 @@ pub struct WS_DURATION {
     pub milliseconds: u32,
     pub ticks: u32,
 }
-pub type WS_DURATION_COMPARISON_CALLBACK = Option<unsafe extern "system" fn(duration1: *mut WS_DURATION, duration2: *mut WS_DURATION, result: *mut i32, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_DURATION_COMPARISON_CALLBACK = Option<unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct WS_DURATION_DESCRIPTION {
@@ -2272,7 +2233,7 @@ pub const WS_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(2i32);
 pub const WS_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(1i32);
 pub type WS_ENCODER_ENCODE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_ENCODER_END_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *mut core::ffi::c_void, contenttype: *mut WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, contenttype: *const WS_STRING, newcontenttype: *mut WS_STRING, contentencoding: *mut WS_STRING, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_ENCODER_START_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2508,15 +2469,15 @@ pub struct WS_FLOAT_DESCRIPTION {
 }
 pub const WS_FLOAT_TYPE: WS_TYPE = WS_TYPE(9i32);
 pub const WS_FLOAT_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(9i32);
-pub type WS_FREE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void)>;
-pub type WS_FREE_DECODER_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *mut core::ffi::c_void)>;
+pub type WS_FREE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void)>;
+pub type WS_FREE_DECODER_CALLBACK = Option<unsafe extern "system" fn(decodercontext: *const core::ffi::c_void)>;
 pub type WS_FREE_ENCODER_CALLBACK = Option<unsafe extern "system" fn(encodercontext: *const core::ffi::c_void)>;
-pub type WS_FREE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *mut core::ffi::c_void)>;
+pub type WS_FREE_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void)>;
 pub const WS_FROM_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(5i32);
 pub const WS_FULL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = WS_FAULT_DISCLOSURE(1i32);
 #[cfg(feature = "Win32_Security_Cryptography")]
-pub type WS_GET_CERT_CALLBACK = Option<unsafe extern "system" fn(getcertcallbackstate: *mut core::ffi::c_void, targetaddress: *mut WS_ENDPOINT_ADDRESS, viauri: *mut WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_GET_CERT_CALLBACK = Option<unsafe extern "system" fn(getcertcallbackstate: *const core::ffi::c_void, targetaddress: *const WS_ENDPOINT_ADDRESS, viauri: *const WS_STRING, cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_GET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2883,7 +2844,7 @@ impl Default for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     }
 }
 pub const WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(6i32);
-pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *mut core::ffi::c_void, value: *mut core::ffi::c_void, defaultvalue: *mut core::ffi::c_void, valuesize: u32, isdefault: *mut windows_core::BOOL, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_IS_DEFAULT_VALUE_CALLBACK = Option<unsafe extern "system" fn(descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, defaultvalue: *const core::ffi::c_void, valuesize: u32, isdefault: *mut windows_core::BOOL, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WS_ITEM_RANGE {
@@ -3212,8 +3173,8 @@ impl Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
     }
 }
 pub const WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(3i32);
-pub type WS_OPEN_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, endpointaddress: *mut WS_ENDPOINT_ADDRESS, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_OPEN_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *mut core::ffi::c_void, url: *mut WS_STRING, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_OPEN_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_OPEN_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_OPERATION_CANCEL_CALLBACK = Option<unsafe extern "system" fn(reason: WS_SERVICE_CANCEL_REASON, state: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -3248,7 +3209,7 @@ impl Default for WS_OPERATION_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type WS_OPERATION_FREE_STATE_CALLBACK = Option<unsafe extern "system" fn(state: *mut core::ffi::c_void)>;
+pub type WS_OPERATION_FREE_STATE_CALLBACK = Option<unsafe extern "system" fn(state: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_OPERATION_STYLE(pub i32);
@@ -3334,7 +3295,7 @@ pub const WS_PROTECTION_LEVEL_NONE: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(1i
 pub const WS_PROTECTION_LEVEL_SIGN: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(2i32);
 pub const WS_PROTECTION_LEVEL_SIGN_AND_ENCRYPT: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(3i32);
 pub const WS_PROXY_FAULT_LANG_ID: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(6i32);
-pub type WS_PROXY_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(message: *mut WS_MESSAGE, heap: *mut WS_HEAP, state: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_PROXY_MESSAGE_CALLBACK = Option<unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
@@ -3367,8 +3328,8 @@ pub const WS_PROXY_PROPERTY_MAX_CLOSE_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_P
 pub const WS_PROXY_PROPERTY_MAX_PENDING_CALLS: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(4i32);
 pub const WS_PROXY_PROPERTY_MESSAGE_PROPERTIES: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(1i32);
 pub const WS_PROXY_PROPERTY_STATE: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(3i32);
-pub type WS_PULL_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *mut core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_PUSH_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *mut core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_PULL_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_PUSH_BYTES_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
@@ -3376,7 +3337,7 @@ pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
     pub rawKeyBytes: WS_BYTES,
 }
 pub const WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(1i32);
-pub type WS_READ_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *mut core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_READ_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, bytes: *mut core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_READ_MESSAGE_END_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_READ_MESSAGE_START_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub const WS_READ_NILLABLE_POINTER: WS_READ_OPTION = WS_READ_OPTION(4i32);
@@ -3387,7 +3348,7 @@ pub struct WS_READ_OPTION(pub i32);
 pub const WS_READ_OPTIONAL_POINTER: WS_READ_OPTION = WS_READ_OPTION(3i32);
 pub const WS_READ_REQUIRED_POINTER: WS_READ_OPTION = WS_READ_OPTION(2i32);
 pub const WS_READ_REQUIRED_VALUE: WS_READ_OPTION = WS_READ_OPTION(1i32);
-pub type WS_READ_TYPE_CALLBACK = Option<unsafe extern "system" fn(reader: *mut WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *mut core::ffi::c_void, heap: *mut WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_READ_TYPE_CALLBACK = Option<unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const core::ffi::c_void, heap: *const WS_HEAP, value: *mut core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_RECEIVE_OPTION(pub i32);
@@ -3457,7 +3418,7 @@ pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_REQUEST_ACTION: WS_REQUEST_SECURITY
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_SECURE_CONVERSATION_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(3i32);
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_SERVICE_REQUEST_PARAMETERS: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(11i32);
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_TRUST_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(2i32);
-pub type WS_RESET_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_RESET_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_RESET_LISTENER_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub const WS_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(1i32);
 #[repr(C)]
@@ -3892,12 +3853,12 @@ pub const WS_SECURITY_TOKEN_REFERENCE_MODE_LOCAL_ID: WS_SECURITY_TOKEN_REFERENCE
 pub const WS_SECURITY_TOKEN_REFERENCE_MODE_SAML_ASSERTION_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(5i32);
 pub const WS_SECURITY_TOKEN_REFERENCE_MODE_SECURITY_CONTEXT_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(4i32);
 pub const WS_SECURITY_TOKEN_REFERENCE_MODE_XML_BUFFER: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(2i32);
-pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *mut WS_OPERATION_CONTEXT, channelstate: *mut *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WS_SERVICE_CANCEL_REASON(pub i32);
 pub const WS_SERVICE_CHANNEL_FAULTED: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(1i32);
-pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *mut WS_OPERATION_CONTEXT, asynccontext: *mut WS_ASYNC_CONTEXT) -> windows_core::HRESULT>;
+pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct WS_SERVICE_CONTRACT {
@@ -3983,7 +3944,7 @@ pub const WS_SERVICE_HOST_STATE_CREATED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST
 pub const WS_SERVICE_HOST_STATE_FAULTED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(5i32);
 pub const WS_SERVICE_HOST_STATE_OPEN: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(2i32);
 pub const WS_SERVICE_HOST_STATE_OPENING: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(1i32);
-pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = Option<unsafe extern "system" fn(context: *mut WS_OPERATION_CONTEXT, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WS_SERVICE_METADATA {
@@ -4065,10 +4026,10 @@ impl Default for WS_SERVICE_SECURITY_IDENTITIES {
     }
 }
 pub type WS_SERVICE_STUB_CALLBACK = Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const core::ffi::c_void, callback: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_SET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *mut core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SET_LISTENER_PROPERTY_CALLBACK = Option<unsafe extern "system" fn(listenerinstance: *const core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub const WS_SHORT_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(0i32);
-pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub const WS_SINGLETON_HEADER: WS_REPEATING_HEADER_OPTION = WS_REPEATING_HEADER_OPTION(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -4725,7 +4686,7 @@ pub struct WS_UTF8_ARRAY_DESCRIPTION {
     pub maxByteCount: u32,
 }
 pub const WS_UTF8_ARRAY_TYPE: WS_TYPE = WS_TYPE(23i32);
-pub type WS_VALIDATE_PASSWORD_CALLBACK = Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *mut core::ffi::c_void, username: *mut WS_STRING, password: *mut WS_STRING, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_VALIDATE_PASSWORD_CALLBACK = Option<unsafe extern "system" fn(passwordvalidatorcallbackstate: *const core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub type WS_VALIDATE_SAML_CALLBACK = Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4751,8 +4712,8 @@ pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_KERBEROS: WS_WINDOWS_INTEGRATED_AUT
 pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_NTLM: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(2i32);
 pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_SPNEGO: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(3i32);
 pub type WS_WRITE_CALLBACK = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_WRITE_MESSAGE_END_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, message: *mut WS_MESSAGE, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
-pub type WS_WRITE_MESSAGE_START_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *mut core::ffi::c_void, message: *mut WS_MESSAGE, asynccontext: *mut WS_ASYNC_CONTEXT, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_WRITE_MESSAGE_END_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_WRITE_MESSAGE_START_CALLBACK = Option<unsafe extern "system" fn(channelinstance: *const core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> windows_core::HRESULT>;
 pub const WS_WRITE_NILLABLE_POINTER: WS_WRITE_OPTION = WS_WRITE_OPTION(4i32);
 pub const WS_WRITE_NILLABLE_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(3i32);
 #[repr(transparent)]
@@ -4760,7 +4721,7 @@ pub const WS_WRITE_NILLABLE_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(3i32);
 pub struct WS_WRITE_OPTION(pub i32);
 pub const WS_WRITE_REQUIRED_POINTER: WS_WRITE_OPTION = WS_WRITE_OPTION(2i32);
 pub const WS_WRITE_REQUIRED_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(1i32);
-pub type WS_WRITE_TYPE_CALLBACK = Option<unsafe extern "system" fn(writer: *mut WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *mut core::ffi::c_void, value: *mut core::ffi::c_void, valuesize: u32, error: *mut WS_ERROR) -> windows_core::HRESULT>;
+pub type WS_WRITE_TYPE_CALLBACK = Option<unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const core::ffi::c_void, value: *const core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WS_WSZ_DESCRIPTION {

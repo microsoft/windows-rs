@@ -4,9 +4,9 @@ pub unsafe fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE) {
     unsafe { WebSocketAbortHandle(hwebsocket) }
 }
 #[inline]
-pub unsafe fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *mut windows_core::PSTR, ulsubprotocolcount: u32, pszextensions: *mut windows_core::PSTR, ulextensioncount: u32, pinitialheaders: *mut WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *mut windows_core::PSTR, ulsubprotocolcount : u32, pszextensions : *mut windows_core::PSTR, ulextensioncount : u32, pinitialheaders : *mut WEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WebSocketBeginClientHandshake(hwebsocket, pszsubprotocols as _, ulsubprotocolcount, pszextensions as _, ulextensioncount, pinitialheaders as _, ulinitialheadercount, padditionalheaders as _, puladditionalheadercount as _).ok() }
+pub unsafe fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *const windows_core::PCSTR, ulsubprotocolcount: u32, pszextensions: *const windows_core::PCSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> windows_core::Result<()> {
+    windows_core::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const windows_core::PCSTR, ulextensioncount : u32, pinitialheaders : *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_core::HRESULT);
+    unsafe { WebSocketBeginClientHandshake(hwebsocket, pszsubprotocols, ulsubprotocolcount, pszextensions, ulextensioncount, pinitialheaders, ulinitialheadercount, padditionalheaders as _, puladditionalheadercount as _).ok() }
 }
 #[inline]
 pub unsafe fn WebSocketBeginServerHandshake<P1>(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: P1, pszextensionselected: *const windows_core::PCSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> windows_core::Result<()>
@@ -22,9 +22,12 @@ pub unsafe fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncon
     unsafe { WebSocketCompleteAction(hwebsocket, pvactioncontext, ulbytestransferred) }
 }
 #[inline]
-pub unsafe fn WebSocketCreateClientHandle(pproperties: *mut WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *mut WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
-    unsafe { WebSocketCreateClientHandle(pproperties as _, ulpropertycount, phwebsocket as _).ok() }
+pub unsafe fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32) -> windows_core::Result<WEB_SOCKET_HANDLE> {
+    windows_core::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        WebSocketCreateClientHandle(pproperties, ulpropertycount, &mut result__).map(|| result__)
+    }
 }
 #[inline]
 pub unsafe fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32) -> windows_core::Result<WEB_SOCKET_HANDLE> {
@@ -40,9 +43,9 @@ pub unsafe fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE) {
     unsafe { WebSocketDeleteHandle(hwebsocket) }
 }
 #[inline]
-pub unsafe fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: *mut WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : *mut WEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_core::HRESULT);
-    unsafe { WebSocketEndClientHandshake(hwebsocket, presponseheaders as _, ulreponseheadercount, pulselectedextensions as _, pulselectedextensioncount as _, pulselectedsubprotocol as _).ok() }
+pub unsafe fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> windows_core::Result<()> {
+    windows_core::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_core::HRESULT);
+    unsafe { WebSocketEndClientHandshake(hwebsocket, presponseheaders, ulreponseheadercount, pulselectedextensions as _, pulselectedextensioncount as _, pulselectedsubprotocol as _).ok() }
 }
 #[inline]
 pub unsafe fn WebSocketEndServerHandshake(hwebsocket: WEB_SOCKET_HANDLE) -> windows_core::Result<()> {
@@ -60,14 +63,14 @@ pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalu
     unsafe { WebSocketGetGlobalProperty(etype, pvvalue as _, ulsize as _).ok() }
 }
 #[inline]
-pub unsafe fn WebSocketReceive(hwebsocket: WEB_SOCKET_HANDLE, pbuffer: *mut WEB_SOCKET_BUFFER, pvcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("websocket.dll" "system" fn WebSocketReceive(hwebsocket : WEB_SOCKET_HANDLE, pbuffer : *mut WEB_SOCKET_BUFFER, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WebSocketReceive(hwebsocket, pbuffer as _, pvcontext as _).ok() }
+pub unsafe fn WebSocketReceive(hwebsocket: WEB_SOCKET_HANDLE, pbuffer: *const WEB_SOCKET_BUFFER, pvcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("websocket.dll" "system" fn WebSocketReceive(hwebsocket : WEB_SOCKET_HANDLE, pbuffer : *const WEB_SOCKET_BUFFER, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { WebSocketReceive(hwebsocket, pbuffer, pvcontext).ok() }
 }
 #[inline]
-pub unsafe fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *mut WEB_SOCKET_BUFFER, context: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *mut WEB_SOCKET_BUFFER, context : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WebSocketSend(hwebsocket, buffertype, pbuffer as _, context as _).ok() }
+pub unsafe fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { WebSocketSend(hwebsocket, buffertype, pbuffer, context).ok() }
 }
 pub const WEB_SOCKET_ABORTED_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1006i32);
 #[repr(transparent)]

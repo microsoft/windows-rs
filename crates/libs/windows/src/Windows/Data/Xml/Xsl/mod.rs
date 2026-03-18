@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IXsltProcessor, IXsltProcessor_Vtbl, 0x35469964_5549_5d94_8dd7_23a5a3457e07);
+windows_core::imp::define_interface!(IXsltProcessor, IXsltProcessor_Vtbl, 0x7b64703f_550c_48c6_a90f_93a5b964518f);
 impl windows_core::RuntimeType for IXsltProcessor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -11,7 +11,7 @@ pub struct IXsltProcessor_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     TransformToString: usize,
 }
-windows_core::imp::define_interface!(IXsltProcessor2, IXsltProcessor2_Vtbl, 0xffa160e4_d00b_5775_a6a9_eb0e042a2080);
+windows_core::imp::define_interface!(IXsltProcessor2, IXsltProcessor2_Vtbl, 0x8da45c56_97a5_44cb_a8be_27d86280c70a);
 impl windows_core::RuntimeType for IXsltProcessor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

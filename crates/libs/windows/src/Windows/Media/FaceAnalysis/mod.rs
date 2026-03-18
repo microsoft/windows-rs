@@ -204,7 +204,7 @@ impl windows_core::RuntimeName for FaceTracker {
 }
 unsafe impl Send for FaceTracker {}
 unsafe impl Sync for FaceTracker {}
-windows_core::imp::define_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x76dbde91_92f4_595b_8e29_efff03dd0a4d);
+windows_core::imp::define_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x8200d454_66bc_34df_9410_e89400195414);
 impl windows_core::RuntimeType for IDetectedFace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -217,7 +217,7 @@ pub struct IDetectedFace_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     FaceBox: usize,
 }
-windows_core::imp::define_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x848dd828_d8a2_5d16_8f7b_cb09d73e202e);
+windows_core::imp::define_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
 impl windows_core::RuntimeType for IFaceDetector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -250,7 +250,7 @@ pub struct IFaceDetector_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-windows_core::imp::define_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbfc6eb88_e028_545b_9056_90f413b65aa3);
+windows_core::imp::define_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbc042d67_9047_33f6_881b_6746c1b218b8);
 impl windows_core::RuntimeType for IFaceDetectorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -295,7 +295,7 @@ pub struct IFaceTracker_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-windows_core::imp::define_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0x92f5729e_fffd_54d6_924c_d64eaad6c3cc);
+windows_core::imp::define_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0xe9629198_1801_3fa5_932e_31d767af6c4d);
 impl windows_core::RuntimeType for IFaceTrackerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -14,7 +14,7 @@ impl ClassicAppManager {
 impl windows_core::RuntimeName for ClassicAppManager {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.ClassicAppManager";
 }
-windows_core::imp::define_interface!(IClassicAppManagerStatics, IClassicAppManagerStatics_Vtbl, 0x7414031c_cf6d_5411_961e_75ff39a23883);
+windows_core::imp::define_interface!(IClassicAppManagerStatics, IClassicAppManagerStatics_Vtbl, 0xe2fad668_882c_4f33_b035_0df7b90d67e6);
 impl windows_core::RuntimeType for IClassicAppManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

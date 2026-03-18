@@ -9,9 +9,9 @@ pub unsafe fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> windows_core::B
     unsafe { CloseTouchInputHandle(htouchinput) }
 }
 #[inline]
-pub unsafe fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *mut u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *mut u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
-    unsafe { GetGestureConfig(hwnd, dwreserved, dwflags, pcids as _, pgestureconfig as _, cbsize) }
+pub unsafe fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
+    unsafe { GetGestureConfig(hwnd, dwreserved, dwflags, pcids, pgestureconfig as _, cbsize) }
 }
 #[inline]
 pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, cbextraargs: u32, pextraargs: *mut u8) -> windows_core::BOOL {
@@ -39,9 +39,9 @@ pub unsafe fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, u
     unsafe { RegisterTouchWindow(hwnd, ulflags) }
 }
 #[inline]
-pub unsafe fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
-    unsafe { SetGestureConfig(hwnd, dwreserved, cids, pgestureconfig as _, cbsize) }
+pub unsafe fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
+    unsafe { SetGestureConfig(hwnd, dwreserved, cids, pgestureconfig, cbsize) }
 }
 #[inline]
 pub unsafe fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> windows_core::BOOL {
@@ -169,7 +169,7 @@ impl Default for HTOUCHINPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-windows_core::imp::define_interface!(IInertiaProcessor, IInertiaProcessor_Vtbl, 0x74c22e9f_dcad_5b18_8573_63120ce31d2c);
+windows_core::imp::define_interface!(IInertiaProcessor, IInertiaProcessor_Vtbl, 0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
 windows_core::imp::interface_hierarchy!(IInertiaProcessor, windows_core::IUnknown);
 impl IInertiaProcessor {
     pub unsafe fn InitialOriginX(&self) -> windows_core::Result<f32> {
@@ -995,7 +995,7 @@ impl IInertiaProcessor_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IInertiaProcessor {}
-windows_core::imp::define_interface!(IManipulationProcessor, IManipulationProcessor_Vtbl, 0xc4e65b27_2f5e_5fbc_835a_cf9e55579d2f);
+windows_core::imp::define_interface!(IManipulationProcessor, IManipulationProcessor_Vtbl, 0xa22ac519_8300_48a0_bef4_f1be8737dba4);
 windows_core::imp::interface_hierarchy!(IManipulationProcessor, windows_core::IUnknown);
 impl IManipulationProcessor {
     pub unsafe fn SupportedManipulations(&self) -> windows_core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {

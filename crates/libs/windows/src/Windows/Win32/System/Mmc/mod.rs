@@ -97,7 +97,7 @@ pub struct CONTEXTMENUITEM2 {
     pub strLanguageIndependentName: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Column, Column_Vtbl, 0x4e89ee8e_0f1c_563c_887a_29f7439c4e93);
+windows_core::imp::define_interface!(Column, Column_Vtbl, 0xfd1c5f63_2b16_4d06_9ab3_f45350b940ab);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Column {
     type Target = super::Com::IDispatch;
@@ -286,7 +286,7 @@ impl Column_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Column {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Columns, Columns_Vtbl, 0x82d06525_3a3d_5376_99a5_afc38ca6f155);
+windows_core::imp::define_interface!(Columns, Columns_Vtbl, 0x383d4d97_fc44_478b_b139_6323dc48611c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Columns {
     type Target = super::Com::IDispatch;
@@ -492,7 +492,7 @@ impl windows_core::RuntimeName for ContextMenu {}
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATA_OBJECT_TYPES(pub i32);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Document, Document_Vtbl, 0xef567f4a_e84a_596c_82f7_fbd548242c96);
+windows_core::imp::define_interface!(Document, Document_Vtbl, 0x225120d6_1e0f_40a3_93fe_1079e6a8017b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Document {
     type Target = super::Com::IDispatch;
@@ -828,7 +828,7 @@ pub const ExportListOptions_SelectedItemsOnly: _ExportListOptions = _ExportListO
 pub const ExportListOptions_TabDelimited: _ExportListOptions = _ExportListOptions(2i32);
 pub const ExportListOptions_Unicode: _ExportListOptions = _ExportListOptions(1i32);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Extension, Extension_Vtbl, 0x3264be34_210b_5038_9b2a_af3357611e5b);
+windows_core::imp::define_interface!(Extension, Extension_Vtbl, 0xad4d6ca6_912f_409b_a26e_7fd234aef542);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Extension {
     type Target = super::Com::IDispatch;
@@ -993,7 +993,7 @@ impl Extension_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Extension {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Extensions, Extensions_Vtbl, 0x2a85c9c7_b654_5f92_8ae7_90ae4fd3bb51);
+windows_core::imp::define_interface!(Extensions, Extensions_Vtbl, 0x82dbea43_8ca4_44bc_a2ca_d18741059ec8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Extensions {
     type Target = super::Com::IDispatch;
@@ -1298,61 +1298,79 @@ impl windows_core::RuntimeName for Frame {}
 pub const HDI_HIDDEN: u32 = 1u32;
 pub const HIDDEN: MMC_BUTTON_STATE = MMC_BUTTON_STATE(4i32);
 pub const HIDE_COLUMN: i32 = -4i32;
-windows_core::imp::define_interface!(IColumnData, IColumnData_Vtbl, 0xa5b7c2d8_46e9_5e37_8f83_7bfd7eb22ea5);
+windows_core::imp::define_interface!(IColumnData, IColumnData_Vtbl, 0x547c1354_024d_11d3_a707_00c04f8ef4cb);
 windows_core::imp::interface_hierarchy!(IColumnData, windows_core::IUnknown);
 impl IColumnData {
-    pub unsafe fn SetColumnConfigData(&self, pcolid: *mut SColumnSetID, pcolsetdata: *mut MMC_COLUMN_SET_DATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnConfigData)(windows_core::Interface::as_raw(self), pcolid as _, pcolsetdata as _).ok() }
+    pub unsafe fn SetColumnConfigData(&self, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnConfigData)(windows_core::Interface::as_raw(self), pcolid, pcolsetdata).ok() }
     }
-    pub unsafe fn GetColumnConfigData(&self, pcolid: *mut SColumnSetID, ppcolsetdata: *mut *mut MMC_COLUMN_SET_DATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnConfigData)(windows_core::Interface::as_raw(self), pcolid as _, ppcolsetdata as _).ok() }
+    pub unsafe fn GetColumnConfigData(&self, pcolid: *const SColumnSetID) -> windows_core::Result<*mut MMC_COLUMN_SET_DATA> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetColumnConfigData)(windows_core::Interface::as_raw(self), pcolid, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn SetColumnSortData(&self, pcolid: *mut SColumnSetID, pcolsortdata: *mut MMC_SORT_SET_DATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnSortData)(windows_core::Interface::as_raw(self), pcolid as _, pcolsortdata as _).ok() }
+    pub unsafe fn SetColumnSortData(&self, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnSortData)(windows_core::Interface::as_raw(self), pcolid, pcolsortdata).ok() }
     }
-    pub unsafe fn GetColumnSortData(&self, pcolid: *mut SColumnSetID, ppcolsortdata: *mut *mut MMC_SORT_SET_DATA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnSortData)(windows_core::Interface::as_raw(self), pcolid as _, ppcolsortdata as _).ok() }
+    pub unsafe fn GetColumnSortData(&self, pcolid: *const SColumnSetID) -> windows_core::Result<*mut MMC_SORT_SET_DATA> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetColumnSortData)(windows_core::Interface::as_raw(self), pcolid, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColumnData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetColumnConfigData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SColumnSetID, *mut MMC_COLUMN_SET_DATA) -> windows_core::HRESULT,
-    pub GetColumnConfigData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SColumnSetID, *mut *mut MMC_COLUMN_SET_DATA) -> windows_core::HRESULT,
-    pub SetColumnSortData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SColumnSetID, *mut MMC_SORT_SET_DATA) -> windows_core::HRESULT,
-    pub GetColumnSortData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SColumnSetID, *mut *mut MMC_SORT_SET_DATA) -> windows_core::HRESULT,
+    pub SetColumnConfigData: unsafe extern "system" fn(*mut core::ffi::c_void, *const SColumnSetID, *const MMC_COLUMN_SET_DATA) -> windows_core::HRESULT,
+    pub GetColumnConfigData: unsafe extern "system" fn(*mut core::ffi::c_void, *const SColumnSetID, *mut *mut MMC_COLUMN_SET_DATA) -> windows_core::HRESULT,
+    pub SetColumnSortData: unsafe extern "system" fn(*mut core::ffi::c_void, *const SColumnSetID, *const MMC_SORT_SET_DATA) -> windows_core::HRESULT,
+    pub GetColumnSortData: unsafe extern "system" fn(*mut core::ffi::c_void, *const SColumnSetID, *mut *mut MMC_SORT_SET_DATA) -> windows_core::HRESULT,
 }
 pub trait IColumnData_Impl: windows_core::IUnknownImpl {
-    fn SetColumnConfigData(&self, pcolid: *mut SColumnSetID, pcolsetdata: *mut MMC_COLUMN_SET_DATA) -> windows_core::Result<()>;
-    fn GetColumnConfigData(&self, pcolid: *mut SColumnSetID, ppcolsetdata: *mut *mut MMC_COLUMN_SET_DATA) -> windows_core::Result<()>;
-    fn SetColumnSortData(&self, pcolid: *mut SColumnSetID, pcolsortdata: *mut MMC_SORT_SET_DATA) -> windows_core::Result<()>;
-    fn GetColumnSortData(&self, pcolid: *mut SColumnSetID, ppcolsortdata: *mut *mut MMC_SORT_SET_DATA) -> windows_core::Result<()>;
+    fn SetColumnConfigData(&self, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> windows_core::Result<()>;
+    fn GetColumnConfigData(&self, pcolid: *const SColumnSetID) -> windows_core::Result<*mut MMC_COLUMN_SET_DATA>;
+    fn SetColumnSortData(&self, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> windows_core::Result<()>;
+    fn GetColumnSortData(&self, pcolid: *const SColumnSetID) -> windows_core::Result<*mut MMC_SORT_SET_DATA>;
 }
 impl IColumnData_Vtbl {
     pub const fn new<Identity: IColumnData_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetColumnConfigData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *mut SColumnSetID, pcolsetdata: *mut MMC_COLUMN_SET_DATA) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColumnConfigData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IColumnData_Impl::SetColumnConfigData(this, core::mem::transmute_copy(&pcolid), core::mem::transmute_copy(&pcolsetdata)).into()
             }
         }
-        unsafe extern "system" fn GetColumnConfigData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *mut SColumnSetID, ppcolsetdata: *mut *mut MMC_COLUMN_SET_DATA) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetColumnConfigData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *const SColumnSetID, ppcolsetdata: *mut *mut MMC_COLUMN_SET_DATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnData_Impl::GetColumnConfigData(this, core::mem::transmute_copy(&pcolid), core::mem::transmute_copy(&ppcolsetdata)).into()
+                match IColumnData_Impl::GetColumnConfigData(this, core::mem::transmute_copy(&pcolid)) {
+                    Ok(ok__) => {
+                        ppcolsetdata.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn SetColumnSortData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *mut SColumnSetID, pcolsortdata: *mut MMC_SORT_SET_DATA) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColumnSortData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IColumnData_Impl::SetColumnSortData(this, core::mem::transmute_copy(&pcolid), core::mem::transmute_copy(&pcolsortdata)).into()
             }
         }
-        unsafe extern "system" fn GetColumnSortData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *mut SColumnSetID, ppcolsortdata: *mut *mut MMC_SORT_SET_DATA) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetColumnSortData<Identity: IColumnData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolid: *const SColumnSetID, ppcolsortdata: *mut *mut MMC_SORT_SET_DATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnData_Impl::GetColumnSortData(this, core::mem::transmute_copy(&pcolid), core::mem::transmute_copy(&ppcolsortdata)).into()
+                match IColumnData_Impl::GetColumnSortData(this, core::mem::transmute_copy(&pcolid)) {
+                    Ok(ok__) => {
+                        ppcolsortdata.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -1508,7 +1526,7 @@ impl IComponent_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IComponent {}
-windows_core::imp::define_interface!(IComponent2, IComponent2_Vtbl, 0xa075b986_6e6a_5ef8_8a4f_a522345f0981);
+windows_core::imp::define_interface!(IComponent2, IComponent2_Vtbl, 0x79a2d615_4a10_4ed4_8c65_8633f9335095);
 impl core::ops::Deref for IComponent2 {
     type Target = IComponent;
     fn deref(&self) -> &Self::Target {
@@ -1527,7 +1545,7 @@ impl IComponent2 {
     pub unsafe fn GetResultViewType2(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetResultViewType2)(windows_core::Interface::as_raw(self), cookie, core::mem::transmute(presultviewtype)).ok() }
     }
-    pub unsafe fn RestoreResultView(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()> {
+    pub unsafe fn RestoreResultView(&self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RestoreResultView)(windows_core::Interface::as_raw(self), cookie, core::mem::transmute(presultviewtype)).ok() }
     }
 }
@@ -1540,13 +1558,13 @@ pub struct IComponent2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     QueryDispatch: usize,
     pub GetResultViewType2: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut RESULT_VIEW_TYPE_INFO) -> windows_core::HRESULT,
-    pub RestoreResultView: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut RESULT_VIEW_TYPE_INFO) -> windows_core::HRESULT,
+    pub RestoreResultView: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *const RESULT_VIEW_TYPE_INFO) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IComponent2_Impl: IComponent_Impl {
     fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> windows_core::Result<super::Com::IDispatch>;
     fn GetResultViewType2(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()>;
-    fn RestoreResultView(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()>;
+    fn RestoreResultView(&self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IComponent2_Vtbl {
@@ -1569,7 +1587,7 @@ impl IComponent2_Vtbl {
                 IComponent2_Impl::GetResultViewType2(this, core::mem::transmute_copy(&cookie), core::mem::transmute_copy(&presultviewtype)).into()
             }
         }
-        unsafe extern "system" fn RestoreResultView<Identity: IComponent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn RestoreResultView<Identity: IComponent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IComponent2_Impl::RestoreResultView(this, core::mem::transmute_copy(&cookie), core::mem::transmute_copy(&presultviewtype)).into()
@@ -1737,7 +1755,7 @@ impl IComponentData_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IComponentData {}
-windows_core::imp::define_interface!(IComponentData2, IComponentData2_Vtbl, 0x4d224da2_168c_5cdc_b2f8_04b3c9f1bbd9);
+windows_core::imp::define_interface!(IComponentData2, IComponentData2_Vtbl, 0xcca0f2d2_82de_41b5_bf47_3b2076273d5c);
 impl core::ops::Deref for IComponentData2 {
     type Target = IComponentData;
     fn deref(&self) -> &Self::Target {
@@ -1790,7 +1808,7 @@ impl IComponentData2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IComponentData2 {}
-windows_core::imp::define_interface!(IConsole, IConsole_Vtbl, 0x6257ca5d_6997_5393_a649_145ff7b01a4e);
+windows_core::imp::define_interface!(IConsole, IConsole_Vtbl, 0x43136eb1_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IConsole, windows_core::IUnknown);
 impl IConsole {
     pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> windows_core::Result<()>
@@ -2088,7 +2106,7 @@ impl IConsole2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IConsole2 {}
-windows_core::imp::define_interface!(IConsole3, IConsole3_Vtbl, 0xa14e70f9_10fb_5444_8da6_e977c4d457bd);
+windows_core::imp::define_interface!(IConsole3, IConsole3_Vtbl, 0x4f85efdb_d0e1_498c_8d4a_d010dfdd404f);
 impl core::ops::Deref for IConsole3 {
     type Target = IConsole2;
     fn deref(&self) -> &Self::Target {
@@ -2234,7 +2252,7 @@ impl IConsoleNameSpace_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IConsoleNameSpace {}
-windows_core::imp::define_interface!(IConsoleNameSpace2, IConsoleNameSpace2_Vtbl, 0xbb13a63b_44b8_5169_b054_8c20b590b56f);
+windows_core::imp::define_interface!(IConsoleNameSpace2, IConsoleNameSpace2_Vtbl, 0x255f18cc_65db_11d1_a7dc_00c04fd8d565);
 impl core::ops::Deref for IConsoleNameSpace2 {
     type Target = IConsoleNameSpace;
     fn deref(&self) -> &Self::Target {
@@ -2246,11 +2264,8 @@ impl IConsoleNameSpace2 {
     pub unsafe fn Expand(&self, hitem: isize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), hitem).ok() }
     }
-    pub unsafe fn AddExtension(&self, hitem: isize) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), hitem, &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddExtension(&self, hitem: isize, lpclsid: *const windows_core::GUID) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddExtension)(windows_core::Interface::as_raw(self), hitem, lpclsid).ok() }
     }
 }
 #[repr(C)]
@@ -2258,11 +2273,11 @@ impl IConsoleNameSpace2 {
 pub struct IConsoleNameSpace2_Vtbl {
     pub base__: IConsoleNameSpace_Vtbl,
     pub Expand: unsafe extern "system" fn(*mut core::ffi::c_void, isize) -> windows_core::HRESULT,
-    pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IConsoleNameSpace2_Impl: IConsoleNameSpace_Impl {
     fn Expand(&self, hitem: isize) -> windows_core::Result<()>;
-    fn AddExtension(&self, hitem: isize) -> windows_core::Result<windows_core::GUID>;
+    fn AddExtension(&self, hitem: isize, lpclsid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IConsoleNameSpace2_Vtbl {
     pub const fn new<Identity: IConsoleNameSpace2_Impl, const OFFSET: isize>() -> Self {
@@ -2272,16 +2287,10 @@ impl IConsoleNameSpace2_Vtbl {
                 IConsoleNameSpace2_Impl::Expand(this, core::mem::transmute_copy(&hitem)).into()
             }
         }
-        unsafe extern "system" fn AddExtension<Identity: IConsoleNameSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hitem: isize, lpclsid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddExtension<Identity: IConsoleNameSpace2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hitem: isize, lpclsid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IConsoleNameSpace2_Impl::AddExtension(this, core::mem::transmute_copy(&hitem)) {
-                    Ok(ok__) => {
-                        lpclsid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IConsoleNameSpace2_Impl::AddExtension(this, core::mem::transmute_copy(&hitem), core::mem::transmute_copy(&lpclsid)).into()
             }
         }
         Self { base__: IConsoleNameSpace_Vtbl::new::<Identity, OFFSET>(), Expand: Expand::<Identity, OFFSET>, AddExtension: AddExtension::<Identity, OFFSET> }
@@ -2291,7 +2300,7 @@ impl IConsoleNameSpace2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IConsoleNameSpace2 {}
-windows_core::imp::define_interface!(IConsolePower, IConsolePower_Vtbl, 0x506e8328_7400_5c1d_baca_bb485159351a);
+windows_core::imp::define_interface!(IConsolePower, IConsolePower_Vtbl, 0x1cfbdd0e_62ca_49ce_a3af_dbb2de61b068);
 windows_core::imp::interface_hierarchy!(IConsolePower, windows_core::IUnknown);
 impl IConsolePower {
     pub unsafe fn SetExecutionState(&self, dwadd: u32, dwremove: u32) -> windows_core::Result<()> {
@@ -2377,7 +2386,7 @@ impl IConsolePowerSink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IConsolePowerSink {}
-windows_core::imp::define_interface!(IConsoleVerb, IConsoleVerb_Vtbl, 0x36ab8bbc_e6f6_51df_a6b7_64b9e739af02);
+windows_core::imp::define_interface!(IConsoleVerb, IConsoleVerb_Vtbl, 0xe49f7a60_74af_11d0_a286_00c04fd8fe93);
 windows_core::imp::interface_hierarchy!(IConsoleVerb, windows_core::IUnknown);
 impl IConsoleVerb {
     pub unsafe fn GetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE) -> windows_core::Result<windows_core::BOOL> {
@@ -2465,25 +2474,25 @@ impl IConsoleVerb_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IConsoleVerb {}
-windows_core::imp::define_interface!(IContextMenuCallback, IContextMenuCallback_Vtbl, 0x2c51ff4d_babe_5883_ba4a_cc17b20bd0be);
+windows_core::imp::define_interface!(IContextMenuCallback, IContextMenuCallback_Vtbl, 0x43136eb7_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IContextMenuCallback, windows_core::IUnknown);
 impl IContextMenuCallback {
-    pub unsafe fn AddItem(&self, pitem: *mut CONTEXTMENUITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem as _).ok() }
+    pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContextMenuCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CONTEXTMENUITEM) -> windows_core::HRESULT,
+    pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const CONTEXTMENUITEM) -> windows_core::HRESULT,
 }
 pub trait IContextMenuCallback_Impl: windows_core::IUnknownImpl {
-    fn AddItem(&self, pitem: *mut CONTEXTMENUITEM) -> windows_core::Result<()>;
+    fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> windows_core::Result<()>;
 }
 impl IContextMenuCallback_Vtbl {
     pub const fn new<Identity: IContextMenuCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddItem<Identity: IContextMenuCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut CONTEXTMENUITEM) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddItem<Identity: IContextMenuCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *const CONTEXTMENUITEM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IContextMenuCallback_Impl::AddItem(this, core::mem::transmute_copy(&pitem)).into()
@@ -2496,25 +2505,25 @@ impl IContextMenuCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IContextMenuCallback {}
-windows_core::imp::define_interface!(IContextMenuCallback2, IContextMenuCallback2_Vtbl, 0xd4b17f58_63f1_5e70_b45d_2eaf16a4a389);
+windows_core::imp::define_interface!(IContextMenuCallback2, IContextMenuCallback2_Vtbl, 0xe178bc0e_2ed0_4b5e_8097_42c9087e8b33);
 windows_core::imp::interface_hierarchy!(IContextMenuCallback2, windows_core::IUnknown);
 impl IContextMenuCallback2 {
-    pub unsafe fn AddItem(&self, pitem: *mut CONTEXTMENUITEM2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem as _).ok() }
+    pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM2) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), pitem).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContextMenuCallback2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CONTEXTMENUITEM2) -> windows_core::HRESULT,
+    pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const CONTEXTMENUITEM2) -> windows_core::HRESULT,
 }
 pub trait IContextMenuCallback2_Impl: windows_core::IUnknownImpl {
-    fn AddItem(&self, pitem: *mut CONTEXTMENUITEM2) -> windows_core::Result<()>;
+    fn AddItem(&self, pitem: *const CONTEXTMENUITEM2) -> windows_core::Result<()>;
 }
 impl IContextMenuCallback2_Vtbl {
     pub const fn new<Identity: IContextMenuCallback2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddItem<Identity: IContextMenuCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut CONTEXTMENUITEM2) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddItem<Identity: IContextMenuCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *const CONTEXTMENUITEM2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IContextMenuCallback2_Impl::AddItem(this, core::mem::transmute_copy(&pitem)).into()
@@ -2527,7 +2536,7 @@ impl IContextMenuCallback2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IContextMenuCallback2 {}
-windows_core::imp::define_interface!(IContextMenuProvider, IContextMenuProvider_Vtbl, 0x22c5db4b_5090_5ec6_be11_72a49ef147fe);
+windows_core::imp::define_interface!(IContextMenuProvider, IContextMenuProvider_Vtbl, 0x43136eb6_d36c_11cf_adbc_00aa00a80033);
 impl core::ops::Deref for IContextMenuProvider {
     type Target = IContextMenuCallback;
     fn deref(&self) -> &Self::Target {
@@ -2630,7 +2639,7 @@ impl IContextMenuProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IContextMenuProvider {}
-windows_core::imp::define_interface!(IControlbar, IControlbar_Vtbl, 0xf02b0c02_88ca_5d07_af62_cd9897b56978);
+windows_core::imp::define_interface!(IControlbar, IControlbar_Vtbl, 0x69fb811e_6c1c_11d0_a2cb_00c04fd909dd);
 windows_core::imp::interface_hierarchy!(IControlbar, windows_core::IUnknown);
 impl IControlbar {
     pub unsafe fn Create<P1>(&self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: P1) -> windows_core::Result<windows_core::IUnknown>
@@ -2706,7 +2715,7 @@ impl IControlbar_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IControlbar {}
-windows_core::imp::define_interface!(IDisplayHelp, IDisplayHelp_Vtbl, 0x17fc2f07_8f04_5b20_b82a_0c89ab4d32ca);
+windows_core::imp::define_interface!(IDisplayHelp, IDisplayHelp_Vtbl, 0xcc593830_b926_11d1_8063_0000f875a9ce);
 windows_core::imp::interface_hierarchy!(IDisplayHelp, windows_core::IUnknown);
 impl IDisplayHelp {
     pub unsafe fn ShowTopic<P0>(&self, pszhelptopic: P0) -> windows_core::Result<()>
@@ -2740,7 +2749,7 @@ impl IDisplayHelp_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDisplayHelp {}
-windows_core::imp::define_interface!(IEnumTASK, IEnumTASK_Vtbl, 0xe1fb2483_b357_51e8_9d9c_604ab01c99ae);
+windows_core::imp::define_interface!(IEnumTASK, IEnumTASK_Vtbl, 0x338698b1_5a02_11d1_9fec_00600832db4a);
 windows_core::imp::interface_hierarchy!(IEnumTASK, windows_core::IUnknown);
 impl IEnumTASK {
     pub unsafe fn Next(&self, rgelt: &mut [MMC_TASK], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -2892,7 +2901,7 @@ impl IExtendContextMenu_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IExtendContextMenu {}
-windows_core::imp::define_interface!(IExtendControlbar, IExtendControlbar_Vtbl, 0x08e7e599_9685_5009_9430_cbf4111e15a0);
+windows_core::imp::define_interface!(IExtendControlbar, IExtendControlbar_Vtbl, 0x49506520_6f40_11d0_a98b_00c04fd8d565);
 windows_core::imp::interface_hierarchy!(IExtendControlbar, windows_core::IUnknown);
 impl IExtendControlbar {
     pub unsafe fn SetControlbar<P0>(&self, pcontrolbar: P0) -> windows_core::Result<()>
@@ -3263,7 +3272,7 @@ impl IExtendView_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IExtendView {}
-windows_core::imp::define_interface!(IHeaderCtrl, IHeaderCtrl_Vtbl, 0xed0ad5c0_12a9_5c0a_97d4_4d643340defb);
+windows_core::imp::define_interface!(IHeaderCtrl, IHeaderCtrl_Vtbl, 0x43136eb3_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IHeaderCtrl, windows_core::IUnknown);
 impl IHeaderCtrl {
     pub unsafe fn InsertColumn<P1>(&self, ncol: i32, title: P1, nformat: i32, nwidth: i32) -> windows_core::Result<()>
@@ -3381,7 +3390,7 @@ impl IHeaderCtrl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IHeaderCtrl {}
-windows_core::imp::define_interface!(IHeaderCtrl2, IHeaderCtrl2_Vtbl, 0x1ca01002_569c_5b12_9ebb_842dbc7254bc);
+windows_core::imp::define_interface!(IHeaderCtrl2, IHeaderCtrl2_Vtbl, 0x9757abb8_1b32_11d1_a7ce_00c04fd8d565);
 impl core::ops::Deref for IHeaderCtrl2 {
     type Target = IHeaderCtrl;
     fn deref(&self) -> &Self::Target {
@@ -3393,11 +3402,8 @@ impl IHeaderCtrl2 {
     pub unsafe fn SetChangeTimeOut(&self, utimeout: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetChangeTimeOut)(windows_core::Interface::as_raw(self), utimeout).ok() }
     }
-    pub unsafe fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32) -> windows_core::Result<MMC_FILTERDATA> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, dwtype, &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, dwtype, pfilterdata).ok() }
     }
     pub unsafe fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetColumnFilter)(windows_core::Interface::as_raw(self), ncolumn, pdwtype as _, pfilterdata as _).ok() }
@@ -3408,12 +3414,12 @@ impl IHeaderCtrl2 {
 pub struct IHeaderCtrl2_Vtbl {
     pub base__: IHeaderCtrl_Vtbl,
     pub SetChangeTimeOut: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetColumnFilter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut MMC_FILTERDATA) -> windows_core::HRESULT,
+    pub SetColumnFilter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const MMC_FILTERDATA) -> windows_core::HRESULT,
     pub GetColumnFilter: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut MMC_FILTERDATA) -> windows_core::HRESULT,
 }
 pub trait IHeaderCtrl2_Impl: IHeaderCtrl_Impl {
     fn SetChangeTimeOut(&self, utimeout: u32) -> windows_core::Result<()>;
-    fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32) -> windows_core::Result<MMC_FILTERDATA>;
+    fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> windows_core::Result<()>;
     fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> windows_core::Result<()>;
 }
 impl IHeaderCtrl2_Vtbl {
@@ -3424,16 +3430,10 @@ impl IHeaderCtrl2_Vtbl {
                 IHeaderCtrl2_Impl::SetChangeTimeOut(this, core::mem::transmute_copy(&utimeout)).into()
             }
         }
-        unsafe extern "system" fn SetColumnFilter<Identity: IHeaderCtrl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncolumn: u32, dwtype: u32, pfilterdata: *mut MMC_FILTERDATA) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColumnFilter<Identity: IHeaderCtrl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IHeaderCtrl2_Impl::SetColumnFilter(this, core::mem::transmute_copy(&ncolumn), core::mem::transmute_copy(&dwtype)) {
-                    Ok(ok__) => {
-                        pfilterdata.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IHeaderCtrl2_Impl::SetColumnFilter(this, core::mem::transmute_copy(&ncolumn), core::mem::transmute_copy(&dwtype), core::mem::transmute_copy(&pfilterdata)).into()
             }
         }
         unsafe extern "system" fn GetColumnFilter<Identity: IHeaderCtrl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> windows_core::HRESULT {
@@ -3454,36 +3454,36 @@ impl IHeaderCtrl2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IHeaderCtrl2 {}
-windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0xb779ceef_46b5_5056_80cd_fd1a4cf01b20);
+windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x43136eb8_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
-    pub unsafe fn ImageListSetIcon(&self, picon: *mut isize, nloc: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ImageListSetIcon)(windows_core::Interface::as_raw(self), picon as _, nloc).ok() }
+    pub unsafe fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ImageListSetIcon)(windows_core::Interface::as_raw(self), picon, nloc).ok() }
     }
-    pub unsafe fn ImageListSetStrip(&self, pbmapsm: *mut isize, pbmaplg: *mut isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ImageListSetStrip)(windows_core::Interface::as_raw(self), pbmapsm as _, pbmaplg as _, nstartloc, cmask).ok() }
+    pub unsafe fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ImageListSetStrip)(windows_core::Interface::as_raw(self), pbmapsm, pbmaplg, nstartloc, cmask).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub ImageListSetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize, i32) -> windows_core::HRESULT,
-    pub ImageListSetStrip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize, *mut isize, i32, super::super::Foundation::COLORREF) -> windows_core::HRESULT,
+    pub ImageListSetIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *const isize, i32) -> windows_core::HRESULT,
+    pub ImageListSetStrip: unsafe extern "system" fn(*mut core::ffi::c_void, *const isize, *const isize, i32, super::super::Foundation::COLORREF) -> windows_core::HRESULT,
 }
 pub trait IImageList_Impl: windows_core::IUnknownImpl {
-    fn ImageListSetIcon(&self, picon: *mut isize, nloc: i32) -> windows_core::Result<()>;
-    fn ImageListSetStrip(&self, pbmapsm: *mut isize, pbmaplg: *mut isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::Result<()>;
+    fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> windows_core::Result<()>;
+    fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::Result<()>;
 }
 impl IImageList_Vtbl {
     pub const fn new<Identity: IImageList_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ImageListSetIcon<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, picon: *mut isize, nloc: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImageListSetIcon<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, picon: *const isize, nloc: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList_Impl::ImageListSetIcon(this, core::mem::transmute_copy(&picon), core::mem::transmute_copy(&nloc)).into()
             }
         }
-        unsafe extern "system" fn ImageListSetStrip<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmapsm: *mut isize, pbmaplg: *mut isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::HRESULT {
+        unsafe extern "system" fn ImageListSetStrip<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IImageList_Impl::ImageListSetStrip(this, core::mem::transmute_copy(&pbmapsm), core::mem::transmute_copy(&pbmaplg), core::mem::transmute_copy(&nstartloc), core::mem::transmute_copy(&cmask)).into()
@@ -3533,7 +3533,7 @@ impl IMMCVersionInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMMCVersionInfo {}
-windows_core::imp::define_interface!(IMenuButton, IMenuButton_Vtbl, 0xbd56332f_cea6_56da_94c7_eb86c51f6e88);
+windows_core::imp::define_interface!(IMenuButton, IMenuButton_Vtbl, 0x951ed750_d080_11d0_b197_000000000000);
 windows_core::imp::interface_hierarchy!(IMenuButton, windows_core::IUnknown);
 impl IMenuButton {
     pub unsafe fn AddButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::Result<()>
@@ -3599,7 +3599,7 @@ impl IMenuButton_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMenuButton {}
-windows_core::imp::define_interface!(IMessageView, IMessageView_Vtbl, 0x26305bb5_feeb_51f3_8158_9e295390a780);
+windows_core::imp::define_interface!(IMessageView, IMessageView_Vtbl, 0x80f94174_fccc_11d2_b991_00c04f8ecd78);
 windows_core::imp::interface_hierarchy!(IMessageView, windows_core::IUnknown);
 impl IMessageView {
     pub unsafe fn SetTitleText<P0>(&self, psztitletext: P0) -> windows_core::Result<()>
@@ -3779,7 +3779,7 @@ impl IPropertySheetCallback_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Controls")]
 impl windows_core::RuntimeName for IPropertySheetCallback {}
-windows_core::imp::define_interface!(IPropertySheetProvider, IPropertySheetProvider_Vtbl, 0x13bcd653_f615_52a9_abc7_21f62d724e40);
+windows_core::imp::define_interface!(IPropertySheetProvider, IPropertySheetProvider_Vtbl, 0x85de64de_ef21_11cf_a285_00c04fd8dbe6);
 windows_core::imp::interface_hierarchy!(IPropertySheetProvider, windows_core::IUnknown);
 impl IPropertySheetProvider {
     #[cfg(feature = "Win32_System_Com")]
@@ -3883,7 +3883,7 @@ impl IPropertySheetProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPropertySheetProvider {}
-windows_core::imp::define_interface!(IRequiredExtensions, IRequiredExtensions_Vtbl, 0x4b175608_ecfe_59b9_a99d_e71cfb0138b8);
+windows_core::imp::define_interface!(IRequiredExtensions, IRequiredExtensions_Vtbl, 0x72782d7a_a4a0_11d1_af0f_00c04fb6dd2c);
 windows_core::imp::interface_hierarchy!(IRequiredExtensions, windows_core::IUnknown);
 impl IRequiredExtensions {
     pub unsafe fn EnableAllExtensions(&self) -> windows_core::Result<()> {
@@ -3959,7 +3959,7 @@ impl IRequiredExtensions_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRequiredExtensions {}
-windows_core::imp::define_interface!(IResultData, IResultData_Vtbl, 0x9fdfc9ee_ffae_5764_ada7_9c6642a30025);
+windows_core::imp::define_interface!(IResultData, IResultData_Vtbl, 0x31da5fa0_e0eb_11cf_9f21_00aa003ca9f6);
 windows_core::imp::interface_hierarchy!(IResultData, windows_core::IUnknown);
 impl IResultData {
     pub unsafe fn InsertItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
@@ -3977,8 +3977,8 @@ impl IResultData {
     pub unsafe fn DeleteAllRsltItems(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteAllRsltItems)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item as _).ok() }
+    pub unsafe fn SetItem(&self, item: *const RESULTDATAITEM) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), item).ok() }
     }
     pub unsafe fn GetItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), item as _).ok() }
@@ -4025,7 +4025,7 @@ pub struct IResultData_Vtbl {
     pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, isize, i32) -> windows_core::HRESULT,
     pub FindItemByLParam: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::LPARAM, *mut isize) -> windows_core::HRESULT,
     pub DeleteAllRsltItems: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RESULTDATAITEM) -> windows_core::HRESULT,
+    pub SetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *const RESULTDATAITEM) -> windows_core::HRESULT,
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RESULTDATAITEM) -> windows_core::HRESULT,
     pub GetNextItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RESULTDATAITEM) -> windows_core::HRESULT,
     pub ModifyItemState: unsafe extern "system" fn(*mut core::ffi::c_void, i32, isize, u32, u32) -> windows_core::HRESULT,
@@ -4042,7 +4042,7 @@ pub trait IResultData_Impl: windows_core::IUnknownImpl {
     fn DeleteItem(&self, itemid: isize, ncol: i32) -> windows_core::Result<()>;
     fn FindItemByLParam(&self, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<isize>;
     fn DeleteAllRsltItems(&self) -> windows_core::Result<()>;
-    fn SetItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()>;
+    fn SetItem(&self, item: *const RESULTDATAITEM) -> windows_core::Result<()>;
     fn GetItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()>;
     fn GetNextItem(&self, item: *mut RESULTDATAITEM) -> windows_core::Result<()>;
     fn ModifyItemState(&self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> windows_core::Result<()>;
@@ -4086,7 +4086,7 @@ impl IResultData_Vtbl {
                 IResultData_Impl::DeleteAllRsltItems(this).into()
             }
         }
-        unsafe extern "system" fn SetItem<Identity: IResultData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut RESULTDATAITEM) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetItem<Identity: IResultData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *const RESULTDATAITEM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IResultData_Impl::SetItem(this, core::mem::transmute_copy(&item)).into()
@@ -4495,7 +4495,7 @@ impl ISnapinAbout_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for ISnapinAbout {}
-windows_core::imp::define_interface!(ISnapinHelp, ISnapinHelp_Vtbl, 0xe9d20c34_7200_59c7_aa18_337bcc397fad);
+windows_core::imp::define_interface!(ISnapinHelp, ISnapinHelp_Vtbl, 0xa6b15ace_df59_11d0_a7dd_00c04fd909dd);
 windows_core::imp::interface_hierarchy!(ISnapinHelp, windows_core::IUnknown);
 impl ISnapinHelp {
     pub unsafe fn GetHelpTopic(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -4535,7 +4535,7 @@ impl ISnapinHelp_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISnapinHelp {}
-windows_core::imp::define_interface!(ISnapinHelp2, ISnapinHelp2_Vtbl, 0x48632f13_49a1_55e0_a732_254303cf0290);
+windows_core::imp::define_interface!(ISnapinHelp2, ISnapinHelp2_Vtbl, 0x4861a010_20f9_11d2_a510_00c04fb6dd2c);
 impl core::ops::Deref for ISnapinHelp2 {
     type Target = ISnapinHelp;
     fn deref(&self) -> &Self::Target {
@@ -4581,7 +4581,7 @@ impl ISnapinHelp2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISnapinHelp2 {}
-windows_core::imp::define_interface!(ISnapinProperties, ISnapinProperties_Vtbl, 0x24428bb1_ad5e_52c9_8ef0_abb56162f975);
+windows_core::imp::define_interface!(ISnapinProperties, ISnapinProperties_Vtbl, 0xf7889da9_4a02_4837_bf89_1a6f2a021010);
 windows_core::imp::interface_hierarchy!(ISnapinProperties, windows_core::IUnknown);
 impl ISnapinProperties {
     #[cfg(feature = "Win32_System_Com")]
@@ -4598,7 +4598,7 @@ impl ISnapinProperties {
         unsafe { (windows_core::Interface::vtable(self).QueryPropertyNames)(windows_core::Interface::as_raw(self), pcallback.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PropertiesChanged(&self, pproperties: &mut [MMC_SNAPIN_PROPERTY]) -> windows_core::Result<()> {
+    pub unsafe fn PropertiesChanged(&self, pproperties: &[MMC_SNAPIN_PROPERTY]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PropertiesChanged)(windows_core::Interface::as_raw(self), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok() }
     }
 }
@@ -4612,7 +4612,7 @@ pub struct ISnapinProperties_Vtbl {
     Initialize: usize,
     pub QueryPropertyNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut MMC_SNAPIN_PROPERTY) -> windows_core::HRESULT,
+    pub PropertiesChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const MMC_SNAPIN_PROPERTY) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PropertiesChanged: usize,
 }
@@ -4620,7 +4620,7 @@ pub struct ISnapinProperties_Vtbl {
 pub trait ISnapinProperties_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pproperties: windows_core::Ref<Properties>) -> windows_core::Result<()>;
     fn QueryPropertyNames(&self, pcallback: windows_core::Ref<ISnapinPropertiesCallback>) -> windows_core::Result<()>;
-    fn PropertiesChanged(&self, cproperties: i32, pproperties: *mut MMC_SNAPIN_PROPERTY) -> windows_core::Result<()>;
+    fn PropertiesChanged(&self, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISnapinProperties_Vtbl {
@@ -4637,7 +4637,7 @@ impl ISnapinProperties_Vtbl {
                 ISnapinProperties_Impl::QueryPropertyNames(this, core::mem::transmute_copy(&pcallback)).into()
             }
         }
-        unsafe extern "system" fn PropertiesChanged<Identity: ISnapinProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: i32, pproperties: *mut MMC_SNAPIN_PROPERTY) -> windows_core::HRESULT {
+        unsafe extern "system" fn PropertiesChanged<Identity: ISnapinProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISnapinProperties_Impl::PropertiesChanged(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&pproperties)).into()
@@ -4656,7 +4656,7 @@ impl ISnapinProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISnapinProperties {}
-windows_core::imp::define_interface!(ISnapinPropertiesCallback, ISnapinPropertiesCallback_Vtbl, 0x4c6e0ec1_5e9e_59d7_b891_b99bebb4afa3);
+windows_core::imp::define_interface!(ISnapinPropertiesCallback, ISnapinPropertiesCallback_Vtbl, 0xa50fa2e5_7e61_45eb_a8d4_9a07b3e851a8);
 windows_core::imp::interface_hierarchy!(ISnapinPropertiesCallback, windows_core::IUnknown);
 impl ISnapinPropertiesCallback {
     pub unsafe fn AddPropertyName<P0>(&self, pszpropname: P0, dwflags: u32) -> windows_core::Result<()>
@@ -4690,7 +4690,7 @@ impl ISnapinPropertiesCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISnapinPropertiesCallback {}
-windows_core::imp::define_interface!(IStringTable, IStringTable_Vtbl, 0x0a8aec68_fe23_509d_838b_cc24619a0588);
+windows_core::imp::define_interface!(IStringTable, IStringTable_Vtbl, 0xde40b7a4_0f65_11d2_8e25_00c04f8ecd78);
 windows_core::imp::interface_hierarchy!(IStringTable, windows_core::IUnknown);
 impl IStringTable {
     pub unsafe fn AddString<P0>(&self, pszadd: P0) -> windows_core::Result<u32>
@@ -4845,18 +4845,18 @@ impl IStringTable_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IStringTable {}
-windows_core::imp::define_interface!(IToolbar, IToolbar_Vtbl, 0xc7b493a7_b740_5e4b_b7d6_9f2c8720a03a);
+windows_core::imp::define_interface!(IToolbar, IToolbar_Vtbl, 0x43136eb9_d36c_11cf_adbc_00aa00a80033);
 windows_core::imp::interface_hierarchy!(IToolbar, windows_core::IUnknown);
 impl IToolbar {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddBitmap)(windows_core::Interface::as_raw(self), nimages, hbmp, cxsize, cysize, crmask).ok() }
     }
-    pub unsafe fn AddButtons(&self, nbuttons: i32, lpbuttons: *mut MMCBUTTON) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddButtons)(windows_core::Interface::as_raw(self), nbuttons, lpbuttons as _).ok() }
+    pub unsafe fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddButtons)(windows_core::Interface::as_raw(self), nbuttons, lpbuttons).ok() }
     }
-    pub unsafe fn InsertButton(&self, nindex: i32, lpbutton: *mut MMCBUTTON) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InsertButton)(windows_core::Interface::as_raw(self), nindex, lpbutton as _).ok() }
+    pub unsafe fn InsertButton(&self, nindex: i32, lpbutton: *const MMCBUTTON) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).InsertButton)(windows_core::Interface::as_raw(self), nindex, lpbutton).ok() }
     }
     pub unsafe fn DeleteButton(&self, nindex: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteButton)(windows_core::Interface::as_raw(self), nindex).ok() }
@@ -4879,8 +4879,8 @@ pub struct IToolbar_Vtbl {
     pub AddBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::super::Graphics::Gdi::HBITMAP, i32, i32, super::super::Foundation::COLORREF) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     AddBitmap: usize,
-    pub AddButtons: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut MMCBUTTON) -> windows_core::HRESULT,
-    pub InsertButton: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut MMCBUTTON) -> windows_core::HRESULT,
+    pub AddButtons: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const MMCBUTTON) -> windows_core::HRESULT,
+    pub InsertButton: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const MMCBUTTON) -> windows_core::HRESULT,
     pub DeleteButton: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetButtonState: unsafe extern "system" fn(*mut core::ffi::c_void, i32, MMC_BUTTON_STATE, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetButtonState: unsafe extern "system" fn(*mut core::ffi::c_void, i32, MMC_BUTTON_STATE, windows_core::BOOL) -> windows_core::HRESULT,
@@ -4888,8 +4888,8 @@ pub struct IToolbar_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IToolbar_Impl: windows_core::IUnknownImpl {
     fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> windows_core::Result<()>;
-    fn AddButtons(&self, nbuttons: i32, lpbuttons: *mut MMCBUTTON) -> windows_core::Result<()>;
-    fn InsertButton(&self, nindex: i32, lpbutton: *mut MMCBUTTON) -> windows_core::Result<()>;
+    fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> windows_core::Result<()>;
+    fn InsertButton(&self, nindex: i32, lpbutton: *const MMCBUTTON) -> windows_core::Result<()>;
     fn DeleteButton(&self, nindex: i32) -> windows_core::Result<()>;
     fn GetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE) -> windows_core::Result<windows_core::BOOL>;
     fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: windows_core::BOOL) -> windows_core::Result<()>;
@@ -4903,13 +4903,13 @@ impl IToolbar_Vtbl {
                 IToolbar_Impl::AddBitmap(this, core::mem::transmute_copy(&nimages), core::mem::transmute_copy(&hbmp), core::mem::transmute_copy(&cxsize), core::mem::transmute_copy(&cysize), core::mem::transmute_copy(&crmask)).into()
             }
         }
-        unsafe extern "system" fn AddButtons<Identity: IToolbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nbuttons: i32, lpbuttons: *mut MMCBUTTON) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddButtons<Identity: IToolbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IToolbar_Impl::AddButtons(this, core::mem::transmute_copy(&nbuttons), core::mem::transmute_copy(&lpbuttons)).into()
             }
         }
-        unsafe extern "system" fn InsertButton<Identity: IToolbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, lpbutton: *mut MMCBUTTON) -> windows_core::HRESULT {
+        unsafe extern "system" fn InsertButton<Identity: IToolbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, lpbutton: *const MMCBUTTON) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IToolbar_Impl::InsertButton(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&lpbutton)).into()
@@ -5349,7 +5349,7 @@ impl Default for MMC_VISIBLE_COLUMNS {
 }
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(MenuItem, MenuItem_Vtbl, 0x42a2194b_45aa_5d76_bdca_4d8b8a474831);
+windows_core::imp::define_interface!(MenuItem, MenuItem_Vtbl, 0x0178fad1_b361_4b27_96ad_67c57ebf2e1d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for MenuItem {
     type Target = super::Com::IDispatch;
@@ -5643,7 +5643,7 @@ impl Node_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Node {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Nodes, Nodes_Vtbl, 0x02acab11_4d7c_52fd_ae6c_7b877cc1dc17);
+windows_core::imp::define_interface!(Nodes, Nodes_Vtbl, 0x313b01df_b22f_4d42_b1b8_483cdcf51d35);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Nodes {
     type Target = super::Com::IDispatch;
@@ -5742,7 +5742,7 @@ impl Nodes_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Nodes {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Properties, Properties_Vtbl, 0xb7b2f49a_b0be_5140_9bd0_d70f63e804cb);
+windows_core::imp::define_interface!(Properties, Properties_Vtbl, 0x2886abc2_a425_42b2_91c6_e25c0e04581c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Properties {
     type Target = super::Com::IDispatch;
@@ -5853,7 +5853,7 @@ impl Properties_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Properties {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(Property, Property_Vtbl, 0x38ec4361_0500_59a1_938b_6d560d920bf2);
+windows_core::imp::define_interface!(Property, Property_Vtbl, 0x4600c3a5_e301_41d8_b6d0_ef2e4212e0ca);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for Property {
     type Target = super::Com::IDispatch;
@@ -6294,7 +6294,7 @@ impl ScopeNamespace_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ScopeNamespace {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(SnapIn, SnapIn_Vtbl, 0x2cc11b37_6ba0_5452_bfae_c92357d3d3a8);
+windows_core::imp::define_interface!(SnapIn, SnapIn_Vtbl, 0x3be910f6_3459_49c6_a1bb_41e6be9df3ea);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for SnapIn {
     type Target = super::Com::IDispatch;
@@ -7472,7 +7472,7 @@ impl Views_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for Views {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_AppEvents, _AppEvents_Vtbl, 0x1704c1d6_717f_59b0_8a43_4dea75c8bf14);
+windows_core::imp::define_interface!(_AppEvents, _AppEvents_Vtbl, 0xde46cbdd_53f5_4635_af54_4fe71e923d3f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for _AppEvents {
     type Target = super::Com::IDispatch;
@@ -7689,7 +7689,7 @@ impl _AppEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for _AppEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_Application, _Application_Vtbl, 0x4392fe51_75dc_5ad3_bf79_e08bb66ceaeb);
+windows_core::imp::define_interface!(_Application, _Application_Vtbl, 0xa3afb9cc_b653_4741_86ab_f0470ec1384c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for _Application {
     type Target = super::Com::IDispatch;
@@ -7929,7 +7929,7 @@ pub struct _ColumnSortOrder(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DocumentMode(pub i32);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_EventConnector, _EventConnector_Vtbl, 0x180bb716_a8d1_5c7d_9434_ed0dcb3f292b);
+windows_core::imp::define_interface!(_EventConnector, _EventConnector_Vtbl, 0xc0bccd30_de44_4528_8403_a05a6a1cc8ea);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for _EventConnector {
     type Target = super::Com::IDispatch;

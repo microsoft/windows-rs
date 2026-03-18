@@ -46,7 +46,7 @@ impl IWPCGamesSettings_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWPCGamesSettings {}
-windows_core::imp::define_interface!(IWPCProviderConfig, IWPCProviderConfig_Vtbl, 0xb7196a77_07e7_50b3_88a5_3464cd6fce97);
+windows_core::imp::define_interface!(IWPCProviderConfig, IWPCProviderConfig_Vtbl, 0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
 windows_core::imp::interface_hierarchy!(IWPCProviderConfig, windows_core::IUnknown);
 impl IWPCProviderConfig {
     pub unsafe fn GetUserSummary(&self, bstrsid: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
@@ -113,7 +113,7 @@ impl IWPCProviderConfig_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWPCProviderConfig {}
-windows_core::imp::define_interface!(IWPCProviderState, IWPCProviderState_Vtbl, 0x6f4b477c_cddd_5d9b_bdcc_40bfa44c470f);
+windows_core::imp::define_interface!(IWPCProviderState, IWPCProviderState_Vtbl, 0x50b6a267_c4bd_450b_adb5_759073837c9e);
 windows_core::imp::interface_hierarchy!(IWPCProviderState, windows_core::IUnknown);
 impl IWPCProviderState {
     pub unsafe fn Enable(&self) -> windows_core::Result<()> {
@@ -195,7 +195,7 @@ impl IWPCProviderSupport_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWPCProviderSupport {}
-windows_core::imp::define_interface!(IWPCSettings, IWPCSettings_Vtbl, 0x13f6d312_5705_5fe9_978d_1785bc735400);
+windows_core::imp::define_interface!(IWPCSettings, IWPCSettings_Vtbl, 0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
 windows_core::imp::interface_hierarchy!(IWPCSettings, windows_core::IUnknown);
 impl IWPCSettings {
     pub unsafe fn IsLoggingRequired(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -280,7 +280,7 @@ impl IWPCSettings_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWPCSettings {}
-windows_core::imp::define_interface!(IWPCWebSettings, IWPCWebSettings_Vtbl, 0xa4307dd0_d869_5c34_ace6_28b9eb1a2f1e);
+windows_core::imp::define_interface!(IWPCWebSettings, IWPCWebSettings_Vtbl, 0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
 impl core::ops::Deref for IWPCWebSettings {
     type Target = IWPCSettings;
     fn deref(&self) -> &Self::Target {
@@ -295,11 +295,14 @@ impl IWPCWebSettings {
             (windows_core::Interface::vtable(self).GetSettings)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RequestURLOverride<P1>(&self, hwnd: super::super::Foundation::HWND, pcszurl: P1, ppcszsuburls: &mut [windows_core::PCWSTR], pfchanged: *mut windows_core::BOOL) -> windows_core::Result<()>
+    pub unsafe fn RequestURLOverride<P1>(&self, hwnd: super::super::Foundation::HWND, pcszurl: P1, ppcszsuburls: &[windows_core::PCWSTR]) -> windows_core::Result<windows_core::BOOL>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RequestURLOverride)(windows_core::Interface::as_raw(self), hwnd, pcszurl.param().abi(), ppcszsuburls.len().try_into().unwrap(), core::mem::transmute(ppcszsuburls.as_ptr()), pfchanged as _).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RequestURLOverride)(windows_core::Interface::as_raw(self), hwnd, pcszurl.param().abi(), ppcszsuburls.len().try_into().unwrap(), core::mem::transmute(ppcszsuburls.as_ptr()), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -307,11 +310,11 @@ impl IWPCWebSettings {
 pub struct IWPCWebSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
     pub GetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WPCFLAG_WEB_SETTING) -> windows_core::HRESULT,
-    pub RequestURLOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, u32, *mut windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    pub RequestURLOverride: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, windows_core::PCWSTR, u32, *const windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IWPCWebSettings_Impl: IWPCSettings_Impl {
     fn GetSettings(&self) -> windows_core::Result<WPCFLAG_WEB_SETTING>;
-    fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: &windows_core::PCWSTR, curls: u32, ppcszsuburls: *mut windows_core::PCWSTR, pfchanged: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: &windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWPCWebSettings_Vtbl {
     pub const fn new<Identity: IWPCWebSettings_Impl, const OFFSET: isize>() -> Self {
@@ -327,10 +330,16 @@ impl IWPCWebSettings_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RequestURLOverride<Identity: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: windows_core::PCWSTR, curls: u32, ppcszsuburls: *mut windows_core::PCWSTR, pfchanged: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestURLOverride<Identity: IWPCWebSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: windows_core::PCWSTR, curls: u32, ppcszsuburls: *const windows_core::PCWSTR, pfchanged: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWPCWebSettings_Impl::RequestURLOverride(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&pcszurl), core::mem::transmute_copy(&curls), core::mem::transmute_copy(&ppcszsuburls), core::mem::transmute_copy(&pfchanged)).into()
+                match IWPCWebSettings_Impl::RequestURLOverride(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&pcszurl), core::mem::transmute_copy(&curls), core::mem::transmute_copy(&ppcszsuburls)) {
+                    Ok(ok__) => {
+                        pfchanged.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -344,7 +353,7 @@ impl IWPCWebSettings_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWPCWebSettings {}
-windows_core::imp::define_interface!(IWindowsParentalControls, IWindowsParentalControls_Vtbl, 0xc04df034_4da3_5683_a38f_db79c7db68f3);
+windows_core::imp::define_interface!(IWindowsParentalControls, IWindowsParentalControls_Vtbl, 0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
 impl core::ops::Deref for IWindowsParentalControls {
     type Target = IWindowsParentalControlsCore;
     fn deref(&self) -> &Self::Target {
@@ -393,7 +402,7 @@ impl IWindowsParentalControls_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWindowsParentalControls {}
-windows_core::imp::define_interface!(IWindowsParentalControlsCore, IWindowsParentalControlsCore_Vtbl, 0xca6c0249_c403_5f0a_8b5c_f830aa734eb2);
+windows_core::imp::define_interface!(IWindowsParentalControlsCore, IWindowsParentalControlsCore_Vtbl, 0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
 windows_core::imp::interface_hierarchy!(IWindowsParentalControlsCore, windows_core::IUnknown);
 impl IWindowsParentalControlsCore {
     pub unsafe fn GetVisibility(&self) -> windows_core::Result<WPCFLAG_VISIBILITY> {

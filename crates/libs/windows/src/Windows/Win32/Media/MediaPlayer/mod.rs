@@ -573,7 +573,7 @@ pub const FeedFolderWatcher: windows_core::GUID = windows_core::GUID::from_u128(
 pub const FeedWatcher: windows_core::GUID = windows_core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
 pub const FeedsManager: windows_core::GUID = windows_core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFeed, IFeed_Vtbl, 0x64ea249c_4835_5ac6_85cc_61da8763c0ab);
+windows_core::imp::define_interface!(IFeed, IFeed_Vtbl, 0xf7f915d8_2ede_42bc_98e7_a5d05063a757);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFeed {
     type Target = super::super::System::Com::IDispatch;
@@ -1416,7 +1416,7 @@ impl IFeed_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFeed {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFeed2, IFeed2_Vtbl, 0x9c41342b_8304_5f19_bd8f_620bd2a3d8dc);
+windows_core::imp::define_interface!(IFeed2, IFeed2_Vtbl, 0x33f2ea09_1398_4ab9_b6a4_f94b49d0a42e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFeed2 {
     type Target = IFeed;
@@ -1965,7 +1965,7 @@ impl IFeedEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFeedEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFeedFolder, IFeedFolder_Vtbl, 0x567c0b24_c94c_58ba_a1d2_eb96ce679099);
+windows_core::imp::define_interface!(IFeedFolder, IFeedFolder_Vtbl, 0x81f04ad1_4194_4d7d_86d6_11813cec163c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFeedFolder {
     type Target = super::super::System::Com::IDispatch;
@@ -2352,7 +2352,7 @@ impl IFeedFolder_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFeedFolder {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFeedFolderEvents, IFeedFolderEvents_Vtbl, 0x18d00ce7_fd17_5108_9f19_15156390faf5);
+windows_core::imp::define_interface!(IFeedFolderEvents, IFeedFolderEvents_Vtbl, 0x20a59fa6_a844_4630_9e98_175f70b4d55b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFeedFolderEvents {
     type Target = super::super::System::Com::IDispatch;
@@ -2580,7 +2580,7 @@ impl IFeedFolderEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFeedFolderEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFeedItem, IFeedItem_Vtbl, 0x694b877a_3343_54db_b05a_b49d5684ec91);
+windows_core::imp::define_interface!(IFeedItem, IFeedItem_Vtbl, 0x0a1e6cad_0a47_4da2_a13d_5baaa5c8bd4f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFeedItem {
     type Target = super::super::System::Com::IDispatch;
@@ -2955,7 +2955,7 @@ impl IFeedItem_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFeedItem {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFeedItem2, IFeedItem2_Vtbl, 0x6943cd3f_32f5_54ab_8ae8_3661240643db);
+windows_core::imp::define_interface!(IFeedItem2, IFeedItem2_Vtbl, 0x79ac9ef4_f9c1_4d2b_a50b_a7ffba4dcf37);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFeedItem2 {
     type Target = IFeedItem;
@@ -3112,7 +3112,7 @@ impl IFeedsEnum_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFeedsEnum {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFeedsManager, IFeedsManager_Vtbl, 0x47120ceb_ec67_5fef_b145_0e4a2c1e6737);
+windows_core::imp::define_interface!(IFeedsManager, IFeedsManager_Vtbl, 0xa74029cc_1f1a_4906_88f0_810638d86591);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFeedsManager {
     type Target = super::super::System::Com::IDispatch;
@@ -3496,7 +3496,7 @@ impl IWMPAudioRenderConfig_Vtbl {
 }
 impl windows_core::RuntimeName for IWMPAudioRenderConfig {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPCdrom, IWMPCdrom_Vtbl, 0x4492d18b_9a0f_537f_b93d_14327665c9d9);
+windows_core::imp::define_interface!(IWMPCdrom, IWMPCdrom_Vtbl, 0xcfab6e98_8730_11d3_b388_00c04f68574b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPCdrom {
     type Target = super::super::System::Com::IDispatch;
@@ -3585,7 +3585,7 @@ impl IWMPCdrom_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPCdrom {}
-windows_core::imp::define_interface!(IWMPCdromBurn, IWMPCdromBurn_Vtbl, 0x42a59eae_37c6_5ccd_a2f2_cf45d5dc7f8c);
+windows_core::imp::define_interface!(IWMPCdromBurn, IWMPCdromBurn_Vtbl, 0xbd94dbeb_417f_4928_aa06_087d56ed9b59);
 windows_core::imp::interface_hierarchy!(IWMPCdromBurn, windows_core::IUnknown);
 impl IWMPCdromBurn {
     pub unsafe fn isAvailable(&self, bstritem: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -4040,7 +4040,7 @@ impl IWMPCdromRip_Vtbl {
 }
 impl windows_core::RuntimeName for IWMPCdromRip {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPClosedCaption, IWMPClosedCaption_Vtbl, 0x053a639d_8dbc_570e_8a51_b92d669ea540);
+windows_core::imp::define_interface!(IWMPClosedCaption, IWMPClosedCaption_Vtbl, 0x4f2df574_c588_11d3_9ed0_00c04fb6e937);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPClosedCaption {
     type Target = super::super::System::Com::IDispatch;
@@ -4348,7 +4348,7 @@ impl IWMPClosedCaption2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPClosedCaption2 {}
-windows_core::imp::define_interface!(IWMPContentContainer, IWMPContentContainer_Vtbl, 0x43cfb188_794d_547e_8fa0_db89a5fd8c4d);
+windows_core::imp::define_interface!(IWMPContentContainer, IWMPContentContainer_Vtbl, 0xad7f4d9c_1a9f_4ed2_9815_ecc0b58cb616);
 windows_core::imp::interface_hierarchy!(IWMPContentContainer, windows_core::IUnknown);
 impl IWMPContentContainer {
     pub unsafe fn GetID(&self) -> windows_core::Result<u32> {
@@ -4496,7 +4496,7 @@ impl IWMPContentContainer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPContentContainer {}
-windows_core::imp::define_interface!(IWMPContentContainerList, IWMPContentContainerList_Vtbl, 0xc5066627_879d_5540_aee8_e9eae662c662);
+windows_core::imp::define_interface!(IWMPContentContainerList, IWMPContentContainerList_Vtbl, 0xa9937f78_0802_4af8_8b8d_e3f045bc8ab5);
 windows_core::imp::interface_hierarchy!(IWMPContentContainerList, windows_core::IUnknown);
 impl IWMPContentContainerList {
     pub unsafe fn GetTransactionType(&self) -> windows_core::Result<WMPTransactionType> {
@@ -4581,7 +4581,7 @@ impl IWMPContentContainerList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPContentContainerList {}
-windows_core::imp::define_interface!(IWMPContentPartner, IWMPContentPartner_Vtbl, 0x92274ec5_d544_5f9a_a1f3_37194a0be760);
+windows_core::imp::define_interface!(IWMPContentPartner, IWMPContentPartner_Vtbl, 0x55455073_41b5_4e75_87b8_f13bdb291d08);
 windows_core::imp::interface_hierarchy!(IWMPContentPartner, windows_core::IUnknown);
 impl IWMPContentPartner {
     pub unsafe fn SetCallback<P0>(&self, pcallback: P0) -> windows_core::Result<()>
@@ -4591,15 +4591,15 @@ impl IWMPContentPartner {
         unsafe { (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), pcallback.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Notify(&self, r#type: WMPPartnerNotification) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pcontext)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetItemInfo(&self, bstrinfoname: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, pdata: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItemInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinfoname), core::mem::transmute(pcontext), core::mem::transmute(pdata)).ok() }
+    pub unsafe fn GetItemInfo(&self, bstrinfoname: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetItemInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinfoname), core::mem::transmute(pcontext), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetContentPartnerInfo(&self, bstrinfoname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -4609,11 +4609,11 @@ impl IWMPContentPartner {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCommands(&self, location: &windows_core::BSTR, plocationcontext: *mut super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, prgitemids: &mut [u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::Result<()> {
+    pub unsafe fn GetCommands(&self, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, prgitemids: &[u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCommands)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(location), core::mem::transmute(plocationcontext), core::mem::transmute_copy(itemlocation), prgitemids.len().try_into().unwrap(), core::mem::transmute(prgitemids.as_ptr()), pcitemids as _, pprgitems as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InvokeCommand(&self, dwcommandid: u32, location: &windows_core::BSTR, plocationcontext: *mut super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, rgitemids: &mut [u32]) -> windows_core::Result<()> {
+    pub unsafe fn InvokeCommand(&self, dwcommandid: u32, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, rgitemids: &[u32]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), dwcommandid, core::mem::transmute_copy(location), core::mem::transmute(plocationcontext), core::mem::transmute_copy(itemlocation), rgitemids.len().try_into().unwrap(), core::mem::transmute(rgitemids.as_ptr())).ok() }
     }
     pub unsafe fn CanBuySilent<P0>(&self, pinfo: P0, pbstrtotalprice: *mut windows_core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
@@ -4629,8 +4629,11 @@ impl IWMPContentPartner {
         unsafe { (windows_core::Interface::vtable(self).Buy)(windows_core::Interface::as_raw(self), pinfo.param().abi(), cookie).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *mut super::super::System::Variant::VARIANT, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStreamingURL)(windows_core::Interface::as_raw(self), st, core::mem::transmute(pstreamcontext), core::mem::transmute(pbstrurl)).ok() }
+    pub unsafe fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetStreamingURL)(windows_core::Interface::as_raw(self), st, core::mem::transmute(pstreamcontext), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn Download<P0>(&self, pinfo: P0, cookie: u32) -> windows_core::Result<()>
     where
@@ -4642,25 +4645,22 @@ impl IWMPContentPartner {
         unsafe { (windows_core::Interface::vtable(self).DownloadTrackComplete)(windows_core::Interface::as_raw(self), hrresult, contentid, core::mem::transmute_copy(downloadtrackparam)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn RefreshLicense(&self, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: &windows_core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RefreshLicense)(windows_core::Interface::as_raw(self), dwcookie, flocal, core::mem::transmute_copy(bstrurl), r#type, contentid, core::mem::transmute_copy(bstrrefreshreason), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn RefreshLicense(&self, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: &windows_core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &windows_core::BSTR, preasoncontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RefreshLicense)(windows_core::Interface::as_raw(self), dwcookie, flocal, core::mem::transmute_copy(bstrurl), r#type, contentid, core::mem::transmute_copy(bstrrefreshreason), core::mem::transmute(preasoncontext)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut windows_core::BSTR, pexpirationdate: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCatalogURL)(windows_core::Interface::as_raw(self), dwcatalogversion, dwcatalogschemaversion, cataloglcid, pdwnewcatalogversion as _, core::mem::transmute(pbstrcatalogurl), core::mem::transmute(pexpirationdate)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetTemplate(&self, task: WMPTaskType, location: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, clicklocation: &windows_core::BSTR, pclickcontext: *mut super::super::System::Variant::VARIANT, bstrfilter: &windows_core::BSTR, bstrviewparams: &windows_core::BSTR, pbstrtemplateurl: *mut windows_core::BSTR, ptemplatesize: *mut WMPTemplateSize) -> windows_core::Result<()> {
+    pub unsafe fn GetTemplate(&self, task: WMPTaskType, location: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT, clicklocation: &windows_core::BSTR, pclickcontext: *const super::super::System::Variant::VARIANT, bstrfilter: &windows_core::BSTR, bstrviewparams: &windows_core::BSTR, pbstrtemplateurl: *mut windows_core::BSTR, ptemplatesize: *mut WMPTemplateSize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetTemplate)(windows_core::Interface::as_raw(self), task, core::mem::transmute_copy(location), core::mem::transmute(pcontext), core::mem::transmute_copy(clicklocation), core::mem::transmute(pclickcontext), core::mem::transmute_copy(bstrfilter), core::mem::transmute_copy(bstrviewparams), core::mem::transmute(pbstrtemplateurl), ptemplatesize as _).ok() }
     }
     pub unsafe fn UpdateDevice(&self, bstrdevicename: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdevicename)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetListContents(&self, location: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, bstrlisttype: &windows_core::BSTR, bstrparams: &windows_core::BSTR, dwlistcookie: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetListContents(&self, location: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT, bstrlisttype: &windows_core::BSTR, bstrparams: &windows_core::BSTR, dwlistcookie: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetListContents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(location), core::mem::transmute(pcontext), core::mem::transmute_copy(bstrlisttype), core::mem::transmute_copy(bstrparams), dwlistcookie).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4691,11 +4691,8 @@ impl IWMPContentPartner {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn VerifyPermission(&self, bstrpermission: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VerifyPermission)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpermission), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn VerifyPermission(&self, bstrpermission: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).VerifyPermission)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpermission), core::mem::transmute(pcontext)).ok() }
     }
 }
 #[repr(C)]
@@ -4704,11 +4701,11 @@ pub struct IWMPContentPartner_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, WMPPartnerNotification, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, WMPPartnerNotification, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Notify: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetItemInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetItemInfo: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4716,23 +4713,23 @@ pub struct IWMPContentPartner_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetContentPartnerInfo: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut core::ffi::c_void, u32, *mut u32, *mut u32, *mut *mut WMPContextMenuInfo) -> windows_core::HRESULT,
+    pub GetCommands: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *mut core::ffi::c_void, u32, *const u32, *mut u32, *mut *mut WMPContextMenuInfo) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCommands: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *mut core::ffi::c_void, u32, *const u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     InvokeCommand: usize,
     pub CanBuySilent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub Buy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetStreamingURL: unsafe extern "system" fn(*mut core::ffi::c_void, WMPStreamingType, *mut super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetStreamingURL: unsafe extern "system" fn(*mut core::ffi::c_void, WMPStreamingType, *const super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetStreamingURL: usize,
     pub Download: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DownloadTrackComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RefreshLicense: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::VARIANT_BOOL, *mut core::ffi::c_void, WMPStreamingType, u32, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub RefreshLicense: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::VARIANT_BOOL, *mut core::ffi::c_void, WMPStreamingType, u32, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RefreshLicense: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4740,12 +4737,12 @@ pub struct IWMPContentPartner_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCatalogURL: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, WMPTaskType, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut WMPTemplateSize) -> windows_core::HRESULT,
+    pub GetTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, WMPTaskType, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut WMPTemplateSize) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetTemplate: usize,
     pub UpdateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetListContents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub GetListContents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetListContents: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -4761,35 +4758,35 @@ pub struct IWMPContentPartner_Vtbl {
     pub StationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CompareContainerListPrices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub VerifyPermission: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub VerifyPermission: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     VerifyPermission: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPContentPartner_Impl: windows_core::IUnknownImpl {
     fn SetCallback(&self, pcallback: windows_core::Ref<IWMPContentPartnerCallback>) -> windows_core::Result<()>;
-    fn Notify(&self, r#type: WMPPartnerNotification) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetItemInfo(&self, bstrinfoname: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, pdata: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn GetItemInfo(&self, bstrinfoname: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetContentPartnerInfo(&self, bstrinfoname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetCommands(&self, location: &windows_core::BSTR, plocationcontext: *mut super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, prgitemids: *mut u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::Result<()>;
-    fn InvokeCommand(&self, dwcommandid: u32, location: &windows_core::BSTR, plocationcontext: *mut super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, rgitemids: *mut u32) -> windows_core::Result<()>;
+    fn GetCommands(&self, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::Result<()>;
+    fn InvokeCommand(&self, dwcommandid: u32, location: &windows_core::BSTR, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: &windows_core::BSTR, citemids: u32, rgitemids: *const u32) -> windows_core::Result<()>;
     fn CanBuySilent(&self, pinfo: windows_core::Ref<IWMPContentContainerList>, pbstrtotalprice: *mut windows_core::BSTR, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Buy(&self, pinfo: windows_core::Ref<IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
-    fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *mut super::super::System::Variant::VARIANT, pbstrurl: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
     fn Download(&self, pinfo: windows_core::Ref<IWMPContentContainerList>, cookie: u32) -> windows_core::Result<()>;
     fn DownloadTrackComplete(&self, hrresult: windows_core::HRESULT, contentid: u32, downloadtrackparam: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RefreshLicense(&self, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: &windows_core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn RefreshLicense(&self, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: &windows_core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &windows_core::BSTR, preasoncontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut windows_core::BSTR, pexpirationdate: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn GetTemplate(&self, task: WMPTaskType, location: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, clicklocation: &windows_core::BSTR, pclickcontext: *mut super::super::System::Variant::VARIANT, bstrfilter: &windows_core::BSTR, bstrviewparams: &windows_core::BSTR, pbstrtemplateurl: *mut windows_core::BSTR, ptemplatesize: *mut WMPTemplateSize) -> windows_core::Result<()>;
+    fn GetTemplate(&self, task: WMPTaskType, location: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT, clicklocation: &windows_core::BSTR, pclickcontext: *const super::super::System::Variant::VARIANT, bstrfilter: &windows_core::BSTR, bstrviewparams: &windows_core::BSTR, pbstrtemplateurl: *mut windows_core::BSTR, ptemplatesize: *mut WMPTemplateSize) -> windows_core::Result<()>;
     fn UpdateDevice(&self, bstrdevicename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetListContents(&self, location: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, bstrlisttype: &windows_core::BSTR, bstrparams: &windows_core::BSTR, dwlistcookie: u32) -> windows_core::Result<()>;
+    fn GetListContents(&self, location: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT, bstrlisttype: &windows_core::BSTR, bstrparams: &windows_core::BSTR, dwlistcookie: u32) -> windows_core::Result<()>;
     fn Login(&self, userinfo: &super::super::System::Com::BLOB, pwdinfo: &super::super::System::Com::BLOB, fusedcachedcreds: super::super::Foundation::VARIANT_BOOL, foktocache: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Authenticate(&self, userinfo: &super::super::System::Com::BLOB, pwdinfo: &super::super::System::Com::BLOB) -> windows_core::Result<()>;
     fn Logout(&self) -> windows_core::Result<()>;
     fn SendMessage(&self, bstrmsg: &windows_core::BSTR, bstrparam: &windows_core::BSTR) -> windows_core::Result<()>;
     fn StationEvent(&self, bstrstationeventtype: &windows_core::BSTR, stationid: u32, playlistindex: u32, trackid: u32, trackdata: &windows_core::BSTR, dwsecondsplayed: u32) -> windows_core::Result<()>;
     fn CompareContainerListPrices(&self, plistbase: windows_core::Ref<IWMPContentContainerList>, plistcompare: windows_core::Ref<IWMPContentContainerList>) -> windows_core::Result<i32>;
-    fn VerifyPermission(&self, bstrpermission: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn VerifyPermission(&self, bstrpermission: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPContentPartner_Vtbl {
@@ -4800,22 +4797,22 @@ impl IWMPContentPartner_Vtbl {
                 IWMPContentPartner_Impl::SetCallback(this, core::mem::transmute_copy(&pcallback)).into()
             }
         }
-        unsafe extern "system" fn Notify<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Notify<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMPContentPartner_Impl::Notify(this, core::mem::transmute_copy(&r#type)) {
+                IWMPContentPartner_Impl::Notify(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pcontext)).into()
+            }
+        }
+        unsafe extern "system" fn GetItemInfo<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinfoname: *mut core::ffi::c_void, pcontext: *const super::super::System::Variant::VARIANT, pdata: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWMPContentPartner_Impl::GetItemInfo(this, core::mem::transmute(&bstrinfoname), core::mem::transmute_copy(&pcontext)) {
                     Ok(ok__) => {
-                        pcontext.write(core::mem::transmute(ok__));
+                        pdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
                 }
-            }
-        }
-        unsafe extern "system" fn GetItemInfo<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinfoname: *mut core::ffi::c_void, pcontext: *mut super::super::System::Variant::VARIANT, pdata: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPContentPartner_Impl::GetItemInfo(this, core::mem::transmute(&bstrinfoname), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&pdata)).into()
             }
         }
         unsafe extern "system" fn GetContentPartnerInfo<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinfoname: *mut core::ffi::c_void, pdata: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
@@ -4830,13 +4827,13 @@ impl IWMPContentPartner_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCommands<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, location: *mut core::ffi::c_void, plocationcontext: *mut super::super::System::Variant::VARIANT, itemlocation: *mut core::ffi::c_void, citemids: u32, prgitemids: *mut u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCommands<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, location: *mut core::ffi::c_void, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: *mut core::ffi::c_void, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPContentPartner_Impl::GetCommands(this, core::mem::transmute(&location), core::mem::transmute_copy(&plocationcontext), core::mem::transmute(&itemlocation), core::mem::transmute_copy(&citemids), core::mem::transmute_copy(&prgitemids), core::mem::transmute_copy(&pcitemids), core::mem::transmute_copy(&pprgitems)).into()
             }
         }
-        unsafe extern "system" fn InvokeCommand<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcommandid: u32, location: *mut core::ffi::c_void, plocationcontext: *mut super::super::System::Variant::VARIANT, itemlocation: *mut core::ffi::c_void, citemids: u32, rgitemids: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeCommand<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcommandid: u32, location: *mut core::ffi::c_void, plocationcontext: *const super::super::System::Variant::VARIANT, itemlocation: *mut core::ffi::c_void, citemids: u32, rgitemids: *const u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPContentPartner_Impl::InvokeCommand(this, core::mem::transmute_copy(&dwcommandid), core::mem::transmute(&location), core::mem::transmute_copy(&plocationcontext), core::mem::transmute(&itemlocation), core::mem::transmute_copy(&citemids), core::mem::transmute_copy(&rgitemids)).into()
@@ -4854,10 +4851,16 @@ impl IWMPContentPartner_Vtbl {
                 IWMPContentPartner_Impl::Buy(this, core::mem::transmute_copy(&pinfo), core::mem::transmute_copy(&cookie)).into()
             }
         }
-        unsafe extern "system" fn GetStreamingURL<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, st: WMPStreamingType, pstreamcontext: *mut super::super::System::Variant::VARIANT, pbstrurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStreamingURL<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, st: WMPStreamingType, pstreamcontext: *const super::super::System::Variant::VARIANT, pbstrurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPContentPartner_Impl::GetStreamingURL(this, core::mem::transmute_copy(&st), core::mem::transmute_copy(&pstreamcontext), core::mem::transmute_copy(&pbstrurl)).into()
+                match IWMPContentPartner_Impl::GetStreamingURL(this, core::mem::transmute_copy(&st), core::mem::transmute_copy(&pstreamcontext)) {
+                    Ok(ok__) => {
+                        pbstrurl.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Download<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *mut core::ffi::c_void, cookie: u32) -> windows_core::HRESULT {
@@ -4872,16 +4875,10 @@ impl IWMPContentPartner_Vtbl {
                 IWMPContentPartner_Impl::DownloadTrackComplete(this, core::mem::transmute_copy(&hrresult), core::mem::transmute_copy(&contentid), core::mem::transmute(&downloadtrackparam)).into()
             }
         }
-        unsafe extern "system" fn RefreshLicense<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: *mut core::ffi::c_void, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: *mut core::ffi::c_void, preasoncontext: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn RefreshLicense<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: *mut core::ffi::c_void, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: *mut core::ffi::c_void, preasoncontext: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMPContentPartner_Impl::RefreshLicense(this, core::mem::transmute_copy(&dwcookie), core::mem::transmute_copy(&flocal), core::mem::transmute(&bstrurl), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&contentid), core::mem::transmute(&bstrrefreshreason)) {
-                    Ok(ok__) => {
-                        preasoncontext.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMPContentPartner_Impl::RefreshLicense(this, core::mem::transmute_copy(&dwcookie), core::mem::transmute_copy(&flocal), core::mem::transmute(&bstrurl), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&contentid), core::mem::transmute(&bstrrefreshreason), core::mem::transmute_copy(&preasoncontext)).into()
             }
         }
         unsafe extern "system" fn GetCatalogURL<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut *mut core::ffi::c_void, pexpirationdate: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
@@ -4890,7 +4887,7 @@ impl IWMPContentPartner_Vtbl {
                 IWMPContentPartner_Impl::GetCatalogURL(this, core::mem::transmute_copy(&dwcatalogversion), core::mem::transmute_copy(&dwcatalogschemaversion), core::mem::transmute_copy(&cataloglcid), core::mem::transmute_copy(&pdwnewcatalogversion), core::mem::transmute_copy(&pbstrcatalogurl), core::mem::transmute_copy(&pexpirationdate)).into()
             }
         }
-        unsafe extern "system" fn GetTemplate<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: WMPTaskType, location: *mut core::ffi::c_void, pcontext: *mut super::super::System::Variant::VARIANT, clicklocation: *mut core::ffi::c_void, pclickcontext: *mut super::super::System::Variant::VARIANT, bstrfilter: *mut core::ffi::c_void, bstrviewparams: *mut core::ffi::c_void, pbstrtemplateurl: *mut *mut core::ffi::c_void, ptemplatesize: *mut WMPTemplateSize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTemplate<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, task: WMPTaskType, location: *mut core::ffi::c_void, pcontext: *const super::super::System::Variant::VARIANT, clicklocation: *mut core::ffi::c_void, pclickcontext: *const super::super::System::Variant::VARIANT, bstrfilter: *mut core::ffi::c_void, bstrviewparams: *mut core::ffi::c_void, pbstrtemplateurl: *mut *mut core::ffi::c_void, ptemplatesize: *mut WMPTemplateSize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPContentPartner_Impl::GetTemplate(this, core::mem::transmute_copy(&task), core::mem::transmute(&location), core::mem::transmute_copy(&pcontext), core::mem::transmute(&clicklocation), core::mem::transmute_copy(&pclickcontext), core::mem::transmute(&bstrfilter), core::mem::transmute(&bstrviewparams), core::mem::transmute_copy(&pbstrtemplateurl), core::mem::transmute_copy(&ptemplatesize)).into()
@@ -4902,7 +4899,7 @@ impl IWMPContentPartner_Vtbl {
                 IWMPContentPartner_Impl::UpdateDevice(this, core::mem::transmute(&bstrdevicename)).into()
             }
         }
-        unsafe extern "system" fn GetListContents<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, location: *mut core::ffi::c_void, pcontext: *mut super::super::System::Variant::VARIANT, bstrlisttype: *mut core::ffi::c_void, bstrparams: *mut core::ffi::c_void, dwlistcookie: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetListContents<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, location: *mut core::ffi::c_void, pcontext: *const super::super::System::Variant::VARIANT, bstrlisttype: *mut core::ffi::c_void, bstrparams: *mut core::ffi::c_void, dwlistcookie: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPContentPartner_Impl::GetListContents(this, core::mem::transmute(&location), core::mem::transmute_copy(&pcontext), core::mem::transmute(&bstrlisttype), core::mem::transmute(&bstrparams), core::mem::transmute_copy(&dwlistcookie)).into()
@@ -4950,16 +4947,10 @@ impl IWMPContentPartner_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn VerifyPermission<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpermission: *mut core::ffi::c_void, pcontext: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn VerifyPermission<Identity: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpermission: *mut core::ffi::c_void, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMPContentPartner_Impl::VerifyPermission(this, core::mem::transmute(&bstrpermission)) {
-                    Ok(ok__) => {
-                        pcontext.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMPContentPartner_Impl::VerifyPermission(this, core::mem::transmute(&bstrpermission), core::mem::transmute_copy(&pcontext)).into()
             }
         }
         Self {
@@ -4995,15 +4986,12 @@ impl IWMPContentPartner_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPContentPartner {}
-windows_core::imp::define_interface!(IWMPContentPartnerCallback, IWMPContentPartnerCallback_Vtbl, 0xce01e829_5e2d_5985_9e69_a2311248eab9);
+windows_core::imp::define_interface!(IWMPContentPartnerCallback, IWMPContentPartnerCallback_Vtbl, 0x9e8f7da2_0695_403c_b697_da10fafaa676);
 windows_core::imp::interface_hierarchy!(IWMPContentPartnerCallback, windows_core::IUnknown);
 impl IWMPContentPartnerCallback {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Notify(&self, r#type: WMPCallbackNotification) -> windows_core::Result<super::super::System::Variant::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), r#type, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn Notify(&self, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pcontext)).ok() }
     }
     pub unsafe fn BuyComplete(&self, hrresult: windows_core::HRESULT, dwbuycookie: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BuyComplete)(windows_core::Interface::as_raw(self), hrresult, dwbuycookie).ok() }
@@ -5020,7 +5008,7 @@ impl IWMPContentPartnerCallback {
     pub unsafe fn ChangeView(&self, bstrtype: &windows_core::BSTR, bstrid: &windows_core::BSTR, bstrfilter: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ChangeView)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtype), core::mem::transmute_copy(bstrid), core::mem::transmute_copy(bstrfilter)).ok() }
     }
-    pub unsafe fn AddListContents(&self, dwlistcookie: u32, prgitems: &mut [u32]) -> windows_core::Result<()> {
+    pub unsafe fn AddListContents(&self, dwlistcookie: u32, prgitems: &[u32]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddListContents)(windows_core::Interface::as_raw(self), dwlistcookie, prgitems.len().try_into().unwrap(), core::mem::transmute(prgitems.as_ptr())).ok() }
     }
     pub unsafe fn ListContentsComplete(&self, dwlistcookie: u32, hrsuccess: windows_core::HRESULT) -> windows_core::Result<()> {
@@ -5039,7 +5027,7 @@ impl IWMPContentPartnerCallback {
         unsafe { (windows_core::Interface::vtable(self).ShowPopup)(windows_core::Interface::as_raw(self), lindex, core::mem::transmute_copy(bstrparameters)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn VerifyPermissionComplete(&self, bstrpermission: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, hrpermission: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub unsafe fn VerifyPermissionComplete(&self, bstrpermission: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT, hrpermission: windows_core::HRESULT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).VerifyPermissionComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpermission), core::mem::transmute(pcontext), hrpermission).ok() }
     }
 }
@@ -5048,7 +5036,7 @@ impl IWMPContentPartnerCallback {
 pub struct IWMPContentPartnerCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, WMPCallbackNotification, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, WMPCallbackNotification, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Notify: usize,
     pub BuyComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
@@ -5056,46 +5044,40 @@ pub struct IWMPContentPartnerCallback_Vtbl {
     pub GetCatalogVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub UpdateDeviceComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChangeView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddListContents: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
+    pub AddListContents: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32) -> windows_core::HRESULT,
     pub ListContentsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
     pub SendMessageComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetContentIDsInLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u32) -> windows_core::HRESULT,
     pub RefreshLicenseComplete: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::HRESULT) -> windows_core::HRESULT,
     pub ShowPopup: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub VerifyPermissionComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, windows_core::HRESULT) -> windows_core::HRESULT,
+    pub VerifyPermissionComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, windows_core::HRESULT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     VerifyPermissionComplete: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMPContentPartnerCallback_Impl: windows_core::IUnknownImpl {
-    fn Notify(&self, r#type: WMPCallbackNotification) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Notify(&self, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn BuyComplete(&self, hrresult: windows_core::HRESULT, dwbuycookie: u32) -> windows_core::Result<()>;
     fn DownloadTrack(&self, cookie: u32, bstrtrackurl: &windows_core::BSTR, dwservicetrackid: u32, bstrdownloadparams: &windows_core::BSTR, hrdownload: windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetCatalogVersion(&self, pdwversion: *mut u32, pdwschemaversion: *mut u32, plcid: *mut u32) -> windows_core::Result<()>;
     fn UpdateDeviceComplete(&self, bstrdevicename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ChangeView(&self, bstrtype: &windows_core::BSTR, bstrid: &windows_core::BSTR, bstrfilter: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddListContents(&self, dwlistcookie: u32, citems: u32, prgitems: *mut u32) -> windows_core::Result<()>;
+    fn AddListContents(&self, dwlistcookie: u32, citems: u32, prgitems: *const u32) -> windows_core::Result<()>;
     fn ListContentsComplete(&self, dwlistcookie: u32, hrsuccess: windows_core::HRESULT) -> windows_core::Result<()>;
     fn SendMessageComplete(&self, bstrmsg: &windows_core::BSTR, bstrparam: &windows_core::BSTR, bstrresult: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetContentIDsInLibrary(&self, pccontentids: *mut u32, pprgids: *mut *mut u32) -> windows_core::Result<()>;
     fn RefreshLicenseComplete(&self, dwcookie: u32, contentid: u32, hrrefresh: windows_core::HRESULT) -> windows_core::Result<()>;
     fn ShowPopup(&self, lindex: i32, bstrparameters: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn VerifyPermissionComplete(&self, bstrpermission: &windows_core::BSTR, pcontext: *mut super::super::System::Variant::VARIANT, hrpermission: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn VerifyPermissionComplete(&self, bstrpermission: &windows_core::BSTR, pcontext: *const super::super::System::Variant::VARIANT, hrpermission: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMPContentPartnerCallback_Vtbl {
     pub const fn new<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Notify<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Notify<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMPContentPartnerCallback_Impl::Notify(this, core::mem::transmute_copy(&r#type)) {
-                    Ok(ok__) => {
-                        pcontext.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMPContentPartnerCallback_Impl::Notify(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pcontext)).into()
             }
         }
         unsafe extern "system" fn BuyComplete<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrresult: windows_core::HRESULT, dwbuycookie: u32) -> windows_core::HRESULT {
@@ -5128,7 +5110,7 @@ impl IWMPContentPartnerCallback_Vtbl {
                 IWMPContentPartnerCallback_Impl::ChangeView(this, core::mem::transmute(&bstrtype), core::mem::transmute(&bstrid), core::mem::transmute(&bstrfilter)).into()
             }
         }
-        unsafe extern "system" fn AddListContents<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlistcookie: u32, citems: u32, prgitems: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddListContents<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlistcookie: u32, citems: u32, prgitems: *const u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPContentPartnerCallback_Impl::AddListContents(this, core::mem::transmute_copy(&dwlistcookie), core::mem::transmute_copy(&citems), core::mem::transmute_copy(&prgitems)).into()
@@ -5164,7 +5146,7 @@ impl IWMPContentPartnerCallback_Vtbl {
                 IWMPContentPartnerCallback_Impl::ShowPopup(this, core::mem::transmute_copy(&lindex), core::mem::transmute(&bstrparameters)).into()
             }
         }
-        unsafe extern "system" fn VerifyPermissionComplete<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpermission: *mut core::ffi::c_void, pcontext: *mut super::super::System::Variant::VARIANT, hrpermission: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn VerifyPermissionComplete<Identity: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpermission: *mut core::ffi::c_void, pcontext: *const super::super::System::Variant::VARIANT, hrpermission: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPContentPartnerCallback_Impl::VerifyPermissionComplete(this, core::mem::transmute(&bstrpermission), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&hrpermission)).into()
@@ -5194,7 +5176,7 @@ impl IWMPContentPartnerCallback_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPContentPartnerCallback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPControls, IWMPControls_Vtbl, 0x3f301e29_258b_5daa_8852_ad15ddea4e9f);
+windows_core::imp::define_interface!(IWMPControls, IWMPControls_Vtbl, 0x74c09e02_f828_11d2_a74b_00a0c905f36e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPControls {
     type Target = super::super::System::Com::IDispatch;
@@ -5736,7 +5718,7 @@ impl IWMPControls3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPControls3 {}
-windows_core::imp::define_interface!(IWMPConvert, IWMPConvert_Vtbl, 0xc32208a8_189c_5aa4_bb37_319c39a17d30);
+windows_core::imp::define_interface!(IWMPConvert, IWMPConvert_Vtbl, 0xd683162f_57d4_4108_8373_4a9676d1c2e9);
 windows_core::imp::interface_hierarchy!(IWMPConvert, windows_core::IUnknown);
 impl IWMPConvert {
     pub unsafe fn ConvertFile(&self, bstrinputfile: &windows_core::BSTR, bstrdestinationfolder: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
@@ -5801,7 +5783,7 @@ impl IWMPConvert_Vtbl {
 }
 impl windows_core::RuntimeName for IWMPConvert {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPCore, IWMPCore_Vtbl, 0x5dfb8c7e_7002_5fd4_a47d_0cd2aa8315d2);
+windows_core::imp::define_interface!(IWMPCore, IWMPCore_Vtbl, 0xd84cca99_cce2_11d2_9ecc_0000f8085981);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPCore {
     type Target = super::super::System::Com::IDispatch;
@@ -6367,7 +6349,7 @@ impl IWMPCore3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPCore3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPDVD, IWMPDVD_Vtbl, 0x1b040bb3_6614_5b6c_af6e_a0deee0c7c96);
+windows_core::imp::define_interface!(IWMPDVD, IWMPDVD_Vtbl, 0x8da61686_4668_4a5c_ae5d_803193293dbe);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPDVD {
     type Target = super::super::System::Com::IDispatch;
@@ -6493,7 +6475,7 @@ impl IWMPDVD_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPDVD {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPDownloadCollection, IWMPDownloadCollection_Vtbl, 0xe2b86a57_83f1_574a_8803_bcc6a776c6d8);
+windows_core::imp::define_interface!(IWMPDownloadCollection, IWMPDownloadCollection_Vtbl, 0x0a319c7f_85f9_436c_b88e_82fd88000e1c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPDownloadCollection {
     type Target = super::super::System::Com::IDispatch;
@@ -6637,7 +6619,7 @@ impl IWMPDownloadCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPDownloadCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPDownloadItem, IWMPDownloadItem_Vtbl, 0xd60e0b0a_6238_54b7_a119_c656a7f2a736);
+windows_core::imp::define_interface!(IWMPDownloadItem, IWMPDownloadItem_Vtbl, 0xc9470e8e_3f6b_46a9_a0a9_452815c34297);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPDownloadItem {
     type Target = super::super::System::Com::IDispatch;
@@ -6868,7 +6850,7 @@ impl IWMPDownloadItem2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPDownloadItem2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPDownloadManager, IWMPDownloadManager_Vtbl, 0xfe33be1d_1106_561d_8a00_593b2e2e9923);
+windows_core::imp::define_interface!(IWMPDownloadManager, IWMPDownloadManager_Vtbl, 0xe15e9ad1_8f20_4cc4_9ec7_1a328ca86a0d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPDownloadManager {
     type Target = super::super::System::Com::IDispatch;
@@ -6945,7 +6927,7 @@ impl IWMPDownloadManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPDownloadManager {}
-windows_core::imp::define_interface!(IWMPEffects, IWMPEffects_Vtbl, 0x4c520c9a_fc33_548d_a51d_b4db9d82ec57);
+windows_core::imp::define_interface!(IWMPEffects, IWMPEffects_Vtbl, 0xd3984c13_c3cb_48e2_8be5_5168340b4f35);
 windows_core::imp::interface_hierarchy!(IWMPEffects, windows_core::IUnknown);
 impl IWMPEffects {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7151,7 +7133,7 @@ impl IWMPEffects_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IWMPEffects {}
-windows_core::imp::define_interface!(IWMPEffects2, IWMPEffects2_Vtbl, 0x088a726a_0133_500f_a91f_7e45ba259f8a);
+windows_core::imp::define_interface!(IWMPEffects2, IWMPEffects2_Vtbl, 0x695386ec_aa3c_4618_a5e1_dd9a8b987632);
 impl core::ops::Deref for IWMPEffects2 {
     type Target = IWMPEffects;
     fn deref(&self) -> &Self::Target {
@@ -7278,7 +7260,7 @@ impl IWMPEffects2_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IWMPEffects2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPError, IWMPError_Vtbl, 0x89cbd598_d330_5fb7_b825_9ab0c2e882d8);
+windows_core::imp::define_interface!(IWMPError, IWMPError_Vtbl, 0xa12dcf7d_14ab_4c1b_a8cd_63909f06025b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPError {
     type Target = super::super::System::Com::IDispatch;
@@ -7380,7 +7362,7 @@ impl IWMPError_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPError {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPErrorItem, IWMPErrorItem_Vtbl, 0x99def00b_9e20_5a89_8528_7047fcfc905a);
+windows_core::imp::define_interface!(IWMPErrorItem, IWMPErrorItem_Vtbl, 0x3614c646_3b3b_4de7_a81e_930e3f2127b3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPErrorItem {
     type Target = super::super::System::Com::IDispatch;
@@ -7525,7 +7507,7 @@ impl IWMPErrorItem_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPErrorItem {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPErrorItem2, IWMPErrorItem2_Vtbl, 0x5aa88fd1_1492_5d1b_8570_eb327f18eb00);
+windows_core::imp::define_interface!(IWMPErrorItem2, IWMPErrorItem2_Vtbl, 0xf75ccec0_c67c_475c_931e_8719870bee7d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPErrorItem2 {
     type Target = IWMPErrorItem;
@@ -8562,7 +8544,7 @@ impl IWMPEvents4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWMPEvents4 {}
-windows_core::imp::define_interface!(IWMPFolderMonitorServices, IWMPFolderMonitorServices_Vtbl, 0x44c646be_ed6d_5689_9a5f_5c2e647f3f58);
+windows_core::imp::define_interface!(IWMPFolderMonitorServices, IWMPFolderMonitorServices_Vtbl, 0x788c8743_e57f_439d_a468_5bc77f2e59c6);
 windows_core::imp::interface_hierarchy!(IWMPFolderMonitorServices, windows_core::IUnknown);
 impl IWMPFolderMonitorServices {
     pub unsafe fn count(&self) -> windows_core::Result<i32> {
@@ -8853,7 +8835,7 @@ impl IWMPGraphCreation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPGraphCreation {}
-windows_core::imp::define_interface!(IWMPLibrary, IWMPLibrary_Vtbl, 0x0393d1fc_ca2b_54f5_ae51_f10b11ce5dce);
+windows_core::imp::define_interface!(IWMPLibrary, IWMPLibrary_Vtbl, 0x3df47861_7df1_4c1f_a81b_4c26f0f7a7c6);
 windows_core::imp::interface_hierarchy!(IWMPLibrary, windows_core::IUnknown);
 impl IWMPLibrary {
     pub unsafe fn name(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -9082,7 +9064,7 @@ impl IWMPLibraryServices_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPLibraryServices {}
-windows_core::imp::define_interface!(IWMPLibrarySharingServices, IWMPLibrarySharingServices_Vtbl, 0x7ee55ea6_dc88_58e1_878f_0705abcc5d00);
+windows_core::imp::define_interface!(IWMPLibrarySharingServices, IWMPLibrarySharingServices_Vtbl, 0x82cba86b_9f04_474b_a365_d6dd1466e541);
 windows_core::imp::interface_hierarchy!(IWMPLibrarySharingServices, windows_core::IUnknown);
 impl IWMPLibrarySharingServices {
     pub unsafe fn isLibraryShared(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -9159,7 +9141,7 @@ impl IWMPLibrarySharingServices_Vtbl {
 }
 impl windows_core::RuntimeName for IWMPLibrarySharingServices {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPMedia, IWMPMedia_Vtbl, 0x10ff607d_db0e_5f99_bcf7_bb0d13a31631);
+windows_core::imp::define_interface!(IWMPMedia, IWMPMedia_Vtbl, 0x94d55e95_3fac_11d3_b155_00c04f79faa6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPMedia {
     type Target = super::super::System::Com::IDispatch;
@@ -9561,7 +9543,7 @@ impl IWMPMedia_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPMedia {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPMedia2, IWMPMedia2_Vtbl, 0x4a852efa_d206_586e_8995_850805c04627);
+windows_core::imp::define_interface!(IWMPMedia2, IWMPMedia2_Vtbl, 0xab7c88bb_143e_4ea4_acc3_e4350b2106c3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPMedia2 {
     type Target = IWMPMedia;
@@ -9976,7 +9958,7 @@ impl IWMPMediaCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPMediaCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPMediaCollection2, IWMPMediaCollection2_Vtbl, 0x97aaab9b_655e_55ba_a187_4b05352076d2);
+windows_core::imp::define_interface!(IWMPMediaCollection2, IWMPMediaCollection2_Vtbl, 0x8ba957f5_fd8c_4791_b82d_f840401ee474);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPMediaCollection2 {
     type Target = IWMPMediaCollection;
@@ -10273,7 +10255,7 @@ impl IWMPMetadataPicture_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPMetadataPicture {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPMetadataText, IWMPMetadataText_Vtbl, 0x28e949db_edf7_5e7b_91f1_1f06d993d861);
+windows_core::imp::define_interface!(IWMPMetadataText, IWMPMetadataText_Vtbl, 0x769a72db_13d2_45e2_9c48_53ca9d5b7450);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPMetadataText {
     type Target = super::super::System::Com::IDispatch;
@@ -10351,7 +10333,7 @@ impl IWMPMetadataText_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPMetadataText {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPNetwork, IWMPNetwork_Vtbl, 0xd535fa0e_8806_5fe4_a801_717e4242b6e2);
+windows_core::imp::define_interface!(IWMPNetwork, IWMPNetwork_Vtbl, 0xec21b779_edef_462d_bba4_ad9dde2b29a7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPNetwork {
     type Target = super::super::System::Com::IDispatch;
@@ -10911,7 +10893,7 @@ impl IWMPNetwork_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPNetwork {}
-windows_core::imp::define_interface!(IWMPNodeRealEstate, IWMPNodeRealEstate_Vtbl, 0xd4493ef7_76eb_5aab_ba56_e160f90b65be);
+windows_core::imp::define_interface!(IWMPNodeRealEstate, IWMPNodeRealEstate_Vtbl, 0x42751198_5a50_4460_bcb4_709f8bdc8e59);
 windows_core::imp::interface_hierarchy!(IWMPNodeRealEstate, windows_core::IUnknown);
 impl IWMPNodeRealEstate {
     pub unsafe fn GetDesiredSize(&self) -> windows_core::Result<super::super::Foundation::SIZE> {
@@ -10920,8 +10902,8 @@ impl IWMPNodeRealEstate {
             (windows_core::Interface::vtable(self).GetDesiredSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetRects)(windows_core::Interface::as_raw(self), psrc as _, pdest as _, pclip as _).ok() }
+    pub unsafe fn SetRects(&self, psrc: *const super::super::Foundation::RECT, pdest: *const super::super::Foundation::RECT, pclip: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetRects)(windows_core::Interface::as_raw(self), psrc, pdest, pclip).ok() }
     }
     pub unsafe fn GetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRects)(windows_core::Interface::as_raw(self), psrc as _, pdest as _, pclip as _).ok() }
@@ -10950,7 +10932,7 @@ impl IWMPNodeRealEstate {
 pub struct IWMPNodeRealEstate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDesiredSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
-    pub SetRects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT, *mut super::super::Foundation::RECT, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
+    pub SetRects: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub GetRects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT, *mut super::super::Foundation::RECT, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub SetWindowless: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetWindowless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
@@ -10959,7 +10941,7 @@ pub struct IWMPNodeRealEstate_Vtbl {
 }
 pub trait IWMPNodeRealEstate_Impl: windows_core::IUnknownImpl {
     fn GetDesiredSize(&self) -> windows_core::Result<super::super::Foundation::SIZE>;
-    fn SetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn SetRects(&self, psrc: *const super::super::Foundation::RECT, pdest: *const super::super::Foundation::RECT, pclip: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn GetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn SetWindowless(&self, fwindowless: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetWindowless(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -10980,7 +10962,7 @@ impl IWMPNodeRealEstate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRects<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRects<Identity: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrc: *const super::super::Foundation::RECT, pdest: *const super::super::Foundation::RECT, pclip: *const super::super::Foundation::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMPNodeRealEstate_Impl::SetRects(this, core::mem::transmute_copy(&psrc), core::mem::transmute_copy(&pdest), core::mem::transmute_copy(&pclip)).into()
@@ -11044,7 +11026,7 @@ impl IWMPNodeRealEstate_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPNodeRealEstate {}
-windows_core::imp::define_interface!(IWMPNodeRealEstateHost, IWMPNodeRealEstateHost_Vtbl, 0x040e3adc_d7c1_50f2_ba65_b0482d310249);
+windows_core::imp::define_interface!(IWMPNodeRealEstateHost, IWMPNodeRealEstateHost_Vtbl, 0x1491087d_2c6b_44c8_b019_b3c929d2ada9);
 windows_core::imp::interface_hierarchy!(IWMPNodeRealEstateHost, windows_core::IUnknown);
 impl IWMPNodeRealEstateHost {
     pub unsafe fn OnDesiredSizeChange(&self) -> windows_core::Result<super::super::Foundation::SIZE> {
@@ -11099,7 +11081,7 @@ impl IWMPNodeRealEstateHost_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPNodeRealEstateHost {}
-windows_core::imp::define_interface!(IWMPNodeWindowed, IWMPNodeWindowed_Vtbl, 0x9ec0c3cf_19fb_53b9_920f_818a1fed8f24);
+windows_core::imp::define_interface!(IWMPNodeWindowed, IWMPNodeWindowed_Vtbl, 0x96740bfa_c56a_45d1_a3a4_762914d4ade9);
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowed, windows_core::IUnknown);
 impl IWMPNodeWindowed {
     pub unsafe fn SetOwnerWindow(&self, hwnd: isize) -> windows_core::Result<()> {
@@ -11154,7 +11136,7 @@ impl IWMPNodeWindowed_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPNodeWindowed {}
-windows_core::imp::define_interface!(IWMPNodeWindowedHost, IWMPNodeWindowedHost_Vtbl, 0xb2f933ee_ecc9_59b1_a2a8_f8f30dbe30d9);
+windows_core::imp::define_interface!(IWMPNodeWindowedHost, IWMPNodeWindowedHost_Vtbl, 0xa300415a_54aa_4081_adbf_3b13610d8958);
 windows_core::imp::interface_hierarchy!(IWMPNodeWindowedHost, windows_core::IUnknown);
 impl IWMPNodeWindowedHost {
     pub unsafe fn OnWindowMessageFromRenderer(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut windows_core::BOOL) -> windows_core::Result<()> {
@@ -11254,7 +11236,7 @@ impl IWMPNodeWindowlessHost_Vtbl {
 }
 impl windows_core::RuntimeName for IWMPNodeWindowlessHost {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPPlayer, IWMPPlayer_Vtbl, 0x7a33b6ea_1da3_5a15_aaad_a18f45649a3b);
+windows_core::imp::define_interface!(IWMPPlayer, IWMPPlayer_Vtbl, 0x6bf52a4f_394a_11d3_b153_00c04f79faa6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPPlayer {
     type Target = IWMPCore;
@@ -11422,7 +11404,7 @@ impl IWMPPlayer_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPPlayer {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPPlayer2, IWMPPlayer2_Vtbl, 0xe7c8cb7c_2c8e_5c73_9827_f7065dde7a3d);
+windows_core::imp::define_interface!(IWMPPlayer2, IWMPPlayer2_Vtbl, 0x0e6b01d1_d407_4c85_bf5f_1c01f6150280);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPPlayer2 {
     type Target = IWMPCore;
@@ -11656,7 +11638,7 @@ impl IWMPPlayer2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPPlayer2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPPlayer3, IWMPPlayer3_Vtbl, 0x1ea21ee8_1720_55ed_a51e_01be9eb69012);
+windows_core::imp::define_interface!(IWMPPlayer3, IWMPPlayer3_Vtbl, 0x54062b68_052a_4c25_a39f_8b63346511d4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPPlayer3 {
     type Target = IWMPCore2;
@@ -12279,7 +12261,7 @@ impl IWMPPlayerApplication_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPPlayerApplication {}
-windows_core::imp::define_interface!(IWMPPlayerServices, IWMPPlayerServices_Vtbl, 0x7d514ecc_9412_516c_a56a_1c6e9d0c335f);
+windows_core::imp::define_interface!(IWMPPlayerServices, IWMPPlayerServices_Vtbl, 0x1d01fbdb_ade2_4c8d_9842_c190b95c3306);
 windows_core::imp::interface_hierarchy!(IWMPPlayerServices, windows_core::IUnknown);
 impl IWMPPlayerServices {
     pub unsafe fn activateUIPlugin(&self, bstrplugin: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -12337,7 +12319,7 @@ impl IWMPPlayerServices_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPPlayerServices {}
-windows_core::imp::define_interface!(IWMPPlayerServices2, IWMPPlayerServices2_Vtbl, 0x04ce51d5_5ef9_59ab_8039_54250c6e8e16);
+windows_core::imp::define_interface!(IWMPPlayerServices2, IWMPPlayerServices2_Vtbl, 0x1bb1592f_f040_418a_9f71_17c7512b4d70);
 impl core::ops::Deref for IWMPPlayerServices2 {
     type Target = IWMPPlayerServices;
     fn deref(&self) -> &Self::Target {
@@ -12654,7 +12636,7 @@ impl IWMPPlaylist_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPPlaylist {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPPlaylistArray, IWMPPlaylistArray_Vtbl, 0x33915b15_3fdf_5009_88ee_85c31e00adb1);
+windows_core::imp::define_interface!(IWMPPlaylistArray, IWMPPlaylistArray_Vtbl, 0x679409c0_99f7_11d3_9fb7_00105aa620bb);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPPlaylistArray {
     type Target = super::super::System::Com::IDispatch;
@@ -12728,7 +12710,7 @@ impl IWMPPlaylistArray_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPPlaylistArray {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPPlaylistCollection, IWMPPlaylistCollection_Vtbl, 0xcc49e611_35f3_5d84_bcd5_132cadb88d1d);
+windows_core::imp::define_interface!(IWMPPlaylistCollection, IWMPPlaylistCollection_Vtbl, 0x10a13217_23a7_439b_b1c0_d847c79b7774);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPPlaylistCollection {
     type Target = super::super::System::Com::IDispatch;
@@ -12904,7 +12886,7 @@ impl IWMPPlaylistCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPPlaylistCollection {}
-windows_core::imp::define_interface!(IWMPPlugin, IWMPPlugin_Vtbl, 0x072e4ca0_1d89_58ec_ad8e_99a68536619c);
+windows_core::imp::define_interface!(IWMPPlugin, IWMPPlugin_Vtbl, 0xf1392a70_024c_42bb_a998_73dfdfe7d5a7);
 windows_core::imp::interface_hierarchy!(IWMPPlugin, windows_core::IUnknown);
 impl IWMPPlugin {
     pub unsafe fn Init(&self, dwplaybackcontext: usize) -> windows_core::Result<()> {
@@ -13074,7 +13056,7 @@ impl IWMPPluginEnable_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPPluginEnable {}
-windows_core::imp::define_interface!(IWMPPluginUI, IWMPPluginUI_Vtbl, 0x79b7232f_af6c_5ca4_9506_94a4075a250f);
+windows_core::imp::define_interface!(IWMPPluginUI, IWMPPluginUI_Vtbl, 0x4c5e8f9f_ad3e_4bf9_9753_fcd30d6d38dd);
 windows_core::imp::interface_hierarchy!(IWMPPluginUI, windows_core::IUnknown);
 impl IWMPPluginUI {
     #[cfg(feature = "Win32_System_Com")]
@@ -13107,14 +13089,11 @@ impl IWMPPluginUI {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty<P0>(&self, pwszname: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn SetProperty<P0>(&self, pwszname: P0, pvarproperty: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszname.param().abi(), core::mem::transmute(pvarproperty)).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()> {
@@ -13137,7 +13116,7 @@ pub struct IWMPPluginUI_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetProperty: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -13152,7 +13131,7 @@ pub trait IWMPPluginUI_Impl: windows_core::IUnknownImpl {
     fn Destroy(&self) -> windows_core::Result<()>;
     fn DisplayPropertyPage(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn GetProperty(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetProperty(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetProperty(&self, pwszname: &windows_core::PCWSTR, pvarproperty: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn TranslateAccelerator(&self, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -13200,16 +13179,10 @@ impl IWMPPluginUI_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, pvarproperty: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, pvarproperty: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMPPluginUI_Impl::SetProperty(this, core::mem::transmute(&pwszname)) {
-                    Ok(ok__) => {
-                        pvarproperty.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMPPluginUI_Impl::SetProperty(this, core::mem::transmute(&pwszname), core::mem::transmute_copy(&pvarproperty)).into()
             }
         }
         unsafe extern "system" fn TranslateAccelerator<Identity: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> windows_core::HRESULT {
@@ -13399,7 +13372,7 @@ impl IWMPRemoteMediaServices_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWMPRemoteMediaServices {}
-windows_core::imp::define_interface!(IWMPRenderConfig, IWMPRenderConfig_Vtbl, 0x47218f12_843a_5f2c_98cd_17be3da70419);
+windows_core::imp::define_interface!(IWMPRenderConfig, IWMPRenderConfig_Vtbl, 0x959506c1_0314_4ec5_9e61_8528db5e5478);
 windows_core::imp::interface_hierarchy!(IWMPRenderConfig, windows_core::IUnknown);
 impl IWMPRenderConfig {
     pub unsafe fn SetinProcOnly(&self, finproc: bool) -> windows_core::Result<()> {
@@ -13454,7 +13427,7 @@ impl IWMPRenderConfig_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPRenderConfig {}
-windows_core::imp::define_interface!(IWMPServices, IWMPServices_Vtbl, 0xa583d418_7821_573a_aadd_6a7b36d331fc);
+windows_core::imp::define_interface!(IWMPServices, IWMPServices_Vtbl, 0xafb6b76b_1e20_4198_83b3_191db6e0b149);
 windows_core::imp::interface_hierarchy!(IWMPServices, windows_core::IUnknown);
 impl IWMPServices {
     pub unsafe fn GetStreamTime(&self) -> windows_core::Result<i64> {
@@ -13519,7 +13492,7 @@ impl IWMPServices_Vtbl {
 }
 impl windows_core::RuntimeName for IWMPServices {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPSettings, IWMPSettings_Vtbl, 0x28da20e9_48b6_5901_b9f2_de490ec2f2a4);
+windows_core::imp::define_interface!(IWMPSettings, IWMPSettings_Vtbl, 0x9104d1ab_80c9_4fed_abf0_2e6417a6df14);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPSettings {
     type Target = super::super::System::Com::IDispatch;
@@ -13939,7 +13912,7 @@ impl IWMPSettings_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPSettings {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWMPSettings2, IWMPSettings2_Vtbl, 0x471c9355_cede_54ea_8b6f_84899626a120);
+windows_core::imp::define_interface!(IWMPSettings2, IWMPSettings2_Vtbl, 0xfda937a4_eece_4da5_a0b6_39bf89ade2c2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWMPSettings2 {
     type Target = IWMPSettings;
@@ -14037,7 +14010,7 @@ impl IWMPSettings2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPSettings2 {}
-windows_core::imp::define_interface!(IWMPSkinManager, IWMPSkinManager_Vtbl, 0xc41809a6_530f_5591_9172_1eddbb10be39);
+windows_core::imp::define_interface!(IWMPSkinManager, IWMPSkinManager_Vtbl, 0x076f2fa6_ed30_448b_8cc5_3f3ef3529c7a);
 windows_core::imp::interface_hierarchy!(IWMPSkinManager, windows_core::IUnknown);
 impl IWMPSkinManager {
     pub unsafe fn SetVisualStyle(&self, bstrpath: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -14269,7 +14242,7 @@ impl IWMPStringCollection2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWMPStringCollection2 {}
-windows_core::imp::define_interface!(IWMPSubscriptionService, IWMPSubscriptionService_Vtbl, 0x2380b21e_74b5_5371_b8fd_8422c111f28d);
+windows_core::imp::define_interface!(IWMPSubscriptionService, IWMPSubscriptionService_Vtbl, 0x376055f8_2a59_4a73_9501_dca5273a7a10);
 windows_core::imp::interface_hierarchy!(IWMPSubscriptionService, windows_core::IUnknown);
 impl IWMPSubscriptionService {
     #[cfg(feature = "Win32_System_Com")]
@@ -14390,7 +14363,7 @@ impl IWMPSubscriptionService_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IWMPSubscriptionService {}
-windows_core::imp::define_interface!(IWMPSubscriptionService2, IWMPSubscriptionService2_Vtbl, 0x0f4dc984_7da8_5156_8b14_c787f4299876);
+windows_core::imp::define_interface!(IWMPSubscriptionService2, IWMPSubscriptionService2_Vtbl, 0xa94c120e_d600_4ec6_b05e_ec9d56d84de0);
 impl core::ops::Deref for IWMPSubscriptionService2 {
     type Target = IWMPSubscriptionService;
     fn deref(&self) -> &Self::Target {
@@ -14813,7 +14786,7 @@ impl IWMPSyncDevice_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPSyncDevice {}
-windows_core::imp::define_interface!(IWMPSyncDevice2, IWMPSyncDevice2_Vtbl, 0x9497313f_5ec9_53c7_9671_ce6736c7c33c);
+windows_core::imp::define_interface!(IWMPSyncDevice2, IWMPSyncDevice2_Vtbl, 0x88afb4b2_140a_44d2_91e6_4543da467cd1);
 impl core::ops::Deref for IWMPSyncDevice2 {
     type Target = IWMPSyncDevice;
     fn deref(&self) -> &Self::Target {
@@ -14850,7 +14823,7 @@ impl IWMPSyncDevice2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPSyncDevice2 {}
-windows_core::imp::define_interface!(IWMPSyncDevice3, IWMPSyncDevice3_Vtbl, 0x90c2d5b7_de5f_5a55_a385_e47d1c3240bf);
+windows_core::imp::define_interface!(IWMPSyncDevice3, IWMPSyncDevice3_Vtbl, 0xb22c85f9_263c_4372_a0da_b518db9b4098);
 impl core::ops::Deref for IWMPSyncDevice3 {
     type Target = IWMPSyncDevice2;
     fn deref(&self) -> &Self::Target {
@@ -14977,7 +14950,7 @@ impl IWMPSyncServices_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPSyncServices {}
-windows_core::imp::define_interface!(IWMPTranscodePolicy, IWMPTranscodePolicy_Vtbl, 0xccb59cb6_b03a_5b36_8eba_e23285f97cbc);
+windows_core::imp::define_interface!(IWMPTranscodePolicy, IWMPTranscodePolicy_Vtbl, 0xb64cbac3_401c_4327_a3e8_b9feb3a8c25c);
 windows_core::imp::interface_hierarchy!(IWMPTranscodePolicy, windows_core::IUnknown);
 impl IWMPTranscodePolicy {
     pub unsafe fn allowTranscode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -15048,7 +15021,7 @@ impl IWMPUserEventSink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMPUserEventSink {}
-windows_core::imp::define_interface!(IWMPVideoRenderConfig, IWMPVideoRenderConfig_Vtbl, 0xd62456cd_948f_5355_9b13_b9b253b8e914);
+windows_core::imp::define_interface!(IWMPVideoRenderConfig, IWMPVideoRenderConfig_Vtbl, 0x6d6cf803_1ec0_4c8d_b3ca_f18e27282074);
 windows_core::imp::interface_hierarchy!(IWMPVideoRenderConfig, windows_core::IUnknown);
 impl IWMPVideoRenderConfig {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -15958,7 +15931,7 @@ impl IXFeed_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXFeed {}
-windows_core::imp::define_interface!(IXFeed2, IXFeed2_Vtbl, 0x472cb221_d5c7_5d0b_83cb_717a11a0ed15);
+windows_core::imp::define_interface!(IXFeed2, IXFeed2_Vtbl, 0xce528e77_3716_4eb7_956d_f5e37502e12a);
 impl core::ops::Deref for IXFeed2 {
     type Target = IXFeed;
     fn deref(&self) -> &Self::Target {
@@ -15967,8 +15940,12 @@ impl core::ops::Deref for IXFeed2 {
 }
 windows_core::imp::interface_hierarchy!(IXFeed2, windows_core::IUnknown, IXFeed);
 impl IXFeed2 {
-    pub unsafe fn GetItemByEffectiveId(&self, uieffectiveid: u32, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItemByEffectiveId)(windows_core::Interface::as_raw(self), uieffectiveid, riid as _, ppv as _).ok() }
+    pub unsafe fn GetItemByEffectiveId<T>(&self, uieffectiveid: u32) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetItemByEffectiveId)(windows_core::Interface::as_raw(self), uieffectiveid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn LastItemDownloadTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         unsafe {
@@ -16003,7 +15980,7 @@ impl IXFeed2 {
 #[doc(hidden)]
 pub struct IXFeed2_Vtbl {
     pub base__: IXFeed_Vtbl,
-    pub GetItemByEffectiveId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetItemByEffectiveId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LastItemDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
     pub Username: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Password: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -16012,7 +15989,7 @@ pub struct IXFeed2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXFeed2_Impl: IXFeed_Impl {
-    fn GetItemByEffectiveId(&self, uieffectiveid: u32, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetItemByEffectiveId(&self, uieffectiveid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn LastItemDownloadTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME>;
     fn Username(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Password(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -16022,7 +15999,7 @@ pub trait IXFeed2_Impl: IXFeed_Impl {
 #[cfg(feature = "Win32_System_Com")]
 impl IXFeed2_Vtbl {
     pub const fn new<Identity: IXFeed2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetItemByEffectiveId<Identity: IXFeed2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uieffectiveid: u32, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemByEffectiveId<Identity: IXFeed2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uieffectiveid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeed2_Impl::GetItemByEffectiveId(this, core::mem::transmute_copy(&uieffectiveid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -16352,7 +16329,7 @@ impl IXFeedEnclosure_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXFeedEnclosure {}
-windows_core::imp::define_interface!(IXFeedEvents, IXFeedEvents_Vtbl, 0xa45209c2_1fb5_54cb_b6f8_1355ac8b7215);
+windows_core::imp::define_interface!(IXFeedEvents, IXFeedEvents_Vtbl, 0x1630852e_1263_465b_98e5_fe60ffec4ac2);
 windows_core::imp::interface_hierarchy!(IXFeedEvents, windows_core::IUnknown);
 impl IXFeedEvents {
     pub unsafe fn Error(&self) -> windows_core::Result<()> {
@@ -16493,7 +16470,7 @@ impl IXFeedEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXFeedEvents {}
-windows_core::imp::define_interface!(IXFeedFolder, IXFeedFolder_Vtbl, 0xc996004a_544c_5d6f_8b8f_9761e605f25a);
+windows_core::imp::define_interface!(IXFeedFolder, IXFeedFolder_Vtbl, 0x4c963678_3a51_4b88_8531_98b90b6508f2);
 windows_core::imp::interface_hierarchy!(IXFeedFolder, windows_core::IUnknown);
 impl IXFeedFolder {
     pub unsafe fn Feeds(&self) -> windows_core::Result<IXFeedsEnum> {
@@ -16508,48 +16485,50 @@ impl IXFeedFolder {
             (windows_core::Interface::vtable(self).Subfolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateFeed<P0, P1>(&self, pszname: P0, pszurl: P1, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn CreateFeed<P0, P1, T>(&self, pszname: P0, pszurl: P1) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pszurl.param().abi(), riid as _, ppv as _).ok() }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateSubfolder<P0>(&self, pszname: P0, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn CreateSubfolder<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    pub unsafe fn ExistsFeed<P0>(&self, pszname: P0, pbfeedexists: *const windows_core::BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), riid as _, ppv as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExistsFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pbfeedexists).ok() }
     }
-    pub unsafe fn ExistsFeed<P0>(&self, pszname: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn ExistsSubfolder<P0>(&self, pszname: P0, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExistsFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ExistsSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), pbsubfolderexists).ok() }
     }
-    pub unsafe fn ExistsSubfolder<P0>(&self, pszname: P0) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn GetFeed<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
+        T: windows_core::Interface,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExistsSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &mut result__).map(|| result__)
-        }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetFeed<P0>(&self, pszname: P0, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn GetSubfolder<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), riid as _, ppv as _).ok() }
-    }
-    pub unsafe fn GetSubfolder<P0>(&self, pszname: P0, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), riid as _, ppv as _).ok() }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
@@ -16578,8 +16557,12 @@ impl IXFeedFolder {
     {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), pszpath.param().abi()).ok() }
     }
-    pub unsafe fn Parent(&self, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), riid as _, ppv as _).ok() }
+    pub unsafe fn Parent<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn IsRoot(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -16587,8 +16570,12 @@ impl IXFeedFolder {
             (windows_core::Interface::vtable(self).IsRoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, riid as _, ppv as _).ok() }
+    pub unsafe fn GetWatcher<T>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn TotalUnreadItemCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -16609,40 +16596,40 @@ pub struct IXFeedFolder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Feeds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Subfolders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExistsFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub ExistsSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub GetFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ExistsFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::BOOL) -> windows_core::HRESULT,
+    pub ExistsSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetFeed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSubfolder: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Rename: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsRoot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub GetWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, FEEDS_EVENTS_SCOPE, FEEDS_EVENTS_MASK, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, FEEDS_EVENTS_SCOPE, FEEDS_EVENTS_MASK, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TotalUnreadItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub TotalItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IXFeedFolder_Impl: windows_core::IUnknownImpl {
     fn Feeds(&self) -> windows_core::Result<IXFeedsEnum>;
     fn Subfolders(&self) -> windows_core::Result<IXFeedsEnum>;
-    fn CreateFeed(&self, pszname: &windows_core::PCWSTR, pszurl: &windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateSubfolder(&self, pszname: &windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ExistsFeed(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-    fn ExistsSubfolder(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-    fn GetFeed(&self, pszname: &windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetSubfolder(&self, pszname: &windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFeed(&self, pszname: &windows_core::PCWSTR, pszurl: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateSubfolder(&self, pszname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ExistsFeed(&self, pszname: &windows_core::PCWSTR, pbfeedexists: *const windows_core::BOOL) -> windows_core::Result<()>;
+    fn ExistsSubfolder(&self, pszname: &windows_core::PCWSTR, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetFeed(&self, pszname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSubfolder(&self, pszname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Rename(&self, pszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Path(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Move(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Parent(&self, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Parent(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsRoot(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn TotalUnreadItemCount(&self) -> windows_core::Result<u32>;
     fn TotalItemCount(&self) -> windows_core::Result<u32>;
 }
@@ -16672,49 +16659,37 @@ impl IXFeedFolder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pszurl: windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pszurl: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::CreateFeed(this, core::mem::transmute(&pszname), core::mem::transmute(&pszurl), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn CreateSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::CreateSubfolder(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn ExistsFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbfeedexists: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExistsFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbfeedexists: *const windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXFeedFolder_Impl::ExistsFeed(this, core::mem::transmute(&pszname)) {
-                    Ok(ok__) => {
-                        pbfeedexists.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IXFeedFolder_Impl::ExistsFeed(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&pbfeedexists)).into()
             }
         }
-        unsafe extern "system" fn ExistsSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbsubfolderexists: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExistsSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, pbsubfolderexists: *const windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXFeedFolder_Impl::ExistsSubfolder(this, core::mem::transmute(&pszname)) {
-                    Ok(ok__) => {
-                        pbsubfolderexists.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IXFeedFolder_Impl::ExistsSubfolder(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&pbsubfolderexists)).into()
             }
         }
-        unsafe extern "system" fn GetFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFeed<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::GetFeed(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
-        unsafe extern "system" fn GetSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSubfolder<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::GetSubfolder(this, core::mem::transmute(&pszname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -16762,7 +16737,7 @@ impl IXFeedFolder_Vtbl {
                 IXFeedFolder_Impl::Move(this, core::mem::transmute(&pszpath)).into()
             }
         }
-        unsafe extern "system" fn Parent<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Parent<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::Parent(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -16780,7 +16755,7 @@ impl IXFeedFolder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetWatcher<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetWatcher<Identity: IXFeedFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedFolder_Impl::GetWatcher(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&mask), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -17102,7 +17077,7 @@ impl IXFeedFolderEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXFeedFolderEvents {}
-windows_core::imp::define_interface!(IXFeedItem, IXFeedItem_Vtbl, 0x6d0bd41f_2aad_55da_b4a3_bac1e24945bc);
+windows_core::imp::define_interface!(IXFeedItem, IXFeedItem_Vtbl, 0xe757b2f5_e73e_434e_a1bf_2bd7c3e60fcb);
 windows_core::imp::interface_hierarchy!(IXFeedItem, windows_core::IUnknown);
 impl IXFeedItem {
     #[cfg(feature = "Win32_System_Com")]
@@ -17154,8 +17129,12 @@ impl IXFeedItem {
             (windows_core::Interface::vtable(self).Author)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Enclosure(&self, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Enclosure)(windows_core::Interface::as_raw(self), riid as _, ppv as _).ok() }
+    pub unsafe fn Enclosure<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).Enclosure)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn IsRead(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -17172,8 +17151,12 @@ impl IXFeedItem {
             (windows_core::Interface::vtable(self).LocalId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Parent(&self, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), riid as _, ppv as _).ok() }
+    pub unsafe fn Parent<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
@@ -17212,11 +17195,11 @@ pub struct IXFeedItem_Vtbl {
     pub PubDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
     pub Comments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub Enclosure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Enclosure: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsRead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIsRead: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub LocalId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DownloadUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub LastDownloadTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
@@ -17232,11 +17215,11 @@ pub trait IXFeedItem_Impl: windows_core::IUnknownImpl {
     fn PubDate(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME>;
     fn Comments(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Author(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn Enclosure(&self, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Enclosure(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsRead(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetIsRead(&self, bisread: windows_core::BOOL) -> windows_core::Result<()>;
     fn LocalId(&self) -> windows_core::Result<u32>;
-    fn Parent(&self, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Parent(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn DownloadUrl(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn LastDownloadTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME>;
@@ -17341,7 +17324,7 @@ impl IXFeedItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Enclosure<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Enclosure<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedItem_Impl::Enclosure(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -17377,7 +17360,7 @@ impl IXFeedItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Parent<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Parent<Identity: IXFeedItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedItem_Impl::Parent(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -17452,7 +17435,7 @@ impl IXFeedItem_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXFeedItem {}
-windows_core::imp::define_interface!(IXFeedItem2, IXFeedItem2_Vtbl, 0xae262dc9_6020_5388_8b77_3b5d46cec3f5);
+windows_core::imp::define_interface!(IXFeedItem2, IXFeedItem2_Vtbl, 0x6cda2dc7_9013_4522_9970_2a9dd9ead5a3);
 impl core::ops::Deref for IXFeedItem2 {
     type Target = IXFeedItem;
     fn deref(&self) -> &Self::Target {
@@ -17501,7 +17484,7 @@ impl IXFeedItem2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXFeedItem2 {}
-windows_core::imp::define_interface!(IXFeedsEnum, IXFeedsEnum_Vtbl, 0x0e11ac01_810d_5320_a6ef_3b395214523f);
+windows_core::imp::define_interface!(IXFeedsEnum, IXFeedsEnum_Vtbl, 0xdc43a9d5_5015_4301_8c96_a47434b4d658);
 windows_core::imp::interface_hierarchy!(IXFeedsEnum, windows_core::IUnknown);
 impl IXFeedsEnum {
     pub unsafe fn Count(&self) -> windows_core::Result<u32> {
@@ -17510,8 +17493,12 @@ impl IXFeedsEnum {
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Item(&self, uiindex: u32, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), uiindex, riid as _, ppv as _).ok() }
+    pub unsafe fn Item<T>(&self, uiindex: u32) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -17519,11 +17506,11 @@ impl IXFeedsEnum {
 pub struct IXFeedsEnum_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IXFeedsEnum_Impl: windows_core::IUnknownImpl {
     fn Count(&self) -> windows_core::Result<u32>;
-    fn Item(&self, uiindex: u32, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Item(&self, uiindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IXFeedsEnum_Vtbl {
     pub const fn new<Identity: IXFeedsEnum_Impl, const OFFSET: isize>() -> Self {
@@ -17539,7 +17526,7 @@ impl IXFeedsEnum_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Item<Identity: IXFeedsEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: IXFeedsEnum_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uiindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXFeedsEnum_Impl::Item(this, core::mem::transmute_copy(&uiindex), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
@@ -18129,7 +18116,7 @@ pub const WMProfile_V80_FAIRVBRVideo: windows_core::GUID = windows_core::GUID::f
 pub const WMProfile_V80_HIGHVBRVideo: windows_core::GUID = windows_core::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
 pub const WindowsMediaPlayer: windows_core::GUID = windows_core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_WMPOCXEvents, _WMPOCXEvents_Vtbl, 0x0993297e_5946_5dc4_8de8_704efd858d0b);
+windows_core::imp::define_interface!(_WMPOCXEvents, _WMPOCXEvents_Vtbl, 0x6bf52a51_394a_11d3_b153_00c04f79faa6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for _WMPOCXEvents {
     type Target = super::super::System::Com::IDispatch;

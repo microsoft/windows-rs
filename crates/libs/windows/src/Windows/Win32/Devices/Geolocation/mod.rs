@@ -1210,7 +1210,7 @@ impl IDefaultLocation_Vtbl {
 }
 impl windows_core::RuntimeName for IDefaultLocation {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDispCivicAddressReport, IDispCivicAddressReport_Vtbl, 0xbb3fbb99_a7ca_5345_a68b_53b14d9ab36e);
+windows_core::imp::define_interface!(IDispCivicAddressReport, IDispCivicAddressReport_Vtbl, 0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDispCivicAddressReport {
     type Target = super::super::System::Com::IDispatch;
@@ -1414,7 +1414,7 @@ impl IDispCivicAddressReport_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDispCivicAddressReport {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDispLatLongReport, IDispLatLongReport_Vtbl, 0xcd87ec59_3486_5cb9_9742_9b137ebce9cb);
+windows_core::imp::define_interface!(IDispLatLongReport, IDispLatLongReport_Vtbl, 0x8ae32723_389b_4a11_9957_5bdd48fc9617);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDispLatLongReport {
     type Target = super::super::System::Com::IDispatch;
@@ -1575,7 +1575,7 @@ impl IDispLatLongReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDispLatLongReport {}
-windows_core::imp::define_interface!(ILatLongReport, ILatLongReport_Vtbl, 0xb96ae5e6_453d_5b81_81e8_bb1c96448451);
+windows_core::imp::define_interface!(ILatLongReport, ILatLongReport_Vtbl, 0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
 impl core::ops::Deref for ILatLongReport {
     type Target = ILocationReport;
     fn deref(&self) -> &Self::Target {
@@ -1945,39 +1945,39 @@ impl ILocation_Vtbl {
 }
 #[cfg(feature = "Win32_Devices_Sensors")]
 impl windows_core::RuntimeName for ILocation {}
-windows_core::imp::define_interface!(ILocationEvents, ILocationEvents_Vtbl, 0xd1848deb_93e7_57e7_98a1_4c3526e9e5d8);
+windows_core::imp::define_interface!(ILocationEvents, ILocationEvents_Vtbl, 0xcae02bbf_798b_4508_a207_35a7906dc73d);
 windows_core::imp::interface_hierarchy!(ILocationEvents, windows_core::IUnknown);
 impl ILocationEvents {
-    pub unsafe fn OnLocationChanged<P1>(&self, reporttype: *mut windows_core::GUID, plocationreport: P1) -> windows_core::Result<()>
+    pub unsafe fn OnLocationChanged<P1>(&self, reporttype: *const windows_core::GUID, plocationreport: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<ILocationReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype as _, plocationreport.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok() }
     }
-    pub unsafe fn OnStatusChanged(&self, reporttype: *mut windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), reporttype as _, newstatus).ok() }
+    pub unsafe fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), reporttype, newstatus).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnLocationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OnStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, LOCATION_REPORT_STATUS) -> windows_core::HRESULT,
+    pub OnLocationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, LOCATION_REPORT_STATUS) -> windows_core::HRESULT,
 }
 pub trait ILocationEvents_Impl: windows_core::IUnknownImpl {
-    fn OnLocationChanged(&self, reporttype: *mut windows_core::GUID, plocationreport: windows_core::Ref<ILocationReport>) -> windows_core::Result<()>;
-    fn OnStatusChanged(&self, reporttype: *mut windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()>;
+    fn OnLocationChanged(&self, reporttype: *const windows_core::GUID, plocationreport: windows_core::Ref<ILocationReport>) -> windows_core::Result<()>;
+    fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()>;
 }
 impl ILocationEvents_Vtbl {
     pub const fn new<Identity: ILocationEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnLocationChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *mut windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnLocationChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ILocationEvents_Impl::OnLocationChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&plocationreport)).into()
             }
         }
-        unsafe extern "system" fn OnStatusChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *mut windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnStatusChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ILocationEvents_Impl::OnStatusChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&newstatus)).into()
@@ -2129,7 +2129,7 @@ impl ILocationReport_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ILocationReport {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ILocationReportFactory, ILocationReportFactory_Vtbl, 0x96275b90_26b2_5c2d_9dd3_3d4cdfe97b96);
+windows_core::imp::define_interface!(ILocationReportFactory, ILocationReportFactory_Vtbl, 0x2daec322_90b2_47e4_bb08_0da841935a6b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ILocationReportFactory {
     type Target = super::super::System::Com::IDispatch;
@@ -2171,11 +2171,8 @@ impl ILocationReportFactory {
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), desiredaccuracy).ok() }
     }
-    pub unsafe fn RequestPermissions(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hwnd).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2190,7 +2187,7 @@ pub struct ILocationReportFactory_Vtbl {
     pub SetReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub DesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetDesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub RequestPermissions: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ILocationReportFactory_Impl: super::super::System::Com::IDispatch_Impl {
@@ -2201,7 +2198,7 @@ pub trait ILocationReportFactory_Impl: super::super::System::Com::IDispatch_Impl
     fn SetReportInterval(&self, millisecondsrequested: u32) -> windows_core::Result<()>;
     fn DesiredAccuracy(&self) -> windows_core::Result<u32>;
     fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> windows_core::Result<()>;
-    fn RequestPermissions(&self) -> windows_core::Result<u32>;
+    fn RequestPermissions(&self, hwnd: *const u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ILocationReportFactory_Vtbl {
@@ -2266,16 +2263,10 @@ impl ILocationReportFactory_Vtbl {
                 ILocationReportFactory_Impl::SetDesiredAccuracy(this, core::mem::transmute_copy(&desiredaccuracy)).into()
             }
         }
-        unsafe extern "system" fn RequestPermissions<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestPermissions<Identity: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: *const u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILocationReportFactory_Impl::RequestPermissions(this) {
-                    Ok(ok__) => {
-                        hwnd.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ILocationReportFactory_Impl::RequestPermissions(this, core::mem::transmute_copy(&hwnd)).into()
             }
         }
         Self {
@@ -2341,7 +2332,7 @@ pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(
 pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(4i32);
 pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_ICivicAddressReportFactoryEvents, _ICivicAddressReportFactoryEvents_Vtbl, 0xc83eb1a9_8cff_5aa8_8020_0c05a5672159);
+windows_core::imp::define_interface!(_ICivicAddressReportFactoryEvents, _ICivicAddressReportFactoryEvents_Vtbl, 0xc96039ff_72ec_4617_89bd_84d88bedc722);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for _ICivicAddressReportFactoryEvents {
     type Target = super::super::System::Com::IDispatch;
@@ -2371,7 +2362,7 @@ impl _ICivicAddressReportFactoryEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for _ICivicAddressReportFactoryEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_ILatLongReportFactoryEvents, _ILatLongReportFactoryEvents_Vtbl, 0xbdf848da_1f6a_5797_bb6c_1cf929ff868f);
+windows_core::imp::define_interface!(_ILatLongReportFactoryEvents, _ILatLongReportFactoryEvents_Vtbl, 0x16ee6cb7_ab3c_424b_849f_269be551fcbc);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for _ILatLongReportFactoryEvents {
     type Target = super::super::System::Com::IDispatch;

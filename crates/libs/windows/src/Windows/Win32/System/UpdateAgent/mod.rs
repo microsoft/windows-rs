@@ -168,7 +168,7 @@ impl IAutomaticUpdates_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdates {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAutomaticUpdates2, IAutomaticUpdates2_Vtbl, 0xfdcb3fb2_29d6_5f59_b790_5b94e96461f0);
+windows_core::imp::define_interface!(IAutomaticUpdates2, IAutomaticUpdates2_Vtbl, 0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAutomaticUpdates2 {
     type Target = IAutomaticUpdates;
@@ -222,7 +222,7 @@ impl IAutomaticUpdates2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdates2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAutomaticUpdatesResults, IAutomaticUpdatesResults_Vtbl, 0x99383c13_b13b_5c1c_82f1_e15a9690179d);
+windows_core::imp::define_interface!(IAutomaticUpdatesResults, IAutomaticUpdatesResults_Vtbl, 0xe7a4d634_7942_4dd9_a111_82228ba33901);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAutomaticUpdatesResults {
     type Target = super::Com::IDispatch;
@@ -308,7 +308,7 @@ impl IAutomaticUpdatesResults_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdatesResults {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAutomaticUpdatesSettings, IAutomaticUpdatesSettings_Vtbl, 0xabc2f057_c33c_54cd_a3f3_4b069e24b7c8);
+windows_core::imp::define_interface!(IAutomaticUpdatesSettings, IAutomaticUpdatesSettings_Vtbl, 0x2ee48f22_af3c_405f_8970_f71be12ee9a2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAutomaticUpdatesSettings {
     type Target = super::Com::IDispatch;
@@ -599,7 +599,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdatesSettings2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAutomaticUpdatesSettings3, IAutomaticUpdatesSettings3_Vtbl, 0x0ece856e_d27a_5b93_91f5_c7ce47412b53);
+windows_core::imp::define_interface!(IAutomaticUpdatesSettings3, IAutomaticUpdatesSettings3_Vtbl, 0xb587f5c3_f57e_485f_bbf5_0d181c5cd0dc);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAutomaticUpdatesSettings3 {
     type Target = IAutomaticUpdatesSettings2;
@@ -701,7 +701,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IAutomaticUpdatesSettings3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ICategory, ICategory_Vtbl, 0x024b321b_e0ae_5461_a55b_1031ccf87d5e);
+windows_core::imp::define_interface!(ICategory, ICategory_Vtbl, 0x81ddc1b8_9d35_47a6_b471_5b80f519223b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ICategory {
     type Target = super::Com::IDispatch;
@@ -1024,7 +1024,7 @@ impl ICategoryCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICategoryCollection {}
-windows_core::imp::define_interface!(IDownloadCompletedCallback, IDownloadCompletedCallback_Vtbl, 0x441507f0_c89d_515a_854b_3f19317046d2);
+windows_core::imp::define_interface!(IDownloadCompletedCallback, IDownloadCompletedCallback_Vtbl, 0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
 windows_core::imp::interface_hierarchy!(IDownloadCompletedCallback, windows_core::IUnknown);
 impl IDownloadCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -1067,7 +1067,7 @@ impl IDownloadCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDownloadCompletedCallback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDownloadCompletedCallbackArgs, IDownloadCompletedCallbackArgs_Vtbl, 0xfd82614a_1eb6_53de_8c47_2cd3faab3493);
+windows_core::imp::define_interface!(IDownloadCompletedCallbackArgs, IDownloadCompletedCallbackArgs_Vtbl, 0xfa565b23_498c_47a0_979d_e7d5b1813360);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDownloadCompletedCallbackArgs {
     type Target = super::Com::IDispatch;
@@ -1469,7 +1469,7 @@ impl IDownloadProgress_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadProgress {}
-windows_core::imp::define_interface!(IDownloadProgressChangedCallback, IDownloadProgressChangedCallback_Vtbl, 0x3245a451_9f21_55ce_8334_eabdeba36920);
+windows_core::imp::define_interface!(IDownloadProgressChangedCallback, IDownloadProgressChangedCallback_Vtbl, 0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
 windows_core::imp::interface_hierarchy!(IDownloadProgressChangedCallback, windows_core::IUnknown);
 impl IDownloadProgressChangedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -1512,7 +1512,7 @@ impl IDownloadProgressChangedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDownloadProgressChangedCallback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDownloadProgressChangedCallbackArgs, IDownloadProgressChangedCallbackArgs_Vtbl, 0x8f41b649_8cc1_51ba_a25d_5bbdb3576eea);
+windows_core::imp::define_interface!(IDownloadProgressChangedCallbackArgs, IDownloadProgressChangedCallbackArgs_Vtbl, 0x324ff2c6_4981_4b04_9412_57481745ab24);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDownloadProgressChangedCallbackArgs {
     type Target = super::Com::IDispatch;
@@ -1665,7 +1665,7 @@ impl IDownloadResult_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDownloadResult {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IImageInformation, IImageInformation_Vtbl, 0x58f22c9b_d0d8_59a4_80e1_404e7bde6de2);
+windows_core::imp::define_interface!(IImageInformation, IImageInformation_Vtbl, 0x7c907864_346c_4aeb_8f3f_57da289f969f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IImageInformation {
     type Target = super::Com::IDispatch;
@@ -1833,7 +1833,7 @@ impl IInstallationAgent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationAgent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IInstallationBehavior, IInstallationBehavior_Vtbl, 0x56a23cb9_edbd_5e97_b311_799afdab861d);
+windows_core::imp::define_interface!(IInstallationBehavior, IInstallationBehavior_Vtbl, 0xd9a59339_e245_4dbd_9686_4d5763e39624);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IInstallationBehavior {
     type Target = super::Com::IDispatch;
@@ -1952,7 +1952,7 @@ impl IInstallationBehavior_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationBehavior {}
-windows_core::imp::define_interface!(IInstallationCompletedCallback, IInstallationCompletedCallback_Vtbl, 0x931f19b2_b089_5c33_8734_7d33822b34a0);
+windows_core::imp::define_interface!(IInstallationCompletedCallback, IInstallationCompletedCallback_Vtbl, 0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
 windows_core::imp::interface_hierarchy!(IInstallationCompletedCallback, windows_core::IUnknown);
 impl IInstallationCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -2025,7 +2025,7 @@ impl IInstallationCompletedCallbackArgs_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IInstallationJob, IInstallationJob_Vtbl, 0x42cf0a40_6045_58b0_a14c_f8f95627747b);
+windows_core::imp::define_interface!(IInstallationJob, IInstallationJob_Vtbl, 0x5c209f0b_bad5_432a_9556_4699bed2638a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IInstallationJob {
     type Target = super::Com::IDispatch;
@@ -2173,7 +2173,7 @@ impl IInstallationJob_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationJob {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IInstallationProgress, IInstallationProgress_Vtbl, 0xd8aea85a_2971_59ba_9137_869854461971);
+windows_core::imp::define_interface!(IInstallationProgress, IInstallationProgress_Vtbl, 0x345c8244_43a3_4e32_a368_65f073b76f36);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IInstallationProgress {
     type Target = super::Com::IDispatch;
@@ -2335,7 +2335,7 @@ impl IInstallationProgressChangedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IInstallationProgressChangedCallback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IInstallationProgressChangedCallbackArgs, IInstallationProgressChangedCallbackArgs_Vtbl, 0x9e5710ea_e2e1_5232_81e4_ae9d153cea19);
+windows_core::imp::define_interface!(IInstallationProgressChangedCallbackArgs, IInstallationProgressChangedCallbackArgs_Vtbl, 0xe4f14e1e_689d_4218_a0b9_bc189c484a01);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IInstallationProgressChangedCallbackArgs {
     type Target = super::Com::IDispatch;
@@ -2389,7 +2389,7 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInstallationProgressChangedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IInstallationResult, IInstallationResult_Vtbl, 0x597feb8c_d5b1_5d32_b814_9a1337add88d);
+windows_core::imp::define_interface!(IInstallationResult, IInstallationResult_Vtbl, 0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IInstallationResult {
     type Target = super::Com::IDispatch;
@@ -2562,7 +2562,7 @@ impl IInvalidProductLicenseException_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IInvalidProductLicenseException {}
-windows_core::imp::define_interface!(ISearchCompletedCallback, ISearchCompletedCallback_Vtbl, 0xe206d556_9807_5db4_95bd_00a6dda8176c);
+windows_core::imp::define_interface!(ISearchCompletedCallback, ISearchCompletedCallback_Vtbl, 0x88aee058_d4b0_4725_a2f1_814a67ae964c);
 windows_core::imp::interface_hierarchy!(ISearchCompletedCallback, windows_core::IUnknown);
 impl ISearchCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -2605,7 +2605,7 @@ impl ISearchCompletedCallback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ISearchCompletedCallback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISearchCompletedCallbackArgs, ISearchCompletedCallbackArgs_Vtbl, 0xc2b76bbb_7231_55eb_8c6e_8cbee4b99dfa);
+windows_core::imp::define_interface!(ISearchCompletedCallbackArgs, ISearchCompletedCallbackArgs_Vtbl, 0xa700a634_2850_4c47_938a_9e4b6e5af9a6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISearchCompletedCallbackArgs {
     type Target = super::Com::IDispatch;
@@ -2741,7 +2741,7 @@ impl ISearchJob_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISearchJob {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISearchResult, ISearchResult_Vtbl, 0xbc10eb8a_9fd3_5b9f_b167_cc0cd2415e02);
+windows_core::imp::define_interface!(ISearchResult, ISearchResult_Vtbl, 0xd40cff62_e08c_4498_941a_01e25f0fd33c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISearchResult {
     type Target = super::Com::IDispatch;
@@ -3071,7 +3071,7 @@ impl IStringCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IStringCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISystemInformation, ISystemInformation_Vtbl, 0x7f8ebcae_8fdd_5548_b8b5_2e019eaa2317);
+windows_core::imp::define_interface!(ISystemInformation, ISystemInformation_Vtbl, 0xade87bf7_7b56_4275_8fab_b9b0e591844b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISystemInformation {
     type Target = super::Com::IDispatch;
@@ -3149,7 +3149,7 @@ impl ISystemInformation_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISystemInformation {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdate, IUpdate_Vtbl, 0x7fd1a406_b978_5c47_8b26_2225490301cb);
+windows_core::imp::define_interface!(IUpdate, IUpdate_Vtbl, 0x6a92b07a_d821_4682_b423_5c805022cc4d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdate {
     type Target = super::Com::IDispatch;
@@ -4107,7 +4107,7 @@ impl IUpdate_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdate {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdate2, IUpdate2_Vtbl, 0xfe4d49a3_09dd_5706_bdba_b16901a26fbb);
+windows_core::imp::define_interface!(IUpdate2, IUpdate2_Vtbl, 0x144fe9b0_d23d_4a8b_8634_fb4457533b7a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdate2 {
     type Target = IUpdate;
@@ -4275,7 +4275,7 @@ impl IUpdate3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdate3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdate4, IUpdate4_Vtbl, 0x4b5c3b02_e499_5fca_bf74_fcccf18acd73);
+windows_core::imp::define_interface!(IUpdate4, IUpdate4_Vtbl, 0x27e94b0d_5139_49a2_9a61_93522dc54652);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdate4 {
     type Target = IUpdate3;
@@ -4626,7 +4626,7 @@ impl IUpdateCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateDownloadContent, IUpdateDownloadContent_Vtbl, 0x90146644_6abd_558b_8fe6_8081efbf7e93);
+windows_core::imp::define_interface!(IUpdateDownloadContent, IUpdateDownloadContent_Vtbl, 0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateDownloadContent {
     type Target = super::Com::IDispatch;
@@ -4680,7 +4680,7 @@ impl IUpdateDownloadContent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloadContent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateDownloadContent2, IUpdateDownloadContent2_Vtbl, 0xe5521d09_93a5_58d4_9313_c7a4ad75b050);
+windows_core::imp::define_interface!(IUpdateDownloadContent2, IUpdateDownloadContent2_Vtbl, 0xc97ad11b_f257_420b_9d9f_377f733f6f68);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateDownloadContent2 {
     type Target = IUpdateDownloadContent;
@@ -4734,7 +4734,7 @@ impl IUpdateDownloadContent2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloadContent2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateDownloadContentCollection, IUpdateDownloadContentCollection_Vtbl, 0xd8c8f60a_1bf5_58d8_9d0f_411097dd9c59);
+windows_core::imp::define_interface!(IUpdateDownloadContentCollection, IUpdateDownloadContentCollection_Vtbl, 0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateDownloadContentCollection {
     type Target = super::Com::IDispatch;
@@ -4907,7 +4907,7 @@ impl IUpdateDownloadResult_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloadResult {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateDownloader, IUpdateDownloader_Vtbl, 0x39e06e9a_3694_5324_a501_23b6c5fb7006);
+windows_core::imp::define_interface!(IUpdateDownloader, IUpdateDownloader_Vtbl, 0x68f1c6f9_7ecc_4666_a464_247fe12496c3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateDownloader {
     type Target = super::Com::IDispatch;
@@ -5152,7 +5152,7 @@ impl IUpdateDownloader_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloader {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateException, IUpdateException_Vtbl, 0x68f5b97c_efef_517d_b375_2253ded03a2c);
+windows_core::imp::define_interface!(IUpdateException, IUpdateException_Vtbl, 0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateException {
     type Target = super::Com::IDispatch;
@@ -5350,7 +5350,7 @@ impl IUpdateExceptionCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateExceptionCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateHistoryEntry, IUpdateHistoryEntry_Vtbl, 0xeebacae1_8ad8_5789_8d4e_e1d684f9a858);
+windows_core::imp::define_interface!(IUpdateHistoryEntry, IUpdateHistoryEntry_Vtbl, 0xbe56a644_af0e_4e0e_a311_c1d8e695cbff);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateHistoryEntry {
     type Target = super::Com::IDispatch;
@@ -5680,7 +5680,7 @@ impl IUpdateHistoryEntry_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateHistoryEntry {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateHistoryEntry2, IUpdateHistoryEntry2_Vtbl, 0x5951fab4_8d3f_5377_8f32_60127bfb6c13);
+windows_core::imp::define_interface!(IUpdateHistoryEntry2, IUpdateHistoryEntry2_Vtbl, 0xc2bfb780_4539_4132_ab8c_0a8772013ab6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateHistoryEntry2 {
     type Target = IUpdateHistoryEntry;
@@ -5734,7 +5734,7 @@ impl IUpdateHistoryEntry2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateHistoryEntry2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateHistoryEntryCollection, IUpdateHistoryEntryCollection_Vtbl, 0xe4d78c1c_072a_59d7_afcc_a1b72d8be2d3);
+windows_core::imp::define_interface!(IUpdateHistoryEntryCollection, IUpdateHistoryEntryCollection_Vtbl, 0xa7f04f3c_a290_435b_aadf_a116c3357a5c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateHistoryEntryCollection {
     type Target = super::Com::IDispatch;
@@ -5833,7 +5833,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateHistoryEntryCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateIdentity, IUpdateIdentity_Vtbl, 0x2a802b93_b90b_560e_bc6a_423e1381bf72);
+windows_core::imp::define_interface!(IUpdateIdentity, IUpdateIdentity_Vtbl, 0x46297823_9940_4c09_aed9_cd3ea6d05968);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateIdentity {
     type Target = super::Com::IDispatch;
@@ -5911,7 +5911,7 @@ impl IUpdateIdentity_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateIdentity {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateInstallationResult, IUpdateInstallationResult_Vtbl, 0x045fed68_b17b_5daf_8f5b_3fc61164a9a1);
+windows_core::imp::define_interface!(IUpdateInstallationResult, IUpdateInstallationResult_Vtbl, 0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateInstallationResult {
     type Target = super::Com::IDispatch;
@@ -6010,7 +6010,7 @@ impl IUpdateInstallationResult_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstallationResult {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateInstaller, IUpdateInstaller_Vtbl, 0x6053796e_6a23_5bf7_95c8_46c31f7e008a);
+windows_core::imp::define_interface!(IUpdateInstaller, IUpdateInstaller_Vtbl, 0x7b929c68_ccdc_4226_96b1_8724600b54c2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateInstaller {
     type Target = super::Com::IDispatch;
@@ -6461,7 +6461,7 @@ impl IUpdateInstaller_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstaller {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateInstaller2, IUpdateInstaller2_Vtbl, 0xc0227b37_f78b_5ee1_b3af_92b083abd53e);
+windows_core::imp::define_interface!(IUpdateInstaller2, IUpdateInstaller2_Vtbl, 0x3442d4fe_224d_4cee_98cf_30e0c4d229e6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateInstaller2 {
     type Target = IUpdateInstaller;
@@ -6530,7 +6530,7 @@ impl IUpdateInstaller2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateInstaller2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateInstaller3, IUpdateInstaller3_Vtbl, 0x43d610d6_e5e2_5551_a335_33fa1ba472d1);
+windows_core::imp::define_interface!(IUpdateInstaller3, IUpdateInstaller3_Vtbl, 0x16d11c35_099a_48d0_8338_5fae64047f8e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateInstaller3 {
     type Target = IUpdateInstaller2;
@@ -6675,7 +6675,7 @@ impl IUpdateLockdown_Vtbl {
 }
 impl windows_core::RuntimeName for IUpdateLockdown {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateSearcher, IUpdateSearcher_Vtbl, 0x0d67329c_1748_5947_bcf0_58dc98fb98b5);
+windows_core::imp::define_interface!(IUpdateSearcher, IUpdateSearcher_Vtbl, 0x8f45abf1_f9ae_4b95_a933_f0f66e5056ea);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateSearcher {
     type Target = super::Com::IDispatch;
@@ -7114,7 +7114,7 @@ impl IUpdateSearcher2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSearcher2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateSearcher3, IUpdateSearcher3_Vtbl, 0x5559849d_475c_53fc_b522_f633b06399c7);
+windows_core::imp::define_interface!(IUpdateSearcher3, IUpdateSearcher3_Vtbl, 0x04c6895d_eaf2_4034_97f3_311de9be413a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateSearcher3 {
     type Target = IUpdateSearcher2;
@@ -7183,7 +7183,7 @@ impl IUpdateSearcher3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSearcher3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateService, IUpdateService_Vtbl, 0xaac4b237_657f_58dc_b52a_2f176518242a);
+windows_core::imp::define_interface!(IUpdateService, IUpdateService_Vtbl, 0x76b3b17e_aed6_4da5_85f0_83587f81abe3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateService {
     type Target = super::Com::IDispatch;
@@ -7496,7 +7496,7 @@ impl IUpdateService_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateService {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateService2, IUpdateService2_Vtbl, 0xfa57d125_346c_5c43_9e9a_fc9aff4b6983);
+windows_core::imp::define_interface!(IUpdateService2, IUpdateService2_Vtbl, 0x1518b460_6518_4172_940f_c75883b24ceb);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateService2 {
     type Target = IUpdateService;
@@ -7800,7 +7800,7 @@ impl IUpdateServiceManager_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateServiceManager {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateServiceManager2, IUpdateServiceManager2_Vtbl, 0xfc7d4467_2b7b_576a_9523_90bcbfe7cda6);
+windows_core::imp::define_interface!(IUpdateServiceManager2, IUpdateServiceManager2_Vtbl, 0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateServiceManager2 {
     type Target = IUpdateServiceManager;
@@ -8031,7 +8031,7 @@ impl IUpdateServiceRegistration_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateServiceRegistration {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateSession, IUpdateSession_Vtbl, 0x17b70cc1_8d31_5f60_be5e_d94f767ad8ac);
+windows_core::imp::define_interface!(IUpdateSession, IUpdateSession_Vtbl, 0x816858a4_260d_4260_933a_2585f1abc76b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateSession {
     type Target = super::Com::IDispatch;
@@ -8220,7 +8220,7 @@ impl IUpdateSession_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateSession {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUpdateSession2, IUpdateSession2_Vtbl, 0xde4dbf58_1225_530b_8f6f_618d3aff197a);
+windows_core::imp::define_interface!(IUpdateSession2, IUpdateSession2_Vtbl, 0x91caf7b0_eb23_49ed_9937_c52d817f46f7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateSession2 {
     type Target = IUpdateSession;
@@ -8631,7 +8631,7 @@ impl IWebProxy_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWebProxy {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWindowsDriverUpdate, IWindowsDriverUpdate_Vtbl, 0x7c1a7f04_1b4a_5c0b_84be_dbba8606df83);
+windows_core::imp::define_interface!(IWindowsDriverUpdate, IWindowsDriverUpdate_Vtbl, 0xb383cd1a_5ce9_4504_9f63_764b1236f191);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWindowsDriverUpdate {
     type Target = IUpdate;
@@ -8835,7 +8835,7 @@ impl IWindowsDriverUpdate_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWindowsDriverUpdate2, IWindowsDriverUpdate2_Vtbl, 0xc8d42c66_ff73_5a40_84b0_e107682a6aa2);
+windows_core::imp::define_interface!(IWindowsDriverUpdate2, IWindowsDriverUpdate2_Vtbl, 0x615c4269_7a48_43bd_96b7_bf6ca27d6c3e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWindowsDriverUpdate2 {
     type Target = IWindowsDriverUpdate;
@@ -9003,7 +9003,7 @@ impl IWindowsDriverUpdate3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWindowsDriverUpdate4, IWindowsDriverUpdate4_Vtbl, 0xc1edda9f_b737_5798_a45d_4135689822c4);
+windows_core::imp::define_interface!(IWindowsDriverUpdate4, IWindowsDriverUpdate4_Vtbl, 0x004c6a2b_0c19_4c69_9f5c_a269b2560db9);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWindowsDriverUpdate4 {
     type Target = IWindowsDriverUpdate3;
@@ -9159,7 +9159,7 @@ impl IWindowsDriverUpdate5_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsDriverUpdate5 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWindowsDriverUpdateEntry, IWindowsDriverUpdateEntry_Vtbl, 0x07710adc_9b71_5c55_8d13_3e4abe5f9a74);
+windows_core::imp::define_interface!(IWindowsDriverUpdateEntry, IWindowsDriverUpdateEntry_Vtbl, 0xed8bfe40_a60b_42ea_9652_817dfcfa23ec);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWindowsDriverUpdateEntry {
     type Target = super::Com::IDispatch;

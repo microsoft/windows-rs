@@ -152,7 +152,7 @@ impl windows_core::RuntimeName for AdcController {
 }
 unsafe impl Send for AdcController {}
 unsafe impl Sync for AdcController {}
-windows_core::imp::define_interface!(IAdcChannel, IAdcChannel_Vtbl, 0xf1740539_cfff_5d73_bb47_26bcf82a039d);
+windows_core::imp::define_interface!(IAdcChannel, IAdcChannel_Vtbl, 0x040bf414_2588_4a56_abef_73a260acc60a);
 impl windows_core::RuntimeType for IAdcChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -164,7 +164,7 @@ pub struct IAdcChannel_Vtbl {
     pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ReadRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdcController, IAdcController_Vtbl, 0x5322e363_dc57_5af8_9e99_4798cb761144);
+windows_core::imp::define_interface!(IAdcController, IAdcController_Vtbl, 0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 impl windows_core::RuntimeType for IAdcController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -181,7 +181,7 @@ pub struct IAdcController_Vtbl {
     pub IsChannelModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, AdcChannelMode, *mut bool) -> windows_core::HRESULT,
     pub OpenChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdcControllerStatics, IAdcControllerStatics_Vtbl, 0x8c3470dc_fc48_5342_88fa_979b2c4e6ba9);
+windows_core::imp::define_interface!(IAdcControllerStatics, IAdcControllerStatics_Vtbl, 0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 impl windows_core::RuntimeType for IAdcControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

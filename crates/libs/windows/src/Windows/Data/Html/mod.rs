@@ -14,7 +14,7 @@ impl HtmlUtilities {
 impl windows_core::RuntimeName for HtmlUtilities {
     const NAME: &'static str = "Windows.Data.Html.HtmlUtilities";
 }
-windows_core::imp::define_interface!(IHtmlUtilities, IHtmlUtilities_Vtbl, 0x6c11643a_4113_5c36_90bf_4de12eaad1b4);
+windows_core::imp::define_interface!(IHtmlUtilities, IHtmlUtilities_Vtbl, 0xfec00add_2399_4fac_b5a7_05e9acd7181d);
 impl windows_core::RuntimeType for IHtmlUtilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

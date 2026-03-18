@@ -1,5 +1,5 @@
 pub const CLSID_XMLGraphBuilder: windows_core::GUID = windows_core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
-windows_core::imp::define_interface!(IXMLGraphBuilder, IXMLGraphBuilder_Vtbl, 0x679b685d_c6ca_5fe4_abf0_649af2cf4177);
+windows_core::imp::define_interface!(IXMLGraphBuilder, IXMLGraphBuilder_Vtbl, 0x1bb05960_5fbf_11d2_a521_44df07c10000);
 windows_core::imp::interface_hierarchy!(IXMLGraphBuilder, windows_core::IUnknown);
 impl IXMLGraphBuilder {
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]

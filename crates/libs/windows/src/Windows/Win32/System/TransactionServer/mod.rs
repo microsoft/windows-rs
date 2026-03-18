@@ -3,7 +3,7 @@ pub const CatalogCollection: windows_core::GUID = windows_core::GUID::from_u128(
 pub const CatalogObject: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
 pub const ComponentUtil: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ICatalog, ICatalog_Vtbl, 0x39883252_555a_50ef_b212_4f6eb14f2f11);
+windows_core::imp::define_interface!(ICatalog, ICatalog_Vtbl, 0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ICatalog {
     type Target = super::Com::IDispatch;
@@ -123,7 +123,7 @@ impl ICatalog_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICatalog {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IComponentUtil, IComponentUtil_Vtbl, 0x0086abba_2aab_5ed8_b0fe_571655c663ea);
+windows_core::imp::define_interface!(IComponentUtil, IComponentUtil_Vtbl, 0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IComponentUtil {
     type Target = super::Com::IDispatch;
@@ -216,7 +216,7 @@ impl IComponentUtil_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IComponentUtil {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IPackageUtil, IPackageUtil_Vtbl, 0x45b1d80c_d489_5066_b09f_331a3cc0788c);
+windows_core::imp::define_interface!(IPackageUtil, IPackageUtil_Vtbl, 0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IPackageUtil {
     type Target = super::Com::IDispatch;
@@ -288,7 +288,7 @@ impl IPackageUtil_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPackageUtil {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRemoteComponentUtil, IRemoteComponentUtil_Vtbl, 0xf7699c12_fa04_5628_9bcd_2552631909a8);
+windows_core::imp::define_interface!(IRemoteComponentUtil, IRemoteComponentUtil_Vtbl, 0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRemoteComponentUtil {
     type Target = super::Com::IDispatch;
@@ -348,7 +348,7 @@ impl IRemoteComponentUtil_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRemoteComponentUtil {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRoleAssociationUtil, IRoleAssociationUtil_Vtbl, 0x0cd87251_bd68_5998_b78e_9025bb007904);
+windows_core::imp::define_interface!(IRoleAssociationUtil, IRoleAssociationUtil_Vtbl, 0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRoleAssociationUtil {
     type Target = super::Com::IDispatch;

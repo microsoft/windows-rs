@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *mut PACKET_DESCRIPTION, cbpacket : u32, ppacket : *mut u8, pxform : *mut super::super::Graphics::Gdi:: XFORM) -> windows_sys::core::HRESULT);
+windows_link::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi:: XFORM) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn CreateContext(hrec : HRECOGNIZER, phrc : *mut HRECOCONTEXT) -> windows_sys::core::HRESULT);
@@ -11,7 +11,7 @@ windows_link::link!("inkobjcore.dll" "system" fn EndInkInput(hrc : HRECOCONTEXT)
 windows_link::link!("inkobjcore.dll" "system" fn GetAllRecognizers(recognizerclsids : *mut *mut windows_sys::core::GUID, count : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn GetBestResultString(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcbestresult : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn GetLatticePtr(hrc : HRECOCONTEXT, pplattice : *mut *mut RECO_LATTICE) -> windows_sys::core::HRESULT);
-windows_link::link!("inkobjcore.dll" "system" fn GetLeftSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcleftseparator : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("inkobjcore.dll" "system" fn GetLeftSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcleftseparator : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn GetRecoAttributes(hrec : HRECOGNIZER, precoattrs : *mut RECO_ATTRS) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn GetResultPropertyList(hrec : HRECOGNIZER, ppropertycount : *mut u32, ppropertyguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn GetRightSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcrightseparator : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);

@@ -5,9 +5,9 @@ pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: 
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL {
-    windows_core::link!("iphlpapi.dll" "system" fn CancelIPChangeNotify(notifyoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
-    unsafe { CancelIPChangeNotify(notifyoverlapped as _) }
+pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::BOOL {
+    windows_core::link!("iphlpapi.dll" "system" fn CancelIPChangeNotify(notifyoverlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
+    unsafe { CancelIPChangeNotify(notifyoverlapped) }
 }
 #[inline]
 pub unsafe fn CancelIfTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE) {
@@ -26,9 +26,9 @@ pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const super
     unsafe { CaptureInterfaceHardwareCrossTimestamp(interfaceluid, crosstimestamp as _) }
 }
 #[inline]
-pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *mut windows_core::GUID, compartmentid: *mut u32) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertCompartmentGuidToId(compartmentguid : *mut windows_core::GUID, compartmentid : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertCompartmentGuidToId(compartmentguid as _, compartmentid as _) }
+pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const windows_core::GUID, compartmentid: *mut u32) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertCompartmentGuidToId(compartmentguid : *const windows_core::GUID, compartmentid : *mut u32) -> windows_core:: WIN32_ERROR);
+    unsafe { ConvertCompartmentGuidToId(compartmentguid, compartmentid as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -47,9 +47,9 @@ where
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *mut windows_core::GUID, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceGuidToLuid(interfaceguid : *mut windows_core::GUID, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceGuidToLuid(interfaceguid as _, interfaceluid as _) }
+pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const windows_core::GUID, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceGuidToLuid(interfaceguid : *const windows_core::GUID, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
+    unsafe { ConvertInterfaceGuidToLuid(interfaceguid, interfaceluid as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -83,12 +83,9 @@ pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::Ndis::NET
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToNameW<P1>(interfaceluid: *mut super::Ndis::NET_LUID_LH, interfacename: P1, length: usize) -> windows_core::WIN32_ERROR
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *mut super::Ndis:: NET_LUID_LH, interfacename : windows_core::PCWSTR, length : usize) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceLuidToNameW(interfaceluid as _, interfacename.param().abi(), length) }
+pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: windows_core::PWSTR, length: usize) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfacename : windows_core::PWSTR, length : usize) -> windows_core:: WIN32_ERROR);
+    unsafe { ConvertInterfaceLuidToNameW(interfaceluid, core::mem::transmute(interfacename), length) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -120,32 +117,32 @@ pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> window
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn CreateAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateAnycastIpAddressEntry(row : *mut MIB_ANYCASTIPADDRESS_ROW) -> windows_core:: WIN32_ERROR);
-    unsafe { CreateAnycastIpAddressEntry(row as _) }
+pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core:: WIN32_ERROR);
+    unsafe { CreateAnycastIpAddressEntry(row) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn CreateIpForwardEntry(proute: *mut MIB_IPFORWARDROW) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry(proute : *mut MIB_IPFORWARDROW) -> u32);
-    unsafe { CreateIpForwardEntry(proute as _) }
+pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry(proute : *const MIB_IPFORWARDROW) -> u32);
+    unsafe { CreateIpForwardEntry(proute) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn CreateIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry2(row : *mut MIB_IPFORWARD_ROW2) -> windows_core:: WIN32_ERROR);
-    unsafe { CreateIpForwardEntry2(row as _) }
+pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> windows_core:: WIN32_ERROR);
+    unsafe { CreateIpForwardEntry2(row) }
 }
 #[inline]
-pub unsafe fn CreateIpNetEntry(parpentry: *mut MIB_IPNETROW_LH) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateIpNetEntry(parpentry : *mut MIB_IPNETROW_LH) -> u32);
-    unsafe { CreateIpNetEntry(parpentry as _) }
+pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateIpNetEntry(parpentry : *const MIB_IPNETROW_LH) -> u32);
+    unsafe { CreateIpNetEntry(parpentry) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn CreateIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateIpNetEntry2(row : *mut MIB_IPNET_ROW2) -> windows_core:: WIN32_ERROR);
-    unsafe { CreateIpNetEntry2(row as _) }
+pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateIpNetEntry2(row : *const MIB_IPNET_ROW2) -> windows_core:: WIN32_ERROR);
+    unsafe { CreateIpNetEntry2(row) }
 }
 #[inline]
 pub unsafe fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
@@ -164,9 +161,9 @@ pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: *mut super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *mut super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateSortedAddressPairs(sourceaddresslist : *mut super::super::Networking::WinSock:: SOCKADDR_IN6, sourceaddresscount : u32, destinationaddresslist : *mut super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddresscount : u32, addresssortoptions : u32, sortedaddresspairlist : *mut *mut super::super::Networking::WinSock:: SOCKADDR_IN6_PAIR, sortedaddresspaircount : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { CreateSortedAddressPairs(sourceaddresslist as _, sourceaddresscount, destinationaddresslist as _, destinationaddresscount, addresssortoptions, sortedaddresspairlist as _, sortedaddresspaircount as _) }
+pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateSortedAddressPairs(sourceaddresslist : *const super::super::Networking::WinSock:: SOCKADDR_IN6, sourceaddresscount : u32, destinationaddresslist : *const super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddresscount : u32, addresssortoptions : u32, sortedaddresspairlist : *mut *mut super::super::Networking::WinSock:: SOCKADDR_IN6_PAIR, sortedaddresspaircount : *mut u32) -> windows_core:: WIN32_ERROR);
+    unsafe { CreateSortedAddressPairs(sourceaddresslist, sourceaddresscount, destinationaddresslist, destinationaddresscount, addresssortoptions, sortedaddresspairlist as _, sortedaddresspaircount as _) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
@@ -176,9 +173,9 @@ pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) 
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DeleteAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteAnycastIpAddressEntry(row : *mut MIB_ANYCASTIPADDRESS_ROW) -> windows_core:: WIN32_ERROR);
-    unsafe { DeleteAnycastIpAddressEntry(row as _) }
+pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core:: WIN32_ERROR);
+    unsafe { DeleteAnycastIpAddressEntry(row) }
 }
 #[inline]
 pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
@@ -187,9 +184,9 @@ pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DeleteIpForwardEntry(proute: *mut MIB_IPFORWARDROW) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry(proute : *mut MIB_IPFORWARDROW) -> u32);
-    unsafe { DeleteIpForwardEntry(proute as _) }
+pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry(proute : *const MIB_IPFORWARDROW) -> u32);
+    unsafe { DeleteIpForwardEntry(proute) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
@@ -198,15 +195,15 @@ pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> windows_c
     unsafe { DeleteIpForwardEntry2(row) }
 }
 #[inline]
-pub unsafe fn DeleteIpNetEntry(parpentry: *mut MIB_IPNETROW_LH) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry(parpentry : *mut MIB_IPNETROW_LH) -> u32);
-    unsafe { DeleteIpNetEntry(parpentry as _) }
+pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry(parpentry : *const MIB_IPNETROW_LH) -> u32);
+    unsafe { DeleteIpNetEntry(parpentry) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DeleteIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry2(row : *mut MIB_IPNET_ROW2) -> windows_core:: WIN32_ERROR);
-    unsafe { DeleteIpNetEntry2(row as _) }
+pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry2(row : *const MIB_IPNET_ROW2) -> windows_core:: WIN32_ERROR);
+    unsafe { DeleteIpNetEntry2(row) }
 }
 #[inline]
 pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32 {
@@ -231,9 +228,9 @@ pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) 
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn DisableMediaSense(phandle : *mut super::super::Foundation:: HANDLE, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    unsafe { DisableMediaSense(phandle as _, poverlapped as _) }
+pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn DisableMediaSense(phandle : *mut super::super::Foundation:: HANDLE, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
+    unsafe { DisableMediaSense(phandle as _, poverlapped) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -269,9 +266,9 @@ pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
     unsafe { FreeInterfaceDnsSettings(settings as _) }
 }
 #[inline]
-pub unsafe fn FreeMibTable(memory: *mut core::ffi::c_void) {
-    windows_core::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *mut core::ffi::c_void));
-    unsafe { FreeMibTable(memory as _) }
+pub unsafe fn FreeMibTable(memory: *const core::ffi::c_void) {
+    windows_core::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const core::ffi::c_void));
+    unsafe { FreeMibTable(memory) }
 }
 #[inline]
 pub unsafe fn GetAdapterIndex<P0>(adaptername: P0, ifindex: *mut u32) -> u32
@@ -288,9 +285,9 @@ pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetAdaptersAddresses(family: u32, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetAdaptersAddresses(family : u32, flags : GET_ADAPTERS_ADDRESSES_FLAGS, reserved : *mut core::ffi::c_void, adapteraddresses : *mut IP_ADAPTER_ADDRESSES_LH, sizepointer : *mut u32) -> u32);
-    unsafe { GetAdaptersAddresses(family, flags, reserved as _, adapteraddresses as _, sizepointer as _) }
+pub unsafe fn GetAdaptersAddresses(family: u32, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *const core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetAdaptersAddresses(family : u32, flags : GET_ADAPTERS_ADDRESSES_FLAGS, reserved : *const core::ffi::c_void, adapteraddresses : *mut IP_ADAPTER_ADDRESSES_LH, sizepointer : *mut u32) -> u32);
+    unsafe { GetAdaptersAddresses(family, flags, reserved, adapteraddresses as _, sizepointer as _) }
 }
 #[inline]
 pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32 {
@@ -316,9 +313,9 @@ pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetBestInterfaceEx(pdestaddr: *mut super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetBestInterfaceEx(pdestaddr : *mut super::super::Networking::WinSock:: SOCKADDR, pdwbestifindex : *mut u32) -> u32);
-    unsafe { GetBestInterfaceEx(pdestaddr as _, pdwbestifindex as _) }
+pub unsafe fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetBestInterfaceEx(pdestaddr : *const super::super::Networking::WinSock:: SOCKADDR, pdwbestifindex : *mut u32) -> u32);
+    unsafe { GetBestInterfaceEx(pdestaddr, pdwbestifindex as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -328,9 +325,9 @@ pub unsafe fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut 
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetBestRoute2(interfaceluid: *mut super::Ndis::NET_LUID_LH, interfaceindex: u32, sourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *mut super::Ndis:: NET_LUID_LH, interfaceindex : u32, sourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET, destinationaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET) -> windows_core:: WIN32_ERROR);
-    unsafe { GetBestRoute2(interfaceluid as _, interfaceindex, sourceaddress as _, destinationaddress as _, addresssortoptions, bestroute as _, bestsourceaddress as _) }
+pub unsafe fn GetBestRoute2(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: u32, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfaceindex : u32, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET, destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET) -> windows_core:: WIN32_ERROR);
+    unsafe { GetBestRoute2(interfaceluid, interfaceindex, sourceaddress, destinationaddress, addresssortoptions, bestroute as _, bestsourceaddress as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -420,15 +417,15 @@ pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_T
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *mut super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceActiveTimestampCapabilities(interfaceluid : *mut super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
-    unsafe { GetInterfaceActiveTimestampCapabilities(interfaceluid as _, timestampcapabilites as _) }
+pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceActiveTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
+    unsafe { GetInterfaceActiveTimestampCapabilities(interfaceluid, timestampcapabilites as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn GetInterfaceCurrentTimestampCapabilities(interfaceluid: *mut super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceCurrentTimestampCapabilities(interfaceluid : *mut super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
-    unsafe { GetInterfaceCurrentTimestampCapabilities(interfaceluid as _, timestampcapabilites as _) }
+pub unsafe fn GetInterfaceCurrentTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceCurrentTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
+    unsafe { GetInterfaceCurrentTimestampCapabilities(interfaceluid, timestampcapabilites as _) }
 }
 #[inline]
 pub unsafe fn GetInterfaceDnsSettings(interface: windows_core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> windows_core::WIN32_ERROR {
@@ -437,9 +434,9 @@ pub unsafe fn GetInterfaceDnsSettings(interface: windows_core::GUID, settings: *
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn GetInterfaceHardwareTimestampCapabilities(interfaceluid: *mut super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceHardwareTimestampCapabilities(interfaceluid : *mut super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
-    unsafe { GetInterfaceHardwareTimestampCapabilities(interfaceluid as _, timestampcapabilites as _) }
+pub unsafe fn GetInterfaceHardwareTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceHardwareTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
+    unsafe { GetInterfaceHardwareTimestampCapabilities(interfaceluid, timestampcapabilites as _) }
 }
 #[inline]
 pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32 {
@@ -573,12 +570,9 @@ pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connec
     unsafe { GetNetworkConnectivityHintForInterface(interfaceindex, connectivityhint as _) }
 }
 #[inline]
-pub unsafe fn GetNetworkInformation<P3>(networkguid: *mut windows_core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: P3, length: u32) -> windows_core::WIN32_ERROR
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *mut windows_core::GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : windows_core::PCWSTR, length : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { GetNetworkInformation(networkguid as _, compartmentid as _, siteid as _, networkname.param().abi(), length) }
+pub unsafe fn GetNetworkInformation(networkguid: *const windows_core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: windows_core::PWSTR, length: u32) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *const windows_core::GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : windows_core::PWSTR, length : u32) -> windows_core:: WIN32_ERROR);
+    unsafe { GetNetworkInformation(networkguid, compartmentid as _, siteid as _, core::mem::transmute(networkname), length) }
 }
 #[inline]
 pub unsafe fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> windows_core::WIN32_ERROR {
@@ -591,9 +585,9 @@ pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     unsafe { GetNumberOfInterfaces(pdwnumif as _) }
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *mut u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromPidAndInfo(ulpid : u32, pinfo : *mut u64, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-    unsafe { GetOwnerModuleFromPidAndInfo(ulpid, pinfo as _, class, pbuffer as _, pdwsize as _) }
+pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromPidAndInfo(ulpid : u32, pinfo : *const u64, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
+    unsafe { GetOwnerModuleFromPidAndInfo(ulpid, pinfo, class, pbuffer as _, pdwsize as _) }
 }
 #[inline]
 pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
@@ -601,9 +595,9 @@ pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MO
     unsafe { GetOwnerModuleFromTcp6Entry(ptcpentry, class, pbuffer as _, pdwsize as _) }
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *mut MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromTcpEntry(ptcpentry : *mut MIB_TCPROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-    unsafe { GetOwnerModuleFromTcpEntry(ptcpentry as _, class, pbuffer as _, pdwsize as _) }
+pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromTcpEntry(ptcpentry : *const MIB_TCPROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
+    unsafe { GetOwnerModuleFromTcpEntry(ptcpentry, class, pbuffer as _, pdwsize as _) }
 }
 #[inline]
 pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
@@ -611,9 +605,9 @@ pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MO
     unsafe { GetOwnerModuleFromUdp6Entry(pudpentry, class, pbuffer as _, pdwsize as _) }
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *mut MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromUdpEntry(pudpentry : *mut MIB_UDPROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
-    unsafe { GetOwnerModuleFromUdpEntry(pudpentry as _, class, pbuffer as _, pdwsize as _) }
+pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut core::ffi::c_void, pdwsize: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetOwnerModuleFromUdpEntry(pudpentry : *const MIB_UDPROW_OWNER_MODULE, class : TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer : *mut core::ffi::c_void, pdwsize : *mut u32) -> u32);
+    unsafe { GetOwnerModuleFromUdpEntry(pudpentry, class, pbuffer as _, pdwsize as _) }
 }
 #[inline]
 pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32 {
@@ -622,14 +616,14 @@ pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPT
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetPerTcp6ConnectionEStats(row: *mut MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetPerTcp6ConnectionEStats(row : *mut MIB_TCP6ROW, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
-    unsafe { GetPerTcp6ConnectionEStats(row as _, estatstype, rw as _, rwversion, rwsize, ros as _, rosversion, rossize, rod as _, rodversion, rodsize) }
+pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetPerTcp6ConnectionEStats(row : *const MIB_TCP6ROW, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
+    unsafe { GetPerTcp6ConnectionEStats(row, estatstype, rw as _, rwversion, rwsize, ros as _, rosversion, rossize, rod as _, rodversion, rodsize) }
 }
 #[inline]
-pub unsafe fn GetPerTcpConnectionEStats(row: *mut MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn GetPerTcpConnectionEStats(row : *mut MIB_TCPROW_LH, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
-    unsafe { GetPerTcpConnectionEStats(row as _, estatstype, rw as _, rwversion, rwsize, ros as _, rosversion, rossize, rod as _, rodversion, rodsize) }
+pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn GetPerTcpConnectionEStats(row : *const MIB_TCPROW_LH, estatstype : TCP_ESTATS_TYPE, rw : *mut u8, rwversion : u32, rwsize : u32, ros : *mut u8, rosversion : u32, rossize : u32, rod : *mut u8, rodversion : u32, rodsize : u32) -> u32);
+    unsafe { GetPerTcpConnectionEStats(row, estatstype, rw as _, rwversion, rwsize, ros as _, rosversion, rossize, rod as _, rodversion, rodsize) }
 }
 #[inline]
 pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> windows_core::BOOL {
@@ -739,9 +733,9 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: *mut core::ffi::c_void, replysize: 
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn Icmp6SendEcho2(icmphandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: *mut core::ffi::c_void, sourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *mut super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *mut core::ffi::c_void, requestsize: u16, requestoptions: *mut IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn Icmp6SendEcho2(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *mut core::ffi::c_void, sourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddress : *mut super::super::Networking::WinSock:: SOCKADDR_IN6, requestdata : *mut core::ffi::c_void, requestsize : u16, requestoptions : *mut IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
-    unsafe { Icmp6SendEcho2(icmphandle, event, apcroutine, apccontext as _, sourceaddress as _, destinationaddress as _, requestdata as _, requestsize, requestoptions as _, replybuffer as _, replysize, timeout) }
+pub unsafe fn Icmp6SendEcho2(icmphandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: *const core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn Icmp6SendEcho2(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, requestdata : *const core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    unsafe { Icmp6SendEcho2(icmphandle, event, apcroutine, apccontext, sourceaddress, destinationaddress, requestdata, requestsize, requestoptions, replybuffer as _, replysize, timeout) }
 }
 #[inline]
 pub unsafe fn IcmpCloseHandle(icmphandle: super::super::Foundation::HANDLE) -> windows_core::BOOL {
@@ -759,21 +753,21 @@ pub unsafe fn IcmpParseReplies(replybuffer: *mut core::ffi::c_void, replysize: u
     unsafe { IcmpParseReplies(replybuffer as _, replysize) }
 }
 #[inline]
-pub unsafe fn IcmpSendEcho(icmphandle: super::super::Foundation::HANDLE, destinationaddress: u32, requestdata: *mut core::ffi::c_void, requestsize: u16, requestoptions: *mut IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn IcmpSendEcho(icmphandle : super::super::Foundation:: HANDLE, destinationaddress : u32, requestdata : *mut core::ffi::c_void, requestsize : u16, requestoptions : *mut IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
-    unsafe { IcmpSendEcho(icmphandle, destinationaddress, requestdata as _, requestsize, requestoptions as _, replybuffer as _, replysize, timeout) }
+pub unsafe fn IcmpSendEcho(icmphandle: super::super::Foundation::HANDLE, destinationaddress: u32, requestdata: *const core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn IcmpSendEcho(icmphandle : super::super::Foundation:: HANDLE, destinationaddress : u32, requestdata : *const core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    unsafe { IcmpSendEcho(icmphandle, destinationaddress, requestdata, requestsize, requestoptions, replybuffer as _, replysize, timeout) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn IcmpSendEcho2(icmphandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: *mut core::ffi::c_void, destinationaddress: u32, requestdata: *mut core::ffi::c_void, requestsize: u16, requestoptions: *mut IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn IcmpSendEcho2(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *mut core::ffi::c_void, destinationaddress : u32, requestdata : *mut core::ffi::c_void, requestsize : u16, requestoptions : *mut IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
-    unsafe { IcmpSendEcho2(icmphandle, event, apcroutine, apccontext as _, destinationaddress, requestdata as _, requestsize, requestoptions as _, replybuffer as _, replysize, timeout) }
+pub unsafe fn IcmpSendEcho2(icmphandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: *const core::ffi::c_void, destinationaddress: u32, requestdata: *const core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn IcmpSendEcho2(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, destinationaddress : u32, requestdata : *const core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    unsafe { IcmpSendEcho2(icmphandle, event, apcroutine, apccontext, destinationaddress, requestdata, requestsize, requestoptions, replybuffer as _, replysize, timeout) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn IcmpSendEcho2Ex(icmphandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: *mut core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *mut core::ffi::c_void, requestsize: u16, requestoptions: *mut IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn IcmpSendEcho2Ex(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *mut core::ffi::c_void, sourceaddress : u32, destinationaddress : u32, requestdata : *mut core::ffi::c_void, requestsize : u16, requestoptions : *mut IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
-    unsafe { IcmpSendEcho2Ex(icmphandle, event, apcroutine, apccontext as _, sourceaddress, destinationaddress, requestdata as _, requestsize, requestoptions as _, replybuffer as _, replysize, timeout) }
+pub unsafe fn IcmpSendEcho2Ex(icmphandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: *const core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const core::ffi::c_void, requestsize: u16, requestoptions: *const IP_OPTION_INFORMATION, replybuffer: *mut core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn IcmpSendEcho2Ex(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, sourceaddress : u32, destinationaddress : u32, requestdata : *const core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    unsafe { IcmpSendEcho2Ex(icmphandle, event, apcroutine, apccontext, sourceaddress, destinationaddress, requestdata, requestsize, requestoptions, replybuffer as _, replysize, timeout) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
@@ -799,9 +793,9 @@ pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 
     unsafe { IpReleaseAddress(adapterinfo) }
 }
 #[inline]
-pub unsafe fn IpRenewAddress(adapterinfo: *mut IP_ADAPTER_INDEX_MAP) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn IpRenewAddress(adapterinfo : *mut IP_ADAPTER_INDEX_MAP) -> u32);
-    unsafe { IpRenewAddress(adapterinfo as _) }
+pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn IpRenewAddress(adapterinfo : *const IP_ADAPTER_INDEX_MAP) -> u32);
+    unsafe { IpRenewAddress(adapterinfo) }
 }
 #[inline]
 pub unsafe fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
@@ -837,21 +831,21 @@ pub unsafe fn NotifyIpInterfaceChange(family: super::super::Networking::WinSock:
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: *mut core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *mut core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
-    unsafe { NotifyNetworkConnectivityHintChange(callback, callercontext as _, initialnotification, notificationhandle as _) }
+pub unsafe fn NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
+    unsafe { NotifyNetworkConnectivityHintChange(callback, callercontext, initialnotification, notificationhandle as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange(handle : *mut super::super::Foundation:: HANDLE, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    unsafe { NotifyRouteChange(handle as _, overlapped as _) }
+pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange(handle : *mut super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
+    unsafe { NotifyRouteChange(handle as _, overlapped) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyRouteChange2(addressfamily: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *mut core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *mut core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
-    unsafe { NotifyRouteChange2(addressfamily, callback, callercontext as _, initialnotification, notificationhandle as _) }
+pub unsafe fn NotifyRouteChange2(addressfamily: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
+    unsafe { NotifyRouteChange2(addressfamily, callback, callercontext, initialnotification, notificationhandle as _) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
@@ -860,15 +854,15 @@ pub unsafe fn NotifyStableUnicastIpAddressTable(family: super::super::Networking
     unsafe { NotifyStableUnicastIpAddressTable(family, table as _, callercallback, callercontext, notificationhandle as _) }
 }
 #[inline]
-pub unsafe fn NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *mut core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *mut core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
-    unsafe { NotifyTeredoPortChange(callback, callercontext as _, initialnotification, notificationhandle as _) }
+pub unsafe fn NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
+    unsafe { NotifyTeredoPortChange(callback, callercontext, initialnotification, notificationhandle as _) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyUnicastIpAddressChange(family: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: *mut core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *mut core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
-    unsafe { NotifyUnicastIpAddressChange(family, callback, callercontext as _, initialnotification, notificationhandle as _) }
+pub unsafe fn NotifyUnicastIpAddressChange(family: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
+    unsafe { NotifyUnicastIpAddressChange(family, callback, callercontext, initialnotification, notificationhandle as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -966,21 +960,21 @@ pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMEST
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn ResolveIpNetEntry2(row : *mut MIB_IPNET_ROW2, sourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET) -> windows_core:: WIN32_ERROR);
-    unsafe { ResolveIpNetEntry2(row as _, sourceaddress as _) }
+pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn ResolveIpNetEntry2(row : *mut MIB_IPNET_ROW2, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET) -> windows_core:: WIN32_ERROR);
+    unsafe { ResolveIpNetEntry2(row as _, sourceaddress) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn ResolveNeighbor(networkaddress: *mut super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut core::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *mut super::super::Networking::WinSock:: SOCKADDR, physicaladdress : *mut core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
-    unsafe { ResolveNeighbor(networkaddress as _, physicaladdress as _, physicaladdresslength as _) }
+pub unsafe fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut core::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *const super::super::Networking::WinSock:: SOCKADDR, physicaladdress : *mut core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
+    unsafe { ResolveNeighbor(networkaddress, physicaladdress as _, physicaladdresslength as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn RestoreMediaSense(poverlapped: *mut super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn RestoreMediaSense(poverlapped : *mut super::super::System::IO:: OVERLAPPED, lpdwenablecount : *mut u32) -> u32);
-    unsafe { RestoreMediaSense(poverlapped as _, lpdwenablecount as _) }
+pub unsafe fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn RestoreMediaSense(poverlapped : *const super::super::System::IO:: OVERLAPPED, lpdwenablecount : *mut u32) -> u32);
+    unsafe { RestoreMediaSense(poverlapped, lpdwenablecount as _) }
 }
 #[inline]
 pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut core::ffi::c_void, phyaddrlen: *mut u32) -> u32 {
@@ -999,14 +993,14 @@ pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> windows
     unsafe { SetCurrentThreadCompartmentScope(compartmentscope) }
 }
 #[inline]
-pub unsafe fn SetDnsSettings(settings: *mut DNS_SETTINGS) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn SetDnsSettings(settings : *mut DNS_SETTINGS) -> windows_core:: WIN32_ERROR);
-    unsafe { SetDnsSettings(settings as _) }
+pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn SetDnsSettings(settings : *const DNS_SETTINGS) -> windows_core:: WIN32_ERROR);
+    unsafe { SetDnsSettings(settings) }
 }
 #[inline]
-pub unsafe fn SetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIfEntry(pifrow : *mut MIB_IFROW) -> u32);
-    unsafe { SetIfEntry(pifrow as _) }
+pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIfEntry(pifrow : *const MIB_IFROW) -> u32);
+    unsafe { SetIfEntry(pifrow) }
 }
 #[inline]
 pub unsafe fn SetInterfaceDnsSettings(interface: windows_core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> windows_core::WIN32_ERROR {
@@ -1015,9 +1009,9 @@ pub unsafe fn SetInterfaceDnsSettings(interface: windows_core::GUID, settings: *
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn SetIpForwardEntry(proute: *mut MIB_IPFORWARDROW) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIpForwardEntry(proute : *mut MIB_IPFORWARDROW) -> u32);
-    unsafe { SetIpForwardEntry(proute as _) }
+pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIpForwardEntry(proute : *const MIB_IPFORWARDROW) -> u32);
+    unsafe { SetIpForwardEntry(proute) }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
@@ -1038,19 +1032,19 @@ pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn SetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIpNetEntry2(row : *mut MIB_IPNET_ROW2) -> windows_core:: WIN32_ERROR);
-    unsafe { SetIpNetEntry2(row as _) }
+pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIpNetEntry2(row : *const MIB_IPNET_ROW2) -> windows_core:: WIN32_ERROR);
+    unsafe { SetIpNetEntry2(row) }
 }
 #[inline]
-pub unsafe fn SetIpStatistics(pipstats: *mut MIB_IPSTATS_LH) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIpStatistics(pipstats : *mut MIB_IPSTATS_LH) -> u32);
-    unsafe { SetIpStatistics(pipstats as _) }
+pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIpStatistics(pipstats : *const MIB_IPSTATS_LH) -> u32);
+    unsafe { SetIpStatistics(pipstats) }
 }
 #[inline]
-pub unsafe fn SetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIpStatisticsEx(statistics : *mut MIB_IPSTATS_LH, family : u32) -> u32);
-    unsafe { SetIpStatisticsEx(statistics as _, family) }
+pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIpStatisticsEx(statistics : *const MIB_IPSTATS_LH, family : u32) -> u32);
+    unsafe { SetIpStatisticsEx(statistics, family) }
 }
 #[inline]
 pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
@@ -1065,12 +1059,12 @@ pub unsafe fn SetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE, c
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn SetNetworkInformation<P2>(networkguid: *mut windows_core::GUID, compartmentid: super::Ndis::NET_IF_COMPARTMENT_ID, networkname: P2) -> windows_core::WIN32_ERROR
+pub unsafe fn SetNetworkInformation<P2>(networkguid: *const windows_core::GUID, compartmentid: super::Ndis::NET_IF_COMPARTMENT_ID, networkname: P2) -> windows_core::WIN32_ERROR
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *mut windows_core::GUID, compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID, networkname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { SetNetworkInformation(networkguid as _, compartmentid, networkname.param().abi()) }
+    windows_core::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const windows_core::GUID, compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID, networkname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
+    unsafe { SetNetworkInformation(networkguid, compartmentid, networkname.param().abi()) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1096,9 +1090,9 @@ pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn SetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> windows_core::WIN32_ERROR {
-    windows_core::link!("iphlpapi.dll" "system" fn SetUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW) -> windows_core:: WIN32_ERROR);
-    unsafe { SetUnicastIpAddressEntry(row as _) }
+pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> windows_core::WIN32_ERROR {
+    windows_core::link!("iphlpapi.dll" "system" fn SetUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> windows_core:: WIN32_ERROR);
+    unsafe { SetUnicastIpAddressEntry(row) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -1112,12 +1106,9 @@ pub unsafe fn UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTI
     unsafe { UnregisterInterfaceTimestampConfigChange(notificationhandle) }
 }
 #[inline]
-pub unsafe fn if_indextoname<P1>(interfaceindex: u32, interfacename: P1) -> windows_core::PSTR
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("iphlpapi.dll" "system" fn if_indextoname(interfaceindex : u32, interfacename : windows_core::PCSTR) -> windows_core::PSTR);
-    unsafe { if_indextoname(interfaceindex, interfacename.param().abi()) }
+pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: windows_core::PSTR) -> windows_core::PSTR {
+    windows_core::link!("iphlpapi.dll" "system" fn if_indextoname(interfaceindex : u32, interfacename : windows_core::PSTR) -> windows_core::PSTR);
+    unsafe { if_indextoname(interfaceindex, core::mem::transmute(interfacename)) }
 }
 #[inline]
 pub unsafe fn if_nametoindex<P0>(interfacename: P0) -> u32
@@ -4342,17 +4333,17 @@ impl Default for PF_LATEBIND_INFO {
 }
 pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void)>;
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-pub type PIPFORWARD_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *mut core::ffi::c_void, row: *mut MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE)>;
+pub type PIPFORWARD_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-pub type PIPINTERFACE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *mut core::ffi::c_void, row: *mut MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
+pub type PIPINTERFACE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *mut core::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT)>;
+pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT)>;
 pub const PROXY_ARP: u32 = 22u32;
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE)>;
-pub type PTEREDO_PORT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *mut core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE)>;
+pub type PTEREDO_PORT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *mut core::ffi::c_void, row: *mut MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
+pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
 pub const ROUTE_LONGER: u32 = 32u32;
 pub const ROUTE_MATCHING: u32 = 31u32;
 pub const ROUTE_SHORTER: u32 = 33u32;

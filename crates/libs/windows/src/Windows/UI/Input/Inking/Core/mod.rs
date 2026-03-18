@@ -439,7 +439,7 @@ impl windows_core::RuntimeName for CoreWetStrokeUpdateSource {
 }
 unsafe impl Send for CoreWetStrokeUpdateSource {}
 unsafe impl Sync for CoreWetStrokeUpdateSource {}
-windows_core::imp::define_interface!(ICoreIncrementalInkStroke, ICoreIncrementalInkStroke_Vtbl, 0x1acbcad7_1e7d_572b_9278_0fa2ad555de1);
+windows_core::imp::define_interface!(ICoreIncrementalInkStroke, ICoreIncrementalInkStroke_Vtbl, 0xfda015d3_9d66_4f7d_a57f_cc70b9cfaa76);
 impl windows_core::RuntimeType for ICoreIncrementalInkStroke {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -525,7 +525,7 @@ pub struct ICoreInkIndependentInputSource2_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     SetPointerCursor: usize,
 }
-windows_core::imp::define_interface!(ICoreInkIndependentInputSourceStatics, ICoreInkIndependentInputSourceStatics_Vtbl, 0xd3283d15_e19e_5170_8a50_0a8860a7fd90);
+windows_core::imp::define_interface!(ICoreInkIndependentInputSourceStatics, ICoreInkIndependentInputSourceStatics_Vtbl, 0x73e6011b_80c0_4dfb_9b66_10ba7f3f9c84);
 impl windows_core::RuntimeType for ICoreInkIndependentInputSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -535,7 +535,7 @@ pub struct ICoreInkIndependentInputSourceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreInkPresenterHost, ICoreInkPresenterHost_Vtbl, 0x35a205c8_d224_5d11_8cc2_c3ebd6025a2e);
+windows_core::imp::define_interface!(ICoreInkPresenterHost, ICoreInkPresenterHost_Vtbl, 0x396e89e6_7d55_4617_9e58_68c70c9169b9);
 impl windows_core::RuntimeType for ICoreInkPresenterHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -553,7 +553,7 @@ pub struct ICoreInkPresenterHost_Vtbl {
     #[cfg(not(feature = "UI_Composition"))]
     SetRootVisual: usize,
 }
-windows_core::imp::define_interface!(ICoreWetStrokeUpdateEventArgs, ICoreWetStrokeUpdateEventArgs_Vtbl, 0xdbd9567d_f981_546e_a1db_8be47f79cfb3);
+windows_core::imp::define_interface!(ICoreWetStrokeUpdateEventArgs, ICoreWetStrokeUpdateEventArgs_Vtbl, 0xfb07d14c_3380_457a_a987_991357896c1b);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -566,7 +566,7 @@ pub struct ICoreWetStrokeUpdateEventArgs_Vtbl {
     pub Disposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CoreWetStrokeDisposition) -> windows_core::HRESULT,
     pub SetDisposition: unsafe extern "system" fn(*mut core::ffi::c_void, CoreWetStrokeDisposition) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICoreWetStrokeUpdateSource, ICoreWetStrokeUpdateSource_Vtbl, 0x90f7571c_5463_53d5_afa7_e9e862691385);
+windows_core::imp::define_interface!(ICoreWetStrokeUpdateSource, ICoreWetStrokeUpdateSource_Vtbl, 0x1f718e22_ee52_4e00_8209_4c3e5b21a3cc);
 impl windows_core::RuntimeType for ICoreWetStrokeUpdateSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

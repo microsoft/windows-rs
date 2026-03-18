@@ -1,6 +1,6 @@
 #[cfg(feature = "Devices_Input_Preview")]
 pub mod Preview;
-windows_core::imp::define_interface!(IKeyboardCapabilities, IKeyboardCapabilities_Vtbl, 0x8ca725ec_4adb_5db2_ba11_8a167c4dc9fc);
+windows_core::imp::define_interface!(IKeyboardCapabilities, IKeyboardCapabilities_Vtbl, 0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
 impl windows_core::RuntimeType for IKeyboardCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -10,7 +10,7 @@ pub struct IKeyboardCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub KeyboardPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMouseCapabilities, IMouseCapabilities_Vtbl, 0xb54d2e0b_e637_5598_a9f5_ca3083494060);
+windows_core::imp::define_interface!(IMouseCapabilities, IMouseCapabilities_Vtbl, 0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
 impl windows_core::RuntimeType for IMouseCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -35,7 +35,7 @@ pub struct IMouseDevice_Vtbl {
     pub MouseMoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveMouseMoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMouseDeviceStatics, IMouseDeviceStatics_Vtbl, 0xc75ed65b_b351_5a04_81be_b1c516563e2c);
+windows_core::imp::define_interface!(IMouseDeviceStatics, IMouseDeviceStatics_Vtbl, 0x484a9045_6d70_49db_8e68_46ffbd17d38d);
 impl windows_core::RuntimeType for IMouseDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -45,7 +45,7 @@ pub struct IMouseDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMouseEventArgs, IMouseEventArgs_Vtbl, 0x2d931060_bb10_566b_aee8_fe21d54e0077);
+windows_core::imp::define_interface!(IMouseEventArgs, IMouseEventArgs_Vtbl, 0xf625aa5d_2354_4cc7_9230_96941c969fde);
 impl windows_core::RuntimeType for IMouseEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -55,7 +55,7 @@ pub struct IMouseEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MouseDelta: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MouseDelta) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenButtonListener, IPenButtonListener_Vtbl, 0x64258765_8d53_5a1c_834c_0c7a6fc466de);
+windows_core::imp::define_interface!(IPenButtonListener, IPenButtonListener_Vtbl, 0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
 impl windows_core::RuntimeType for IPenButtonListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -83,7 +83,7 @@ pub struct IPenButtonListenerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDevice, IPenDevice_Vtbl, 0x8f57c16c_d03c_5a08_b790_38e3a337686f);
+windows_core::imp::define_interface!(IPenDevice, IPenDevice_Vtbl, 0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
 impl windows_core::RuntimeType for IPenDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -106,7 +106,7 @@ pub struct IPenDevice2_Vtbl {
     #[cfg(not(feature = "Devices_Haptics"))]
     SimpleHapticsController: usize,
 }
-windows_core::imp::define_interface!(IPenDeviceStatics, IPenDeviceStatics_Vtbl, 0x6a37b183_ae52_530b_bc2e_23ff43434aa8);
+windows_core::imp::define_interface!(IPenDeviceStatics, IPenDeviceStatics_Vtbl, 0x9dfbbe01_0966_5180_bcb4_b85060e39479);
 impl windows_core::RuntimeType for IPenDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -116,7 +116,7 @@ pub struct IPenDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetFromPointerId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDockListener, IPenDockListener_Vtbl, 0x40c70ad4_3082_5b20_b04d_5a23df2a8fdd);
+windows_core::imp::define_interface!(IPenDockListener, IPenDockListener_Vtbl, 0x759f4d90_1dc0_55cb_ad18_b9101456f592);
 impl windows_core::RuntimeType for IPenDockListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -132,7 +132,7 @@ pub struct IPenDockListener_Vtbl {
     pub Undocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUndocked: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPenDockListenerStatics, IPenDockListenerStatics_Vtbl, 0xfc6ae9c8_8064_50e9_889b_ad0fd3ebabbe);
+windows_core::imp::define_interface!(IPenDockListenerStatics, IPenDockListenerStatics_Vtbl, 0xcab75e9a_0016_5c72_969e_a97e11992a93);
 impl windows_core::RuntimeType for IPenDockListenerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -187,7 +187,7 @@ impl windows_core::RuntimeType for IPenUndockedEventArgs {
 pub struct IPenUndockedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPointerDevice, IPointerDevice_Vtbl, 0x85b70e26_69f2_5384_ac3b_c387ef547aaa);
+windows_core::imp::define_interface!(IPointerDevice, IPointerDevice_Vtbl, 0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
 impl windows_core::RuntimeType for IPointerDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -202,7 +202,7 @@ pub struct IPointerDevice_Vtbl {
     pub ScreenRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub SupportedUsages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPointerDevice2, IPointerDevice2_Vtbl, 0xe9f703f8_e741_5ad8_b2d1_d8076ceb09aa);
+windows_core::imp::define_interface!(IPointerDevice2, IPointerDevice2_Vtbl, 0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
 impl windows_core::RuntimeType for IPointerDevice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -212,7 +212,7 @@ pub struct IPointerDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxPointersWithZDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPointerDeviceStatics, IPointerDeviceStatics_Vtbl, 0xdce45008_b2c3_55e5_ad28_dbbf50914666);
+windows_core::imp::define_interface!(IPointerDeviceStatics, IPointerDeviceStatics_Vtbl, 0xd8b89aa1_d1c6_416e_bd8d_5790914dc563);
 impl windows_core::RuntimeType for IPointerDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -223,7 +223,7 @@ pub struct IPointerDeviceStatics_Vtbl {
     pub GetPointerDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPointerDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITouchCapabilities, ITouchCapabilities_Vtbl, 0x8b47fffd_d89e_5274_95af_8985122acdf3);
+windows_core::imp::define_interface!(ITouchCapabilities, ITouchCapabilities_Vtbl, 0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
 impl windows_core::RuntimeType for ITouchCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

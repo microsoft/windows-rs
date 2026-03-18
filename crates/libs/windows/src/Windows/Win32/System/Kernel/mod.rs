@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn RtlFirstEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlFirstEntrySList(listhead : *mut SLIST_HEADER) -> *mut SLIST_ENTRY);
-    unsafe { RtlFirstEntrySList(listhead as _) }
+pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY {
+    windows_core::link!("ntdll.dll" "system" fn RtlFirstEntrySList(listhead : *const SLIST_HEADER) -> *mut SLIST_ENTRY);
+    unsafe { RtlFirstEntrySList(listhead) }
 }
 #[inline]
 pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
@@ -73,7 +73,7 @@ impl Default for EXCEPTION_REGISTRATION_RECORD {
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *mut core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *mut core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
+pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const core::ffi::c_void) -> EXCEPTION_DISPOSITION>;
 pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6i32);
 pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11i32);
 pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1i32);

@@ -5,7 +5,7 @@ pub const CQueryAllWinSAT: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const CQueryOEMWinSATCustomization: windows_core::GUID = windows_core::GUID::from_u128(0xc47a41b7_b729_424f_9af9_5cb3934f2dfa);
 pub const CQueryWinSAT: windows_core::GUID = windows_core::GUID::from_u128(0xf3bdfad3_f276_49e9_9b17_c474f48f0764);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-windows_core::imp::define_interface!(IAccessibleWinSAT, IAccessibleWinSAT_Vtbl, 0xe11fc020_14ab_5a38_a62b_3fc3016d6c40);
+windows_core::imp::define_interface!(IAccessibleWinSAT, IAccessibleWinSAT_Vtbl, 0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl core::ops::Deref for IAccessibleWinSAT {
     type Target = super::super::UI::Accessibility::IAccessible;
@@ -123,7 +123,7 @@ impl IInitiateWinSATAssessment_Vtbl {
 }
 impl windows_core::RuntimeName for IInitiateWinSATAssessment {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IProvideWinSATAssessmentInfo, IProvideWinSATAssessmentInfo_Vtbl, 0x859f5e14_d42b_5cc1_aa6e_dc9bba8b527b);
+windows_core::imp::define_interface!(IProvideWinSATAssessmentInfo, IProvideWinSATAssessmentInfo_Vtbl, 0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IProvideWinSATAssessmentInfo {
     type Target = super::Com::IDispatch;
@@ -222,7 +222,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IProvideWinSATAssessmentInfo {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IProvideWinSATResultsInfo, IProvideWinSATResultsInfo_Vtbl, 0xc66d4f51_ab11_51e5_9043_ee408e7f392b);
+windows_core::imp::define_interface!(IProvideWinSATResultsInfo, IProvideWinSATResultsInfo_Vtbl, 0xf8334d5d_568e_4075_875f_9df341506640);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IProvideWinSATResultsInfo {
     type Target = super::Com::IDispatch;
@@ -366,7 +366,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IProvideWinSATResultsInfo {}
-windows_core::imp::define_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0x66e099b5_9718_577f_8996_587425511b7f);
+windows_core::imp::define_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0xa9f4ade0_871a_42a3_b813_3078d25162c9);
 windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, windows_core::IUnknown);
 impl IProvideWinSATVisuals {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -414,7 +414,7 @@ impl IProvideWinSATVisuals_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IProvideWinSATVisuals {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IQueryAllWinSATAssessments, IQueryAllWinSATAssessments_Vtbl, 0xab41e015_7675_5478_a5e9_3cfe26253d3f);
+windows_core::imp::define_interface!(IQueryAllWinSATAssessments, IQueryAllWinSATAssessments_Vtbl, 0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IQueryAllWinSATAssessments {
     type Target = super::Com::IDispatch;
@@ -512,7 +512,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
 }
 impl windows_core::RuntimeName for IQueryOEMWinSATCustomization {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IQueryRecentWinSATAssessment, IQueryRecentWinSATAssessment_Vtbl, 0x91a4df02_9ead_598b_b020_3c03cb275e2f);
+windows_core::imp::define_interface!(IQueryRecentWinSATAssessment, IQueryRecentWinSATAssessment_Vtbl, 0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IQueryRecentWinSATAssessment {
     type Target = super::Com::IDispatch;
@@ -589,7 +589,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IQueryRecentWinSATAssessment {}
-windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x0d94c488_1d0d_5d19_985b_b1effdc9ab69);
+windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, windows_core::IUnknown);
 impl IWinSATInitiateEvents {
     pub unsafe fn WinSATComplete<P1>(&self, hresult: windows_core::HRESULT, strdescription: P1) -> windows_core::Result<()>

@@ -6,7 +6,7 @@ pub struct DAILY {
     pub DaysInterval: u16,
 }
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IAction, IAction_Vtbl, 0x841e526d_b60d_5a49_a7d2_9b3e1ae5c917);
+windows_core::imp::define_interface!(IAction, IAction_Vtbl, 0xbae54997_48b1_4cbe_9965_d6be263ebea4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IAction {
     type Target = super::Com::IDispatch;
@@ -310,7 +310,7 @@ impl IActionCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IActionCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IBootTrigger, IBootTrigger_Vtbl, 0xfc829c9b_9eeb_5717_bfe1_22703b0d329c);
+windows_core::imp::define_interface!(IBootTrigger, IBootTrigger_Vtbl, 0x2a9c35da_d357_41f4_bbc1_207ac1b1f3cb);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IBootTrigger {
     type Target = ITrigger;
@@ -375,7 +375,7 @@ impl IBootTrigger_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBootTrigger {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IComHandlerAction, IComHandlerAction_Vtbl, 0x211bec2a_6a18_505d_86e7_e0c707bb4861);
+windows_core::imp::define_interface!(IComHandlerAction, IComHandlerAction_Vtbl, 0x6d2fd252_75c5_4f66_90ba_2a7d8cc3039f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IComHandlerAction {
     type Target = IAction;
@@ -1027,7 +1027,7 @@ impl IEnumWorkItems_Vtbl {
 }
 impl windows_core::RuntimeName for IEnumWorkItems {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IEventTrigger, IEventTrigger_Vtbl, 0xdeef91b9_f558_5525_845b_50643f1bf0bd);
+windows_core::imp::define_interface!(IEventTrigger, IEventTrigger_Vtbl, 0xd45b0167_9653_4eef_b94f_0732ca7af251);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IEventTrigger {
     type Target = ITrigger;
@@ -1165,7 +1165,7 @@ impl IEventTrigger_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEventTrigger {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IExecAction, IExecAction_Vtbl, 0xe8196f0e_5457_5ea2_ab67_472645c9b9a6);
+windows_core::imp::define_interface!(IExecAction, IExecAction_Vtbl, 0x4c3d624d_fd6b_49a3_b9b7_09cb3cd3f047);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IExecAction {
     type Target = IAction;
@@ -1300,7 +1300,7 @@ impl IExecAction_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IExecAction {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IExecAction2, IExecAction2_Vtbl, 0x1c00ed25_9e4e_5d44_b7ec_96c9e3a8b1ce);
+windows_core::imp::define_interface!(IExecAction2, IExecAction2_Vtbl, 0xf2a82542_bda5_4e6b_9143_e2bf4f8987b6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IExecAction2 {
     type Target = IExecAction;
@@ -1369,7 +1369,7 @@ impl IExecAction2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IExecAction2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IIdleSettings, IIdleSettings_Vtbl, 0x804f784d_2a44_5fc9_b55b_40b0bb9c06d1);
+windows_core::imp::define_interface!(IIdleSettings, IIdleSettings_Vtbl, 0x84594461_0053_4342_a8fd_088fabf11f32);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IIdleSettings {
     type Target = super::Com::IDispatch;
@@ -1537,7 +1537,7 @@ impl IIdleSettings_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IIdleSettings {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IIdleTrigger, IIdleTrigger_Vtbl, 0xac5e2fec_295a_5d29_a6f3_3be04681d295);
+windows_core::imp::define_interface!(IIdleTrigger, IIdleTrigger_Vtbl, 0xd537d2b0_9fb3_4d34_9739_1ff5ce7b1ef3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IIdleTrigger {
     type Target = ITrigger;
@@ -1567,7 +1567,7 @@ impl IIdleTrigger_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IIdleTrigger {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ILogonTrigger, ILogonTrigger_Vtbl, 0xa7bc051e_304e_5622_82f4_41c1f1fa7479);
+windows_core::imp::define_interface!(ILogonTrigger, ILogonTrigger_Vtbl, 0x72dade38_fae4_4b3e_baf4_5d009af02b1c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ILogonTrigger {
     type Target = ITrigger;
@@ -1669,7 +1669,7 @@ impl ILogonTrigger_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ILogonTrigger {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMaintenanceSettings, IMaintenanceSettings_Vtbl, 0x62fc2051_a0df_5e71_bdab_aa754e4a2941);
+windows_core::imp::define_interface!(IMaintenanceSettings, IMaintenanceSettings_Vtbl, 0xa6024fa8_9652_4adb_a6bf_5cfcd877a7ba);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMaintenanceSettings {
     type Target = super::Com::IDispatch;
@@ -1804,7 +1804,7 @@ impl IMaintenanceSettings_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMaintenanceSettings {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMonthlyDOWTrigger, IMonthlyDOWTrigger_Vtbl, 0xfb76aa1e_0fb2_5fdf_a630_3fb0286abf55);
+windows_core::imp::define_interface!(IMonthlyDOWTrigger, IMonthlyDOWTrigger_Vtbl, 0x77d025a3_90fa_43aa_b52e_cda5499b946a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMonthlyDOWTrigger {
     type Target = ITrigger;
@@ -2005,7 +2005,7 @@ impl IMonthlyDOWTrigger_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMonthlyDOWTrigger {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMonthlyTrigger, IMonthlyTrigger_Vtbl, 0x0f205c81_c594_5a94_9cf3_2870b7c5ed45);
+windows_core::imp::define_interface!(IMonthlyTrigger, IMonthlyTrigger_Vtbl, 0x97c45ef1_6b02_4a1a_9c0e_1ebfba1500ac);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMonthlyTrigger {
     type Target = ITrigger;
@@ -2275,7 +2275,7 @@ impl INetworkSettings_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetworkSettings {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IPrincipal, IPrincipal_Vtbl, 0x6d2dedb9_b25c_51a6_9d6f_8e403d8fa52d);
+windows_core::imp::define_interface!(IPrincipal, IPrincipal_Vtbl, 0xd98d51e5_c9b4_496a_a9c1_18980261cf0f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IPrincipal {
     type Target = super::Com::IDispatch;
@@ -2509,7 +2509,7 @@ impl IPrincipal_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPrincipal {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IPrincipal2, IPrincipal2_Vtbl, 0xaf97de10_a8a2_519b_9563_24d408f54e66);
+windows_core::imp::define_interface!(IPrincipal2, IPrincipal2_Vtbl, 0x248919ae_e345_4a6d_8aeb_e0d3165c904e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IPrincipal2 {
     type Target = super::Com::IDispatch;
@@ -2631,7 +2631,7 @@ impl IPrincipal2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPrincipal2 {}
-windows_core::imp::define_interface!(IProvideTaskPage, IProvideTaskPage_Vtbl, 0x85a29b6e_a96b_5601_84ce_1aa3ba2b1559);
+windows_core::imp::define_interface!(IProvideTaskPage, IProvideTaskPage_Vtbl, 0x4086658a_cbbb_11cf_b604_00c04fd8d565);
 windows_core::imp::interface_hierarchy!(IProvideTaskPage, windows_core::IUnknown);
 impl IProvideTaskPage {
     #[cfg(feature = "Win32_UI_Controls")]
@@ -2679,7 +2679,7 @@ impl IProvideTaskPage_Vtbl {
 #[cfg(feature = "Win32_UI_Controls")]
 impl windows_core::RuntimeName for IProvideTaskPage {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRegisteredTask, IRegisteredTask_Vtbl, 0xff2062ae_2f29_5f88_ba88_51624f68dde1);
+windows_core::imp::define_interface!(IRegisteredTask, IRegisteredTask_Vtbl, 0x9c86f320_dee3_4dd1_b972_a303f26b061e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRegisteredTask {
     type Target = super::Com::IDispatch;
@@ -2786,8 +2786,8 @@ impl IRegisteredTask {
     pub unsafe fn Stop(&self, flags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), flags).ok() }
     }
-    pub unsafe fn GetRunTimes(&self, pststart: *mut super::super::Foundation::SYSTEMTIME, pstend: *mut super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pststart as _, pstend as _, pcount as _, pruntimes as _).ok() }
+    pub unsafe fn GetRunTimes(&self, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pststart, pstend, pcount as _, pruntimes as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2818,7 +2818,7 @@ pub struct IRegisteredTask_Vtbl {
     pub GetSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSecurityDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub GetRunTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME, *mut super::super::Foundation::SYSTEMTIME, *mut u32, *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
+    pub GetRunTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::SYSTEMTIME, *const super::super::Foundation::SYSTEMTIME, *mut u32, *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRegisteredTask_Impl: super::Com::IDispatch_Impl {
@@ -2839,7 +2839,7 @@ pub trait IRegisteredTask_Impl: super::Com::IDispatch_Impl {
     fn GetSecurityDescriptor(&self, securityinformation: i32) -> windows_core::Result<windows_core::BSTR>;
     fn SetSecurityDescriptor(&self, sddl: &windows_core::BSTR, flags: i32) -> windows_core::Result<()>;
     fn Stop(&self, flags: i32) -> windows_core::Result<()>;
-    fn GetRunTimes(&self, pststart: *mut super::super::Foundation::SYSTEMTIME, pstend: *mut super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()>;
+    fn GetRunTimes(&self, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRegisteredTask_Vtbl {
@@ -3030,7 +3030,7 @@ impl IRegisteredTask_Vtbl {
                 IRegisteredTask_Impl::Stop(this, core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetRunTimes<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pststart: *mut super::super::Foundation::SYSTEMTIME, pstend: *mut super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRunTimes<Identity: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRegisteredTask_Impl::GetRunTimes(this, core::mem::transmute_copy(&pststart), core::mem::transmute_copy(&pstend), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pruntimes)).into()
@@ -3065,7 +3065,7 @@ impl IRegisteredTask_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRegisteredTask {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRegisteredTaskCollection, IRegisteredTaskCollection_Vtbl, 0xafedf5ae_4b2e_5eb3_8fb1_efa905094bf4);
+windows_core::imp::define_interface!(IRegisteredTaskCollection, IRegisteredTaskCollection_Vtbl, 0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRegisteredTaskCollection {
     type Target = super::Com::IDispatch;
@@ -3509,7 +3509,7 @@ impl IRegistrationInfo_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRegistrationInfo {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRegistrationTrigger, IRegistrationTrigger_Vtbl, 0x906ef059_82ec_5bf1_8530_c2599b64209b);
+windows_core::imp::define_interface!(IRegistrationTrigger, IRegistrationTrigger_Vtbl, 0x4c8fec3a_c218_4e0c_b23d_629024db91a2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRegistrationTrigger {
     type Target = ITrigger;
@@ -3895,7 +3895,7 @@ impl IRunningTask_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRunningTask {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRunningTaskCollection, IRunningTaskCollection_Vtbl, 0x7e1b54d3_a7f5_5420_9656_f5199978c1f3);
+windows_core::imp::define_interface!(IRunningTaskCollection, IRunningTaskCollection_Vtbl, 0x6a67614b_6828_4fec_aa54_6d52e8f1f2db);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRunningTaskCollection {
     type Target = super::Com::IDispatch;
@@ -3997,7 +3997,7 @@ impl IRunningTaskCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRunningTaskCollection {}
-windows_core::imp::define_interface!(IScheduledWorkItem, IScheduledWorkItem_Vtbl, 0x90fec2a0_46e7_5a19_b2df_1892f277d3dd);
+windows_core::imp::define_interface!(IScheduledWorkItem, IScheduledWorkItem_Vtbl, 0xa6b952f0_a4b1_11d0_997d_00aa006887ec);
 windows_core::imp::interface_hierarchy!(IScheduledWorkItem, windows_core::IUnknown);
 impl IScheduledWorkItem {
     pub unsafe fn CreateTrigger(&self, pinewtrigger: *mut u16, pptrigger: *mut Option<ITaskTrigger>) -> windows_core::Result<()> {
@@ -4024,8 +4024,8 @@ impl IScheduledWorkItem {
             (windows_core::Interface::vtable(self).GetTriggerString)(windows_core::Interface::as_raw(self), itrigger, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRunTimes(&self, pstbegin: *mut super::super::Foundation::SYSTEMTIME, pstend: *mut super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pstbegin as _, pstend as _, pcount as _, rgsttasktimes as _).ok() }
+    pub unsafe fn GetRunTimes(&self, pstbegin: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRunTimes)(windows_core::Interface::as_raw(self), pstbegin, pstend, pcount as _, rgsttasktimes as _).ok() }
     }
     pub unsafe fn GetNextRunTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         unsafe {
@@ -4090,11 +4090,8 @@ impl IScheduledWorkItem {
             (windows_core::Interface::vtable(self).GetCreator)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWorkItemData(&self, cbdata: u16) -> windows_core::Result<u8> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetWorkItemData)(windows_core::Interface::as_raw(self), cbdata, &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetWorkItemData(&self, cbdata: u16, rgbdata: *const u8) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetWorkItemData)(windows_core::Interface::as_raw(self), cbdata, rgbdata).ok() }
     }
     pub unsafe fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetWorkItemData)(windows_core::Interface::as_raw(self), pcbdata as _, prgbdata as _).ok() }
@@ -4149,7 +4146,7 @@ pub struct IScheduledWorkItem_Vtbl {
     pub GetTriggerCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetTrigger: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTriggerString: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetRunTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME, *mut super::super::Foundation::SYSTEMTIME, *mut u16, *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
+    pub GetRunTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::SYSTEMTIME, *const super::super::Foundation::SYSTEMTIME, *mut u16, *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
     pub GetNextRunTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT,
     pub SetIdleWait: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
     pub GetIdleWait: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, *mut u16) -> windows_core::HRESULT,
@@ -4163,7 +4160,7 @@ pub struct IScheduledWorkItem_Vtbl {
     pub GetComment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetCreator: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetCreator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetWorkItemData: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut u8) -> windows_core::HRESULT,
+    pub SetWorkItemData: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *const u8) -> windows_core::HRESULT,
     pub GetWorkItemData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, *mut *mut u8) -> windows_core::HRESULT,
     pub SetErrorRetryCount: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
     pub GetErrorRetryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
@@ -4180,7 +4177,7 @@ pub trait IScheduledWorkItem_Impl: windows_core::IUnknownImpl {
     fn GetTriggerCount(&self) -> windows_core::Result<u16>;
     fn GetTrigger(&self, itrigger: u16) -> windows_core::Result<ITaskTrigger>;
     fn GetTriggerString(&self, itrigger: u16) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetRunTimes(&self, pstbegin: *mut super::super::Foundation::SYSTEMTIME, pstend: *mut super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()>;
+    fn GetRunTimes(&self, pstbegin: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()>;
     fn GetNextRunTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME>;
     fn SetIdleWait(&self, widleminutes: u16, wdeadlineminutes: u16) -> windows_core::Result<()>;
     fn GetIdleWait(&self, pwidleminutes: *mut u16, pwdeadlineminutes: *mut u16) -> windows_core::Result<()>;
@@ -4194,7 +4191,7 @@ pub trait IScheduledWorkItem_Impl: windows_core::IUnknownImpl {
     fn GetComment(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn SetCreator(&self, pwszcreator: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetCreator(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetWorkItemData(&self, cbdata: u16) -> windows_core::Result<u8>;
+    fn SetWorkItemData(&self, cbdata: u16, rgbdata: *const u8) -> windows_core::Result<()>;
     fn GetWorkItemData(&self, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> windows_core::Result<()>;
     fn SetErrorRetryCount(&self, wretrycount: u16) -> windows_core::Result<()>;
     fn GetErrorRetryCount(&self) -> windows_core::Result<u16>;
@@ -4255,7 +4252,7 @@ impl IScheduledWorkItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRunTimes<Identity: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstbegin: *mut super::super::Foundation::SYSTEMTIME, pstend: *mut super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRunTimes<Identity: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstbegin: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u16, rgsttasktimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IScheduledWorkItem_Impl::GetRunTimes(this, core::mem::transmute_copy(&pstbegin), core::mem::transmute_copy(&pstend), core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&rgsttasktimes)).into()
@@ -4375,16 +4372,10 @@ impl IScheduledWorkItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWorkItemData<Identity: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbdata: u16, rgbdata: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetWorkItemData<Identity: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbdata: u16, rgbdata: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IScheduledWorkItem_Impl::SetWorkItemData(this, core::mem::transmute_copy(&cbdata)) {
-                    Ok(ok__) => {
-                        rgbdata.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IScheduledWorkItem_Impl::SetWorkItemData(this, core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&rgbdata)).into()
             }
         }
         unsafe extern "system" fn GetWorkItemData<Identity: IScheduledWorkItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbdata: *mut u16, prgbdata: *mut *mut u8) -> windows_core::HRESULT {
@@ -4504,7 +4495,7 @@ impl IScheduledWorkItem_Vtbl {
 }
 impl windows_core::RuntimeName for IScheduledWorkItem {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISessionStateChangeTrigger, ISessionStateChangeTrigger_Vtbl, 0xe5532ff7_f825_505a_a6ff_273a5761534c);
+windows_core::imp::define_interface!(ISessionStateChangeTrigger, ISessionStateChangeTrigger_Vtbl, 0x754da71b_4385_4475_9dd9_598294fa3641);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISessionStateChangeTrigger {
     type Target = ITrigger;
@@ -4639,7 +4630,7 @@ impl ISessionStateChangeTrigger_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISessionStateChangeTrigger {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IShowMessageAction, IShowMessageAction_Vtbl, 0x5e5987de_21f8_530f_90ef_37e9dae3d39e);
+windows_core::imp::define_interface!(IShowMessageAction, IShowMessageAction_Vtbl, 0x505e9e68_af89_46b8_a30f_56162a83d537);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IShowMessageAction {
     type Target = IAction;
@@ -4740,7 +4731,7 @@ impl IShowMessageAction_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IShowMessageAction {}
-windows_core::imp::define_interface!(ITask, ITask_Vtbl, 0xde9c214e_9076_510b_b78b_bdac39a811c1);
+windows_core::imp::define_interface!(ITask, ITask_Vtbl, 0x148bd524_a2ab_11ce_b11f_00aa00530503);
 impl core::ops::Deref for ITask {
     type Target = IScheduledWorkItem;
     fn deref(&self) -> &Self::Target {
@@ -4976,7 +4967,7 @@ impl ITask_Vtbl {
 }
 impl windows_core::RuntimeName for ITask {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITaskDefinition, ITaskDefinition_Vtbl, 0x7cbb9365_1bf0_543e_af22_22f294725dce);
+windows_core::imp::define_interface!(ITaskDefinition, ITaskDefinition_Vtbl, 0xf5bc8fc5_536d_4f77_b852_fbc1356fdeb6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITaskDefinition {
     type Target = super::Com::IDispatch;
@@ -5258,7 +5249,7 @@ impl ITaskDefinition_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITaskDefinition {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITaskFolder, ITaskFolder_Vtbl, 0xc9b38300_95d0_57d3_a771_80d246565f49);
+windows_core::imp::define_interface!(ITaskFolder, ITaskFolder_Vtbl, 0x8cfac062_a080_4c15_9a88_aa7c2af80dfc);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITaskFolder {
     type Target = super::Com::IDispatch;
@@ -5657,7 +5648,7 @@ impl ITaskFolderCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITaskFolderCollection {}
-windows_core::imp::define_interface!(ITaskHandler, ITaskHandler_Vtbl, 0x0308ee4a_f2ba_5c80_8773_98f3857f3778);
+windows_core::imp::define_interface!(ITaskHandler, ITaskHandler_Vtbl, 0x839d7762_5121_4009_9234_4f0d19394f04);
 windows_core::imp::interface_hierarchy!(ITaskHandler, windows_core::IUnknown);
 impl ITaskHandler {
     pub unsafe fn Start<P0>(&self, phandlerservices: P0, data: &windows_core::BSTR) -> windows_core::Result<()>
@@ -5739,7 +5730,7 @@ impl ITaskHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ITaskHandler {}
-windows_core::imp::define_interface!(ITaskHandlerStatus, ITaskHandlerStatus_Vtbl, 0xf3630efb_e5b1_5890_9325_d782f5b2601c);
+windows_core::imp::define_interface!(ITaskHandlerStatus, ITaskHandlerStatus_Vtbl, 0xeaec7a8f_27a0_4ddc_8675_14726a01a38a);
 windows_core::imp::interface_hierarchy!(ITaskHandlerStatus, windows_core::IUnknown);
 impl ITaskHandlerStatus {
     pub unsafe fn UpdateStatus(&self, percentcomplete: i16, statusmessage: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -5786,7 +5777,7 @@ impl ITaskHandlerStatus_Vtbl {
 }
 impl windows_core::RuntimeName for ITaskHandlerStatus {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITaskNamedValueCollection, ITaskNamedValueCollection_Vtbl, 0x5c511074_e512_54f9_bef8_150c2096ac61);
+windows_core::imp::define_interface!(ITaskNamedValueCollection, ITaskNamedValueCollection_Vtbl, 0xb4ef826b_63c3_46e4_a504_ef69e4f7ea4d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITaskNamedValueCollection {
     type Target = super::Com::IDispatch;
@@ -5930,7 +5921,7 @@ impl ITaskNamedValueCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITaskNamedValueCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITaskNamedValuePair, ITaskNamedValuePair_Vtbl, 0x96088232_3215_5331_bb25_01aabb8c41c9);
+windows_core::imp::define_interface!(ITaskNamedValuePair, ITaskNamedValuePair_Vtbl, 0x39038068_2b46_4afd_8662_7bb6f868d221);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITaskNamedValuePair {
     type Target = super::Com::IDispatch;
@@ -6031,7 +6022,7 @@ impl ITaskNamedValuePair_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITaskNamedValuePair {}
-windows_core::imp::define_interface!(ITaskScheduler, ITaskScheduler_Vtbl, 0x7e1aa6c4_5820_53dd_be26_2626ed527c94);
+windows_core::imp::define_interface!(ITaskScheduler, ITaskScheduler_Vtbl, 0x148bd527_a2ab_11ce_b11f_00aa00530503);
 windows_core::imp::interface_hierarchy!(ITaskScheduler, windows_core::IUnknown);
 impl ITaskScheduler {
     pub unsafe fn SetTargetComputer<P0>(&self, pwszcomputer: P0) -> windows_core::Result<()>
@@ -6052,11 +6043,14 @@ impl ITaskScheduler {
             (windows_core::Interface::vtable(self).Enum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Activate<P0>(&self, pwszname: P0, riid: *mut windows_core::GUID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn Activate<P0>(&self, pwszname: P0, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), pwszname.param().abi(), riid as _, core::mem::transmute(ppunk)).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), pwszname.param().abi(), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn Delete<P0>(&self, pwszname: P0) -> windows_core::Result<()>
     where
@@ -6064,11 +6058,14 @@ impl ITaskScheduler {
     {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), pwszname.param().abi()).ok() }
     }
-    pub unsafe fn NewWorkItem<P0>(&self, pwsztaskname: P0, rclsid: *mut windows_core::GUID, riid: *mut windows_core::GUID, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn NewWorkItem<P0>(&self, pwsztaskname: P0, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).NewWorkItem)(windows_core::Interface::as_raw(self), pwsztaskname.param().abi(), rclsid as _, riid as _, core::mem::transmute(ppunk)).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).NewWorkItem)(windows_core::Interface::as_raw(self), pwsztaskname.param().abi(), rclsid, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn AddWorkItem<P0, P1>(&self, pwsztaskname: P0, pworkitem: P1) -> windows_core::Result<()>
     where
@@ -6077,14 +6074,11 @@ impl ITaskScheduler {
     {
         unsafe { (windows_core::Interface::vtable(self).AddWorkItem)(windows_core::Interface::as_raw(self), pwsztaskname.param().abi(), pworkitem.param().abi()).ok() }
     }
-    pub unsafe fn IsOfType<P0>(&self, pwszname: P0) -> windows_core::Result<windows_core::GUID>
+    pub unsafe fn IsOfType<P0>(&self, pwszname: P0, riid: *const windows_core::GUID) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsOfType)(windows_core::Interface::as_raw(self), pwszname.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).IsOfType)(windows_core::Interface::as_raw(self), pwszname.param().abi(), riid).ok() }
     }
 }
 #[repr(C)]
@@ -6094,21 +6088,21 @@ pub struct ITaskScheduler_Vtbl {
     pub SetTargetComputer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetTargetComputer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub Enum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub NewWorkItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::GUID, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub NewWorkItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddWorkItem: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait ITaskScheduler_Impl: windows_core::IUnknownImpl {
     fn SetTargetComputer(&self, pwszcomputer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetTargetComputer(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn Enum(&self) -> windows_core::Result<IEnumWorkItems>;
-    fn Activate(&self, pwszname: &windows_core::PCWSTR, riid: *mut windows_core::GUID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Activate(&self, pwszname: &windows_core::PCWSTR, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn Delete(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn NewWorkItem(&self, pwsztaskname: &windows_core::PCWSTR, rclsid: *mut windows_core::GUID, riid: *mut windows_core::GUID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn NewWorkItem(&self, pwsztaskname: &windows_core::PCWSTR, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn AddWorkItem(&self, pwsztaskname: &windows_core::PCWSTR, pworkitem: windows_core::Ref<IScheduledWorkItem>) -> windows_core::Result<()>;
-    fn IsOfType(&self, pwszname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::GUID>;
+    fn IsOfType(&self, pwszname: &windows_core::PCWSTR, riid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl ITaskScheduler_Vtbl {
     pub const fn new<Identity: ITaskScheduler_Impl, const OFFSET: isize>() -> Self {
@@ -6142,10 +6136,16 @@ impl ITaskScheduler_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Activate<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Activate<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITaskScheduler_Impl::Activate(this, core::mem::transmute(&pwszname), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
+                match ITaskScheduler_Impl::Activate(this, core::mem::transmute(&pwszname), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Delete<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -6154,10 +6154,16 @@ impl ITaskScheduler_Vtbl {
                 ITaskScheduler_Impl::Delete(this, core::mem::transmute(&pwszname)).into()
             }
         }
-        unsafe extern "system" fn NewWorkItem<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztaskname: windows_core::PCWSTR, rclsid: *mut windows_core::GUID, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn NewWorkItem<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztaskname: windows_core::PCWSTR, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITaskScheduler_Impl::NewWorkItem(this, core::mem::transmute(&pwsztaskname), core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
+                match ITaskScheduler_Impl::NewWorkItem(this, core::mem::transmute(&pwsztaskname), core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&riid)) {
+                    Ok(ok__) => {
+                        ppunk.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn AddWorkItem<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztaskname: windows_core::PCWSTR, pworkitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6166,16 +6172,10 @@ impl ITaskScheduler_Vtbl {
                 ITaskScheduler_Impl::AddWorkItem(this, core::mem::transmute(&pwsztaskname), core::mem::transmute_copy(&pworkitem)).into()
             }
         }
-        unsafe extern "system" fn IsOfType<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, riid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsOfType<Identity: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, riid: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITaskScheduler_Impl::IsOfType(this, core::mem::transmute(&pwszname)) {
-                    Ok(ok__) => {
-                        riid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITaskScheduler_Impl::IsOfType(this, core::mem::transmute(&pwszname), core::mem::transmute_copy(&riid)).into()
             }
         }
         Self {
@@ -6196,7 +6196,7 @@ impl ITaskScheduler_Vtbl {
 }
 impl windows_core::RuntimeName for ITaskScheduler {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITaskService, ITaskService_Vtbl, 0x92ddd2e8_3b4d_5d04_9fff_e5f9feb98434);
+windows_core::imp::define_interface!(ITaskService, ITaskService_Vtbl, 0x2faba4c7_4da9_4013_9697_20cc3fd40f85);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITaskService {
     type Target = super::Com::IDispatch;
@@ -6416,7 +6416,7 @@ impl ITaskService_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITaskService {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITaskSettings, ITaskSettings_Vtbl, 0x46619f4e_8ec2_58d7_81c3_3b270002c89d);
+windows_core::imp::define_interface!(ITaskSettings, ITaskSettings_Vtbl, 0x8fd4711d_2d02_4c8c_87e3_eff699de127e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITaskSettings {
     type Target = super::Com::IDispatch;
@@ -7118,7 +7118,7 @@ impl ITaskSettings_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITaskSettings {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITaskSettings2, ITaskSettings2_Vtbl, 0x4a34b9fa_c765_599c_a30b_d9d0cdb8aa22);
+windows_core::imp::define_interface!(ITaskSettings2, ITaskSettings2_Vtbl, 0x2c05c3f0_6eed_4c05_a15f_ed7d7a98a369);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITaskSettings2 {
     type Target = super::Com::IDispatch;
@@ -7478,7 +7478,7 @@ impl ITaskTrigger_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ITaskTrigger {}
-windows_core::imp::define_interface!(ITaskVariables, ITaskVariables_Vtbl, 0xf6e73fdf_b396_5bb3_9c6c_813d2551247e);
+windows_core::imp::define_interface!(ITaskVariables, ITaskVariables_Vtbl, 0x3e4c9351_d966_4b8b_bb87_ceba68bb0107);
 windows_core::imp::interface_hierarchy!(ITaskVariables, windows_core::IUnknown);
 impl ITaskVariables {
     pub unsafe fn GetInput(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -7555,7 +7555,7 @@ impl ITaskVariables_Vtbl {
 }
 impl windows_core::RuntimeName for ITaskVariables {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0x5da89e1e_2e48_5e64_b17c_bfdd17c8f75e);
+windows_core::imp::define_interface!(ITimeTrigger, ITimeTrigger_Vtbl, 0xb45747e0_eba7_4276_9f29_85c5bb300006);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITimeTrigger {
     type Target = ITrigger;
@@ -7624,7 +7624,7 @@ impl ITimeTrigger_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITimeTrigger {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITrigger, ITrigger_Vtbl, 0xed01c85c_9ac2_5f44_bdbb_afa43f4dbb83);
+windows_core::imp::define_interface!(ITrigger, ITrigger_Vtbl, 0x09941815_ea89_4b5b_89e0_2a773801fac3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITrigger {
     type Target = super::Com::IDispatch;
@@ -8030,7 +8030,7 @@ impl ITriggerCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITriggerCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWeeklyTrigger, IWeeklyTrigger_Vtbl, 0xfa68113f_7662_541b_95ed_bf101a85a3dd);
+windows_core::imp::define_interface!(IWeeklyTrigger, IWeeklyTrigger_Vtbl, 0x5038fc98_82ff_436d_8728_a512a57c9dc1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWeeklyTrigger {
     type Target = ITrigger;

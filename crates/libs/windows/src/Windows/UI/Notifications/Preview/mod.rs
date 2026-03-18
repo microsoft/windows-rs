@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IToastOcclusionManagerPreviewStatics, IToastOcclusionManagerPreviewStatics_Vtbl, 0x11461aae_b4a1_5230_ad11_6a4e1e67a0f4);
+windows_core::imp::define_interface!(IToastOcclusionManagerPreviewStatics, IToastOcclusionManagerPreviewStatics_Vtbl, 0x507e5c83_50f9_5412_8953_b65c18cfab12);
 impl windows_core::RuntimeType for IToastOcclusionManagerPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -1,11 +1,11 @@
 #[inline]
-pub unsafe fn RmAddFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: *mut RM_UNIQUE_PROCESS, strserviceshortname: P3, filteraction: RM_FILTER_ACTION) -> windows_core::WIN32_ERROR
+pub unsafe fn RmAddFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: P3, filteraction: RM_FILTER_ACTION) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *mut RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> windows_core:: WIN32_ERROR);
-    unsafe { RmAddFilter(dwsessionhandle, strmodulename.param().abi(), pprocess as _, strserviceshortname.param().abi(), filteraction) }
+    windows_core::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> windows_core:: WIN32_ERROR);
+    unsafe { RmAddFilter(dwsessionhandle, strmodulename.param().abi(), pprocess, strserviceshortname.param().abi(), filteraction) }
 }
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> windows_core::WIN32_ERROR {
@@ -36,18 +36,18 @@ where
     unsafe { RmJoinSession(psessionhandle as _, strsessionkey.param().abi()) }
 }
 #[inline]
-pub unsafe fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *mut windows_core::PWSTR, napplications: u32, rgapplications: *mut RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *mut windows_core::PWSTR) -> windows_core::WIN32_ERROR {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *mut windows_core::PWSTR, napplications : u32, rgapplications : *mut RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *mut windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { RmRegisterResources(dwsessionhandle, nfiles, rgsfilenames as _, napplications, rgapplications as _, nservices, rgsservicenames as _) }
+pub unsafe fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *const windows_core::PCWSTR, napplications: u32, rgapplications: *const RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *const windows_core::PCWSTR) -> windows_core::WIN32_ERROR {
+    windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
+    unsafe { RmRegisterResources(dwsessionhandle, nfiles, rgsfilenames, napplications, rgapplications, nservices, rgsservicenames) }
 }
 #[inline]
-pub unsafe fn RmRemoveFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: *mut RM_UNIQUE_PROCESS, strserviceshortname: P3) -> windows_core::WIN32_ERROR
+pub unsafe fn RmRemoveFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: P3) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *mut RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), pprocess as _, strserviceshortname.param().abi()) }
+    windows_core::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
+    unsafe { RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), pprocess, strserviceshortname.param().abi()) }
 }
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> windows_core::WIN32_ERROR {

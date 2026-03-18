@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IMcpMessageFilterExperimental, IMcpMessageFilterExperimental_Vtbl, 0x58b8824e_1888_51bd_9a21_63e908878654);
+windows_core::imp::define_interface!(IMcpMessageFilterExperimental, IMcpMessageFilterExperimental_Vtbl, 0xc5f8f821_895c_5241_b45a_92e249a7d873);
 impl windows_core::RuntimeType for IMcpMessageFilterExperimental {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -63,7 +63,7 @@ impl windows_core::RuntimeType for IMcpMessageFilterResponse {
 pub struct IMcpMessageFilterResponse_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental, IMcpMessageFilterResponseExperimental_Vtbl, 0x56345b8c_1080_5760_a9c5_147ca4484a9a);
+windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental, IMcpMessageFilterResponseExperimental_Vtbl, 0xe215b5f2_cb02_56cf_aab0_84aef65d1665);
 impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -161,7 +161,7 @@ pub struct IMcpMessageFilterResponseExperimental_Vtbl {
     pub MessageIfNotAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMessageIfNotAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental2, IMcpMessageFilterResponseExperimental2_Vtbl, 0xdafaf3a2_fba1_54a2_bd31_2e9f696672d5);
+windows_core::imp::define_interface!(IMcpMessageFilterResponseExperimental2, IMcpMessageFilterResponseExperimental2_Vtbl, 0x10f4b099_6632_505a_a638_e704c7e47abf);
 impl windows_core::RuntimeType for IMcpMessageFilterResponseExperimental2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

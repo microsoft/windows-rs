@@ -434,7 +434,7 @@ pub struct IHttpBaseProtocolFilter2_Vtbl {
     pub MaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HttpVersion) -> windows_core::HRESULT,
     pub SetMaxVersion: unsafe extern "system" fn(*mut core::ffi::c_void, super::HttpVersion) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xeea64708_3a56_5c18_a348_98e2bd122941);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -445,7 +445,7 @@ pub struct IHttpBaseProtocolFilter3_Vtbl {
     pub CookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCookieUsageBehavior) -> windows_core::HRESULT,
     pub SetCookieUsageBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCookieUsageBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0xa3cf3822_74f8_544f_837b_9d426b2e1f52);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -470,7 +470,7 @@ pub struct IHttpBaseProtocolFilter5_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0xabb2b06a_f25d_5a1f_944d_baf5018069ba);
+windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -483,7 +483,7 @@ pub struct IHttpBaseProtocolFilterStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     CreateForUser: usize,
 }
-windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xe2bc3da4_cced_5a29_aa76_7e5a379b6cb6);
+windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
 impl windows_core::RuntimeType for IHttpCacheControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -496,7 +496,7 @@ pub struct IHttpCacheControl_Vtbl {
     pub WriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HttpCacheWriteBehavior) -> windows_core::HRESULT,
     pub SetWriteBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HttpCacheWriteBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0x281a2e5a_2b56_5d3c_b963_3792a588379f);
+windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
 impl windows_core::RuntimeType for IHttpFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -551,7 +551,7 @@ pub struct IHttpFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SendRequestAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x24fb2ebb_5bb7_5f1d_9ec2_7775b35927fe);
+windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 impl windows_core::RuntimeType for IHttpServerCustomValidationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

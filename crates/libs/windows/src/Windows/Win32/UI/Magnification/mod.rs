@@ -50,9 +50,9 @@ pub unsafe fn MagSetColorEffect(hwnd: super::super::Foundation::HWND, peffect: *
     unsafe { MagSetColorEffect(hwnd, peffect as _) }
 }
 #[inline]
-pub unsafe fn MagSetFullscreenColorEffect(peffect: *mut MAGCOLOREFFECT) -> windows_core::BOOL {
-    windows_core::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : *mut MAGCOLOREFFECT) -> windows_core::BOOL);
-    unsafe { MagSetFullscreenColorEffect(peffect as _) }
+pub unsafe fn MagSetFullscreenColorEffect(peffect: *const MAGCOLOREFFECT) -> windows_core::BOOL {
+    windows_core::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : *const MAGCOLOREFFECT) -> windows_core::BOOL);
+    unsafe { MagSetFullscreenColorEffect(peffect) }
 }
 #[inline]
 pub unsafe fn MagSetFullscreenTransform(maglevel: f32, xoffset: i32, yoffset: i32) -> windows_core::BOOL {

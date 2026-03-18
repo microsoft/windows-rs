@@ -130,12 +130,9 @@ where
     unsafe { GetIScsiIKEInfoW(initiatorname.param().abi(), initiatorportnumber, reserved as _, authinfo as _) }
 }
 #[inline]
-pub unsafe fn GetIScsiInitiatorNodeNameA<P0>(initiatornodename: P0) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameA(initiatornodename : windows_core::PCSTR) -> u32);
-    unsafe { GetIScsiInitiatorNodeNameA(initiatornodename.param().abi()) }
+pub unsafe fn GetIScsiInitiatorNodeNameA(initiatornodename: windows_core::PSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameA(initiatornodename : windows_core::PSTR) -> u32);
+    unsafe { GetIScsiInitiatorNodeNameA(core::mem::transmute(initiatornodename)) }
 }
 #[inline]
 pub unsafe fn GetIScsiInitiatorNodeNameW(initiatornodename: windows_core::PWSTR) -> u32 {
@@ -351,36 +348,24 @@ pub unsafe fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcoun
     unsafe { ReportActiveIScsiTargetMappingsW(buffersize as _, mappingcount as _, mappings as _) }
 }
 #[inline]
-pub unsafe fn ReportISNSServerListA<P1>(buffersizeinchar: *mut u32, buffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportISNSServerListA(buffersizeinchar : *mut u32, buffer : windows_core::PCSTR) -> u32);
-    unsafe { ReportISNSServerListA(buffersizeinchar as _, buffer.param().abi()) }
+pub unsafe fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: windows_core::PSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportISNSServerListA(buffersizeinchar : *mut u32, buffer : windows_core::PSTR) -> u32);
+    unsafe { ReportISNSServerListA(buffersizeinchar as _, core::mem::transmute(buffer)) }
 }
 #[inline]
-pub unsafe fn ReportISNSServerListW<P1>(buffersizeinchar: *mut u32, buffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportISNSServerListW(buffersizeinchar : *mut u32, buffer : windows_core::PCWSTR) -> u32);
-    unsafe { ReportISNSServerListW(buffersizeinchar as _, buffer.param().abi()) }
+pub unsafe fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportISNSServerListW(buffersizeinchar : *mut u32, buffer : windows_core::PWSTR) -> u32);
+    unsafe { ReportISNSServerListW(buffersizeinchar as _, core::mem::transmute(buffer)) }
 }
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListA<P1>(buffersize: *mut u32, buffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListA(buffersize : *mut u32, buffer : windows_core::PCSTR) -> u32);
-    unsafe { ReportIScsiInitiatorListA(buffersize as _, buffer.param().abi()) }
+pub unsafe fn ReportIScsiInitiatorListA(buffersize: *mut u32, buffer: windows_core::PSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListA(buffersize : *mut u32, buffer : windows_core::PSTR) -> u32);
+    unsafe { ReportIScsiInitiatorListA(buffersize as _, core::mem::transmute(buffer)) }
 }
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListW<P1>(buffersize: *mut u32, buffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListW(buffersize : *mut u32, buffer : windows_core::PCWSTR) -> u32);
-    unsafe { ReportIScsiInitiatorListW(buffersize as _, buffer.param().abi()) }
+pub unsafe fn ReportIScsiInitiatorListW(buffersize: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListW(buffersize : *mut u32, buffer : windows_core::PWSTR) -> u32);
+    unsafe { ReportIScsiInitiatorListW(buffersize as _, core::mem::transmute(buffer)) }
 }
 #[inline]
 pub unsafe fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes: *mut u32) -> u32 {
@@ -436,28 +421,19 @@ pub unsafe fn ReportIScsiTargetsA(forceupdate: bool, buffersize: *mut u32, buffe
     unsafe { ReportIScsiTargetsA(forceupdate, buffersize as _, core::mem::transmute(buffer)) }
 }
 #[inline]
-pub unsafe fn ReportIScsiTargetsW<P2>(forceupdate: bool, buffersize: *mut u32, buffer: P2) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsW(forceupdate : bool, buffersize : *mut u32, buffer : windows_core::PCWSTR) -> u32);
-    unsafe { ReportIScsiTargetsW(forceupdate, buffersize as _, buffer.param().abi()) }
+pub unsafe fn ReportIScsiTargetsW(forceupdate: bool, buffersize: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportIScsiTargetsW(forceupdate : bool, buffersize : *mut u32, buffer : windows_core::PWSTR) -> u32);
+    unsafe { ReportIScsiTargetsW(forceupdate, buffersize as _, core::mem::transmute(buffer)) }
 }
 #[inline]
-pub unsafe fn ReportPersistentIScsiDevicesA<P1>(buffersizeinchar: *mut u32, buffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesA(buffersizeinchar : *mut u32, buffer : windows_core::PCSTR) -> u32);
-    unsafe { ReportPersistentIScsiDevicesA(buffersizeinchar as _, buffer.param().abi()) }
+pub unsafe fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: windows_core::PSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesA(buffersizeinchar : *mut u32, buffer : windows_core::PSTR) -> u32);
+    unsafe { ReportPersistentIScsiDevicesA(buffersizeinchar as _, core::mem::transmute(buffer)) }
 }
 #[inline]
-pub unsafe fn ReportPersistentIScsiDevicesW<P1>(buffersizeinchar: *mut u32, buffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesW(buffersizeinchar : *mut u32, buffer : windows_core::PCWSTR) -> u32);
-    unsafe { ReportPersistentIScsiDevicesW(buffersizeinchar as _, buffer.param().abi()) }
+pub unsafe fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesW(buffersizeinchar : *mut u32, buffer : windows_core::PWSTR) -> u32);
+    unsafe { ReportPersistentIScsiDevicesW(buffersizeinchar as _, core::mem::transmute(buffer)) }
 }
 #[inline]
 pub unsafe fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: windows_core::PSTR) -> u32 {
@@ -465,12 +441,9 @@ pub unsafe fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: window
     unsafe { ReportRadiusServerListA(buffersizeinchar as _, core::mem::transmute(buffer)) }
 }
 #[inline]
-pub unsafe fn ReportRadiusServerListW<P1>(buffersizeinchar: *mut u32, buffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("iscsidsc.dll" "system" fn ReportRadiusServerListW(buffersizeinchar : *mut u32, buffer : windows_core::PCWSTR) -> u32);
-    unsafe { ReportRadiusServerListW(buffersizeinchar as _, buffer.param().abi()) }
+pub unsafe fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: windows_core::PWSTR) -> u32 {
+    windows_core::link!("iscsidsc.dll" "system" fn ReportRadiusServerListW(buffersizeinchar : *mut u32, buffer : windows_core::PWSTR) -> u32);
+    unsafe { ReportRadiusServerListW(buffersizeinchar as _, core::mem::transmute(buffer)) }
 }
 #[inline]
 pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
@@ -1608,7 +1581,7 @@ pub const NvCacheTypeNone: NVCACHE_TYPE = NVCACHE_TYPE(1i32);
 pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
 pub const NvCacheTypeWriteBack: NVCACHE_TYPE = NVCACHE_TYPE(2i32);
 pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = NVCACHE_TYPE(3i32);
-pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> i32>;
+pub type PDUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {

@@ -106,9 +106,9 @@ where
     }
 }
 #[inline]
-pub unsafe fn PTReleaseMemory(pbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PTReleaseMemory(pbuffer as _).ok() }
+pub unsafe fn PTReleaseMemory(pbuffer: *const core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { PTReleaseMemory(pbuffer).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

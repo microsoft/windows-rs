@@ -4,9 +4,9 @@ pub unsafe fn SRRemoveRestorePoint(dwrpnum: u32) -> u32 {
     unsafe { SRRemoveRestorePoint(dwrpnum) }
 }
 #[inline]
-pub unsafe fn SRSetRestorePointA(prestoreptspec: *mut RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {
-    windows_core::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *mut RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
-    unsafe { SRSetRestorePointA(prestoreptspec as _, psmgrstatus as _) }
+pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {
+    windows_core::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
+    unsafe { SRSetRestorePointA(prestoreptspec, psmgrstatus as _) }
 }
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {

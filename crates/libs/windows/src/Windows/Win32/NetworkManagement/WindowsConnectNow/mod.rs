@@ -44,10 +44,10 @@ impl IWCNConnectNotify_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWCNConnectNotify {}
-windows_core::imp::define_interface!(IWCNDevice, IWCNDevice_Vtbl, 0xa7aa59fe_8198_5d06_a0fd_2408848f5917);
+windows_core::imp::define_interface!(IWCNDevice, IWCNDevice_Vtbl, 0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
 windows_core::imp::interface_hierarchy!(IWCNDevice, windows_core::IUnknown);
 impl IWCNDevice {
-    pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &mut [u8]) -> windows_core::Result<()> {
+    pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPassword)(windows_core::Interface::as_raw(self), r#type, pbpassword.len().try_into().unwrap(), core::mem::transmute(pbpassword.as_ptr())).ok() }
     }
     pub unsafe fn Connect<P0>(&self, pnotify: P0) -> windows_core::Result<()>
@@ -77,16 +77,16 @@ impl IWCNDevice {
     {
         unsafe { (windows_core::Interface::vtable(self).SetNetworkProfile)(windows_core::Interface::as_raw(self), pszprofilexml.param().abi()).ok() }
     }
-    pub unsafe fn GetVendorExtension(&self, pvendorextspec: *mut WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec as _, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), pdwbufferused as _).ok() }
+    pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &mut [u8], pdwbufferused: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr()), pdwbufferused as _).ok() }
     }
-    pub unsafe fn SetVendorExtension(&self, pvendorextspec: *mut WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &mut [u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec as _, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr())).ok() }
+    pub unsafe fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &[u8]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetVendorExtension)(windows_core::Interface::as_raw(self), pvendorextspec, pbbuffer.len().try_into().unwrap(), core::mem::transmute(pbbuffer.as_ptr())).ok() }
     }
     pub unsafe fn Unadvise(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, pbpassword: &mut [u8], pbremotepublickeyhash: &mut [u8], pbdhkeyblob: &mut [u8]) -> windows_core::Result<()> {
+    pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, pbpassword: &[u8], pbremotepublickeyhash: &[u8], pbdhkeyblob: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetNFCPasswordParams)(windows_core::Interface::as_raw(self), r#type, dwoobpasswordid, pbpassword.len().try_into().unwrap(), core::mem::transmute(pbpassword.as_ptr()), pbremotepublickeyhash.len().try_into().unwrap(), core::mem::transmute(pbremotepublickeyhash.as_ptr()), pbdhkeyblob.len().try_into().unwrap(), core::mem::transmute(pbdhkeyblob.as_ptr())).ok() }
     }
 }
@@ -94,34 +94,34 @@ impl IWCNDevice {
 #[doc(hidden)]
 pub struct IWCNDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetPassword: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_PASSWORD_TYPE, u32, *mut u8) -> windows_core::HRESULT,
+    pub SetPassword: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_PASSWORD_TYPE, u32, *const u8) -> windows_core::HRESULT,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_ATTRIBUTE_TYPE, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetIntegerAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_ATTRIBUTE_TYPE, *mut u32) -> windows_core::HRESULT,
     pub GetStringAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_ATTRIBUTE_TYPE, u32, windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetNetworkProfile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR) -> windows_core::HRESULT,
     pub SetNetworkProfile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetVendorExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WCN_VENDOR_EXTENSION_SPEC, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub SetVendorExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WCN_VENDOR_EXTENSION_SPEC, u32, *mut u8) -> windows_core::HRESULT,
+    pub GetVendorExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *const WCN_VENDOR_EXTENSION_SPEC, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
+    pub SetVendorExtension: unsafe extern "system" fn(*mut core::ffi::c_void, *const WCN_VENDOR_EXTENSION_SPEC, u32, *const u8) -> windows_core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetNFCPasswordParams: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_PASSWORD_TYPE, u32, u32, *mut u8, u32, *mut u8, u32, *mut u8) -> windows_core::HRESULT,
+    pub SetNFCPasswordParams: unsafe extern "system" fn(*mut core::ffi::c_void, WCN_PASSWORD_TYPE, u32, u32, *const u8, u32, *const u8, u32, *const u8) -> windows_core::HRESULT,
 }
 pub trait IWCNDevice_Impl: windows_core::IUnknownImpl {
-    fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *mut u8) -> windows_core::Result<()>;
+    fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> windows_core::Result<()>;
     fn Connect(&self, pnotify: windows_core::Ref<IWCNConnectNotify>) -> windows_core::Result<()>;
     fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::Result<()>;
     fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> windows_core::Result<u32>;
     fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetNetworkProfile(&self, cchmaxstringlength: u32, wszprofile: windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetNetworkProfile(&self, pszprofilexml: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetVendorExtension(&self, pvendorextspec: *mut WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::Result<()>;
-    fn SetVendorExtension(&self, pvendorextspec: *mut WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *mut u8) -> windows_core::Result<()>;
+    fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::Result<()>;
+    fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> windows_core::Result<()>;
     fn Unadvise(&self) -> windows_core::Result<()>;
-    fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *mut u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *mut u8, dwdhkeybloblength: u32, pbdhkeyblob: *mut u8) -> windows_core::Result<()>;
+    fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> windows_core::Result<()>;
 }
 impl IWCNDevice_Vtbl {
     pub const fn new<Identity: IWCNDevice_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetPassword<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPassword<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWCNDevice_Impl::SetPassword(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&dwpasswordlength), core::mem::transmute_copy(&pbpassword)).into()
@@ -169,13 +169,13 @@ impl IWCNDevice_Vtbl {
                 IWCNDevice_Impl::SetNetworkProfile(this, core::mem::transmute(&pszprofilexml)).into()
             }
         }
-        unsafe extern "system" fn GetVendorExtension<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvendorextspec: *mut WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetVendorExtension<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWCNDevice_Impl::GetVendorExtension(this, core::mem::transmute_copy(&pvendorextspec), core::mem::transmute_copy(&dwmaxbuffersize), core::mem::transmute_copy(&pbbuffer), core::mem::transmute_copy(&pdwbufferused)).into()
             }
         }
-        unsafe extern "system" fn SetVendorExtension<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvendorextspec: *mut WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVendorExtension<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWCNDevice_Impl::SetVendorExtension(this, core::mem::transmute_copy(&pvendorextspec), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&pbbuffer)).into()
@@ -187,7 +187,7 @@ impl IWCNDevice_Vtbl {
                 IWCNDevice_Impl::Unadvise(this).into()
             }
         }
-        unsafe extern "system" fn SetNFCPasswordParams<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *mut u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *mut u8, dwdhkeybloblength: u32, pbdhkeyblob: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNFCPasswordParams<Identity: IWCNDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWCNDevice_Impl::SetNFCPasswordParams(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&dwoobpasswordid), core::mem::transmute_copy(&dwpasswordlength), core::mem::transmute_copy(&pbpassword), core::mem::transmute_copy(&dwremotepublickeyhashlength), core::mem::transmute_copy(&pbremotepublickeyhash), core::mem::transmute_copy(&dwdhkeybloblength), core::mem::transmute_copy(&pbdhkeyblob)).into()

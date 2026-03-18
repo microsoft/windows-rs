@@ -13,9 +13,9 @@ pub mod Touch;
 #[cfg(feature = "Win32_UI_Input_XboxController")]
 pub mod XboxController;
 #[inline]
-pub unsafe fn DefRawInputProc(parawinput: *mut *mut RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT {
-    windows_core::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *mut *mut RAWINPUT, ninput : i32, cbsizeheader : u32) -> super::super::Foundation:: LRESULT);
-    unsafe { DefRawInputProc(parawinput as _, ninput, cbsizeheader) }
+pub unsafe fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT {
+    windows_core::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const *const RAWINPUT, ninput : i32, cbsizeheader : u32) -> super::super::Foundation:: LRESULT);
+    unsafe { DefRawInputProc(parawinput, ninput, cbsizeheader) }
 }
 #[inline]
 pub unsafe fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> windows_core::BOOL {
@@ -58,9 +58,9 @@ pub unsafe fn GetRegisteredRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE
     unsafe { GetRegisteredRawInputDevices(prawinputdevices as _, puinumdevices as _, cbsize) }
 }
 #[inline]
-pub unsafe fn RegisterRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : *mut RAWINPUTDEVICE, uinumdevices : u32, cbsize : u32) -> windows_core::BOOL);
-    unsafe { RegisterRawInputDevices(prawinputdevices as _, uinumdevices, cbsize) }
+pub unsafe fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : *const RAWINPUTDEVICE, uinumdevices : u32, cbsize : u32) -> windows_core::BOOL);
+    unsafe { RegisterRawInputDevices(prawinputdevices, uinumdevices, cbsize) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

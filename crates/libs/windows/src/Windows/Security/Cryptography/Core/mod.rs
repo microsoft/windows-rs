@@ -965,7 +965,7 @@ impl windows_core::RuntimeName for HashAlgorithmProvider {
 }
 unsafe impl Send for HashAlgorithmProvider {}
 unsafe impl Sync for HashAlgorithmProvider {}
-windows_core::imp::define_interface!(IAsymmetricAlgorithmNamesStatics, IAsymmetricAlgorithmNamesStatics_Vtbl, 0x51fbb762_b000_55f4_9302_05ba0ad554c4);
+windows_core::imp::define_interface!(IAsymmetricAlgorithmNamesStatics, IAsymmetricAlgorithmNamesStatics_Vtbl, 0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
 impl windows_core::RuntimeType for IAsymmetricAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -992,7 +992,7 @@ pub struct IAsymmetricAlgorithmNamesStatics_Vtbl {
     pub RsaSignPssSha384: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RsaSignPssSha512: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAsymmetricAlgorithmNamesStatics2, IAsymmetricAlgorithmNamesStatics2_Vtbl, 0x3cb5243e_eaad_5bd0_a84c_a0a63702d3b3);
+windows_core::imp::define_interface!(IAsymmetricAlgorithmNamesStatics2, IAsymmetricAlgorithmNamesStatics2_Vtbl, 0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
 impl windows_core::RuntimeType for IAsymmetricAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1004,7 +1004,7 @@ pub struct IAsymmetricAlgorithmNamesStatics2_Vtbl {
     pub EcdsaSha384: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EcdsaSha512: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProvider_Vtbl, 0xce7a114e_c61c_5f2e_8cfb_95e0710e3468);
+windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProvider_Vtbl, 0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
 impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1031,7 +1031,7 @@ pub struct IAsymmetricKeyAlgorithmProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ImportPublicKeyWithBlobType: usize,
 }
-windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProvider2, IAsymmetricKeyAlgorithmProvider2_Vtbl, 0xdbcf0b44_1f0a_5aee_a263_d46955b2750a);
+windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProvider2, IAsymmetricKeyAlgorithmProvider2_Vtbl, 0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
 impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1042,7 +1042,7 @@ pub struct IAsymmetricKeyAlgorithmProvider2_Vtbl {
     pub CreateKeyPairWithCurveName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateKeyPairWithCurveParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProviderStatics, IAsymmetricKeyAlgorithmProviderStatics_Vtbl, 0x8a04868d_26d0_5052_9097_6bc94e6d88db);
+windows_core::imp::define_interface!(IAsymmetricKeyAlgorithmProviderStatics, IAsymmetricKeyAlgorithmProviderStatics_Vtbl, 0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
 impl windows_core::RuntimeType for IAsymmetricKeyAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1052,7 +1052,7 @@ pub struct IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICryptographicEngineStatics, ICryptographicEngineStatics_Vtbl, 0x58d4d9c2_905e_59b0_8f4c_0270af308959);
+windows_core::imp::define_interface!(ICryptographicEngineStatics, ICryptographicEngineStatics_Vtbl, 0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
 impl windows_core::RuntimeType for ICryptographicEngineStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1144,7 +1144,7 @@ pub struct ICryptographicKey_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ExportPublicKeyWithBlobType: usize,
 }
-windows_core::imp::define_interface!(IEccCurveNamesStatics, IEccCurveNamesStatics_Vtbl, 0x5e82cc72_cb8c_56f2_bf1d_6fbd6b959cef);
+windows_core::imp::define_interface!(IEccCurveNamesStatics, IEccCurveNamesStatics_Vtbl, 0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
 impl windows_core::RuntimeType for IEccCurveNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1216,7 +1216,7 @@ pub struct IEncryptedAndAuthenticatedData_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     AuthenticationTag: usize,
 }
-windows_core::imp::define_interface!(IHashAlgorithmNamesStatics, IHashAlgorithmNamesStatics_Vtbl, 0x4383c7b2_d00e_5dd9_89f8_4d57e03ca7f9);
+windows_core::imp::define_interface!(IHashAlgorithmNamesStatics, IHashAlgorithmNamesStatics_Vtbl, 0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
 impl windows_core::RuntimeType for IHashAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1246,7 +1246,7 @@ pub struct IHashAlgorithmProvider_Vtbl {
     HashData: usize,
     pub CreateHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHashAlgorithmProviderStatics, IHashAlgorithmProviderStatics_Vtbl, 0x02c8c543_334c_5382_aa4c_9f8d34bad6b5);
+windows_core::imp::define_interface!(IHashAlgorithmProviderStatics, IHashAlgorithmProviderStatics_Vtbl, 0x9fac9741_5cc4_4336_ae38_6212b75a915a);
 impl windows_core::RuntimeType for IHashAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1256,7 +1256,7 @@ pub struct IHashAlgorithmProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHashComputation, IHashComputation_Vtbl, 0xbdb21c19_29db_556d_ae48_aaa9cd802969);
+windows_core::imp::define_interface!(IHashComputation, IHashComputation_Vtbl, 0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
 impl windows_core::RuntimeType for IHashComputation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1273,7 +1273,7 @@ pub struct IHashComputation_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetValueAndReset: usize,
 }
-windows_core::imp::define_interface!(IKeyDerivationAlgorithmNamesStatics, IKeyDerivationAlgorithmNamesStatics_Vtbl, 0xd2787858_f0c6_58a1_bc42_166b2b4638c4);
+windows_core::imp::define_interface!(IKeyDerivationAlgorithmNamesStatics, IKeyDerivationAlgorithmNamesStatics_Vtbl, 0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1297,7 +1297,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics_Vtbl {
     pub Sp80056aConcatSha384: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Sp80056aConcatSha512: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyDerivationAlgorithmNamesStatics2, IKeyDerivationAlgorithmNamesStatics2_Vtbl, 0x3f1ccac9_44f2_547c_896f_b64bca1ea5ed);
+windows_core::imp::define_interface!(IKeyDerivationAlgorithmNamesStatics2, IKeyDerivationAlgorithmNamesStatics2_Vtbl, 0x57953fab_6044_466f_97f4_337b7808384d);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1311,7 +1311,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics2_Vtbl {
     pub CapiKdfSha384: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CapiKdfSha512: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyDerivationAlgorithmProvider, IKeyDerivationAlgorithmProvider_Vtbl, 0xb2a77a53_8620_5075_b2be_fab0a85ccdeb);
+windows_core::imp::define_interface!(IKeyDerivationAlgorithmProvider, IKeyDerivationAlgorithmProvider_Vtbl, 0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1325,7 +1325,7 @@ pub struct IKeyDerivationAlgorithmProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateKey: usize,
 }
-windows_core::imp::define_interface!(IKeyDerivationAlgorithmProviderStatics, IKeyDerivationAlgorithmProviderStatics_Vtbl, 0xf37cfa8c_00fa_5a09_89bc_883b33a02292);
+windows_core::imp::define_interface!(IKeyDerivationAlgorithmProviderStatics, IKeyDerivationAlgorithmProviderStatics_Vtbl, 0x0a22097a_0a1c_443b_9418_b9498aeb1603);
 impl windows_core::RuntimeType for IKeyDerivationAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1353,7 +1353,7 @@ pub struct IKeyDerivationParameters_Vtbl {
     SetKdfGenericBinary: usize,
     pub IterationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyDerivationParameters2, IKeyDerivationParameters2_Vtbl, 0xf7fa3155_f6c4_5bf8_b84a_068e917bef3e);
+windows_core::imp::define_interface!(IKeyDerivationParameters2, IKeyDerivationParameters2_Vtbl, 0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
 impl windows_core::RuntimeType for IKeyDerivationParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1395,7 +1395,7 @@ pub struct IKeyDerivationParametersStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BuildForCapi1Kdf: unsafe extern "system" fn(*mut core::ffi::c_void, Capi1KdfTargetAlgorithm, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMacAlgorithmNamesStatics, IMacAlgorithmNamesStatics_Vtbl, 0xb0002931_bb35_5c9d_bfd8_2c3dd44a8b8a);
+windows_core::imp::define_interface!(IMacAlgorithmNamesStatics, IMacAlgorithmNamesStatics_Vtbl, 0x41412678_fb1e_43a4_895e_a9026e4390a3);
 impl windows_core::RuntimeType for IMacAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1438,7 +1438,7 @@ pub struct IMacAlgorithmProvider2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateHash: usize,
 }
-windows_core::imp::define_interface!(IMacAlgorithmProviderStatics, IMacAlgorithmProviderStatics_Vtbl, 0x2a1b0bda_e76f_56df_8a37_8bbd4c4071b8);
+windows_core::imp::define_interface!(IMacAlgorithmProviderStatics, IMacAlgorithmProviderStatics_Vtbl, 0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
 impl windows_core::RuntimeType for IMacAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1465,7 +1465,7 @@ pub struct IPersistedKeyProviderStatics_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     OpenPublicKeyFromCertificate: usize,
 }
-windows_core::imp::define_interface!(ISymmetricAlgorithmNamesStatics, ISymmetricAlgorithmNamesStatics_Vtbl, 0x66e6ae68_346c_5e61_bdb0_d97a4bec22b4);
+windows_core::imp::define_interface!(ISymmetricAlgorithmNamesStatics, ISymmetricAlgorithmNamesStatics_Vtbl, 0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
 impl windows_core::RuntimeType for ISymmetricAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1493,7 +1493,7 @@ pub struct ISymmetricAlgorithmNamesStatics_Vtbl {
     pub Rc2EcbPkcs7: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Rc4: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProvider_Vtbl, 0x06f245e4_95f9_5d07_96e4_7b044b6c0d3a);
+windows_core::imp::define_interface!(ISymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProvider_Vtbl, 0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 impl windows_core::RuntimeType for ISymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1508,7 +1508,7 @@ pub struct ISymmetricKeyAlgorithmProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateSymmetricKey: usize,
 }
-windows_core::imp::define_interface!(ISymmetricKeyAlgorithmProviderStatics, ISymmetricKeyAlgorithmProviderStatics_Vtbl, 0xd268f452_7a67_5dd0_a609_05ff6c1cf9eb);
+windows_core::imp::define_interface!(ISymmetricKeyAlgorithmProviderStatics, ISymmetricKeyAlgorithmProviderStatics_Vtbl, 0x8d3b2326_1f37_491f_b60e_f5431b26b483);
 impl windows_core::RuntimeType for ISymmetricKeyAlgorithmProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

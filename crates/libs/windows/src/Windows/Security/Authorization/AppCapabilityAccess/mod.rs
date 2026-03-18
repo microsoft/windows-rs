@@ -143,7 +143,7 @@ impl windows_core::TypeKind for AppCapabilityAccessStatus {
 impl windows_core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
 }
-windows_core::imp::define_interface!(IAppCapability, IAppCapability_Vtbl, 0xbf0da2ca_09b6_56f6_b36e_a729af710d95);
+windows_core::imp::define_interface!(IAppCapability, IAppCapability_Vtbl, 0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 impl windows_core::RuntimeType for IAppCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -161,7 +161,7 @@ pub struct IAppCapability_Vtbl {
     pub AccessChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAccessChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppCapability2, IAppCapability2_Vtbl, 0xf3e1c648_5120_57db_ba80_3dfc1669a6bc);
+windows_core::imp::define_interface!(IAppCapability2, IAppCapability2_Vtbl, 0x11c7ccb6_c74f_50a3_b960_88008767d939);
 impl windows_core::RuntimeType for IAppCapability2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -181,7 +181,7 @@ impl windows_core::RuntimeType for IAppCapabilityAccessChangedEventArgs {
 pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IAppCapabilityStatics, IAppCapabilityStatics_Vtbl, 0xa6223331_0178_59ed_90dc_3bd798a62530);
+windows_core::imp::define_interface!(IAppCapabilityStatics, IAppCapabilityStatics_Vtbl, 0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
 impl windows_core::RuntimeType for IAppCapabilityStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

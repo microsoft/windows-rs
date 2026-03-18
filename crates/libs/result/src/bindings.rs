@@ -41,7 +41,7 @@ pub type HEAP_FLAGS = u32;
 pub type HINSTANCE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub type HRESULT = i32;
-pub const IID_IErrorInfo: GUID = GUID::from_u128(0x5f866352_aa73_59df_ac65_23d039055e21);
+pub const IID_IErrorInfo: GUID = GUID::from_u128(0x1cf2b120_547d_101b_8e65_08002b2bd119);
 #[repr(C)]
 pub struct IErrorInfo_Vtbl {
     pub base__: IUnknown_Vtbl,

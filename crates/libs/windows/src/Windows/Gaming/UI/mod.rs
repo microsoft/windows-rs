@@ -280,7 +280,7 @@ impl windows_core::RuntimeName for GameUIProviderActivatedEventArgs {
 unsafe impl Send for GameUIProviderActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl Sync for GameUIProviderActivatedEventArgs {}
-windows_core::imp::define_interface!(IGameBarStatics, IGameBarStatics_Vtbl, 0xb7815704_6a1f_54c9_9bc3_8a3eb5bb80c1);
+windows_core::imp::define_interface!(IGameBarStatics, IGameBarStatics_Vtbl, 0x1db9a292_cc78_4173_be45_b61e67283ea7);
 impl windows_core::RuntimeType for IGameBarStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -295,7 +295,7 @@ pub struct IGameBarStatics_Vtbl {
     pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsInputRedirected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameChatMessageReceivedEventArgs, IGameChatMessageReceivedEventArgs_Vtbl, 0xbeb2801d_bbe2_5db1_a65f_3c5806797553);
+windows_core::imp::define_interface!(IGameChatMessageReceivedEventArgs, IGameChatMessageReceivedEventArgs_Vtbl, 0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
 impl windows_core::RuntimeType for IGameChatMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -309,7 +309,7 @@ pub struct IGameChatMessageReceivedEventArgs_Vtbl {
     pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Origin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameChatMessageOrigin) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameChatOverlay, IGameChatOverlay_Vtbl, 0x3b787f9d_e861_58e6_88a9_d139141e798a);
+windows_core::imp::define_interface!(IGameChatOverlay, IGameChatOverlay_Vtbl, 0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
 impl windows_core::RuntimeType for IGameChatOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

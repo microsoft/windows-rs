@@ -9,9 +9,9 @@ pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> windows_core::
     unsafe { GetFilterVersion(pver as _) }
 }
 #[inline]
-pub unsafe fn HttpExtensionProc(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32 {
-    windows_core::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *mut EXTENSION_CONTROL_BLOCK) -> u32);
-    unsafe { HttpExtensionProc(pecb as _) }
+pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
+    windows_core::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
+    unsafe { HttpExtensionProc(pecb) }
 }
 #[inline]
 pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut core::ffi::c_void) -> u32 {
@@ -29,7 +29,7 @@ pub const ASP_MD_ID_BEGIN_RESERVED: u32 = 28672u32;
 pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
 pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 pub const ASP_MD_UT_APP: u32 = 101u32;
-windows_core::imp::define_interface!(AsyncIFtpAuthenticationProvider, AsyncIFtpAuthenticationProvider_Vtbl, 0x3d607bb9_c6b7_551f_883b_06325418bb8f);
+windows_core::imp::define_interface!(AsyncIFtpAuthenticationProvider, AsyncIFtpAuthenticationProvider_Vtbl, 0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
 windows_core::imp::interface_hierarchy!(AsyncIFtpAuthenticationProvider, windows_core::IUnknown);
 impl AsyncIFtpAuthenticationProvider {
     pub unsafe fn Begin_AuthenticateUser<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszpassword: P3) -> windows_core::Result<()>
@@ -81,7 +81,7 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIFtpAuthenticationProvider {}
-windows_core::imp::define_interface!(AsyncIFtpAuthorizationProvider, AsyncIFtpAuthorizationProvider_Vtbl, 0x80b5f796_8d62_5172_84d7_7d973a91a401);
+windows_core::imp::define_interface!(AsyncIFtpAuthorizationProvider, AsyncIFtpAuthorizationProvider_Vtbl, 0x860dc339_07e5_4a5c_9c61_8820cea012bc);
 windows_core::imp::interface_hierarchy!(AsyncIFtpAuthorizationProvider, windows_core::IUnknown);
 impl AsyncIFtpAuthorizationProvider {
     pub unsafe fn Begin_GetUserAccessPermission<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszvirtualpath: P2, pszusername: P3) -> windows_core::Result<()>
@@ -142,7 +142,7 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIFtpAuthorizationProvider {}
-windows_core::imp::define_interface!(AsyncIFtpHomeDirectoryProvider, AsyncIFtpHomeDirectoryProvider_Vtbl, 0x883b3307_3ad2_5b4d_a466_fc5565ea4a07);
+windows_core::imp::define_interface!(AsyncIFtpHomeDirectoryProvider, AsyncIFtpHomeDirectoryProvider_Vtbl, 0x73f81638_6295_42bd_a2be_4a657f7c479c);
 windows_core::imp::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, windows_core::IUnknown);
 impl AsyncIFtpHomeDirectoryProvider {
     pub unsafe fn Begin_GetUserHomeDirectoryData<P0, P1, P2>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2) -> windows_core::Result<()>
@@ -202,11 +202,11 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIFtpHomeDirectoryProvider {}
-windows_core::imp::define_interface!(AsyncIFtpLogProvider, AsyncIFtpLogProvider_Vtbl, 0xce311512_c16f_5940_9747_8552d69bd97e);
+windows_core::imp::define_interface!(AsyncIFtpLogProvider, AsyncIFtpLogProvider_Vtbl, 0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
 windows_core::imp::interface_hierarchy!(AsyncIFtpLogProvider, windows_core::IUnknown);
 impl AsyncIFtpLogProvider {
-    pub unsafe fn Begin_Log(&self, ploggingparameters: *mut LOGGING_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Begin_Log)(windows_core::Interface::as_raw(self), ploggingparameters as _).ok() }
+    pub unsafe fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Begin_Log)(windows_core::Interface::as_raw(self), ploggingparameters).ok() }
     }
     pub unsafe fn Finish_Log(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Finish_Log)(windows_core::Interface::as_raw(self)).ok() }
@@ -216,16 +216,16 @@ impl AsyncIFtpLogProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpLogProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Begin_Log: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LOGGING_PARAMETERS) -> windows_core::HRESULT,
+    pub Begin_Log: unsafe extern "system" fn(*mut core::ffi::c_void, *const LOGGING_PARAMETERS) -> windows_core::HRESULT,
     pub Finish_Log: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait AsyncIFtpLogProvider_Impl: windows_core::IUnknownImpl {
-    fn Begin_Log(&self, ploggingparameters: *mut LOGGING_PARAMETERS) -> windows_core::Result<()>;
+    fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::Result<()>;
     fn Finish_Log(&self) -> windows_core::Result<()>;
 }
 impl AsyncIFtpLogProvider_Vtbl {
     pub const fn new<Identity: AsyncIFtpLogProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_Log<Identity: AsyncIFtpLogProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ploggingparameters: *mut LOGGING_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_Log<Identity: AsyncIFtpLogProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIFtpLogProvider_Impl::Begin_Log(this, core::mem::transmute_copy(&ploggingparameters)).into()
@@ -248,11 +248,11 @@ impl AsyncIFtpLogProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIFtpLogProvider {}
-windows_core::imp::define_interface!(AsyncIFtpPostprocessProvider, AsyncIFtpPostprocessProvider_Vtbl, 0xd4ae699e_57eb_5f57_9afa_25ffa0d08f5e);
+windows_core::imp::define_interface!(AsyncIFtpPostprocessProvider, AsyncIFtpPostprocessProvider_Vtbl, 0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
 windows_core::imp::interface_hierarchy!(AsyncIFtpPostprocessProvider, windows_core::IUnknown);
 impl AsyncIFtpPostprocessProvider {
-    pub unsafe fn Begin_HandlePostprocess(&self, ppostprocessparameters: *mut POST_PROCESS_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Begin_HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters as _).ok() }
+    pub unsafe fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Begin_HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters).ok() }
     }
     pub unsafe fn Finish_HandlePostprocess(&self) -> windows_core::Result<FTP_PROCESS_STATUS> {
         unsafe {
@@ -265,16 +265,16 @@ impl AsyncIFtpPostprocessProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpPostprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Begin_HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut POST_PROCESS_PARAMETERS) -> windows_core::HRESULT,
+    pub Begin_HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const POST_PROCESS_PARAMETERS) -> windows_core::HRESULT,
     pub Finish_HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
 }
 pub trait AsyncIFtpPostprocessProvider_Impl: windows_core::IUnknownImpl {
-    fn Begin_HandlePostprocess(&self, ppostprocessparameters: *mut POST_PROCESS_PARAMETERS) -> windows_core::Result<()>;
+    fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::Result<()>;
     fn Finish_HandlePostprocess(&self) -> windows_core::Result<FTP_PROCESS_STATUS>;
 }
 impl AsyncIFtpPostprocessProvider_Vtbl {
     pub const fn new<Identity: AsyncIFtpPostprocessProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_HandlePostprocess<Identity: AsyncIFtpPostprocessProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppostprocessparameters: *mut POST_PROCESS_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_HandlePostprocess<Identity: AsyncIFtpPostprocessProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIFtpPostprocessProvider_Impl::Begin_HandlePostprocess(this, core::mem::transmute_copy(&ppostprocessparameters)).into()
@@ -358,7 +358,7 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIFtpPreprocessProvider {}
-windows_core::imp::define_interface!(AsyncIFtpRoleProvider, AsyncIFtpRoleProvider_Vtbl, 0x8a8e10fc_068c_5bf4_b933_36d90b4d8aae);
+windows_core::imp::define_interface!(AsyncIFtpRoleProvider, AsyncIFtpRoleProvider_Vtbl, 0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
 windows_core::imp::interface_hierarchy!(AsyncIFtpRoleProvider, windows_core::IUnknown);
 impl AsyncIFtpRoleProvider {
     pub unsafe fn Begin_IsUserInRole<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszrole: P3) -> windows_core::Result<()>
@@ -419,10 +419,10 @@ impl AsyncIFtpRoleProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIFtpRoleProvider {}
-windows_core::imp::define_interface!(AsyncIMSAdminBaseSinkW, AsyncIMSAdminBaseSinkW_Vtbl, 0xcad1a371_a12c_5f8b_8e0f_dc02d10cd682);
+windows_core::imp::define_interface!(AsyncIMSAdminBaseSinkW, AsyncIMSAdminBaseSinkW_Vtbl, 0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
 windows_core::imp::interface_hierarchy!(AsyncIMSAdminBaseSinkW, windows_core::IUnknown);
 impl AsyncIMSAdminBaseSinkW {
-    pub unsafe fn Begin_SinkNotify(&self, pcochangelist: &mut [MD_CHANGE_OBJECT_W]) -> windows_core::Result<()> {
+    pub unsafe fn Begin_SinkNotify(&self, pcochangelist: &[MD_CHANGE_OBJECT_W]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Begin_SinkNotify)(windows_core::Interface::as_raw(self), pcochangelist.len().try_into().unwrap(), core::mem::transmute(pcochangelist.as_ptr())).ok() }
     }
     pub unsafe fn Finish_SinkNotify(&self) -> windows_core::Result<()> {
@@ -439,20 +439,20 @@ impl AsyncIMSAdminBaseSinkW {
 #[doc(hidden)]
 pub struct AsyncIMSAdminBaseSinkW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Begin_SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
+    pub Begin_SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
     pub Finish_SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Begin_ShutdownNotify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Finish_ShutdownNotify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait AsyncIMSAdminBaseSinkW_Impl: windows_core::IUnknownImpl {
-    fn Begin_SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *mut MD_CHANGE_OBJECT_W) -> windows_core::Result<()>;
+    fn Begin_SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> windows_core::Result<()>;
     fn Finish_SinkNotify(&self) -> windows_core::Result<()>;
     fn Begin_ShutdownNotify(&self) -> windows_core::Result<()>;
     fn Finish_ShutdownNotify(&self) -> windows_core::Result<()>;
 }
 impl AsyncIMSAdminBaseSinkW_Vtbl {
     pub const fn new<Identity: AsyncIMSAdminBaseSinkW_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_SinkNotify<Identity: AsyncIMSAdminBaseSinkW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *mut MD_CHANGE_OBJECT_W) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_SinkNotify<Identity: AsyncIMSAdminBaseSinkW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 AsyncIMSAdminBaseSinkW_Impl::Begin_SinkNotify(this, core::mem::transmute_copy(&dwmdnumelements), core::mem::transmute_copy(&pcochangelist)).into()
@@ -1043,7 +1043,7 @@ pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(2i32);
 pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(19i32);
 pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(21i32);
 pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(18i32);
-windows_core::imp::define_interface!(IADMEXT, IADMEXT_Vtbl, 0x1b298212_b305_5c8a_8bb6_0c4ca0c96b58);
+windows_core::imp::define_interface!(IADMEXT, IADMEXT_Vtbl, 0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
 windows_core::imp::interface_hierarchy!(IADMEXT, windows_core::IUnknown);
 impl IADMEXT {
     pub unsafe fn Initialize(&self) -> windows_core::Result<()> {
@@ -1101,7 +1101,7 @@ impl IADMEXT_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IADMEXT {}
-windows_core::imp::define_interface!(IFtpAuthenticationProvider, IFtpAuthenticationProvider_Vtbl, 0x7a880c1f_71b3_57f6_84a6_ca8172538e10);
+windows_core::imp::define_interface!(IFtpAuthenticationProvider, IFtpAuthenticationProvider_Vtbl, 0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
 windows_core::imp::interface_hierarchy!(IFtpAuthenticationProvider, windows_core::IUnknown);
 impl IFtpAuthenticationProvider {
     pub unsafe fn AuthenticateUser<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszpassword: P3, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::Result<()>
@@ -1184,7 +1184,7 @@ impl IFtpAuthorizationProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFtpAuthorizationProvider {}
-windows_core::imp::define_interface!(IFtpHomeDirectoryProvider, IFtpHomeDirectoryProvider_Vtbl, 0x08bdf63d_d45e_5e67_97cb_cb66adf1c3de);
+windows_core::imp::define_interface!(IFtpHomeDirectoryProvider, IFtpHomeDirectoryProvider_Vtbl, 0x0933b392_18dd_4097_8b9c_83325c35d9a6);
 windows_core::imp::interface_hierarchy!(IFtpHomeDirectoryProvider, windows_core::IUnknown);
 impl IFtpHomeDirectoryProvider {
     pub unsafe fn GetUserHomeDirectoryData<P0, P1, P2>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2) -> windows_core::Result<windows_core::PWSTR>
@@ -1229,25 +1229,25 @@ impl IFtpHomeDirectoryProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFtpHomeDirectoryProvider {}
-windows_core::imp::define_interface!(IFtpLogProvider, IFtpLogProvider_Vtbl, 0xcd7743e0_701c_51b9_9748_00a2787469f4);
+windows_core::imp::define_interface!(IFtpLogProvider, IFtpLogProvider_Vtbl, 0xa18a94cc_8299_4408_816c_7c3baca1a40e);
 windows_core::imp::interface_hierarchy!(IFtpLogProvider, windows_core::IUnknown);
 impl IFtpLogProvider {
-    pub unsafe fn Log(&self, ploggingparameters: *mut LOGGING_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), ploggingparameters as _).ok() }
+    pub unsafe fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), ploggingparameters).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFtpLogProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LOGGING_PARAMETERS) -> windows_core::HRESULT,
+    pub Log: unsafe extern "system" fn(*mut core::ffi::c_void, *const LOGGING_PARAMETERS) -> windows_core::HRESULT,
 }
 pub trait IFtpLogProvider_Impl: windows_core::IUnknownImpl {
-    fn Log(&self, ploggingparameters: *mut LOGGING_PARAMETERS) -> windows_core::Result<()>;
+    fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::Result<()>;
 }
 impl IFtpLogProvider_Vtbl {
     pub const fn new<Identity: IFtpLogProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Log<Identity: IFtpLogProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ploggingparameters: *mut LOGGING_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Log<Identity: IFtpLogProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFtpLogProvider_Impl::Log(this, core::mem::transmute_copy(&ploggingparameters)).into()
@@ -1260,28 +1260,37 @@ impl IFtpLogProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFtpLogProvider {}
-windows_core::imp::define_interface!(IFtpPostprocessProvider, IFtpPostprocessProvider_Vtbl, 0xada2074b_fea6_5f59_8485_8c5b77de96e7);
+windows_core::imp::define_interface!(IFtpPostprocessProvider, IFtpPostprocessProvider_Vtbl, 0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
 windows_core::imp::interface_hierarchy!(IFtpPostprocessProvider, windows_core::IUnknown);
 impl IFtpPostprocessProvider {
-    pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *mut POST_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters as _, pftpprocessstatus as _).ok() }
+    pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).HandlePostprocess)(windows_core::Interface::as_raw(self), ppostprocessparameters, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFtpPostprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut POST_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
+    pub HandlePostprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const POST_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
 }
 pub trait IFtpPostprocessProvider_Impl: windows_core::IUnknownImpl {
-    fn HandlePostprocess(&self, ppostprocessparameters: *mut POST_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::Result<()>;
+    fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS>;
 }
 impl IFtpPostprocessProvider_Vtbl {
     pub const fn new<Identity: IFtpPostprocessProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn HandlePostprocess<Identity: IFtpPostprocessProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppostprocessparameters: *mut POST_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn HandlePostprocess<Identity: IFtpPostprocessProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppostprocessparameters: *const POST_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFtpPostprocessProvider_Impl::HandlePostprocess(this, core::mem::transmute_copy(&ppostprocessparameters), core::mem::transmute_copy(&pftpprocessstatus)).into()
+                match IFtpPostprocessProvider_Impl::HandlePostprocess(this, core::mem::transmute_copy(&ppostprocessparameters)) {
+                    Ok(ok__) => {
+                        pftpprocessstatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePostprocess: HandlePostprocess::<Identity, OFFSET> }
@@ -1291,28 +1300,37 @@ impl IFtpPostprocessProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFtpPostprocessProvider {}
-windows_core::imp::define_interface!(IFtpPreprocessProvider, IFtpPreprocessProvider_Vtbl, 0x89054afc_5096_5e42_9026_3bbb99fe55d6);
+windows_core::imp::define_interface!(IFtpPreprocessProvider, IFtpPreprocessProvider_Vtbl, 0xa3c19b60_5a28_471a_8f93_ab30411cee82);
 windows_core::imp::interface_hierarchy!(IFtpPreprocessProvider, windows_core::IUnknown);
 impl IFtpPreprocessProvider {
-    pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *mut PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).HandlePreprocess)(windows_core::Interface::as_raw(self), ppreprocessparameters as _, pftpprocessstatus as _).ok() }
+    pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).HandlePreprocess)(windows_core::Interface::as_raw(self), ppreprocessparameters, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFtpPreprocessProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PRE_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
+    pub HandlePreprocess: unsafe extern "system" fn(*mut core::ffi::c_void, *const PRE_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT,
 }
 pub trait IFtpPreprocessProvider_Impl: windows_core::IUnknownImpl {
-    fn HandlePreprocess(&self, ppreprocessparameters: *mut PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::Result<()>;
+    fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> windows_core::Result<FTP_PROCESS_STATUS>;
 }
 impl IFtpPreprocessProvider_Vtbl {
     pub const fn new<Identity: IFtpPreprocessProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn HandlePreprocess<Identity: IFtpPreprocessProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppreprocessparameters: *mut PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn HandlePreprocess<Identity: IFtpPreprocessProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFtpPreprocessProvider_Impl::HandlePreprocess(this, core::mem::transmute_copy(&ppreprocessparameters), core::mem::transmute_copy(&pftpprocessstatus)).into()
+                match IFtpPreprocessProvider_Impl::HandlePreprocess(this, core::mem::transmute_copy(&ppreprocessparameters)) {
+                    Ok(ok__) => {
+                        pftpprocessstatus.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePreprocess: HandlePreprocess::<Identity, OFFSET> }
@@ -1322,12 +1340,12 @@ impl IFtpPreprocessProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFtpPreprocessProvider {}
-windows_core::imp::define_interface!(IFtpProviderConstruct, IFtpProviderConstruct_Vtbl, 0xd971af93_53b8_5c82_86f8_85628240b9fe);
+windows_core::imp::define_interface!(IFtpProviderConstruct, IFtpProviderConstruct_Vtbl, 0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
 windows_core::imp::interface_hierarchy!(IFtpProviderConstruct, windows_core::IUnknown);
 impl IFtpProviderConstruct {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Construct(&self, configurationentries: *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Construct)(windows_core::Interface::as_raw(self), configurationentries as _).ok() }
+    pub unsafe fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Construct)(windows_core::Interface::as_raw(self), configurationentries).ok() }
     }
 }
 #[repr(C)]
@@ -1335,18 +1353,18 @@ impl IFtpProviderConstruct {
 pub struct IFtpProviderConstruct_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Construct: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Com::SAFEARRAY) -> windows_core::HRESULT,
+    pub Construct: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Com::SAFEARRAY) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Construct: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFtpProviderConstruct_Impl: windows_core::IUnknownImpl {
-    fn Construct(&self, configurationentries: *mut super::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFtpProviderConstruct_Vtbl {
     pub const fn new<Identity: IFtpProviderConstruct_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Construct<Identity: IFtpProviderConstruct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configurationentries: *mut super::Com::SAFEARRAY) -> windows_core::HRESULT {
+        unsafe extern "system" fn Construct<Identity: IFtpProviderConstruct_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configurationentries: *const super::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFtpProviderConstruct_Impl::Construct(this, core::mem::transmute_copy(&configurationentries)).into()
@@ -1499,7 +1517,7 @@ pub const IMGLOAD_NOTLOADED: u32 = 1048576u32;
 pub const IMGLOAD_STOPPED: u32 = 4194304u32;
 pub const IMGTRANS_MASK: u32 = 536870912u32;
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
-windows_core::imp::define_interface!(IMSAdminBase2W, IMSAdminBase2W_Vtbl, 0x85ec1ca9_5f70_5d11_8d5e_ed417b0a476b);
+windows_core::imp::define_interface!(IMSAdminBase2W, IMSAdminBase2W_Vtbl, 0x8298d101_f992_43b7_8eca_5052d885b995);
 impl core::ops::Deref for IMSAdminBase2W {
     type Target = IMSAdminBaseW;
     fn deref(&self) -> &Self::Target {
@@ -1621,7 +1639,7 @@ impl IMSAdminBase2W_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMSAdminBase2W {}
-windows_core::imp::define_interface!(IMSAdminBase3W, IMSAdminBase3W_Vtbl, 0x13ba1486_9cac_5193_aa96_7431bf034bdd);
+windows_core::imp::define_interface!(IMSAdminBase3W, IMSAdminBase3W_Vtbl, 0xf612954d_3b0b_4c56_9563_227b7be624b4);
 impl core::ops::Deref for IMSAdminBase3W {
     type Target = IMSAdminBase2W;
     fn deref(&self) -> &Self::Target {
@@ -1661,10 +1679,10 @@ impl IMSAdminBase3W_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMSAdminBase3W {}
-windows_core::imp::define_interface!(IMSAdminBaseSinkW, IMSAdminBaseSinkW_Vtbl, 0x7cfd4f67_f2a7_5024_a6bd_155046b6bfd1);
+windows_core::imp::define_interface!(IMSAdminBaseSinkW, IMSAdminBaseSinkW_Vtbl, 0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
 windows_core::imp::interface_hierarchy!(IMSAdminBaseSinkW, windows_core::IUnknown);
 impl IMSAdminBaseSinkW {
-    pub unsafe fn SinkNotify(&self, pcochangelist: &mut [MD_CHANGE_OBJECT_W]) -> windows_core::Result<()> {
+    pub unsafe fn SinkNotify(&self, pcochangelist: &[MD_CHANGE_OBJECT_W]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SinkNotify)(windows_core::Interface::as_raw(self), pcochangelist.len().try_into().unwrap(), core::mem::transmute(pcochangelist.as_ptr())).ok() }
     }
     pub unsafe fn ShutdownNotify(&self) -> windows_core::Result<()> {
@@ -1675,16 +1693,16 @@ impl IMSAdminBaseSinkW {
 #[doc(hidden)]
 pub struct IMSAdminBaseSinkW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
+    pub SinkNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT,
     pub ShutdownNotify: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMSAdminBaseSinkW_Impl: windows_core::IUnknownImpl {
-    fn SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *mut MD_CHANGE_OBJECT_W) -> windows_core::Result<()>;
+    fn SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> windows_core::Result<()>;
     fn ShutdownNotify(&self) -> windows_core::Result<()>;
 }
 impl IMSAdminBaseSinkW_Vtbl {
     pub const fn new<Identity: IMSAdminBaseSinkW_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SinkNotify<Identity: IMSAdminBaseSinkW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *mut MD_CHANGE_OBJECT_W) -> windows_core::HRESULT {
+        unsafe extern "system" fn SinkNotify<Identity: IMSAdminBaseSinkW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMSAdminBaseSinkW_Impl::SinkNotify(this, core::mem::transmute_copy(&dwmdnumelements), core::mem::transmute_copy(&pcochangelist)).into()
@@ -2212,7 +2230,7 @@ impl IMSAdminBaseW_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMSAdminBaseW {}
-windows_core::imp::define_interface!(IMSImpExpHelpW, IMSImpExpHelpW_Vtbl, 0x648c148e_1b7b_55c5_ab5c_550f3c0a43e2);
+windows_core::imp::define_interface!(IMSImpExpHelpW, IMSImpExpHelpW_Vtbl, 0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
 windows_core::imp::interface_hierarchy!(IMSImpExpHelpW, windows_core::IUnknown);
 impl IMSImpExpHelpW {
     pub unsafe fn EnumeratePathsInFile<P0, P1>(&self, pszfilename: P0, pszkeytype: P1, pszbuffer: &mut [u16], pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>

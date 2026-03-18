@@ -290,7 +290,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsMediaLibrarySharingDeviceProperty {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWindowsMediaLibrarySharingDevices, IWindowsMediaLibrarySharingDevices_Vtbl, 0xd4faad90_93fd_565b_b0c3_d3564984bfdb);
+windows_core::imp::define_interface!(IWindowsMediaLibrarySharingDevices, IWindowsMediaLibrarySharingDevices_Vtbl, 0x1803f9d6_fe6d_4546_bf5b_992fe8ec12d1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWindowsMediaLibrarySharingDevices {
     type Target = super::super::System::Com::IDispatch;
@@ -389,7 +389,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWindowsMediaLibrarySharingDevices {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWindowsMediaLibrarySharingServices, IWindowsMediaLibrarySharingServices_Vtbl, 0xfdafa912_f736_5012_8241_d7d53df24b49);
+windows_core::imp::define_interface!(IWindowsMediaLibrarySharingServices, IWindowsMediaLibrarySharingServices_Vtbl, 0x01f5f85e_0a81_40da_a7c8_21ef3af8440c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWindowsMediaLibrarySharingServices {
     type Target = super::super::System::Com::IDispatch;

@@ -18,10 +18,10 @@ windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveFtRoot(servername : w
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveFtRootForced(domainname : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, rootshare : windows_sys::core::PCWSTR, ftdfsname : windows_sys::core::PCWSTR, flags : u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveRootTarget(pdfspath : windows_sys::core::PCWSTR, ptargetpath : windows_sys::core::PCWSTR, flags : u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveStdRoot(servername : windows_sys::core::PCWSTR, rootshare : windows_sys::core::PCWSTR, flags : u32) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetDfsSetClientInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *mut u8) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetDfsSetClientInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *const u8) -> u32);
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsSetFtContainerSecurity(domainname : windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
-windows_link::link!("netapi32.dll" "system" fn NetDfsSetInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *mut u8) -> u32);
+windows_link::link!("netapi32.dll" "system" fn NetDfsSetInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *const u8) -> u32);
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
 #[cfg(feature = "Win32_Security")]

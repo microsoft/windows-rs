@@ -7,12 +7,12 @@ where
     unsafe { CallNamedPipeA(lpnamedpipename.param().abi(), lpinbuffer, ninbuffersize, lpoutbuffer as _, noutbuffersize, lpbytesread as _, ntimeout) }
 }
 #[inline]
-pub unsafe fn CallNamedPipeW<P0>(lpnamedpipename: P0, lpinbuffer: *mut core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> windows_core::BOOL
+pub unsafe fn CallNamedPipeW<P0>(lpnamedpipename: P0, lpinbuffer: *const core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, noutbuffersize: u32, lpbytesread: *mut u32, ntimeout: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CallNamedPipeW(lpnamedpipename : windows_core::PCWSTR, lpinbuffer : *mut core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesread : *mut u32, ntimeout : u32) -> windows_core::BOOL);
-    unsafe { CallNamedPipeW(lpnamedpipename.param().abi(), lpinbuffer as _, ninbuffersize, lpoutbuffer as _, noutbuffersize, lpbytesread as _, ntimeout) }
+    windows_core::link!("kernel32.dll" "system" fn CallNamedPipeW(lpnamedpipename : windows_core::PCWSTR, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesread : *mut u32, ntimeout : u32) -> windows_core::BOOL);
+    unsafe { CallNamedPipeW(lpnamedpipename.param().abi(), lpinbuffer, ninbuffersize, lpoutbuffer as _, noutbuffersize, lpbytesread as _, ntimeout) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -31,18 +31,18 @@ where
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn CreateNamedPipeW<P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE
+pub unsafe fn CreateNamedPipeW<P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CreateNamedPipeW(lpname : windows_core::PCWSTR, dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, dwpipemode : NAMED_PIPE_MODE, nmaxinstances : u32, noutbuffersize : u32, ninbuffersize : u32, ndefaulttimeout : u32, lpsecurityattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateNamedPipeW(lpname.param().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes as _) }
+    windows_core::link!("kernel32.dll" "system" fn CreateNamedPipeW(lpname : windows_core::PCWSTR, dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, dwpipemode : NAMED_PIPE_MODE, nmaxinstances : u32, noutbuffersize : u32, ninbuffersize : u32, ndefaulttimeout : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
+    unsafe { CreateNamedPipeW(lpname.param().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreatePipe(hreadpipe: *mut super::super::Foundation::HANDLE, hwritepipe: *mut super::super::Foundation::HANDLE, lppipeattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, nsize: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn CreatePipe(hreadpipe : *mut super::super::Foundation:: HANDLE, hwritepipe : *mut super::super::Foundation:: HANDLE, lppipeattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, nsize : u32) -> windows_core::BOOL);
-    unsafe { CreatePipe(hreadpipe as _, hwritepipe as _, lppipeattributes as _, nsize) }
+pub unsafe fn CreatePipe(hreadpipe: *mut super::super::Foundation::HANDLE, hwritepipe: *mut super::super::Foundation::HANDLE, lppipeattributes: *const super::super::Security::SECURITY_ATTRIBUTES, nsize: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn CreatePipe(hreadpipe : *mut super::super::Foundation:: HANDLE, hwritepipe : *mut super::super::Foundation:: HANDLE, lppipeattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, nsize : u32) -> windows_core::BOOL);
+    unsafe { CreatePipe(hreadpipe as _, hwritepipe as _, lppipeattributes, nsize) }
 }
 #[inline]
 pub unsafe fn DisconnectNamedPipe(hnamedpipe: super::super::Foundation::HANDLE) -> windows_core::BOOL {
@@ -50,20 +50,14 @@ pub unsafe fn DisconnectNamedPipe(hnamedpipe: super::super::Foundation::HANDLE) 
     unsafe { DisconnectNamedPipe(hnamedpipe) }
 }
 #[inline]
-pub unsafe fn GetNamedPipeClientComputerNameA<P1>(pipe: super::super::Foundation::HANDLE, clientcomputername: P1, clientcomputernamelength: u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeClientComputerNameA(pipe : super::super::Foundation:: HANDLE, clientcomputername : windows_core::PCSTR, clientcomputernamelength : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeClientComputerNameA(pipe, clientcomputername.param().abi(), clientcomputernamelength) }
+pub unsafe fn GetNamedPipeClientComputerNameA(pipe: super::super::Foundation::HANDLE, clientcomputername: windows_core::PSTR, clientcomputernamelength: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeClientComputerNameA(pipe : super::super::Foundation:: HANDLE, clientcomputername : windows_core::PSTR, clientcomputernamelength : u32) -> windows_core::BOOL);
+    unsafe { GetNamedPipeClientComputerNameA(pipe, core::mem::transmute(clientcomputername), clientcomputernamelength) }
 }
 #[inline]
-pub unsafe fn GetNamedPipeClientComputerNameW<P1>(pipe: super::super::Foundation::HANDLE, clientcomputername: P1, clientcomputernamelength: u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeClientComputerNameW(pipe : super::super::Foundation:: HANDLE, clientcomputername : windows_core::PCWSTR, clientcomputernamelength : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeClientComputerNameW(pipe, clientcomputername.param().abi(), clientcomputernamelength) }
+pub unsafe fn GetNamedPipeClientComputerNameW(pipe: super::super::Foundation::HANDLE, clientcomputername: windows_core::PWSTR, clientcomputernamelength: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeClientComputerNameW(pipe : super::super::Foundation:: HANDLE, clientcomputername : windows_core::PWSTR, clientcomputernamelength : u32) -> windows_core::BOOL);
+    unsafe { GetNamedPipeClientComputerNameW(pipe, core::mem::transmute(clientcomputername), clientcomputernamelength) }
 }
 #[inline]
 pub unsafe fn GetNamedPipeClientProcessId(pipe: super::super::Foundation::HANDLE, clientprocessid: *mut u32) -> windows_core::BOOL {
@@ -76,20 +70,14 @@ pub unsafe fn GetNamedPipeClientSessionId(pipe: super::super::Foundation::HANDLE
     unsafe { GetNamedPipeClientSessionId(pipe, clientsessionid as _) }
 }
 #[inline]
-pub unsafe fn GetNamedPipeHandleStateA<P5>(hnamedpipe: super::super::Foundation::HANDLE, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: P5, nmaxusernamesize: u32) -> windows_core::BOOL
-where
-    P5: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeHandleStateA(hnamedpipe : super::super::Foundation:: HANDLE, lpstate : *mut NAMED_PIPE_MODE, lpcurinstances : *mut u32, lpmaxcollectioncount : *mut u32, lpcollectdatatimeout : *mut u32, lpusername : windows_core::PCSTR, nmaxusernamesize : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeHandleStateA(hnamedpipe, lpstate as _, lpcurinstances as _, lpmaxcollectioncount as _, lpcollectdatatimeout as _, lpusername.param().abi(), nmaxusernamesize) }
+pub unsafe fn GetNamedPipeHandleStateA(hnamedpipe: super::super::Foundation::HANDLE, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: windows_core::PSTR, nmaxusernamesize: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeHandleStateA(hnamedpipe : super::super::Foundation:: HANDLE, lpstate : *mut NAMED_PIPE_MODE, lpcurinstances : *mut u32, lpmaxcollectioncount : *mut u32, lpcollectdatatimeout : *mut u32, lpusername : windows_core::PSTR, nmaxusernamesize : u32) -> windows_core::BOOL);
+    unsafe { GetNamedPipeHandleStateA(hnamedpipe, lpstate as _, lpcurinstances as _, lpmaxcollectioncount as _, lpcollectdatatimeout as _, core::mem::transmute(lpusername), nmaxusernamesize) }
 }
 #[inline]
-pub unsafe fn GetNamedPipeHandleStateW<P5>(hnamedpipe: super::super::Foundation::HANDLE, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: P5, nmaxusernamesize: u32) -> windows_core::BOOL
-where
-    P5: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeHandleStateW(hnamedpipe : super::super::Foundation:: HANDLE, lpstate : *mut NAMED_PIPE_MODE, lpcurinstances : *mut u32, lpmaxcollectioncount : *mut u32, lpcollectdatatimeout : *mut u32, lpusername : windows_core::PCWSTR, nmaxusernamesize : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeHandleStateW(hnamedpipe, lpstate as _, lpcurinstances as _, lpmaxcollectioncount as _, lpcollectdatatimeout as _, lpusername.param().abi(), nmaxusernamesize) }
+pub unsafe fn GetNamedPipeHandleStateW(hnamedpipe: super::super::Foundation::HANDLE, lpstate: *mut NAMED_PIPE_MODE, lpcurinstances: *mut u32, lpmaxcollectioncount: *mut u32, lpcollectdatatimeout: *mut u32, lpusername: windows_core::PWSTR, nmaxusernamesize: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetNamedPipeHandleStateW(hnamedpipe : super::super::Foundation:: HANDLE, lpstate : *mut NAMED_PIPE_MODE, lpcurinstances : *mut u32, lpmaxcollectioncount : *mut u32, lpcollectdatatimeout : *mut u32, lpusername : windows_core::PWSTR, nmaxusernamesize : u32) -> windows_core::BOOL);
+    unsafe { GetNamedPipeHandleStateW(hnamedpipe, lpstate as _, lpcurinstances as _, lpmaxcollectioncount as _, lpcollectdatatimeout as _, core::mem::transmute(lpusername), nmaxusernamesize) }
 }
 #[inline]
 pub unsafe fn GetNamedPipeInfo(hnamedpipe: super::super::Foundation::HANDLE, lpflags: *mut NAMED_PIPE_MODE, lpoutbuffersize: *mut u32, lpinbuffersize: *mut u32, lpmaxinstances: *mut u32) -> windows_core::BOOL {

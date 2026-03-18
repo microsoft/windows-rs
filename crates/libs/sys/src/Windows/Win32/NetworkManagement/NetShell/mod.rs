@@ -4,8 +4,8 @@ windows_link::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::s
 windows_link::link!("netsh.dll" "C" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
 windows_link::link!("netsh.dll" "C" fn PrintMessage(pwszformat : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("netsh.dll" "C" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
-windows_link::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *mut NS_CONTEXT_ATTRIBUTES) -> u32);
-windows_link::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *mut windows_sys::core::GUID, pfnregistersubcontext : *mut NS_HELPER_ATTRIBUTES) -> u32);
+windows_link::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
+windows_link::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_sys::core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CMD_ENTRY {
@@ -165,11 +165,11 @@ pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
 pub const NS_REQ_PRESENT: NS_REQS = 1i32;
 pub const NS_REQ_ZERO: NS_REQS = 0i32;
 pub type PFN_CUSTOM_HELP = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: windows_sys::core::PCWSTR)>;
-pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR, ppwcarguments: *mut windows_sys::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *mut core::ffi::c_void, pbdone: *mut windows_sys::core::BOOL) -> u32>;
+pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR, ppwcarguments: *mut windows_sys::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut windows_sys::core::BOOL) -> u32>;
 pub type PGET_RESOURCE_STRING_FN = Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: windows_sys::core::PCWSTR, nbuffermax: u32) -> u32>;
 pub type PNS_CONTEXT_COMMIT_FN = Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
 pub type PNS_CONTEXT_CONNECT_FN = Option<unsafe extern "system" fn(pwszmachine: windows_sys::core::PCWSTR) -> u32>;
-pub type PNS_CONTEXT_DUMP_FN = Option<unsafe extern "system" fn(pwszrouter: windows_sys::core::PCWSTR, ppwcarguments: *mut windows_sys::core::PWSTR, dwargcount: u32, pvdata: *mut core::ffi::c_void) -> u32>;
+pub type PNS_CONTEXT_DUMP_FN = Option<unsafe extern "system" fn(pwszrouter: windows_sys::core::PCWSTR, ppwcarguments: *const windows_sys::core::PCWSTR, dwargcount: u32, pvdata: *const core::ffi::c_void) -> u32>;
 pub type PNS_DLL_INIT_FN = Option<unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut core::ffi::c_void) -> u32>;
 pub type PNS_DLL_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 pub type PNS_HELPER_START_FN = Option<unsafe extern "system" fn(pguidparent: *const windows_sys::core::GUID, dwversion: u32) -> u32>;

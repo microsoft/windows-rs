@@ -5,13 +5,13 @@ windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageW(flags : BRO
 windows_link::link!("user32.dll" "system" fn CloseDesktop(hdesktop : HDESK) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CloseWindowStation(hwinsta : HWINSTA) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEA, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *mut super::super::Security:: SECURITY_ATTRIBUTES) -> HDESK);
+windows_link::link!("user32.dll" "system" fn CreateDesktopA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HDESK);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopExA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEA, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *mut super::super::Security:: SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *mut core::ffi::c_void) -> HDESK);
+windows_link::link!("user32.dll" "system" fn CreateDesktopExA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *const core::ffi::c_void) -> HDESK);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopExW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEW, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *mut super::super::Security:: SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *mut core::ffi::c_void) -> HDESK);
+windows_link::link!("user32.dll" "system" fn CreateDesktopExW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *const core::ffi::c_void) -> HDESK);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEW, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *mut super::super::Security:: SECURITY_ATTRIBUTES) -> HDESK);
+windows_link::link!("user32.dll" "system" fn CreateDesktopW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HDESK);
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("user32.dll" "system" fn CreateWindowStationA(lpwinsta : windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HWINSTA);
 #[cfg(feature = "Win32_Security")]
@@ -33,7 +33,7 @@ windows_link::link!("user32.dll" "system" fn OpenWindowStationA(lpszwinsta : win
 windows_link::link!("user32.dll" "system" fn OpenWindowStationW(lpszwinsta : windows_sys::core::PCWSTR, finherit : windows_sys::core::BOOL, dwdesiredaccess : u32) -> HWINSTA);
 windows_link::link!("user32.dll" "system" fn SetProcessWindowStation(hwinsta : HWINSTA) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetThreadDesktop(hdesktop : HDESK) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *mut core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetUserObjectInformationW(hobj : super::super::Foundation:: HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SwitchDesktop(hdesktop : HDESK) -> windows_sys::core::BOOL);
 pub type BROADCAST_SYSTEM_MESSAGE_FLAGS = u32;

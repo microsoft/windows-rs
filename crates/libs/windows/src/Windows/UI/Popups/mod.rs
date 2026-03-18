@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IMessageDialog, IMessageDialog_Vtbl, 0x43e2871f_9fee_53ee_9435_1678412a98aa);
+windows_core::imp::define_interface!(IMessageDialog, IMessageDialog_Vtbl, 0x33f59b01_5325_43ab_9ab3_bdae440e4121);
 impl windows_core::RuntimeType for IMessageDialog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -19,7 +19,7 @@ pub struct IMessageDialog_Vtbl {
     pub Options: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MessageDialogOptions) -> windows_core::HRESULT,
     pub SetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, MessageDialogOptions) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMessageDialogFactory, IMessageDialogFactory_Vtbl, 0x5cc285a6_5ecd_57ec_9a0d_d7e5784bf545);
+windows_core::imp::define_interface!(IMessageDialogFactory, IMessageDialogFactory_Vtbl, 0x2d161777_a66f_4ea5_bb87_793ffa4941f2);
 impl windows_core::RuntimeType for IMessageDialogFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -30,7 +30,7 @@ pub struct IMessageDialogFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPopupMenu, IPopupMenu_Vtbl, 0x0467eff2_38c7_5f2b_8c66_d41092db119e);
+windows_core::imp::define_interface!(IPopupMenu, IPopupMenu_Vtbl, 0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
 impl windows_core::RuntimeType for IPopupMenu {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -503,7 +503,7 @@ impl windows_core::RuntimeName for UICommand {
 }
 unsafe impl Send for UICommand {}
 unsafe impl Sync for UICommand {}
-windows_core::imp::define_interface!(UICommandInvokedHandler, UICommandInvokedHandler_Vtbl, 0x32b0df73_83f5_5a07_a2d1_6e5598a370d7);
+windows_core::imp::define_interface!(UICommandInvokedHandler, UICommandInvokedHandler_Vtbl, 0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
 impl windows_core::RuntimeType for UICommandInvokedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

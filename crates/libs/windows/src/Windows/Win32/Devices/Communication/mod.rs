@@ -128,9 +128,9 @@ pub unsafe fn SetCommBreak(hfile: super::super::Foundation::HANDLE) -> windows_c
     unsafe { SetCommBreak(hfile) }
 }
 #[inline]
-pub unsafe fn SetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *mut COMMCONFIG, dwsize: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetCommConfig(hcommdev : super::super::Foundation:: HANDLE, lpcc : *mut COMMCONFIG, dwsize : u32) -> windows_core::BOOL);
-    unsafe { SetCommConfig(hcommdev, lpcc as _, dwsize) }
+pub unsafe fn SetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetCommConfig(hcommdev : super::super::Foundation:: HANDLE, lpcc : *const COMMCONFIG, dwsize : u32) -> windows_core::BOOL);
+    unsafe { SetCommConfig(hcommdev, lpcc, dwsize) }
 }
 #[inline]
 pub unsafe fn SetCommMask(hfile: super::super::Foundation::HANDLE, dwevtmask: COMM_EVENT_MASK) -> windows_core::BOOL {
@@ -138,9 +138,9 @@ pub unsafe fn SetCommMask(hfile: super::super::Foundation::HANDLE, dwevtmask: CO
     unsafe { SetCommMask(hfile, dwevtmask) }
 }
 #[inline]
-pub unsafe fn SetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *mut DCB) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetCommState(hfile : super::super::Foundation:: HANDLE, lpdcb : *mut DCB) -> windows_core::BOOL);
-    unsafe { SetCommState(hfile, lpdcb as _) }
+pub unsafe fn SetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *const DCB) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetCommState(hfile : super::super::Foundation:: HANDLE, lpdcb : *const DCB) -> windows_core::BOOL);
+    unsafe { SetCommState(hfile, lpdcb) }
 }
 #[inline]
 pub unsafe fn SetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *const COMMTIMEOUTS) -> windows_core::BOOL {
@@ -148,12 +148,12 @@ pub unsafe fn SetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtim
     unsafe { SetCommTimeouts(hfile, lpcommtimeouts) }
 }
 #[inline]
-pub unsafe fn SetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *mut COMMCONFIG, dwsize: u32) -> windows_core::BOOL
+pub unsafe fn SetDefaultCommConfigA<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn SetDefaultCommConfigA(lpszname : windows_core::PCSTR, lpcc : *mut COMMCONFIG, dwsize : u32) -> windows_core::BOOL);
-    unsafe { SetDefaultCommConfigA(lpszname.param().abi(), lpcc as _, dwsize) }
+    windows_core::link!("kernel32.dll" "system" fn SetDefaultCommConfigA(lpszname : windows_core::PCSTR, lpcc : *const COMMCONFIG, dwsize : u32) -> windows_core::BOOL);
+    unsafe { SetDefaultCommConfigA(lpszname.param().abi(), lpcc, dwsize) }
 }
 #[inline]
 pub unsafe fn SetDefaultCommConfigW<P0>(lpszname: P0, lpcc: *const COMMCONFIG, dwsize: u32) -> windows_core::BOOL

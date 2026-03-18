@@ -23,7 +23,7 @@ pub const CONNECTION_AOL: u32 = 4u32;
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
 pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISensLogon, ISensLogon_Vtbl, 0x20d52ffe_119a_5c80_a0fd_96cd3f6ede6b);
+windows_core::imp::define_interface!(ISensLogon, ISensLogon_Vtbl, 0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISensLogon {
     type Target = super::Com::IDispatch;
@@ -143,7 +143,7 @@ impl ISensLogon_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISensLogon {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISensLogon2, ISensLogon2_Vtbl, 0xb90876d9_e1bf_5e87_a57a_1b1f1a80fbe1);
+windows_core::imp::define_interface!(ISensLogon2, ISensLogon2_Vtbl, 0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISensLogon2 {
     type Target = super::Com::IDispatch;
@@ -239,7 +239,7 @@ impl ISensLogon2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISensLogon2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISensNetwork, ISensNetwork_Vtbl, 0x0ebb8158_d3de_52ff_8856_5938cf58f017);
+windows_core::imp::define_interface!(ISensNetwork, ISensNetwork_Vtbl, 0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISensNetwork {
     type Target = super::Com::IDispatch;
@@ -251,11 +251,8 @@ impl core::ops::Deref for ISensNetwork {
 windows_core::imp::interface_hierarchy!(ISensNetwork, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISensNetwork {
-    pub unsafe fn ConnectionMade(&self, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<SENS_QOCINFO> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectionMade)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype, &mut result__).map(|| result__)
-        }
+    pub unsafe fn ConnectionMade(&self, bstrconnection: &windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ConnectionMade)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok() }
     }
     pub unsafe fn ConnectionMadeNoQOCInfo(&self, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype).ok() }
@@ -263,11 +260,8 @@ impl ISensNetwork {
     pub unsafe fn ConnectionLost(&self, bstrconnection: &windows_core::BSTR, ultype: SENS_CONNECTION_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConnectionLost)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnection), ultype).ok() }
     }
-    pub unsafe fn DestinationReachable(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<SENS_QOCINFO> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DestinationReachable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination), core::mem::transmute_copy(bstrconnection), ultype, &mut result__).map(|| result__)
-        }
+    pub unsafe fn DestinationReachable(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DestinationReachable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination), core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok() }
     }
     pub unsafe fn DestinationReachableNoQOCInfo(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DestinationReachableNoQOCInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination), core::mem::transmute_copy(bstrconnection), ultype).ok() }
@@ -278,33 +272,27 @@ impl ISensNetwork {
 #[doc(hidden)]
 pub struct ISensNetwork_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ConnectionMade: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut SENS_QOCINFO) -> windows_core::HRESULT,
+    pub ConnectionMade: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const SENS_QOCINFO) -> windows_core::HRESULT,
     pub ConnectionMadeNoQOCInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ConnectionLost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SENS_CONNECTION_TYPE) -> windows_core::HRESULT,
-    pub DestinationReachable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut SENS_QOCINFO) -> windows_core::HRESULT,
+    pub DestinationReachable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const SENS_QOCINFO) -> windows_core::HRESULT,
     pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISensNetwork_Impl: super::Com::IDispatch_Impl {
-    fn ConnectionMade(&self, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<SENS_QOCINFO>;
+    fn ConnectionMade(&self, bstrconnection: &windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()>;
     fn ConnectionMadeNoQOCInfo(&self, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()>;
     fn ConnectionLost(&self, bstrconnection: &windows_core::BSTR, ultype: SENS_CONNECTION_TYPE) -> windows_core::Result<()>;
-    fn DestinationReachable(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<SENS_QOCINFO>;
+    fn DestinationReachable(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()>;
     fn DestinationReachableNoQOCInfo(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISensNetwork_Vtbl {
     pub const fn new<Identity: ISensNetwork_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ConnectionMade<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32, lpqocinfo: *mut SENS_QOCINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectionMade<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISensNetwork_Impl::ConnectionMade(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)) {
-                    Ok(ok__) => {
-                        lpqocinfo.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISensNetwork_Impl::ConnectionMade(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
             }
         }
         unsafe extern "system" fn ConnectionMadeNoQOCInfo<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32) -> windows_core::HRESULT {
@@ -319,16 +307,10 @@ impl ISensNetwork_Vtbl {
                 ISensNetwork_Impl::ConnectionLost(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)).into()
             }
         }
-        unsafe extern "system" fn DestinationReachable<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32, lpqocinfo: *mut SENS_QOCINFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn DestinationReachable<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISensNetwork_Impl::DestinationReachable(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype)) {
-                    Ok(ok__) => {
-                        lpqocinfo.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISensNetwork_Impl::DestinationReachable(this, core::mem::transmute(&bstrdestination), core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
             }
         }
         unsafe extern "system" fn DestinationReachableNoQOCInfo<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdestination: *mut core::ffi::c_void, bstrconnection: *mut core::ffi::c_void, ultype: u32) -> windows_core::HRESULT {

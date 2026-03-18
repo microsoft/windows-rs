@@ -249,7 +249,7 @@ pub type VDMGETMODULESELECTORPROC = Option<unsafe extern "system" fn(param0: sup
 pub type VDMGETPOINTERPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: u32, param4: windows_sys::core::BOOL) -> u32>;
 pub type VDMGETSEGMENTINFOPROC = Option<unsafe extern "system" fn(param0: u16, param1: u32, param2: windows_sys::core::BOOL, param3: VDM_SEGINFO) -> windows_sys::core::BOOL>;
 pub type VDMGETSELECTORMODULEPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: windows_sys::core::PCSTR, param5: u32, param6: windows_sys::core::PCSTR, param7: u32) -> windows_sys::core::BOOL>;
-pub type VDMGETSYMBOLPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: u16, param2: u32, param3: windows_sys::core::BOOL, param4: windows_sys::core::BOOL, param5: windows_sys::core::PCSTR, param6: *mut u32) -> windows_sys::core::BOOL>;
+pub type VDMGETSYMBOLPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: u16, param2: u32, param3: windows_sys::core::BOOL, param4: windows_sys::core::BOOL, param5: windows_sys::core::PSTR, param6: *mut u32) -> windows_sys::core::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]

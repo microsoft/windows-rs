@@ -113,15 +113,15 @@ pub unsafe fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERA
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RegisterOutputCallbackInteractionContext(interactioncontext, outputcallback, clientdata as _).ok() }
+pub unsafe fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { RegisterOutputCallbackInteractionContext(interactioncontext, outputcallback, clientdata).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext2(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RegisterOutputCallbackInteractionContext2(interactioncontext, outputcallback, clientdata as _).ok() }
+pub unsafe fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext2(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { RegisterOutputCallbackInteractionContext2(interactioncontext, outputcallback, clientdata).ok() }
 }
 #[inline]
 pub unsafe fn RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> windows_core::Result<()> {
@@ -149,12 +149,9 @@ pub unsafe fn SetInertiaParameterInteractionContext(interactioncontext: HINTERAC
     unsafe { SetInertiaParameterInteractionContext(interactioncontext, inertiaparameter, value).ok() }
 }
 #[inline]
-pub unsafe fn SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32) -> windows_core::Result<INTERACTION_CONTEXT_CONFIGURATION> {
-    windows_core::link!("ninput.dll" "system" fn SetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *mut INTERACTION_CONTEXT_CONFIGURATION) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SetInteractionConfigurationInteractionContext(interactioncontext, configurationcount, &mut result__).map(|| result__)
-    }
+pub unsafe fn SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *const INTERACTION_CONTEXT_CONFIGURATION) -> windows_core::Result<()> {
+    windows_core::link!("ninput.dll" "system" fn SetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *const INTERACTION_CONTEXT_CONFIGURATION) -> windows_core::HRESULT);
+    unsafe { SetInteractionConfigurationInteractionContext(interactioncontext, configurationcount, configuration).ok() }
 }
 #[inline]
 pub unsafe fn SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> windows_core::Result<()> {
@@ -433,9 +430,9 @@ impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = Option<unsafe extern "system" fn(clientdata: *mut core::ffi::c_void, output: *mut INTERACTION_CONTEXT_OUTPUT)>;
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = Option<unsafe extern "system" fn(clientdata: *const core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = Option<unsafe extern "system" fn(clientdata: *mut core::ffi::c_void, output: *mut INTERACTION_CONTEXT_OUTPUT2)>;
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = Option<unsafe extern "system" fn(clientdata: *const core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);

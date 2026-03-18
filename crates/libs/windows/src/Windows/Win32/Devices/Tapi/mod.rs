@@ -9,24 +9,24 @@ where
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn OpenTnefStream<P1, P4>(lpvsupport: *mut core::ffi::c_void, lpstream: P1, lpszstreamname: *mut i8, ulflags: u32, lpmessage: P4, wkeyval: u16, lpptnef: *mut Option<ITnef>) -> windows_core::Result<()>
+pub unsafe fn OpenTnefStream<P1, P4>(lpvsupport: *mut core::ffi::c_void, lpstream: P1, lpszstreamname: *const i8, ulflags: u32, lpmessage: P4, wkeyval: u16, lpptnef: *mut Option<ITnef>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<super::super::System::Com::IStream>,
     P4: windows_core::Param<super::super::System::AddressBook::IMessage>,
 {
-    windows_core::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *mut i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OpenTnefStream(lpvsupport as _, lpstream.param().abi(), lpszstreamname as _, ulflags, lpmessage.param().abi(), wkeyval, core::mem::transmute(lpptnef)).ok() }
+    windows_core::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { OpenTnefStream(lpvsupport as _, lpstream.param().abi(), lpszstreamname, ulflags, lpmessage.param().abi(), wkeyval, core::mem::transmute(lpptnef)).ok() }
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn OpenTnefStreamEx<P1, P4, P6>(lpvsupport: *mut core::ffi::c_void, lpstream: P1, lpszstreamname: *mut i8, ulflags: u32, lpmessage: P4, wkeyval: u16, lpadressbook: P6, lpptnef: *mut Option<ITnef>) -> windows_core::Result<()>
+pub unsafe fn OpenTnefStreamEx<P1, P4, P6>(lpvsupport: *mut core::ffi::c_void, lpstream: P1, lpszstreamname: *const i8, ulflags: u32, lpmessage: P4, wkeyval: u16, lpadressbook: P6, lpptnef: *mut Option<ITnef>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<super::super::System::Com::IStream>,
     P4: windows_core::Param<super::super::System::AddressBook::IMessage>,
     P6: windows_core::Param<super::super::System::AddressBook::IAddrBook>,
 {
-    windows_core::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *mut i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OpenTnefStreamEx(lpvsupport as _, lpstream.param().abi(), lpszstreamname as _, ulflags, lpmessage.param().abi(), wkeyval, lpadressbook.param().abi(), core::mem::transmute(lpptnef)).ok() }
+    windows_core::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { OpenTnefStreamEx(lpvsupport as _, lpstream.param().abi(), lpszstreamname, ulflags, lpmessage.param().abi(), wkeyval, lpadressbook.param().abi(), core::mem::transmute(lpptnef)).ok() }
 }
 #[inline]
 pub unsafe fn lineAccept<P1>(hcall: u32, lpsuseruserinfo: P1, dwsize: u32) -> i32
@@ -257,32 +257,30 @@ pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpfo
     unsafe { lineForward(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *mut LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineForwardA(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *mut LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineForwardA(hline, balladdresses, dwaddressid, lpforwardlist as _, dwnumringsnoanswer, lphconsultcall as _, lpcallparams as _) }
+pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineForwardA(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineForwardA(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *mut LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineForwardW(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *mut LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineForwardW(hline, balladdresses, dwaddressid, lpforwardlist as _, dwnumringsnoanswer, lphconsultcall as _, lpcallparams as _) }
+pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineForwardW(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineForwardW(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineGatherDigits<P2, P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: P2, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
+pub unsafe fn lineGatherDigits<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: windows_core::PSTR, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PCSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    unsafe { lineGatherDigits(hcall, dwdigitmodes, lpsdigits.param().abi(), dwnumdigits, lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
+    windows_core::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
+    unsafe { lineGatherDigits(hcall, dwdigitmodes, core::mem::transmute(lpsdigits), dwnumdigits, lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
-pub unsafe fn lineGatherDigitsA<P2, P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: P2, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
+pub unsafe fn lineGatherDigitsA<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: windows_core::PSTR, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("tapi32.dll" "system" fn lineGatherDigitsA(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PCSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    unsafe { lineGatherDigitsA(hcall, dwdigitmodes, lpsdigits.param().abi(), dwnumdigits, lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
+    windows_core::link!("tapi32.dll" "system" fn lineGatherDigitsA(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
+    unsafe { lineGatherDigitsA(hcall, dwdigitmodes, core::mem::transmute(lpsdigits), dwnumdigits, lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
 pub unsafe fn lineGatherDigitsW<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: windows_core::PWSTR, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
@@ -317,9 +315,9 @@ where
     unsafe { lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits.param().abi(), dwduration) }
 }
 #[inline]
-pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *mut LINEGENERATETONE) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineGenerateTone(hcall : u32, dwtonemode : u32, dwduration : u32, dwnumtones : u32, lptones : *mut LINEGENERATETONE) -> i32);
-    unsafe { lineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, lptones as _) }
+pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineGenerateTone(hcall : u32, dwtonemode : u32, dwduration : u32, dwnumtones : u32, lptones : *const LINEGENERATETONE) -> i32);
+    unsafe { lineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, lptones) }
 }
 #[inline]
 pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
@@ -750,12 +748,12 @@ where
     unsafe { lineInitializeExW(lphlineapp as _, hinstance, lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs as _, lpdwapiversion as _, lplineinitializeexparams as _) }
 }
 #[inline]
-pub unsafe fn lineMakeCall<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: P2, dwcountrycode: u32, lpcallparams: *mut LINECALLPARAMS) -> i32
+pub unsafe fn lineMakeCall<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: P2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineMakeCall(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams as _) }
+    windows_core::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineMakeCall(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineMakeCallA<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: P2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32
@@ -766,12 +764,12 @@ where
     unsafe { lineMakeCallA(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineMakeCallW<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: P2, dwcountrycode: u32, lpcallparams: *mut LINECALLPARAMS) -> i32
+pub unsafe fn lineMakeCallW<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: P2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineMakeCallW(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams as _) }
+    windows_core::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineMakeCallW(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
@@ -799,9 +797,9 @@ pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversi
     unsafe { lineNegotiateExtVersion(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion as _) }
 }
 #[inline]
-pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineOpen(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineOpen(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams as _) }
+pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineOpen(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineOpen(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -809,9 +807,9 @@ pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
     unsafe { lineOpenA(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineOpenW(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineOpenW(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams as _) }
+pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineOpenW(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineOpenW(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) }
 }
 #[inline]
 pub unsafe fn linePark<P2>(hcall: u32, dwparkmode: u32, lpszdiraddress: P2, lpnondiraddress: *mut VARSTRING) -> i32
@@ -865,19 +863,19 @@ where
     unsafe { linePickupW(hline, dwaddressid, lphcall as _, lpszdestaddress.param().abi(), lpszgroupid.param().abi()) }
 }
 #[inline]
-pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConference(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { linePrepareAddToConference(hconfcall, lphconsultcall as _, lpcallparams as _) }
+pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConference(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { linePrepareAddToConference(hconfcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConferenceA(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { linePrepareAddToConferenceA(hconfcall, lphconsultcall as _, lpcallparams as _) }
+pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConferenceA(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { linePrepareAddToConferenceA(hconfcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConferenceW(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { linePrepareAddToConferenceW(hconfcall, lphconsultcall as _, lpcallparams as _) }
+pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConferenceW(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { linePrepareAddToConferenceW(hconfcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32 {
@@ -1015,9 +1013,9 @@ pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut core::ffi::c_void, dw
     unsafe { lineSetCallData(hcall, lpcalldata as _, dwsize) }
 }
 #[inline]
-pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *mut LINEDIALPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineSetCallParams(hcall : u32, dwbearermode : u32, dwminrate : u32, dwmaxrate : u32, lpdialparams : *mut LINEDIALPARAMS) -> i32);
-    unsafe { lineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams as _) }
+pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineSetCallParams(hcall : u32, dwbearermode : u32, dwminrate : u32, dwmaxrate : u32, lpdialparams : *const LINEDIALPARAMS) -> i32);
+    unsafe { lineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams) }
 }
 #[inline]
 pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
@@ -1048,12 +1046,12 @@ where
     unsafe { lineSetDevConfig(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi()) }
 }
 #[inline]
-pub unsafe fn lineSetDevConfigA<P3>(dwdeviceid: u32, lpdeviceconfig: *mut core::ffi::c_void, dwsize: u32, lpszdeviceclass: P3) -> i32
+pub unsafe fn lineSetDevConfigA<P3>(dwdeviceid: u32, lpdeviceconfig: *const core::ffi::c_void, dwsize: u32, lpszdeviceclass: P3) -> i32
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("tapi32.dll" "system" fn lineSetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *mut core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
-    unsafe { lineSetDevConfigA(dwdeviceid, lpdeviceconfig as _, dwsize, lpszdeviceclass.param().abi()) }
+    windows_core::link!("tapi32.dll" "system" fn lineSetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    unsafe { lineSetDevConfigA(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi()) }
 }
 #[inline]
 pub unsafe fn lineSetDevConfigW<P3>(dwdeviceid: u32, lpdeviceconfig: *const core::ffi::c_void, dwsize: u32, lpszdeviceclass: P3) -> i32
@@ -1123,19 +1121,19 @@ where
     unsafe { lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw.param().abi(), dwtolllistoption) }
 }
 #[inline]
-pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineSetupConference(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineSetupConference(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams as _) }
+pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineSetupConference(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineSetupConference(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineSetupConferenceA(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineSetupConferenceA(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams as _) }
+pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineSetupConferenceA(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineSetupConferenceA(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineSetupConferenceW(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineSetupConferenceW(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams as _) }
+pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineSetupConferenceW(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineSetupConferenceW(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -1143,14 +1141,14 @@ pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallpara
     unsafe { lineSetupTransfer(hcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineSetupTransferA(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineSetupTransferA(hcall, lphconsultcall as _, lpcallparams as _) }
+pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineSetupTransferA(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineSetupTransferA(hcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *mut LINECALLPARAMS) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn lineSetupTransferW(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
-    unsafe { lineSetupTransferW(hcall, lphconsultcall as _, lpcallparams as _) }
+pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn lineSetupTransferW(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    unsafe { lineSetupTransferW(hcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
@@ -1459,9 +1457,9 @@ pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwa
     unsafe { phoneOpen(hphoneapp, dwdeviceid, lphphone as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivilege) }
 }
 #[inline]
-pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn phoneSetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
-    unsafe { phoneSetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo as _) }
+pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn phoneSetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
+    unsafe { phoneSetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo) }
 }
 #[inline]
 pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
@@ -1474,9 +1472,9 @@ pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     unsafe { phoneSetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo) }
 }
 #[inline]
-pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *mut core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_core::link!("tapi32.dll" "system" fn phoneSetData(hphone : u32, dwdataid : u32, lpdata : *mut core::ffi::c_void, dwsize : u32) -> i32);
-    unsafe { phoneSetData(hphone, dwdataid, lpdata as _, dwsize) }
+pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const core::ffi::c_void, dwsize: u32) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn phoneSetData(hphone : u32, dwdataid : u32, lpdata : *const core::ffi::c_void, dwsize : u32) -> i32);
+    unsafe { phoneSetData(hphone, dwdataid, lpdata, dwsize) }
 }
 #[inline]
 pub unsafe fn phoneSetDisplay<P3>(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: P3, dwsize: u32) -> i32
@@ -1527,22 +1525,14 @@ pub unsafe fn tapiGetLocationInfo(lpszcountrycode: windows_core::PSTR, lpszcityc
     unsafe { tapiGetLocationInfo(core::mem::transmute(lpszcountrycode), core::mem::transmute(lpszcitycode)) }
 }
 #[inline]
-pub unsafe fn tapiGetLocationInfoA<P0, P1>(lpszcountrycode: P0, lpszcitycode: P1) -> i32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_core::PCSTR, lpszcitycode : windows_core::PCSTR) -> i32);
-    unsafe { tapiGetLocationInfoA(lpszcountrycode.param().abi(), lpszcitycode.param().abi()) }
+pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: windows_core::PSTR, lpszcitycode: windows_core::PSTR) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_core::PSTR, lpszcitycode : windows_core::PSTR) -> i32);
+    unsafe { tapiGetLocationInfoA(core::mem::transmute(lpszcountrycode), core::mem::transmute(lpszcitycode)) }
 }
 #[inline]
-pub unsafe fn tapiGetLocationInfoW<P0, P1>(lpszcountrycodew: P0, lpszcitycodew: P1) -> i32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_core::PCWSTR, lpszcitycodew : windows_core::PCWSTR) -> i32);
-    unsafe { tapiGetLocationInfoW(lpszcountrycodew.param().abi(), lpszcitycodew.param().abi()) }
+pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: windows_core::PWSTR, lpszcitycodew: windows_core::PWSTR) -> i32 {
+    windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_core::PWSTR, lpszcitycodew : windows_core::PWSTR) -> i32);
+    unsafe { tapiGetLocationInfoW(core::mem::transmute(lpszcountrycodew), core::mem::transmute(lpszcitycodew)) }
 }
 #[inline]
 pub unsafe fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32 {
@@ -2120,7 +2110,7 @@ pub const IDISPMULTITRACK: u32 = 65536u32;
 pub const IDISPPHONE: u32 = 65536u32;
 pub const IDISPTAPI: u32 = 65536u32;
 pub const IDISPTAPICALLCENTER: u32 = 131072u32;
-windows_core::imp::define_interface!(IEnumACDGroup, IEnumACDGroup_Vtbl, 0xf80eb070_90d0_5c48_b00f_83d1869a1388);
+windows_core::imp::define_interface!(IEnumACDGroup, IEnumACDGroup_Vtbl, 0x5afc3157_4bcc_11d1_bf80_00805fc147d3);
 windows_core::imp::interface_hierarchy!(IEnumACDGroup, windows_core::IUnknown);
 impl IEnumACDGroup {
     #[cfg(feature = "Win32_System_Com")]
@@ -2292,7 +2282,7 @@ impl IEnumAddress_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumAddress {}
-windows_core::imp::define_interface!(IEnumAgent, IEnumAgent_Vtbl, 0x44804774_2dfb_5501_991c_0d74156f5ab6);
+windows_core::imp::define_interface!(IEnumAgent, IEnumAgent_Vtbl, 0x5afc314d_4bcc_11d1_bf80_00805fc147d3);
 windows_core::imp::interface_hierarchy!(IEnumAgent, windows_core::IUnknown);
 impl IEnumAgent {
     #[cfg(feature = "Win32_System_Com")]
@@ -2464,7 +2454,7 @@ impl IEnumAgentHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumAgentHandler {}
-windows_core::imp::define_interface!(IEnumAgentSession, IEnumAgentSession_Vtbl, 0xf7ebffdf_8cc7_5b40_9dcd_8f5d37cdcad8);
+windows_core::imp::define_interface!(IEnumAgentSession, IEnumAgentSession_Vtbl, 0x5afc314e_4bcc_11d1_bf80_00805fc147d3);
 windows_core::imp::interface_hierarchy!(IEnumAgentSession, windows_core::IUnknown);
 impl IEnumAgentSession {
     #[cfg(feature = "Win32_System_Com")]
@@ -2715,7 +2705,7 @@ impl IEnumCall_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumCall {}
-windows_core::imp::define_interface!(IEnumCallHub, IEnumCallHub_Vtbl, 0x11c1cd4c_d7ec_50d1_bc92_d6458babe226);
+windows_core::imp::define_interface!(IEnumCallHub, IEnumCallHub_Vtbl, 0xa3c15450_5b92_11d1_8f4e_00c04fb6809f);
 windows_core::imp::interface_hierarchy!(IEnumCallHub, windows_core::IUnknown);
 impl IEnumCallHub {
     #[cfg(feature = "Win32_System_Com")]
@@ -2887,7 +2877,7 @@ impl IEnumCallingCard_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumCallingCard {}
-windows_core::imp::define_interface!(IEnumDialableAddrs, IEnumDialableAddrs_Vtbl, 0x6c3ed84b_4061_5348_be0f_dbe1048e6c4a);
+windows_core::imp::define_interface!(IEnumDialableAddrs, IEnumDialableAddrs_Vtbl, 0x34621d70_6cff_11d1_aff7_00c04fc31fee);
 windows_core::imp::interface_hierarchy!(IEnumDialableAddrs, windows_core::IUnknown);
 impl IEnumDialableAddrs {
     pub unsafe fn Next(&self, ppelements: &mut [windows_core::BSTR], pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -2966,7 +2956,7 @@ impl IEnumDialableAddrs_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumDialableAddrs {}
-windows_core::imp::define_interface!(IEnumDirectory, IEnumDirectory_Vtbl, 0xf2ffc3da_c859_5e1c_9ae8_41769fa8ae4c);
+windows_core::imp::define_interface!(IEnumDirectory, IEnumDirectory_Vtbl, 0x34621d6d_6cff_11d1_aff7_00c04fc31fee);
 windows_core::imp::interface_hierarchy!(IEnumDirectory, windows_core::IUnknown);
 impl IEnumDirectory {
     #[cfg(feature = "Win32_System_Com")]
@@ -3052,7 +3042,7 @@ impl IEnumDirectory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumDirectory {}
-windows_core::imp::define_interface!(IEnumDirectoryObject, IEnumDirectoryObject_Vtbl, 0xc2f48381_dbaf_5ac0_88ee_2b65be485db3);
+windows_core::imp::define_interface!(IEnumDirectoryObject, IEnumDirectoryObject_Vtbl, 0x06c9b64a_306d_11d1_9774_00c04fd91ac0);
 windows_core::imp::interface_hierarchy!(IEnumDirectoryObject, windows_core::IUnknown);
 impl IEnumDirectoryObject {
     #[cfg(feature = "Win32_System_Com")]
@@ -3138,7 +3128,7 @@ impl IEnumDirectoryObject_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumDirectoryObject {}
-windows_core::imp::define_interface!(IEnumLocation, IEnumLocation_Vtbl, 0xde8038b7_6d6e_55cb_8df2_49ccccf42aaf);
+windows_core::imp::define_interface!(IEnumLocation, IEnumLocation_Vtbl, 0x0c4d8f01_8ddb_11d1_a09e_00805fc147d3);
 windows_core::imp::interface_hierarchy!(IEnumLocation, windows_core::IUnknown);
 impl IEnumLocation {
     #[cfg(feature = "Win32_System_Com")]
@@ -3224,7 +3214,7 @@ impl IEnumLocation_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumLocation {}
-windows_core::imp::define_interface!(IEnumMcastScope, IEnumMcastScope_Vtbl, 0x2bc7ea0c_6883_5894_985f_071b84f39900);
+windows_core::imp::define_interface!(IEnumMcastScope, IEnumMcastScope_Vtbl, 0xdf0daf09_a289_11d1_8697_006008b0e5d2);
 windows_core::imp::interface_hierarchy!(IEnumMcastScope, windows_core::IUnknown);
 impl IEnumMcastScope {
     #[cfg(feature = "Win32_System_Com")]
@@ -3654,7 +3644,7 @@ impl IEnumQueue_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumQueue {}
-windows_core::imp::define_interface!(IEnumStream, IEnumStream_Vtbl, 0xbea86a95_76c4_502f_94b3_ae4aab3ba46f);
+windows_core::imp::define_interface!(IEnumStream, IEnumStream_Vtbl, 0xee3bd606_3868_11d2_a045_00c04fb6809f);
 windows_core::imp::interface_hierarchy!(IEnumStream, windows_core::IUnknown);
 impl IEnumStream {
     #[cfg(feature = "Win32_System_Com")]
@@ -3740,7 +3730,7 @@ impl IEnumStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumStream {}
-windows_core::imp::define_interface!(IEnumSubStream, IEnumSubStream_Vtbl, 0x4df8ae58_043a_500a_b714_28456b511265);
+windows_core::imp::define_interface!(IEnumSubStream, IEnumSubStream_Vtbl, 0xee3bd609_3868_11d2_a045_00c04fb6809f);
 windows_core::imp::interface_hierarchy!(IEnumSubStream, windows_core::IUnknown);
 impl IEnumSubStream {
     #[cfg(feature = "Win32_System_Com")]
@@ -3826,7 +3816,7 @@ impl IEnumSubStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumSubStream {}
-windows_core::imp::define_interface!(IEnumTerminal, IEnumTerminal_Vtbl, 0xe6712773_467f_5a9a_8667_0652b9a3d396);
+windows_core::imp::define_interface!(IEnumTerminal, IEnumTerminal_Vtbl, 0xae269cf4_935e_11d0_835c_00aa003ccabd);
 windows_core::imp::interface_hierarchy!(IEnumTerminal, windows_core::IUnknown);
 impl IEnumTerminal {
     #[cfg(feature = "Win32_System_Com")]
@@ -3912,7 +3902,7 @@ impl IEnumTerminal_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumTerminal {}
-windows_core::imp::define_interface!(IEnumTerminalClass, IEnumTerminalClass_Vtbl, 0x91cf0bc3_5f37_5195_a32e_abf18cd189d8);
+windows_core::imp::define_interface!(IEnumTerminalClass, IEnumTerminalClass_Vtbl, 0xae269cf5_935e_11d0_835c_00aa003ccabd);
 windows_core::imp::interface_hierarchy!(IEnumTerminalClass, windows_core::IUnknown);
 impl IEnumTerminalClass {
     pub unsafe fn Next(&self, pelements: &mut [windows_core::GUID], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -4419,7 +4409,7 @@ impl IMcastLeaseInfo_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMcastLeaseInfo {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMcastScope, IMcastScope_Vtbl, 0xcfbdb502_5243_5d60_8405_703558d919e2);
+windows_core::imp::define_interface!(IMcastScope, IMcastScope_Vtbl, 0xdf0daef4_a289_11d1_8697_006008b0e5d2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMcastScope {
     type Target = super::super::System::Com::IDispatch;
@@ -4805,7 +4795,7 @@ impl ITAMMediaFormat_Vtbl {
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl windows_core::RuntimeName for ITAMMediaFormat {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITASRTerminalEvent, ITASRTerminalEvent_Vtbl, 0x4cf433d1_8f71_53ca_b084_b0f55bf23d70);
+windows_core::imp::define_interface!(ITASRTerminalEvent, ITASRTerminalEvent_Vtbl, 0xee016a02_4fa9_467c_933f_5a15b12377d7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITASRTerminalEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -5236,7 +5226,7 @@ impl ITAddress_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddress {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAddress2, ITAddress2_Vtbl, 0x9aa2141f_ea6f_5d9e_ad63_a768aa44ceb9);
+windows_core::imp::define_interface!(ITAddress2, ITAddress2_Vtbl, 0xb0ae5d9b_be51_46c9_b0f7_dfa8a22a8bc4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAddress2 {
     type Target = ITAddress;
@@ -5292,11 +5282,11 @@ impl ITAddress2 {
     pub unsafe fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_EventFilter)(windows_core::Interface::as_raw(self), tapievent, lsubevent, benable).ok() }
     }
-    pub unsafe fn DeviceSpecific<P0>(&self, pcall: P0, pparams: *mut u8, dwsize: u32) -> windows_core::Result<()>
+    pub unsafe fn DeviceSpecific<P0>(&self, pcall: P0, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITCallInfo>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceSpecific)(windows_core::Interface::as_raw(self), pcall.param().abi(), pparams as _, dwsize).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeviceSpecific)(windows_core::Interface::as_raw(self), pcall.param().abi(), pparams, dwsize).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DeviceSpecificVariant<P0>(&self, pcall: P0, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>
@@ -5330,7 +5320,7 @@ pub struct ITAddress2_Vtbl {
     pub EnumeratePreferredPhones: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub get_EventFilter: unsafe extern "system" fn(*mut core::ffi::c_void, TAPI_EVENT, i32, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub put_EventFilter: unsafe extern "system" fn(*mut core::ffi::c_void, TAPI_EVENT, i32, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    pub DeviceSpecific: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
+    pub DeviceSpecific: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub DeviceSpecificVariant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
@@ -5346,7 +5336,7 @@ pub trait ITAddress2_Impl: ITAddress_Impl {
     fn EnumeratePreferredPhones(&self) -> windows_core::Result<IEnumPhone>;
     fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DeviceSpecific(&self, pcall: windows_core::Ref<ITCallInfo>, pparams: *mut u8, dwsize: u32) -> windows_core::Result<()>;
+    fn DeviceSpecific(&self, pcall: windows_core::Ref<ITCallInfo>, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>;
     fn DeviceSpecificVariant(&self, pcall: windows_core::Ref<ITCallInfo>, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> windows_core::Result<i32>;
 }
@@ -5431,7 +5421,7 @@ impl ITAddress2_Vtbl {
                 ITAddress2_Impl::put_EventFilter(this, core::mem::transmute_copy(&tapievent), core::mem::transmute_copy(&lsubevent), core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn DeviceSpecific<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, pparams: *mut u8, dwsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceSpecific<Identity: ITAddress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcall: *mut core::ffi::c_void, pparams: *const u8, dwsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITAddress2_Impl::DeviceSpecific(this, core::mem::transmute_copy(&pcall), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&dwsize)).into()
@@ -5476,7 +5466,7 @@ impl ITAddress2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddress2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAddressCapabilities, ITAddressCapabilities_Vtbl, 0xd7d5ecf9_fec2_56e2_bd29_aadd49d6c68a);
+windows_core::imp::define_interface!(ITAddressCapabilities, ITAddressCapabilities_Vtbl, 0x8df232f5_821b_11d1_bb5c_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAddressCapabilities {
     type Target = super::super::System::Com::IDispatch;
@@ -5692,7 +5682,7 @@ impl ITAddressCapabilities_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressCapabilities {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAddressDeviceSpecificEvent, ITAddressDeviceSpecificEvent_Vtbl, 0x72310ada_f202_58d7_9a5d_e20b1d5e49df);
+windows_core::imp::define_interface!(ITAddressDeviceSpecificEvent, ITAddressDeviceSpecificEvent_Vtbl, 0x3acb216b_40bd_487a_8672_5ce77bd7e3a3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAddressDeviceSpecificEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -5833,7 +5823,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressDeviceSpecificEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAddressEvent, ITAddressEvent_Vtbl, 0xcb3a7fc0_4bc2_5fb2_a70e_632bc810580d);
+windows_core::imp::define_interface!(ITAddressEvent, ITAddressEvent_Vtbl, 0x831ce2d1_83b5_11d1_bb5c_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAddressEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -5932,7 +5922,7 @@ impl ITAddressEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAddressTranslation, ITAddressTranslation_Vtbl, 0x96f33e94_db80_544b_9352_002d7fa58fbf);
+windows_core::imp::define_interface!(ITAddressTranslation, ITAddressTranslation_Vtbl, 0x0c4d8f03_8ddb_11d1_a09e_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAddressTranslation {
     type Target = super::super::System::Com::IDispatch;
@@ -6093,7 +6083,7 @@ impl ITAddressTranslation_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressTranslation {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAddressTranslationInfo, ITAddressTranslationInfo_Vtbl, 0xf225bb31_78b4_5a73_a258_2d7ecd435b7c);
+windows_core::imp::define_interface!(ITAddressTranslationInfo, ITAddressTranslationInfo_Vtbl, 0xafc15945_8d40_11d1_a09e_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAddressTranslationInfo {
     type Target = super::super::System::Com::IDispatch;
@@ -6234,7 +6224,7 @@ impl ITAddressTranslationInfo_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAddressTranslationInfo {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAgent, ITAgent_Vtbl, 0xc9fdba21_61d9_5dc0_b690_f2ecabfb317d);
+windows_core::imp::define_interface!(ITAgent, ITAgent_Vtbl, 0x5770ece5_4b27_11d1_bf80_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAgent {
     type Target = super::super::System::Com::IDispatch;
@@ -6621,7 +6611,7 @@ impl ITAgent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAgentEvent, ITAgentEvent_Vtbl, 0xd3f32874_9c1e_56c0_9241_494ab3a6cfea);
+windows_core::imp::define_interface!(ITAgentEvent, ITAgentEvent_Vtbl, 0x5afc314a_4bcc_11d1_bf80_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAgentEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -6695,7 +6685,7 @@ impl ITAgentEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAgentHandler, ITAgentHandler_Vtbl, 0xfdb0bf79_629d_5e6f_988b_43855322b96d);
+windows_core::imp::define_interface!(ITAgentHandler, ITAgentHandler_Vtbl, 0x587e8c22_9802_11d1_a0a4_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAgentHandler {
     type Target = super::super::System::Com::IDispatch;
@@ -6886,7 +6876,7 @@ impl ITAgentHandler_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentHandler {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAgentHandlerEvent, ITAgentHandlerEvent_Vtbl, 0x8e4b6178_ed4c_5d4e_8dc5_3f079e3bc6d3);
+windows_core::imp::define_interface!(ITAgentHandlerEvent, ITAgentHandlerEvent_Vtbl, 0x297f3034_bd11_11d1_a0a7_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAgentHandlerEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -7348,7 +7338,7 @@ impl ITAgentSession_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITAgentSession {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAgentSessionEvent, ITAgentSessionEvent_Vtbl, 0xf82e178b_2f13_59dd_a507_ca5cabd2bc2e);
+windows_core::imp::define_interface!(ITAgentSessionEvent, ITAgentSessionEvent_Vtbl, 0x5afc314b_4bcc_11d1_bf80_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAgentSessionEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -7558,7 +7548,7 @@ impl ITAllocatorProperties_Vtbl {
 #[cfg(feature = "Win32_Media_DirectShow")]
 impl windows_core::RuntimeName for ITAllocatorProperties {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITAutomatedPhoneControl, ITAutomatedPhoneControl_Vtbl, 0xb048eb40_f836_511f_99e8_d61cb7b1c84f);
+windows_core::imp::define_interface!(ITAutomatedPhoneControl, ITAutomatedPhoneControl_Vtbl, 0x1ee1af0e_6159_4a61_b79b_6a4ba3fc9dfc);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITAutomatedPhoneControl {
     type Target = super::super::System::Com::IDispatch;
@@ -8225,7 +8215,7 @@ impl ITBasicAudioTerminal_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITBasicAudioTerminal {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITBasicCallControl, ITBasicCallControl_Vtbl, 0xb36250ca_f2d2_5299_818c_33a35c4751f2);
+windows_core::imp::define_interface!(ITBasicCallControl, ITBasicCallControl_Vtbl, 0xb1efc389_9355_11d0_835c_00aa003ccabd);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITBasicCallControl {
     type Target = super::super::System::Com::IDispatch;
@@ -8495,7 +8485,7 @@ impl ITBasicCallControl_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITBasicCallControl {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITBasicCallControl2, ITBasicCallControl2_Vtbl, 0x18d121fb_64c9_5d81_baf1_567a2f6b95bd);
+windows_core::imp::define_interface!(ITBasicCallControl2, ITBasicCallControl2_Vtbl, 0x161a4a56_1e99_4b3f_a46a_168f38a5ee4c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITBasicCallControl2 {
     type Target = ITBasicCallControl;
@@ -8582,7 +8572,7 @@ impl ITBasicCallControl2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITBasicCallControl2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCallHub, ITCallHub_Vtbl, 0x23e92be0_1184_52f5_9c4c_abe184858e4a);
+windows_core::imp::define_interface!(ITCallHub, ITCallHub_Vtbl, 0xa3c1544e_5b92_11d1_8f4e_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCallHub {
     type Target = super::super::System::Com::IDispatch;
@@ -8817,7 +8807,7 @@ impl ITCallHubEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallHubEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCallInfo, ITCallInfo_Vtbl, 0xa4b62e6e_e001_5a52_9c8c_a42e991633f9);
+windows_core::imp::define_interface!(ITCallInfo, ITCallInfo_Vtbl, 0x350f85d1_1227_11d3_83d4_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCallInfo {
     type Target = super::super::System::Com::IDispatch;
@@ -8885,7 +8875,7 @@ impl ITCallInfo {
     pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pdwsize as _, ppcallinfobuffer as _).ok() }
     }
-    pub unsafe fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &mut [u8]) -> windows_core::Result<()> {
+    pub unsafe fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCallInfoBuffer)(windows_core::Interface::as_raw(self), callinfobuffer, pcallinfobuffer.len().try_into().unwrap(), core::mem::transmute(pcallinfobuffer.as_ptr())).ok() }
     }
     pub unsafe fn ReleaseUserUserInfo(&self) -> windows_core::Result<()> {
@@ -8914,7 +8904,7 @@ pub struct ITCallInfo_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_CallInfoBuffer: usize,
     pub GetCallInfoBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, CALLINFO_BUFFER, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
-    pub SetCallInfoBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, CALLINFO_BUFFER, u32, *mut u8) -> windows_core::HRESULT,
+    pub SetCallInfoBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, CALLINFO_BUFFER, u32, *const u8) -> windows_core::HRESULT,
     pub ReleaseUserUserInfo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8930,7 +8920,7 @@ pub trait ITCallInfo_Impl: super::super::System::Com::IDispatch_Impl {
     fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn put_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> windows_core::Result<()>;
-    fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *mut u8) -> windows_core::Result<()>;
+    fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> windows_core::Result<()>;
     fn ReleaseUserUserInfo(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9044,7 +9034,7 @@ impl ITCallInfo_Vtbl {
                 ITCallInfo_Impl::GetCallInfoBuffer(this, core::mem::transmute_copy(&callinfobuffer), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&ppcallinfobuffer)).into()
             }
         }
-        unsafe extern "system" fn SetCallInfoBuffer<Identity: ITCallInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCallInfoBuffer<Identity: ITCallInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITCallInfo_Impl::SetCallInfoBuffer(this, core::mem::transmute_copy(&callinfobuffer), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pcallinfobuffer)).into()
@@ -9080,7 +9070,7 @@ impl ITCallInfo_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallInfo {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCallInfo2, ITCallInfo2_Vtbl, 0xee00f6a5_570a_56aa_9453_ecbca3c1b7a7);
+windows_core::imp::define_interface!(ITCallInfo2, ITCallInfo2_Vtbl, 0x94d70ca6_7ab0_4daa_81ca_b8f8643faec1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCallInfo2 {
     type Target = ITCallInfo;
@@ -9149,7 +9139,7 @@ impl ITCallInfo2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallInfo2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCallInfoChangeEvent, ITCallInfoChangeEvent_Vtbl, 0xd5f500b3_a18e_5341_ae5b_97d4cd0dda13);
+windows_core::imp::define_interface!(ITCallInfoChangeEvent, ITCallInfoChangeEvent_Vtbl, 0x5d4b65f9_e51c_11d1_a02f_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCallInfoChangeEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -9248,7 +9238,7 @@ impl ITCallInfoChangeEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallInfoChangeEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCallMediaEvent, ITCallMediaEvent_Vtbl, 0xa0b31b1e_0d3b_5bf5_aaca_4c938420e226);
+windows_core::imp::define_interface!(ITCallMediaEvent, ITCallMediaEvent_Vtbl, 0xff36b87f_ec3a_11d0_8ee4_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCallMediaEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -9410,7 +9400,7 @@ impl ITCallMediaEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallMediaEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCallNotificationEvent, ITCallNotificationEvent_Vtbl, 0xe0fa8151_6b95_5879_b39f_44bbea04d2cc);
+windows_core::imp::define_interface!(ITCallNotificationEvent, ITCallNotificationEvent_Vtbl, 0x895801df_3dd6_11d1_8f30_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCallNotificationEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -9509,7 +9499,7 @@ impl ITCallNotificationEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallNotificationEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCallStateEvent, ITCallStateEvent_Vtbl, 0x63454a1d_d948_57f7_ab89_21b01d42f12c);
+windows_core::imp::define_interface!(ITCallStateEvent, ITCallStateEvent_Vtbl, 0x62f47097_95c9_11d0_835d_00aa003ccabd);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCallStateEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -9812,7 +9802,7 @@ impl ITCallingCard_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCallingCard {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITCollection, ITCollection_Vtbl, 0x0c754e5e_d6dc_5e43_bd13_14a7a93e9a6b);
+windows_core::imp::define_interface!(ITCollection, ITCollection_Vtbl, 0x5ec5acf2_9c02_11d0_8362_00aa003ccabd);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITCollection {
     type Target = super::super::System::Com::IDispatch;
@@ -10143,7 +10133,7 @@ impl ITCustomTone_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITCustomTone {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITDetectTone, ITDetectTone_Vtbl, 0xf2a2716c_25ac_55f6_828b_fa1625c66f10);
+windows_core::imp::define_interface!(ITDetectTone, ITDetectTone_Vtbl, 0x961f79bd_3097_49df_a1d6_909b77e89ca0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITDetectTone {
     type Target = super::super::System::Com::IDispatch;
@@ -10278,7 +10268,7 @@ impl ITDetectTone_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDetectTone {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITDigitDetectionEvent, ITDigitDetectionEvent_Vtbl, 0xb9451a03_69ce_5c4c_9736_9b2832fdbe1b);
+windows_core::imp::define_interface!(ITDigitDetectionEvent, ITDigitDetectionEvent_Vtbl, 0x80d3bfac_57d9_11d2_a04a_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITDigitDetectionEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -10539,7 +10529,7 @@ impl ITDigitGenerationEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDigitGenerationEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITDigitsGatheredEvent, ITDigitsGatheredEvent_Vtbl, 0xc996b75d_fde4_5b18_9b54_7840baa168b3);
+windows_core::imp::define_interface!(ITDigitsGatheredEvent, ITDigitsGatheredEvent_Vtbl, 0xe52ec4c1_cba3_441a_9e6a_93cb909e9724);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITDigitsGatheredEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -10680,7 +10670,7 @@ impl ITDigitsGatheredEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDigitsGatheredEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITDirectory, ITDirectory_Vtbl, 0xbee7480d_b553_51df_939b_f92c3fea35b5);
+windows_core::imp::define_interface!(ITDirectory, ITDirectory_Vtbl, 0x34621d6c_6cff_11d1_aff7_00c04fc31fee);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITDirectory {
     type Target = super::super::System::Com::IDispatch;
@@ -11126,7 +11116,7 @@ impl ITDirectoryObject_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDirectoryObject {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITDirectoryObjectConference, ITDirectoryObjectConference_Vtbl, 0x6a50198e_2087_55a0_9fb2_28abfc15a1bb);
+windows_core::imp::define_interface!(ITDirectoryObjectConference, ITDirectoryObjectConference_Vtbl, 0xf1029e5d_cb5b_11d0_8d59_00c04fd91ac0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITDirectoryObjectConference {
     type Target = super::super::System::Com::IDispatch;
@@ -11414,7 +11404,7 @@ impl ITDirectoryObjectConference_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDirectoryObjectConference {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITDirectoryObjectUser, ITDirectoryObjectUser_Vtbl, 0x4959b407_4da8_5390_9a3c_2be2bfa6f47c);
+windows_core::imp::define_interface!(ITDirectoryObjectUser, ITDirectoryObjectUser_Vtbl, 0x34621d6f_6cff_11d1_aff7_00c04fc31fee);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITDirectoryObjectUser {
     type Target = super::super::System::Com::IDispatch;
@@ -11540,7 +11530,7 @@ impl ITDispatchMapper_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITDispatchMapper {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITFileTerminalEvent, ITFileTerminalEvent_Vtbl, 0x283f55ab_05fc_5364_9146_ae408db4b979);
+windows_core::imp::define_interface!(ITFileTerminalEvent, ITFileTerminalEvent_Vtbl, 0xe4a7fbac_8c17_4427_9f55_9f589ac8af00);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITFileTerminalEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -11702,7 +11692,7 @@ impl ITFileTerminalEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITFileTerminalEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITFileTrack, ITFileTrack_Vtbl, 0x9e30bc30_1fdf_5649_aa1b_e75b241a1714);
+windows_core::imp::define_interface!(ITFileTrack, ITFileTrack_Vtbl, 0x31ca6ea9_c08a_4bea_8811_8e9c1ba3ea3a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITFileTrack {
     type Target = super::super::System::Com::IDispatch;
@@ -11722,7 +11712,7 @@ impl ITFileTrack {
         }
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn SetFormat(&self, pmt: *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()> {
+    pub unsafe fn SetFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt)).ok() }
     }
     pub unsafe fn ControllingTerminal(&self) -> windows_core::Result<ITTerminal> {
@@ -11760,7 +11750,7 @@ pub struct ITFileTrack_Vtbl {
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     Format: usize,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     SetFormat: usize,
     pub ControllingTerminal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -11771,7 +11761,7 @@ pub struct ITFileTrack_Vtbl {
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITFileTrack_Impl: super::super::System::Com::IDispatch_Impl {
     fn Format(&self) -> windows_core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>;
-    fn SetFormat(&self, pmt: *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>;
+    fn SetFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>;
     fn ControllingTerminal(&self) -> windows_core::Result<ITTerminal>;
     fn AudioFormatForScripting(&self) -> windows_core::Result<ITScriptableAudioFormat>;
     fn SetAudioFormatForScripting(&self, paudioformat: windows_core::Ref<ITScriptableAudioFormat>) -> windows_core::Result<()>;
@@ -11792,7 +11782,7 @@ impl ITFileTrack_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFormat<Identity: ITFileTrack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFormat<Identity: ITFileTrack_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITFileTrack_Impl::SetFormat(this, core::mem::transmute_copy(&pmt)).into()
@@ -11857,7 +11847,7 @@ impl ITFileTrack_Vtbl {
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITFileTrack {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITForwardInformation, ITForwardInformation_Vtbl, 0x5216980d_82ac_5760_a628_9fbf1203735f);
+windows_core::imp::define_interface!(ITForwardInformation, ITForwardInformation_Vtbl, 0x449f659e_88a3_11d1_bb5d_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITForwardInformation {
     type Target = super::super::System::Com::IDispatch;
@@ -12004,7 +11994,7 @@ impl ITForwardInformation_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITForwardInformation {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITForwardInformation2, ITForwardInformation2_Vtbl, 0xd30baadd_32fe_5993_9a35_2e3a5d27347d);
+windows_core::imp::define_interface!(ITForwardInformation2, ITForwardInformation2_Vtbl, 0x5229b4ed_b260_4382_8e1a_5df3a8a4ccc0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITForwardInformation2 {
     type Target = ITForwardInformation;
@@ -12106,7 +12096,7 @@ impl ITForwardInformation2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITForwardInformation2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITILSConfig, ITILSConfig_Vtbl, 0x46e3bcba_742b_5657_a437_d7f858a5e2ed);
+windows_core::imp::define_interface!(ITILSConfig, ITILSConfig_Vtbl, 0x34621d72_6cff_11d1_aff7_00c04fc31fee);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITILSConfig {
     type Target = super::super::System::Com::IDispatch;
@@ -12232,7 +12222,7 @@ impl ITLegacyAddressMediaControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ITLegacyAddressMediaControl {}
-windows_core::imp::define_interface!(ITLegacyAddressMediaControl2, ITLegacyAddressMediaControl2_Vtbl, 0x677cac0b_1c1e_5e4a_ba00_3e8f9cfb14fb);
+windows_core::imp::define_interface!(ITLegacyAddressMediaControl2, ITLegacyAddressMediaControl2_Vtbl, 0xb0ee512b_a531_409e_9dd9_4099fe86c738);
 impl core::ops::Deref for ITLegacyAddressMediaControl2 {
     type Target = ITLegacyAddressMediaControl;
     fn deref(&self) -> &Self::Target {
@@ -12244,7 +12234,7 @@ impl ITLegacyAddressMediaControl2 {
     pub unsafe fn ConfigDialog(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConfigDialog)(windows_core::Interface::as_raw(self), hwndowner, core::mem::transmute_copy(pdeviceclass)).ok() }
     }
-    pub unsafe fn ConfigDialogEdit(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR, pdeviceconfigin: &mut [u8], pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn ConfigDialogEdit(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR, pdeviceconfigin: &[u8], pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConfigDialogEdit)(windows_core::Interface::as_raw(self), hwndowner, core::mem::transmute_copy(pdeviceclass), pdeviceconfigin.len().try_into().unwrap(), core::mem::transmute(pdeviceconfigin.as_ptr()), pdwsizeout as _, ppdeviceconfigout as _).ok() }
     }
 }
@@ -12253,11 +12243,11 @@ impl ITLegacyAddressMediaControl2 {
 pub struct ITLegacyAddressMediaControl2_Vtbl {
     pub base__: ITLegacyAddressMediaControl_Vtbl,
     pub ConfigDialog: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ConfigDialogEdit: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, u32, *mut u8, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
+    pub ConfigDialogEdit: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, u32, *const u8, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 pub trait ITLegacyAddressMediaControl2_Impl: ITLegacyAddressMediaControl_Impl {
     fn ConfigDialog(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ConfigDialogEdit(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR, dwsizein: u32, pdeviceconfigin: *mut u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::Result<()>;
+    fn ConfigDialogEdit(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &windows_core::BSTR, dwsizein: u32, pdeviceconfigin: *const u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::Result<()>;
 }
 impl ITLegacyAddressMediaControl2_Vtbl {
     pub const fn new<Identity: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>() -> Self {
@@ -12267,7 +12257,7 @@ impl ITLegacyAddressMediaControl2_Vtbl {
                 ITLegacyAddressMediaControl2_Impl::ConfigDialog(this, core::mem::transmute_copy(&hwndowner), core::mem::transmute(&pdeviceclass)).into()
             }
         }
-        unsafe extern "system" fn ConfigDialogEdit<Identity: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndowner: super::super::Foundation::HWND, pdeviceclass: *mut core::ffi::c_void, dwsizein: u32, pdeviceconfigin: *mut u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConfigDialogEdit<Identity: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndowner: super::super::Foundation::HWND, pdeviceclass: *mut core::ffi::c_void, dwsizein: u32, pdeviceconfigin: *const u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITLegacyAddressMediaControl2_Impl::ConfigDialogEdit(this, core::mem::transmute_copy(&hwndowner), core::mem::transmute(&pdeviceclass), core::mem::transmute_copy(&dwsizein), core::mem::transmute_copy(&pdeviceconfigin), core::mem::transmute_copy(&pdwsizeout), core::mem::transmute_copy(&ppdeviceconfigout)).into()
@@ -12285,7 +12275,7 @@ impl ITLegacyAddressMediaControl2_Vtbl {
 }
 impl windows_core::RuntimeName for ITLegacyAddressMediaControl2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITLegacyCallMediaControl, ITLegacyCallMediaControl_Vtbl, 0x0451e11d_f236_573e_8a3e_599ef72533f2);
+windows_core::imp::define_interface!(ITLegacyCallMediaControl, ITLegacyCallMediaControl_Vtbl, 0xd624582f_cc23_4436_b8a5_47c625c8045d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITLegacyCallMediaControl {
     type Target = super::super::System::Com::IDispatch;
@@ -12381,7 +12371,7 @@ impl ITLegacyCallMediaControl_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITLegacyCallMediaControl {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITLegacyCallMediaControl2, ITLegacyCallMediaControl2_Vtbl, 0x3c16ed7d_148a_5b88_90f9_7f3681edb2da);
+windows_core::imp::define_interface!(ITLegacyCallMediaControl2, ITLegacyCallMediaControl2_Vtbl, 0x57ca332d_7bc2_44f1_a60c_936fe8d7ce73);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITLegacyCallMediaControl2 {
     type Target = ITLegacyCallMediaControl;
@@ -12399,8 +12389,8 @@ impl ITLegacyCallMediaControl2 {
     pub unsafe fn GatherDigits(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: &windows_core::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GatherDigits)(windows_core::Interface::as_raw(self), digitmode, lnumdigits, core::mem::transmute_copy(pterminationdigits), lfirstdigittimeout, linterdigittimeout).ok() }
     }
-    pub unsafe fn DetectTones(&self, ptonelist: *mut TAPI_DETECTTONE, lnumtones: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DetectTones)(windows_core::Interface::as_raw(self), ptonelist as _, lnumtones).ok() }
+    pub unsafe fn DetectTones(&self, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DetectTones)(windows_core::Interface::as_raw(self), ptonelist, lnumtones).ok() }
     }
     pub unsafe fn DetectTonesByCollection<P0>(&self, pdetecttonecollection: P0) -> windows_core::Result<()>
     where
@@ -12411,8 +12401,8 @@ impl ITLegacyCallMediaControl2 {
     pub unsafe fn GenerateTone(&self, tonemode: TAPI_TONEMODE, lduration: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GenerateTone)(windows_core::Interface::as_raw(self), tonemode, lduration).ok() }
     }
-    pub unsafe fn GenerateCustomTones(&self, ptonelist: *mut TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GenerateCustomTones)(windows_core::Interface::as_raw(self), ptonelist as _, lnumtones, lduration).ok() }
+    pub unsafe fn GenerateCustomTones(&self, ptonelist: *const TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GenerateCustomTones)(windows_core::Interface::as_raw(self), ptonelist, lnumtones, lduration).ok() }
     }
     pub unsafe fn GenerateCustomTonesByCollection<P0>(&self, pcustomtonecollection: P0, lduration: i32) -> windows_core::Result<()>
     where
@@ -12447,10 +12437,10 @@ pub struct ITLegacyCallMediaControl2_Vtbl {
     pub base__: ITLegacyCallMediaControl_Vtbl,
     pub GenerateDigits2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
     pub GatherDigits: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    pub DetectTones: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TAPI_DETECTTONE, i32) -> windows_core::HRESULT,
+    pub DetectTones: unsafe extern "system" fn(*mut core::ffi::c_void, *const TAPI_DETECTTONE, i32) -> windows_core::HRESULT,
     pub DetectTonesByCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GenerateTone: unsafe extern "system" fn(*mut core::ffi::c_void, TAPI_TONEMODE, i32) -> windows_core::HRESULT,
-    pub GenerateCustomTones: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TAPI_CUSTOMTONE, i32, i32) -> windows_core::HRESULT,
+    pub GenerateCustomTones: unsafe extern "system" fn(*mut core::ffi::c_void, *const TAPI_CUSTOMTONE, i32, i32) -> windows_core::HRESULT,
     pub GenerateCustomTonesByCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub CreateDetectToneObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateCustomToneObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -12463,10 +12453,10 @@ pub struct ITLegacyCallMediaControl2_Vtbl {
 pub trait ITLegacyCallMediaControl2_Impl: ITLegacyCallMediaControl_Impl {
     fn GenerateDigits2(&self, pdigits: &windows_core::BSTR, digitmode: i32, lduration: i32) -> windows_core::Result<()>;
     fn GatherDigits(&self, digitmode: i32, lnumdigits: i32, pterminationdigits: &windows_core::BSTR, lfirstdigittimeout: i32, linterdigittimeout: i32) -> windows_core::Result<()>;
-    fn DetectTones(&self, ptonelist: *mut TAPI_DETECTTONE, lnumtones: i32) -> windows_core::Result<()>;
+    fn DetectTones(&self, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> windows_core::Result<()>;
     fn DetectTonesByCollection(&self, pdetecttonecollection: windows_core::Ref<ITCollection2>) -> windows_core::Result<()>;
     fn GenerateTone(&self, tonemode: TAPI_TONEMODE, lduration: i32) -> windows_core::Result<()>;
-    fn GenerateCustomTones(&self, ptonelist: *mut TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> windows_core::Result<()>;
+    fn GenerateCustomTones(&self, ptonelist: *const TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> windows_core::Result<()>;
     fn GenerateCustomTonesByCollection(&self, pcustomtonecollection: windows_core::Ref<ITCollection2>, lduration: i32) -> windows_core::Result<()>;
     fn CreateDetectToneObject(&self) -> windows_core::Result<ITDetectTone>;
     fn CreateCustomToneObject(&self) -> windows_core::Result<ITCustomTone>;
@@ -12487,7 +12477,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
                 ITLegacyCallMediaControl2_Impl::GatherDigits(this, core::mem::transmute_copy(&digitmode), core::mem::transmute_copy(&lnumdigits), core::mem::transmute(&pterminationdigits), core::mem::transmute_copy(&lfirstdigittimeout), core::mem::transmute_copy(&linterdigittimeout)).into()
             }
         }
-        unsafe extern "system" fn DetectTones<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptonelist: *mut TAPI_DETECTTONE, lnumtones: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DetectTones<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITLegacyCallMediaControl2_Impl::DetectTones(this, core::mem::transmute_copy(&ptonelist), core::mem::transmute_copy(&lnumtones)).into()
@@ -12505,7 +12495,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
                 ITLegacyCallMediaControl2_Impl::GenerateTone(this, core::mem::transmute_copy(&tonemode), core::mem::transmute_copy(&lduration)).into()
             }
         }
-        unsafe extern "system" fn GenerateCustomTones<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptonelist: *mut TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateCustomTones<Identity: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptonelist: *const TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITLegacyCallMediaControl2_Impl::GenerateCustomTones(this, core::mem::transmute_copy(&ptonelist), core::mem::transmute_copy(&lnumtones), core::mem::transmute_copy(&lduration)).into()
@@ -12574,7 +12564,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITLegacyCallMediaControl2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITLegacyWaveSupport, ITLegacyWaveSupport_Vtbl, 0x3a22d779_6ae0_5832_94dd_fbe90a82c39f);
+windows_core::imp::define_interface!(ITLegacyWaveSupport, ITLegacyWaveSupport_Vtbl, 0x207823ea_e252_11d2_b77e_0080c7135381);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITLegacyWaveSupport {
     type Target = super::super::System::Com::IDispatch;
@@ -12628,7 +12618,7 @@ impl ITLegacyWaveSupport_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITLegacyWaveSupport {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITLocationInfo, ITLocationInfo_Vtbl, 0xf6aa133d_8cbe_5d8d_a7e1_bff3f1f374ef);
+windows_core::imp::define_interface!(ITLocationInfo, ITLocationInfo_Vtbl, 0x0c4d8eff_8ddb_11d1_a09e_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITLocationInfo {
     type Target = super::super::System::Com::IDispatch;
@@ -13007,7 +12997,7 @@ impl ITMSPAddress_Vtbl {
 }
 impl windows_core::RuntimeName for ITMSPAddress {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITMediaControl, ITMediaControl_Vtbl, 0x7dcd6b38_4ebf_5975_98c4_aec5d3fde83c);
+windows_core::imp::define_interface!(ITMediaControl, ITMediaControl_Vtbl, 0xc445dde8_5199_4bc7_9807_5ffb92e42e09);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITMediaControl {
     type Target = super::super::System::Com::IDispatch;
@@ -13100,7 +13090,7 @@ impl ITMediaControl_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaControl {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITMediaPlayback, ITMediaPlayback_Vtbl, 0x313bd6e7_6777_58f6_945b_07e38b6fb783);
+windows_core::imp::define_interface!(ITMediaPlayback, ITMediaPlayback_Vtbl, 0x627e8ae6_ae4c_4a69_bb63_2ad625404b77);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITMediaPlayback {
     type Target = super::super::System::Com::IDispatch;
@@ -13177,7 +13167,7 @@ impl ITMediaPlayback_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaPlayback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITMediaRecord, ITMediaRecord_Vtbl, 0xa3331791_45a6_57f5_96e4_28766be2efdf);
+windows_core::imp::define_interface!(ITMediaRecord, ITMediaRecord_Vtbl, 0xf5dd4592_5476_4cc1_9d4d_fad3eefe7db2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITMediaRecord {
     type Target = super::super::System::Com::IDispatch;
@@ -13246,7 +13236,7 @@ impl ITMediaRecord_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaRecord {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITMediaSupport, ITMediaSupport_Vtbl, 0x36ba36a3_af1b_5c39_adf3_5d0ae07971a0);
+windows_core::imp::define_interface!(ITMediaSupport, ITMediaSupport_Vtbl, 0xb1efc384_9355_11d0_835c_00aa003ccabd);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITMediaSupport {
     type Target = super::super::System::Com::IDispatch;
@@ -13324,7 +13314,7 @@ impl ITMediaSupport_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMediaSupport {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITMultiTrackTerminal, ITMultiTrackTerminal_Vtbl, 0x77333f45_5aaf_56f8_914b_eb39ae0f7e93);
+windows_core::imp::define_interface!(ITMultiTrackTerminal, ITMultiTrackTerminal_Vtbl, 0xfe040091_ade8_4072_95c9_bf7de8c54b44);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITMultiTrackTerminal {
     type Target = super::super::System::Com::IDispatch;
@@ -13484,7 +13474,7 @@ impl ITMultiTrackTerminal_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITMultiTrackTerminal {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITPhone, ITPhone_Vtbl, 0xe5e94cff_76b6_5acd_8715_5b697aa70e60);
+windows_core::imp::define_interface!(ITPhone, ITPhone_Vtbl, 0x09d48db4_10cc_4388_9de7_a8465618975a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITPhone {
     type Target = super::super::System::Com::IDispatch;
@@ -13653,8 +13643,8 @@ impl ITPhone {
             (windows_core::Interface::vtable(self).EnumeratePreferredAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeviceSpecific(&self, pparams: *mut u8, dwsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeviceSpecific)(windows_core::Interface::as_raw(self), pparams as _, dwsize).ok() }
+    pub unsafe fn DeviceSpecific(&self, pparams: *const u8, dwsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DeviceSpecific)(windows_core::Interface::as_raw(self), pparams, dwsize).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DeviceSpecificVariant(&self, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -13714,7 +13704,7 @@ pub struct ITPhone_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PreferredAddresses: usize,
     pub EnumeratePreferredAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeviceSpecific: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
+    pub DeviceSpecific: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub DeviceSpecificVariant: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
@@ -13753,7 +13743,7 @@ pub trait ITPhone_Impl: super::super::System::Com::IDispatch_Impl {
     fn SetDisplay(&self, lrow: i32, lcolumn: i32, bstrdisplay: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PreferredAddresses(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumeratePreferredAddresses(&self) -> windows_core::Result<IEnumAddress>;
-    fn DeviceSpecific(&self, pparams: *mut u8, dwsize: u32) -> windows_core::Result<()>;
+    fn DeviceSpecific(&self, pparams: *const u8, dwsize: u32) -> windows_core::Result<()>;
     fn DeviceSpecificVariant(&self, vardevspecificbytearray: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> windows_core::Result<i32>;
 }
@@ -14054,7 +14044,7 @@ impl ITPhone_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DeviceSpecific<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparams: *mut u8, dwsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceSpecific<Identity: ITPhone_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparams: *const u8, dwsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITPhone_Impl::DeviceSpecific(this, core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&dwsize)).into()
@@ -14122,7 +14112,7 @@ impl ITPhone_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPhone {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITPhoneDeviceSpecificEvent, ITPhoneDeviceSpecificEvent_Vtbl, 0xef8fdd5b_5529_513e_943e_e95879741e5d);
+windows_core::imp::define_interface!(ITPhoneDeviceSpecificEvent, ITPhoneDeviceSpecificEvent_Vtbl, 0x63ffb2a6_872b_4cd3_a501_326e8fb40af7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITPhoneDeviceSpecificEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -14467,7 +14457,7 @@ impl ITPhoneEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPhoneEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITPluggableTerminalClassInfo, ITPluggableTerminalClassInfo_Vtbl, 0xe314133f_3cb2_5744_9452_19feff59efda);
+windows_core::imp::define_interface!(ITPluggableTerminalClassInfo, ITPluggableTerminalClassInfo_Vtbl, 0x41757f4a_cf09_4b34_bc96_0a79d2390076);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITPluggableTerminalClassInfo {
     type Target = super::super::System::Com::IDispatch;
@@ -14649,11 +14639,11 @@ impl ITPluggableTerminalClassInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITPluggableTerminalClassInfo {}
-windows_core::imp::define_interface!(ITPluggableTerminalEventSink, ITPluggableTerminalEventSink_Vtbl, 0xfcbb897e_b22d_5e57_a339_4c4dd3a6e99a);
+windows_core::imp::define_interface!(ITPluggableTerminalEventSink, ITPluggableTerminalEventSink_Vtbl, 0x6e0887be_ba1a_492e_bd10_4020ec5e33e0);
 windows_core::imp::interface_hierarchy!(ITPluggableTerminalEventSink, windows_core::IUnknown);
 impl ITPluggableTerminalEventSink {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FireEvent(&self, pmspeventinfo: *mut MSP_EVENT_INFO) -> windows_core::Result<()> {
+    pub unsafe fn FireEvent(&self, pmspeventinfo: *const MSP_EVENT_INFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FireEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(pmspeventinfo)).ok() }
     }
 }
@@ -14662,18 +14652,18 @@ impl ITPluggableTerminalEventSink {
 pub struct ITPluggableTerminalEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub FireEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MSP_EVENT_INFO) -> windows_core::HRESULT,
+    pub FireEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const MSP_EVENT_INFO) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FireEvent: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPluggableTerminalEventSink_Impl: windows_core::IUnknownImpl {
-    fn FireEvent(&self, pmspeventinfo: *mut MSP_EVENT_INFO) -> windows_core::Result<()>;
+    fn FireEvent(&self, pmspeventinfo: *const MSP_EVENT_INFO) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITPluggableTerminalEventSink_Vtbl {
     pub const fn new<Identity: ITPluggableTerminalEventSink_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FireEvent<Identity: ITPluggableTerminalEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmspeventinfo: *mut MSP_EVENT_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn FireEvent<Identity: ITPluggableTerminalEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmspeventinfo: *const MSP_EVENT_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITPluggableTerminalEventSink_Impl::FireEvent(this, core::mem::transmute_copy(&pmspeventinfo)).into()
@@ -14687,7 +14677,7 @@ impl ITPluggableTerminalEventSink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for ITPluggableTerminalEventSink {}
-windows_core::imp::define_interface!(ITPluggableTerminalEventSinkRegistration, ITPluggableTerminalEventSinkRegistration_Vtbl, 0x22bf51f9_bf14_51c8_afa0_f2805956ec8b);
+windows_core::imp::define_interface!(ITPluggableTerminalEventSinkRegistration, ITPluggableTerminalEventSinkRegistration_Vtbl, 0xf7115709_a216_4957_a759_060ab32a90d1);
 windows_core::imp::interface_hierarchy!(ITPluggableTerminalEventSinkRegistration, windows_core::IUnknown);
 impl ITPluggableTerminalEventSinkRegistration {
     pub unsafe fn RegisterSink<P0>(&self, peventsink: P0) -> windows_core::Result<()>
@@ -15051,7 +15041,7 @@ impl ITQOSEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITQOSEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITQueue, ITQueue_Vtbl, 0xb47d181c_7078_5fb6_b895_70b64e808e54);
+windows_core::imp::define_interface!(ITQueue, ITQueue_Vtbl, 0x5afc3149_4bcc_11d1_bf80_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITQueue {
     type Target = super::super::System::Com::IDispatch;
@@ -15330,7 +15320,7 @@ impl ITQueue_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITQueue {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITQueueEvent, ITQueueEvent_Vtbl, 0xf4fd5835_8bb4_5445_a1c1_9e804d9df397);
+windows_core::imp::define_interface!(ITQueueEvent, ITQueueEvent_Vtbl, 0x297f3033_bd11_11d1_a0a7_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITQueueEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -15573,7 +15563,7 @@ impl ITRequest_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITRequest {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITRequestEvent, ITRequestEvent_Vtbl, 0x494ebb46_d31c_5e9b_9a85_635d861455fe);
+windows_core::imp::define_interface!(ITRequestEvent, ITRequestEvent_Vtbl, 0xac48ffde_f8c4_11d1_a030_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITRequestEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -15735,7 +15725,7 @@ impl ITRequestEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITRequestEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITScriptableAudioFormat, ITScriptableAudioFormat_Vtbl, 0xa5f52012_e94d_5553_b8dc_ad6d64502c0a);
+windows_core::imp::define_interface!(ITScriptableAudioFormat, ITScriptableAudioFormat_Vtbl, 0xb87658bd_3c59_4f64_be74_aede3e86a81e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITScriptableAudioFormat {
     type Target = super::super::System::Com::IDispatch;
@@ -16352,7 +16342,7 @@ impl ITStreamControl_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITStreamControl {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITSubStream, ITSubStream_Vtbl, 0x0ecec32a_2ceb_5494_a112_933b837cfeb8);
+windows_core::imp::define_interface!(ITSubStream, ITSubStream_Vtbl, 0xee3bd608_3868_11d2_a045_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITSubStream {
     type Target = super::super::System::Com::IDispatch;
@@ -16521,7 +16511,7 @@ impl ITSubStream_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITSubStream {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITSubStreamControl, ITSubStreamControl_Vtbl, 0x93ee8081_a637_5f1e_812e_54afd08f0b81);
+windows_core::imp::define_interface!(ITSubStreamControl, ITSubStreamControl_Vtbl, 0xee3bd607_3868_11d2_a045_00c04fb6809f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITSubStreamControl {
     type Target = super::super::System::Com::IDispatch;
@@ -17061,7 +17051,7 @@ impl ITTAPI2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPI2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITTAPICallCenter, ITTAPICallCenter_Vtbl, 0x79320e9c_e532_582a_9c4e_f05917ad8b3f);
+windows_core::imp::define_interface!(ITTAPICallCenter, ITTAPICallCenter_Vtbl, 0x5afc3154_4bcc_11d1_bf80_00805fc147d3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITTAPICallCenter {
     type Target = super::super::System::Com::IDispatch;
@@ -17143,7 +17133,7 @@ impl ITTAPICallCenter_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPICallCenter {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITTAPIDispatchEventNotification, ITTAPIDispatchEventNotification_Vtbl, 0xc85b3ab3_9169_5be4_951d_a19ca0c843e0);
+windows_core::imp::define_interface!(ITTAPIDispatchEventNotification, ITTAPIDispatchEventNotification_Vtbl, 0x9f34325b_7e62_11d2_9457_00c04f8ec888);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITTAPIDispatchEventNotification {
     type Target = super::super::System::Com::IDispatch;
@@ -17172,7 +17162,7 @@ impl ITTAPIDispatchEventNotification_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPIDispatchEventNotification {}
-windows_core::imp::define_interface!(ITTAPIEventNotification, ITTAPIEventNotification_Vtbl, 0xc315bc02_3594_5d2e_9201_b0509c418fc5);
+windows_core::imp::define_interface!(ITTAPIEventNotification, ITTAPIEventNotification_Vtbl, 0xeddb9426_3b91_11d1_8f30_00c04fb6809f);
 windows_core::imp::interface_hierarchy!(ITTAPIEventNotification, windows_core::IUnknown);
 impl ITTAPIEventNotification {
     #[cfg(feature = "Win32_System_Com")]
@@ -17334,7 +17324,7 @@ impl ITTAPIObjectEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPIObjectEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITTAPIObjectEvent2, ITTAPIObjectEvent2_Vtbl, 0x9d9a7c54_44c9_5bc1_8093_1e33a020ec14);
+windows_core::imp::define_interface!(ITTAPIObjectEvent2, ITTAPIObjectEvent2_Vtbl, 0x359dda6e_68ce_4383_bf0b_169133c41b46);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITTAPIObjectEvent2 {
     type Target = ITTAPIObjectEvent;
@@ -17388,7 +17378,7 @@ impl ITTAPIObjectEvent2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTAPIObjectEvent2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITTTSTerminalEvent, ITTTSTerminalEvent_Vtbl, 0x7d1e2c04_aa00_5338_a5af_1e44716e7387);
+windows_core::imp::define_interface!(ITTTSTerminalEvent, ITTTSTerminalEvent_Vtbl, 0xd964788f_95a5_461d_ab0c_b9900a6c2713);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITTTSTerminalEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -17947,7 +17937,7 @@ impl ITTerminalSupport2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITTerminalSupport2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ITToneDetectionEvent, ITToneDetectionEvent_Vtbl, 0xa6c2d813_9972_5a84_96c0_312c2feeb86b);
+windows_core::imp::define_interface!(ITToneDetectionEvent, ITToneDetectionEvent_Vtbl, 0x407e0faf_d047_4753_b0c6_8e060373fecd);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ITToneDetectionEvent {
     type Target = super::super::System::Com::IDispatch;
@@ -20031,9 +20021,9 @@ pub const LM_WINK: PHONE_LAMP_MODE = PHONE_LAMP_MODE(8i32);
 #[cfg(feature = "Win32_System_Com")]
 pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpszstreamname: *mut i8, ulflags: u32, lpmessage: windows_core::Ref<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: windows_core::OutRef<ITnef>) -> windows_core::HRESULT>;
+pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: windows_core::Ref<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: windows_core::OutRef<ITnef>) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpszstreamname: *mut i8, ulflags: u32, lpmessage: windows_core::Ref<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: windows_core::Ref<super::super::System::AddressBook::IAddrBook>, lpptnef: windows_core::OutRef<ITnef>) -> windows_core::HRESULT>;
+pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: windows_core::Ref<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: windows_core::Ref<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: windows_core::Ref<super::super::System::AddressBook::IAddrBook>, lpptnef: windows_core::OutRef<ITnef>) -> windows_core::HRESULT>;
 pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
 pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
 pub const ME_CALL_EVENT: MSP_EVENT = MSP_EVENT(1i32);

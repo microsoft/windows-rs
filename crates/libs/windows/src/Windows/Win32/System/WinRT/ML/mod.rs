@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ILearningModelDeviceFactoryNative, ILearningModelDeviceFactoryNative_Vtbl, 0x137b5ab3_dbc6_5c6f_80d3_029dfc510562);
+windows_core::imp::define_interface!(ILearningModelDeviceFactoryNative, ILearningModelDeviceFactoryNative_Vtbl, 0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
 windows_core::imp::interface_hierarchy!(ILearningModelDeviceFactoryNative, windows_core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -95,7 +95,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
 }
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 impl windows_core::RuntimeName for ILearningModelOperatorProviderNative {}
-windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearningModelSessionOptionsNative_Vtbl, 0x62cc9df7_70be_5f9c_b01a_430bea49cc06);
+windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearningModelSessionOptionsNative_Vtbl, 0xc71e953f_37b4_4564_8658_d8396866db0d);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative {
     pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> windows_core::Result<()> {
@@ -126,7 +126,7 @@ impl ILearningModelSessionOptionsNative_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ILearningModelSessionOptionsNative {}
-windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearningModelSessionOptionsNative1_Vtbl, 0x00d2a0c9_2d46_59a6_b5fe_ea16bc2ae3eb);
+windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearningModelSessionOptionsNative1_Vtbl, 0x5da37a26_0526_414b_91e4_2a0fa3ddba40);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative1 {
     pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> windows_core::Result<()> {
@@ -219,7 +219,7 @@ impl ITensorNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ITensorNative {}
-windows_core::imp::define_interface!(ITensorStaticsNative, ITensorStaticsNative_Vtbl, 0x07446a99_f809_5cf6_a3be_865f23f23e03);
+windows_core::imp::define_interface!(ITensorStaticsNative, ITensorStaticsNative_Vtbl, 0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);
 windows_core::imp::interface_hierarchy!(ITensorStaticsNative, windows_core::IUnknown);
 impl ITensorStaticsNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

@@ -207,7 +207,7 @@ pub const HOMEGROUPING_PINNED: u32 = 2u32;
 pub const HOMEGROUPING_RECENT: u32 = 3u32;
 pub const HOMEGROUPING_RECOMMENDATIONS: u32 = 4u32;
 pub const HOMEGROUPING_UNSPECIFIED: u32 = 0u32;
-windows_core::imp::define_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x48af4c37_d340_51e7_a787_68ad64cfe619);
+windows_core::imp::define_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x6e7781f4_e0f2_4239_b976_a01abab52930);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageACT, windows_core::IUnknown);
 impl IEnhancedStorageACT {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> windows_core::Result<()> {
@@ -328,7 +328,7 @@ impl IEnhancedStorageACT_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnhancedStorageACT {}
-windows_core::imp::define_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x8737b11f_1f88_536f_a1da_f6841b5c5ee3);
+windows_core::imp::define_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
 impl core::ops::Deref for IEnhancedStorageACT2 {
     type Target = IEnhancedStorageACT;
     fn deref(&self) -> &Self::Target {
@@ -480,7 +480,7 @@ impl IEnhancedStorageACT3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnhancedStorageACT3 {}
-windows_core::imp::define_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0xa3f04988_cdcb_57c8_a090_efb7c4a2ac6f);
+windows_core::imp::define_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
 windows_core::imp::interface_hierarchy!(IEnhancedStorageSilo, windows_core::IUnknown);
 impl IEnhancedStorageSilo {
     pub unsafe fn GetInfo(&self) -> windows_core::Result<SILO_INFO> {
@@ -492,7 +492,7 @@ impl IEnhancedStorageSilo {
     pub unsafe fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetActions)(windows_core::Interface::as_raw(self), pppienhancedstoragesiloactions as _, pcenhancedstoragesiloactions as _).ok() }
     }
-    pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &mut [u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendCommand)(windows_core::Interface::as_raw(self), command, core::mem::transmute(pbcommandbuffer.as_ptr()), pbcommandbuffer.len().try_into().unwrap(), pbresponsebuffer as _, pcbresponsebuffer as _).ok() }
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -515,7 +515,7 @@ pub struct IEnhancedStorageSilo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SILO_INFO) -> windows_core::HRESULT,
     pub GetActions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SendCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
+    pub SendCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub GetPortableDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
@@ -526,7 +526,7 @@ pub struct IEnhancedStorageSilo_Vtbl {
 pub trait IEnhancedStorageSilo_Impl: windows_core::IUnknownImpl {
     fn GetInfo(&self) -> windows_core::Result<SILO_INFO>;
     fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> windows_core::Result<()>;
-    fn SendCommand(&self, command: u8, pbcommandbuffer: *mut u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()>;
+    fn SendCommand(&self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::Result<()>;
     fn GetPortableDevice(&self) -> windows_core::Result<super::super::Devices::PortableDevices::IPortableDevice>;
     fn GetDevicePath(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
@@ -551,7 +551,7 @@ impl IEnhancedStorageSilo_Vtbl {
                 IEnhancedStorageSilo_Impl::GetActions(this, core::mem::transmute_copy(&pppienhancedstoragesiloactions), core::mem::transmute_copy(&pcenhancedstoragesiloactions)).into()
             }
         }
-        unsafe extern "system" fn SendCommand<Identity: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: u8, pbcommandbuffer: *mut u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendCommand<Identity: IEnhancedStorageSilo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IEnhancedStorageSilo_Impl::SendCommand(this, core::mem::transmute_copy(&command), core::mem::transmute_copy(&pbcommandbuffer), core::mem::transmute_copy(&cbcommandbuffer), core::mem::transmute_copy(&pbresponsebuffer), core::mem::transmute_copy(&pcbresponsebuffer)).into()

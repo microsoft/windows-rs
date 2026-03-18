@@ -5,17 +5,17 @@ windows_link::link!("gdi32.dll" "system" fn BRUSHOBJ_ulGetBrushColor(pbo : *mut 
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_bEnum(pco : *mut CLIPOBJ, cj : u32, pul : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_cEnumStart(pco : *mut CLIPOBJ, ball : windows_sys::core::BOOL, itype : u32, idirection : u32, climit : u32) -> u32);
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_ppoGetPath(pco : *mut CLIPOBJ) -> *mut PATHOBJ);
-windows_link::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : windows_sys::core::PCSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
+windows_link::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : windows_sys::core::PSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
 windows_link::link!("dxva2.dll" "system" fn DegaussMonitor(hmonitor : super::super::Foundation:: HANDLE) -> i32);
 windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitor(hmonitor : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> windows_sys::core::BOOL);
+windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *const PHYSICAL_MONITOR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DisplayConfigGetDeviceInfo(requestpacket : *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
 windows_link::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
 windows_link::link!("gdi32.dll" "system" fn EngAcquireSemaphore(hsem : HSEMAPHORE));
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngAlphaBlend(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcldest : *mut super::super::Foundation:: RECTL, prclsrc : *mut super::super::Foundation:: RECTL, pblendobj : *mut BLENDOBJ) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngAssociateSurface(hsurf : HSURF, hdev : HDEV, flhooks : u32) -> windows_sys::core::BOOL);
-windows_link::link!("gdi32.dll" "system" fn EngBitBlt(psotrg : *mut SURFOBJ, psosrc : *mut SURFOBJ, psomask : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcltrg : *mut super::super::Foundation:: RECTL, pptlsrc : *mut super::super::Foundation:: POINTL, pptlmask : *mut super::super::Foundation:: POINTL, pbo : *mut BRUSHOBJ, pptlbrush : *mut super::super::Foundation:: POINTL, rop4 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("gdi32.dll" "system" fn EngBitBlt(psotrg : *const SURFOBJ, psosrc : *const SURFOBJ, psomask : *const SURFOBJ, pco : *const CLIPOBJ, pxlo : *const XLATEOBJ, prcltrg : *const super::super::Foundation:: RECTL, pptlsrc : *const super::super::Foundation:: POINTL, pptlmask : *const super::super::Foundation:: POINTL, pbo : *const BRUSHOBJ, pptlbrush : *const super::super::Foundation:: POINTL, rop4 : u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngCheckAbort(pso : *mut SURFOBJ) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngComputeGlyphSet(ncodepage : i32, nfirstchar : i32, cchars : i32) -> *mut FD_GLYPHSET);
 windows_link::link!("gdi32.dll" "system" fn EngCopyBits(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcldest : *mut super::super::Foundation:: RECTL, pptlsrc : *mut super::super::Foundation:: POINTL) -> windows_sys::core::BOOL);
@@ -28,7 +28,7 @@ windows_link::link!("gdi32.dll" "system" fn EngCreateDeviceSurface(dhsurf : DHSU
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngCreatePalette(imode : u32, ccolors : u32, pulcolors : *mut u32, flred : u32, flgreen : u32, flblue : u32) -> super::super::Graphics::Gdi:: HPALETTE);
 windows_link::link!("gdi32.dll" "system" fn EngCreateSemaphore() -> HSEMAPHORE);
-windows_link::link!("gdi32.dll" "system" fn EngDeleteClip(pco : *mut CLIPOBJ));
+windows_link::link!("gdi32.dll" "system" fn EngDeleteClip(pco : *const CLIPOBJ));
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngDeletePalette(hpal : super::super::Graphics::Gdi:: HPALETTE) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngDeletePath(ppo : *mut PATHOBJ));
@@ -66,7 +66,7 @@ windows_link::link!("gdi32.dll" "system" fn EngTextOut(pso : *mut SURFOBJ, pstro
 windows_link::link!("gdi32.dll" "system" fn EngTransparentBlt(psodst : *const SURFOBJ, psosrc : *const SURFOBJ, pco : *const CLIPOBJ, pxlo : *const XLATEOBJ, prcldst : *const super::super::Foundation:: RECTL, prclsrc : *const super::super::Foundation:: RECTL, transcolor : u32, bcalledfrombitblt : u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : windows_sys::core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : windows_sys::core::PCWSTR, bytesinunicodestring : u32));
 windows_link::link!("gdi32.dll" "system" fn EngUnlockSurface(pso : *mut SURFOBJ));
-windows_link::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : windows_sys::core::PCWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PCSTR, bytesinmultibytestring : i32) -> i32);
+windows_link::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : windows_sys::core::PCWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PSTR, bytesinmultibytestring : i32) -> i32);
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_cGetAllGlyphHandles(pfo : *mut FONTOBJ, phg : *mut u32) -> u32);
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_cGetGlyphs(pfo : *mut FONTOBJ, imode : u32, cglyph : u32, phg : *mut u32, ppvglyph : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_pQueryGlyphAttrs(pfo : *mut FONTOBJ, imode : u32) -> *mut FD_GLYPHATTR);
@@ -125,7 +125,7 @@ windows_link::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueDrive(hmonit
 windows_link::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueGain(hmonitor : super::super::Foundation:: HANDLE, gtgaintype : MC_GAIN_TYPE, dwnewgain : u32) -> i32);
 windows_link::link!("dxva2.dll" "system" fn SetVCPFeature(hmonitor : super::super::Foundation:: HANDLE, bvcpcode : u8, dwnewvalue : u32) -> i32);
 windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_bApplyXform(pxo : *mut XFORMOBJ, imode : u32, cpoints : u32, pvin : *mut core::ffi::c_void, pvout : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *mut XFORMOBJ, pxform : *mut XFORML) -> u32);
+windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *const XFORMOBJ, pxform : *mut XFORML) -> u32);
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_cGetPalette(pxlo : *mut XLATEOBJ, ipal : u32, cpal : u32, ppal : *mut u32) -> u32);
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_hGetColorTransform(pxlo : *mut XLATEOBJ) -> super::super::Foundation:: HANDLE);
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_iXlate(pxlo : *mut XLATEOBJ, icolor : u32) -> u32);
@@ -2762,7 +2762,7 @@ pub type PFN_DrvQueryTrueTypeOutline = Option<unsafe extern "system" fn(param0: 
 pub type PFN_DrvQueryTrueTypeSection = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
 pub type PFN_DrvQueryTrueTypeTable = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
 pub type PFN_DrvRealizeBrush = Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> windows_sys::core::BOOL>;
-pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *mut core::ffi::c_void) -> i32>;
+pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const core::ffi::c_void) -> i32>;
 pub type PFN_DrvResetDevice = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut core::ffi::c_void) -> u32>;
 pub type PFN_DrvResetPDEV = Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> windows_sys::core::BOOL>;
 pub type PFN_DrvSaveScreenBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
@@ -2848,7 +2848,7 @@ pub const PRIMARY_ORDER_BAC: u32 = 2u32;
 pub const PRIMARY_ORDER_BCA: u32 = 3u32;
 pub const PRIMARY_ORDER_CAB: u32 = 5u32;
 pub const PRIMARY_ORDER_CBA: u32 = 4u32;
-pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *mut core::ffi::c_void)>;
+pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *const core::ffi::c_void)>;
 pub const QAW_GETEASYWIDTHS: u32 = 1u32;
 pub const QAW_GETWIDTHS: u32 = 0u32;
 pub const QC_1BIT: u32 = 2u32;
@@ -2932,7 +2932,7 @@ impl Default for SET_ACTIVE_COLOR_PROFILE_NAME {
 }
 pub type SET_DISPLAY_CONFIG_FLAGS = u32;
 pub const SGI_EXTRASPACE: u32 = 0u32;
-pub type SORTCOMP = Option<unsafe extern "C" fn(pv1: *mut core::ffi::c_void, pv2: *mut core::ffi::c_void) -> i32>;
+pub type SORTCOMP = Option<unsafe extern "C" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
 pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
 pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;

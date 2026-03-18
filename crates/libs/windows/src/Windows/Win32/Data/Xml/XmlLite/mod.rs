@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlReader<P2>(riid: *mut windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::Result<()>
+pub unsafe fn CreateXmlReader<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::Result<()>
 where
     P2: windows_core::Param<super::super::super::System::Com::IMalloc>,
 {
-    windows_core::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *mut windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlReader(riid as _, ppvobject as _, pmalloc.param().abi()).ok() }
+    windows_core::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { CreateXmlReader(riid, ppvobject as _, pmalloc.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -38,12 +38,12 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlWriter<P2>(riid: *mut windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::Result<()>
+pub unsafe fn CreateXmlWriter<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::Result<()>
 where
     P2: windows_core::Param<super::super::super::System::Com::IMalloc>,
 {
-    windows_core::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *mut windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlWriter(riid as _, ppvobject as _, pmalloc.param().abi()).ok() }
+    windows_core::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { CreateXmlWriter(riid, ppvobject as _, pmalloc.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -77,7 +77,7 @@ where
 pub struct DtdProcessing(pub i32);
 pub const DtdProcessing_Parse: DtdProcessing = DtdProcessing(1i32);
 pub const DtdProcessing_Prohibit: DtdProcessing = DtdProcessing(0i32);
-windows_core::imp::define_interface!(IXmlReader, IXmlReader_Vtbl, 0x81d21ff5_33ca_55ee_a42d_01abf9e607c0);
+windows_core::imp::define_interface!(IXmlReader, IXmlReader_Vtbl, 0x7279fc81_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlReader, windows_core::IUnknown);
 impl IXmlReader {
     pub unsafe fn SetInput<P0>(&self, pinput: P0) -> windows_core::Result<()>
@@ -436,7 +436,7 @@ impl IXmlReader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXmlReader {}
-windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x27ea691e_493f_541b_aaa6_c36d23573161);
+windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
 windows_core::imp::interface_hierarchy!(IXmlResolver, windows_core::IUnknown);
 impl IXmlResolver {
     pub unsafe fn ResolveUri<P0, P1, P2>(&self, pwszbaseuri: P0, pwszpublicidentifier: P1, pwszsystemidentifier: P2) -> windows_core::Result<windows_core::IUnknown>
@@ -927,7 +927,7 @@ impl IXmlWriter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXmlWriter {}
-windows_core::imp::define_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0xf75d89fe_ec4c_55f0_88b5_7693ad7c21fa);
+windows_core::imp::define_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
 windows_core::imp::interface_hierarchy!(IXmlWriterLite, windows_core::IUnknown);
 impl IXmlWriterLite {
     pub unsafe fn SetOutput<P0>(&self, poutput: P0) -> windows_core::Result<()>

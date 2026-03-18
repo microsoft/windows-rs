@@ -21,7 +21,7 @@ pub struct FILTERING_TYPE(pub i32);
 pub struct FILTER_COMBINATION_TYPE(pub i32);
 pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
 pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
-windows_core::imp::define_interface!(IAsynchronousDataRetriever, IAsynchronousDataRetriever_Vtbl, 0x3b6fb19f_741e_5eff_9128_1fb344f975f9);
+windows_core::imp::define_interface!(IAsynchronousDataRetriever, IAsynchronousDataRetriever_Vtbl, 0x9fc7e470_61ea_4a88_9be4_df56a27cfef2);
 windows_core::imp::interface_hierarchy!(IAsynchronousDataRetriever, windows_core::IUnknown);
 impl IAsynchronousDataRetriever {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {
@@ -336,7 +336,7 @@ impl IChangeUnitException_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IChangeUnitException {}
-windows_core::imp::define_interface!(IChangeUnitListFilterInfo, IChangeUnitListFilterInfo_Vtbl, 0xf1ecddda_eb04_5597_b5ff_e8f963cef239);
+windows_core::imp::define_interface!(IChangeUnitListFilterInfo, IChangeUnitListFilterInfo_Vtbl, 0xf2837671_0bdf_43fa_b502_232375fb50c2);
 impl core::ops::Deref for IChangeUnitListFilterInfo {
     type Target = ISyncFilterInfo;
     fn deref(&self) -> &Self::Target {
@@ -345,8 +345,8 @@ impl core::ops::Deref for IChangeUnitListFilterInfo {
 }
 windows_core::imp::interface_hierarchy!(IChangeUnitListFilterInfo, windows_core::IUnknown, ISyncFilterInfo);
 impl IChangeUnitListFilterInfo {
-    pub unsafe fn Initialize(&self, ppbchangeunitids: *mut *mut u8, dwchangeunitcount: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), ppbchangeunitids as _, dwchangeunitcount).ok() }
+    pub unsafe fn Initialize(&self, ppbchangeunitids: *const *const u8, dwchangeunitcount: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), ppbchangeunitids, dwchangeunitcount).ok() }
     }
     pub unsafe fn GetChangeUnitIdCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -362,18 +362,18 @@ impl IChangeUnitListFilterInfo {
 #[doc(hidden)]
 pub struct IChangeUnitListFilterInfo_Vtbl {
     pub base__: ISyncFilterInfo_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, u32) -> windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const u8, u32) -> windows_core::HRESULT,
     pub GetChangeUnitIdCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetChangeUnitId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IChangeUnitListFilterInfo_Impl: ISyncFilterInfo_Impl {
-    fn Initialize(&self, ppbchangeunitids: *mut *mut u8, dwchangeunitcount: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, ppbchangeunitids: *const *const u8, dwchangeunitcount: u32) -> windows_core::Result<()>;
     fn GetChangeUnitIdCount(&self) -> windows_core::Result<u32>;
     fn GetChangeUnitId(&self, dwchangeunitidindex: u32, pbchangeunitid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()>;
 }
 impl IChangeUnitListFilterInfo_Vtbl {
     pub const fn new<Identity: IChangeUnitListFilterInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IChangeUnitListFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbchangeunitids: *mut *mut u8, dwchangeunitcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IChangeUnitListFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbchangeunitids: *const *const u8, dwchangeunitcount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IChangeUnitListFilterInfo_Impl::Initialize(this, core::mem::transmute_copy(&ppbchangeunitids), core::mem::transmute_copy(&dwchangeunitcount)).into()
@@ -409,11 +409,11 @@ impl IChangeUnitListFilterInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IChangeUnitListFilterInfo {}
-windows_core::imp::define_interface!(IClockVector, IClockVector_Vtbl, 0xbe53ca29_31ab_5dd2_9983_38caeb51a105);
+windows_core::imp::define_interface!(IClockVector, IClockVector_Vtbl, 0x14b2274a_8698_4cc6_9333_f89bd1d47bc4);
 windows_core::imp::interface_hierarchy!(IClockVector, windows_core::IUnknown);
 impl IClockVector {
-    pub unsafe fn GetClockVectorElements(&self, riid: *mut windows_core::GUID, ppienumclockvector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVectorElements)(windows_core::Interface::as_raw(self), riid as _, ppienumclockvector as _).ok() }
+    pub unsafe fn GetClockVectorElements(&self, riid: *const windows_core::GUID, ppienumclockvector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetClockVectorElements)(windows_core::Interface::as_raw(self), riid, ppienumclockvector as _).ok() }
     }
     pub unsafe fn GetClockVectorElementCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -426,16 +426,16 @@ impl IClockVector {
 #[doc(hidden)]
 pub struct IClockVector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetClockVectorElements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetClockVectorElements: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetClockVectorElementCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IClockVector_Impl: windows_core::IUnknownImpl {
-    fn GetClockVectorElements(&self, riid: *mut windows_core::GUID, ppienumclockvector: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetClockVectorElements(&self, riid: *const windows_core::GUID, ppienumclockvector: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetClockVectorElementCount(&self) -> windows_core::Result<u32>;
 }
 impl IClockVector_Vtbl {
     pub const fn new<Identity: IClockVector_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetClockVectorElements<Identity: IClockVector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppienumclockvector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClockVectorElements<Identity: IClockVector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppienumclockvector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IClockVector_Impl::GetClockVectorElements(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppienumclockvector)).into()
@@ -619,7 +619,7 @@ impl ICombinedFilterInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICombinedFilterInfo {}
-windows_core::imp::define_interface!(IConstraintConflict, IConstraintConflict_Vtbl, 0x324dff11_7fd8_571f_b612_741f9bfec415);
+windows_core::imp::define_interface!(IConstraintConflict, IConstraintConflict_Vtbl, 0x00d2302e_1cf8_4835_b85f_b7ca4f799e0a);
 windows_core::imp::interface_hierarchy!(IConstraintConflict, windows_core::IUnknown);
 impl IConstraintConflict {
     pub unsafe fn GetDestinationProviderConflictingChange(&self) -> windows_core::Result<ISyncChange> {
@@ -872,28 +872,37 @@ impl IConstraintConflict_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IConstraintConflict {}
-windows_core::imp::define_interface!(IConstructReplicaKeyMap, IConstructReplicaKeyMap_Vtbl, 0x40021ece_ad39_58c2_91df_414f3568ac3d);
+windows_core::imp::define_interface!(IConstructReplicaKeyMap, IConstructReplicaKeyMap_Vtbl, 0xded10970_ec85_4115_b52c_4405845642a5);
 windows_core::imp::interface_hierarchy!(IConstructReplicaKeyMap, windows_core::IUnknown);
 impl IConstructReplicaKeyMap {
-    pub unsafe fn FindOrAddReplica(&self, pbreplicaid: *mut u8, pdwreplicakey: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FindOrAddReplica)(windows_core::Interface::as_raw(self), pbreplicaid as _, pdwreplicakey as _).ok() }
+    pub unsafe fn FindOrAddReplica(&self, pbreplicaid: *const u8) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FindOrAddReplica)(windows_core::Interface::as_raw(self), pbreplicaid, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConstructReplicaKeyMap_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub FindOrAddReplica: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
+    pub FindOrAddReplica: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IConstructReplicaKeyMap_Impl: windows_core::IUnknownImpl {
-    fn FindOrAddReplica(&self, pbreplicaid: *mut u8, pdwreplicakey: *mut u32) -> windows_core::Result<()>;
+    fn FindOrAddReplica(&self, pbreplicaid: *const u8) -> windows_core::Result<u32>;
 }
 impl IConstructReplicaKeyMap_Vtbl {
     pub const fn new<Identity: IConstructReplicaKeyMap_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FindOrAddReplica<Identity: IConstructReplicaKeyMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbreplicaid: *mut u8, pdwreplicakey: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindOrAddReplica<Identity: IConstructReplicaKeyMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbreplicaid: *const u8, pdwreplicakey: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConstructReplicaKeyMap_Impl::FindOrAddReplica(this, core::mem::transmute_copy(&pbreplicaid), core::mem::transmute_copy(&pdwreplicakey)).into()
+                match IConstructReplicaKeyMap_Impl::FindOrAddReplica(this, core::mem::transmute_copy(&pbreplicaid)) {
+                    Ok(ok__) => {
+                        pdwreplicakey.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindOrAddReplica: FindOrAddReplica::<Identity, OFFSET> }
@@ -1109,7 +1118,7 @@ pub struct ID_PARAMETER_PAIR {
     pub fIsVariable: windows_core::BOOL,
     pub cbIdSize: u16,
 }
-windows_core::imp::define_interface!(IDataRetrieverCallback, IDataRetrieverCallback_Vtbl, 0xf9a20bf6_610a_5674_9ee5_9cb8af5be5a9);
+windows_core::imp::define_interface!(IDataRetrieverCallback, IDataRetrieverCallback_Vtbl, 0x71b4863b_f969_4676_bbc3_3d9fdc3fb2c7);
 windows_core::imp::interface_hierarchy!(IDataRetrieverCallback, windows_core::IUnknown);
 impl IDataRetrieverCallback {
     pub unsafe fn LoadChangeDataComplete<P0>(&self, punkdata: P0) -> windows_core::Result<()>
@@ -1158,7 +1167,7 @@ impl IDataRetrieverCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataRetrieverCallback {}
-windows_core::imp::define_interface!(IEnumChangeUnitExceptions, IEnumChangeUnitExceptions_Vtbl, 0x625e559b_f6f9_5dbb_93e4_25a005fa0980);
+windows_core::imp::define_interface!(IEnumChangeUnitExceptions, IEnumChangeUnitExceptions_Vtbl, 0x3074e802_9319_4420_be21_1022e2e21da8);
 windows_core::imp::interface_hierarchy!(IEnumChangeUnitExceptions, windows_core::IUnknown);
 impl IEnumChangeUnitExceptions {
     pub unsafe fn Next(&self, cexceptions: u32, ppchangeunitexception: *mut Option<IChangeUnitException>, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -1237,7 +1246,7 @@ impl IEnumChangeUnitExceptions_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumChangeUnitExceptions {}
-windows_core::imp::define_interface!(IEnumClockVector, IEnumClockVector_Vtbl, 0x0082f476_51ec_547a_a793_2fecd60c0bd8);
+windows_core::imp::define_interface!(IEnumClockVector, IEnumClockVector_Vtbl, 0x525844db_2837_4799_9e80_81a66e02220c);
 windows_core::imp::interface_hierarchy!(IEnumClockVector, windows_core::IUnknown);
 impl IEnumClockVector {
     pub unsafe fn Next(&self, cclockvectorelements: u32, ppiclockvectorelements: *mut Option<IClockVectorElement>, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -1395,7 +1404,7 @@ impl IEnumFeedClockVector_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumFeedClockVector {}
-windows_core::imp::define_interface!(IEnumItemIds, IEnumItemIds_Vtbl, 0x992165e6_3bb6_5755_90c1_f24aa4767dc8);
+windows_core::imp::define_interface!(IEnumItemIds, IEnumItemIds_Vtbl, 0x43aa3f61_4b2e_4b60_83df_b110d3e148f1);
 windows_core::imp::interface_hierarchy!(IEnumItemIds, windows_core::IUnknown);
 impl IEnumItemIds {
     pub unsafe fn Next(&self, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> windows_core::Result<()> {
@@ -1426,7 +1435,7 @@ impl IEnumItemIds_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumItemIds {}
-windows_core::imp::define_interface!(IEnumRangeExceptions, IEnumRangeExceptions_Vtbl, 0x25aed9e8_c9a8_53e0_920f_53de9863646e);
+windows_core::imp::define_interface!(IEnumRangeExceptions, IEnumRangeExceptions_Vtbl, 0x0944439f_ddb1_4176_b703_046ff22a2386);
 windows_core::imp::interface_hierarchy!(IEnumRangeExceptions, windows_core::IUnknown);
 impl IEnumRangeExceptions {
     pub unsafe fn Next(&self, cexceptions: u32, pprangeexception: *mut Option<IRangeException>, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -1505,7 +1514,7 @@ impl IEnumRangeExceptions_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumRangeExceptions {}
-windows_core::imp::define_interface!(IEnumSingleItemExceptions, IEnumSingleItemExceptions_Vtbl, 0xa4704f45_0075_56e1_8c5c_0f4d1521d1bc);
+windows_core::imp::define_interface!(IEnumSingleItemExceptions, IEnumSingleItemExceptions_Vtbl, 0xe563381c_1b4d_4c66_9796_c86faccdcd40);
 windows_core::imp::interface_hierarchy!(IEnumSingleItemExceptions, windows_core::IUnknown);
 impl IEnumSingleItemExceptions {
     pub unsafe fn Next(&self, cexceptions: u32, ppsingleitemexception: *mut Option<ISingleItemException>, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -1584,7 +1593,7 @@ impl IEnumSingleItemExceptions_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumSingleItemExceptions {}
-windows_core::imp::define_interface!(IEnumSyncChangeUnits, IEnumSyncChangeUnits_Vtbl, 0xe815682d_5205_5035_82f2_6c6c7c74d39a);
+windows_core::imp::define_interface!(IEnumSyncChangeUnits, IEnumSyncChangeUnits_Vtbl, 0x346b35f1_8703_4c6d_ab1a_4dbca2cff97f);
 windows_core::imp::interface_hierarchy!(IEnumSyncChangeUnits, windows_core::IUnknown);
 impl IEnumSyncChangeUnits {
     pub unsafe fn Next(&self, cchanges: u32, ppchangeunit: *mut Option<ISyncChangeUnit>, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -1663,7 +1672,7 @@ impl IEnumSyncChangeUnits_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumSyncChangeUnits {}
-windows_core::imp::define_interface!(IEnumSyncChanges, IEnumSyncChanges_Vtbl, 0x2ca1cce0_032a_5f96_888f_8ecc4a6b8585);
+windows_core::imp::define_interface!(IEnumSyncChanges, IEnumSyncChanges_Vtbl, 0x5f86be4a_5e78_4e32_ac1c_c24fd223ef85);
 windows_core::imp::interface_hierarchy!(IEnumSyncChanges, windows_core::IUnknown);
 impl IEnumSyncChanges {
     pub unsafe fn Next(&self, cchanges: u32, ppchange: *mut Option<ISyncChange>, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -1742,7 +1751,7 @@ impl IEnumSyncChanges_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumSyncChanges {}
-windows_core::imp::define_interface!(IEnumSyncProviderConfigUIInfos, IEnumSyncProviderConfigUIInfos_Vtbl, 0x44efc5b5_858e_53b4_822e_bfca15abc8f9);
+windows_core::imp::define_interface!(IEnumSyncProviderConfigUIInfos, IEnumSyncProviderConfigUIInfos_Vtbl, 0xf6be2602_17c6_4658_a2d7_68ed3330f641);
 windows_core::imp::interface_hierarchy!(IEnumSyncProviderConfigUIInfos, windows_core::IUnknown);
 impl IEnumSyncProviderConfigUIInfos {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -1828,7 +1837,7 @@ impl IEnumSyncProviderConfigUIInfos_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for IEnumSyncProviderConfigUIInfos {}
-windows_core::imp::define_interface!(IEnumSyncProviderInfos, IEnumSyncProviderInfos_Vtbl, 0xed6d0750_d8dd_57a2_9d86_8a06b5e53b67);
+windows_core::imp::define_interface!(IEnumSyncProviderInfos, IEnumSyncProviderInfos_Vtbl, 0xa04ba850_5eb1_460d_a973_393fcb608a11);
 windows_core::imp::interface_hierarchy!(IEnumSyncProviderInfos, windows_core::IUnknown);
 impl IEnumSyncProviderInfos {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2054,7 +2063,7 @@ impl IFeedClockVectorElement_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFeedClockVectorElement {}
-windows_core::imp::define_interface!(IFilterKeyMap, IFilterKeyMap_Vtbl, 0x1fa74d2e_a31f_538b_9d0b_65a6927e7768);
+windows_core::imp::define_interface!(IFilterKeyMap, IFilterKeyMap_Vtbl, 0xca169652_07c6_4708_a3da_6e4eba8d2297);
 windows_core::imp::interface_hierarchy!(IFilterKeyMap, windows_core::IUnknown);
 impl IFilterKeyMap {
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
@@ -2154,7 +2163,7 @@ impl IFilterKeyMap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFilterKeyMap {}
-windows_core::imp::define_interface!(IFilterRequestCallback, IFilterRequestCallback_Vtbl, 0x33651031_3c17_5755_9e29_db76177dec33);
+windows_core::imp::define_interface!(IFilterRequestCallback, IFilterRequestCallback_Vtbl, 0x82df8873_6360_463a_a8a1_ede5e1a1594d);
 windows_core::imp::interface_hierarchy!(IFilterRequestCallback, windows_core::IUnknown);
 impl IFilterRequestCallback {
     pub unsafe fn RequestFilter<P0>(&self, pfilter: P0, filteringtype: FILTERING_TYPE) -> windows_core::Result<()>
@@ -2188,7 +2197,7 @@ impl IFilterRequestCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFilterRequestCallback {}
-windows_core::imp::define_interface!(IFilterTrackingProvider, IFilterTrackingProvider_Vtbl, 0x2ab515a3_c169_5b2b_99f0_765e15c0c449);
+windows_core::imp::define_interface!(IFilterTrackingProvider, IFilterTrackingProvider_Vtbl, 0x743383c0_fc4e_45ba_ad81_d9d84c7a24f8);
 windows_core::imp::interface_hierarchy!(IFilterTrackingProvider, windows_core::IUnknown);
 impl IFilterTrackingProvider {
     pub unsafe fn SpecifyTrackedFilters<P0>(&self, pcallback: P0) -> windows_core::Result<()>
@@ -2274,11 +2283,11 @@ impl IFilterTrackingRequestCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFilterTrackingRequestCallback {}
-windows_core::imp::define_interface!(IFilterTrackingSyncChangeBuilder, IFilterTrackingSyncChangeBuilder_Vtbl, 0x75b427c2_6c29_5e21_8e36_98a495f1de63);
+windows_core::imp::define_interface!(IFilterTrackingSyncChangeBuilder, IFilterTrackingSyncChangeBuilder_Vtbl, 0x295024a0_70da_4c58_883c_ce2afb308d0b);
 windows_core::imp::interface_hierarchy!(IFilterTrackingSyncChangeBuilder, windows_core::IUnknown);
 impl IFilterTrackingSyncChangeBuilder {
-    pub unsafe fn AddFilterChange(&self, dwfilterkey: u32, pfilterchange: *mut SYNC_FILTER_CHANGE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddFilterChange)(windows_core::Interface::as_raw(self), dwfilterkey, pfilterchange as _).ok() }
+    pub unsafe fn AddFilterChange(&self, dwfilterkey: u32, pfilterchange: *const SYNC_FILTER_CHANGE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddFilterChange)(windows_core::Interface::as_raw(self), dwfilterkey, pfilterchange).ok() }
     }
     pub unsafe fn SetAllChangeUnitsPresentFlag(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllChangeUnitsPresentFlag)(windows_core::Interface::as_raw(self)).ok() }
@@ -2288,16 +2297,16 @@ impl IFilterTrackingSyncChangeBuilder {
 #[doc(hidden)]
 pub struct IFilterTrackingSyncChangeBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddFilterChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SYNC_FILTER_CHANGE) -> windows_core::HRESULT,
+    pub AddFilterChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const SYNC_FILTER_CHANGE) -> windows_core::HRESULT,
     pub SetAllChangeUnitsPresentFlag: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IFilterTrackingSyncChangeBuilder_Impl: windows_core::IUnknownImpl {
-    fn AddFilterChange(&self, dwfilterkey: u32, pfilterchange: *mut SYNC_FILTER_CHANGE) -> windows_core::Result<()>;
+    fn AddFilterChange(&self, dwfilterkey: u32, pfilterchange: *const SYNC_FILTER_CHANGE) -> windows_core::Result<()>;
     fn SetAllChangeUnitsPresentFlag(&self) -> windows_core::Result<()>;
 }
 impl IFilterTrackingSyncChangeBuilder_Vtbl {
     pub const fn new<Identity: IFilterTrackingSyncChangeBuilder_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddFilterChange<Identity: IFilterTrackingSyncChangeBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfilterkey: u32, pfilterchange: *mut SYNC_FILTER_CHANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddFilterChange<Identity: IFilterTrackingSyncChangeBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfilterkey: u32, pfilterchange: *const SYNC_FILTER_CHANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFilterTrackingSyncChangeBuilder_Impl::AddFilterChange(this, core::mem::transmute_copy(&dwfilterkey), core::mem::transmute_copy(&pfilterchange)).into()
@@ -2320,7 +2329,7 @@ impl IFilterTrackingSyncChangeBuilder_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFilterTrackingSyncChangeBuilder {}
-windows_core::imp::define_interface!(IForgottenKnowledge, IForgottenKnowledge_Vtbl, 0xbcccb0ab_8241_5be4_98f8_3da76ad8746a);
+windows_core::imp::define_interface!(IForgottenKnowledge, IForgottenKnowledge_Vtbl, 0x456e0f96_6036_452b_9f9d_bcc4b4a85db2);
 impl core::ops::Deref for IForgottenKnowledge {
     type Target = ISyncKnowledge;
     fn deref(&self) -> &Self::Target {
@@ -2329,37 +2338,28 @@ impl core::ops::Deref for IForgottenKnowledge {
 }
 windows_core::imp::interface_hierarchy!(IForgottenKnowledge, windows_core::IUnknown, ISyncKnowledge);
 impl IForgottenKnowledge {
-    pub unsafe fn ForgetToVersion<P0>(&self, pknowledge: P0) -> windows_core::Result<SYNC_VERSION>
+    pub unsafe fn ForgetToVersion<P0>(&self, pknowledge: P0, pversion: *const SYNC_VERSION) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ForgetToVersion)(windows_core::Interface::as_raw(self), pknowledge.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ForgetToVersion)(windows_core::Interface::as_raw(self), pknowledge.param().abi(), pversion).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IForgottenKnowledge_Vtbl {
     pub base__: ISyncKnowledge_Vtbl,
-    pub ForgetToVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut SYNC_VERSION) -> windows_core::HRESULT,
+    pub ForgetToVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const SYNC_VERSION) -> windows_core::HRESULT,
 }
 pub trait IForgottenKnowledge_Impl: ISyncKnowledge_Impl {
-    fn ForgetToVersion(&self, pknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<SYNC_VERSION>;
+    fn ForgetToVersion(&self, pknowledge: windows_core::Ref<ISyncKnowledge>, pversion: *const SYNC_VERSION) -> windows_core::Result<()>;
 }
 impl IForgottenKnowledge_Vtbl {
     pub const fn new<Identity: IForgottenKnowledge_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ForgetToVersion<Identity: IForgottenKnowledge_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknowledge: *mut core::ffi::c_void, pversion: *mut SYNC_VERSION) -> windows_core::HRESULT {
+        unsafe extern "system" fn ForgetToVersion<Identity: IForgottenKnowledge_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknowledge: *mut core::ffi::c_void, pversion: *const SYNC_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IForgottenKnowledge_Impl::ForgetToVersion(this, core::mem::transmute_copy(&pknowledge)) {
-                    Ok(ok__) => {
-                        pversion.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IForgottenKnowledge_Impl::ForgetToVersion(this, core::mem::transmute_copy(&pknowledge), core::mem::transmute_copy(&pversion)).into()
             }
         }
         Self { base__: ISyncKnowledge_Vtbl::new::<Identity, OFFSET>(), ForgetToVersion: ForgetToVersion::<Identity, OFFSET> }
@@ -2369,7 +2369,7 @@ impl IForgottenKnowledge_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IForgottenKnowledge {}
-windows_core::imp::define_interface!(IKnowledgeSyncProvider, IKnowledgeSyncProvider_Vtbl, 0x2e44c121_11aa_500f_9a66_887ecd8e9a79);
+windows_core::imp::define_interface!(IKnowledgeSyncProvider, IKnowledgeSyncProvider_Vtbl, 0x43434a49_8da4_47f2_8172_ad7b8b024978);
 impl core::ops::Deref for IKnowledgeSyncProvider {
     type Target = ISyncProvider;
     fn deref(&self) -> &Self::Target {
@@ -2393,11 +2393,11 @@ impl IKnowledgeSyncProvider {
     {
         unsafe { (windows_core::Interface::vtable(self).GetChangeBatch)(windows_core::Interface::as_raw(self), dwbatchsize, psyncknowledge.param().abi(), core::mem::transmute(ppsyncchangebatch), core::mem::transmute(ppunkdataretriever)).ok() }
     }
-    pub unsafe fn GetFullEnumerationChangeBatch<P2>(&self, dwbatchsize: u32, pblowerenumerationbound: *mut u8, psyncknowledge: P2, ppsyncchangebatch: *mut Option<ISyncFullEnumerationChangeBatch>, ppunkdataretriever: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn GetFullEnumerationChangeBatch<P2>(&self, dwbatchsize: u32, pblowerenumerationbound: *const u8, psyncknowledge: P2, ppsyncchangebatch: *mut Option<ISyncFullEnumerationChangeBatch>, ppunkdataretriever: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetFullEnumerationChangeBatch)(windows_core::Interface::as_raw(self), dwbatchsize, pblowerenumerationbound as _, psyncknowledge.param().abi(), core::mem::transmute(ppsyncchangebatch), core::mem::transmute(ppunkdataretriever)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetFullEnumerationChangeBatch)(windows_core::Interface::as_raw(self), dwbatchsize, pblowerenumerationbound, psyncknowledge.param().abi(), core::mem::transmute(ppsyncchangebatch), core::mem::transmute(ppunkdataretriever)).ok() }
     }
     pub unsafe fn ProcessChangeBatch<P1, P2, P3>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: P1, punkdataretriever: P2, pcallback: P3) -> windows_core::Result<SYNC_SESSION_STATISTICS>
     where
@@ -2435,7 +2435,7 @@ pub struct IKnowledgeSyncProvider_Vtbl {
     pub BeginSession: unsafe extern "system" fn(*mut core::ffi::c_void, SYNC_PROVIDER_ROLE, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSyncBatchParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetChangeBatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetFullEnumerationChangeBatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetFullEnumerationChangeBatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessChangeBatch: unsafe extern "system" fn(*mut core::ffi::c_void, CONFLICT_RESOLUTION_POLICY, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut SYNC_SESSION_STATISTICS) -> windows_core::HRESULT,
     pub ProcessFullEnumerationChangeBatch: unsafe extern "system" fn(*mut core::ffi::c_void, CONFLICT_RESOLUTION_POLICY, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut SYNC_SESSION_STATISTICS) -> windows_core::HRESULT,
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2444,7 +2444,7 @@ pub trait IKnowledgeSyncProvider_Impl: ISyncProvider_Impl {
     fn BeginSession(&self, role: SYNC_PROVIDER_ROLE, psessionstate: windows_core::Ref<ISyncSessionState>) -> windows_core::Result<()>;
     fn GetSyncBatchParameters(&self, ppsyncknowledge: windows_core::OutRef<ISyncKnowledge>, pdwrequestedbatchsize: *mut u32) -> windows_core::Result<()>;
     fn GetChangeBatch(&self, dwbatchsize: u32, psyncknowledge: windows_core::Ref<ISyncKnowledge>, ppsyncchangebatch: windows_core::OutRef<ISyncChangeBatch>, ppunkdataretriever: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetFullEnumerationChangeBatch(&self, dwbatchsize: u32, pblowerenumerationbound: *mut u8, psyncknowledge: windows_core::Ref<ISyncKnowledge>, ppsyncchangebatch: windows_core::OutRef<ISyncFullEnumerationChangeBatch>, ppunkdataretriever: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetFullEnumerationChangeBatch(&self, dwbatchsize: u32, pblowerenumerationbound: *const u8, psyncknowledge: windows_core::Ref<ISyncKnowledge>, ppsyncchangebatch: windows_core::OutRef<ISyncFullEnumerationChangeBatch>, ppunkdataretriever: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ProcessChangeBatch(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: windows_core::Ref<ISyncChangeBatch>, punkdataretriever: windows_core::Ref<windows_core::IUnknown>, pcallback: windows_core::Ref<ISyncCallback>) -> windows_core::Result<SYNC_SESSION_STATISTICS>;
     fn ProcessFullEnumerationChangeBatch(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: windows_core::Ref<ISyncFullEnumerationChangeBatch>, punkdataretriever: windows_core::Ref<windows_core::IUnknown>, pcallback: windows_core::Ref<ISyncCallback>) -> windows_core::Result<SYNC_SESSION_STATISTICS>;
     fn EndSession(&self, psessionstate: windows_core::Ref<ISyncSessionState>) -> windows_core::Result<()>;
@@ -2469,7 +2469,7 @@ impl IKnowledgeSyncProvider_Vtbl {
                 IKnowledgeSyncProvider_Impl::GetChangeBatch(this, core::mem::transmute_copy(&dwbatchsize), core::mem::transmute_copy(&psyncknowledge), core::mem::transmute_copy(&ppsyncchangebatch), core::mem::transmute_copy(&ppunkdataretriever)).into()
             }
         }
-        unsafe extern "system" fn GetFullEnumerationChangeBatch<Identity: IKnowledgeSyncProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwbatchsize: u32, pblowerenumerationbound: *mut u8, psyncknowledge: *mut core::ffi::c_void, ppsyncchangebatch: *mut *mut core::ffi::c_void, ppunkdataretriever: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFullEnumerationChangeBatch<Identity: IKnowledgeSyncProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwbatchsize: u32, pblowerenumerationbound: *const u8, psyncknowledge: *mut core::ffi::c_void, ppsyncchangebatch: *mut *mut core::ffi::c_void, ppunkdataretriever: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IKnowledgeSyncProvider_Impl::GetFullEnumerationChangeBatch(this, core::mem::transmute_copy(&dwbatchsize), core::mem::transmute_copy(&pblowerenumerationbound), core::mem::transmute_copy(&psyncknowledge), core::mem::transmute_copy(&ppsyncchangebatch), core::mem::transmute_copy(&ppunkdataretriever)).into()
@@ -2521,7 +2521,7 @@ impl IKnowledgeSyncProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IKnowledgeSyncProvider {}
-windows_core::imp::define_interface!(ILoadChangeContext, ILoadChangeContext_Vtbl, 0x5687a6a6_c0e1_5a30_a6a1_d9272b932c71);
+windows_core::imp::define_interface!(ILoadChangeContext, ILoadChangeContext_Vtbl, 0x44a4aaca_ec39_46d5_b5c9_d633c0ee67e2);
 windows_core::imp::interface_hierarchy!(ILoadChangeContext, windows_core::IUnknown);
 impl ILoadChangeContext {
     pub unsafe fn GetSyncChange(&self) -> windows_core::Result<ISyncChange> {
@@ -2595,7 +2595,7 @@ impl ILoadChangeContext_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ILoadChangeContext {}
-windows_core::imp::define_interface!(IProviderConverter, IProviderConverter_Vtbl, 0xda5a646c_a10d_571f_bae1_e7f621ef28b6);
+windows_core::imp::define_interface!(IProviderConverter, IProviderConverter_Vtbl, 0x809b7276_98cf_4957_93a5_0ebdd3dddffd);
 windows_core::imp::interface_hierarchy!(IProviderConverter, windows_core::IUnknown);
 impl IProviderConverter {
     pub unsafe fn Initialize<P0>(&self, pisyncprovider: P0) -> windows_core::Result<()>
@@ -2629,7 +2629,7 @@ impl IProviderConverter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IProviderConverter {}
-windows_core::imp::define_interface!(IRangeException, IRangeException_Vtbl, 0x06b2803b_603e_5cb3_a24f_3e68bc5c4366);
+windows_core::imp::define_interface!(IRangeException, IRangeException_Vtbl, 0x75ae8777_6848_49f7_956c_a3a92f5096e8);
 windows_core::imp::interface_hierarchy!(IRangeException, windows_core::IUnknown);
 impl IRangeException {
     pub unsafe fn GetClosedRangeStart(&self, pbclosedrangestart: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
@@ -2638,8 +2638,8 @@ impl IRangeException {
     pub unsafe fn GetClosedRangeEnd(&self, pbclosedrangeend: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetClosedRangeEnd)(windows_core::Interface::as_raw(self), pbclosedrangeend as _, pcbidsize as _).ok() }
     }
-    pub unsafe fn GetClockVector(&self, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid as _, ppunk as _).ok() }
+    pub unsafe fn GetClockVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
 }
 #[repr(C)]
@@ -2648,12 +2648,12 @@ pub struct IRangeException_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetClosedRangeStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetClosedRangeEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub GetClockVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetClockVector: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRangeException_Impl: windows_core::IUnknownImpl {
     fn GetClosedRangeStart(&self, pbclosedrangestart: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()>;
     fn GetClosedRangeEnd(&self, pbclosedrangeend: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()>;
-    fn GetClockVector(&self, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetClockVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IRangeException_Vtbl {
     pub const fn new<Identity: IRangeException_Impl, const OFFSET: isize>() -> Self {
@@ -2669,7 +2669,7 @@ impl IRangeException_Vtbl {
                 IRangeException_Impl::GetClosedRangeEnd(this, core::mem::transmute_copy(&pbclosedrangeend), core::mem::transmute_copy(&pcbidsize)).into()
             }
         }
-        unsafe extern "system" fn GetClockVector<Identity: IRangeException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClockVector<Identity: IRangeException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRangeException_Impl::GetClockVector(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
@@ -2687,7 +2687,7 @@ impl IRangeException_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRangeException {}
-windows_core::imp::define_interface!(IRecoverableError, IRecoverableError_Vtbl, 0x99ecc17b_034e_5454_a45e_5e4638a30549);
+windows_core::imp::define_interface!(IRecoverableError, IRecoverableError_Vtbl, 0x0f5625e8_0a7b_45ee_9637_1ce13645909e);
 windows_core::imp::interface_hierarchy!(IRecoverableError, windows_core::IUnknown);
 impl IRecoverableError {
     pub unsafe fn GetStage(&self) -> windows_core::Result<SYNC_PROGRESS_STAGE> {
@@ -2799,7 +2799,7 @@ impl IRecoverableError_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRecoverableError {}
-windows_core::imp::define_interface!(IRecoverableErrorData, IRecoverableErrorData_Vtbl, 0xcc10e4ee_584d_5466_b9a3_472a70901366);
+windows_core::imp::define_interface!(IRecoverableErrorData, IRecoverableErrorData_Vtbl, 0xb37c4a0a_4b7d_4c2d_9711_3b00d119b1c8);
 windows_core::imp::interface_hierarchy!(IRecoverableErrorData, windows_core::IUnknown);
 impl IRecoverableErrorData {
     pub unsafe fn Initialize<P0, P1>(&self, pcszitemdisplayname: P0, pcszerrordescription: P1) -> windows_core::Result<()>
@@ -2885,15 +2885,15 @@ impl IRecoverableErrorData_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRecoverableErrorData {}
-windows_core::imp::define_interface!(IRegisteredSyncProvider, IRegisteredSyncProvider_Vtbl, 0x590f7261_2eff_5085_ac56_f9afefc38957);
+windows_core::imp::define_interface!(IRegisteredSyncProvider, IRegisteredSyncProvider_Vtbl, 0x913bcf76_47c1_40b5_a896_5e8a9c414c14);
 windows_core::imp::interface_hierarchy!(IRegisteredSyncProvider, windows_core::IUnknown);
 impl IRegisteredSyncProvider {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Init<P2>(&self, pguidinstanceid: *mut windows_core::GUID, pguidcontenttype: *mut windows_core::GUID, pcontextpropertystore: P2) -> windows_core::Result<()>
+    pub unsafe fn Init<P2>(&self, pguidinstanceid: *const windows_core::GUID, pguidcontenttype: *const windows_core::GUID, pcontextpropertystore: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pguidinstanceid as _, pguidcontenttype as _, pcontextpropertystore.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pguidinstanceid, pguidcontenttype, pcontextpropertystore.param().abi()).ok() }
     }
     pub unsafe fn GetInstanceId(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -2910,7 +2910,7 @@ impl IRegisteredSyncProvider {
 pub struct IRegisteredSyncProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Init: usize,
     pub GetInstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -2918,14 +2918,14 @@ pub struct IRegisteredSyncProvider_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IRegisteredSyncProvider_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pguidinstanceid: *mut windows_core::GUID, pguidcontenttype: *mut windows_core::GUID, pcontextpropertystore: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Init(&self, pguidinstanceid: *const windows_core::GUID, pguidcontenttype: *const windows_core::GUID, pcontextpropertystore: windows_core::Ref<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
     fn GetInstanceId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Reset(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IRegisteredSyncProvider_Vtbl {
     pub const fn new<Identity: IRegisteredSyncProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Init<Identity: IRegisteredSyncProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidinstanceid: *mut windows_core::GUID, pguidcontenttype: *mut windows_core::GUID, pcontextpropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Init<Identity: IRegisteredSyncProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidinstanceid: *const windows_core::GUID, pguidcontenttype: *const windows_core::GUID, pcontextpropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRegisteredSyncProvider_Impl::Init(this, core::mem::transmute_copy(&pguidinstanceid), core::mem::transmute_copy(&pguidcontenttype), core::mem::transmute_copy(&pcontextpropertystore)).into()
@@ -3063,14 +3063,14 @@ impl IRequestFilteredSync_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRequestFilteredSync {}
-windows_core::imp::define_interface!(ISingleItemException, ISingleItemException_Vtbl, 0x2769e3a8_20ef_5811_92c2_2ce04cee075e);
+windows_core::imp::define_interface!(ISingleItemException, ISingleItemException_Vtbl, 0x892fb9b0_7c55_4a18_9316_fdf449569b64);
 windows_core::imp::interface_hierarchy!(ISingleItemException, windows_core::IUnknown);
 impl ISingleItemException {
     pub unsafe fn GetItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetItemId)(windows_core::Interface::as_raw(self), pbitemid as _, pcbidsize as _).ok() }
     }
-    pub unsafe fn GetClockVector(&self, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid as _, ppunk as _).ok() }
+    pub unsafe fn GetClockVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetClockVector)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
     }
 }
 #[repr(C)]
@@ -3078,11 +3078,11 @@ impl ISingleItemException {
 pub struct ISingleItemException_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub GetClockVector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetClockVector: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISingleItemException_Impl: windows_core::IUnknownImpl {
     fn GetItemId(&self, pbitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()>;
-    fn GetClockVector(&self, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetClockVector(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl ISingleItemException_Vtbl {
     pub const fn new<Identity: ISingleItemException_Impl, const OFFSET: isize>() -> Self {
@@ -3092,7 +3092,7 @@ impl ISingleItemException_Vtbl {
                 ISingleItemException_Impl::GetItemId(this, core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pcbidsize)).into()
             }
         }
-        unsafe extern "system" fn GetClockVector<Identity: ISingleItemException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClockVector<Identity: ISingleItemException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISingleItemException_Impl::GetClockVector(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
@@ -3143,39 +3143,57 @@ impl ISupportFilteredSync_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISupportFilteredSync {}
-windows_core::imp::define_interface!(ISupportLastWriteTime, ISupportLastWriteTime_Vtbl, 0x6d4a9a40_1991_5b7c_8cd8_d4bc873c50ee);
+windows_core::imp::define_interface!(ISupportLastWriteTime, ISupportLastWriteTime_Vtbl, 0xeadf816f_d0bd_43ca_8f40_5acdc6c06f7a);
 windows_core::imp::interface_hierarchy!(ISupportLastWriteTime, windows_core::IUnknown);
 impl ISupportLastWriteTime {
-    pub unsafe fn GetItemChangeTime(&self, pbitemid: *mut u8, pulltimestamp: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetItemChangeTime)(windows_core::Interface::as_raw(self), pbitemid as _, pulltimestamp as _).ok() }
+    pub unsafe fn GetItemChangeTime(&self, pbitemid: *const u8) -> windows_core::Result<u64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetItemChangeTime)(windows_core::Interface::as_raw(self), pbitemid, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn GetChangeUnitChangeTime(&self, pbitemid: *mut u8, pbchangeunitid: *mut u8, pulltimestamp: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeUnitChangeTime)(windows_core::Interface::as_raw(self), pbitemid as _, pbchangeunitid as _, pulltimestamp as _).ok() }
+    pub unsafe fn GetChangeUnitChangeTime(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::Result<u64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetChangeUnitChangeTime)(windows_core::Interface::as_raw(self), pbitemid, pbchangeunitid, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISupportLastWriteTime_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetItemChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u64) -> windows_core::HRESULT,
-    pub GetChangeUnitChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8, *mut u64) -> windows_core::HRESULT,
+    pub GetItemChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut u64) -> windows_core::HRESULT,
+    pub GetChangeUnitChangeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u8, *mut u64) -> windows_core::HRESULT,
 }
 pub trait ISupportLastWriteTime_Impl: windows_core::IUnknownImpl {
-    fn GetItemChangeTime(&self, pbitemid: *mut u8, pulltimestamp: *mut u64) -> windows_core::Result<()>;
-    fn GetChangeUnitChangeTime(&self, pbitemid: *mut u8, pbchangeunitid: *mut u8, pulltimestamp: *mut u64) -> windows_core::Result<()>;
+    fn GetItemChangeTime(&self, pbitemid: *const u8) -> windows_core::Result<u64>;
+    fn GetChangeUnitChangeTime(&self, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::Result<u64>;
 }
 impl ISupportLastWriteTime_Vtbl {
     pub const fn new<Identity: ISupportLastWriteTime_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetItemChangeTime<Identity: ISupportLastWriteTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitemid: *mut u8, pulltimestamp: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetItemChangeTime<Identity: ISupportLastWriteTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitemid: *const u8, pulltimestamp: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISupportLastWriteTime_Impl::GetItemChangeTime(this, core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pulltimestamp)).into()
+                match ISupportLastWriteTime_Impl::GetItemChangeTime(this, core::mem::transmute_copy(&pbitemid)) {
+                    Ok(ok__) => {
+                        pulltimestamp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn GetChangeUnitChangeTime<Identity: ISupportLastWriteTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitemid: *mut u8, pbchangeunitid: *mut u8, pulltimestamp: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetChangeUnitChangeTime<Identity: ISupportLastWriteTime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitemid: *const u8, pbchangeunitid: *const u8, pulltimestamp: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISupportLastWriteTime_Impl::GetChangeUnitChangeTime(this, core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pbchangeunitid), core::mem::transmute_copy(&pulltimestamp)).into()
+                match ISupportLastWriteTime_Impl::GetChangeUnitChangeTime(this, core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pbchangeunitid)) {
+                    Ok(ok__) => {
+                        pulltimestamp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3189,7 +3207,7 @@ impl ISupportLastWriteTime_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISupportLastWriteTime {}
-windows_core::imp::define_interface!(ISyncCallback, ISyncCallback_Vtbl, 0x1dd12aec_6d84_57c4_9701_ff6b5add7439);
+windows_core::imp::define_interface!(ISyncCallback, ISyncCallback_Vtbl, 0x0599797f_5ed9_485c_ae36_0c5d1bf2e7a5);
 windows_core::imp::interface_hierarchy!(ISyncCallback, windows_core::IUnknown);
 impl ISyncCallback {
     pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> windows_core::Result<()> {
@@ -3289,7 +3307,7 @@ impl ISyncCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncCallback {}
-windows_core::imp::define_interface!(ISyncCallback2, ISyncCallback2_Vtbl, 0x123aba97_8bec_5fb9_a96a_eb52b6630fa3);
+windows_core::imp::define_interface!(ISyncCallback2, ISyncCallback2_Vtbl, 0x47ce84af_7442_4ead_8630_12015e030ad7);
 impl core::ops::Deref for ISyncCallback2 {
     type Target = ISyncCallback;
     fn deref(&self) -> &Self::Target {
@@ -3341,7 +3359,7 @@ impl ISyncCallback2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncCallback2 {}
-windows_core::imp::define_interface!(ISyncChange, ISyncChange_Vtbl, 0x75471490_9089_5da1_a1e0_8e6d5182f861);
+windows_core::imp::define_interface!(ISyncChange, ISyncChange_Vtbl, 0xa1952beb_0f6b_4711_b136_01da85b968a6);
 windows_core::imp::interface_hierarchy!(ISyncChange, windows_core::IUnknown);
 impl ISyncChange {
     pub unsafe fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
@@ -3350,11 +3368,17 @@ impl ISyncChange {
     pub unsafe fn GetRootItemId(&self, pbrootitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRootItemId)(windows_core::Interface::as_raw(self), pbrootitemid as _, pcbidsize as _).ok() }
     }
-    pub unsafe fn GetChangeVersion(&self, pbcurrentreplicaid: *mut u8, pversion: *mut SYNC_VERSION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetChangeVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid as _, pversion as _).ok() }
+    pub unsafe fn GetChangeVersion(&self, pbcurrentreplicaid: *const u8) -> windows_core::Result<SYNC_VERSION> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetChangeVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn GetCreationVersion(&self, pbcurrentreplicaid: *mut u8, pversion: *mut SYNC_VERSION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCreationVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid as _, pversion as _).ok() }
+    pub unsafe fn GetCreationVersion(&self, pbcurrentreplicaid: *const u8) -> windows_core::Result<SYNC_VERSION> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCreationVersion)(windows_core::Interface::as_raw(self), pbcurrentreplicaid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3396,8 +3420,8 @@ pub struct ISyncChange_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOwnerReplicaId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetRootItemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub GetChangeVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut SYNC_VERSION) -> windows_core::HRESULT,
-    pub GetCreationVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut SYNC_VERSION) -> windows_core::HRESULT,
+    pub GetChangeVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut SYNC_VERSION) -> windows_core::HRESULT,
+    pub GetCreationVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut SYNC_VERSION) -> windows_core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetWorkEstimate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetChangeUnits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3408,8 +3432,8 @@ pub struct ISyncChange_Vtbl {
 pub trait ISyncChange_Impl: windows_core::IUnknownImpl {
     fn GetOwnerReplicaId(&self, pbreplicaid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()>;
     fn GetRootItemId(&self, pbrootitemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()>;
-    fn GetChangeVersion(&self, pbcurrentreplicaid: *mut u8, pversion: *mut SYNC_VERSION) -> windows_core::Result<()>;
-    fn GetCreationVersion(&self, pbcurrentreplicaid: *mut u8, pversion: *mut SYNC_VERSION) -> windows_core::Result<()>;
+    fn GetChangeVersion(&self, pbcurrentreplicaid: *const u8) -> windows_core::Result<SYNC_VERSION>;
+    fn GetCreationVersion(&self, pbcurrentreplicaid: *const u8) -> windows_core::Result<SYNC_VERSION>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
     fn GetWorkEstimate(&self) -> windows_core::Result<u32>;
     fn GetChangeUnits(&self) -> windows_core::Result<IEnumSyncChangeUnits>;
@@ -3431,16 +3455,28 @@ impl ISyncChange_Vtbl {
                 ISyncChange_Impl::GetRootItemId(this, core::mem::transmute_copy(&pbrootitemid), core::mem::transmute_copy(&pcbidsize)).into()
             }
         }
-        unsafe extern "system" fn GetChangeVersion<Identity: ISyncChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcurrentreplicaid: *mut u8, pversion: *mut SYNC_VERSION) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetChangeVersion<Identity: ISyncChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncChange_Impl::GetChangeVersion(this, core::mem::transmute_copy(&pbcurrentreplicaid), core::mem::transmute_copy(&pversion)).into()
+                match ISyncChange_Impl::GetChangeVersion(this, core::mem::transmute_copy(&pbcurrentreplicaid)) {
+                    Ok(ok__) => {
+                        pversion.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn GetCreationVersion<Identity: ISyncChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcurrentreplicaid: *mut u8, pversion: *mut SYNC_VERSION) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCreationVersion<Identity: ISyncChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbcurrentreplicaid: *const u8, pversion: *mut SYNC_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncChange_Impl::GetCreationVersion(this, core::mem::transmute_copy(&pbcurrentreplicaid), core::mem::transmute_copy(&pversion)).into()
+                match ISyncChange_Impl::GetCreationVersion(this, core::mem::transmute_copy(&pbcurrentreplicaid)) {
+                    Ok(ok__) => {
+                        pversion.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetFlags<Identity: ISyncChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
@@ -3528,7 +3564,7 @@ impl ISyncChange_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChange {}
-windows_core::imp::define_interface!(ISyncChangeBatch, ISyncChangeBatch_Vtbl, 0xdabcdb86_9e5c_50f9_88ae_ef8a217c5561);
+windows_core::imp::define_interface!(ISyncChangeBatch, ISyncChangeBatch_Vtbl, 0x70c64dee_380f_4c2e_8f70_31c55bd5f9b3);
 impl core::ops::Deref for ISyncChangeBatch {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
@@ -3546,11 +3582,14 @@ impl ISyncChangeBatch {
     {
         unsafe { (windows_core::Interface::vtable(self).EndUnorderedGroup)(windows_core::Interface::as_raw(self), pmadewithknowledge.param().abi(), fallchangesforknowledge.into()).ok() }
     }
-    pub unsafe fn AddLoggedConflict<P6>(&self, pbownerreplicaid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: P6, ppchangebuilder: *mut Option<ISyncChangeBuilder>) -> windows_core::Result<()>
+    pub unsafe fn AddLoggedConflict<P6>(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: P6) -> windows_core::Result<ISyncChangeBuilder>
     where
         P6: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddLoggedConflict)(windows_core::Interface::as_raw(self), pbownerreplicaid as _, pbitemid as _, pchangeversion as _, pcreationversion as _, dwflags, dwworkforchange, pconflictknowledge.param().abi(), core::mem::transmute(ppchangebuilder)).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddLoggedConflict)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbitemid, pchangeversion, pcreationversion, dwflags, dwworkforchange, pconflictknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3559,12 +3598,12 @@ pub struct ISyncChangeBatch_Vtbl {
     pub base__: ISyncChangeBatchBase_Vtbl,
     pub BeginUnorderedGroup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndUnorderedGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    pub AddLoggedConflict: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8, *mut SYNC_VERSION, *mut SYNC_VERSION, u32, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddLoggedConflict: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u8, *const SYNC_VERSION, *const SYNC_VERSION, u32, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISyncChangeBatch_Impl: ISyncChangeBatchBase_Impl {
     fn BeginUnorderedGroup(&self) -> windows_core::Result<()>;
     fn EndUnorderedGroup(&self, pmadewithknowledge: windows_core::Ref<ISyncKnowledge>, fallchangesforknowledge: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AddLoggedConflict(&self, pbownerreplicaid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: windows_core::Ref<ISyncKnowledge>, ppchangebuilder: windows_core::OutRef<ISyncChangeBuilder>) -> windows_core::Result<()>;
+    fn AddLoggedConflict(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<ISyncChangeBuilder>;
 }
 impl ISyncChangeBatch_Vtbl {
     pub const fn new<Identity: ISyncChangeBatch_Impl, const OFFSET: isize>() -> Self {
@@ -3580,10 +3619,16 @@ impl ISyncChangeBatch_Vtbl {
                 ISyncChangeBatch_Impl::EndUnorderedGroup(this, core::mem::transmute_copy(&pmadewithknowledge), core::mem::transmute_copy(&fallchangesforknowledge)).into()
             }
         }
-        unsafe extern "system" fn AddLoggedConflict<Identity: ISyncChangeBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: *mut core::ffi::c_void, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddLoggedConflict<Identity: ISyncChangeBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, pconflictknowledge: *mut core::ffi::c_void, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncChangeBatch_Impl::AddLoggedConflict(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwworkforchange), core::mem::transmute_copy(&pconflictknowledge), core::mem::transmute_copy(&ppchangebuilder)).into()
+                match ISyncChangeBatch_Impl::AddLoggedConflict(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwworkforchange), core::mem::transmute_copy(&pconflictknowledge)) {
+                    Ok(ok__) => {
+                        ppchangebuilder.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3598,7 +3643,7 @@ impl ISyncChangeBatch_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatch {}
-windows_core::imp::define_interface!(ISyncChangeBatch2, ISyncChangeBatch2_Vtbl, 0x048640ea_ca2c_5011_94ee_2ff3c9598c9f);
+windows_core::imp::define_interface!(ISyncChangeBatch2, ISyncChangeBatch2_Vtbl, 0x225f4a33_f5ee_4cc7_b039_67a262b4b2ac);
 impl core::ops::Deref for ISyncChangeBatch2 {
     type Target = ISyncChangeBatch;
     fn deref(&self) -> &Self::Target {
@@ -3607,39 +3652,57 @@ impl core::ops::Deref for ISyncChangeBatch2 {
 }
 windows_core::imp::interface_hierarchy!(ISyncChangeBatch2, windows_core::IUnknown, ISyncChangeBatchBase, ISyncChangeBatch);
 impl ISyncChangeBatch2 {
-    pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut Option<ISyncChangeBuilder>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid as _, pbwinneritemid as _, pbitemid as _, pchangeversion as _, pcreationversion as _, dwworkforchange, core::mem::transmute(ppchangebuilder)).ok() }
+    pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
-    pub unsafe fn AddMergeTombstoneLoggedConflict<P6>(&self, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: P6, ppchangebuilder: *mut Option<ISyncChangeBuilder>) -> windows_core::Result<()>
+    pub unsafe fn AddMergeTombstoneLoggedConflict<P6>(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: P6) -> windows_core::Result<ISyncChangeBuilder>
     where
         P6: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMergeTombstoneLoggedConflict)(windows_core::Interface::as_raw(self), pbownerreplicaid as _, pbwinneritemid as _, pbitemid as _, pchangeversion as _, pcreationversion as _, dwworkforchange, pconflictknowledge.param().abi(), core::mem::transmute(ppchangebuilder)).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddMergeTombstoneLoggedConflict)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, pconflictknowledge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeBatch2_Vtbl {
     pub base__: ISyncChangeBatch_Vtbl,
-    pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8, *mut u8, *mut SYNC_VERSION, *mut SYNC_VERSION, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddMergeTombstoneLoggedConflict: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8, *mut u8, *mut SYNC_VERSION, *mut SYNC_VERSION, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u8, *const u8, *const SYNC_VERSION, *const SYNC_VERSION, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddMergeTombstoneLoggedConflict: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u8, *const u8, *const SYNC_VERSION, *const SYNC_VERSION, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISyncChangeBatch2_Impl: ISyncChangeBatch_Impl {
-    fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: windows_core::OutRef<ISyncChangeBuilder>) -> windows_core::Result<()>;
-    fn AddMergeTombstoneLoggedConflict(&self, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: windows_core::Ref<ISyncKnowledge>, ppchangebuilder: windows_core::OutRef<ISyncChangeBuilder>) -> windows_core::Result<()>;
+    fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder>;
+    fn AddMergeTombstoneLoggedConflict(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<ISyncChangeBuilder>;
 }
 impl ISyncChangeBatch2_Vtbl {
     pub const fn new<Identity: ISyncChangeBatch2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddMergeTombstoneMetadataToGroup<Identity: ISyncChangeBatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddMergeTombstoneMetadataToGroup<Identity: ISyncChangeBatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncChangeBatch2_Impl::AddMergeTombstoneMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange), core::mem::transmute_copy(&ppchangebuilder)).into()
+                match ISyncChangeBatch2_Impl::AddMergeTombstoneMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange)) {
+                    Ok(ok__) => {
+                        ppchangebuilder.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn AddMergeTombstoneLoggedConflict<Identity: ISyncChangeBatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: *mut core::ffi::c_void, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddMergeTombstoneLoggedConflict<Identity: ISyncChangeBatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, pconflictknowledge: *mut core::ffi::c_void, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncChangeBatch2_Impl::AddMergeTombstoneLoggedConflict(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange), core::mem::transmute_copy(&pconflictknowledge), core::mem::transmute_copy(&ppchangebuilder)).into()
+                match ISyncChangeBatch2_Impl::AddMergeTombstoneLoggedConflict(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange), core::mem::transmute_copy(&pconflictknowledge)) {
+                    Ok(ok__) => {
+                        ppchangebuilder.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3653,7 +3716,7 @@ impl ISyncChangeBatch2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatch2 {}
-windows_core::imp::define_interface!(ISyncChangeBatchAdvanced, ISyncChangeBatchAdvanced_Vtbl, 0x336c8ff4_901d_530a_8e7b_bc8e042775ee);
+windows_core::imp::define_interface!(ISyncChangeBatchAdvanced, ISyncChangeBatchAdvanced_Vtbl, 0x0f1a4995_cbc8_421d_b550_5d0bebf3e9a5);
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchAdvanced, windows_core::IUnknown);
 impl ISyncChangeBatchAdvanced {
     pub unsafe fn GetFilterInfo(&self) -> windows_core::Result<ISyncFilterInfo> {
@@ -3750,7 +3813,7 @@ impl ISyncChangeBatchAdvanced_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatchAdvanced {}
-windows_core::imp::define_interface!(ISyncChangeBatchBase, ISyncChangeBatchBase_Vtbl, 0xb8cfdcc6_f6a0_582e_9a08_741b1c56c3c2);
+windows_core::imp::define_interface!(ISyncChangeBatchBase, ISyncChangeBatchBase_Vtbl, 0x52f6e694_6a71_4494_a184_a8311bf5d227);
 windows_core::imp::interface_hierarchy!(ISyncChangeBatchBase, windows_core::IUnknown);
 impl ISyncChangeBatchBase {
     pub unsafe fn GetChangeEnumerator(&self) -> windows_core::Result<IEnumSyncChanges> {
@@ -3777,20 +3840,20 @@ impl ISyncChangeBatchBase {
             (windows_core::Interface::vtable(self).GetRemainingWorkEstimateForSession)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BeginOrderedGroup(&self) -> windows_core::Result<u8> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginOrderedGroup)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).BeginOrderedGroup)(windows_core::Interface::as_raw(self), pblowerbound).ok() }
     }
-    pub unsafe fn EndOrderedGroup<P1>(&self, pbupperbound: *mut u8, pmadewithknowledge: P1) -> windows_core::Result<()>
+    pub unsafe fn EndOrderedGroup<P1>(&self, pbupperbound: *const u8, pmadewithknowledge: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndOrderedGroup)(windows_core::Interface::as_raw(self), pbupperbound as _, pmadewithknowledge.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EndOrderedGroup)(windows_core::Interface::as_raw(self), pbupperbound, pmadewithknowledge.param().abi()).ok() }
     }
-    pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwflags: u32, dwworkforchange: u32, ppchangebuilder: *mut Option<ISyncChangeBuilder>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddItemMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid as _, pbitemid as _, pchangeversion as _, pcreationversion as _, dwflags, dwworkforchange, core::mem::transmute(ppchangebuilder)).ok() }
+    pub unsafe fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddItemMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbitemid, pchangeversion, pcreationversion, dwflags, dwworkforchange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetLearnedKnowledge(&self) -> windows_core::Result<ISyncKnowledge> {
         unsafe {
@@ -3831,9 +3894,9 @@ pub struct ISyncChangeBatchBase_Vtbl {
     pub GetIsLastBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetWorkEstimateForBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetRemainingWorkEstimateForSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub BeginOrderedGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub EndOrderedGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddItemMetadataToGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8, *mut SYNC_VERSION, *mut SYNC_VERSION, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BeginOrderedGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8) -> windows_core::HRESULT,
+    pub EndOrderedGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddItemMetadataToGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u8, *const SYNC_VERSION, *const SYNC_VERSION, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLearnedKnowledge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPrerequisiteKnowledge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSourceForgottenKnowledge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3847,9 +3910,9 @@ pub trait ISyncChangeBatchBase_Impl: windows_core::IUnknownImpl {
     fn GetIsLastBatch(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetWorkEstimateForBatch(&self) -> windows_core::Result<u32>;
     fn GetRemainingWorkEstimateForSession(&self) -> windows_core::Result<u32>;
-    fn BeginOrderedGroup(&self) -> windows_core::Result<u8>;
-    fn EndOrderedGroup(&self, pbupperbound: *mut u8, pmadewithknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<()>;
-    fn AddItemMetadataToGroup(&self, pbownerreplicaid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwflags: u32, dwworkforchange: u32, ppchangebuilder: windows_core::OutRef<ISyncChangeBuilder>) -> windows_core::Result<()>;
+    fn BeginOrderedGroup(&self, pblowerbound: *const u8) -> windows_core::Result<()>;
+    fn EndOrderedGroup(&self, pbupperbound: *const u8, pmadewithknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<()>;
+    fn AddItemMetadataToGroup(&self, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder>;
     fn GetLearnedKnowledge(&self) -> windows_core::Result<ISyncKnowledge>;
     fn GetPrerequisiteKnowledge(&self) -> windows_core::Result<ISyncKnowledge>;
     fn GetSourceForgottenKnowledge(&self) -> windows_core::Result<IForgottenKnowledge>;
@@ -3908,28 +3971,28 @@ impl ISyncChangeBatchBase_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BeginOrderedGroup<Identity: ISyncChangeBatchBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblowerbound: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginOrderedGroup<Identity: ISyncChangeBatchBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblowerbound: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISyncChangeBatchBase_Impl::BeginOrderedGroup(this) {
-                    Ok(ok__) => {
-                        pblowerbound.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISyncChangeBatchBase_Impl::BeginOrderedGroup(this, core::mem::transmute_copy(&pblowerbound)).into()
             }
         }
-        unsafe extern "system" fn EndOrderedGroup<Identity: ISyncChangeBatchBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbupperbound: *mut u8, pmadewithknowledge: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EndOrderedGroup<Identity: ISyncChangeBatchBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbupperbound: *const u8, pmadewithknowledge: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISyncChangeBatchBase_Impl::EndOrderedGroup(this, core::mem::transmute_copy(&pbupperbound), core::mem::transmute_copy(&pmadewithknowledge)).into()
             }
         }
-        unsafe extern "system" fn AddItemMetadataToGroup<Identity: ISyncChangeBatchBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwflags: u32, dwworkforchange: u32, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddItemMetadataToGroup<Identity: ISyncChangeBatchBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwflags: u32, dwworkforchange: u32, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncChangeBatchBase_Impl::AddItemMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwworkforchange), core::mem::transmute_copy(&ppchangebuilder)).into()
+                match ISyncChangeBatchBase_Impl::AddItemMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&dwworkforchange)) {
+                    Ok(ok__) => {
+                        ppchangebuilder.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetLearnedKnowledge<Identity: ISyncChangeBatchBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pplearnedknowledge: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4015,7 +4078,7 @@ impl ISyncChangeBatchBase_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatchBase {}
-windows_core::imp::define_interface!(ISyncChangeBatchBase2, ISyncChangeBatchBase2_Vtbl, 0x5884e819_aa9a_5f12_a264_705baf27d42e);
+windows_core::imp::define_interface!(ISyncChangeBatchBase2, ISyncChangeBatchBase2_Vtbl, 0x6fdb596a_d755_4584_bd0c_c0c23a548fbf);
 impl core::ops::Deref for ISyncChangeBatchBase2 {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
@@ -4250,7 +4313,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatchWithFilterKeyMap {}
-windows_core::imp::define_interface!(ISyncChangeBatchWithPrerequisite, ISyncChangeBatchWithPrerequisite_Vtbl, 0xfa1708be_9edc_5173_8901_c0a06854d6d0);
+windows_core::imp::define_interface!(ISyncChangeBatchWithPrerequisite, ISyncChangeBatchWithPrerequisite_Vtbl, 0x097f13be_5b92_4048_b3f2_7b42a2515e07);
 impl core::ops::Deref for ISyncChangeBatchWithPrerequisite {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
@@ -4338,25 +4401,25 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatchWithPrerequisite {}
-windows_core::imp::define_interface!(ISyncChangeBuilder, ISyncChangeBuilder_Vtbl, 0x5fbf605f_767a_53db_b351_84706e417a9a);
+windows_core::imp::define_interface!(ISyncChangeBuilder, ISyncChangeBuilder_Vtbl, 0x56f14771_8677_484f_a170_e386e418a676);
 windows_core::imp::interface_hierarchy!(ISyncChangeBuilder, windows_core::IUnknown);
 impl ISyncChangeBuilder {
-    pub unsafe fn AddChangeUnitMetadata(&self, pbchangeunitid: *mut u8, pchangeunitversion: *mut SYNC_VERSION) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddChangeUnitMetadata)(windows_core::Interface::as_raw(self), pbchangeunitid as _, pchangeunitversion as _).ok() }
+    pub unsafe fn AddChangeUnitMetadata(&self, pbchangeunitid: *const u8, pchangeunitversion: *const SYNC_VERSION) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddChangeUnitMetadata)(windows_core::Interface::as_raw(self), pbchangeunitid, pchangeunitversion).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncChangeBuilder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub AddChangeUnitMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut SYNC_VERSION) -> windows_core::HRESULT,
+    pub AddChangeUnitMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const SYNC_VERSION) -> windows_core::HRESULT,
 }
 pub trait ISyncChangeBuilder_Impl: windows_core::IUnknownImpl {
-    fn AddChangeUnitMetadata(&self, pbchangeunitid: *mut u8, pchangeunitversion: *mut SYNC_VERSION) -> windows_core::Result<()>;
+    fn AddChangeUnitMetadata(&self, pbchangeunitid: *const u8, pchangeunitversion: *const SYNC_VERSION) -> windows_core::Result<()>;
 }
 impl ISyncChangeBuilder_Vtbl {
     pub const fn new<Identity: ISyncChangeBuilder_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddChangeUnitMetadata<Identity: ISyncChangeBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbchangeunitid: *mut u8, pchangeunitversion: *mut SYNC_VERSION) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddChangeUnitMetadata<Identity: ISyncChangeBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbchangeunitid: *const u8, pchangeunitversion: *const SYNC_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISyncChangeBuilder_Impl::AddChangeUnitMetadata(this, core::mem::transmute_copy(&pbchangeunitid), core::mem::transmute_copy(&pchangeunitversion)).into()
@@ -4667,7 +4730,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncChangeWithFilterKeyMap {}
-windows_core::imp::define_interface!(ISyncChangeWithPrerequisite, ISyncChangeWithPrerequisite_Vtbl, 0xdfa59359_e148_5629_ba31_1ea1e6a23358);
+windows_core::imp::define_interface!(ISyncChangeWithPrerequisite, ISyncChangeWithPrerequisite_Vtbl, 0x9e38382f_1589_48c3_92e4_05ecdcb4f3f7);
 windows_core::imp::interface_hierarchy!(ISyncChangeWithPrerequisite, windows_core::IUnknown);
 impl ISyncChangeWithPrerequisite {
     pub unsafe fn GetPrerequisiteKnowledge(&self) -> windows_core::Result<ISyncKnowledge> {
@@ -4768,7 +4831,7 @@ impl ISyncConstraintCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncConstraintCallback {}
-windows_core::imp::define_interface!(ISyncDataConverter, ISyncDataConverter_Vtbl, 0x5a191cd6_9067_5ac7_bf56_db1d77f5ced8);
+windows_core::imp::define_interface!(ISyncDataConverter, ISyncDataConverter_Vtbl, 0x435d4861_68d5_44aa_a0f9_72a0b00ef9cf);
 windows_core::imp::interface_hierarchy!(ISyncDataConverter, windows_core::IUnknown);
 impl ISyncDataConverter {
     pub unsafe fn ConvertDataRetrieverFromProviderFormat<P0, P1>(&self, punkdataretrieverin: P0, penumsyncchanges: P1) -> windows_core::Result<windows_core::IUnknown>
@@ -4890,7 +4953,7 @@ impl ISyncDataConverter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncDataConverter {}
-windows_core::imp::define_interface!(ISyncFilter, ISyncFilter_Vtbl, 0x142f6ec2_1619_5bb4_882b_a8ec970d0cdb);
+windows_core::imp::define_interface!(ISyncFilter, ISyncFilter_Vtbl, 0x087a3f15_0fcb_44c1_9639_53c14e2b5506);
 windows_core::imp::interface_hierarchy!(ISyncFilter, windows_core::IUnknown);
 impl ISyncFilter {
     pub unsafe fn IsIdentical<P0>(&self, psyncfilter: P0) -> windows_core::Result<()>
@@ -4939,28 +5002,37 @@ impl ISyncFilter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncFilter {}
-windows_core::imp::define_interface!(ISyncFilterDeserializer, ISyncFilterDeserializer_Vtbl, 0x43023628_ae5f_5abd_89dc_f337d804ac4f);
+windows_core::imp::define_interface!(ISyncFilterDeserializer, ISyncFilterDeserializer_Vtbl, 0xb45b7a72_e5c7_46be_9c82_77b8b15dab8a);
 windows_core::imp::interface_hierarchy!(ISyncFilterDeserializer, windows_core::IUnknown);
 impl ISyncFilterDeserializer {
-    pub unsafe fn DeserializeSyncFilter(&self, pbsyncfilter: *mut u8, dwcbsyncfilter: u32, ppisyncfilter: *mut Option<ISyncFilter>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DeserializeSyncFilter)(windows_core::Interface::as_raw(self), pbsyncfilter as _, dwcbsyncfilter, core::mem::transmute(ppisyncfilter)).ok() }
+    pub unsafe fn DeserializeSyncFilter(&self, pbsyncfilter: *const u8, dwcbsyncfilter: u32) -> windows_core::Result<ISyncFilter> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DeserializeSyncFilter)(windows_core::Interface::as_raw(self), pbsyncfilter, dwcbsyncfilter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncFilterDeserializer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub DeserializeSyncFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeserializeSyncFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISyncFilterDeserializer_Impl: windows_core::IUnknownImpl {
-    fn DeserializeSyncFilter(&self, pbsyncfilter: *mut u8, dwcbsyncfilter: u32, ppisyncfilter: windows_core::OutRef<ISyncFilter>) -> windows_core::Result<()>;
+    fn DeserializeSyncFilter(&self, pbsyncfilter: *const u8, dwcbsyncfilter: u32) -> windows_core::Result<ISyncFilter>;
 }
 impl ISyncFilterDeserializer_Vtbl {
     pub const fn new<Identity: ISyncFilterDeserializer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeserializeSyncFilter<Identity: ISyncFilterDeserializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsyncfilter: *mut u8, dwcbsyncfilter: u32, ppisyncfilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeserializeSyncFilter<Identity: ISyncFilterDeserializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbsyncfilter: *const u8, dwcbsyncfilter: u32, ppisyncfilter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncFilterDeserializer_Impl::DeserializeSyncFilter(this, core::mem::transmute_copy(&pbsyncfilter), core::mem::transmute_copy(&dwcbsyncfilter), core::mem::transmute_copy(&ppisyncfilter)).into()
+                match ISyncFilterDeserializer_Impl::DeserializeSyncFilter(this, core::mem::transmute_copy(&pbsyncfilter), core::mem::transmute_copy(&dwcbsyncfilter)) {
+                    Ok(ok__) => {
+                        ppisyncfilter.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeserializeSyncFilter: DeserializeSyncFilter::<Identity, OFFSET> }
@@ -4970,7 +5042,7 @@ impl ISyncFilterDeserializer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncFilterDeserializer {}
-windows_core::imp::define_interface!(ISyncFilterInfo, ISyncFilterInfo_Vtbl, 0x1e38146d_f1c3_55b8_a55c_9468496669ff);
+windows_core::imp::define_interface!(ISyncFilterInfo, ISyncFilterInfo_Vtbl, 0x794eaaf8_3f2e_47e6_9728_17e6fcf94cb7);
 windows_core::imp::interface_hierarchy!(ISyncFilterInfo, windows_core::IUnknown);
 impl ISyncFilterInfo {
     pub unsafe fn Serialize(&self, pbbuffer: *mut u8, pcbbuffer: *mut u32) -> windows_core::Result<()> {
@@ -5047,7 +5119,7 @@ impl ISyncFilterInfo2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncFilterInfo2 {}
-windows_core::imp::define_interface!(ISyncFullEnumerationChange, ISyncFullEnumerationChange_Vtbl, 0xc52013c1_387f_58ae_9533_e9c5ee53e0f1);
+windows_core::imp::define_interface!(ISyncFullEnumerationChange, ISyncFullEnumerationChange_Vtbl, 0x9785e0bd_bdff_40c4_98c5_b34b2f1991b3);
 windows_core::imp::interface_hierarchy!(ISyncFullEnumerationChange, windows_core::IUnknown);
 impl ISyncFullEnumerationChange {
     pub unsafe fn GetLearnedKnowledgeAfterRecoveryComplete(&self) -> windows_core::Result<ISyncKnowledge> {
@@ -5111,7 +5183,7 @@ impl ISyncFullEnumerationChange_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncFullEnumerationChange {}
-windows_core::imp::define_interface!(ISyncFullEnumerationChangeBatch, ISyncFullEnumerationChangeBatch_Vtbl, 0xccd8e2e0_31c9_5e7c_901e_eb2d14fb2a96);
+windows_core::imp::define_interface!(ISyncFullEnumerationChangeBatch, ISyncFullEnumerationChangeBatch_Vtbl, 0xef64197d_4f44_4ea2_b355_4524713e3bed);
 impl core::ops::Deref for ISyncFullEnumerationChangeBatch {
     type Target = ISyncChangeBatchBase;
     fn deref(&self) -> &Self::Target {
@@ -5184,7 +5256,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncFullEnumerationChangeBatch {}
-windows_core::imp::define_interface!(ISyncFullEnumerationChangeBatch2, ISyncFullEnumerationChangeBatch2_Vtbl, 0xf95d2cf3_38c2_5f3d_a49d_626b0b7f35fd);
+windows_core::imp::define_interface!(ISyncFullEnumerationChangeBatch2, ISyncFullEnumerationChangeBatch2_Vtbl, 0xe06449f4_a205_4b65_9724_01b22101eec1);
 impl core::ops::Deref for ISyncFullEnumerationChangeBatch2 {
     type Target = ISyncFullEnumerationChangeBatch;
     fn deref(&self) -> &Self::Target {
@@ -5193,25 +5265,34 @@ impl core::ops::Deref for ISyncFullEnumerationChangeBatch2 {
 }
 windows_core::imp::interface_hierarchy!(ISyncFullEnumerationChangeBatch2, windows_core::IUnknown, ISyncChangeBatchBase, ISyncFullEnumerationChangeBatch);
 impl ISyncFullEnumerationChangeBatch2 {
-    pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut Option<ISyncChangeBuilder>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid as _, pbwinneritemid as _, pbitemid as _, pchangeversion as _, pcreationversion as _, dwworkforchange, core::mem::transmute(ppchangebuilder)).ok() }
+    pub unsafe fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AddMergeTombstoneMetadataToGroup)(windows_core::Interface::as_raw(self), pbownerreplicaid, pbwinneritemid, pbitemid, pchangeversion, pcreationversion, dwworkforchange, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISyncFullEnumerationChangeBatch2_Vtbl {
     pub base__: ISyncFullEnumerationChangeBatch_Vtbl,
-    pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u8, *mut u8, *mut SYNC_VERSION, *mut SYNC_VERSION, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddMergeTombstoneMetadataToGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *const u8, *const u8, *const SYNC_VERSION, *const SYNC_VERSION, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISyncFullEnumerationChangeBatch2_Impl: ISyncFullEnumerationChangeBatch_Impl {
-    fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: windows_core::OutRef<ISyncChangeBuilder>) -> windows_core::Result<()>;
+    fn AddMergeTombstoneMetadataToGroup(&self, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32) -> windows_core::Result<ISyncChangeBuilder>;
 }
 impl ISyncFullEnumerationChangeBatch2_Vtbl {
     pub const fn new<Identity: ISyncFullEnumerationChangeBatch2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddMergeTombstoneMetadataToGroup<Identity: ISyncFullEnumerationChangeBatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *mut u8, pbwinneritemid: *mut u8, pbitemid: *mut u8, pchangeversion: *mut SYNC_VERSION, pcreationversion: *mut SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddMergeTombstoneMetadataToGroup<Identity: ISyncFullEnumerationChangeBatch2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbownerreplicaid: *const u8, pbwinneritemid: *const u8, pbitemid: *const u8, pchangeversion: *const SYNC_VERSION, pcreationversion: *const SYNC_VERSION, dwworkforchange: u32, ppchangebuilder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncFullEnumerationChangeBatch2_Impl::AddMergeTombstoneMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange), core::mem::transmute_copy(&ppchangebuilder)).into()
+                match ISyncFullEnumerationChangeBatch2_Impl::AddMergeTombstoneMetadataToGroup(this, core::mem::transmute_copy(&pbownerreplicaid), core::mem::transmute_copy(&pbwinneritemid), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pchangeversion), core::mem::transmute_copy(&pcreationversion), core::mem::transmute_copy(&dwworkforchange)) {
+                    Ok(ok__) => {
+                        ppchangebuilder.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -5618,7 +5699,7 @@ impl ISyncKnowledge_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncKnowledge {}
-windows_core::imp::define_interface!(ISyncKnowledge2, ISyncKnowledge2_Vtbl, 0xc7a03f08_9134_58d6_8b41_0ecd280dbc9f);
+windows_core::imp::define_interface!(ISyncKnowledge2, ISyncKnowledge2_Vtbl, 0xed0addc0_3b4b_46a1_9a45_45661d2114c8);
 impl core::ops::Deref for ISyncKnowledge2 {
     type Target = ISyncKnowledge;
     fn deref(&self) -> &Self::Target {
@@ -5630,8 +5711,11 @@ impl ISyncKnowledge2 {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetIdParameters)(windows_core::Interface::as_raw(self), pidparameters as _).ok() }
     }
-    pub unsafe fn ProjectOntoColumnSet(&self, ppcolumns: *mut *mut u8, count: u32, ppiknowledgeout: *mut Option<ISyncKnowledge2>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ProjectOntoColumnSet)(windows_core::Interface::as_raw(self), ppcolumns as _, count, core::mem::transmute(ppiknowledgeout)).ok() }
+    pub unsafe fn ProjectOntoColumnSet(&self, ppcolumns: *const *const u8, count: u32) -> windows_core::Result<ISyncKnowledge2> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProjectOntoColumnSet)(windows_core::Interface::as_raw(self), ppcolumns, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SerializeWithOptions)(windows_core::Interface::as_raw(self), targetformatversion, dwflags, pbbuffer as _, pdwserializedsize as _).ok() }
@@ -5642,8 +5726,8 @@ impl ISyncKnowledge2 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetLowestUncontainedId)(windows_core::Interface::as_raw(self), pisyncknowledge.param().abi(), pbitemid as _, pcbitemidsize as _).ok() }
     }
-    pub unsafe fn GetInspector(&self, riid: *mut windows_core::GUID, ppiinspector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInspector)(windows_core::Interface::as_raw(self), riid as _, ppiinspector as _).ok() }
+    pub unsafe fn GetInspector(&self, riid: *const windows_core::GUID, ppiinspector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetInspector)(windows_core::Interface::as_raw(self), riid, ppiinspector as _).ok() }
     }
     pub unsafe fn GetMinimumSupportedVersion(&self) -> windows_core::Result<SYNC_SERIALIZATION_VERSION> {
         unsafe {
@@ -5657,20 +5741,17 @@ impl ISyncKnowledge2 {
             (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), which, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ContainsKnowledgeForItem<P0>(&self, pknowledge: P0) -> windows_core::Result<u8>
+    pub unsafe fn ContainsKnowledgeForItem<P0>(&self, pknowledge: P0, pbitemid: *const u8) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContainsKnowledgeForItem)(windows_core::Interface::as_raw(self), pknowledge.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ContainsKnowledgeForItem)(windows_core::Interface::as_raw(self), pknowledge.param().abi(), pbitemid).ok() }
     }
-    pub unsafe fn ContainsKnowledgeForChangeUnit<P0>(&self, pknowledge: P0, pbitemid: *mut u8, pbchangeunitid: *mut u8) -> windows_core::Result<()>
+    pub unsafe fn ContainsKnowledgeForChangeUnit<P0>(&self, pknowledge: P0, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISyncKnowledge>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ContainsKnowledgeForChangeUnit)(windows_core::Interface::as_raw(self), pknowledge.param().abi(), pbitemid as _, pbchangeunitid as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ContainsKnowledgeForChangeUnit)(windows_core::Interface::as_raw(self), pknowledge.param().abi(), pbitemid, pbchangeunitid).ok() }
     }
     pub unsafe fn ProjectOntoKnowledgeWithPrerequisite<P0, P1>(&self, pprerequisiteknowledge: P0, ptemplateknowledge: P1) -> windows_core::Result<ISyncKnowledge>
     where
@@ -5718,14 +5799,14 @@ impl ISyncKnowledge2 {
 pub struct ISyncKnowledge2_Vtbl {
     pub base__: ISyncKnowledge_Vtbl,
     pub GetIdParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ID_PARAMETERS) -> windows_core::HRESULT,
-    pub ProjectOntoColumnSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProjectOntoColumnSet: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SerializeWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, SYNC_SERIALIZATION_VERSION, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetLowestUncontainedId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub GetInspector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetInspector: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMinimumSupportedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SYNC_SERIALIZATION_VERSION) -> windows_core::HRESULT,
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, SYNC_STATISTICS, *mut u32) -> windows_core::HRESULT,
-    pub ContainsKnowledgeForItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub ContainsKnowledgeForChangeUnit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u8, *mut u8) -> windows_core::HRESULT,
+    pub ContainsKnowledgeForItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8) -> windows_core::HRESULT,
+    pub ContainsKnowledgeForChangeUnit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, *const u8) -> windows_core::HRESULT,
     pub ProjectOntoKnowledgeWithPrerequisite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Complement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IntersectsWithKnowledge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5734,14 +5815,14 @@ pub struct ISyncKnowledge2_Vtbl {
 }
 pub trait ISyncKnowledge2_Impl: ISyncKnowledge_Impl {
     fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()>;
-    fn ProjectOntoColumnSet(&self, ppcolumns: *mut *mut u8, count: u32, ppiknowledgeout: windows_core::OutRef<ISyncKnowledge2>) -> windows_core::Result<()>;
+    fn ProjectOntoColumnSet(&self, ppcolumns: *const *const u8, count: u32) -> windows_core::Result<ISyncKnowledge2>;
     fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> windows_core::Result<()>;
     fn GetLowestUncontainedId(&self, pisyncknowledge: windows_core::Ref<ISyncKnowledge2>, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> windows_core::Result<()>;
-    fn GetInspector(&self, riid: *mut windows_core::GUID, ppiinspector: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetInspector(&self, riid: *const windows_core::GUID, ppiinspector: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetMinimumSupportedVersion(&self) -> windows_core::Result<SYNC_SERIALIZATION_VERSION>;
     fn GetStatistics(&self, which: SYNC_STATISTICS) -> windows_core::Result<u32>;
-    fn ContainsKnowledgeForItem(&self, pknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<u8>;
-    fn ContainsKnowledgeForChangeUnit(&self, pknowledge: windows_core::Ref<ISyncKnowledge>, pbitemid: *mut u8, pbchangeunitid: *mut u8) -> windows_core::Result<()>;
+    fn ContainsKnowledgeForItem(&self, pknowledge: windows_core::Ref<ISyncKnowledge>, pbitemid: *const u8) -> windows_core::Result<()>;
+    fn ContainsKnowledgeForChangeUnit(&self, pknowledge: windows_core::Ref<ISyncKnowledge>, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::Result<()>;
     fn ProjectOntoKnowledgeWithPrerequisite(&self, pprerequisiteknowledge: windows_core::Ref<ISyncKnowledge>, ptemplateknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<ISyncKnowledge>;
     fn Complement(&self, psyncknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<ISyncKnowledge>;
     fn IntersectsWithKnowledge(&self, psyncknowledge: windows_core::Ref<ISyncKnowledge>) -> windows_core::Result<()>;
@@ -5756,10 +5837,16 @@ impl ISyncKnowledge2_Vtbl {
                 ISyncKnowledge2_Impl::GetIdParameters(this, core::mem::transmute_copy(&pidparameters)).into()
             }
         }
-        unsafe extern "system" fn ProjectOntoColumnSet<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolumns: *mut *mut u8, count: u32, ppiknowledgeout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProjectOntoColumnSet<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcolumns: *const *const u8, count: u32, ppiknowledgeout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISyncKnowledge2_Impl::ProjectOntoColumnSet(this, core::mem::transmute_copy(&ppcolumns), core::mem::transmute_copy(&count), core::mem::transmute_copy(&ppiknowledgeout)).into()
+                match ISyncKnowledge2_Impl::ProjectOntoColumnSet(this, core::mem::transmute_copy(&ppcolumns), core::mem::transmute_copy(&count)) {
+                    Ok(ok__) => {
+                        ppiknowledgeout.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SerializeWithOptions<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> windows_core::HRESULT {
@@ -5774,7 +5861,7 @@ impl ISyncKnowledge2_Vtbl {
                 ISyncKnowledge2_Impl::GetLowestUncontainedId(this, core::mem::transmute_copy(&pisyncknowledge), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pcbitemidsize)).into()
             }
         }
-        unsafe extern "system" fn GetInspector<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppiinspector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInspector<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppiinspector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISyncKnowledge2_Impl::GetInspector(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppiinspector)).into()
@@ -5804,19 +5891,13 @@ impl ISyncKnowledge2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ContainsKnowledgeForItem<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknowledge: *mut core::ffi::c_void, pbitemid: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContainsKnowledgeForItem<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknowledge: *mut core::ffi::c_void, pbitemid: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISyncKnowledge2_Impl::ContainsKnowledgeForItem(this, core::mem::transmute_copy(&pknowledge)) {
-                    Ok(ok__) => {
-                        pbitemid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISyncKnowledge2_Impl::ContainsKnowledgeForItem(this, core::mem::transmute_copy(&pknowledge), core::mem::transmute_copy(&pbitemid)).into()
             }
         }
-        unsafe extern "system" fn ContainsKnowledgeForChangeUnit<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknowledge: *mut core::ffi::c_void, pbitemid: *mut u8, pbchangeunitid: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContainsKnowledgeForChangeUnit<Identity: ISyncKnowledge2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pknowledge: *mut core::ffi::c_void, pbitemid: *const u8, pbchangeunitid: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISyncKnowledge2_Impl::ContainsKnowledgeForChangeUnit(this, core::mem::transmute_copy(&pknowledge), core::mem::transmute_copy(&pbitemid), core::mem::transmute_copy(&pbchangeunitid)).into()
@@ -5899,7 +5980,7 @@ impl ISyncKnowledge2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncKnowledge2 {}
-windows_core::imp::define_interface!(ISyncMergeTombstoneChange, ISyncMergeTombstoneChange_Vtbl, 0xd9c1d633_1638_5e53_871d_e257c8be5198);
+windows_core::imp::define_interface!(ISyncMergeTombstoneChange, ISyncMergeTombstoneChange_Vtbl, 0x6ec62597_0903_484c_ad61_36d6e938f47b);
 windows_core::imp::interface_hierarchy!(ISyncMergeTombstoneChange, windows_core::IUnknown);
 impl ISyncMergeTombstoneChange {
     pub unsafe fn GetWinnerItemId(&self, pbwinneritemid: *mut u8, pcbidsize: *mut u32) -> windows_core::Result<()> {
@@ -6079,7 +6160,7 @@ impl ISyncProviderConfigUI_Vtbl {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for ISyncProviderConfigUI {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-windows_core::imp::define_interface!(ISyncProviderConfigUIInfo, ISyncProviderConfigUIInfo_Vtbl, 0x9f7a3fe9_df11_5195_8f46_c19118402ecc);
+windows_core::imp::define_interface!(ISyncProviderConfigUIInfo, ISyncProviderConfigUIInfo_Vtbl, 0x214141ae_33d7_4d8d_8e37_f227e880ce50);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl core::ops::Deref for ISyncProviderConfigUIInfo {
     type Target = super::super::UI::Shell::PropertiesSystem::IPropertyStore;
@@ -6136,7 +6217,7 @@ impl ISyncProviderConfigUIInfo_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl windows_core::RuntimeName for ISyncProviderConfigUIInfo {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-windows_core::imp::define_interface!(ISyncProviderInfo, ISyncProviderInfo_Vtbl, 0x2f00c62a_4dee_5e75_8729_04b940e013f4);
+windows_core::imp::define_interface!(ISyncProviderInfo, ISyncProviderInfo_Vtbl, 0x1ee135de_88a4_4504_b0d0_f7920d7e5ba6);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl core::ops::Deref for ISyncProviderInfo {
     type Target = super::super::UI::Shell::PropertiesSystem::IPropertyStore;
@@ -6601,7 +6682,7 @@ impl ISyncRegistrationChange_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncRegistrationChange {}
-windows_core::imp::define_interface!(ISyncSessionExtendedErrorInfo, ISyncSessionExtendedErrorInfo_Vtbl, 0xbf7c780c_f35c_5d1d_91d2_92e4ae549c29);
+windows_core::imp::define_interface!(ISyncSessionExtendedErrorInfo, ISyncSessionExtendedErrorInfo_Vtbl, 0x326c6810_790a_409b_b741_6999388761eb);
 windows_core::imp::interface_hierarchy!(ISyncSessionExtendedErrorInfo, windows_core::IUnknown);
 impl ISyncSessionExtendedErrorInfo {
     pub unsafe fn GetSyncProviderWithError(&self) -> windows_core::Result<ISyncProvider> {
@@ -6641,7 +6722,7 @@ impl ISyncSessionExtendedErrorInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncSessionExtendedErrorInfo {}
-windows_core::imp::define_interface!(ISyncSessionState, ISyncSessionState_Vtbl, 0xa177446a_56f3_52ac_9e59_e27930e79d4c);
+windows_core::imp::define_interface!(ISyncSessionState, ISyncSessionState_Vtbl, 0xb8a940fe_9f01_483b_9434_c37d361225d9);
 windows_core::imp::interface_hierarchy!(ISyncSessionState, windows_core::IUnknown);
 impl ISyncSessionState {
     pub unsafe fn IsCanceled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -6653,8 +6734,8 @@ impl ISyncSessionState {
     pub unsafe fn GetInfoForChangeApplication(&self, pbchangeapplierinfo: *mut u8, pcbchangeapplierinfo: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetInfoForChangeApplication)(windows_core::Interface::as_raw(self), pbchangeapplierinfo as _, pcbchangeapplierinfo as _).ok() }
     }
-    pub unsafe fn LoadInfoFromChangeApplication(&self, pbchangeapplierinfo: *mut u8, cbchangeapplierinfo: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LoadInfoFromChangeApplication)(windows_core::Interface::as_raw(self), pbchangeapplierinfo as _, cbchangeapplierinfo).ok() }
+    pub unsafe fn LoadInfoFromChangeApplication(&self, pbchangeapplierinfo: *const u8, cbchangeapplierinfo: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).LoadInfoFromChangeApplication)(windows_core::Interface::as_raw(self), pbchangeapplierinfo, cbchangeapplierinfo).ok() }
     }
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeStart(&self, pbrangestart: *mut u8, pcbrangestart: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeStart)(windows_core::Interface::as_raw(self), pbrangestart as _, pcbrangestart as _).ok() }
@@ -6662,11 +6743,8 @@ impl ISyncSessionState {
     pub unsafe fn GetForgottenKnowledgeRecoveryRangeEnd(&self, pbrangeend: *mut u8, pcbrangeend: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetForgottenKnowledgeRecoveryRangeEnd)(windows_core::Interface::as_raw(self), pbrangeend as _, pcbrangeend as _).ok() }
     }
-    pub unsafe fn SetForgottenKnowledgeRecoveryRange(&self) -> windows_core::Result<SYNC_RANGE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetForgottenKnowledgeRecoveryRange)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetForgottenKnowledgeRecoveryRange(&self, prange: *const SYNC_RANGE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetForgottenKnowledgeRecoveryRange)(windows_core::Interface::as_raw(self), prange).ok() }
     }
     pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnProgress)(windows_core::Interface::as_raw(self), provider, syncstage, dwcompletedwork, dwtotalwork).ok() }
@@ -6678,19 +6756,19 @@ pub struct ISyncSessionState_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsCanceled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetInfoForChangeApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub LoadInfoFromChangeApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
+    pub LoadInfoFromChangeApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
     pub GetForgottenKnowledgeRecoveryRangeStart: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetForgottenKnowledgeRecoveryRangeEnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub SetForgottenKnowledgeRecoveryRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SYNC_RANGE) -> windows_core::HRESULT,
+    pub SetForgottenKnowledgeRecoveryRange: unsafe extern "system" fn(*mut core::ffi::c_void, *const SYNC_RANGE) -> windows_core::HRESULT,
     pub OnProgress: unsafe extern "system" fn(*mut core::ffi::c_void, SYNC_PROVIDER_ROLE, SYNC_PROGRESS_STAGE, u32, u32) -> windows_core::HRESULT,
 }
 pub trait ISyncSessionState_Impl: windows_core::IUnknownImpl {
     fn IsCanceled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetInfoForChangeApplication(&self, pbchangeapplierinfo: *mut u8, pcbchangeapplierinfo: *mut u32) -> windows_core::Result<()>;
-    fn LoadInfoFromChangeApplication(&self, pbchangeapplierinfo: *mut u8, cbchangeapplierinfo: u32) -> windows_core::Result<()>;
+    fn LoadInfoFromChangeApplication(&self, pbchangeapplierinfo: *const u8, cbchangeapplierinfo: u32) -> windows_core::Result<()>;
     fn GetForgottenKnowledgeRecoveryRangeStart(&self, pbrangestart: *mut u8, pcbrangestart: *mut u32) -> windows_core::Result<()>;
     fn GetForgottenKnowledgeRecoveryRangeEnd(&self, pbrangeend: *mut u8, pcbrangeend: *mut u32) -> windows_core::Result<()>;
-    fn SetForgottenKnowledgeRecoveryRange(&self) -> windows_core::Result<SYNC_RANGE>;
+    fn SetForgottenKnowledgeRecoveryRange(&self, prange: *const SYNC_RANGE) -> windows_core::Result<()>;
     fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> windows_core::Result<()>;
 }
 impl ISyncSessionState_Vtbl {
@@ -6713,7 +6791,7 @@ impl ISyncSessionState_Vtbl {
                 ISyncSessionState_Impl::GetInfoForChangeApplication(this, core::mem::transmute_copy(&pbchangeapplierinfo), core::mem::transmute_copy(&pcbchangeapplierinfo)).into()
             }
         }
-        unsafe extern "system" fn LoadInfoFromChangeApplication<Identity: ISyncSessionState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbchangeapplierinfo: *mut u8, cbchangeapplierinfo: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadInfoFromChangeApplication<Identity: ISyncSessionState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbchangeapplierinfo: *const u8, cbchangeapplierinfo: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISyncSessionState_Impl::LoadInfoFromChangeApplication(this, core::mem::transmute_copy(&pbchangeapplierinfo), core::mem::transmute_copy(&cbchangeapplierinfo)).into()
@@ -6731,16 +6809,10 @@ impl ISyncSessionState_Vtbl {
                 ISyncSessionState_Impl::GetForgottenKnowledgeRecoveryRangeEnd(this, core::mem::transmute_copy(&pbrangeend), core::mem::transmute_copy(&pcbrangeend)).into()
             }
         }
-        unsafe extern "system" fn SetForgottenKnowledgeRecoveryRange<Identity: ISyncSessionState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *mut SYNC_RANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetForgottenKnowledgeRecoveryRange<Identity: ISyncSessionState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prange: *const SYNC_RANGE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISyncSessionState_Impl::SetForgottenKnowledgeRecoveryRange(this) {
-                    Ok(ok__) => {
-                        prange.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISyncSessionState_Impl::SetForgottenKnowledgeRecoveryRange(this, core::mem::transmute_copy(&prange)).into()
             }
         }
         unsafe extern "system" fn OnProgress<Identity: ISyncSessionState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> windows_core::HRESULT {
@@ -6765,7 +6837,7 @@ impl ISyncSessionState_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncSessionState {}
-windows_core::imp::define_interface!(ISyncSessionState2, ISyncSessionState2_Vtbl, 0x78551842_8194_59ff_8c19_6aacf2d731a2);
+windows_core::imp::define_interface!(ISyncSessionState2, ISyncSessionState2_Vtbl, 0x9e37cfa3_9e38_4c61_9ca3_ffe810b45ca2);
 impl core::ops::Deref for ISyncSessionState2 {
     type Target = ISyncSessionState;
     fn deref(&self) -> &Self::Target {
@@ -6826,7 +6898,7 @@ impl ISyncSessionState2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISyncSessionState2 {}
-windows_core::imp::define_interface!(ISynchronousDataRetriever, ISynchronousDataRetriever_Vtbl, 0x237eb971_1c26_5e89_aa8f_fdc044c3107c);
+windows_core::imp::define_interface!(ISynchronousDataRetriever, ISynchronousDataRetriever_Vtbl, 0x9b22f2a9_a4cd_4648_9d8e_3a510d4da04b);
 windows_core::imp::interface_hierarchy!(ISynchronousDataRetriever, windows_core::IUnknown);
 impl ISynchronousDataRetriever {
     pub unsafe fn GetIdParameters(&self, pidparameters: *mut ID_PARAMETERS) -> windows_core::Result<()> {

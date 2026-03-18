@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IMdmAllowPolicyStatics, IMdmAllowPolicyStatics_Vtbl, 0xa3a254fc_5344_5b98_8f19_7dbd218dd329);
+windows_core::imp::define_interface!(IMdmAllowPolicyStatics, IMdmAllowPolicyStatics_Vtbl, 0xc39709e7_741c_41f2_a4b6_314c31502586);
 impl windows_core::RuntimeType for IMdmAllowPolicyStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -11,7 +11,7 @@ pub struct IMdmAllowPolicyStatics_Vtbl {
     pub IsMicrosoftAccountAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsStoreAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMdmPolicyStatics2, IMdmPolicyStatics2_Vtbl, 0xbb02793f_074e_5b54_bdd9_f8b144bed386);
+windows_core::imp::define_interface!(IMdmPolicyStatics2, IMdmPolicyStatics2_Vtbl, 0xc99c7526_03d4_49f9_a993_43efccd265c4);
 impl windows_core::RuntimeType for IMdmPolicyStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

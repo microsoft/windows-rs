@@ -17,9 +17,9 @@ pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
-pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *mut SIP_SUBJECTINFO, psig: *mut u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wintrust.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *mut SIP_SUBJECTINFO, psig : *mut u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> windows_core::BOOL);
-    unsafe { CryptSIPGetSealedDigest(psubjectinfo as _, psig as _, dwsig, pbdigest as _, pcbdigest as _) }
+pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("wintrust.dll" "system" fn CryptSIPGetSealedDigest(psubjectinfo : *const SIP_SUBJECTINFO, psig : *const u8, dwsig : u32, pbdigest : *mut u8, pcbdigest : *mut u32) -> windows_core::BOOL);
+    unsafe { CryptSIPGetSealedDigest(psubjectinfo, psig, dwsig, pbdigest as _, pcbdigest as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 #[inline]
@@ -233,7 +233,7 @@ pub type pCryptSIPCreateIndirectData = Option<unsafe extern "system" fn(psubject
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 pub type pCryptSIPGetCaps = Option<unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-pub type pCryptSIPGetSealedDigest = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, psig: *mut u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> windows_core::BOOL>;
+pub type pCryptSIPGetSealedDigest = Option<unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 pub type pCryptSIPGetSignedDataMsg = Option<unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> windows_core::BOOL>;
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0x72a64f90_841e_5464_ac50_70d1748292de);
+windows_core::imp::define_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0xbe545828_816d_4de5_a048_aba06958aaa8);
 impl windows_core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -218,7 +218,7 @@ pub struct IAdcControllerProvider_Vtbl {
     pub ReleaseChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdcProvider, IAdcProvider_Vtbl, 0xae247ed5_70e7_56e5_9733_d74f2b8e1428);
+windows_core::imp::define_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9);
 impl windows_core::RuntimeType for IAdcProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

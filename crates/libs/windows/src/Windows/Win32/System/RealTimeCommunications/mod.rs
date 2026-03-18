@@ -170,7 +170,7 @@ impl IRTCBuddy_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCBuddy {}
-windows_core::imp::define_interface!(IRTCBuddy2, IRTCBuddy2_Vtbl, 0x9766bb26_d5ca_5818_9b4e_0396974d83bc);
+windows_core::imp::define_interface!(IRTCBuddy2, IRTCBuddy2_Vtbl, 0x102f9588_23e7_40e3_954d_cd7a1d5c0361);
 impl core::ops::Deref for IRTCBuddy2 {
     type Target = IRTCBuddy;
     fn deref(&self) -> &Self::Target {
@@ -369,7 +369,7 @@ impl IRTCBuddy2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRTCBuddy2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCBuddyEvent, IRTCBuddyEvent_Vtbl, 0x09138a5d_03dd_57eb_bbe8_c41812687d82);
+windows_core::imp::define_interface!(IRTCBuddyEvent, IRTCBuddyEvent_Vtbl, 0xf36d755d_17e6_404e_954f_0fc07574c78d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCBuddyEvent {
     type Target = super::Com::IDispatch;
@@ -521,7 +521,7 @@ impl IRTCBuddyEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCBuddyEvent2 {}
-windows_core::imp::define_interface!(IRTCBuddyGroup, IRTCBuddyGroup_Vtbl, 0xdb0f2656_3d99_5904_84b8_0c1c6127ccf4);
+windows_core::imp::define_interface!(IRTCBuddyGroup, IRTCBuddyGroup_Vtbl, 0x60361e68_9164_4389_a4c6_d0b3925bda5e);
 windows_core::imp::interface_hierarchy!(IRTCBuddyGroup, windows_core::IUnknown);
 impl IRTCBuddyGroup {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -710,7 +710,7 @@ impl IRTCBuddyGroup_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRTCBuddyGroup {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCBuddyGroupEvent, IRTCBuddyGroupEvent_Vtbl, 0xf52c80b6_3cad_5864_be68_6697693123e9);
+windows_core::imp::define_interface!(IRTCBuddyGroupEvent, IRTCBuddyGroupEvent_Vtbl, 0x3a79e1d1_b736_4414_96f8_bbc7f08863e4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCBuddyGroupEvent {
     type Target = super::Com::IDispatch;
@@ -1797,7 +1797,7 @@ impl IRTCClient2_Vtbl {
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCClient2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCClientEvent, IRTCClientEvent_Vtbl, 0xfdf17614_47c6_5ac1_8db3_95162135c36c);
+windows_core::imp::define_interface!(IRTCClientEvent, IRTCClientEvent_Vtbl, 0x2b493b7a_3cba_4170_9c8b_76a9dacdd644);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCClientEvent {
     type Target = super::Com::IDispatch;
@@ -1870,7 +1870,7 @@ impl IRTCClientEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCClientEvent {}
-windows_core::imp::define_interface!(IRTCClientPortManagement, IRTCClientPortManagement_Vtbl, 0xda9ab809_2e8f_5fcc_9464_7980aebe61c4);
+windows_core::imp::define_interface!(IRTCClientPortManagement, IRTCClientPortManagement_Vtbl, 0xd5df3f03_4bde_4417_aefe_71177bdaea66);
 windows_core::imp::interface_hierarchy!(IRTCClientPortManagement, windows_core::IUnknown);
 impl IRTCClientPortManagement {
     pub unsafe fn StartListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_core::Result<()> {
@@ -1928,7 +1928,7 @@ impl IRTCClientPortManagement_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCClientPortManagement {}
-windows_core::imp::define_interface!(IRTCClientPresence, IRTCClientPresence_Vtbl, 0x10b4a655_d55e_515c_91fb_7b39c674f040);
+windows_core::imp::define_interface!(IRTCClientPresence, IRTCClientPresence_Vtbl, 0x11c3cbcc_0744_42d1_968a_51aa1bb274c6);
 windows_core::imp::interface_hierarchy!(IRTCClientPresence, windows_core::IUnknown);
 impl IRTCClientPresence {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2288,7 +2288,7 @@ impl IRTCClientPresence_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCClientPresence {}
-windows_core::imp::define_interface!(IRTCClientPresence2, IRTCClientPresence2_Vtbl, 0x024f3789_ddd8_5e4e_aa00_49617bdb093f);
+windows_core::imp::define_interface!(IRTCClientPresence2, IRTCClientPresence2_Vtbl, 0xad1809e8_62f7_4783_909a_29c9d2cb1d34);
 impl core::ops::Deref for IRTCClientPresence2 {
     type Target = IRTCClientPresence;
     fn deref(&self) -> &Self::Target {
@@ -2749,7 +2749,7 @@ impl IRTCClientProvisioning_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRTCClientProvisioning {}
-windows_core::imp::define_interface!(IRTCClientProvisioning2, IRTCClientProvisioning2_Vtbl, 0xc868cb7e_7ac0_5ef1_9048_f0a52605a9b0);
+windows_core::imp::define_interface!(IRTCClientProvisioning2, IRTCClientProvisioning2_Vtbl, 0xa70909b5_f40e_4587_bb75_e6bc0845023e);
 impl core::ops::Deref for IRTCClientProvisioning2 {
     type Target = IRTCClientProvisioning;
     fn deref(&self) -> &Self::Target {
@@ -2793,7 +2793,7 @@ impl IRTCClientProvisioning2_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRTCClientProvisioning2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCCollection, IRTCCollection_Vtbl, 0x2ce99aaa_c674_5871_9b48_31244e9b9f1c);
+windows_core::imp::define_interface!(IRTCCollection, IRTCCollection_Vtbl, 0xec7c8096_b918_4044_94f1_e4fba0361d5c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCCollection {
     type Target = super::Com::IDispatch;
@@ -2896,7 +2896,7 @@ impl IRTCCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCDispatchEventNotification, IRTCDispatchEventNotification_Vtbl, 0x1ae6d186_d46e_56be_8e6d_a7a6ea8f460a);
+windows_core::imp::define_interface!(IRTCDispatchEventNotification, IRTCDispatchEventNotification_Vtbl, 0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCDispatchEventNotification {
     type Target = super::Com::IDispatch;
@@ -2925,7 +2925,7 @@ impl IRTCDispatchEventNotification_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCDispatchEventNotification {}
-windows_core::imp::define_interface!(IRTCEnumBuddies, IRTCEnumBuddies_Vtbl, 0x96def3b8_86f8_5ce6_8824_12b2cd4217af);
+windows_core::imp::define_interface!(IRTCEnumBuddies, IRTCEnumBuddies_Vtbl, 0xf7296917_5569_4b3b_b3af_98d1144b2b87);
 windows_core::imp::interface_hierarchy!(IRTCEnumBuddies, windows_core::IUnknown);
 impl IRTCEnumBuddies {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCBuddy>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -3162,7 +3162,7 @@ impl IRTCEnumParticipants_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCEnumParticipants {}
-windows_core::imp::define_interface!(IRTCEnumPresenceDevices, IRTCEnumPresenceDevices_Vtbl, 0xf46dc7d1_d84e_5a24_b501_fe21cf4c4a33);
+windows_core::imp::define_interface!(IRTCEnumPresenceDevices, IRTCEnumPresenceDevices_Vtbl, 0x708c2ab7_8bf8_42f8_8c7d_635197ad5539);
 windows_core::imp::interface_hierarchy!(IRTCEnumPresenceDevices, windows_core::IUnknown);
 impl IRTCEnumPresenceDevices {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCPresenceDevice>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -3241,7 +3241,7 @@ impl IRTCEnumPresenceDevices_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCEnumPresenceDevices {}
-windows_core::imp::define_interface!(IRTCEnumProfiles, IRTCEnumProfiles_Vtbl, 0xa3ad725a_caac_5b43_84f2_ce978a53297b);
+windows_core::imp::define_interface!(IRTCEnumProfiles, IRTCEnumProfiles_Vtbl, 0x29b7c41c_ed82_4bca_84ad_39d5101b58e3);
 windows_core::imp::interface_hierarchy!(IRTCEnumProfiles, windows_core::IUnknown);
 impl IRTCEnumProfiles {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCProfile>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -3399,7 +3399,7 @@ impl IRTCEnumUserSearchResults_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCEnumUserSearchResults {}
-windows_core::imp::define_interface!(IRTCEnumWatchers, IRTCEnumWatchers_Vtbl, 0xc9031548_0f6e_574b_8d68_c9b5ce3ccb21);
+windows_core::imp::define_interface!(IRTCEnumWatchers, IRTCEnumWatchers_Vtbl, 0xa87d55d7_db74_4ed1_9ca4_77a0e41b413e);
 windows_core::imp::interface_hierarchy!(IRTCEnumWatchers, windows_core::IUnknown);
 impl IRTCEnumWatchers {
     pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCWatcher>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -3520,7 +3520,7 @@ impl IRTCEventNotification_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRTCEventNotification {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCInfoEvent, IRTCInfoEvent_Vtbl, 0x091c17d3_39f4_5638_8626_66cd4086d89f);
+windows_core::imp::define_interface!(IRTCInfoEvent, IRTCInfoEvent_Vtbl, 0x4e1d68ae_1912_4f49_b2c3_594fadfd425f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCInfoEvent {
     type Target = super::Com::IDispatch;
@@ -4185,7 +4185,7 @@ impl IRTCMessagingEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCMessagingEvent {}
-windows_core::imp::define_interface!(IRTCParticipant, IRTCParticipant_Vtbl, 0xa3e79b01_cc0b_5998_9914_800bfe0be26f);
+windows_core::imp::define_interface!(IRTCParticipant, IRTCParticipant_Vtbl, 0xae86add5_26b1_4414_af1d_b94cd938d739);
 windows_core::imp::interface_hierarchy!(IRTCParticipant, windows_core::IUnknown);
 impl IRTCParticipant {
     pub unsafe fn UserURI(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -4411,7 +4411,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCParticipantStateChangeEvent {}
-windows_core::imp::define_interface!(IRTCPortManager, IRTCPortManager_Vtbl, 0xa6b9c542_970b_57b9_b3ff_914246229545);
+windows_core::imp::define_interface!(IRTCPortManager, IRTCPortManager_Vtbl, 0xda77c14b_6208_43ca_8ddf_5b60a0a69fac);
 windows_core::imp::interface_hierarchy!(IRTCPortManager, windows_core::IUnknown);
 impl IRTCPortManager {
     pub unsafe fn GetMapping(&self, bstrremoteaddress: &windows_core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut windows_core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut windows_core::BSTR, plexternallocalport: *mut i32) -> windows_core::Result<()> {
@@ -4469,7 +4469,7 @@ impl IRTCPortManager_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCPortManager {}
-windows_core::imp::define_interface!(IRTCPresenceContact, IRTCPresenceContact_Vtbl, 0x397be001_4332_5d65_a529_5001cabd7efb);
+windows_core::imp::define_interface!(IRTCPresenceContact, IRTCPresenceContact_Vtbl, 0x8b22f92c_cd90_42db_a733_212205c3e3df);
 windows_core::imp::interface_hierarchy!(IRTCPresenceContact, windows_core::IUnknown);
 impl IRTCPresenceContact {
     pub unsafe fn PresentityURI(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -4931,7 +4931,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCPresencePropertyEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCPresenceStatusEvent, IRTCPresenceStatusEvent_Vtbl, 0x340389ce_4573_5461_85c3_6165463b1fca);
+windows_core::imp::define_interface!(IRTCPresenceStatusEvent, IRTCPresenceStatusEvent_Vtbl, 0x78673f32_4a0f_462c_89aa_ee7706707678);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCPresenceStatusEvent {
     type Target = super::Com::IDispatch;
@@ -5020,7 +5020,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCPresenceStatusEvent {}
-windows_core::imp::define_interface!(IRTCProfile, IRTCProfile_Vtbl, 0x1810e9ad_5d37_55ad_b471_5ab3e49a3d5f);
+windows_core::imp::define_interface!(IRTCProfile, IRTCProfile_Vtbl, 0xd07eca9e_4062_4dd4_9e7d_722a49ba7303);
 windows_core::imp::interface_hierarchy!(IRTCProfile, windows_core::IUnknown);
 impl IRTCProfile {
     pub unsafe fn Key(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -5506,7 +5506,7 @@ impl IRTCProfile2_Vtbl {
 }
 impl windows_core::RuntimeName for IRTCProfile2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCProfileEvent, IRTCProfileEvent_Vtbl, 0xa24a4313_79b9_527e_8694_339f900f6a56);
+windows_core::imp::define_interface!(IRTCProfileEvent, IRTCProfileEvent_Vtbl, 0xd6d5ab3b_770e_43e8_800a_79b062395fca);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCProfileEvent {
     type Target = super::Com::IDispatch;
@@ -5659,7 +5659,7 @@ impl IRTCProfileEvent2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCProfileEvent2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCReInviteEvent, IRTCReInviteEvent_Vtbl, 0x92e8411a_0844_5580_8d1a_abf9f2b813ce);
+windows_core::imp::define_interface!(IRTCReInviteEvent, IRTCReInviteEvent_Vtbl, 0x11558d84_204c_43e7_99b0_2034e9417f7d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCReInviteEvent {
     type Target = super::Com::IDispatch;
@@ -5773,7 +5773,7 @@ impl IRTCReInviteEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCReInviteEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCRegistrationStateChangeEvent, IRTCRegistrationStateChangeEvent_Vtbl, 0xe1e75730_1142_5d01_b139_78bf841c100d);
+windows_core::imp::define_interface!(IRTCRegistrationStateChangeEvent, IRTCRegistrationStateChangeEvent_Vtbl, 0x62d0991b_50ab_4f02_b948_ca94f26f8f95);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCRegistrationStateChangeEvent {
     type Target = super::Com::IDispatch;
@@ -5893,7 +5893,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCRegistrationStateChangeEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCRoamingEvent, IRTCRoamingEvent_Vtbl, 0xde6db559_6418_5af4_a389_7f853b21da17);
+windows_core::imp::define_interface!(IRTCRoamingEvent, IRTCRoamingEvent_Vtbl, 0x79960a6b_0cb1_4dc8_a805_7318e99902e8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCRoamingEvent {
     type Target = super::Com::IDispatch;
@@ -6012,7 +6012,7 @@ impl IRTCRoamingEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCRoamingEvent {}
-windows_core::imp::define_interface!(IRTCSession, IRTCSession_Vtbl, 0x3bbabdcc_5836_50bd_afcb_d5c596375f70);
+windows_core::imp::define_interface!(IRTCSession, IRTCSession_Vtbl, 0x387c8086_99be_42fb_9973_7c0fc0ca9fa8);
 windows_core::imp::interface_hierarchy!(IRTCSession, windows_core::IUnknown);
 impl IRTCSession {
     pub unsafe fn Client(&self) -> windows_core::Result<IRTCClient> {
@@ -6377,7 +6377,7 @@ impl IRTCSession_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRTCSession {}
-windows_core::imp::define_interface!(IRTCSession2, IRTCSession2_Vtbl, 0x550f1c61_5dbe_5346_a6b0_61b2a4f9b447);
+windows_core::imp::define_interface!(IRTCSession2, IRTCSession2_Vtbl, 0x17d7cdfc_b007_484c_99d2_86a8a820991d);
 impl core::ops::Deref for IRTCSession2 {
     type Target = IRTCSession;
     fn deref(&self) -> &Self::Target {
@@ -6696,7 +6696,7 @@ impl IRTCSessionDescriptionManager_Vtbl {
 }
 impl windows_core::RuntimeName for IRTCSessionDescriptionManager {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCSessionOperationCompleteEvent, IRTCSessionOperationCompleteEvent_Vtbl, 0x39e6338b_24e9_5976_8b99_9f9556360d5f);
+windows_core::imp::define_interface!(IRTCSessionOperationCompleteEvent, IRTCSessionOperationCompleteEvent_Vtbl, 0xa6bff4c0_f7c8_4d3c_9a41_3550f78a95b0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCSessionOperationCompleteEvent {
     type Target = super::Com::IDispatch;
@@ -6816,7 +6816,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCSessionOperationCompleteEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCSessionOperationCompleteEvent2, IRTCSessionOperationCompleteEvent2_Vtbl, 0x52171422_af9a_55e1_a138_00b5a4caae53);
+windows_core::imp::define_interface!(IRTCSessionOperationCompleteEvent2, IRTCSessionOperationCompleteEvent2_Vtbl, 0xf6fc2a9b_d5bc_4241_b436_1b8460c13832);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCSessionOperationCompleteEvent2 {
     type Target = IRTCSessionOperationCompleteEvent;
@@ -7039,7 +7039,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCSessionReferStatusEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCSessionReferredEvent, IRTCSessionReferredEvent_Vtbl, 0x11cd44ab_b5d4_5ec0_88df_2b6235d59694);
+windows_core::imp::define_interface!(IRTCSessionReferredEvent, IRTCSessionReferredEvent_Vtbl, 0x176a6828_4fcc_4f28_a862_04597a6cf1c4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCSessionReferredEvent {
     type Target = super::Com::IDispatch;
@@ -7195,7 +7195,7 @@ impl IRTCSessionReferredEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCSessionReferredEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCSessionStateChangeEvent, IRTCSessionStateChangeEvent_Vtbl, 0xa6d86226_4d4a_51fe_8753_ad2e1ee7e9bb);
+windows_core::imp::define_interface!(IRTCSessionStateChangeEvent, IRTCSessionStateChangeEvent_Vtbl, 0xb5bad703_5952_48b3_9321_7f4500521506);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCSessionStateChangeEvent {
     type Target = super::Com::IDispatch;
@@ -7315,7 +7315,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCSessionStateChangeEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCSessionStateChangeEvent2, IRTCSessionStateChangeEvent2_Vtbl, 0xbea01191_6477_53a0_aa1c_4ebb1ba58661);
+windows_core::imp::define_interface!(IRTCSessionStateChangeEvent2, IRTCSessionStateChangeEvent2_Vtbl, 0x4f933171_6f95_4880_80d9_2ec8d495d261);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCSessionStateChangeEvent2 {
     type Target = IRTCSessionStateChangeEvent;
@@ -7425,7 +7425,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCSessionStateChangeEvent2 {}
-windows_core::imp::define_interface!(IRTCUserSearch, IRTCUserSearch_Vtbl, 0x5ff482de_44cc_5baa_8132_f2b78397fa60);
+windows_core::imp::define_interface!(IRTCUserSearch, IRTCUserSearch_Vtbl, 0xb619882b_860c_4db4_be1b_693b6505bbe5);
 windows_core::imp::interface_hierarchy!(IRTCUserSearch, windows_core::IUnknown);
 impl IRTCUserSearch {
     pub unsafe fn CreateQuery(&self) -> windows_core::Result<IRTCUserSearchQuery> {
@@ -7484,7 +7484,7 @@ impl IRTCUserSearch_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCUserSearch {}
-windows_core::imp::define_interface!(IRTCUserSearchQuery, IRTCUserSearchQuery_Vtbl, 0xec72f8df_5162_59fc_ae27_ffc91ebf83e9);
+windows_core::imp::define_interface!(IRTCUserSearchQuery, IRTCUserSearchQuery_Vtbl, 0x288300f5_d23a_4365_9a73_9985c98c2881);
 windows_core::imp::interface_hierarchy!(IRTCUserSearchQuery, windows_core::IUnknown);
 impl IRTCUserSearchQuery {
     pub unsafe fn put_SearchTerm(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -7626,7 +7626,7 @@ impl IRTCUserSearchQuery_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCUserSearchQuery {}
-windows_core::imp::define_interface!(IRTCUserSearchResult, IRTCUserSearchResult_Vtbl, 0x27356c12_eaeb_531f_ac28_365b117b4275);
+windows_core::imp::define_interface!(IRTCUserSearchResult, IRTCUserSearchResult_Vtbl, 0x851278b2_9592_480f_8db5_2de86b26b54d);
 windows_core::imp::interface_hierarchy!(IRTCUserSearchResult, windows_core::IUnknown);
 impl IRTCUserSearchResult {
     pub unsafe fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> windows_core::Result<windows_core::BSTR> {
@@ -7667,7 +7667,7 @@ impl IRTCUserSearchResult_Vtbl {
 }
 impl windows_core::RuntimeName for IRTCUserSearchResult {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCUserSearchResultsEvent, IRTCUserSearchResultsEvent_Vtbl, 0xc4e3b72e_d1f3_5073_9fcf_2438be793598);
+windows_core::imp::define_interface!(IRTCUserSearchResultsEvent, IRTCUserSearchResultsEvent_Vtbl, 0xd8c8c3cd_7fac_4088_81c5_c24cbc0938e3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCUserSearchResultsEvent {
     type Target = super::Com::IDispatch;
@@ -7849,7 +7849,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCUserSearchResultsEvent {}
-windows_core::imp::define_interface!(IRTCWatcher, IRTCWatcher_Vtbl, 0xcebaef40_83a2_5ad1_be18_f58ee0c60f8f);
+windows_core::imp::define_interface!(IRTCWatcher, IRTCWatcher_Vtbl, 0xc7cedad8_346b_4d1b_ac02_a2088df9be4f);
 impl core::ops::Deref for IRTCWatcher {
     type Target = IRTCPresenceContact;
     fn deref(&self) -> &Self::Target {
@@ -7906,7 +7906,7 @@ impl IRTCWatcher_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRTCWatcher {}
-windows_core::imp::define_interface!(IRTCWatcher2, IRTCWatcher2_Vtbl, 0x58f4b53b_560c_5dc0_b303_b2b107a5cb9a);
+windows_core::imp::define_interface!(IRTCWatcher2, IRTCWatcher2_Vtbl, 0xd4d9967f_d011_4b1d_91e3_aba78f96393d);
 impl core::ops::Deref for IRTCWatcher2 {
     type Target = IRTCWatcher;
     fn deref(&self) -> &Self::Target {
@@ -7973,7 +7973,7 @@ impl IRTCWatcher2_Vtbl {
 }
 impl windows_core::RuntimeName for IRTCWatcher2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCWatcherEvent, IRTCWatcherEvent_Vtbl, 0x15813dbe_0164_5df0_afa7_4ecf57a5ce43);
+windows_core::imp::define_interface!(IRTCWatcherEvent, IRTCWatcherEvent_Vtbl, 0xf30d7261_587a_424f_822c_312788f43548);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCWatcherEvent {
     type Target = super::Com::IDispatch;
@@ -8027,7 +8027,7 @@ impl IRTCWatcherEvent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCWatcherEvent {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRTCWatcherEvent2, IRTCWatcherEvent2_Vtbl, 0x1fcd899a_182d_5d06_8e67_96b0813fb3cb);
+windows_core::imp::define_interface!(IRTCWatcherEvent2, IRTCWatcherEvent2_Vtbl, 0xe52891e8_188c_49af_b005_98ed13f83f9c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRTCWatcherEvent2 {
     type Target = IRTCWatcherEvent;
@@ -8100,7 +8100,7 @@ impl IRTCWatcherEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRTCWatcherEvent2 {}
-windows_core::imp::define_interface!(ITransportSettingsInternal, ITransportSettingsInternal_Vtbl, 0x820bd87b_69e0_5012_93aa_28abb2502986);
+windows_core::imp::define_interface!(ITransportSettingsInternal, ITransportSettingsInternal_Vtbl, 0x5123e076_29e3_4bfd_84fe_0192d411e3e8);
 windows_core::imp::interface_hierarchy!(ITransportSettingsInternal, windows_core::IUnknown);
 impl ITransportSettingsInternal {
     #[cfg(feature = "Win32_Networking_WinSock")]

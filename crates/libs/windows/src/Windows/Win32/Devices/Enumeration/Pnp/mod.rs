@@ -5,13 +5,16 @@ pub unsafe fn SwDeviceClose(hswdevice: HSWDEVICE) {
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SwDeviceCreate<P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: *mut SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *mut super::super::Properties::DEVPROPERTY, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *mut core::ffi::c_void, phswdevice: *mut HSWDEVICE) -> windows_core::Result<()>
+pub unsafe fn SwDeviceCreate<P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: *const SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *const core::ffi::c_void) -> windows_core::Result<HSWDEVICE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *mut SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *mut super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *mut core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
-    unsafe { SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), pcreateinfo as _, cpropertycount, pproperties as _, pcallback, pcontext as _, phswdevice as _).ok() }
+    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), pcreateinfo, cpropertycount, pproperties, pcallback, pcontext, &mut result__).map(|| result__)
+    }
 }
 #[inline]
 pub unsafe fn SwDeviceGetLifetime(hswdevice: HSWDEVICE) -> windows_core::Result<SW_DEVICE_LIFETIME> {
@@ -23,12 +26,12 @@ pub unsafe fn SwDeviceGetLifetime(hswdevice: HSWDEVICE) -> windows_core::Result<
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDeviceInterfacePropertySet<P1>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, cpropertycount: u32, pproperties: *mut super::super::Properties::DEVPROPERTY) -> windows_core::Result<()>
+pub unsafe fn SwDeviceInterfacePropertySet<P1>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfacePropertySet(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, cpropertycount : u32, pproperties : *mut super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    unsafe { SwDeviceInterfacePropertySet(hswdevice, pszdeviceinterfaceid.param().abi(), cpropertycount, pproperties as _).ok() }
+    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfacePropertySet(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
+    unsafe { SwDeviceInterfacePropertySet(hswdevice, pszdeviceinterfaceid.param().abi(), cpropertycount, pproperties).ok() }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -62,9 +65,9 @@ pub unsafe fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFE
     unsafe { SwDeviceSetLifetime(hswdevice, lifetime).ok() }
 }
 #[inline]
-pub unsafe fn SwMemFree(pmem: *mut core::ffi::c_void) {
-    windows_core::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *mut core::ffi::c_void));
-    unsafe { SwMemFree(pmem as _) }
+pub unsafe fn SwMemFree(pmem: *const core::ffi::c_void) {
+    windows_core::link!("cfgmgr32.dll" "system" fn SwMemFree(pmem : *const core::ffi::c_void));
+    unsafe { SwMemFree(pmem) }
 }
 pub const ADDRESS_FAMILY_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("AddressFamily");
 pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
@@ -98,7 +101,7 @@ impl Default for HSWDEVICE {
         unsafe { core::mem::zeroed() }
     }
 }
-windows_core::imp::define_interface!(IUPnPAddressFamilyControl, IUPnPAddressFamilyControl_Vtbl, 0x7ff9818a_3e76_516a_8205_35ef702d2958);
+windows_core::imp::define_interface!(IUPnPAddressFamilyControl, IUPnPAddressFamilyControl_Vtbl, 0xe3bf6178_694e_459f_a5a6_191ea0ffa1c7);
 windows_core::imp::interface_hierarchy!(IUPnPAddressFamilyControl, windows_core::IUnknown);
 impl IUPnPAddressFamilyControl {
     pub unsafe fn SetAddressFamily(&self, dwflags: i32) -> windows_core::Result<()> {
@@ -185,7 +188,7 @@ impl IUPnPAsyncResult_Vtbl {
 }
 impl windows_core::RuntimeName for IUPnPAsyncResult {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUPnPDescriptionDocument, IUPnPDescriptionDocument_Vtbl, 0xe596509f_b157_5a6d_8e73_410bf8e95e91);
+windows_core::imp::define_interface!(IUPnPDescriptionDocument, IUPnPDescriptionDocument_Vtbl, 0x11d1c1b2_7daa_4c9e_9595_7f82ed206d1e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUPnPDescriptionDocument {
     type Target = super::super::super::System::Com::IDispatch;
@@ -343,7 +346,7 @@ impl IUPnPDescriptionDocument_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPDescriptionDocument {}
-windows_core::imp::define_interface!(IUPnPDescriptionDocumentCallback, IUPnPDescriptionDocumentCallback_Vtbl, 0xa7956cdb_1d8e_5d7f_8060_5e4e5bd9287e);
+windows_core::imp::define_interface!(IUPnPDescriptionDocumentCallback, IUPnPDescriptionDocumentCallback_Vtbl, 0x77394c69_5486_40d6_9bc3_4991983e02da);
 windows_core::imp::interface_hierarchy!(IUPnPDescriptionDocumentCallback, windows_core::IUnknown);
 impl IUPnPDescriptionDocumentCallback {
     pub unsafe fn LoadComplete(&self, hrloadresult: windows_core::HRESULT) -> windows_core::Result<()> {
@@ -375,7 +378,7 @@ impl IUPnPDescriptionDocumentCallback_Vtbl {
 }
 impl windows_core::RuntimeName for IUPnPDescriptionDocumentCallback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUPnPDevice, IUPnPDevice_Vtbl, 0xdaeca419_069f_5bed_9652_76bac174f73b);
+windows_core::imp::define_interface!(IUPnPDevice, IUPnPDevice_Vtbl, 0x3d44d0d1_98c9_4889_acd1_f9d674bf2221);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUPnPDevice {
     type Target = super::super::super::System::Com::IDispatch;
@@ -871,7 +874,7 @@ impl IUPnPDeviceControl_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IUPnPDeviceControl {}
-windows_core::imp::define_interface!(IUPnPDeviceControlHttpHeaders, IUPnPDeviceControlHttpHeaders_Vtbl, 0x0ba5e63f_65b3_5eb7_a626_1132d96b2a6f);
+windows_core::imp::define_interface!(IUPnPDeviceControlHttpHeaders, IUPnPDeviceControlHttpHeaders_Vtbl, 0x204810bb_73b2_11d4_bf42_00b0d0118b56);
 windows_core::imp::interface_hierarchy!(IUPnPDeviceControlHttpHeaders, windows_core::IUnknown);
 impl IUPnPDeviceControlHttpHeaders {
     pub unsafe fn GetAdditionalResponseHeaders(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -911,7 +914,7 @@ impl IUPnPDeviceControlHttpHeaders_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUPnPDeviceControlHttpHeaders {}
-windows_core::imp::define_interface!(IUPnPDeviceDocumentAccess, IUPnPDeviceDocumentAccess_Vtbl, 0xd2e086c7_0162_594f_b743_6547e74304c4);
+windows_core::imp::define_interface!(IUPnPDeviceDocumentAccess, IUPnPDeviceDocumentAccess_Vtbl, 0xe7772804_3287_418e_9072_cf2b47238981);
 windows_core::imp::interface_hierarchy!(IUPnPDeviceDocumentAccess, windows_core::IUnknown);
 impl IUPnPDeviceDocumentAccess {
     pub unsafe fn GetDocumentURL(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -951,7 +954,7 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUPnPDeviceDocumentAccess {}
-windows_core::imp::define_interface!(IUPnPDeviceDocumentAccessEx, IUPnPDeviceDocumentAccessEx_Vtbl, 0x58a164d1_d9c8_5782_9865_aac47f47f585);
+windows_core::imp::define_interface!(IUPnPDeviceDocumentAccessEx, IUPnPDeviceDocumentAccessEx_Vtbl, 0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
 windows_core::imp::interface_hierarchy!(IUPnPDeviceDocumentAccessEx, windows_core::IUnknown);
 impl IUPnPDeviceDocumentAccessEx {
     pub unsafe fn GetDocument(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -992,7 +995,7 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
 }
 impl windows_core::RuntimeName for IUPnPDeviceDocumentAccessEx {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUPnPDeviceFinder, IUPnPDeviceFinder_Vtbl, 0xf6f95d06_b8e1_5057_848e_d59ac56259ea);
+windows_core::imp::define_interface!(IUPnPDeviceFinder, IUPnPDeviceFinder_Vtbl, 0xadda3d55_6f72_4319_bff9_18600a539b10);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUPnPDeviceFinder {
     type Target = super::super::super::System::Com::IDispatch;
@@ -1117,18 +1120,15 @@ impl IUPnPDeviceFinder_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPDeviceFinder {}
-windows_core::imp::define_interface!(IUPnPDeviceFinderAddCallbackWithInterface, IUPnPDeviceFinderAddCallbackWithInterface_Vtbl, 0x4360ba30_00b2_5fff_83db_4c4ceae25b9b);
+windows_core::imp::define_interface!(IUPnPDeviceFinderAddCallbackWithInterface, IUPnPDeviceFinderAddCallbackWithInterface_Vtbl, 0x983dfc0b_1796_44df_8975_ca545b620ee5);
 windows_core::imp::interface_hierarchy!(IUPnPDeviceFinderAddCallbackWithInterface, windows_core::IUnknown);
 impl IUPnPDeviceFinderAddCallbackWithInterface {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceAddedWithInterface<P1>(&self, lfinddata: i32, pdevice: P1) -> windows_core::Result<windows_core::GUID>
+    pub unsafe fn DeviceAddedWithInterface<P1>(&self, lfinddata: i32, pdevice: P1, pguidinterface: *const windows_core::GUID) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IUPnPDevice>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeviceAddedWithInterface)(windows_core::Interface::as_raw(self), lfinddata, pdevice.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).DeviceAddedWithInterface)(windows_core::Interface::as_raw(self), lfinddata, pdevice.param().abi(), pguidinterface).ok() }
     }
 }
 #[repr(C)]
@@ -1136,27 +1136,21 @@ impl IUPnPDeviceFinderAddCallbackWithInterface {
 pub struct IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub DeviceAddedWithInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub DeviceAddedWithInterface: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeviceAddedWithInterface: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderAddCallbackWithInterface_Impl: windows_core::IUnknownImpl {
-    fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: windows_core::Ref<IUPnPDevice>) -> windows_core::Result<windows_core::GUID>;
+    fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: windows_core::Ref<IUPnPDevice>, pguidinterface: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
     pub const fn new<Identity: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeviceAddedWithInterface<Identity: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfinddata: i32, pdevice: *mut core::ffi::c_void, pguidinterface: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceAddedWithInterface<Identity: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfinddata: i32, pdevice: *mut core::ffi::c_void, pguidinterface: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUPnPDeviceFinderAddCallbackWithInterface_Impl::DeviceAddedWithInterface(this, core::mem::transmute_copy(&lfinddata), core::mem::transmute_copy(&pdevice)) {
-                    Ok(ok__) => {
-                        pguidinterface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUPnPDeviceFinderAddCallbackWithInterface_Impl::DeviceAddedWithInterface(this, core::mem::transmute_copy(&lfinddata), core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pguidinterface)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeviceAddedWithInterface: DeviceAddedWithInterface::<Identity, OFFSET> }
@@ -1167,7 +1161,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IUPnPDeviceFinderAddCallbackWithInterface {}
-windows_core::imp::define_interface!(IUPnPDeviceFinderCallback, IUPnPDeviceFinderCallback_Vtbl, 0xc821d425_cbc1_5f87_9e6b_964948f79898);
+windows_core::imp::define_interface!(IUPnPDeviceFinderCallback, IUPnPDeviceFinderCallback_Vtbl, 0x415a984a_88b3_49f3_92af_0508bedf0d6c);
 windows_core::imp::interface_hierarchy!(IUPnPDeviceFinderCallback, windows_core::IUnknown);
 impl IUPnPDeviceFinderCallback {
     #[cfg(feature = "Win32_System_Com")]
@@ -1235,7 +1229,7 @@ impl IUPnPDeviceFinderCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IUPnPDeviceFinderCallback {}
-windows_core::imp::define_interface!(IUPnPDeviceProvider, IUPnPDeviceProvider_Vtbl, 0x7231ea8b_87ad_52fc_8f35_710f8b71eae4);
+windows_core::imp::define_interface!(IUPnPDeviceProvider, IUPnPDeviceProvider_Vtbl, 0x204810b8_73b2_11d4_bf42_00b0d0118b56);
 windows_core::imp::interface_hierarchy!(IUPnPDeviceProvider, windows_core::IUnknown);
 impl IUPnPDeviceProvider {
     pub unsafe fn Start(&self, bstrinitstring: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -1278,7 +1272,7 @@ impl IUPnPDeviceProvider_Vtbl {
 }
 impl windows_core::RuntimeName for IUPnPDeviceProvider {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUPnPDevices, IUPnPDevices_Vtbl, 0x101b3dd3_168e_521f_939f_a6f0e2e59f0c);
+windows_core::imp::define_interface!(IUPnPDevices, IUPnPDevices_Vtbl, 0xfdbc0c73_bda3_4c66_ac4f_f2d96fdad68c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUPnPDevices {
     type Target = super::super::super::System::Com::IDispatch;
@@ -1376,10 +1370,10 @@ impl IUPnPDevices_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPDevices {}
-windows_core::imp::define_interface!(IUPnPEventSink, IUPnPEventSink_Vtbl, 0x2829ed05_00df_52ef_936a_1541b8fec9c4);
+windows_core::imp::define_interface!(IUPnPEventSink, IUPnPEventSink_Vtbl, 0x204810b4_73b2_11d4_bf42_00b0d0118b56);
 windows_core::imp::interface_hierarchy!(IUPnPEventSink, windows_core::IUnknown);
 impl IUPnPEventSink {
-    pub unsafe fn OnStateChanged(&self, rgdispidchanges: &mut [i32]) -> windows_core::Result<()> {
+    pub unsafe fn OnStateChanged(&self, rgdispidchanges: &[i32]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnStateChanged)(windows_core::Interface::as_raw(self), rgdispidchanges.len().try_into().unwrap(), core::mem::transmute(rgdispidchanges.as_ptr())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1391,7 +1385,7 @@ impl IUPnPEventSink {
 #[doc(hidden)]
 pub struct IUPnPEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
+    pub OnStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub OnStateChangedSafe: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
@@ -1399,13 +1393,13 @@ pub struct IUPnPEventSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUPnPEventSink_Impl: windows_core::IUnknownImpl {
-    fn OnStateChanged(&self, cchanges: u32, rgdispidchanges: *mut i32) -> windows_core::Result<()>;
+    fn OnStateChanged(&self, cchanges: u32, rgdispidchanges: *const i32) -> windows_core::Result<()>;
     fn OnStateChangedSafe(&self, varsadispidchanges: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUPnPEventSink_Vtbl {
     pub const fn new<Identity: IUPnPEventSink_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnStateChanged<Identity: IUPnPEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchanges: u32, rgdispidchanges: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnStateChanged<Identity: IUPnPEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cchanges: u32, rgdispidchanges: *const i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IUPnPEventSink_Impl::OnStateChanged(this, core::mem::transmute_copy(&cchanges), core::mem::transmute_copy(&rgdispidchanges)).into()
@@ -1429,7 +1423,7 @@ impl IUPnPEventSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPEventSink {}
-windows_core::imp::define_interface!(IUPnPEventSource, IUPnPEventSource_Vtbl, 0xf63511c2_be72_5c84_bae9_c5c35d027264);
+windows_core::imp::define_interface!(IUPnPEventSource, IUPnPEventSource_Vtbl, 0x204810b5_73b2_11d4_bf42_00b0d0118b56);
 windows_core::imp::interface_hierarchy!(IUPnPEventSource, windows_core::IUnknown);
 impl IUPnPEventSource {
     pub unsafe fn Advise<P0>(&self, pessubscriber: P0) -> windows_core::Result<()>
@@ -1477,7 +1471,7 @@ impl IUPnPEventSource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUPnPEventSource {}
-windows_core::imp::define_interface!(IUPnPHttpHeaderControl, IUPnPHttpHeaderControl_Vtbl, 0x4f5c8480_cbb6_5aba_9fe0_3838ac3c3924);
+windows_core::imp::define_interface!(IUPnPHttpHeaderControl, IUPnPHttpHeaderControl_Vtbl, 0x0405af4f_8b5c_447c_80f2_b75984a31f3c);
 windows_core::imp::interface_hierarchy!(IUPnPHttpHeaderControl, windows_core::IUnknown);
 impl IUPnPHttpHeaderControl {
     pub unsafe fn AddRequestHeaders(&self, bstrhttpheaders: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -1508,7 +1502,7 @@ impl IUPnPHttpHeaderControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUPnPHttpHeaderControl {}
-windows_core::imp::define_interface!(IUPnPRegistrar, IUPnPRegistrar_Vtbl, 0x94691b96_1e7d_5095_ac80_b1adb907a989);
+windows_core::imp::define_interface!(IUPnPRegistrar, IUPnPRegistrar_Vtbl, 0x204810b6_73b2_11d4_bf42_00b0d0118b56);
 windows_core::imp::interface_hierarchy!(IUPnPRegistrar, windows_core::IUnknown);
 impl IUPnPRegistrar {
     pub unsafe fn RegisterDevice(&self, bstrxmldesc: &windows_core::BSTR, bstrprogiddevicecontrolclass: &windows_core::BSTR, bstrinitstring: &windows_core::BSTR, bstrcontainerid: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<windows_core::BSTR> {
@@ -1632,7 +1626,7 @@ impl IUPnPRegistrar_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUPnPRegistrar {}
-windows_core::imp::define_interface!(IUPnPRemoteEndpointInfo, IUPnPRemoteEndpointInfo_Vtbl, 0xda74811e_ade4_5d57_a01a_a1ea8b3510af);
+windows_core::imp::define_interface!(IUPnPRemoteEndpointInfo, IUPnPRemoteEndpointInfo_Vtbl, 0xc92eb863_0269_4aff_9c72_75321bba2952);
 windows_core::imp::interface_hierarchy!(IUPnPRemoteEndpointInfo, windows_core::IUnknown);
 impl IUPnPRemoteEndpointInfo {
     pub unsafe fn GetDwordValue(&self, bstrvaluename: &windows_core::BSTR) -> windows_core::Result<u32> {
@@ -1717,7 +1711,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUPnPRemoteEndpointInfo {}
-windows_core::imp::define_interface!(IUPnPReregistrar, IUPnPReregistrar_Vtbl, 0xeac11309_56b1_59a8_9bad_50f605351690);
+windows_core::imp::define_interface!(IUPnPReregistrar, IUPnPReregistrar_Vtbl, 0x204810b7_73b2_11d4_bf42_00b0d0118b56);
 windows_core::imp::interface_hierarchy!(IUPnPReregistrar, windows_core::IUnknown);
 impl IUPnPReregistrar {
     pub unsafe fn ReregisterDevice(&self, bstrdeviceidentifier: &windows_core::BSTR, bstrxmldesc: &windows_core::BSTR, bstrprogiddevicecontrolclass: &windows_core::BSTR, bstrinitstring: &windows_core::BSTR, bstrcontainerid: &windows_core::BSTR, bstrresourcepath: &windows_core::BSTR, nlifetime: i32) -> windows_core::Result<()> {
@@ -1767,7 +1761,7 @@ impl IUPnPReregistrar_Vtbl {
 }
 impl windows_core::RuntimeName for IUPnPReregistrar {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUPnPService, IUPnPService_Vtbl, 0xeacf031b_1ff1_53d1_951f_954bddf7bb5b);
+windows_core::imp::define_interface!(IUPnPService, IUPnPService_Vtbl, 0xa295019c_dc65_47dd_90dc_7fe918a1ab44);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUPnPService {
     type Target = super::super::super::System::Com::IDispatch;
@@ -1930,7 +1924,7 @@ impl IUPnPService_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPService {}
-windows_core::imp::define_interface!(IUPnPServiceAsync, IUPnPServiceAsync_Vtbl, 0x15a1879b_fc2e_5620_8880_b7f703797bb7);
+windows_core::imp::define_interface!(IUPnPServiceAsync, IUPnPServiceAsync_Vtbl, 0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
 windows_core::imp::interface_hierarchy!(IUPnPServiceAsync, windows_core::IUnknown);
 impl IUPnPServiceAsync {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2206,7 +2200,7 @@ impl IUPnPServiceCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUPnPServiceCallback {}
-windows_core::imp::define_interface!(IUPnPServiceDocumentAccess, IUPnPServiceDocumentAccess_Vtbl, 0x87f1ab2d_2f15_56a4_9e49_10bc5b6a5e37);
+windows_core::imp::define_interface!(IUPnPServiceDocumentAccess, IUPnPServiceDocumentAccess_Vtbl, 0x21905529_0a5e_4589_825d_7e6d87ea6998);
 windows_core::imp::interface_hierarchy!(IUPnPServiceDocumentAccess, windows_core::IUnknown);
 impl IUPnPServiceDocumentAccess {
     pub unsafe fn GetDocumentURL(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -2270,7 +2264,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IUPnPServiceDocumentAccess {}
-windows_core::imp::define_interface!(IUPnPServiceEnumProperty, IUPnPServiceEnumProperty_Vtbl, 0xa4807122_f43f_5fb1_95e4_a5f276f175ea);
+windows_core::imp::define_interface!(IUPnPServiceEnumProperty, IUPnPServiceEnumProperty_Vtbl, 0x38873b37_91bb_49f4_b249_2e8efbb8a816);
 windows_core::imp::interface_hierarchy!(IUPnPServiceEnumProperty, windows_core::IUnknown);
 impl IUPnPServiceEnumProperty {
     pub unsafe fn SetServiceEnumProperty(&self, dwmask: u32) -> windows_core::Result<()> {
@@ -2302,7 +2296,7 @@ impl IUPnPServiceEnumProperty_Vtbl {
 }
 impl windows_core::RuntimeName for IUPnPServiceEnumProperty {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUPnPServices, IUPnPServices_Vtbl, 0x831e0832_aff1_5022_be68_a7d35af3977d);
+windows_core::imp::define_interface!(IUPnPServices, IUPnPServices_Vtbl, 0x3f8c8e9e_9a7a_4dc8_bc41_ff31fa374956);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUPnPServices {
     type Target = super::super::super::System::Com::IDispatch;
@@ -2412,7 +2406,7 @@ pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
-pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_core::HRESULT, pcontext: *mut core::ffi::c_void, pszdeviceinstanceid: windows_core::PCWSTR)>;
+pub type SW_DEVICE_CREATE_CALLBACK = Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: windows_core::HRESULT, pcontext: *const core::ffi::c_void, pszdeviceinstanceid: windows_core::PCWSTR)>;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]

@@ -6,7 +6,7 @@ pub unsafe fn ActivateActCtx(hactctx: super::super::Foundation::HANDLE, lpcookie
 #[inline]
 pub unsafe fn AddRefActCtx(hactctx: super::super::Foundation::HANDLE) {
     windows_core::link!("kernel32.dll" "system" fn AddRefActCtx(hactctx : super::super::Foundation:: HANDLE));
-    unsafe { AddRefActCtx(hactctx) }
+    unsafe { AddRefActCtx(hactctx as _) }
 }
 #[inline]
 pub unsafe fn ApplyDeltaA<P1, P2, P3>(applyflags: i64, lpsourcename: P1, lpdeltaname: P2, lptargetname: P3) -> windows_core::BOOL
@@ -24,9 +24,9 @@ pub unsafe fn ApplyDeltaB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INP
     unsafe { ApplyDeltaB(applyflags, core::mem::transmute(source), core::mem::transmute(delta), lptarget as _) }
 }
 #[inline]
-pub unsafe fn ApplyDeltaGetReverseB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lpreversefiletime: *mut super::super::Foundation::FILETIME, lptarget: *mut DELTA_OUTPUT, lptargetreverse: *mut DELTA_OUTPUT) -> windows_core::BOOL {
-    windows_core::link!("msdelta.dll" "system" fn ApplyDeltaGetReverseB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lpreversefiletime : *mut super::super::Foundation:: FILETIME, lptarget : *mut DELTA_OUTPUT, lptargetreverse : *mut DELTA_OUTPUT) -> windows_core::BOOL);
-    unsafe { ApplyDeltaGetReverseB(applyflags, core::mem::transmute(source), core::mem::transmute(delta), lpreversefiletime as _, lptarget as _, lptargetreverse as _) }
+pub unsafe fn ApplyDeltaGetReverseB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lpreversefiletime: *const super::super::Foundation::FILETIME, lptarget: *mut DELTA_OUTPUT, lptargetreverse: *mut DELTA_OUTPUT) -> windows_core::BOOL {
+    windows_core::link!("msdelta.dll" "system" fn ApplyDeltaGetReverseB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lpreversefiletime : *const super::super::Foundation:: FILETIME, lptarget : *mut DELTA_OUTPUT, lptargetreverse : *mut DELTA_OUTPUT) -> windows_core::BOOL);
+    unsafe { ApplyDeltaGetReverseB(applyflags, core::mem::transmute(source), core::mem::transmute(delta), lpreversefiletime, lptarget as _, lptargetreverse as _) }
 }
 #[inline]
 pub unsafe fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut core::ffi::c_void, utargetsize: usize) -> windows_core::BOOL {
@@ -54,9 +54,9 @@ where
     unsafe { ApplyPatchToFileA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
 #[inline]
-pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *mut u8, patchfilesize: u32, oldfilemapped: *mut u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *mut u8, patchfilesize : u32, oldfilemapped : *mut u8, oldfilesize : u32, newfilebuffer : *mut *mut u8, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::super::Foundation:: FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ApplyPatchToFileByBuffers(patchfilemapped as _, patchfilesize, oldfilemapped as _, oldfilesize, newfilebuffer as _, newfilebuffersize, newfileactualsize as _, newfiletime as _, applyoptionflags, progresscallback, callbackcontext as _) }
+pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut *mut u8, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::super::Foundation:: FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ApplyPatchToFileByBuffers(patchfilemapped, patchfilesize, oldfilemapped, oldfilesize, newfilebuffer as _, newfilebuffersize, newfileactualsize as _, newfiletime as _, applyoptionflags, progresscallback, callbackcontext) }
 }
 #[inline]
 pub unsafe fn ApplyPatchToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
@@ -69,24 +69,24 @@ pub unsafe fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::super::Foundat
     unsafe { ApplyPatchToFileByHandlesEx(patchfilehandle, oldfilehandle, newfilehandle, applyoptionflags, progresscallback, callbackcontext) }
 }
 #[inline]
-pub unsafe fn ApplyPatchToFileExA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileExA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ApplyPatchToFileExA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext as _) }
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ApplyPatchToFileExA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext) }
 }
 #[inline]
-pub unsafe fn ApplyPatchToFileExW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileExW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ApplyPatchToFileExW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext as _) }
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ApplyPatchToFileExW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext) }
 }
 #[inline]
 pub unsafe fn ApplyPatchToFileW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32) -> windows_core::BOOL
@@ -99,18 +99,18 @@ where
     unsafe { ApplyPatchToFileW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
 #[inline]
-pub unsafe fn CreateActCtxA(pactctx: *mut ACTCTXA) -> super::super::Foundation::HANDLE {
-    windows_core::link!("kernel32.dll" "system" fn CreateActCtxA(pactctx : *mut ACTCTXA) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateActCtxA(pactctx as _) }
+pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE {
+    windows_core::link!("kernel32.dll" "system" fn CreateActCtxA(pactctx : *const ACTCTXA) -> super::super::Foundation:: HANDLE);
+    unsafe { CreateActCtxA(pactctx) }
 }
 #[inline]
-pub unsafe fn CreateActCtxW(pactctx: *mut ACTCTXW) -> super::super::Foundation::HANDLE {
-    windows_core::link!("kernel32.dll" "system" fn CreateActCtxW(pactctx : *mut ACTCTXW) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateActCtxW(pactctx as _) }
+pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE {
+    windows_core::link!("kernel32.dll" "system" fn CreateActCtxW(pactctx : *const ACTCTXW) -> super::super::Foundation:: HANDLE);
+    unsafe { CreateActCtxW(pactctx) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn CreateDeltaA<P3, P4, P5, P6, P10>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P3, lptargetname: P4, lpsourceoptionsname: P5, lptargetoptionsname: P6, globaloptions: DELTA_INPUT, lptargetfiletime: *mut super::super::Foundation::FILETIME, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P10) -> windows_core::BOOL
+pub unsafe fn CreateDeltaA<P3, P4, P5, P6, P10>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P3, lptargetname: P4, lpsourceoptionsname: P5, lptargetoptionsname: P6, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P10) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
@@ -118,18 +118,18 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
     P10: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCSTR, lptargetname : windows_core::PCSTR, lpsourceoptionsname : windows_core::PCSTR, lptargetoptionsname : windows_core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *mut super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { CreateDeltaA(filetypeset, setflags, resetflags, lpsourcename.param().abi(), lptargetname.param().abi(), lpsourceoptionsname.param().abi(), lptargetoptionsname.param().abi(), core::mem::transmute(globaloptions), lptargetfiletime as _, hashalgid, lpdeltaname.param().abi()) }
+    windows_core::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCSTR, lptargetname : windows_core::PCSTR, lpsourceoptionsname : windows_core::PCSTR, lptargetoptionsname : windows_core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_core::PCSTR) -> windows_core::BOOL);
+    unsafe { CreateDeltaA(filetypeset, setflags, resetflags, lpsourcename.param().abi(), lptargetname.param().abi(), lpsourceoptionsname.param().abi(), lptargetoptionsname.param().abi(), core::mem::transmute(globaloptions), lptargetfiletime, hashalgid, lpdeltaname.param().abi()) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: *mut super::super::Foundation::FILETIME, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdelta: *mut DELTA_OUTPUT) -> windows_core::BOOL {
-    windows_core::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *mut super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> windows_core::BOOL);
-    unsafe { CreateDeltaB(filetypeset, setflags, resetflags, core::mem::transmute(source), core::mem::transmute(target), core::mem::transmute(sourceoptions), core::mem::transmute(targetoptions), core::mem::transmute(globaloptions), lptargetfiletime as _, hashalgid, lpdelta as _) }
+pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdelta: *mut DELTA_OUTPUT) -> windows_core::BOOL {
+    windows_core::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> windows_core::BOOL);
+    unsafe { CreateDeltaB(filetypeset, setflags, resetflags, core::mem::transmute(source), core::mem::transmute(target), core::mem::transmute(sourceoptions), core::mem::transmute(targetoptions), core::mem::transmute(globaloptions), lptargetfiletime, hashalgid, lpdelta as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn CreateDeltaW<P3, P4, P5, P6, P10>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P3, lptargetname: P4, lpsourceoptionsname: P5, lptargetoptionsname: P6, globaloptions: DELTA_INPUT, lptargetfiletime: *mut super::super::Foundation::FILETIME, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P10) -> windows_core::BOOL
+pub unsafe fn CreateDeltaW<P3, P4, P5, P6, P10>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P3, lptargetname: P4, lpsourceoptionsname: P5, lptargetoptionsname: P6, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P10) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
@@ -137,8 +137,8 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
     P10: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCWSTR, lptargetname : windows_core::PCWSTR, lpsourceoptionsname : windows_core::PCWSTR, lptargetoptionsname : windows_core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *mut super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { CreateDeltaW(filetypeset, setflags, resetflags, lpsourcename.param().abi(), lptargetname.param().abi(), lpsourceoptionsname.param().abi(), lptargetoptionsname.param().abi(), core::mem::transmute(globaloptions), lptargetfiletime as _, hashalgid, lpdeltaname.param().abi()) }
+    windows_core::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCWSTR, lptargetname : windows_core::PCWSTR, lpsourceoptionsname : windows_core::PCWSTR, lptargetoptionsname : windows_core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_core::PCWSTR) -> windows_core::BOOL);
+    unsafe { CreateDeltaW(filetypeset, setflags, resetflags, lpsourcename.param().abi(), lptargetname.param().abi(), lpsourceoptionsname.param().abi(), lptargetoptionsname.param().abi(), core::mem::transmute(globaloptions), lptargetfiletime, hashalgid, lpdeltaname.param().abi()) }
 }
 #[inline]
 pub unsafe fn CreatePatchFileA<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> windows_core::BOOL
@@ -151,23 +151,23 @@ where
     unsafe { CreatePatchFileA(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileByHandles(oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *mut PATCH_OPTION_DATA) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *mut PATCH_OPTION_DATA) -> windows_core::BOOL);
-    unsafe { CreatePatchFileByHandles(oldfilehandle, newfilehandle, patchfilehandle, optionflags, optiondata as _) }
+pub unsafe fn CreatePatchFileByHandles(oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
+    unsafe { CreatePatchFileByHandles(oldfilehandle, newfilehandle, patchfilehandle, optionflags, optiondata) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileByHandlesEx(oldfilecount: u32, oldfileinfoarray: *mut PATCH_OLD_FILE_INFO_H, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *mut PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *mut PATCH_OLD_FILE_INFO_H, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *mut PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileByHandlesEx(oldfilecount, oldfileinfoarray as _, newfilehandle, patchfilehandle, optionflags, optiondata as _, progresscallback, callbackcontext as _) }
+pub unsafe fn CreatePatchFileByHandlesEx(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { CreatePatchFileByHandlesEx(oldfilecount, oldfileinfoarray, newfilehandle, patchfilehandle, optionflags, optiondata, progresscallback, callbackcontext) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileExA<P2, P3>(oldfilecount: u32, oldfileinfoarray: *mut PATCH_OLD_FILE_INFO_A, newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: *mut PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileExA<P2, P3>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : *mut PATCH_OLD_FILE_INFO_A, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : *mut PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CreatePatchFileExA(oldfilecount, oldfileinfoarray as _, newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata as _, progresscallback, callbackcontext as _) }
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_A, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { CreatePatchFileExA(oldfilecount, oldfileinfoarray, newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata, progresscallback, callbackcontext) }
 }
 #[inline]
 pub unsafe fn CreatePatchFileExW<P2, P3>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const core::ffi::c_void) -> windows_core::BOOL
@@ -179,14 +179,14 @@ where
     unsafe { CreatePatchFileExW(oldfilecount, oldfileinfoarray, newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata, progresscallback, callbackcontext) }
 }
 #[inline]
-pub unsafe fn CreatePatchFileW<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: *mut PATCH_OPTION_DATA) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileW<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : *mut PATCH_OPTION_DATA) -> windows_core::BOOL);
-    unsafe { CreatePatchFileW(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata as _) }
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
+    unsafe { CreatePatchFileW(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata) }
 }
 #[inline]
 pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> windows_core::BOOL {
@@ -194,9 +194,9 @@ pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> windows_core::B
     unsafe { DeactivateActCtx(dwflags, ulcookie) }
 }
 #[inline]
-pub unsafe fn DeltaFree(lpmemory: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("msdelta.dll" "system" fn DeltaFree(lpmemory : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { DeltaFree(lpmemory as _) }
+pub unsafe fn DeltaFree(lpmemory: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("msdelta.dll" "system" fn DeltaFree(lpmemory : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { DeltaFree(lpmemory) }
 }
 #[inline]
 pub unsafe fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: *mut core::ffi::c_void, usourcesize: usize) -> windows_core::BOOL {
@@ -228,27 +228,27 @@ where
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *mut windows_core::GUID, ulsectionid: u32, lpguidtofind: *mut windows_core::GUID, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FindActCtxSectionGuid(dwflags : u32, lpextensionguid : *mut windows_core::GUID, ulsectionid : u32, lpguidtofind : *mut windows_core::GUID, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL);
-    unsafe { FindActCtxSectionGuid(dwflags, lpextensionguid as _, ulsectionid, lpguidtofind as _, returneddata as _) }
+pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *const windows_core::GUID, ulsectionid: u32, lpguidtofind: *const windows_core::GUID, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FindActCtxSectionGuid(dwflags : u32, lpextensionguid : *const windows_core::GUID, ulsectionid : u32, lpguidtofind : *const windows_core::GUID, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL);
+    unsafe { FindActCtxSectionGuid(dwflags, lpextensionguid, ulsectionid, lpguidtofind, returneddata as _) }
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FindActCtxSectionStringA<P3>(dwflags: u32, lpextensionguid: *mut windows_core::GUID, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL
+pub unsafe fn FindActCtxSectionStringA<P3>(dwflags: u32, lpextensionguid: *const windows_core::GUID, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindActCtxSectionStringA(dwflags : u32, lpextensionguid : *mut windows_core::GUID, ulsectionid : u32, lpstringtofind : windows_core::PCSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL);
-    unsafe { FindActCtxSectionStringA(dwflags, lpextensionguid as _, ulsectionid, lpstringtofind.param().abi(), returneddata as _) }
+    windows_core::link!("kernel32.dll" "system" fn FindActCtxSectionStringA(dwflags : u32, lpextensionguid : *const windows_core::GUID, ulsectionid : u32, lpstringtofind : windows_core::PCSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL);
+    unsafe { FindActCtxSectionStringA(dwflags, lpextensionguid, ulsectionid, lpstringtofind.param().abi(), returneddata as _) }
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FindActCtxSectionStringW<P3>(dwflags: u32, lpextensionguid: *mut windows_core::GUID, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL
+pub unsafe fn FindActCtxSectionStringW<P3>(dwflags: u32, lpextensionguid: *const windows_core::GUID, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindActCtxSectionStringW(dwflags : u32, lpextensionguid : *mut windows_core::GUID, ulsectionid : u32, lpstringtofind : windows_core::PCWSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL);
-    unsafe { FindActCtxSectionStringW(dwflags, lpextensionguid as _, ulsectionid, lpstringtofind.param().abi(), returneddata as _) }
+    windows_core::link!("kernel32.dll" "system" fn FindActCtxSectionStringW(dwflags : u32, lpextensionguid : *const windows_core::GUID, ulsectionid : u32, lpstringtofind : windows_core::PCWSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL);
+    unsafe { FindActCtxSectionStringW(dwflags, lpextensionguid, ulsectionid, lpstringtofind.param().abi(), returneddata as _) }
 }
 #[inline]
 pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> windows_core::BOOL {
@@ -304,13 +304,12 @@ where
     unsafe { GetDeltaSignatureW(filetypeset, hashalgid, lpsourcename.param().abi(), lphash as _) }
 }
 #[inline]
-pub unsafe fn GetFilePatchSignatureA<P0, P8>(filename: P0, optionflags: u32, optiondata: *mut core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *mut PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *mut PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: P8) -> windows_core::BOOL
+pub unsafe fn GetFilePatchSignatureA<P0>(filename: P0, optionflags: u32, optiondata: *const core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P8: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureA(filename : windows_core::PCSTR, optionflags : u32, optiondata : *mut core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *mut PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *mut PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureA(filename.param().abi(), optionflags, optiondata as _, ignorerangecount, ignorerangearray as _, retainrangecount, retainrangearray as _, signaturebuffersize, signaturebuffer.param().abi()) }
+    windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureA(filename : windows_core::PCSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+    unsafe { GetFilePatchSignatureA(filename.param().abi(), optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, core::mem::transmute(signaturebuffer)) }
 }
 #[inline]
 pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
@@ -318,12 +317,9 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesiz
     unsafe { GetFilePatchSignatureByBuffer(filebufferwritable as _, filesize, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, core::mem::transmute(signaturebuffer)) }
 }
 #[inline]
-pub unsafe fn GetFilePatchSignatureByHandle<P8>(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *mut core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *mut PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *mut PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: P8) -> windows_core::BOOL
-where
-    P8: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *mut core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *mut PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *mut PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata as _, ignorerangecount, ignorerangearray as _, retainrangecount, retainrangearray as _, signaturebuffersize, signaturebuffer.param().abi()) }
+pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+    unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, core::mem::transmute(signaturebuffer)) }
 }
 #[inline]
 pub unsafe fn GetFilePatchSignatureW<P0>(filename: P0, optionflags: u32, optiondata: *const core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: windows_core::PWSTR) -> windows_core::BOOL
@@ -762,62 +758,54 @@ pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 
     unsafe { MsiEndTransaction(dwtransactionstate) }
 }
 #[inline]
-pub unsafe fn MsiEnumClientsA<P0, P2>(szcomponent: P0, iproductindex: u32, lpproductbuf: P2) -> u32
+pub unsafe fn MsiEnumClientsA<P0>(szcomponent: P0, iproductindex: u32, lpproductbuf: windows_core::PSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumClientsA(szcomponent : windows_core::PCSTR, iproductindex : u32, lpproductbuf : windows_core::PCSTR) -> u32);
-    unsafe { MsiEnumClientsA(szcomponent.param().abi(), iproductindex, lpproductbuf.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumClientsA(szcomponent : windows_core::PCSTR, iproductindex : u32, lpproductbuf : windows_core::PSTR) -> u32);
+    unsafe { MsiEnumClientsA(szcomponent.param().abi(), iproductindex, core::mem::transmute(lpproductbuf)) }
 }
 #[inline]
-pub unsafe fn MsiEnumClientsExA<P0, P1, P4, P6>(szcomponent: P0, szusersid: P1, dwcontext: u32, dwproductindex: u32, szproductbuf: P4, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: P6, pcchsid: *mut u32) -> u32
+pub unsafe fn MsiEnumClientsExA<P0, P1>(szcomponent: P0, szusersid: P1, dwcontext: u32, dwproductindex: u32, szproductbuf: windows_core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: windows_core::PSTR, pcchsid: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
-    P6: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumClientsExA(szcomponent : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : windows_core::PCSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PCSTR, pcchsid : *mut u32) -> u32);
-    unsafe { MsiEnumClientsExA(szcomponent.param().abi(), szusersid.param().abi(), dwcontext, dwproductindex, szproductbuf.param().abi(), pdwinstalledcontext as _, szsid.param().abi(), pcchsid as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumClientsExA(szcomponent : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : windows_core::PSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PSTR, pcchsid : *mut u32) -> u32);
+    unsafe { MsiEnumClientsExA(szcomponent.param().abi(), szusersid.param().abi(), dwcontext, dwproductindex, core::mem::transmute(szproductbuf), pdwinstalledcontext as _, core::mem::transmute(szsid), pcchsid as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumClientsExW<P0, P1, P4, P6>(szcomponent: P0, szusersid: P1, dwcontext: u32, dwproductindex: u32, szproductbuf: P4, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: P6, pcchsid: *mut u32) -> u32
+pub unsafe fn MsiEnumClientsExW<P0, P1>(szcomponent: P0, szusersid: P1, dwcontext: u32, dwproductindex: u32, szproductbuf: windows_core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: windows_core::PWSTR, pcchsid: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumClientsExW(szcomponent : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : windows_core::PCWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PCWSTR, pcchsid : *mut u32) -> u32);
-    unsafe { MsiEnumClientsExW(szcomponent.param().abi(), szusersid.param().abi(), dwcontext, dwproductindex, szproductbuf.param().abi(), pdwinstalledcontext as _, szsid.param().abi(), pcchsid as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumClientsExW(szcomponent : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : windows_core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PWSTR, pcchsid : *mut u32) -> u32);
+    unsafe { MsiEnumClientsExW(szcomponent.param().abi(), szusersid.param().abi(), dwcontext, dwproductindex, core::mem::transmute(szproductbuf), pdwinstalledcontext as _, core::mem::transmute(szsid), pcchsid as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumClientsW<P0, P2>(szcomponent: P0, iproductindex: u32, lpproductbuf: P2) -> u32
+pub unsafe fn MsiEnumClientsW<P0>(szcomponent: P0, iproductindex: u32, lpproductbuf: windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumClientsW(szcomponent : windows_core::PCWSTR, iproductindex : u32, lpproductbuf : windows_core::PCWSTR) -> u32);
-    unsafe { MsiEnumClientsW(szcomponent.param().abi(), iproductindex, lpproductbuf.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumClientsW(szcomponent : windows_core::PCWSTR, iproductindex : u32, lpproductbuf : windows_core::PWSTR) -> u32);
+    unsafe { MsiEnumClientsW(szcomponent.param().abi(), iproductindex, core::mem::transmute(lpproductbuf)) }
 }
 #[inline]
-pub unsafe fn MsiEnumComponentCostsA<P1, P4>(hinstall: MSIHANDLE, szcomponent: P1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: P4, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32
+pub unsafe fn MsiEnumComponentCostsA<P1>(hinstall: MSIHANDLE, szcomponent: P1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: windows_core::PSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumComponentCostsA(hinstall : MSIHANDLE, szcomponent : windows_core::PCSTR, dwindex : u32, istate : INSTALLSTATE, szdrivebuf : windows_core::PCSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
-    unsafe { MsiEnumComponentCostsA(hinstall, szcomponent.param().abi(), dwindex, istate, szdrivebuf.param().abi(), pcchdrivebuf as _, picost as _, pitempcost as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumComponentCostsA(hinstall : MSIHANDLE, szcomponent : windows_core::PCSTR, dwindex : u32, istate : INSTALLSTATE, szdrivebuf : windows_core::PSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
+    unsafe { MsiEnumComponentCostsA(hinstall, szcomponent.param().abi(), dwindex, istate, core::mem::transmute(szdrivebuf), pcchdrivebuf as _, picost as _, pitempcost as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumComponentCostsW<P1, P4>(hinstall: MSIHANDLE, szcomponent: P1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: P4, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32
+pub unsafe fn MsiEnumComponentCostsW<P1>(hinstall: MSIHANDLE, szcomponent: P1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: windows_core::PWSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumComponentCostsW(hinstall : MSIHANDLE, szcomponent : windows_core::PCWSTR, dwindex : u32, istate : INSTALLSTATE, szdrivebuf : windows_core::PCWSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
-    unsafe { MsiEnumComponentCostsW(hinstall, szcomponent.param().abi(), dwindex, istate, szdrivebuf.param().abi(), pcchdrivebuf as _, picost as _, pitempcost as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumComponentCostsW(hinstall : MSIHANDLE, szcomponent : windows_core::PCWSTR, dwindex : u32, istate : INSTALLSTATE, szdrivebuf : windows_core::PWSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
+    unsafe { MsiEnumComponentCostsW(hinstall, szcomponent.param().abi(), dwindex, istate, core::mem::transmute(szdrivebuf), pcchdrivebuf as _, picost as _, pitempcost as _) }
 }
 #[inline]
 pub unsafe fn MsiEnumComponentQualifiersA<P0>(szcomponent: P0, iindex: u32, lpqualifierbuf: windows_core::PSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: windows_core::PSTR, pcchapplicationdatabuf: *mut u32) -> u32
@@ -828,22 +816,17 @@ where
     unsafe { MsiEnumComponentQualifiersA(szcomponent.param().abi(), iindex, core::mem::transmute(lpqualifierbuf), pcchqualifierbuf as _, core::mem::transmute(lpapplicationdatabuf), pcchapplicationdatabuf as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumComponentQualifiersW<P0, P2, P4>(szcomponent: P0, iindex: u32, lpqualifierbuf: P2, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: P4, pcchapplicationdatabuf: *mut u32) -> u32
+pub unsafe fn MsiEnumComponentQualifiersW<P0>(szcomponent: P0, iindex: u32, lpqualifierbuf: windows_core::PWSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: windows_core::PWSTR, pcchapplicationdatabuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumComponentQualifiersW(szcomponent : windows_core::PCWSTR, iindex : u32, lpqualifierbuf : windows_core::PCWSTR, pcchqualifierbuf : *mut u32, lpapplicationdatabuf : windows_core::PCWSTR, pcchapplicationdatabuf : *mut u32) -> u32);
-    unsafe { MsiEnumComponentQualifiersW(szcomponent.param().abi(), iindex, lpqualifierbuf.param().abi(), pcchqualifierbuf as _, lpapplicationdatabuf.param().abi(), pcchapplicationdatabuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumComponentQualifiersW(szcomponent : windows_core::PCWSTR, iindex : u32, lpqualifierbuf : windows_core::PWSTR, pcchqualifierbuf : *mut u32, lpapplicationdatabuf : windows_core::PWSTR, pcchapplicationdatabuf : *mut u32) -> u32);
+    unsafe { MsiEnumComponentQualifiersW(szcomponent.param().abi(), iindex, core::mem::transmute(lpqualifierbuf), pcchqualifierbuf as _, core::mem::transmute(lpapplicationdatabuf), pcchapplicationdatabuf as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumComponentsA<P1>(icomponentindex: u32, lpcomponentbuf: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiEnumComponentsA(icomponentindex : u32, lpcomponentbuf : windows_core::PCSTR) -> u32);
-    unsafe { MsiEnumComponentsA(icomponentindex, lpcomponentbuf.param().abi()) }
+pub unsafe fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: windows_core::PSTR) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiEnumComponentsA(icomponentindex : u32, lpcomponentbuf : windows_core::PSTR) -> u32);
+    unsafe { MsiEnumComponentsA(icomponentindex, core::mem::transmute(lpcomponentbuf)) }
 }
 #[inline]
 pub unsafe fn MsiEnumComponentsExA<P0>(szusersid: P0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: windows_core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: windows_core::PSTR, pcchsid: *mut u32) -> u32
@@ -854,14 +837,12 @@ where
     unsafe { MsiEnumComponentsExA(szusersid.param().abi(), dwcontext, dwindex, core::mem::transmute(szinstalledcomponentcode), pdwinstalledcontext as _, core::mem::transmute(szsid), pcchsid as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumComponentsExW<P0, P3, P5>(szusersid: P0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: P3, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: P5, pcchsid: *mut u32) -> u32
+pub unsafe fn MsiEnumComponentsExW<P0>(szusersid: P0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: windows_core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: windows_core::PWSTR, pcchsid: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumComponentsExW(szusersid : windows_core::PCWSTR, dwcontext : u32, dwindex : u32, szinstalledcomponentcode : windows_core::PCWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PCWSTR, pcchsid : *mut u32) -> u32);
-    unsafe { MsiEnumComponentsExW(szusersid.param().abi(), dwcontext, dwindex, szinstalledcomponentcode.param().abi(), pdwinstalledcontext as _, szsid.param().abi(), pcchsid as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumComponentsExW(szusersid : windows_core::PCWSTR, dwcontext : u32, dwindex : u32, szinstalledcomponentcode : windows_core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PWSTR, pcchsid : *mut u32) -> u32);
+    unsafe { MsiEnumComponentsExW(szusersid.param().abi(), dwcontext, dwindex, core::mem::transmute(szinstalledcomponentcode), pdwinstalledcontext as _, core::mem::transmute(szsid), pcchsid as _) }
 }
 #[inline]
 pub unsafe fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: windows_core::PWSTR) -> u32 {
@@ -869,76 +850,59 @@ pub unsafe fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: windows_c
     unsafe { MsiEnumComponentsW(icomponentindex, core::mem::transmute(lpcomponentbuf)) }
 }
 #[inline]
-pub unsafe fn MsiEnumFeaturesA<P0, P2, P3>(szproduct: P0, ifeatureindex: u32, lpfeaturebuf: P2, lpparentbuf: P3) -> u32
+pub unsafe fn MsiEnumFeaturesA<P0>(szproduct: P0, ifeatureindex: u32, lpfeaturebuf: windows_core::PSTR, lpparentbuf: windows_core::PSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumFeaturesA(szproduct : windows_core::PCSTR, ifeatureindex : u32, lpfeaturebuf : windows_core::PCSTR, lpparentbuf : windows_core::PCSTR) -> u32);
-    unsafe { MsiEnumFeaturesA(szproduct.param().abi(), ifeatureindex, lpfeaturebuf.param().abi(), lpparentbuf.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumFeaturesA(szproduct : windows_core::PCSTR, ifeatureindex : u32, lpfeaturebuf : windows_core::PSTR, lpparentbuf : windows_core::PSTR) -> u32);
+    unsafe { MsiEnumFeaturesA(szproduct.param().abi(), ifeatureindex, core::mem::transmute(lpfeaturebuf), core::mem::transmute(lpparentbuf)) }
 }
 #[inline]
-pub unsafe fn MsiEnumFeaturesW<P0, P2, P3>(szproduct: P0, ifeatureindex: u32, lpfeaturebuf: P2, lpparentbuf: P3) -> u32
+pub unsafe fn MsiEnumFeaturesW<P0>(szproduct: P0, ifeatureindex: u32, lpfeaturebuf: windows_core::PWSTR, lpparentbuf: windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumFeaturesW(szproduct : windows_core::PCWSTR, ifeatureindex : u32, lpfeaturebuf : windows_core::PCWSTR, lpparentbuf : windows_core::PCWSTR) -> u32);
-    unsafe { MsiEnumFeaturesW(szproduct.param().abi(), ifeatureindex, lpfeaturebuf.param().abi(), lpparentbuf.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumFeaturesW(szproduct : windows_core::PCWSTR, ifeatureindex : u32, lpfeaturebuf : windows_core::PWSTR, lpparentbuf : windows_core::PWSTR) -> u32);
+    unsafe { MsiEnumFeaturesW(szproduct.param().abi(), ifeatureindex, core::mem::transmute(lpfeaturebuf), core::mem::transmute(lpparentbuf)) }
 }
 #[inline]
-pub unsafe fn MsiEnumPatchesA<P0, P2, P3>(szproduct: P0, ipatchindex: u32, lppatchbuf: P2, lptransformsbuf: P3, pcchtransformsbuf: *mut u32) -> u32
+pub unsafe fn MsiEnumPatchesA<P0>(szproduct: P0, ipatchindex: u32, lppatchbuf: windows_core::PSTR, lptransformsbuf: windows_core::PSTR, pcchtransformsbuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesA(szproduct : windows_core::PCSTR, ipatchindex : u32, lppatchbuf : windows_core::PCSTR, lptransformsbuf : windows_core::PCSTR, pcchtransformsbuf : *mut u32) -> u32);
-    unsafe { MsiEnumPatchesA(szproduct.param().abi(), ipatchindex, lppatchbuf.param().abi(), lptransformsbuf.param().abi(), pcchtransformsbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesA(szproduct : windows_core::PCSTR, ipatchindex : u32, lppatchbuf : windows_core::PSTR, lptransformsbuf : windows_core::PSTR, pcchtransformsbuf : *mut u32) -> u32);
+    unsafe { MsiEnumPatchesA(szproduct.param().abi(), ipatchindex, core::mem::transmute(lppatchbuf), core::mem::transmute(lptransformsbuf), pcchtransformsbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumPatchesExA<P0, P1, P5, P6, P8>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: P5, sztargetproductcode: P6, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: P8, pcchtargetusersid: *mut u32) -> u32
+pub unsafe fn MsiEnumPatchesExA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: windows_core::PSTR, sztargetproductcode: windows_core::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: windows_core::PSTR, pcchtargetusersid: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<windows_core::PCSTR>,
-    P6: windows_core::Param<windows_core::PCSTR>,
-    P8: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesExA(szproductcode : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : u32, dwfilter : u32, dwindex : u32, szpatchcode : windows_core::PCSTR, sztargetproductcode : windows_core::PCSTR, pdwtargetproductcontext : *mut MSIINSTALLCONTEXT, sztargetusersid : windows_core::PCSTR, pcchtargetusersid : *mut u32) -> u32);
-    unsafe { MsiEnumPatchesExA(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, dwfilter, dwindex, szpatchcode.param().abi(), sztargetproductcode.param().abi(), pdwtargetproductcontext as _, sztargetusersid.param().abi(), pcchtargetusersid as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesExA(szproductcode : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : u32, dwfilter : u32, dwindex : u32, szpatchcode : windows_core::PSTR, sztargetproductcode : windows_core::PSTR, pdwtargetproductcontext : *mut MSIINSTALLCONTEXT, sztargetusersid : windows_core::PSTR, pcchtargetusersid : *mut u32) -> u32);
+    unsafe { MsiEnumPatchesExA(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, dwfilter, dwindex, core::mem::transmute(szpatchcode), core::mem::transmute(sztargetproductcode), pdwtargetproductcontext as _, core::mem::transmute(sztargetusersid), pcchtargetusersid as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumPatchesExW<P0, P1, P5, P6, P8>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: P5, sztargetproductcode: P6, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: P8, pcchtargetusersid: *mut u32) -> u32
+pub unsafe fn MsiEnumPatchesExW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: windows_core::PWSTR, sztargetproductcode: windows_core::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: windows_core::PWSTR, pcchtargetusersid: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
-    P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesExW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : u32, dwfilter : u32, dwindex : u32, szpatchcode : windows_core::PCWSTR, sztargetproductcode : windows_core::PCWSTR, pdwtargetproductcontext : *mut MSIINSTALLCONTEXT, sztargetusersid : windows_core::PCWSTR, pcchtargetusersid : *mut u32) -> u32);
-    unsafe { MsiEnumPatchesExW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, dwfilter, dwindex, szpatchcode.param().abi(), sztargetproductcode.param().abi(), pdwtargetproductcontext as _, sztargetusersid.param().abi(), pcchtargetusersid as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesExW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : u32, dwfilter : u32, dwindex : u32, szpatchcode : windows_core::PWSTR, sztargetproductcode : windows_core::PWSTR, pdwtargetproductcontext : *mut MSIINSTALLCONTEXT, sztargetusersid : windows_core::PWSTR, pcchtargetusersid : *mut u32) -> u32);
+    unsafe { MsiEnumPatchesExW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, dwfilter, dwindex, core::mem::transmute(szpatchcode), core::mem::transmute(sztargetproductcode), pdwtargetproductcontext as _, core::mem::transmute(sztargetusersid), pcchtargetusersid as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumPatchesW<P0, P2, P3>(szproduct: P0, ipatchindex: u32, lppatchbuf: P2, lptransformsbuf: P3, pcchtransformsbuf: *mut u32) -> u32
+pub unsafe fn MsiEnumPatchesW<P0>(szproduct: P0, ipatchindex: u32, lppatchbuf: windows_core::PWSTR, lptransformsbuf: windows_core::PWSTR, pcchtransformsbuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesW(szproduct : windows_core::PCWSTR, ipatchindex : u32, lppatchbuf : windows_core::PCWSTR, lptransformsbuf : windows_core::PCWSTR, pcchtransformsbuf : *mut u32) -> u32);
-    unsafe { MsiEnumPatchesW(szproduct.param().abi(), ipatchindex, lppatchbuf.param().abi(), lptransformsbuf.param().abi(), pcchtransformsbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumPatchesW(szproduct : windows_core::PCWSTR, ipatchindex : u32, lppatchbuf : windows_core::PWSTR, lptransformsbuf : windows_core::PWSTR, pcchtransformsbuf : *mut u32) -> u32);
+    unsafe { MsiEnumPatchesW(szproduct.param().abi(), ipatchindex, core::mem::transmute(lppatchbuf), core::mem::transmute(lptransformsbuf), pcchtransformsbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumProductsA<P1>(iproductindex: u32, lpproductbuf: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiEnumProductsA(iproductindex : u32, lpproductbuf : windows_core::PCSTR) -> u32);
-    unsafe { MsiEnumProductsA(iproductindex, lpproductbuf.param().abi()) }
+pub unsafe fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: windows_core::PSTR) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiEnumProductsA(iproductindex : u32, lpproductbuf : windows_core::PSTR) -> u32);
+    unsafe { MsiEnumProductsA(iproductindex, core::mem::transmute(lpproductbuf)) }
 }
 #[inline]
 pub unsafe fn MsiEnumProductsExA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwindex: u32, szinstalledproductcode: windows_core::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: windows_core::PSTR, pcchsid: *mut u32) -> u32
@@ -950,41 +914,34 @@ where
     unsafe { MsiEnumProductsExA(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, dwindex, core::mem::transmute(szinstalledproductcode), pdwinstalledcontext as _, core::mem::transmute(szsid), pcchsid as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumProductsExW<P0, P1, P4, P6>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwindex: u32, szinstalledproductcode: P4, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: P6, pcchsid: *mut u32) -> u32
+pub unsafe fn MsiEnumProductsExW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwindex: u32, szinstalledproductcode: windows_core::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: windows_core::PWSTR, pcchsid: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumProductsExW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : u32, dwindex : u32, szinstalledproductcode : windows_core::PCWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PCWSTR, pcchsid : *mut u32) -> u32);
-    unsafe { MsiEnumProductsExW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, dwindex, szinstalledproductcode.param().abi(), pdwinstalledcontext as _, szsid.param().abi(), pcchsid as _) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumProductsExW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : u32, dwindex : u32, szinstalledproductcode : windows_core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : windows_core::PWSTR, pcchsid : *mut u32) -> u32);
+    unsafe { MsiEnumProductsExW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, dwindex, core::mem::transmute(szinstalledproductcode), pdwinstalledcontext as _, core::mem::transmute(szsid), pcchsid as _) }
 }
 #[inline]
-pub unsafe fn MsiEnumProductsW<P1>(iproductindex: u32, lpproductbuf: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiEnumProductsW(iproductindex : u32, lpproductbuf : windows_core::PCWSTR) -> u32);
-    unsafe { MsiEnumProductsW(iproductindex, lpproductbuf.param().abi()) }
+pub unsafe fn MsiEnumProductsW(iproductindex: u32, lpproductbuf: windows_core::PWSTR) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiEnumProductsW(iproductindex : u32, lpproductbuf : windows_core::PWSTR) -> u32);
+    unsafe { MsiEnumProductsW(iproductindex, core::mem::transmute(lpproductbuf)) }
 }
 #[inline]
-pub unsafe fn MsiEnumRelatedProductsA<P0, P3>(lpupgradecode: P0, dwreserved: u32, iproductindex: u32, lpproductbuf: P3) -> u32
+pub unsafe fn MsiEnumRelatedProductsA<P0>(lpupgradecode: P0, dwreserved: u32, iproductindex: u32, lpproductbuf: windows_core::PSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumRelatedProductsA(lpupgradecode : windows_core::PCSTR, dwreserved : u32, iproductindex : u32, lpproductbuf : windows_core::PCSTR) -> u32);
-    unsafe { MsiEnumRelatedProductsA(lpupgradecode.param().abi(), dwreserved, iproductindex, lpproductbuf.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumRelatedProductsA(lpupgradecode : windows_core::PCSTR, dwreserved : u32, iproductindex : u32, lpproductbuf : windows_core::PSTR) -> u32);
+    unsafe { MsiEnumRelatedProductsA(lpupgradecode.param().abi(), dwreserved, iproductindex, core::mem::transmute(lpproductbuf)) }
 }
 #[inline]
-pub unsafe fn MsiEnumRelatedProductsW<P0, P3>(lpupgradecode: P0, dwreserved: u32, iproductindex: u32, lpproductbuf: P3) -> u32
+pub unsafe fn MsiEnumRelatedProductsW<P0>(lpupgradecode: P0, dwreserved: u32, iproductindex: u32, lpproductbuf: windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiEnumRelatedProductsW(lpupgradecode : windows_core::PCWSTR, dwreserved : u32, iproductindex : u32, lpproductbuf : windows_core::PCWSTR) -> u32);
-    unsafe { MsiEnumRelatedProductsW(lpupgradecode.param().abi(), dwreserved, iproductindex, lpproductbuf.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiEnumRelatedProductsW(lpupgradecode : windows_core::PCWSTR, dwreserved : u32, iproductindex : u32, lpproductbuf : windows_core::PWSTR) -> u32);
+    unsafe { MsiEnumRelatedProductsW(lpupgradecode.param().abi(), dwreserved, iproductindex, core::mem::transmute(lpproductbuf)) }
 }
 #[inline]
 pub unsafe fn MsiEvaluateConditionA<P1>(hinstall: MSIHANDLE, szcondition: P1) -> MSICONDITION
@@ -1003,13 +960,12 @@ where
     unsafe { MsiEvaluateConditionW(hinstall, szcondition.param().abi()) }
 }
 #[inline]
-pub unsafe fn MsiExtractPatchXMLDataA<P0, P2>(szpatchpath: P0, dwreserved: u32, szxmldata: P2, pcchxmldata: *mut u32) -> u32
+pub unsafe fn MsiExtractPatchXMLDataA<P0>(szpatchpath: P0, dwreserved: u32, szxmldata: windows_core::PSTR, pcchxmldata: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiExtractPatchXMLDataA(szpatchpath : windows_core::PCSTR, dwreserved : u32, szxmldata : windows_core::PCSTR, pcchxmldata : *mut u32) -> u32);
-    unsafe { MsiExtractPatchXMLDataA(szpatchpath.param().abi(), dwreserved, szxmldata.param().abi(), pcchxmldata as _) }
+    windows_core::link!("msi.dll" "system" fn MsiExtractPatchXMLDataA(szpatchpath : windows_core::PCSTR, dwreserved : u32, szxmldata : windows_core::PSTR, pcchxmldata : *mut u32) -> u32);
+    unsafe { MsiExtractPatchXMLDataA(szpatchpath.param().abi(), dwreserved, core::mem::transmute(szxmldata), pcchxmldata as _) }
 }
 #[inline]
 pub unsafe fn MsiExtractPatchXMLDataW<P0>(szpatchpath: P0, dwreserved: u32, szxmldata: windows_core::PWSTR, pcchxmldata: *mut u32) -> u32
@@ -1020,20 +976,14 @@ where
     unsafe { MsiExtractPatchXMLDataW(szpatchpath.param().abi(), dwreserved, core::mem::transmute(szxmldata), pcchxmldata as _) }
 }
 #[inline]
-pub unsafe fn MsiFormatRecordA<P2>(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: P2, pcchresultbuf: *mut u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiFormatRecordA(hinstall : MSIHANDLE, hrecord : MSIHANDLE, szresultbuf : windows_core::PCSTR, pcchresultbuf : *mut u32) -> u32);
-    unsafe { MsiFormatRecordA(hinstall, hrecord, szresultbuf.param().abi(), pcchresultbuf as _) }
+pub unsafe fn MsiFormatRecordA(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: windows_core::PSTR, pcchresultbuf: *mut u32) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiFormatRecordA(hinstall : MSIHANDLE, hrecord : MSIHANDLE, szresultbuf : windows_core::PSTR, pcchresultbuf : *mut u32) -> u32);
+    unsafe { MsiFormatRecordA(hinstall, hrecord, core::mem::transmute(szresultbuf), pcchresultbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiFormatRecordW<P2>(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: P2, pcchresultbuf: *mut u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiFormatRecordW(hinstall : MSIHANDLE, hrecord : MSIHANDLE, szresultbuf : windows_core::PCWSTR, pcchresultbuf : *mut u32) -> u32);
-    unsafe { MsiFormatRecordW(hinstall, hrecord, szresultbuf.param().abi(), pcchresultbuf as _) }
+pub unsafe fn MsiFormatRecordW(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: windows_core::PWSTR, pcchresultbuf: *mut u32) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiFormatRecordW(hinstall : MSIHANDLE, hrecord : MSIHANDLE, szresultbuf : windows_core::PWSTR, pcchresultbuf : *mut u32) -> u32);
+    unsafe { MsiFormatRecordW(hinstall, hrecord, core::mem::transmute(szresultbuf), pcchresultbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiGetActiveDatabase(hinstall: MSIHANDLE) -> MSIHANDLE {
@@ -1041,14 +991,13 @@ pub unsafe fn MsiGetActiveDatabase(hinstall: MSIHANDLE) -> MSIHANDLE {
     unsafe { MsiGetActiveDatabase(hinstall) }
 }
 #[inline]
-pub unsafe fn MsiGetComponentPathA<P0, P1, P2>(szproduct: P0, szcomponent: P1, lppathbuf: P2, pcchbuf: *mut u32) -> INSTALLSTATE
+pub unsafe fn MsiGetComponentPathA<P0, P1>(szproduct: P0, szcomponent: P1, lppathbuf: windows_core::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetComponentPathA(szproduct : windows_core::PCSTR, szcomponent : windows_core::PCSTR, lppathbuf : windows_core::PCSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
-    unsafe { MsiGetComponentPathA(szproduct.param().abi(), szcomponent.param().abi(), lppathbuf.param().abi(), pcchbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetComponentPathA(szproduct : windows_core::PCSTR, szcomponent : windows_core::PCSTR, lppathbuf : windows_core::PSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
+    unsafe { MsiGetComponentPathA(szproduct.param().abi(), szcomponent.param().abi(), core::mem::transmute(lppathbuf), pcchbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiGetComponentPathExA<P0, P1, P2>(szproductcode: P0, szcomponentcode: P1, szusersid: P2, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: windows_core::PSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE
@@ -1061,15 +1010,14 @@ where
     unsafe { MsiGetComponentPathExA(szproductcode.param().abi(), szcomponentcode.param().abi(), szusersid.param().abi(), dwcontext, core::mem::transmute(lpoutpathbuffer), pcchoutpathbuffer as _) }
 }
 #[inline]
-pub unsafe fn MsiGetComponentPathExW<P0, P1, P2, P4>(szproductcode: P0, szcomponentcode: P1, szusersid: P2, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: P4, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE
+pub unsafe fn MsiGetComponentPathExW<P0, P1, P2>(szproductcode: P0, szcomponentcode: P1, szusersid: P2, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: windows_core::PWSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetComponentPathExW(szproductcode : windows_core::PCWSTR, szcomponentcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, lpoutpathbuffer : windows_core::PCWSTR, pcchoutpathbuffer : *mut u32) -> INSTALLSTATE);
-    unsafe { MsiGetComponentPathExW(szproductcode.param().abi(), szcomponentcode.param().abi(), szusersid.param().abi(), dwcontext, lpoutpathbuffer.param().abi(), pcchoutpathbuffer as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetComponentPathExW(szproductcode : windows_core::PCWSTR, szcomponentcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, lpoutpathbuffer : windows_core::PWSTR, pcchoutpathbuffer : *mut u32) -> INSTALLSTATE);
+    unsafe { MsiGetComponentPathExW(szproductcode.param().abi(), szcomponentcode.param().abi(), szusersid.param().abi(), dwcontext, core::mem::transmute(lpoutpathbuffer), pcchoutpathbuffer as _) }
 }
 #[inline]
 pub unsafe fn MsiGetComponentPathW<P0, P1>(szproduct: P0, szcomponent: P1, lppathbuf: windows_core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE
@@ -1118,24 +1066,20 @@ where
     unsafe { MsiGetFeatureCostW(hinstall, szfeature.param().abi(), icosttree, istate, picost as _) }
 }
 #[inline]
-pub unsafe fn MsiGetFeatureInfoA<P1, P3, P5>(hproduct: MSIHANDLE, szfeature: P1, lpattributes: *mut u32, lptitlebuf: P3, pcchtitlebuf: *mut u32, lphelpbuf: P5, pcchhelpbuf: *mut u32) -> u32
+pub unsafe fn MsiGetFeatureInfoA<P1>(hproduct: MSIHANDLE, szfeature: P1, lpattributes: *mut u32, lptitlebuf: windows_core::PSTR, pcchtitlebuf: *mut u32, lphelpbuf: windows_core::PSTR, pcchhelpbuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetFeatureInfoA(hproduct : MSIHANDLE, szfeature : windows_core::PCSTR, lpattributes : *mut u32, lptitlebuf : windows_core::PCSTR, pcchtitlebuf : *mut u32, lphelpbuf : windows_core::PCSTR, pcchhelpbuf : *mut u32) -> u32);
-    unsafe { MsiGetFeatureInfoA(hproduct, szfeature.param().abi(), lpattributes as _, lptitlebuf.param().abi(), pcchtitlebuf as _, lphelpbuf.param().abi(), pcchhelpbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetFeatureInfoA(hproduct : MSIHANDLE, szfeature : windows_core::PCSTR, lpattributes : *mut u32, lptitlebuf : windows_core::PSTR, pcchtitlebuf : *mut u32, lphelpbuf : windows_core::PSTR, pcchhelpbuf : *mut u32) -> u32);
+    unsafe { MsiGetFeatureInfoA(hproduct, szfeature.param().abi(), lpattributes as _, core::mem::transmute(lptitlebuf), pcchtitlebuf as _, core::mem::transmute(lphelpbuf), pcchhelpbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetFeatureInfoW<P1, P3, P5>(hproduct: MSIHANDLE, szfeature: P1, lpattributes: *mut u32, lptitlebuf: P3, pcchtitlebuf: *mut u32, lphelpbuf: P5, pcchhelpbuf: *mut u32) -> u32
+pub unsafe fn MsiGetFeatureInfoW<P1>(hproduct: MSIHANDLE, szfeature: P1, lpattributes: *mut u32, lptitlebuf: windows_core::PWSTR, pcchtitlebuf: *mut u32, lphelpbuf: windows_core::PWSTR, pcchhelpbuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetFeatureInfoW(hproduct : MSIHANDLE, szfeature : windows_core::PCWSTR, lpattributes : *mut u32, lptitlebuf : windows_core::PCWSTR, pcchtitlebuf : *mut u32, lphelpbuf : windows_core::PCWSTR, pcchhelpbuf : *mut u32) -> u32);
-    unsafe { MsiGetFeatureInfoW(hproduct, szfeature.param().abi(), lpattributes as _, lptitlebuf.param().abi(), pcchtitlebuf as _, lphelpbuf.param().abi(), pcchhelpbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetFeatureInfoW(hproduct : MSIHANDLE, szfeature : windows_core::PCWSTR, lpattributes : *mut u32, lptitlebuf : windows_core::PWSTR, pcchtitlebuf : *mut u32, lphelpbuf : windows_core::PWSTR, pcchhelpbuf : *mut u32) -> u32);
+    unsafe { MsiGetFeatureInfoW(hproduct, szfeature.param().abi(), lpattributes as _, core::mem::transmute(lptitlebuf), pcchtitlebuf as _, core::mem::transmute(lphelpbuf), pcchhelpbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiGetFeatureStateA<P1>(hinstall: MSIHANDLE, szfeature: P1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32
@@ -1222,14 +1166,12 @@ where
     unsafe { MsiGetFileSignatureInformationW(szsignedobjectpath.param().abi(), dwflags, ppccertcontext as _, pbhashdata as _, pcbhashdata as _).ok() }
 }
 #[inline]
-pub unsafe fn MsiGetFileVersionA<P0, P1, P3>(szfilepath: P0, lpversionbuf: P1, pcchversionbuf: *mut u32, lplangbuf: P3, pcchlangbuf: *mut u32) -> u32
+pub unsafe fn MsiGetFileVersionA<P0>(szfilepath: P0, lpversionbuf: windows_core::PSTR, pcchversionbuf: *mut u32, lplangbuf: windows_core::PSTR, pcchlangbuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetFileVersionA(szfilepath : windows_core::PCSTR, lpversionbuf : windows_core::PCSTR, pcchversionbuf : *mut u32, lplangbuf : windows_core::PCSTR, pcchlangbuf : *mut u32) -> u32);
-    unsafe { MsiGetFileVersionA(szfilepath.param().abi(), lpversionbuf.param().abi(), pcchversionbuf as _, lplangbuf.param().abi(), pcchlangbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetFileVersionA(szfilepath : windows_core::PCSTR, lpversionbuf : windows_core::PSTR, pcchversionbuf : *mut u32, lplangbuf : windows_core::PSTR, pcchlangbuf : *mut u32) -> u32);
+    unsafe { MsiGetFileVersionA(szfilepath.param().abi(), core::mem::transmute(lpversionbuf), pcchversionbuf as _, core::mem::transmute(lplangbuf), pcchlangbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiGetFileVersionW<P0>(szfilepath: P0, lpversionbuf: windows_core::PWSTR, pcchversionbuf: *mut u32, lplangbuf: windows_core::PWSTR, pcchlangbuf: *mut u32) -> u32
@@ -1273,66 +1215,60 @@ where
     unsafe { MsiGetPatchFileListW(szproductcode.param().abi(), szpatchpackages.param().abi(), pcfiles as _, pphfilerecords as _) }
 }
 #[inline]
-pub unsafe fn MsiGetPatchInfoA<P0, P1, P2>(szpatch: P0, szattribute: P1, lpvaluebuf: P2, pcchvaluebuf: *mut u32) -> u32
+pub unsafe fn MsiGetPatchInfoA<P0, P1>(szpatch: P0, szattribute: P1, lpvaluebuf: windows_core::PSTR, pcchvaluebuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoA(szpatch : windows_core::PCSTR, szattribute : windows_core::PCSTR, lpvaluebuf : windows_core::PCSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiGetPatchInfoA(szpatch.param().abi(), szattribute.param().abi(), lpvaluebuf.param().abi(), pcchvaluebuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoA(szpatch : windows_core::PCSTR, szattribute : windows_core::PCSTR, lpvaluebuf : windows_core::PSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiGetPatchInfoA(szpatch.param().abi(), szattribute.param().abi(), core::mem::transmute(lpvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetPatchInfoExA<P0, P1, P2, P4, P5>(szpatchcode: P0, szproductcode: P1, szusersid: P2, dwcontext: MSIINSTALLCONTEXT, szproperty: P4, lpvalue: P5, pcchvalue: *mut u32) -> u32
+pub unsafe fn MsiGetPatchInfoExA<P0, P1, P2, P4>(szpatchcode: P0, szproductcode: P1, szusersid: P2, dwcontext: MSIINSTALLCONTEXT, szproperty: P4, lpvalue: windows_core::PSTR, pcchvalue: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoExA(szpatchcode : windows_core::PCSTR, szproductcode : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_core::PCSTR, lpvalue : windows_core::PCSTR, pcchvalue : *mut u32) -> u32);
-    unsafe { MsiGetPatchInfoExA(szpatchcode.param().abi(), szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), lpvalue.param().abi(), pcchvalue as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoExA(szpatchcode : windows_core::PCSTR, szproductcode : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_core::PCSTR, lpvalue : windows_core::PSTR, pcchvalue : *mut u32) -> u32);
+    unsafe { MsiGetPatchInfoExA(szpatchcode.param().abi(), szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), core::mem::transmute(lpvalue), pcchvalue as _) }
 }
 #[inline]
-pub unsafe fn MsiGetPatchInfoExW<P0, P1, P2, P4, P5>(szpatchcode: P0, szproductcode: P1, szusersid: P2, dwcontext: MSIINSTALLCONTEXT, szproperty: P4, lpvalue: P5, pcchvalue: *mut u32) -> u32
+pub unsafe fn MsiGetPatchInfoExW<P0, P1, P2, P4>(szpatchcode: P0, szproductcode: P1, szusersid: P2, dwcontext: MSIINSTALLCONTEXT, szproperty: P4, lpvalue: windows_core::PWSTR, pcchvalue: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoExW(szpatchcode : windows_core::PCWSTR, szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, pcchvalue : *mut u32) -> u32);
-    unsafe { MsiGetPatchInfoExW(szpatchcode.param().abi(), szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), lpvalue.param().abi(), pcchvalue as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoExW(szpatchcode : windows_core::PCWSTR, szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_core::PCWSTR, lpvalue : windows_core::PWSTR, pcchvalue : *mut u32) -> u32);
+    unsafe { MsiGetPatchInfoExW(szpatchcode.param().abi(), szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), core::mem::transmute(lpvalue), pcchvalue as _) }
 }
 #[inline]
-pub unsafe fn MsiGetPatchInfoW<P0, P1, P2>(szpatch: P0, szattribute: P1, lpvaluebuf: P2, pcchvaluebuf: *mut u32) -> u32
+pub unsafe fn MsiGetPatchInfoW<P0, P1>(szpatch: P0, szattribute: P1, lpvaluebuf: windows_core::PWSTR, pcchvaluebuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoW(szpatch : windows_core::PCWSTR, szattribute : windows_core::PCWSTR, lpvaluebuf : windows_core::PCWSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiGetPatchInfoW(szpatch.param().abi(), szattribute.param().abi(), lpvaluebuf.param().abi(), pcchvaluebuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetPatchInfoW(szpatch : windows_core::PCWSTR, szattribute : windows_core::PCWSTR, lpvaluebuf : windows_core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiGetPatchInfoW(szpatch.param().abi(), szattribute.param().abi(), core::mem::transmute(lpvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetProductCodeA<P0, P1>(szcomponent: P0, lpbuf39: P1) -> u32
+pub unsafe fn MsiGetProductCodeA<P0>(szcomponent: P0, lpbuf39: windows_core::PSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetProductCodeA(szcomponent : windows_core::PCSTR, lpbuf39 : windows_core::PCSTR) -> u32);
-    unsafe { MsiGetProductCodeA(szcomponent.param().abi(), lpbuf39.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiGetProductCodeA(szcomponent : windows_core::PCSTR, lpbuf39 : windows_core::PSTR) -> u32);
+    unsafe { MsiGetProductCodeA(szcomponent.param().abi(), core::mem::transmute(lpbuf39)) }
 }
 #[inline]
-pub unsafe fn MsiGetProductCodeW<P0, P1>(szcomponent: P0, lpbuf39: P1) -> u32
+pub unsafe fn MsiGetProductCodeW<P0>(szcomponent: P0, lpbuf39: windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetProductCodeW(szcomponent : windows_core::PCWSTR, lpbuf39 : windows_core::PCWSTR) -> u32);
-    unsafe { MsiGetProductCodeW(szcomponent.param().abi(), lpbuf39.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiGetProductCodeW(szcomponent : windows_core::PCWSTR, lpbuf39 : windows_core::PWSTR) -> u32);
+    unsafe { MsiGetProductCodeW(szcomponent.param().abi(), core::mem::transmute(lpbuf39)) }
 }
 #[inline]
 pub unsafe fn MsiGetProductInfoA<P0, P1>(szproduct: P0, szattribute: P1, lpvaluebuf: windows_core::PSTR, pcchvaluebuf: *mut u32) -> u32
@@ -1354,47 +1290,39 @@ where
     unsafe { MsiGetProductInfoExA(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), core::mem::transmute(szvalue), pcchvalue as _) }
 }
 #[inline]
-pub unsafe fn MsiGetProductInfoExW<P0, P1, P3, P4>(szproductcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, szproperty: P3, szvalue: P4, pcchvalue: *mut u32) -> u32
+pub unsafe fn MsiGetProductInfoExW<P0, P1, P3>(szproductcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, szproperty: P3, szvalue: windows_core::PWSTR, pcchvalue: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoExW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_core::PCWSTR, szvalue : windows_core::PCWSTR, pcchvalue : *mut u32) -> u32);
-    unsafe { MsiGetProductInfoExW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), szvalue.param().abi(), pcchvalue as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoExW(szproductcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, szproperty : windows_core::PCWSTR, szvalue : windows_core::PWSTR, pcchvalue : *mut u32) -> u32);
+    unsafe { MsiGetProductInfoExW(szproductcode.param().abi(), szusersid.param().abi(), dwcontext, szproperty.param().abi(), core::mem::transmute(szvalue), pcchvalue as _) }
 }
 #[inline]
-pub unsafe fn MsiGetProductInfoFromScriptA<P0, P1, P4, P6>(szscriptfile: P0, lpproductbuf39: P1, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: P4, pcchnamebuf: *mut u32, lppackagebuf: P6, pcchpackagebuf: *mut u32) -> u32
+pub unsafe fn MsiGetProductInfoFromScriptA<P0>(szscriptfile: P0, lpproductbuf39: windows_core::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: windows_core::PSTR, pcchnamebuf: *mut u32, lppackagebuf: windows_core::PSTR, pcchpackagebuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
-    P6: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoFromScriptA(szscriptfile : windows_core::PCSTR, lpproductbuf39 : windows_core::PCSTR, plgidlanguage : *mut u16, pdwversion : *mut u32, lpnamebuf : windows_core::PCSTR, pcchnamebuf : *mut u32, lppackagebuf : windows_core::PCSTR, pcchpackagebuf : *mut u32) -> u32);
-    unsafe { MsiGetProductInfoFromScriptA(szscriptfile.param().abi(), lpproductbuf39.param().abi(), plgidlanguage as _, pdwversion as _, lpnamebuf.param().abi(), pcchnamebuf as _, lppackagebuf.param().abi(), pcchpackagebuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoFromScriptA(szscriptfile : windows_core::PCSTR, lpproductbuf39 : windows_core::PSTR, plgidlanguage : *mut u16, pdwversion : *mut u32, lpnamebuf : windows_core::PSTR, pcchnamebuf : *mut u32, lppackagebuf : windows_core::PSTR, pcchpackagebuf : *mut u32) -> u32);
+    unsafe { MsiGetProductInfoFromScriptA(szscriptfile.param().abi(), core::mem::transmute(lpproductbuf39), plgidlanguage as _, pdwversion as _, core::mem::transmute(lpnamebuf), pcchnamebuf as _, core::mem::transmute(lppackagebuf), pcchpackagebuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetProductInfoFromScriptW<P0, P1, P4, P6>(szscriptfile: P0, lpproductbuf39: P1, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: P4, pcchnamebuf: *mut u32, lppackagebuf: P6, pcchpackagebuf: *mut u32) -> u32
+pub unsafe fn MsiGetProductInfoFromScriptW<P0>(szscriptfile: P0, lpproductbuf39: windows_core::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: windows_core::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: windows_core::PWSTR, pcchpackagebuf: *mut u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoFromScriptW(szscriptfile : windows_core::PCWSTR, lpproductbuf39 : windows_core::PWSTR, plgidlanguage : *mut u16, pdwversion : *mut u32, lpnamebuf : windows_core::PWSTR, pcchnamebuf : *mut u32, lppackagebuf : windows_core::PWSTR, pcchpackagebuf : *mut u32) -> u32);
+    unsafe { MsiGetProductInfoFromScriptW(szscriptfile.param().abi(), core::mem::transmute(lpproductbuf39), plgidlanguage as _, pdwversion as _, core::mem::transmute(lpnamebuf), pcchnamebuf as _, core::mem::transmute(lppackagebuf), pcchpackagebuf as _) }
+}
+#[inline]
+pub unsafe fn MsiGetProductInfoW<P0, P1>(szproduct: P0, szattribute: P1, lpvaluebuf: windows_core::PWSTR, pcchvaluebuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoFromScriptW(szscriptfile : windows_core::PCWSTR, lpproductbuf39 : windows_core::PCWSTR, plgidlanguage : *mut u16, pdwversion : *mut u32, lpnamebuf : windows_core::PCWSTR, pcchnamebuf : *mut u32, lppackagebuf : windows_core::PCWSTR, pcchpackagebuf : *mut u32) -> u32);
-    unsafe { MsiGetProductInfoFromScriptW(szscriptfile.param().abi(), lpproductbuf39.param().abi(), plgidlanguage as _, pdwversion as _, lpnamebuf.param().abi(), pcchnamebuf as _, lppackagebuf.param().abi(), pcchpackagebuf as _) }
-}
-#[inline]
-pub unsafe fn MsiGetProductInfoW<P0, P1, P2>(szproduct: P0, szattribute: P1, lpvaluebuf: P2, pcchvaluebuf: *mut u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoW(szproduct : windows_core::PCWSTR, szattribute : windows_core::PCWSTR, lpvaluebuf : windows_core::PCWSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiGetProductInfoW(szproduct.param().abi(), szattribute.param().abi(), lpvaluebuf.param().abi(), pcchvaluebuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetProductInfoW(szproduct : windows_core::PCWSTR, szattribute : windows_core::PCWSTR, lpvaluebuf : windows_core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiGetProductInfoW(szproduct.param().abi(), szattribute.param().abi(), core::mem::transmute(lpvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
 pub unsafe fn MsiGetProductPropertyA<P1>(hproduct: MSIHANDLE, szproperty: P1, lpvaluebuf: windows_core::PSTR, pcchvaluebuf: *mut u32) -> u32
@@ -1413,22 +1341,20 @@ where
     unsafe { MsiGetProductPropertyW(hproduct, szproperty.param().abi(), core::mem::transmute(lpvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetPropertyA<P1, P2>(hinstall: MSIHANDLE, szname: P1, szvaluebuf: P2, pcchvaluebuf: *mut u32) -> u32
+pub unsafe fn MsiGetPropertyA<P1>(hinstall: MSIHANDLE, szname: P1, szvaluebuf: windows_core::PSTR, pcchvaluebuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetPropertyA(hinstall : MSIHANDLE, szname : windows_core::PCSTR, szvaluebuf : windows_core::PCSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiGetPropertyA(hinstall, szname.param().abi(), szvaluebuf.param().abi(), pcchvaluebuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetPropertyA(hinstall : MSIHANDLE, szname : windows_core::PCSTR, szvaluebuf : windows_core::PSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiGetPropertyA(hinstall, szname.param().abi(), core::mem::transmute(szvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetPropertyW<P1, P2>(hinstall: MSIHANDLE, szname: P1, szvaluebuf: P2, pcchvaluebuf: *mut u32) -> u32
+pub unsafe fn MsiGetPropertyW<P1>(hinstall: MSIHANDLE, szname: P1, szvaluebuf: windows_core::PWSTR, pcchvaluebuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetPropertyW(hinstall : MSIHANDLE, szname : windows_core::PCWSTR, szvaluebuf : windows_core::PCWSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiGetPropertyW(hinstall, szname.param().abi(), szvaluebuf.param().abi(), pcchvaluebuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetPropertyW(hinstall : MSIHANDLE, szname : windows_core::PCWSTR, szvaluebuf : windows_core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiGetPropertyW(hinstall, szname.param().abi(), core::mem::transmute(szvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
 pub unsafe fn MsiGetShortcutTargetA<P0>(szshortcutpath: P0, szproductcode: windows_core::PSTR, szfeatureid: windows_core::PSTR, szcomponentcode: windows_core::PSTR) -> u32
@@ -1439,33 +1365,28 @@ where
     unsafe { MsiGetShortcutTargetA(szshortcutpath.param().abi(), core::mem::transmute(szproductcode), core::mem::transmute(szfeatureid), core::mem::transmute(szcomponentcode)) }
 }
 #[inline]
-pub unsafe fn MsiGetShortcutTargetW<P0, P1, P2, P3>(szshortcutpath: P0, szproductcode: P1, szfeatureid: P2, szcomponentcode: P3) -> u32
+pub unsafe fn MsiGetShortcutTargetW<P0>(szshortcutpath: P0, szproductcode: windows_core::PWSTR, szfeatureid: windows_core::PWSTR, szcomponentcode: windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetShortcutTargetW(szshortcutpath : windows_core::PCWSTR, szproductcode : windows_core::PCWSTR, szfeatureid : windows_core::PCWSTR, szcomponentcode : windows_core::PCWSTR) -> u32);
-    unsafe { MsiGetShortcutTargetW(szshortcutpath.param().abi(), szproductcode.param().abi(), szfeatureid.param().abi(), szcomponentcode.param().abi()) }
+    windows_core::link!("msi.dll" "system" fn MsiGetShortcutTargetW(szshortcutpath : windows_core::PCWSTR, szproductcode : windows_core::PWSTR, szfeatureid : windows_core::PWSTR, szcomponentcode : windows_core::PWSTR) -> u32);
+    unsafe { MsiGetShortcutTargetW(szshortcutpath.param().abi(), core::mem::transmute(szproductcode), core::mem::transmute(szfeatureid), core::mem::transmute(szcomponentcode)) }
 }
 #[inline]
-pub unsafe fn MsiGetSourcePathA<P1, P2>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: P2, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiGetSourcePathA<P1>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: windows_core::PSTR, pcchpathbuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetSourcePathA(hinstall : MSIHANDLE, szfolder : windows_core::PCSTR, szpathbuf : windows_core::PCSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiGetSourcePathA(hinstall, szfolder.param().abi(), szpathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetSourcePathA(hinstall : MSIHANDLE, szfolder : windows_core::PCSTR, szpathbuf : windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiGetSourcePathA(hinstall, szfolder.param().abi(), core::mem::transmute(szpathbuf), pcchpathbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetSourcePathW<P1, P2>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: P2, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiGetSourcePathW<P1>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: windows_core::PWSTR, pcchpathbuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetSourcePathW(hinstall : MSIHANDLE, szfolder : windows_core::PCWSTR, szpathbuf : windows_core::PCWSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiGetSourcePathW(hinstall, szfolder.param().abi(), szpathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetSourcePathW(hinstall : MSIHANDLE, szfolder : windows_core::PCWSTR, szpathbuf : windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiGetSourcePathW(hinstall, szfolder.param().abi(), core::mem::transmute(szpathbuf), pcchpathbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiGetSummaryInformationA<P1>(hdatabase: MSIHANDLE, szdatabasepath: P1, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32
@@ -1484,44 +1405,36 @@ where
     unsafe { MsiGetSummaryInformationW(hdatabase, szdatabasepath.param().abi(), uiupdatecount, phsummaryinfo as _) }
 }
 #[inline]
-pub unsafe fn MsiGetTargetPathA<P1, P2>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: P2, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiGetTargetPathA<P1>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: windows_core::PSTR, pcchpathbuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetTargetPathA(hinstall : MSIHANDLE, szfolder : windows_core::PCSTR, szpathbuf : windows_core::PCSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiGetTargetPathA(hinstall, szfolder.param().abi(), szpathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetTargetPathA(hinstall : MSIHANDLE, szfolder : windows_core::PCSTR, szpathbuf : windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiGetTargetPathA(hinstall, szfolder.param().abi(), core::mem::transmute(szpathbuf), pcchpathbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetTargetPathW<P1, P2>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: P2, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiGetTargetPathW<P1>(hinstall: MSIHANDLE, szfolder: P1, szpathbuf: windows_core::PWSTR, pcchpathbuf: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetTargetPathW(hinstall : MSIHANDLE, szfolder : windows_core::PCWSTR, szpathbuf : windows_core::PCWSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiGetTargetPathW(hinstall, szfolder.param().abi(), szpathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetTargetPathW(hinstall : MSIHANDLE, szfolder : windows_core::PCWSTR, szpathbuf : windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiGetTargetPathW(hinstall, szfolder.param().abi(), core::mem::transmute(szpathbuf), pcchpathbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetUserInfoA<P0, P1, P3, P5>(szproduct: P0, lpusernamebuf: P1, pcchusernamebuf: *mut u32, lporgnamebuf: P3, pcchorgnamebuf: *mut u32, lpserialbuf: P5, pcchserialbuf: *mut u32) -> USERINFOSTATE
+pub unsafe fn MsiGetUserInfoA<P0>(szproduct: P0, lpusernamebuf: windows_core::PSTR, pcchusernamebuf: *mut u32, lporgnamebuf: windows_core::PSTR, pcchorgnamebuf: *mut u32, lpserialbuf: windows_core::PSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetUserInfoA(szproduct : windows_core::PCSTR, lpusernamebuf : windows_core::PCSTR, pcchusernamebuf : *mut u32, lporgnamebuf : windows_core::PCSTR, pcchorgnamebuf : *mut u32, lpserialbuf : windows_core::PCSTR, pcchserialbuf : *mut u32) -> USERINFOSTATE);
-    unsafe { MsiGetUserInfoA(szproduct.param().abi(), lpusernamebuf.param().abi(), pcchusernamebuf as _, lporgnamebuf.param().abi(), pcchorgnamebuf as _, lpserialbuf.param().abi(), pcchserialbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetUserInfoA(szproduct : windows_core::PCSTR, lpusernamebuf : windows_core::PSTR, pcchusernamebuf : *mut u32, lporgnamebuf : windows_core::PSTR, pcchorgnamebuf : *mut u32, lpserialbuf : windows_core::PSTR, pcchserialbuf : *mut u32) -> USERINFOSTATE);
+    unsafe { MsiGetUserInfoA(szproduct.param().abi(), core::mem::transmute(lpusernamebuf), pcchusernamebuf as _, core::mem::transmute(lporgnamebuf), pcchorgnamebuf as _, core::mem::transmute(lpserialbuf), pcchserialbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiGetUserInfoW<P0, P1, P3, P5>(szproduct: P0, lpusernamebuf: P1, pcchusernamebuf: *mut u32, lporgnamebuf: P3, pcchorgnamebuf: *mut u32, lpserialbuf: P5, pcchserialbuf: *mut u32) -> USERINFOSTATE
+pub unsafe fn MsiGetUserInfoW<P0>(szproduct: P0, lpusernamebuf: windows_core::PWSTR, pcchusernamebuf: *mut u32, lporgnamebuf: windows_core::PWSTR, pcchorgnamebuf: *mut u32, lpserialbuf: windows_core::PWSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetUserInfoW(szproduct : windows_core::PCWSTR, lpusernamebuf : windows_core::PCWSTR, pcchusernamebuf : *mut u32, lporgnamebuf : windows_core::PCWSTR, pcchorgnamebuf : *mut u32, lpserialbuf : windows_core::PCWSTR, pcchserialbuf : *mut u32) -> USERINFOSTATE);
-    unsafe { MsiGetUserInfoW(szproduct.param().abi(), lpusernamebuf.param().abi(), pcchusernamebuf as _, lporgnamebuf.param().abi(), pcchorgnamebuf as _, lpserialbuf.param().abi(), pcchserialbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiGetUserInfoW(szproduct : windows_core::PCWSTR, lpusernamebuf : windows_core::PWSTR, pcchusernamebuf : *mut u32, lporgnamebuf : windows_core::PWSTR, pcchorgnamebuf : *mut u32, lpserialbuf : windows_core::PWSTR, pcchserialbuf : *mut u32) -> USERINFOSTATE);
+    unsafe { MsiGetUserInfoW(szproduct.param().abi(), core::mem::transmute(lpusernamebuf), pcchusernamebuf as _, core::mem::transmute(lporgnamebuf), pcchorgnamebuf as _, core::mem::transmute(lpserialbuf), pcchserialbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiInstallMissingComponentA<P0, P1>(szproduct: P0, szcomponent: P1, einstallstate: INSTALLSTATE) -> u32
@@ -1607,13 +1520,12 @@ where
     unsafe { MsiLocateComponentA(szcomponent.param().abi(), core::mem::transmute(lppathbuf), pcchbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiLocateComponentW<P0, P1>(szcomponent: P0, lppathbuf: P1, pcchbuf: *mut u32) -> INSTALLSTATE
+pub unsafe fn MsiLocateComponentW<P0>(szcomponent: P0, lppathbuf: windows_core::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiLocateComponentW(szcomponent : windows_core::PCWSTR, lppathbuf : windows_core::PCWSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
-    unsafe { MsiLocateComponentW(szcomponent.param().abi(), lppathbuf.param().abi(), pcchbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiLocateComponentW(szcomponent : windows_core::PCWSTR, lppathbuf : windows_core::PWSTR, pcchbuf : *mut u32) -> INSTALLSTATE);
+    unsafe { MsiLocateComponentW(szcomponent.param().abi(), core::mem::transmute(lppathbuf), pcchbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiNotifySidChangeA<P0, P1>(poldsid: P0, pnewsid: P1) -> u32
@@ -1768,25 +1680,23 @@ where
     unsafe { MsiProvideAssemblyA(szassemblyname.param().abi(), szappcontext.param().abi(), dwinstallmode, dwassemblyinfo, core::mem::transmute(lppathbuf), pcchpathbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiProvideAssemblyW<P0, P1, P4>(szassemblyname: P0, szappcontext: P1, dwinstallmode: u32, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: P4, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiProvideAssemblyW<P0, P1>(szassemblyname: P0, szappcontext: P1, dwinstallmode: u32, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: windows_core::PWSTR, pcchpathbuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : windows_core::PCWSTR, szappcontext : windows_core::PCWSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_core::PCWSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiProvideAssemblyW(szassemblyname.param().abi(), szappcontext.param().abi(), dwinstallmode, dwassemblyinfo, lppathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : windows_core::PCWSTR, szappcontext : windows_core::PCWSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiProvideAssemblyW(szassemblyname.param().abi(), szappcontext.param().abi(), dwinstallmode, dwassemblyinfo, core::mem::transmute(lppathbuf), pcchpathbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiProvideComponentA<P0, P1, P2, P4>(szproduct: P0, szfeature: P1, szcomponent: P2, dwinstallmode: u32, lppathbuf: P4, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiProvideComponentA<P0, P1, P2>(szproduct: P0, szfeature: P1, szcomponent: P2, dwinstallmode: u32, lppathbuf: windows_core::PSTR, pcchpathbuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiProvideComponentA(szproduct : windows_core::PCSTR, szfeature : windows_core::PCSTR, szcomponent : windows_core::PCSTR, dwinstallmode : u32, lppathbuf : windows_core::PCSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiProvideComponentA(szproduct.param().abi(), szfeature.param().abi(), szcomponent.param().abi(), dwinstallmode, lppathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiProvideComponentA(szproduct : windows_core::PCSTR, szfeature : windows_core::PCSTR, szcomponent : windows_core::PCSTR, dwinstallmode : u32, lppathbuf : windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiProvideComponentA(szproduct.param().abi(), szfeature.param().abi(), szcomponent.param().abi(), dwinstallmode, core::mem::transmute(lppathbuf), pcchpathbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiProvideComponentW<P0, P1, P2>(szproduct: P0, szfeature: P1, szcomponent: P2, dwinstallmode: u32, lppathbuf: windows_core::PWSTR, pcchpathbuf: *mut u32) -> u32
@@ -1799,14 +1709,13 @@ where
     unsafe { MsiProvideComponentW(szproduct.param().abi(), szfeature.param().abi(), szcomponent.param().abi(), dwinstallmode, core::mem::transmute(lppathbuf), pcchpathbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiProvideQualifiedComponentA<P0, P1, P3>(szcategory: P0, szqualifier: P1, dwinstallmode: u32, lppathbuf: P3, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiProvideQualifiedComponentA<P0, P1>(szcategory: P0, szqualifier: P1, dwinstallmode: u32, lppathbuf: windows_core::PSTR, pcchpathbuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiProvideQualifiedComponentA(szcategory : windows_core::PCSTR, szqualifier : windows_core::PCSTR, dwinstallmode : u32, lppathbuf : windows_core::PCSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiProvideQualifiedComponentA(szcategory.param().abi(), szqualifier.param().abi(), dwinstallmode, lppathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiProvideQualifiedComponentA(szcategory : windows_core::PCSTR, szqualifier : windows_core::PCSTR, dwinstallmode : u32, lppathbuf : windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiProvideQualifiedComponentA(szcategory.param().abi(), szqualifier.param().abi(), dwinstallmode, core::mem::transmute(lppathbuf), pcchpathbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiProvideQualifiedComponentExA<P0, P1, P3>(szcategory: P0, szqualifier: P1, dwinstallmode: u32, szproduct: P3, dwunused1: u32, dwunused2: u32, lppathbuf: windows_core::PSTR, pcchpathbuf: *mut u32) -> u32
@@ -1829,14 +1738,13 @@ where
     unsafe { MsiProvideQualifiedComponentExW(szcategory.param().abi(), szqualifier.param().abi(), dwinstallmode, szproduct.param().abi(), dwunused1, dwunused2, core::mem::transmute(lppathbuf), pcchpathbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiProvideQualifiedComponentW<P0, P1, P3>(szcategory: P0, szqualifier: P1, dwinstallmode: u32, lppathbuf: P3, pcchpathbuf: *mut u32) -> u32
+pub unsafe fn MsiProvideQualifiedComponentW<P0, P1>(szcategory: P0, szqualifier: P1, dwinstallmode: u32, lppathbuf: windows_core::PWSTR, pcchpathbuf: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiProvideQualifiedComponentW(szcategory : windows_core::PCWSTR, szqualifier : windows_core::PCWSTR, dwinstallmode : u32, lppathbuf : windows_core::PCWSTR, pcchpathbuf : *mut u32) -> u32);
-    unsafe { MsiProvideQualifiedComponentW(szcategory.param().abi(), szqualifier.param().abi(), dwinstallmode, lppathbuf.param().abi(), pcchpathbuf as _) }
+    windows_core::link!("msi.dll" "system" fn MsiProvideQualifiedComponentW(szcategory : windows_core::PCWSTR, szqualifier : windows_core::PCWSTR, dwinstallmode : u32, lppathbuf : windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    unsafe { MsiProvideQualifiedComponentW(szcategory.param().abi(), szqualifier.param().abi(), dwinstallmode, core::mem::transmute(lppathbuf), pcchpathbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiQueryComponentStateA<P0, P1, P3>(szproductcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: P3, pdwstate: *mut INSTALLSTATE) -> u32
@@ -1933,12 +1841,9 @@ pub unsafe fn MsiRecordGetInteger(hrecord: MSIHANDLE, ifield: u32) -> i32 {
     unsafe { MsiRecordGetInteger(hrecord, ifield) }
 }
 #[inline]
-pub unsafe fn MsiRecordGetStringA<P2>(hrecord: MSIHANDLE, ifield: u32, szvaluebuf: P2, pcchvaluebuf: *mut u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiRecordGetStringA(hrecord : MSIHANDLE, ifield : u32, szvaluebuf : windows_core::PCSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiRecordGetStringA(hrecord, ifield, szvaluebuf.param().abi(), pcchvaluebuf as _) }
+pub unsafe fn MsiRecordGetStringA(hrecord: MSIHANDLE, ifield: u32, szvaluebuf: windows_core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiRecordGetStringA(hrecord : MSIHANDLE, ifield : u32, szvaluebuf : windows_core::PSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiRecordGetStringA(hrecord, ifield, core::mem::transmute(szvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
 pub unsafe fn MsiRecordGetStringW(hrecord: MSIHANDLE, ifield: u32, szvaluebuf: windows_core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
@@ -1951,12 +1856,9 @@ pub unsafe fn MsiRecordIsNull(hrecord: MSIHANDLE, ifield: u32) -> windows_core::
     unsafe { MsiRecordIsNull(hrecord, ifield) }
 }
 #[inline]
-pub unsafe fn MsiRecordReadStream<P2>(hrecord: MSIHANDLE, ifield: u32, szdatabuf: P2, pcbdatabuf: *mut u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiRecordReadStream(hrecord : MSIHANDLE, ifield : u32, szdatabuf : windows_core::PCSTR, pcbdatabuf : *mut u32) -> u32);
-    unsafe { MsiRecordReadStream(hrecord, ifield, szdatabuf.param().abi(), pcbdatabuf as _) }
+pub unsafe fn MsiRecordReadStream(hrecord: MSIHANDLE, ifield: u32, szdatabuf: windows_core::PSTR, pcbdatabuf: *mut u32) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiRecordReadStream(hrecord : MSIHANDLE, ifield : u32, szdatabuf : windows_core::PSTR, pcbdatabuf : *mut u32) -> u32);
+    unsafe { MsiRecordReadStream(hrecord, ifield, core::mem::transmute(szdatabuf), pcbdatabuf as _) }
 }
 #[inline]
 pub unsafe fn MsiRecordSetInteger(hrecord: MSIHANDLE, ifield: u32, ivalue: i32) -> u32 {
@@ -2087,14 +1989,14 @@ pub unsafe fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter:
     unsafe { MsiSetExternalUIA(puihandler, dwmessagefilter, pvcontext) }
 }
 #[inline]
-pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: *mut core::ffi::c_void, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32 {
-    windows_core::link!("msi.dll" "system" fn MsiSetExternalUIRecord(puihandler : PINSTALLUI_HANDLER_RECORD, dwmessagefilter : u32, pvcontext : *mut core::ffi::c_void, ppuiprevhandler : PINSTALLUI_HANDLER_RECORD) -> u32);
-    unsafe { MsiSetExternalUIRecord(puihandler, dwmessagefilter, pvcontext as _, ppuiprevhandler) }
+pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: *const core::ffi::c_void, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiSetExternalUIRecord(puihandler : PINSTALLUI_HANDLER_RECORD, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void, ppuiprevhandler : PINSTALLUI_HANDLER_RECORD) -> u32);
+    unsafe { MsiSetExternalUIRecord(puihandler, dwmessagefilter, pvcontext, ppuiprevhandler) }
 }
 #[inline]
-pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: *mut core::ffi::c_void) -> INSTALLUI_HANDLERW {
-    windows_core::link!("msi.dll" "system" fn MsiSetExternalUIW(puihandler : INSTALLUI_HANDLERW, dwmessagefilter : u32, pvcontext : *mut core::ffi::c_void) -> INSTALLUI_HANDLERW);
-    unsafe { MsiSetExternalUIW(puihandler, dwmessagefilter, pvcontext as _) }
+pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: *const core::ffi::c_void) -> INSTALLUI_HANDLERW {
+    windows_core::link!("msi.dll" "system" fn MsiSetExternalUIW(puihandler : INSTALLUI_HANDLERW, dwmessagefilter : u32, pvcontext : *const core::ffi::c_void) -> INSTALLUI_HANDLERW);
+    unsafe { MsiSetExternalUIW(puihandler, dwmessagefilter, pvcontext) }
 }
 #[inline]
 pub unsafe fn MsiSetFeatureAttributesA<P1>(hinstall: MSIHANDLE, szfeature: P1, dwattributes: u32) -> u32
@@ -2325,25 +2227,22 @@ where
     unsafe { MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, dwindex, pdwdiskid as _, core::mem::transmute(szvolumelabel), pcchvolumelabel as _, core::mem::transmute(szdiskprompt), pcchdiskprompt as _) }
 }
 #[inline]
-pub unsafe fn MsiSourceListEnumMediaDisksW<P0, P1, P6, P8>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: P6, pcchvolumelabel: *mut u32, szdiskprompt: P8, pcchdiskprompt: *mut u32) -> u32
+pub unsafe fn MsiSourceListEnumMediaDisksW<P0, P1>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: windows_core::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: windows_core::PWSTR, pcchdiskprompt: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
-    P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, dwindex : u32, pdwdiskid : *mut u32, szvolumelabel : windows_core::PCWSTR, pcchvolumelabel : *mut u32, szdiskprompt : windows_core::PCWSTR, pcchdiskprompt : *mut u32) -> u32);
-    unsafe { MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, dwindex, pdwdiskid as _, szvolumelabel.param().abi(), pcchvolumelabel as _, szdiskprompt.param().abi(), pcchdiskprompt as _) }
+    windows_core::link!("msi.dll" "system" fn MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, dwindex : u32, pdwdiskid : *mut u32, szvolumelabel : windows_core::PWSTR, pcchvolumelabel : *mut u32, szdiskprompt : windows_core::PWSTR, pcchdiskprompt : *mut u32) -> u32);
+    unsafe { MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, dwindex, pdwdiskid as _, core::mem::transmute(szvolumelabel), pcchvolumelabel as _, core::mem::transmute(szdiskprompt), pcchdiskprompt as _) }
 }
 #[inline]
-pub unsafe fn MsiSourceListEnumSourcesA<P0, P1, P5>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: P5, pcchsource: *mut u32) -> u32
+pub unsafe fn MsiSourceListEnumSourcesA<P0, P1>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: windows_core::PSTR, pcchsource: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiSourceListEnumSourcesA(szproductcodeorpatchcode : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, dwindex : u32, szsource : windows_core::PCSTR, pcchsource : *mut u32) -> u32);
-    unsafe { MsiSourceListEnumSourcesA(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, dwindex, szsource.param().abi(), pcchsource as _) }
+    windows_core::link!("msi.dll" "system" fn MsiSourceListEnumSourcesA(szproductcodeorpatchcode : windows_core::PCSTR, szusersid : windows_core::PCSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, dwindex : u32, szsource : windows_core::PSTR, pcchsource : *mut u32) -> u32);
+    unsafe { MsiSourceListEnumSourcesA(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, dwindex, core::mem::transmute(szsource), pcchsource as _) }
 }
 #[inline]
 pub unsafe fn MsiSourceListEnumSourcesW<P0, P1>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: windows_core::PWSTR, pcchsource: *mut u32) -> u32
@@ -2401,15 +2300,14 @@ where
     unsafe { MsiSourceListGetInfoA(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, szproperty.param().abi(), core::mem::transmute(szvalue), pcchvalue as _) }
 }
 #[inline]
-pub unsafe fn MsiSourceListGetInfoW<P0, P1, P4, P5>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: P4, szvalue: P5, pcchvalue: *mut u32) -> u32
+pub unsafe fn MsiSourceListGetInfoW<P0, P1, P4>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: P4, szvalue: windows_core::PWSTR, pcchvalue: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiSourceListGetInfoW(szproductcodeorpatchcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, szproperty : windows_core::PCWSTR, szvalue : windows_core::PCWSTR, pcchvalue : *mut u32) -> u32);
-    unsafe { MsiSourceListGetInfoW(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, szproperty.param().abi(), szvalue.param().abi(), pcchvalue as _) }
+    windows_core::link!("msi.dll" "system" fn MsiSourceListGetInfoW(szproductcodeorpatchcode : windows_core::PCWSTR, szusersid : windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, dwoptions : u32, szproperty : windows_core::PCWSTR, szvalue : windows_core::PWSTR, pcchvalue : *mut u32) -> u32);
+    unsafe { MsiSourceListGetInfoW(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, szproperty.param().abi(), core::mem::transmute(szvalue), pcchvalue as _) }
 }
 #[inline]
 pub unsafe fn MsiSourceListSetInfoA<P0, P1, P4, P5>(szproductcodeorpatchcode: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: P4, szvalue: P5) -> u32
@@ -2434,12 +2332,9 @@ where
     unsafe { MsiSourceListSetInfoW(szproductcodeorpatchcode.param().abi(), szusersid.param().abi(), dwcontext, dwoptions, szproperty.param().abi(), szvalue.param().abi()) }
 }
 #[inline]
-pub unsafe fn MsiSummaryInfoGetPropertyA<P5>(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: P5, pcchvaluebuf: *mut u32) -> u32
-where
-    P5: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyA(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvaluebuf : windows_core::PCSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiSummaryInfoGetPropertyA(hsummaryinfo, uiproperty, puidatatype as _, pivalue as _, pftvalue as _, szvaluebuf.param().abi(), pcchvaluebuf as _) }
+pub unsafe fn MsiSummaryInfoGetPropertyA(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: windows_core::PSTR, pcchvaluebuf: *mut u32) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyA(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvaluebuf : windows_core::PSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiSummaryInfoGetPropertyA(hsummaryinfo, uiproperty, puidatatype as _, pivalue as _, pftvalue as _, core::mem::transmute(szvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyCount(hsummaryinfo: MSIHANDLE, puipropertycount: *mut u32) -> u32 {
@@ -2447,12 +2342,9 @@ pub unsafe fn MsiSummaryInfoGetPropertyCount(hsummaryinfo: MSIHANDLE, puipropert
     unsafe { MsiSummaryInfoGetPropertyCount(hsummaryinfo, puipropertycount as _) }
 }
 #[inline]
-pub unsafe fn MsiSummaryInfoGetPropertyW<P5>(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: P5, pcchvaluebuf: *mut u32) -> u32
-where
-    P5: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyW(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvaluebuf : windows_core::PCWSTR, pcchvaluebuf : *mut u32) -> u32);
-    unsafe { MsiSummaryInfoGetPropertyW(hsummaryinfo, uiproperty, puidatatype as _, pivalue as _, pftvalue as _, szvaluebuf.param().abi(), pcchvaluebuf as _) }
+pub unsafe fn MsiSummaryInfoGetPropertyW(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: windows_core::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
+    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyW(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvaluebuf : windows_core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
+    unsafe { MsiSummaryInfoGetPropertyW(hsummaryinfo, uiproperty, puidatatype as _, pivalue as _, pftvalue as _, core::mem::transmute(szvaluebuf), pcchvaluebuf as _) }
 }
 #[inline]
 pub unsafe fn MsiSummaryInfoPersist(hsummaryinfo: MSIHANDLE) -> u32 {
@@ -2558,12 +2450,9 @@ pub unsafe fn MsiViewGetErrorA(hview: MSIHANDLE, szcolumnnamebuffer: windows_cor
     unsafe { MsiViewGetErrorA(hview, core::mem::transmute(szcolumnnamebuffer), pcchbuf as _) }
 }
 #[inline]
-pub unsafe fn MsiViewGetErrorW<P1>(hview: MSIHANDLE, szcolumnnamebuffer: P1, pcchbuf: *mut u32) -> MSIDBERROR
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("msi.dll" "system" fn MsiViewGetErrorW(hview : MSIHANDLE, szcolumnnamebuffer : windows_core::PCWSTR, pcchbuf : *mut u32) -> MSIDBERROR);
-    unsafe { MsiViewGetErrorW(hview, szcolumnnamebuffer.param().abi(), pcchbuf as _) }
+pub unsafe fn MsiViewGetErrorW(hview: MSIHANDLE, szcolumnnamebuffer: windows_core::PWSTR, pcchbuf: *mut u32) -> MSIDBERROR {
+    windows_core::link!("msi.dll" "system" fn MsiViewGetErrorW(hview : MSIHANDLE, szcolumnnamebuffer : windows_core::PWSTR, pcchbuf : *mut u32) -> MSIDBERROR);
+    unsafe { MsiViewGetErrorW(hview, core::mem::transmute(szcolumnnamebuffer), pcchbuf as _) }
 }
 #[inline]
 pub unsafe fn MsiViewModify(hview: MSIHANDLE, emodifymode: MSIMODIFY, hrecord: MSIHANDLE) -> u32 {
@@ -2592,7 +2481,7 @@ pub unsafe fn QueryActCtxW(dwflags: u32, hactctx: super::super::Foundation::HAND
 #[inline]
 pub unsafe fn ReleaseActCtx(hactctx: super::super::Foundation::HANDLE) {
     windows_core::link!("kernel32.dll" "system" fn ReleaseActCtx(hactctx : super::super::Foundation:: HANDLE));
-    unsafe { ReleaseActCtx(hactctx) }
+    unsafe { ReleaseActCtx(hactctx as _) }
 }
 #[inline]
 pub unsafe fn SfcGetNextProtectedFile(rpchandle: super::super::Foundation::HANDLE, protfiledata: *mut PROTECTED_FILE_DATA) -> windows_core::BOOL {
@@ -2635,9 +2524,9 @@ where
     unsafe { TestApplyPatchToFileA(patchfilename.param().abi(), oldfilename.param().abi(), applyoptionflags) }
 }
 #[inline]
-pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: *mut u8, patchfilesize: u32, oldfilebuffer: *mut u8, oldfilesize: u32, newfilesize: *mut u32, applyoptionflags: u32) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : *mut u8, patchfilesize : u32, oldfilebuffer : *mut u8, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_core::BOOL);
-    unsafe { TestApplyPatchToFileByBuffers(patchfilebuffer as _, patchfilesize, oldfilebuffer as _, oldfilesize, newfilesize as _, applyoptionflags) }
+pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: *const u8, patchfilesize: u32, oldfilebuffer: *const u8, oldfilesize: u32, newfilesize: *mut u32, applyoptionflags: u32) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : *const u8, patchfilesize : u32, oldfilebuffer : *const u8, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_core::BOOL);
+    unsafe { TestApplyPatchToFileByBuffers(patchfilebuffer, patchfilesize, oldfilebuffer, oldfilesize, newfilesize as _, applyoptionflags) }
 }
 #[inline]
 pub unsafe fn TestApplyPatchToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
@@ -3188,7 +3077,7 @@ pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_ALREADY_UNINSTALLED: IASSEMBLYCAC
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_DELETE_PENDING: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(4u32);
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_STILL_IN_USE: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(2u32);
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = IASSEMBLYCACHE_UNINSTALL_DISPOSITION(1u32);
-windows_core::imp::define_interface!(IAssemblyCache, IAssemblyCache_Vtbl, 0xb5161c56_c6c2_552b_b14c_f485c87bdfd3);
+windows_core::imp::define_interface!(IAssemblyCache, IAssemblyCache_Vtbl, 0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
 windows_core::imp::interface_hierarchy!(IAssemblyCache, windows_core::IUnknown);
 impl IAssemblyCache {
     pub unsafe fn UninstallAssembly<P1>(&self, dwflags: u32, pszassemblyname: P1, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> windows_core::Result<()>
@@ -3368,7 +3257,7 @@ impl IAssemblyCacheItem_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IAssemblyCacheItem {}
-windows_core::imp::define_interface!(IAssemblyName, IAssemblyName_Vtbl, 0xb609113e_e2c8_5446_8ddb_387d4d0c9e96);
+windows_core::imp::define_interface!(IAssemblyName, IAssemblyName_Vtbl, 0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
 windows_core::imp::interface_hierarchy!(IAssemblyName, windows_core::IUnknown);
 impl IAssemblyName {
     pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, cbproperty: u32) -> windows_core::Result<()> {
@@ -3383,13 +3272,13 @@ impl IAssemblyName {
     pub unsafe fn GetDisplayName(&self, szdisplayname: windows_core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(szdisplayname), pccdisplayname as _, dwdisplayflags).ok() }
     }
-    pub unsafe fn Reserved<P1, P2, P3>(&self, refiid: *mut windows_core::GUID, punkreserved1: P1, punkreserved2: P2, szreserved: P3, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn Reserved<P1, P2, P3>(&self, refiid: *const windows_core::GUID, punkreserved1: P1, punkreserved2: P2, szreserved: P3, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Reserved)(windows_core::Interface::as_raw(self), refiid as _, punkreserved1.param().abi(), punkreserved2.param().abi(), szreserved.param().abi(), llreserved, pvreserved as _, cbreserved, ppreserved as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Reserved)(windows_core::Interface::as_raw(self), refiid, punkreserved1.param().abi(), punkreserved2.param().abi(), szreserved.param().abi(), llreserved, pvreserved as _, cbreserved, ppreserved as _).ok() }
     }
     pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: windows_core::PWSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), lpcwbuffer as _, core::mem::transmute(pwzname)).ok() }
@@ -3418,7 +3307,7 @@ pub struct IAssemblyName_Vtbl {
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Finalize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32, u32) -> windows_core::HRESULT,
-    pub Reserved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i64, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Reserved: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, i64, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3429,7 +3318,7 @@ pub trait IAssemblyName_Impl: windows_core::IUnknownImpl {
     fn GetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, pcbproperty: *mut u32) -> windows_core::Result<()>;
     fn Finalize(&self) -> windows_core::Result<()>;
     fn GetDisplayName(&self, szdisplayname: windows_core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> windows_core::Result<()>;
-    fn Reserved(&self, refiid: *mut windows_core::GUID, punkreserved1: windows_core::Ref<windows_core::IUnknown>, punkreserved2: windows_core::Ref<windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Reserved(&self, refiid: *const windows_core::GUID, punkreserved1: windows_core::Ref<windows_core::IUnknown>, punkreserved2: windows_core::Ref<windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetName(&self, lpcwbuffer: *mut u32, pwzname: windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> windows_core::Result<()>;
     fn IsEqual(&self, pname: windows_core::Ref<IAssemblyName>, dwcmpflags: u32) -> windows_core::Result<()>;
@@ -3461,7 +3350,7 @@ impl IAssemblyName_Vtbl {
                 IAssemblyName_Impl::GetDisplayName(this, core::mem::transmute_copy(&szdisplayname), core::mem::transmute_copy(&pccdisplayname), core::mem::transmute_copy(&dwdisplayflags)).into()
             }
         }
-        unsafe extern "system" fn Reserved<Identity: IAssemblyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, refiid: *mut windows_core::GUID, punkreserved1: *mut core::ffi::c_void, punkreserved2: *mut core::ffi::c_void, szreserved: windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reserved<Identity: IAssemblyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, refiid: *const windows_core::GUID, punkreserved1: *mut core::ffi::c_void, punkreserved2: *mut core::ffi::c_void, szreserved: windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAssemblyName_Impl::Reserved(this, core::mem::transmute_copy(&refiid), core::mem::transmute_copy(&punkreserved1), core::mem::transmute_copy(&punkreserved2), core::mem::transmute(&szreserved), core::mem::transmute_copy(&llreserved), core::mem::transmute_copy(&pvreserved), core::mem::transmute_copy(&cbreserved), core::mem::transmute_copy(&ppreserved)).into()
@@ -3515,7 +3404,7 @@ impl IAssemblyName_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAssemblyName {}
-windows_core::imp::define_interface!(IEnumMsmDependency, IEnumMsmDependency_Vtbl, 0xe60a9aa2_df0b_531a_8651_a228f452f654);
+windows_core::imp::define_interface!(IEnumMsmDependency, IEnumMsmDependency_Vtbl, 0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
 windows_core::imp::interface_hierarchy!(IEnumMsmDependency, windows_core::IUnknown);
 impl IEnumMsmDependency {
     #[cfg(feature = "Win32_System_Com")]
@@ -3601,7 +3490,7 @@ impl IEnumMsmDependency_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumMsmDependency {}
-windows_core::imp::define_interface!(IEnumMsmError, IEnumMsmError_Vtbl, 0x15050032_5dfb_5ed2_bebe_2f88fc74b875);
+windows_core::imp::define_interface!(IEnumMsmError, IEnumMsmError_Vtbl, 0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
 windows_core::imp::interface_hierarchy!(IEnumMsmError, windows_core::IUnknown);
 impl IEnumMsmError {
     #[cfg(feature = "Win32_System_Com")]
@@ -3687,7 +3576,7 @@ impl IEnumMsmError_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumMsmError {}
-windows_core::imp::define_interface!(IEnumMsmString, IEnumMsmString_Vtbl, 0xb5bb7a1f_ea2d_55e9_8f26_b14c93804d2e);
+windows_core::imp::define_interface!(IEnumMsmString, IEnumMsmString_Vtbl, 0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
 windows_core::imp::interface_hierarchy!(IEnumMsmString, windows_core::IUnknown);
 impl IEnumMsmString {
     pub unsafe fn Next(&self, cfetch: u32, rgbstrstrings: *mut windows_core::BSTR, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -3767,7 +3656,7 @@ impl IEnumMsmString_Vtbl {
 }
 impl windows_core::RuntimeName for IEnumMsmString {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMsmDependencies, IMsmDependencies_Vtbl, 0x288082a2_5a2d_5523_80fc_7c642869a7b5);
+windows_core::imp::define_interface!(IMsmDependencies, IMsmDependencies_Vtbl, 0x0adda82d_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMsmDependencies {
     type Target = super::Com::IDispatch;
@@ -3866,7 +3755,7 @@ impl IMsmDependencies_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmDependencies {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMsmDependency, IMsmDependency_Vtbl, 0x68173ef3_371b_5971_861d_8e93a7f82485);
+windows_core::imp::define_interface!(IMsmDependency, IMsmDependency_Vtbl, 0x0adda82b_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMsmDependency {
     type Target = super::Com::IDispatch;
@@ -3965,7 +3854,7 @@ impl IMsmDependency_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmDependency {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMsmError, IMsmError_Vtbl, 0x512fa460_363e_5bb1_881d_8bfb773e6ab9);
+windows_core::imp::define_interface!(IMsmError, IMsmError_Vtbl, 0x0adda828_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMsmError {
     type Target = super::Com::IDispatch;
@@ -4148,7 +4037,7 @@ impl IMsmError_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMsmError {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMsmErrors, IMsmErrors_Vtbl, 0x44390bf7_9f6b_5ec5_bd0b_ceccb0b1efde);
+windows_core::imp::define_interface!(IMsmErrors, IMsmErrors_Vtbl, 0x0adda82a_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMsmErrors {
     type Target = super::Com::IDispatch;
@@ -4782,7 +4671,7 @@ pub const INSTALLUILEVEL_SOURCERESONLY: INSTALLUILEVEL = INSTALLUILEVEL(256i32);
 pub const INSTALLUILEVEL_UACONLY: INSTALLUILEVEL = INSTALLUILEVEL(512i32);
 pub type INSTALLUI_HANDLERA = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_core::PCSTR) -> i32>;
 pub type INSTALLUI_HANDLERW = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, imessagetype: u32, szmessage: windows_core::PCWSTR) -> i32>;
-windows_core::imp::define_interface!(IPMApplicationInfo, IPMApplicationInfo_Vtbl, 0x89caaa6c_6699_5986_ac6b_88f3d639fd3e);
+windows_core::imp::define_interface!(IPMApplicationInfo, IPMApplicationInfo_Vtbl, 0x50afb58a_438c_4088_9789_f8c4899829c7);
 windows_core::imp::interface_hierarchy!(IPMApplicationInfo, windows_core::IUnknown);
 impl IPMApplicationInfo {
     pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
@@ -6207,7 +6096,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMBackgroundServiceAgentInfo {}
-windows_core::imp::define_interface!(IPMBackgroundServiceAgentInfoEnumerator, IPMBackgroundServiceAgentInfoEnumerator_Vtbl, 0x737aea55_955a_5233_9ac4_9dc5e1ba1f34);
+windows_core::imp::define_interface!(IPMBackgroundServiceAgentInfoEnumerator, IPMBackgroundServiceAgentInfoEnumerator_Vtbl, 0x18eb2072_ab56_43b3_872c_beafb7a6b391);
 windows_core::imp::interface_hierarchy!(IPMBackgroundServiceAgentInfoEnumerator, windows_core::IUnknown);
 impl IPMBackgroundServiceAgentInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMBackgroundServiceAgentInfo> {
@@ -6395,7 +6284,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMBackgroundWorkerInfo {}
-windows_core::imp::define_interface!(IPMBackgroundWorkerInfoEnumerator, IPMBackgroundWorkerInfoEnumerator_Vtbl, 0xd15830ab_1a9f_5609_aad0_21a57c711d20);
+windows_core::imp::define_interface!(IPMBackgroundWorkerInfoEnumerator, IPMBackgroundWorkerInfoEnumerator_Vtbl, 0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
 windows_core::imp::interface_hierarchy!(IPMBackgroundWorkerInfoEnumerator, windows_core::IUnknown);
 impl IPMBackgroundWorkerInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMBackgroundWorkerInfo> {
@@ -6921,7 +6810,7 @@ impl IPMDeploymentManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IPMDeploymentManager {}
-windows_core::imp::define_interface!(IPMEnumerationManager, IPMEnumerationManager_Vtbl, 0x79ce4d5b_6122_5c10_9922_2da965b10138);
+windows_core::imp::define_interface!(IPMEnumerationManager, IPMEnumerationManager_Vtbl, 0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
 windows_core::imp::interface_hierarchy!(IPMEnumerationManager, windows_core::IUnknown);
 impl IPMEnumerationManager {
     pub unsafe fn get_AllApplications(&self, ppappenum: *mut Option<IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()> {
@@ -7252,7 +7141,7 @@ impl IPMEnumerationManager_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMEnumerationManager {}
-windows_core::imp::define_interface!(IPMExtensionCachedFileUpdaterInfo, IPMExtensionCachedFileUpdaterInfo_Vtbl, 0x1bedf1be_d555_5eec_99da_8661d75b8d08);
+windows_core::imp::define_interface!(IPMExtensionCachedFileUpdaterInfo, IPMExtensionCachedFileUpdaterInfo_Vtbl, 0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
 windows_core::imp::interface_hierarchy!(IPMExtensionCachedFileUpdaterInfo, windows_core::IUnknown);
 impl IPMExtensionCachedFileUpdaterInfo {
     pub unsafe fn SupportsUpdates(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -7292,7 +7181,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionCachedFileUpdaterInfo {}
-windows_core::imp::define_interface!(IPMExtensionContractInfo, IPMExtensionContractInfo_Vtbl, 0x5eba6f0a_b168_52d9_a3f3_7609b4ab6b86);
+windows_core::imp::define_interface!(IPMExtensionContractInfo, IPMExtensionContractInfo_Vtbl, 0xe5666373_7ba1_467c_b819_b175db1c295b);
 windows_core::imp::interface_hierarchy!(IPMExtensionContractInfo, windows_core::IUnknown);
 impl IPMExtensionContractInfo {
     pub unsafe fn get_InvocationInfo(&self, paumid: *mut windows_core::BSTR, pargs: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -7323,7 +7212,7 @@ impl IPMExtensionContractInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionContractInfo {}
-windows_core::imp::define_interface!(IPMExtensionFileExtensionInfo, IPMExtensionFileExtensionInfo_Vtbl, 0xa2e4b35e_c783_5987_8654_751d461d3352);
+windows_core::imp::define_interface!(IPMExtensionFileExtensionInfo, IPMExtensionFileExtensionInfo_Vtbl, 0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
 windows_core::imp::interface_hierarchy!(IPMExtensionFileExtensionInfo, windows_core::IUnknown);
 impl IPMExtensionFileExtensionInfo {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -7474,7 +7363,7 @@ impl IPMExtensionFileExtensionInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionFileExtensionInfo {}
-windows_core::imp::define_interface!(IPMExtensionFileOpenPickerInfo, IPMExtensionFileOpenPickerInfo_Vtbl, 0xbf1d2fec_f3eb_5eed_8331_ae5e71961315);
+windows_core::imp::define_interface!(IPMExtensionFileOpenPickerInfo, IPMExtensionFileOpenPickerInfo_Vtbl, 0x6dc91d25_9606_420c_9a78_e034a3418345);
 windows_core::imp::interface_hierarchy!(IPMExtensionFileOpenPickerInfo, windows_core::IUnknown);
 impl IPMExtensionFileOpenPickerInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -7529,7 +7418,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionFileOpenPickerInfo {}
-windows_core::imp::define_interface!(IPMExtensionFileSavePickerInfo, IPMExtensionFileSavePickerInfo_Vtbl, 0xe04c396c_9509_5ce9_a955_b6aa133c09a0);
+windows_core::imp::define_interface!(IPMExtensionFileSavePickerInfo, IPMExtensionFileSavePickerInfo_Vtbl, 0x38005cba_f81a_493e_a0f8_922c8680da43);
 windows_core::imp::interface_hierarchy!(IPMExtensionFileSavePickerInfo, windows_core::IUnknown);
 impl IPMExtensionFileSavePickerInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -7584,7 +7473,7 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionFileSavePickerInfo {}
-windows_core::imp::define_interface!(IPMExtensionInfo, IPMExtensionInfo_Vtbl, 0xf2968a6e_d60e_5509_aa09_12444d838b9b);
+windows_core::imp::define_interface!(IPMExtensionInfo, IPMExtensionInfo_Vtbl, 0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
 windows_core::imp::interface_hierarchy!(IPMExtensionInfo, windows_core::IUnknown);
 impl IPMExtensionInfo {
     pub unsafe fn SupplierPID(&self) -> windows_core::Result<windows_core::GUID> {
@@ -7723,7 +7612,7 @@ impl IPMExtensionInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionInfo {}
-windows_core::imp::define_interface!(IPMExtensionInfoEnumerator, IPMExtensionInfoEnumerator_Vtbl, 0x05bcdd5a_ad08_540a_8dcc_d2fdee722bc8);
+windows_core::imp::define_interface!(IPMExtensionInfoEnumerator, IPMExtensionInfoEnumerator_Vtbl, 0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
 windows_core::imp::interface_hierarchy!(IPMExtensionInfoEnumerator, windows_core::IUnknown);
 impl IPMExtensionInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMExtensionInfo> {
@@ -7763,7 +7652,7 @@ impl IPMExtensionInfoEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionInfoEnumerator {}
-windows_core::imp::define_interface!(IPMExtensionProtocolInfo, IPMExtensionProtocolInfo_Vtbl, 0x70074ad9_af93_521f_ba56_e14f05ad8310);
+windows_core::imp::define_interface!(IPMExtensionProtocolInfo, IPMExtensionProtocolInfo_Vtbl, 0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
 windows_core::imp::interface_hierarchy!(IPMExtensionProtocolInfo, windows_core::IUnknown);
 impl IPMExtensionProtocolInfo {
     pub unsafe fn Protocol(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -7818,7 +7707,7 @@ impl IPMExtensionProtocolInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMExtensionProtocolInfo {}
-windows_core::imp::define_interface!(IPMExtensionShareTargetInfo, IPMExtensionShareTargetInfo_Vtbl, 0xa7d29a22_d3ed_5353_b2c7_3dfeba75f135);
+windows_core::imp::define_interface!(IPMExtensionShareTargetInfo, IPMExtensionShareTargetInfo_Vtbl, 0x5471f48b_c65c_4656_8c70_242e31195fea);
 windows_core::imp::interface_hierarchy!(IPMExtensionShareTargetInfo, windows_core::IUnknown);
 impl IPMExtensionShareTargetInfo {
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -8334,7 +8223,7 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMLiveTileJobInfoEnumerator {}
-windows_core::imp::define_interface!(IPMTaskInfo, IPMTaskInfo_Vtbl, 0x4ad99dfa_cac9_516b_aebb_34b8d0a317db);
+windows_core::imp::define_interface!(IPMTaskInfo, IPMTaskInfo_Vtbl, 0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
 windows_core::imp::interface_hierarchy!(IPMTaskInfo, windows_core::IUnknown);
 impl IPMTaskInfo {
     pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
@@ -8779,7 +8668,7 @@ impl IPMTaskInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMTaskInfo {}
-windows_core::imp::define_interface!(IPMTaskInfoEnumerator, IPMTaskInfoEnumerator_Vtbl, 0x1c9c1c6d_1eeb_5ccd_b34c_e16a2a9f8a84);
+windows_core::imp::define_interface!(IPMTaskInfoEnumerator, IPMTaskInfoEnumerator_Vtbl, 0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
 windows_core::imp::interface_hierarchy!(IPMTaskInfoEnumerator, windows_core::IUnknown);
 impl IPMTaskInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMTaskInfo> {
@@ -9264,7 +9153,7 @@ impl IPMTileInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMTileInfo {}
-windows_core::imp::define_interface!(IPMTileInfoEnumerator, IPMTileInfoEnumerator_Vtbl, 0xe5b565e9_2b7d_5f47_98a9_8d896196b693);
+windows_core::imp::define_interface!(IPMTileInfoEnumerator, IPMTileInfoEnumerator_Vtbl, 0xded83065_e462_4b2c_acb5_e39cea61c874);
 windows_core::imp::interface_hierarchy!(IPMTileInfoEnumerator, windows_core::IUnknown);
 impl IPMTileInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMTileInfo> {
@@ -9304,7 +9193,7 @@ impl IPMTileInfoEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMTileInfoEnumerator {}
-windows_core::imp::define_interface!(IPMTilePropertyEnumerator, IPMTilePropertyEnumerator_Vtbl, 0x4e4ffc0b_5346_5fcc_ac8e_e93c90536be4);
+windows_core::imp::define_interface!(IPMTilePropertyEnumerator, IPMTilePropertyEnumerator_Vtbl, 0xcc4cd629_9047_4250_aac8_930e47812421);
 windows_core::imp::interface_hierarchy!(IPMTilePropertyEnumerator, windows_core::IUnknown);
 impl IPMTilePropertyEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMTilePropertyInfo> {
@@ -9344,7 +9233,7 @@ impl IPMTilePropertyEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPMTilePropertyEnumerator {}
-windows_core::imp::define_interface!(IPMTilePropertyInfo, IPMTilePropertyInfo_Vtbl, 0x63738cba_c0d0_503d_9972_b962b92647ad);
+windows_core::imp::define_interface!(IPMTilePropertyInfo, IPMTilePropertyInfo_Vtbl, 0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
 windows_core::imp::interface_hierarchy!(IPMTilePropertyInfo, windows_core::IUnknown);
 impl IPMTilePropertyInfo {
     pub unsafe fn PropertyID(&self) -> windows_core::Result<u32> {

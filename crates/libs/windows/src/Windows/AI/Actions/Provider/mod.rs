@@ -52,7 +52,7 @@ pub struct IActionFeedbackHandler_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProcessFeedbackAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionProvider, IActionProvider_Vtbl, 0xe97f106b_4995_5f08_848e_718b06faf3db);
+windows_core::imp::define_interface!(IActionProvider, IActionProvider_Vtbl, 0x62906c47_3d07_55f1_aefa_1522505afbbe);
 impl windows_core::RuntimeType for IActionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

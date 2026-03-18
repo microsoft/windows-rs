@@ -14,9 +14,9 @@ pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION
     unsafe { RtlInitializeCorrelationVector(correlationvector as _, version, guid) }
 }
 #[inline]
-pub unsafe fn RtlValidateCorrelationVector(vector: *mut CORRELATION_VECTOR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : *mut CORRELATION_VECTOR) -> u32);
-    unsafe { RtlValidateCorrelationVector(vector as _) }
+pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : *const CORRELATION_VECTOR) -> u32);
+    unsafe { RtlValidateCorrelationVector(vector) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

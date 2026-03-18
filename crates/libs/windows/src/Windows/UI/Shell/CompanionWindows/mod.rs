@@ -190,7 +190,7 @@ pub struct ICompanionWindowCoordinator_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompanionWindowCoordinatorStatics, ICompanionWindowCoordinatorStatics_Vtbl, 0xbe68c00f_7113_5220_a6cd_3866c35b82a0);
+windows_core::imp::define_interface!(ICompanionWindowCoordinatorStatics, ICompanionWindowCoordinatorStatics_Vtbl, 0x964022fa_380e_518c_bfc8_0f3b84fafea3);
 impl windows_core::RuntimeType for ICompanionWindowCoordinatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -213,7 +213,7 @@ pub struct ICompanionWindowRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestingWindowId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::WindowId) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompanionWindowRequestResult, ICompanionWindowRequestResult_Vtbl, 0xa0a1da32_7637_53d4_a263_16cc3d8ee39b);
+windows_core::imp::define_interface!(ICompanionWindowRequestResult, ICompanionWindowRequestResult_Vtbl, 0xd728d2ef_e6d4_5cc0_9ff4_20c17a2ce72d);
 impl windows_core::RuntimeType for ICompanionWindowRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -226,7 +226,7 @@ pub struct ICompanionWindowRequestResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub CompanionWindowId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::WindowId) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompanionWindowRequestStatics, ICompanionWindowRequestStatics_Vtbl, 0x1a7afc6c_f864_56f7_a61b_3151cb683561);
+windows_core::imp::define_interface!(ICompanionWindowRequestStatics, ICompanionWindowRequestStatics_Vtbl, 0x585e4544_d474_506a_96c2_3597a44882da);
 impl windows_core::RuntimeType for ICompanionWindowRequestStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

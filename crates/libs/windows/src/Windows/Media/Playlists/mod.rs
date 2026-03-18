@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPlaylist, IPlaylist_Vtbl, 0x92a7c596_6a5f_5542_94bf_310de8db5a0d);
+windows_core::imp::define_interface!(IPlaylist, IPlaylist_Vtbl, 0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 impl windows_core::RuntimeType for IPlaylist {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -20,7 +20,7 @@ pub struct IPlaylist_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SaveAsWithFormatAsync: usize,
 }
-windows_core::imp::define_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xa44f748f_e5c8_5b0a_ad0c_def17ec7daf6);
+windows_core::imp::define_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
 impl windows_core::RuntimeType for IPlaylistStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

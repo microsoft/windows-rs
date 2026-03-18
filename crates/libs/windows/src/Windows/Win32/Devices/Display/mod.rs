@@ -34,12 +34,9 @@ pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
     unsafe { CLIPOBJ_ppoGetPath(pco as _) }
 }
 #[inline]
-pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<P1>(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: P1, dwcapabilitiesstringlengthincharacters: u32) -> i32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : windows_core::PCSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
-    unsafe { CapabilitiesRequestAndCapabilitiesReply(hmonitor, pszasciicapabilitiesstring.param().abi(), dwcapabilitiesstringlengthincharacters) }
+pub unsafe fn CapabilitiesRequestAndCapabilitiesReply(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: windows_core::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32 {
+    windows_core::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : windows_core::PSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
+    unsafe { CapabilitiesRequestAndCapabilitiesReply(hmonitor, core::mem::transmute(pszasciicapabilitiesstring), dwcapabilitiesstringlengthincharacters) }
 }
 #[inline]
 pub unsafe fn DegaussMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32 {
@@ -52,9 +49,9 @@ pub unsafe fn DestroyPhysicalMonitor(hmonitor: super::super::Foundation::HANDLE)
     unsafe { DestroyPhysicalMonitor(hmonitor) }
 }
 #[inline]
-pub unsafe fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> windows_core::BOOL {
-    windows_core::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> windows_core::BOOL);
-    unsafe { DestroyPhysicalMonitors(dwphysicalmonitorarraysize, pphysicalmonitorarray as _) }
+pub unsafe fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> windows_core::BOOL {
+    windows_core::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *const PHYSICAL_MONITOR) -> windows_core::BOOL);
+    unsafe { DestroyPhysicalMonitors(dwphysicalmonitorarraysize, pphysicalmonitorarray) }
 }
 #[inline]
 pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
@@ -62,9 +59,9 @@ pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVIC
     unsafe { DisplayConfigGetDeviceInfo(requestpacket as _) }
 }
 #[inline]
-pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
-    windows_core::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
-    unsafe { DisplayConfigSetDeviceInfo(setpacket as _) }
+pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
+    windows_core::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
+    unsafe { DisplayConfigSetDeviceInfo(setpacket) }
 }
 #[inline]
 pub unsafe fn EngAcquireSemaphore(hsem: HSEMAPHORE) {
@@ -309,13 +306,12 @@ pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, 
     unsafe { EngTransparentBlt(psodst, psosrc, pco, pxlo, prcldst, prclsrc, transcolor, bcalledfrombitblt) }
 }
 #[inline]
-pub unsafe fn EngUnicodeToMultiByteN<P0, P3>(multibytestring: P0, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: P3, bytesinunicodestring: u32)
+pub unsafe fn EngUnicodeToMultiByteN<P3>(multibytestring: windows_core::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: P3, bytesinunicodestring: u32)
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : windows_core::PCSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : windows_core::PCWSTR, bytesinunicodestring : u32));
-    unsafe { EngUnicodeToMultiByteN(multibytestring.param().abi(), maxbytesinmultibytestring, bytesinmultibytestring as _, unicodestring.param().abi(), bytesinunicodestring) }
+    windows_core::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : windows_core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : windows_core::PCWSTR, bytesinunicodestring : u32));
+    unsafe { EngUnicodeToMultiByteN(core::mem::transmute(multibytestring), maxbytesinmultibytestring, bytesinmultibytestring as _, unicodestring.param().abi(), bytesinunicodestring) }
 }
 #[inline]
 pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
@@ -352,9 +348,9 @@ pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn FONTOBJ_pifi(pfo: *mut FONTOBJ) -> *mut IFIMETRICS {
-    windows_core::link!("gdi32.dll" "system" fn FONTOBJ_pifi(pfo : *mut FONTOBJ) -> *mut IFIMETRICS);
-    unsafe { FONTOBJ_pifi(pfo as _) }
+pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
+    windows_core::link!("gdi32.dll" "system" fn FONTOBJ_pifi(pfo : *const FONTOBJ) -> *mut IFIMETRICS);
+    unsafe { FONTOBJ_pifi(pfo) }
 }
 #[inline]
 pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut core::ffi::c_void {
@@ -362,9 +358,9 @@ pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -
     unsafe { FONTOBJ_pvTrueTypeFontFile(pfo as _, pcjfile as _) }
 }
 #[inline]
-pub unsafe fn FONTOBJ_pxoGetXform(pfo: *mut FONTOBJ) -> *mut XFORMOBJ {
-    windows_core::link!("gdi32.dll" "system" fn FONTOBJ_pxoGetXform(pfo : *mut FONTOBJ) -> *mut XFORMOBJ);
-    unsafe { FONTOBJ_pxoGetXform(pfo as _) }
+pub unsafe fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut XFORMOBJ {
+    windows_core::link!("gdi32.dll" "system" fn FONTOBJ_pxoGetXform(pfo : *const FONTOBJ) -> *mut XFORMOBJ);
+    unsafe { FONTOBJ_pxoGetXform(pfo) }
 }
 #[inline]
 pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO) {
@@ -576,9 +572,9 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
     unsafe { SetDisplayAutoRotationPreferences(orientation) }
 }
 #[inline]
-pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, flags: SET_DISPLAY_CONFIG_FLAGS) -> i32 {
-    windows_core::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : u32, patharray : *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : u32, modeinfoarray : *mut DISPLAYCONFIG_MODE_INFO, flags : SET_DISPLAY_CONFIG_FLAGS) -> i32);
-    unsafe { SetDisplayConfig(numpatharrayelements, patharray as _, nummodeinfoarrayelements, modeinfoarray as _, flags) }
+pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: SET_DISPLAY_CONFIG_FLAGS) -> i32 {
+    windows_core::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : u32, patharray : *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : u32, modeinfoarray : *const DISPLAYCONFIG_MODE_INFO, flags : SET_DISPLAY_CONFIG_FLAGS) -> i32);
+    unsafe { SetDisplayConfig(numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, flags) }
 }
 #[inline]
 pub unsafe fn SetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, dwnewbrightness: u32) -> i32 {
@@ -626,9 +622,9 @@ pub unsafe fn XFORMOBJ_bApplyXform(pxo: *mut XFORMOBJ, imode: u32, cpoints: u32,
     unsafe { XFORMOBJ_bApplyXform(pxo as _, imode, cpoints, pvin as _, pvout as _) }
 }
 #[inline]
-pub unsafe fn XFORMOBJ_iGetXform(pxo: *mut XFORMOBJ, pxform: *mut XFORML) -> u32 {
-    windows_core::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *mut XFORMOBJ, pxform : *mut XFORML) -> u32);
-    unsafe { XFORMOBJ_iGetXform(pxo as _, pxform as _) }
+pub unsafe fn XFORMOBJ_iGetXform(pxo: *const XFORMOBJ, pxform: *mut XFORML) -> u32 {
+    windows_core::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *const XFORMOBJ, pxform : *mut XFORML) -> u32);
+    unsafe { XFORMOBJ_iGetXform(pxo, pxform as _) }
 }
 #[inline]
 pub unsafe fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32 {
@@ -3709,7 +3705,7 @@ pub type PFN_DrvQueryTrueTypeOutline = Option<unsafe extern "system" fn(param0: 
 pub type PFN_DrvQueryTrueTypeSection = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
 pub type PFN_DrvQueryTrueTypeTable = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
 pub type PFN_DrvRealizeBrush = Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> windows_core::BOOL>;
-pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *mut core::ffi::c_void) -> i32>;
+pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const core::ffi::c_void) -> i32>;
 pub type PFN_DrvResetDevice = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut core::ffi::c_void) -> u32>;
 pub type PFN_DrvResetPDEV = Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> windows_core::BOOL>;
 pub type PFN_DrvSaveScreenBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
@@ -3795,7 +3791,7 @@ pub const PRIMARY_ORDER_BAC: u32 = 2u32;
 pub const PRIMARY_ORDER_BCA: u32 = 3u32;
 pub const PRIMARY_ORDER_CAB: u32 = 5u32;
 pub const PRIMARY_ORDER_CBA: u32 = 4u32;
-pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *mut core::ffi::c_void)>;
+pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *const core::ffi::c_void)>;
 pub const QAW_GETEASYWIDTHS: u32 = 1u32;
 pub const QAW_GETWIDTHS: u32 = 0u32;
 pub const QC_1BIT: u32 = 2u32;
@@ -3949,7 +3945,7 @@ impl core::ops::Not for SET_DISPLAY_CONFIG_FLAGS {
     }
 }
 pub const SGI_EXTRASPACE: u32 = 0u32;
-pub type SORTCOMP = Option<unsafe extern "C" fn(pv1: *mut core::ffi::c_void, pv2: *mut core::ffi::c_void) -> i32>;
+pub type SORTCOMP = Option<unsafe extern "C" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
 pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
 pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;

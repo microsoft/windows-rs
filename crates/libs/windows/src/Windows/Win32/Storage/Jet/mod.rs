@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetAddColumnA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *mut i8, pcolumndef: *mut JET_COLUMNDEF, pvdefault: *mut core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetAddColumnA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *mut i8, pcolumndef : *mut JET_COLUMNDEF, pvdefault : *mut core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
-    unsafe { JetAddColumnA(sesid, tableid, szcolumnname as _, pcolumndef as _, pvdefault as _, cbdefault, pcolumnid as _) }
+pub unsafe fn JetAddColumnA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetAddColumnA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pcolumndef : *const JET_COLUMNDEF, pvdefault : *const core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
+    unsafe { JetAddColumnA(sesid, tableid, szcolumnname, pcolumndef, pvdefault, cbdefault, pcolumnid as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -11,19 +11,19 @@ pub unsafe fn JetAddColumnW(sesid: JET_SESID, tableid: super::StructuredStorage:
     unsafe { JetAddColumnW(sesid, tableid, szcolumnname, pcolumndef, pvdefault, cbdefault, pcolumnid as _) }
 }
 #[inline]
-pub unsafe fn JetAttachDatabase2A(sesid: JET_SESID, szfilename: *mut i8, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2A(sesid : JET_SESID, szfilename : *mut i8, cpgdatabasesizemax : u32, grbit : u32) -> i32);
-    unsafe { JetAttachDatabase2A(sesid, szfilename as _, cpgdatabasesizemax, grbit) }
+pub unsafe fn JetAttachDatabase2A(sesid: JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2A(sesid : JET_SESID, szfilename : *const i8, cpgdatabasesizemax : u32, grbit : u32) -> i32);
+    unsafe { JetAttachDatabase2A(sesid, szfilename, cpgdatabasesizemax, grbit) }
 }
 #[inline]
-pub unsafe fn JetAttachDatabase2W(sesid: JET_SESID, szfilename: *mut u16, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2W(sesid : JET_SESID, szfilename : *mut u16, cpgdatabasesizemax : u32, grbit : u32) -> i32);
-    unsafe { JetAttachDatabase2W(sesid, szfilename as _, cpgdatabasesizemax, grbit) }
+pub unsafe fn JetAttachDatabase2W(sesid: JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetAttachDatabase2W(sesid : JET_SESID, szfilename : *const u16, cpgdatabasesizemax : u32, grbit : u32) -> i32);
+    unsafe { JetAttachDatabase2W(sesid, szfilename, cpgdatabasesizemax, grbit) }
 }
 #[inline]
-pub unsafe fn JetAttachDatabaseA(sesid: JET_SESID, szfilename: *mut i8, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetAttachDatabaseA(sesid : JET_SESID, szfilename : *mut i8, grbit : u32) -> i32);
-    unsafe { JetAttachDatabaseA(sesid, szfilename as _, grbit) }
+pub unsafe fn JetAttachDatabaseA(sesid: JET_SESID, szfilename: *const i8, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetAttachDatabaseA(sesid : JET_SESID, szfilename : *const i8, grbit : u32) -> i32);
+    unsafe { JetAttachDatabaseA(sesid, szfilename, grbit) }
 }
 #[inline]
 pub unsafe fn JetAttachDatabaseW(sesid: JET_SESID, szfilename: *const u16, grbit: u32) -> i32 {
@@ -31,9 +31,9 @@ pub unsafe fn JetAttachDatabaseW(sesid: JET_SESID, szfilename: *const u16, grbit
     unsafe { JetAttachDatabaseW(sesid, szfilename, grbit) }
 }
 #[inline]
-pub unsafe fn JetBackupA(szbackuppath: *mut i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetBackupA(szbackuppath : *mut i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
-    unsafe { JetBackupA(szbackuppath as _, grbit, pfnstatus) }
+pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetBackupA(szbackuppath : *const i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
+    unsafe { JetBackupA(szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
 pub unsafe fn JetBackupInstanceA(instance: JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
@@ -46,9 +46,9 @@ pub unsafe fn JetBackupInstanceW(instance: JET_INSTANCE, szbackuppath: *const u1
     unsafe { JetBackupInstanceW(instance, szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
-pub unsafe fn JetBackupW(szbackuppath: *mut u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetBackupW(szbackuppath : *mut u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
-    unsafe { JetBackupW(szbackuppath as _, grbit, pfnstatus) }
+pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetBackupW(szbackuppath : *const u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
+    unsafe { JetBackupW(szbackuppath, grbit, pfnstatus) }
 }
 #[inline]
 pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
@@ -61,14 +61,14 @@ pub unsafe fn JetBeginExternalBackupInstance(instance: JET_INSTANCE, grbit: u32)
     unsafe { JetBeginExternalBackupInstance(instance, grbit) }
 }
 #[inline]
-pub unsafe fn JetBeginSessionA(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: *mut i8, szpassword: *mut i8) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetBeginSessionA(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *mut i8, szpassword : *mut i8) -> i32);
-    unsafe { JetBeginSessionA(instance, psesid as _, szusername as _, szpassword as _) }
+pub unsafe fn JetBeginSessionA(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: *const i8, szpassword: *const i8) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetBeginSessionA(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const i8, szpassword : *const i8) -> i32);
+    unsafe { JetBeginSessionA(instance, psesid as _, szusername, szpassword) }
 }
 #[inline]
-pub unsafe fn JetBeginSessionW(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: *mut u16, szpassword: *mut u16) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetBeginSessionW(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *mut u16, szpassword : *mut u16) -> i32);
-    unsafe { JetBeginSessionW(instance, psesid as _, szusername as _, szpassword as _) }
+pub unsafe fn JetBeginSessionW(instance: JET_INSTANCE, psesid: *mut JET_SESID, szusername: *const u16, szpassword: *const u16) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetBeginSessionW(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const u16, szpassword : *const u16) -> i32);
+    unsafe { JetBeginSessionW(instance, psesid as _, szusername, szpassword) }
 }
 #[inline]
 pub unsafe fn JetBeginTransaction(sesid: JET_SESID) -> i32 {
@@ -119,9 +119,9 @@ pub unsafe fn JetCommitTransaction2(sesid: JET_SESID, grbit: u32, cmsecdurableco
     unsafe { JetCommitTransaction2(sesid, grbit, cmsecdurablecommit, pcommitid as _) }
 }
 #[inline]
-pub unsafe fn JetCompactA(sesid: JET_SESID, szdatabasesrc: *mut i8, szdatabasedest: *mut i8, pfnstatus: JET_PFNSTATUS, pconvert: *mut JET_CONVERT_A, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCompactA(sesid : JET_SESID, szdatabasesrc : *mut i8, szdatabasedest : *mut i8, pfnstatus : JET_PFNSTATUS, pconvert : *mut JET_CONVERT_A, grbit : u32) -> i32);
-    unsafe { JetCompactA(sesid, szdatabasesrc as _, szdatabasedest as _, pfnstatus, pconvert as _, grbit) }
+pub unsafe fn JetCompactA(sesid: JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const JET_CONVERT_A, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCompactA(sesid : JET_SESID, szdatabasesrc : *const i8, szdatabasedest : *const i8, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : u32) -> i32);
+    unsafe { JetCompactA(sesid, szdatabasesrc, szdatabasedest, pfnstatus, pconvert, grbit) }
 }
 #[inline]
 pub unsafe fn JetCompactW(sesid: JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const JET_CONVERT_W, grbit: u32) -> i32 {
@@ -140,30 +140,30 @@ pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
     unsafe { JetConfigureProcessForCrashDump(grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabase2A(sesid: JET_SESID, szfilename: *mut i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2A(sesid : JET_SESID, szfilename : *mut i8, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
-    unsafe { JetCreateDatabase2A(sesid, szfilename as _, cpgdatabasesizemax, pdbid as _, grbit) }
+pub unsafe fn JetCreateDatabase2A(sesid: JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2A(sesid : JET_SESID, szfilename : *const i8, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
+    unsafe { JetCreateDatabase2A(sesid, szfilename, cpgdatabasesizemax, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabase2W(sesid: JET_SESID, szfilename: *mut u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2W(sesid : JET_SESID, szfilename : *mut u16, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
-    unsafe { JetCreateDatabase2W(sesid, szfilename as _, cpgdatabasesizemax, pdbid as _, grbit) }
+pub unsafe fn JetCreateDatabase2W(sesid: JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabase2W(sesid : JET_SESID, szfilename : *const u16, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
+    unsafe { JetCreateDatabase2W(sesid, szfilename, cpgdatabasesizemax, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabaseA(sesid: JET_SESID, szfilename: *mut i8, szconnect: *mut i8, pdbid: *mut u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseA(sesid : JET_SESID, szfilename : *mut i8, szconnect : *mut i8, pdbid : *mut u32, grbit : u32) -> i32);
-    unsafe { JetCreateDatabaseA(sesid, szfilename as _, szconnect as _, pdbid as _, grbit) }
+pub unsafe fn JetCreateDatabaseA(sesid: JET_SESID, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseA(sesid : JET_SESID, szfilename : *const i8, szconnect : *const i8, pdbid : *mut u32, grbit : u32) -> i32);
+    unsafe { JetCreateDatabaseA(sesid, szfilename, szconnect, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateDatabaseW(sesid: JET_SESID, szfilename: *mut u16, szconnect: *mut u16, pdbid: *mut u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseW(sesid : JET_SESID, szfilename : *mut u16, szconnect : *mut u16, pdbid : *mut u32, grbit : u32) -> i32);
-    unsafe { JetCreateDatabaseW(sesid, szfilename as _, szconnect as _, pdbid as _, grbit) }
+pub unsafe fn JetCreateDatabaseW(sesid: JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateDatabaseW(sesid : JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
+    unsafe { JetCreateDatabaseW(sesid, szfilename, szconnect, pdbid as _, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex2A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *mut JET_INDEXCREATE_A, cindexcreate: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateIndex2A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *mut JET_INDEXCREATE_A, cindexcreate : u32) -> i32);
-    unsafe { JetCreateIndex2A(sesid, tableid, pindexcreate as _, cindexcreate) }
+pub unsafe fn JetCreateIndex2A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE_A, cindexcreate: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateIndex2A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_A, cindexcreate : u32) -> i32);
+    unsafe { JetCreateIndex2A(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -173,15 +173,15 @@ pub unsafe fn JetCreateIndex2W(sesid: JET_SESID, tableid: super::StructuredStora
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex3A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *mut JET_INDEXCREATE2_A, cindexcreate: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateIndex3A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *mut JET_INDEXCREATE2_A, cindexcreate : u32) -> i32);
-    unsafe { JetCreateIndex3A(sesid, tableid, pindexcreate as _, cindexcreate) }
+pub unsafe fn JetCreateIndex3A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_A, cindexcreate: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateIndex3A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_A, cindexcreate : u32) -> i32);
+    unsafe { JetCreateIndex3A(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex3W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *mut JET_INDEXCREATE2_W, cindexcreate: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateIndex3W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *mut JET_INDEXCREATE2_W, cindexcreate : u32) -> i32);
-    unsafe { JetCreateIndex3W(sesid, tableid, pindexcreate as _, cindexcreate) }
+pub unsafe fn JetCreateIndex3W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE2_W, cindexcreate: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateIndex3W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_W, cindexcreate : u32) -> i32);
+    unsafe { JetCreateIndex3W(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -191,9 +191,9 @@ pub unsafe fn JetCreateIndex4A(sesid: JET_SESID, tableid: super::StructuredStora
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndex4W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *mut JET_INDEXCREATE3_W, cindexcreate: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateIndex4W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *mut JET_INDEXCREATE3_W, cindexcreate : u32) -> i32);
-    unsafe { JetCreateIndex4W(sesid, tableid, pindexcreate as _, cindexcreate) }
+pub unsafe fn JetCreateIndex4W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pindexcreate: *const JET_INDEXCREATE3_W, cindexcreate: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateIndex4W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_W, cindexcreate : u32) -> i32);
+    unsafe { JetCreateIndex4W(sesid, tableid, pindexcreate, cindexcreate) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -206,17 +206,17 @@ where
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateIndexW<P4>(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16, grbit: u32, szkey: P4, cbkey: u32, ldensity: u32) -> i32
+pub unsafe fn JetCreateIndexW<P4>(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, szkey: P4, cbkey: u32, ldensity: u32) -> i32
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("esent.dll" "system" fn JetCreateIndexW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut u16, grbit : u32, szkey : windows_core::PCWSTR, cbkey : u32, ldensity : u32) -> i32);
-    unsafe { JetCreateIndexW(sesid, tableid, szindexname as _, grbit, szkey.param().abi(), cbkey, ldensity) }
+    windows_core::link!("esent.dll" "system" fn JetCreateIndexW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32, szkey : windows_core::PCWSTR, cbkey : u32, ldensity : u32) -> i32);
+    unsafe { JetCreateIndexW(sesid, tableid, szindexname, grbit, szkey.param().abi(), cbkey, ldensity) }
 }
 #[inline]
-pub unsafe fn JetCreateInstance2A(pinstance: *mut JET_INSTANCE, szinstancename: *mut i8, szdisplayname: *mut i8, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateInstance2A(pinstance : *mut JET_INSTANCE, szinstancename : *mut i8, szdisplayname : *mut i8, grbit : u32) -> i32);
-    unsafe { JetCreateInstance2A(pinstance as _, szinstancename as _, szdisplayname as _, grbit) }
+pub unsafe fn JetCreateInstance2A(pinstance: *mut JET_INSTANCE, szinstancename: *const i8, szdisplayname: *const i8, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateInstance2A(pinstance : *mut JET_INSTANCE, szinstancename : *const i8, szdisplayname : *const i8, grbit : u32) -> i32);
+    unsafe { JetCreateInstance2A(pinstance as _, szinstancename, szdisplayname, grbit) }
 }
 #[inline]
 pub unsafe fn JetCreateInstance2W(pinstance: *mut JET_INSTANCE, szinstancename: *const u16, szdisplayname: *const u16, grbit: u32) -> i32 {
@@ -224,20 +224,20 @@ pub unsafe fn JetCreateInstance2W(pinstance: *mut JET_INSTANCE, szinstancename: 
     unsafe { JetCreateInstance2W(pinstance as _, szinstancename, szdisplayname, grbit) }
 }
 #[inline]
-pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: *mut i8) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateInstanceA(pinstance : *mut JET_INSTANCE, szinstancename : *mut i8) -> i32);
-    unsafe { JetCreateInstanceA(pinstance as _, szinstancename as _) }
+pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: *const i8) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateInstanceA(pinstance : *mut JET_INSTANCE, szinstancename : *const i8) -> i32);
+    unsafe { JetCreateInstanceA(pinstance as _, szinstancename) }
 }
 #[inline]
-pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: *mut u16) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateInstanceW(pinstance : *mut JET_INSTANCE, szinstancename : *mut u16) -> i32);
-    unsafe { JetCreateInstanceW(pinstance as _, szinstancename as _) }
+pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: *const u16) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateInstanceW(pinstance : *mut JET_INSTANCE, szinstancename : *const u16) -> i32);
+    unsafe { JetCreateInstanceW(pinstance as _, szinstancename) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableA(sesid: JET_SESID, dbid: u32, sztablename: *mut i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateTableA(sesid : JET_SESID, dbid : u32, sztablename : *mut i8, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
-    unsafe { JetCreateTableA(sesid, dbid, sztablename as _, lpages, ldensity, ptableid as _) }
+pub unsafe fn JetCreateTableA(sesid: JET_SESID, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateTableA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
+    unsafe { JetCreateTableA(sesid, dbid, sztablename, lpages, ldensity, ptableid as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -289,33 +289,33 @@ pub unsafe fn JetCreateTableColumnIndexW(sesid: JET_SESID, dbid: u32, ptablecrea
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetCreateTableW(sesid: JET_SESID, dbid: u32, sztablename: *mut u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetCreateTableW(sesid : JET_SESID, dbid : u32, sztablename : *mut u16, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
-    unsafe { JetCreateTableW(sesid, dbid, sztablename as _, lpages, ldensity, ptableid as _) }
+pub unsafe fn JetCreateTableW(sesid: JET_SESID, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetCreateTableW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
+    unsafe { JetCreateTableW(sesid, dbid, sztablename, lpages, ldensity, ptableid as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2A(sesid: JET_SESID, dbid: u32, sztablename: *mut i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDefragment2A(sesid : JET_SESID, dbid : u32, sztablename : *mut i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
-    unsafe { JetDefragment2A(sesid, dbid, sztablename as _, pcpasses as _, pcseconds as _, callback, grbit) }
+pub unsafe fn JetDefragment2A(sesid: JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDefragment2A(sesid : JET_SESID, dbid : u32, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
+    unsafe { JetDefragment2A(sesid, dbid, sztablename, pcpasses as _, pcseconds as _, callback, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment2W(sesid: JET_SESID, dbid: u32, sztablename: *mut u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDefragment2W(sesid : JET_SESID, dbid : u32, sztablename : *mut u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
-    unsafe { JetDefragment2W(sesid, dbid, sztablename as _, pcpasses as _, pcseconds as _, callback, grbit) }
+pub unsafe fn JetDefragment2W(sesid: JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDefragment2W(sesid : JET_SESID, dbid : u32, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
+    unsafe { JetDefragment2W(sesid, dbid, sztablename, pcpasses as _, pcseconds as _, callback, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3A(sesid: JET_SESID, szdatabasename: *mut i8, sztablename: *mut i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *mut core::ffi::c_void, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDefragment3A(sesid : JET_SESID, szdatabasename : *mut i8, sztablename : *mut i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *mut core::ffi::c_void, grbit : u32) -> i32);
-    unsafe { JetDefragment3A(sesid, szdatabasename as _, sztablename as _, pcpasses as _, pcseconds as _, callback, pvcontext as _, grbit) }
+pub unsafe fn JetDefragment3A(sesid: JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const core::ffi::c_void, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDefragment3A(sesid : JET_SESID, szdatabasename : *const i8, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const core::ffi::c_void, grbit : u32) -> i32);
+    unsafe { JetDefragment3A(sesid, szdatabasename, sztablename, pcpasses as _, pcseconds as _, callback, pvcontext, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDefragment3W(sesid: JET_SESID, szdatabasename: *mut u16, sztablename: *mut u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *mut core::ffi::c_void, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDefragment3W(sesid : JET_SESID, szdatabasename : *mut u16, sztablename : *mut u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *mut core::ffi::c_void, grbit : u32) -> i32);
-    unsafe { JetDefragment3W(sesid, szdatabasename as _, sztablename as _, pcpasses as _, pcseconds as _, callback, pvcontext as _, grbit) }
+pub unsafe fn JetDefragment3W(sesid: JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const core::ffi::c_void, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDefragment3W(sesid : JET_SESID, szdatabasename : *const u16, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const core::ffi::c_void, grbit : u32) -> i32);
+    unsafe { JetDefragment3W(sesid, szdatabasename, sztablename, pcpasses as _, pcseconds as _, callback, pvcontext, grbit) }
 }
 #[inline]
 pub unsafe fn JetDefragmentA(sesid: JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32 {
@@ -335,27 +335,27 @@ pub unsafe fn JetDelete(sesid: JET_SESID, tableid: super::StructuredStorage::JET
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumn2A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *mut i8, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *mut i8, grbit : u32) -> i32);
-    unsafe { JetDeleteColumn2A(sesid, tableid, szcolumnname as _, grbit) }
+pub unsafe fn JetDeleteColumn2A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, grbit : u32) -> i32);
+    unsafe { JetDeleteColumn2A(sesid, tableid, szcolumnname, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumn2W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *mut u16, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *mut u16, grbit : u32) -> i32);
-    unsafe { JetDeleteColumn2W(sesid, tableid, szcolumnname as _, grbit) }
+pub unsafe fn JetDeleteColumn2W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumn2W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, grbit : u32) -> i32);
+    unsafe { JetDeleteColumn2W(sesid, tableid, szcolumnname, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumnA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *mut i8) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumnA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *mut i8) -> i32);
-    unsafe { JetDeleteColumnA(sesid, tableid, szcolumnname as _) }
+pub unsafe fn JetDeleteColumnA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumnA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8) -> i32);
+    unsafe { JetDeleteColumnA(sesid, tableid, szcolumnname) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetDeleteColumnW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *mut u16) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDeleteColumnW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *mut u16) -> i32);
-    unsafe { JetDeleteColumnW(sesid, tableid, szcolumnname as _) }
+pub unsafe fn JetDeleteColumnW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDeleteColumnW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16) -> i32);
+    unsafe { JetDeleteColumnW(sesid, tableid, szcolumnname) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -370,19 +370,19 @@ pub unsafe fn JetDeleteIndexW(sesid: JET_SESID, tableid: super::StructuredStorag
     unsafe { JetDeleteIndexW(sesid, tableid, szindexname) }
 }
 #[inline]
-pub unsafe fn JetDeleteTableA(sesid: JET_SESID, dbid: u32, sztablename: *mut i8) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDeleteTableA(sesid : JET_SESID, dbid : u32, sztablename : *mut i8) -> i32);
-    unsafe { JetDeleteTableA(sesid, dbid, sztablename as _) }
+pub unsafe fn JetDeleteTableA(sesid: JET_SESID, dbid: u32, sztablename: *const i8) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDeleteTableA(sesid : JET_SESID, dbid : u32, sztablename : *const i8) -> i32);
+    unsafe { JetDeleteTableA(sesid, dbid, sztablename) }
 }
 #[inline]
-pub unsafe fn JetDeleteTableW(sesid: JET_SESID, dbid: u32, sztablename: *mut u16) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDeleteTableW(sesid : JET_SESID, dbid : u32, sztablename : *mut u16) -> i32);
-    unsafe { JetDeleteTableW(sesid, dbid, sztablename as _) }
+pub unsafe fn JetDeleteTableW(sesid: JET_SESID, dbid: u32, sztablename: *const u16) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDeleteTableW(sesid : JET_SESID, dbid : u32, sztablename : *const u16) -> i32);
+    unsafe { JetDeleteTableW(sesid, dbid, sztablename) }
 }
 #[inline]
-pub unsafe fn JetDetachDatabase2A(sesid: JET_SESID, szfilename: *mut i8, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDetachDatabase2A(sesid : JET_SESID, szfilename : *mut i8, grbit : u32) -> i32);
-    unsafe { JetDetachDatabase2A(sesid, szfilename as _, grbit) }
+pub unsafe fn JetDetachDatabase2A(sesid: JET_SESID, szfilename: *const i8, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDetachDatabase2A(sesid : JET_SESID, szfilename : *const i8, grbit : u32) -> i32);
+    unsafe { JetDetachDatabase2A(sesid, szfilename, grbit) }
 }
 #[inline]
 pub unsafe fn JetDetachDatabase2W(sesid: JET_SESID, szfilename: *const u16, grbit: u32) -> i32 {
@@ -395,9 +395,9 @@ pub unsafe fn JetDetachDatabaseA(sesid: JET_SESID, szfilename: *const i8) -> i32
     unsafe { JetDetachDatabaseA(sesid, szfilename) }
 }
 #[inline]
-pub unsafe fn JetDetachDatabaseW(sesid: JET_SESID, szfilename: *mut u16) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetDetachDatabaseW(sesid : JET_SESID, szfilename : *mut u16) -> i32);
-    unsafe { JetDetachDatabaseW(sesid, szfilename as _) }
+pub unsafe fn JetDetachDatabaseW(sesid: JET_SESID, szfilename: *const u16) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetDetachDatabaseW(sesid : JET_SESID, szfilename : *const u16) -> i32);
+    unsafe { JetDetachDatabaseW(sesid, szfilename) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -412,9 +412,9 @@ pub unsafe fn JetDupSession(sesid: JET_SESID, psesid: *mut JET_SESID) -> i32 {
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEnableMultiInstanceA(psetsysparam: *mut JET_SETSYSPARAM_A, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceA(psetsysparam : *mut JET_SETSYSPARAM_A, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
-    unsafe { JetEnableMultiInstanceA(psetsysparam as _, csetsysparam, pcsetsucceed as _) }
+pub unsafe fn JetEnableMultiInstanceA(psetsysparam: *const JET_SETSYSPARAM_A, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
+    unsafe { JetEnableMultiInstanceA(psetsysparam, csetsysparam, pcsetsucceed as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -444,20 +444,20 @@ pub unsafe fn JetEndSession(sesid: JET_SESID, grbit: u32) -> i32 {
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEnumerateColumns(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *mut JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: *mut core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetEnumerateColumns(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cenumcolumnid : u32, rgenumcolumnid : *mut JET_ENUMCOLUMNID, pcenumcolumn : *mut u32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : *mut core::ffi::c_void, cbdatamost : u32, grbit : u32) -> i32);
-    unsafe { JetEnumerateColumns(sesid, tableid, cenumcolumnid, rgenumcolumnid as _, pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext as _, cbdatamost, grbit) }
+pub unsafe fn JetEnumerateColumns(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: *const core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetEnumerateColumns(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cenumcolumnid : u32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut u32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : *const core::ffi::c_void, cbdatamost : u32, grbit : u32) -> i32);
+    unsafe { JetEnumerateColumns(sesid, tableid, cenumcolumnid, rgenumcolumnid, pcenumcolumn as _, prgenumcolumn as _, pfnrealloc, pvrealloccontext, cbdatamost, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetEscrowUpdate(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pv: *mut core::ffi::c_void, cbmax: u32, pvold: *mut core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetEscrowUpdate(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pv : *mut core::ffi::c_void, cbmax : u32, pvold : *mut core::ffi::c_void, cboldmax : u32, pcboldactual : *mut u32, grbit : u32) -> i32);
-    unsafe { JetEscrowUpdate(sesid, tableid, columnid, pv as _, cbmax, pvold as _, cboldmax, pcboldactual as _, grbit) }
+pub unsafe fn JetEscrowUpdate(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pv: *const core::ffi::c_void, cbmax: u32, pvold: *mut core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetEscrowUpdate(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pv : *const core::ffi::c_void, cbmax : u32, pvold : *mut core::ffi::c_void, cboldmax : u32, pcboldactual : *mut u32, grbit : u32) -> i32);
+    unsafe { JetEscrowUpdate(sesid, tableid, columnid, pv, cbmax, pvold as _, cboldmax, pcboldactual as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *mut i8, szlogpath: *mut i8, rgrstmap: *mut JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *mut i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *mut i8, sztargetinstancelogpath: *mut i8, sztargetinstancecheckpointpath: *mut i8, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : *mut i8, szlogpath : *mut i8, rgrstmap : *mut JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *mut i8, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *mut i8, sztargetinstancelogpath : *mut i8, sztargetinstancecheckpointpath : *mut i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetExternalRestore2A(szcheckpointfilepath as _, szlogpath as _, rgrstmap as _, crstfilemap, szbackuplogpath as _, ploginfo as _, sztargetinstancename as _, sztargetinstancelogpath as _, sztargetinstancecheckpointpath as _, pfn) }
+pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *const i8, sztargetinstancelogpath : *const i8, sztargetinstancecheckpointpath : *const i8, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetExternalRestore2A(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, ploginfo as _, sztargetinstancename, sztargetinstancelogpath, sztargetinstancecheckpointpath, pfn) }
 }
 #[inline]
 pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: JET_PFNSTATUS) -> i32 {
@@ -465,14 +465,14 @@ pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: 
     unsafe { JetExternalRestore2W(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, ploginfo as _, sztargetinstancename, sztargetinstancelogpath, sztargetinstancecheckpointpath, pfn) }
 }
 #[inline]
-pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *mut i8, szlogpath: *mut i8, rgrstmap: *mut JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *mut i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetExternalRestoreA(szcheckpointfilepath : *mut i8, szlogpath : *mut i8, rgrstmap : *mut JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *mut i8, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetExternalRestoreA(szcheckpointfilepath as _, szlogpath as _, rgrstmap as _, crstfilemap, szbackuplogpath as _, genlow, genhigh, pfn) }
+pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetExternalRestoreA(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetExternalRestoreA(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, genlow, genhigh, pfn) }
 }
 #[inline]
-pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *mut u16, szlogpath: *mut u16, rgrstmap: *mut JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *mut u16, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetExternalRestoreW(szcheckpointfilepath : *mut u16, szlogpath : *mut u16, rgrstmap : *mut JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *mut u16, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetExternalRestoreW(szcheckpointfilepath as _, szlogpath as _, rgrstmap as _, crstfilemap, szbackuplogpath as _, genlow, genhigh, pfn) }
+pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetExternalRestoreW(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetExternalRestoreW(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, genlow, genhigh, pfn) }
 }
 #[inline]
 pub unsafe fn JetFreeBuffer<P0>(pbbuf: P0) -> i32
@@ -509,14 +509,14 @@ pub unsafe fn JetGetBookmark(sesid: JET_SESID, tableid: super::StructuredStorage
     unsafe { JetGetBookmark(sesid, tableid, pvbookmark as _, cbmax, pcbactual as _) }
 }
 #[inline]
-pub unsafe fn JetGetColumnInfoA(sesid: JET_SESID, dbid: u32, sztablename: *mut i8, pcolumnnameorid: *mut i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoA(sesid : JET_SESID, dbid : u32, sztablename : *mut i8, pcolumnnameorid : *mut i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    unsafe { JetGetColumnInfoA(sesid, dbid, sztablename as _, pcolumnnameorid as _, pvresult as _, cbmax, infolevel) }
+pub unsafe fn JetGetColumnInfoA(sesid: JET_SESID, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, pcolumnnameorid : *const i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+    unsafe { JetGetColumnInfoA(sesid, dbid, sztablename, pcolumnnameorid, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetColumnInfoW(sesid: JET_SESID, dbid: u32, sztablename: *mut u16, pwcolumnnameorid: *mut u16, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoW(sesid : JET_SESID, dbid : u32, sztablename : *mut u16, pwcolumnnameorid : *mut u16, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    unsafe { JetGetColumnInfoW(sesid, dbid, sztablename as _, pwcolumnnameorid as _, pvresult as _, cbmax, infolevel) }
+pub unsafe fn JetGetColumnInfoW(sesid: JET_SESID, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetColumnInfoW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, pwcolumnnameorid : *const u16, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+    unsafe { JetGetColumnInfoW(sesid, dbid, sztablename, pwcolumnnameorid, pvresult as _, cbmax, infolevel) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -537,14 +537,14 @@ pub unsafe fn JetGetCursorInfo(sesid: JET_SESID, tableid: super::StructuredStora
     unsafe { JetGetCursorInfo(sesid, tableid, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *mut i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoA(szdatabasename : *mut i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    unsafe { JetGetDatabaseFileInfoA(szdatabasename as _, pvresult as _, cbmax, infolevel) }
+pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoA(szdatabasename : *const i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+    unsafe { JetGetDatabaseFileInfoA(szdatabasename, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *mut u16, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoW(szdatabasename : *mut u16, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    unsafe { JetGetDatabaseFileInfoW(szdatabasename as _, pvresult as _, cbmax, infolevel) }
+pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetDatabaseFileInfoW(szdatabasename : *const u16, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+    unsafe { JetGetDatabaseFileInfoW(szdatabasename, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
 pub unsafe fn JetGetDatabaseInfoA(sesid: JET_SESID, dbid: u32, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -562,14 +562,14 @@ pub unsafe fn JetGetErrorInfoW(pvcontext: *const core::ffi::c_void, pvresult: *m
     unsafe { JetGetErrorInfoW(pvcontext, pvresult as _, cbmax, infolevel, grbit) }
 }
 #[inline]
-pub unsafe fn JetGetIndexInfoA(sesid: JET_SESID, dbid: u32, sztablename: *mut i8, szindexname: *mut i8, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoA(sesid : JET_SESID, dbid : u32, sztablename : *mut i8, szindexname : *mut i8, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
-    unsafe { JetGetIndexInfoA(sesid, dbid, sztablename as _, szindexname as _, pvresult as _, cbresult, infolevel) }
+pub unsafe fn JetGetIndexInfoA(sesid: JET_SESID, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, szindexname : *const i8, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
+    unsafe { JetGetIndexInfoA(sesid, dbid, sztablename, szindexname, pvresult as _, cbresult, infolevel) }
 }
 #[inline]
-pub unsafe fn JetGetIndexInfoW(sesid: JET_SESID, dbid: u32, sztablename: *mut u16, szindexname: *mut u16, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoW(sesid : JET_SESID, dbid : u32, sztablename : *mut u16, szindexname : *mut u16, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
-    unsafe { JetGetIndexInfoW(sesid, dbid, sztablename as _, szindexname as _, pvresult as _, cbresult, infolevel) }
+pub unsafe fn JetGetIndexInfoW(sesid: JET_SESID, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetIndexInfoW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, szindexname : *const u16, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
+    unsafe { JetGetIndexInfoW(sesid, dbid, sztablename, szindexname, pvresult as _, cbresult, infolevel) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -631,9 +631,9 @@ pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32)
     unsafe { JetGetLogInfoW(szzlogs as _, cbmax, pcbactual as _) }
 }
 #[inline]
-pub unsafe fn JetGetObjectInfoA(sesid: JET_SESID, dbid: u32, objtyp: u32, szcontainername: *mut i8, szobjectname: *mut i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetObjectInfoA(sesid : JET_SESID, dbid : u32, objtyp : u32, szcontainername : *mut i8, szobjectname : *mut i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    unsafe { JetGetObjectInfoA(sesid, dbid, objtyp, szcontainername as _, szobjectname as _, pvresult as _, cbmax, infolevel) }
+pub unsafe fn JetGetObjectInfoA(sesid: JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetObjectInfoA(sesid : JET_SESID, dbid : u32, objtyp : u32, szcontainername : *const i8, szobjectname : *const i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+    unsafe { JetGetObjectInfoA(sesid, dbid, objtyp, szcontainername, szobjectname, pvresult as _, cbmax, infolevel) }
 }
 #[inline]
 pub unsafe fn JetGetObjectInfoW(sesid: JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -683,9 +683,9 @@ pub unsafe fn JetGetSystemParameterW(instance: JET_INSTANCE, sesid: JET_SESID, p
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableColumnInfoA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *mut i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetTableColumnInfoA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *mut i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    unsafe { JetGetTableColumnInfoA(sesid, tableid, szcolumnname as _, pvresult as _, cbmax, infolevel) }
+pub unsafe fn JetGetTableColumnInfoA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetTableColumnInfoA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+    unsafe { JetGetTableColumnInfoA(sesid, tableid, szcolumnname, pvresult as _, cbmax, infolevel) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -701,9 +701,9 @@ pub unsafe fn JetGetTableIndexInfoA(sesid: JET_SESID, tableid: super::Structured
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGetTableIndexInfoW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGetTableIndexInfoW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut u16, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
-    unsafe { JetGetTableIndexInfoW(sesid, tableid, szindexname as _, pvresult as _, cbresult, infolevel) }
+pub unsafe fn JetGetTableIndexInfoW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGetTableIndexInfoW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
+    unsafe { JetGetTableIndexInfoW(sesid, tableid, szindexname, pvresult as _, cbresult, infolevel) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -739,15 +739,15 @@ pub unsafe fn JetGetVersion(sesid: JET_SESID, pwversion: *mut u32) -> i32 {
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGotoBookmark(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut core::ffi::c_void, cbbookmark: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGotoBookmark(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut core::ffi::c_void, cbbookmark : u32) -> i32);
-    unsafe { JetGotoBookmark(sesid, tableid, pvbookmark as _, cbbookmark) }
+pub unsafe fn JetGotoBookmark(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *const core::ffi::c_void, cbbookmark: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGotoBookmark(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *const core::ffi::c_void, cbbookmark : u32) -> i32);
+    unsafe { JetGotoBookmark(sesid, tableid, pvbookmark, cbbookmark) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetGotoPosition(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precpos: *mut JET_RECPOS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGotoPosition(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precpos : *mut JET_RECPOS) -> i32);
-    unsafe { JetGotoPosition(sesid, tableid, precpos as _) }
+pub unsafe fn JetGotoPosition(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precpos: *const JET_RECPOS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGotoPosition(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precpos : *const JET_RECPOS) -> i32);
+    unsafe { JetGotoPosition(sesid, tableid, precpos) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -756,9 +756,9 @@ pub unsafe fn JetGotoSecondaryIndexBookmark(sesid: JET_SESID, tableid: super::St
     unsafe { JetGotoSecondaryIndexBookmark(sesid, tableid, pvsecondarykey, cbsecondarykey, pvprimarybookmark, cbprimarybookmark, grbit) }
 }
 #[inline]
-pub unsafe fn JetGrowDatabase(sesid: JET_SESID, dbid: u32, cpg: u32, pcpgreal: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetGrowDatabase(sesid : JET_SESID, dbid : u32, cpg : u32, pcpgreal : *mut u32) -> i32);
-    unsafe { JetGrowDatabase(sesid, dbid, cpg, pcpgreal as _) }
+pub unsafe fn JetGrowDatabase(sesid: JET_SESID, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetGrowDatabase(sesid : JET_SESID, dbid : u32, cpg : u32, pcpgreal : *const u32) -> i32);
+    unsafe { JetGrowDatabase(sesid, dbid, cpg, pcpgreal) }
 }
 #[inline]
 pub unsafe fn JetIdle(sesid: JET_SESID, grbit: u32) -> i32 {
@@ -782,20 +782,20 @@ pub unsafe fn JetInit2(pinstance: *mut JET_INSTANCE, grbit: u32) -> i32 {
     unsafe { JetInit2(pinstance as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetInit3A(pinstance: *mut JET_INSTANCE, prstinfo: *mut JET_RSTINFO_A, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetInit3A(pinstance : *mut JET_INSTANCE, prstinfo : *mut JET_RSTINFO_A, grbit : u32) -> i32);
-    unsafe { JetInit3A(pinstance as _, prstinfo as _, grbit) }
+pub unsafe fn JetInit3A(pinstance: *mut JET_INSTANCE, prstinfo: *const JET_RSTINFO_A, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetInit3A(pinstance : *mut JET_INSTANCE, prstinfo : *const JET_RSTINFO_A, grbit : u32) -> i32);
+    unsafe { JetInit3A(pinstance as _, prstinfo, grbit) }
 }
 #[inline]
-pub unsafe fn JetInit3W(pinstance: *mut JET_INSTANCE, prstinfo: *mut JET_RSTINFO_W, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetInit3W(pinstance : *mut JET_INSTANCE, prstinfo : *mut JET_RSTINFO_W, grbit : u32) -> i32);
-    unsafe { JetInit3W(pinstance as _, prstinfo as _, grbit) }
+pub unsafe fn JetInit3W(pinstance: *mut JET_INSTANCE, prstinfo: *const JET_RSTINFO_W, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetInit3W(pinstance : *mut JET_INSTANCE, prstinfo : *const JET_RSTINFO_W, grbit : u32) -> i32);
+    unsafe { JetInit3W(pinstance as _, prstinfo, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetIntersectIndexes(sesid: JET_SESID, rgindexrange: *mut JET_INDEXRANGE, cindexrange: u32, precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetIntersectIndexes(sesid : JET_SESID, rgindexrange : *mut JET_INDEXRANGE, cindexrange : u32, precordlist : *mut JET_RECORDLIST, grbit : u32) -> i32);
-    unsafe { JetIntersectIndexes(sesid, rgindexrange as _, cindexrange, precordlist as _, grbit) }
+pub unsafe fn JetIntersectIndexes(sesid: JET_SESID, rgindexrange: *const JET_INDEXRANGE, cindexrange: u32, precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetIntersectIndexes(sesid : JET_SESID, rgindexrange : *const JET_INDEXRANGE, cindexrange : u32, precordlist : *mut JET_RECORDLIST, grbit : u32) -> i32);
+    unsafe { JetIntersectIndexes(sesid, rgindexrange, cindexrange, precordlist as _, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -874,27 +874,27 @@ pub unsafe fn JetOpenDatabaseA(sesid: JET_SESID, szfilename: *const i8, szconnec
     unsafe { JetOpenDatabaseA(sesid, szfilename, szconnect, pdbid as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetOpenDatabaseW(sesid: JET_SESID, szfilename: *mut u16, szconnect: *mut u16, pdbid: *mut u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenDatabaseW(sesid : JET_SESID, szfilename : *mut u16, szconnect : *mut u16, pdbid : *mut u32, grbit : u32) -> i32);
-    unsafe { JetOpenDatabaseW(sesid, szfilename as _, szconnect as _, pdbid as _, grbit) }
+pub unsafe fn JetOpenDatabaseW(sesid: JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenDatabaseW(sesid : JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
+    unsafe { JetOpenDatabaseW(sesid, szfilename, szconnect, pdbid as _, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenFileA(szfilename: *mut i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenFileA(szfilename : *mut i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
-    unsafe { JetOpenFileA(szfilename as _, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
+pub unsafe fn JetOpenFileA(szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenFileA(szfilename : *const i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
+    unsafe { JetOpenFileA(szfilename, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenFileInstanceA(instance: JET_INSTANCE, szfilename: *mut i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceA(instance : JET_INSTANCE, szfilename : *mut i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
-    unsafe { JetOpenFileInstanceA(instance, szfilename as _, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
+pub unsafe fn JetOpenFileInstanceA(instance: JET_INSTANCE, szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceA(instance : JET_INSTANCE, szfilename : *const i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
+    unsafe { JetOpenFileInstanceA(instance, szfilename, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenFileInstanceW(instance: JET_INSTANCE, szfilename: *mut u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceW(instance : JET_INSTANCE, szfilename : *mut u16, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
-    unsafe { JetOpenFileInstanceW(instance, szfilename as _, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
+pub unsafe fn JetOpenFileInstanceW(instance: JET_INSTANCE, szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenFileInstanceW(instance : JET_INSTANCE, szfilename : *const u16, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
+    unsafe { JetOpenFileInstanceW(instance, szfilename, phffile as _, pulfilesizelow as _, pulfilesizehigh as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -910,21 +910,21 @@ pub unsafe fn JetOpenTableA(sesid: JET_SESID, dbid: u32, sztablename: *const i8,
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTableW(sesid: JET_SESID, dbid: u32, sztablename: *mut u16, pvparameters: *mut core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenTableW(sesid : JET_SESID, dbid : u32, sztablename : *mut u16, pvparameters : *mut core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
-    unsafe { JetOpenTableW(sesid, dbid, sztablename as _, pvparameters as _, cbparameters, grbit, ptableid as _) }
+pub unsafe fn JetOpenTableW(sesid: JET_SESID, dbid: u32, sztablename: *const u16, pvparameters: *const core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenTableW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, pvparameters : *const core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
+    unsafe { JetOpenTableW(sesid, dbid, sztablename, pvparameters, cbparameters, grbit, ptableid as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable(sesid: JET_SESID, prgcolumndef: *mut JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenTempTable(sesid : JET_SESID, prgcolumndef : *mut JET_COLUMNDEF, ccolumn : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
-    unsafe { JetOpenTempTable(sesid, prgcolumndef as _, ccolumn, grbit, ptableid as _, prgcolumnid as _) }
+pub unsafe fn JetOpenTempTable(sesid: JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenTempTable(sesid : JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
+    unsafe { JetOpenTempTable(sesid, prgcolumndef, ccolumn, grbit, ptableid as _, prgcolumnid as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTempTable2(sesid: JET_SESID, prgcolumndef: *mut JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenTempTable2(sesid : JET_SESID, prgcolumndef : *mut JET_COLUMNDEF, ccolumn : u32, lcid : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
-    unsafe { JetOpenTempTable2(sesid, prgcolumndef as _, ccolumn, lcid, grbit, ptableid as _, prgcolumnid as _) }
+pub unsafe fn JetOpenTempTable2(sesid: JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenTempTable2(sesid : JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, lcid : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
+    unsafe { JetOpenTempTable2(sesid, prgcolumndef, ccolumn, lcid, grbit, ptableid as _, prgcolumnid as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -940,9 +940,9 @@ pub unsafe fn JetOpenTemporaryTable(sesid: JET_SESID, popentemporarytable: *cons
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetOpenTemporaryTable2(sesid: JET_SESID, popentemporarytable: *mut JET_OPENTEMPORARYTABLE2) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetOpenTemporaryTable2(sesid : JET_SESID, popentemporarytable : *mut JET_OPENTEMPORARYTABLE2) -> i32);
-    unsafe { JetOpenTemporaryTable2(sesid, popentemporarytable as _) }
+pub unsafe fn JetOpenTemporaryTable2(sesid: JET_SESID, popentemporarytable: *const JET_OPENTEMPORARYTABLE2) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetOpenTemporaryTable2(sesid : JET_SESID, popentemporarytable : *const JET_OPENTEMPORARYTABLE2) -> i32);
+    unsafe { JetOpenTemporaryTable2(sesid, popentemporarytable) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -952,15 +952,15 @@ pub unsafe fn JetPrepareUpdate(sesid: JET_SESID, tableid: super::StructuredStora
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetPrereadIndexRanges(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgindexranges: *mut JET_INDEX_RANGE, cindexranges: u32, pcrangespreread: *mut u32, rgcolumnidpreread: *mut u32, ccolumnidpreread: u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetPrereadIndexRanges(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgindexranges : *mut JET_INDEX_RANGE, cindexranges : u32, pcrangespreread : *mut u32, rgcolumnidpreread : *mut u32, ccolumnidpreread : u32, grbit : u32) -> i32);
-    unsafe { JetPrereadIndexRanges(sesid, tableid, rgindexranges as _, cindexranges, pcrangespreread as _, rgcolumnidpreread as _, ccolumnidpreread, grbit) }
+pub unsafe fn JetPrereadIndexRanges(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgindexranges: *const JET_INDEX_RANGE, cindexranges: u32, pcrangespreread: *mut u32, rgcolumnidpreread: *const u32, ccolumnidpreread: u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetPrereadIndexRanges(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgindexranges : *const JET_INDEX_RANGE, cindexranges : u32, pcrangespreread : *mut u32, rgcolumnidpreread : *const u32, ccolumnidpreread : u32, grbit : u32) -> i32);
+    unsafe { JetPrereadIndexRanges(sesid, tableid, rgindexranges, cindexranges, pcrangespreread as _, rgcolumnidpreread, ccolumnidpreread, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetPrereadKeys(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgpvkeys: *mut *mut core::ffi::c_void, rgcbkeys: *mut u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetPrereadKeys(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgpvkeys : *mut *mut core::ffi::c_void, rgcbkeys : *mut u32, ckeys : i32, pckeyspreread : *mut i32, grbit : u32) -> i32);
-    unsafe { JetPrereadKeys(sesid, tableid, rgpvkeys as _, rgcbkeys as _, ckeys, pckeyspreread as _, grbit) }
+pub unsafe fn JetPrereadKeys(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgpvkeys: *const *const core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetPrereadKeys(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgpvkeys : *const *const core::ffi::c_void, rgcbkeys : *const u32, ckeys : i32, pckeyspreread : *mut i32, grbit : u32) -> i32);
+    unsafe { JetPrereadKeys(sesid, tableid, rgpvkeys, rgcbkeys, ckeys, pckeyspreread as _, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -982,25 +982,25 @@ pub unsafe fn JetRegisterCallback(sesid: JET_SESID, tableid: super::StructuredSt
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRenameColumnA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *mut i8, sznamenew: *mut i8, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRenameColumnA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *mut i8, sznamenew : *mut i8, grbit : u32) -> i32);
-    unsafe { JetRenameColumnA(sesid, tableid, szname as _, sznamenew as _, grbit) }
+pub unsafe fn JetRenameColumnA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRenameColumnA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *const i8, sznamenew : *const i8, grbit : u32) -> i32);
+    unsafe { JetRenameColumnA(sesid, tableid, szname, sznamenew, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetRenameColumnW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *mut u16, sznamenew: *mut u16, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRenameColumnW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *mut u16, sznamenew : *mut u16, grbit : u32) -> i32);
-    unsafe { JetRenameColumnW(sesid, tableid, szname as _, sznamenew as _, grbit) }
+pub unsafe fn JetRenameColumnW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const u16, sznamenew: *const u16, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRenameColumnW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *const u16, sznamenew : *const u16, grbit : u32) -> i32);
+    unsafe { JetRenameColumnW(sesid, tableid, szname, sznamenew, grbit) }
 }
 #[inline]
-pub unsafe fn JetRenameTableA(sesid: JET_SESID, dbid: u32, szname: *mut i8, sznamenew: *mut i8) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRenameTableA(sesid : JET_SESID, dbid : u32, szname : *mut i8, sznamenew : *mut i8) -> i32);
-    unsafe { JetRenameTableA(sesid, dbid, szname as _, sznamenew as _) }
+pub unsafe fn JetRenameTableA(sesid: JET_SESID, dbid: u32, szname: *const i8, sznamenew: *const i8) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRenameTableA(sesid : JET_SESID, dbid : u32, szname : *const i8, sznamenew : *const i8) -> i32);
+    unsafe { JetRenameTableA(sesid, dbid, szname, sznamenew) }
 }
 #[inline]
-pub unsafe fn JetRenameTableW(sesid: JET_SESID, dbid: u32, szname: *mut u16, sznamenew: *mut u16) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRenameTableW(sesid : JET_SESID, dbid : u32, szname : *mut u16, sznamenew : *mut u16) -> i32);
-    unsafe { JetRenameTableW(sesid, dbid, szname as _, sznamenew as _) }
+pub unsafe fn JetRenameTableW(sesid: JET_SESID, dbid: u32, szname: *const u16, sznamenew: *const u16) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRenameTableW(sesid : JET_SESID, dbid : u32, szname : *const u16, sznamenew : *const u16) -> i32);
+    unsafe { JetRenameTableW(sesid, dbid, szname, sznamenew) }
 }
 #[inline]
 pub unsafe fn JetResetSessionContext(sesid: JET_SESID) -> i32 {
@@ -1019,34 +1019,34 @@ pub unsafe fn JetResizeDatabase(sesid: JET_SESID, dbid: u32, cpgtarget: u32, pcp
     unsafe { JetResizeDatabase(sesid, dbid, cpgtarget, pcpgactual as _, grbit) }
 }
 #[inline]
-pub unsafe fn JetRestore2A(sz: *mut i8, szdest: *mut i8, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRestore2A(sz : *mut i8, szdest : *mut i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestore2A(sz as _, szdest as _, pfn) }
+pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRestore2A(sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetRestore2A(sz, szdest, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestore2W(sz: *mut u16, szdest: *mut u16, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRestore2W(sz : *mut u16, szdest : *mut u16, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestore2W(sz as _, szdest as _, pfn) }
+pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRestore2W(sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetRestore2W(sz, szdest, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreA(szsource: *mut i8, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRestoreA(szsource : *mut i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreA(szsource as _, pfn) }
+pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRestoreA(szsource : *const i8, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetRestoreA(szsource, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreInstanceA(instance: JET_INSTANCE, sz: *mut i8, szdest: *mut i8, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : *mut i8, szdest : *mut i8, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreInstanceA(instance, sz as _, szdest as _, pfn) }
+pub unsafe fn JetRestoreInstanceA(instance: JET_INSTANCE, sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetRestoreInstanceA(instance, sz, szdest, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreInstanceW(instance: JET_INSTANCE, sz: *mut u16, szdest: *mut u16, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : *mut u16, szdest : *mut u16, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreInstanceW(instance, sz as _, szdest as _, pfn) }
+pub unsafe fn JetRestoreInstanceW(instance: JET_INSTANCE, sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetRestoreInstanceW(instance, sz, szdest, pfn) }
 }
 #[inline]
-pub unsafe fn JetRestoreW(szsource: *mut u16, pfn: JET_PFNSTATUS) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetRestoreW(szsource : *mut u16, pfn : JET_PFNSTATUS) -> i32);
-    unsafe { JetRestoreW(szsource as _, pfn) }
+pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetRestoreW(szsource : *const u16, pfn : JET_PFNSTATUS) -> i32);
+    unsafe { JetRestoreW(szsource, pfn) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1079,37 +1079,37 @@ pub unsafe fn JetSeek(sesid: JET_SESID, tableid: super::StructuredStorage::JET_T
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetColumn(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *mut core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *mut JET_SETINFO) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetColumn(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *mut core::ffi::c_void, cbdata : u32, grbit : u32, psetinfo : *mut JET_SETINFO) -> i32);
-    unsafe { JetSetColumn(sesid, tableid, columnid, pvdata as _, cbdata, grbit, psetinfo as _) }
+pub unsafe fn JetSetColumn(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *const core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetColumn(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *const core::ffi::c_void, cbdata : u32, grbit : u32, psetinfo : *const JET_SETINFO) -> i32);
+    unsafe { JetSetColumn(sesid, tableid, columnid, pvdata, cbdata, grbit, psetinfo) }
 }
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueA(sesid: JET_SESID, dbid: u32, sztablename: *mut i8, szcolumnname: *mut i8, pvdata: *mut core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueA(sesid : JET_SESID, dbid : u32, sztablename : *mut i8, szcolumnname : *mut i8, pvdata : *mut core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
-    unsafe { JetSetColumnDefaultValueA(sesid, dbid, sztablename as _, szcolumnname as _, pvdata as _, cbdata, grbit) }
+pub unsafe fn JetSetColumnDefaultValueA(sesid: JET_SESID, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, szcolumnname : *const i8, pvdata : *const core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
+    unsafe { JetSetColumnDefaultValueA(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit) }
 }
 #[inline]
-pub unsafe fn JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: u32, sztablename: *mut u16, szcolumnname: *mut u16, pvdata: *mut core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueW(sesid : JET_SESID, dbid : u32, sztablename : *mut u16, szcolumnname : *mut u16, pvdata : *mut core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
-    unsafe { JetSetColumnDefaultValueW(sesid, dbid, sztablename as _, szcolumnname as _, pvdata as _, cbdata, grbit) }
-}
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[inline]
-pub unsafe fn JetSetColumns(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, psetcolumn: *mut JET_SETCOLUMN, csetcolumn: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetColumns(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, psetcolumn : *mut JET_SETCOLUMN, csetcolumn : u32) -> i32);
-    unsafe { JetSetColumns(sesid, tableid, psetcolumn as _, csetcolumn) }
+pub unsafe fn JetSetColumnDefaultValueW(sesid: JET_SESID, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetColumnDefaultValueW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, szcolumnname : *const u16, pvdata : *const core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
+    unsafe { JetSetColumnDefaultValueW(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex2A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut i8, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut i8, grbit : u32) -> i32);
-    unsafe { JetSetCurrentIndex2A(sesid, tableid, szindexname as _, grbit) }
+pub unsafe fn JetSetColumns(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, psetcolumn: *const JET_SETCOLUMN, csetcolumn: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetColumns(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, psetcolumn : *const JET_SETCOLUMN, csetcolumn : u32) -> i32);
+    unsafe { JetSetColumns(sesid, tableid, psetcolumn, csetcolumn) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex2W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut u16, grbit : u32) -> i32);
-    unsafe { JetSetCurrentIndex2W(sesid, tableid, szindexname as _, grbit) }
+pub unsafe fn JetSetCurrentIndex2A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32) -> i32);
+    unsafe { JetSetCurrentIndex2A(sesid, tableid, szindexname, grbit) }
+}
+#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[inline]
+pub unsafe fn JetSetCurrentIndex2W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex2W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32) -> i32);
+    unsafe { JetSetCurrentIndex2W(sesid, tableid, szindexname, grbit) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1119,15 +1119,15 @@ pub unsafe fn JetSetCurrentIndex3A(sesid: JET_SESID, tableid: super::StructuredS
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex3W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16, grbit: u32, itagsequence: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex3W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut u16, grbit : u32, itagsequence : u32) -> i32);
-    unsafe { JetSetCurrentIndex3W(sesid, tableid, szindexname as _, grbit, itagsequence) }
+pub unsafe fn JetSetCurrentIndex3W(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, itagsequence: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex3W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32, itagsequence : u32) -> i32);
+    unsafe { JetSetCurrentIndex3W(sesid, tableid, szindexname, grbit, itagsequence) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndex4A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut i8, pindexid: *mut JET_INDEXID, grbit: u32, itagsequence: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex4A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut i8, pindexid : *mut JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
-    unsafe { JetSetCurrentIndex4A(sesid, tableid, szindexname as _, pindexid as _, grbit, itagsequence) }
+pub unsafe fn JetSetCurrentIndex4A(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndex4A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, pindexid : *const JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
+    unsafe { JetSetCurrentIndex4A(sesid, tableid, szindexname, pindexid, grbit, itagsequence) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1137,31 +1137,31 @@ pub unsafe fn JetSetCurrentIndex4W(sesid: JET_SESID, tableid: super::StructuredS
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndexA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut i8) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut i8) -> i32);
-    unsafe { JetSetCurrentIndexA(sesid, tableid, szindexname as _) }
+pub unsafe fn JetSetCurrentIndexA(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8) -> i32);
+    unsafe { JetSetCurrentIndexA(sesid, tableid, szindexname) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCurrentIndexW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut u16) -> i32);
-    unsafe { JetSetCurrentIndexW(sesid, tableid, szindexname as _) }
+pub unsafe fn JetSetCurrentIndexW(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetCurrentIndexW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16) -> i32);
+    unsafe { JetSetCurrentIndexW(sesid, tableid, szindexname) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetCursorFilter(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgcolumnfilters: *mut JET_INDEX_COLUMN, ccolumnfilters: u32, grbit: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetCursorFilter(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgcolumnfilters : *mut JET_INDEX_COLUMN, ccolumnfilters : u32, grbit : u32) -> i32);
-    unsafe { JetSetCursorFilter(sesid, tableid, rgcolumnfilters as _, ccolumnfilters, grbit) }
+pub unsafe fn JetSetCursorFilter(sesid: JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgcolumnfilters: *const JET_INDEX_COLUMN, ccolumnfilters: u32, grbit: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetCursorFilter(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgcolumnfilters : *const JET_INDEX_COLUMN, ccolumnfilters : u32, grbit : u32) -> i32);
+    unsafe { JetSetCursorFilter(sesid, tableid, rgcolumnfilters, ccolumnfilters, grbit) }
 }
 #[inline]
-pub unsafe fn JetSetDatabaseSizeA(sesid: JET_SESID, szdatabasename: *mut i8, cpg: u32, pcpgreal: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeA(sesid : JET_SESID, szdatabasename : *mut i8, cpg : u32, pcpgreal : *mut u32) -> i32);
-    unsafe { JetSetDatabaseSizeA(sesid, szdatabasename as _, cpg, pcpgreal as _) }
+pub unsafe fn JetSetDatabaseSizeA(sesid: JET_SESID, szdatabasename: *const i8, cpg: u32, pcpgreal: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeA(sesid : JET_SESID, szdatabasename : *const i8, cpg : u32, pcpgreal : *mut u32) -> i32);
+    unsafe { JetSetDatabaseSizeA(sesid, szdatabasename, cpg, pcpgreal as _) }
 }
 #[inline]
-pub unsafe fn JetSetDatabaseSizeW(sesid: JET_SESID, szdatabasename: *mut u16, cpg: u32, pcpgreal: *mut u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeW(sesid : JET_SESID, szdatabasename : *mut u16, cpg : u32, pcpgreal : *mut u32) -> i32);
-    unsafe { JetSetDatabaseSizeW(sesid, szdatabasename as _, cpg, pcpgreal as _) }
+pub unsafe fn JetSetDatabaseSizeW(sesid: JET_SESID, szdatabasename: *const u16, cpg: u32, pcpgreal: *mut u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetDatabaseSizeW(sesid : JET_SESID, szdatabasename : *const u16, cpg : u32, pcpgreal : *mut u32) -> i32);
+    unsafe { JetSetDatabaseSizeW(sesid, szdatabasename, cpg, pcpgreal as _) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1182,15 +1182,15 @@ pub unsafe fn JetSetSessionContext(sesid: JET_SESID, ulcontext: super::Structure
     unsafe { JetSetSessionContext(sesid, ulcontext) }
 }
 #[inline]
-pub unsafe fn JetSetSessionParameter(sesid: JET_SESID, sesparamid: u32, pvparam: *mut core::ffi::c_void, cbparam: u32) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetSessionParameter(sesid : JET_SESID, sesparamid : u32, pvparam : *mut core::ffi::c_void, cbparam : u32) -> i32);
-    unsafe { JetSetSessionParameter(sesid, sesparamid, pvparam as _, cbparam) }
+pub unsafe fn JetSetSessionParameter(sesid: JET_SESID, sesparamid: u32, pvparam: *const core::ffi::c_void, cbparam: u32) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetSessionParameter(sesid : JET_SESID, sesparamid : u32, pvparam : *const core::ffi::c_void, cbparam : u32) -> i32);
+    unsafe { JetSetSessionParameter(sesid, sesparamid, pvparam, cbparam) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
-pub unsafe fn JetSetSystemParameterA(pinstance: *mut JET_INSTANCE, sesid: JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *mut i8) -> i32 {
-    windows_core::link!("esent.dll" "system" fn JetSetSystemParameterA(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *mut i8) -> i32);
-    unsafe { JetSetSystemParameterA(pinstance as _, sesid, paramid, lparam, szparam as _) }
+pub unsafe fn JetSetSystemParameterA(pinstance: *mut JET_INSTANCE, sesid: JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *const i8) -> i32 {
+    windows_core::link!("esent.dll" "system" fn JetSetSystemParameterA(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *const i8) -> i32);
+    unsafe { JetSetSystemParameterA(pinstance as _, sesid, paramid, lparam, szparam) }
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1342,7 +1342,7 @@ pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-pub type JET_CALLBACK = Option<unsafe extern "system" fn(sesid: JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut core::ffi::c_void, pvarg2: *mut core::ffi::c_void, pvcontext: *mut core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;
+pub type JET_CALLBACK = Option<unsafe extern "system" fn(sesid: JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut core::ffi::c_void, pvarg2: *mut core::ffi::c_void, pvcontext: *const core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNBASE_A {
@@ -2419,9 +2419,9 @@ pub const JET_OnlineDefragAllOBSOLETE: u32 = 1u32;
 pub const JET_OnlineDefragDatabases: u32 = 2u32;
 pub const JET_OnlineDefragDisable: u32 = 0u32;
 pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
-pub type JET_PFNDURABLECOMMITCALLBACK = Option<unsafe extern "system" fn(instance: JET_INSTANCE, pcommitidseen: *mut JET_COMMIT_ID, grbit: u32) -> i32>;
-pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: *mut core::ffi::c_void, pv: *mut core::ffi::c_void, cb: u32) -> *mut core::ffi::c_void>;
-pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: u32, snt: u32, pv: *mut core::ffi::c_void) -> i32>;
+pub type JET_PFNDURABLECOMMITCALLBACK = Option<unsafe extern "system" fn(instance: JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32>;
+pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: *const core::ffi::c_void, pv: *const core::ffi::c_void, cb: u32) -> *mut core::ffi::c_void>;
+pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: u32, snt: u32, pv: *const core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

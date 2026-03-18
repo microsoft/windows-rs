@@ -172,28 +172,19 @@ pub unsafe fn FreeResource(hresdata: super::super::Foundation::HGLOBAL) -> windo
     unsafe { FreeResource(hresdata) }
 }
 #[inline]
-pub unsafe fn GetDllDirectoryA<P1>(nbufferlength: u32, lpbuffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetDllDirectoryA(nbufferlength : u32, lpbuffer : windows_core::PCSTR) -> u32);
-    unsafe { GetDllDirectoryA(nbufferlength, lpbuffer.param().abi()) }
+pub unsafe fn GetDllDirectoryA(nbufferlength: u32, lpbuffer: windows_core::PSTR) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetDllDirectoryA(nbufferlength : u32, lpbuffer : windows_core::PSTR) -> u32);
+    unsafe { GetDllDirectoryA(nbufferlength, core::mem::transmute(lpbuffer)) }
 }
 #[inline]
-pub unsafe fn GetDllDirectoryW<P1>(nbufferlength: u32, lpbuffer: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetDllDirectoryW(nbufferlength : u32, lpbuffer : windows_core::PCWSTR) -> u32);
-    unsafe { GetDllDirectoryW(nbufferlength, lpbuffer.param().abi()) }
+pub unsafe fn GetDllDirectoryW(nbufferlength: u32, lpbuffer: windows_core::PWSTR) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetDllDirectoryW(nbufferlength : u32, lpbuffer : windows_core::PWSTR) -> u32);
+    unsafe { GetDllDirectoryW(nbufferlength, core::mem::transmute(lpbuffer)) }
 }
 #[inline]
-pub unsafe fn GetModuleFileNameA<P1>(hmodule: super::super::Foundation::HMODULE, lpfilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetModuleFileNameA(hmodule : super::super::Foundation:: HMODULE, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { GetModuleFileNameA(hmodule, lpfilename.param().abi(), nsize) }
+pub unsafe fn GetModuleFileNameA(hmodule: super::super::Foundation::HMODULE, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetModuleFileNameA(hmodule : super::super::Foundation:: HMODULE, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { GetModuleFileNameA(hmodule, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
 pub unsafe fn GetModuleFileNameW(hmodule: super::super::Foundation::HMODULE, lpfilename: windows_core::PWSTR, nsize: u32) -> u32 {
@@ -273,12 +264,12 @@ where
     unsafe { LoadLibraryW(lplibfilename.param().abi()) }
 }
 #[inline]
-pub unsafe fn LoadModule<P0>(lpmodulename: P0, lpparameterblock: *mut core::ffi::c_void) -> u32
+pub unsafe fn LoadModule<P0>(lpmodulename: P0, lpparameterblock: *const core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn LoadModule(lpmodulename : windows_core::PCSTR, lpparameterblock : *mut core::ffi::c_void) -> u32);
-    unsafe { LoadModule(lpmodulename.param().abi(), lpparameterblock as _) }
+    windows_core::link!("kernel32.dll" "system" fn LoadModule(lpmodulename : windows_core::PCSTR, lpparameterblock : *const core::ffi::c_void) -> u32);
+    unsafe { LoadModule(lpmodulename.param().abi(), lpparameterblock) }
 }
 #[inline]
 pub unsafe fn LoadPackagedLibrary<P0>(lpwlibfilename: P0, reserved: u32) -> super::super::Foundation::HMODULE
@@ -308,9 +299,9 @@ where
     unsafe { QueryOptionalDelayLoadedAPI(hparentmodule, lpdllname.param().abi(), lpprocname.param().abi(), reserved) }
 }
 #[inline]
-pub unsafe fn RemoveDllDirectory(cookie: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn RemoveDllDirectory(cookie : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { RemoveDllDirectory(cookie as _) }
+pub unsafe fn RemoveDllDirectory(cookie: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn RemoveDllDirectory(cookie : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { RemoveDllDirectory(cookie) }
 }
 #[inline]
 pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> windows_core::BOOL {
@@ -339,22 +330,22 @@ pub unsafe fn SizeofResource(hmodule: super::super::Foundation::HMODULE, hresinf
     unsafe { SizeofResource(hmodule, hresinfo) }
 }
 #[inline]
-pub unsafe fn UpdateResourceA<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: *mut core::ffi::c_void, cb: u32) -> windows_core::BOOL
+pub unsafe fn UpdateResourceA<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: *const core::ffi::c_void, cb: u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn UpdateResourceA(hupdate : super::super::Foundation:: HANDLE, lptype : windows_core::PCSTR, lpname : windows_core::PCSTR, wlanguage : u16, lpdata : *mut core::ffi::c_void, cb : u32) -> windows_core::BOOL);
-    unsafe { UpdateResourceA(hupdate, lptype.param().abi(), lpname.param().abi(), wlanguage, lpdata as _, cb) }
+    windows_core::link!("kernel32.dll" "system" fn UpdateResourceA(hupdate : super::super::Foundation:: HANDLE, lptype : windows_core::PCSTR, lpname : windows_core::PCSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> windows_core::BOOL);
+    unsafe { UpdateResourceA(hupdate, lptype.param().abi(), lpname.param().abi(), wlanguage, lpdata, cb) }
 }
 #[inline]
-pub unsafe fn UpdateResourceW<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: *mut core::ffi::c_void, cb: u32) -> windows_core::BOOL
+pub unsafe fn UpdateResourceW<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: *const core::ffi::c_void, cb: u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn UpdateResourceW(hupdate : super::super::Foundation:: HANDLE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, wlanguage : u16, lpdata : *mut core::ffi::c_void, cb : u32) -> windows_core::BOOL);
-    unsafe { UpdateResourceW(hupdate, lptype.param().abi(), lpname.param().abi(), wlanguage, lpdata as _, cb) }
+    windows_core::link!("kernel32.dll" "system" fn UpdateResourceW(hupdate : super::super::Foundation:: HANDLE, lptype : windows_core::PCWSTR, lpname : windows_core::PCWSTR, wlanguage : u16, lpdata : *const core::ffi::c_void, cb : u32) -> windows_core::BOOL);
+    unsafe { UpdateResourceW(hupdate, lptype.param().abi(), lpname.param().abi(), wlanguage, lpdata, cb) }
 }
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
 pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1u32);

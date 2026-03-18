@@ -79,7 +79,7 @@ impl windows_core::RuntimeName for DataProtectionProvider {
 }
 unsafe impl Send for DataProtectionProvider {}
 unsafe impl Sync for DataProtectionProvider {}
-windows_core::imp::define_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x66b729bd_528a_5e89_bb74_553ec05d5775);
+windows_core::imp::define_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787);
 impl windows_core::RuntimeType for IDataProtectionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -104,7 +104,7 @@ pub struct IDataProtectionProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectStreamAsync: usize,
 }
-windows_core::imp::define_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xd45341a3_ae19_55b1_b1d0_667a9206e56e);
+windows_core::imp::define_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca);
 impl windows_core::RuntimeType for IDataProtectionProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IOfflineMapPackage, IOfflineMapPackage_Vtbl, 0x906926b2_9cfb_5ec2_aa63_4ff7fd878d56);
+windows_core::imp::define_interface!(IOfflineMapPackage, IOfflineMapPackage_Vtbl, 0xa797673b_a5b5_4144_b525_e68c8862664b);
 impl windows_core::RuntimeType for IOfflineMapPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -25,7 +25,7 @@ pub struct IOfflineMapPackageQueryResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OfflineMapPackageQueryStatus) -> windows_core::HRESULT,
     pub Packages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOfflineMapPackageStartDownloadResult, IOfflineMapPackageStartDownloadResult_Vtbl, 0xa15f04b5_7c56_5910_af03_d598ee609e7a);
+windows_core::imp::define_interface!(IOfflineMapPackageStartDownloadResult, IOfflineMapPackageStartDownloadResult_Vtbl, 0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
 impl windows_core::RuntimeType for IOfflineMapPackageStartDownloadResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

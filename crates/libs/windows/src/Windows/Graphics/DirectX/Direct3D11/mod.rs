@@ -93,7 +93,7 @@ impl windows_core::TypeKind for Direct3DUsage {
 impl windows_core::RuntimeType for Direct3DUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
 }
-windows_core::imp::define_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0x9680233b_8e07_56b4_9512_abcc84c22029);
+windows_core::imp::define_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
 impl windows_core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -135,7 +135,7 @@ pub struct IDirect3DDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0xf7e91cc8_cbf3_58fa_8618_1a3ca95542ae);
+windows_core::imp::define_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 impl windows_core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -10,30 +10,30 @@ where
     }
 }
 #[inline]
-pub unsafe fn DebugConnect<P0>(remoteoptions: P0, interfaceid: *mut windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DebugConnect<P0>(remoteoptions: P0, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_core::PCSTR, interfaceid : *mut windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DebugConnect(remoteoptions.param().abi(), interfaceid as _, interface as _).ok() }
+    windows_core::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_core::PCSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DebugConnect(remoteoptions.param().abi(), interfaceid, interface as _).ok() }
 }
 #[inline]
-pub unsafe fn DebugConnectWide<P0>(remoteoptions: P0, interfaceid: *mut windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DebugConnectWide<P0>(remoteoptions: P0, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_core::PCWSTR, interfaceid : *mut windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DebugConnectWide(remoteoptions.param().abi(), interfaceid as _, interface as _).ok() }
+    windows_core::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_core::PCWSTR, interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DebugConnectWide(remoteoptions.param().abi(), interfaceid, interface as _).ok() }
 }
 #[inline]
-pub unsafe fn DebugCreate(interfaceid: *mut windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *mut windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DebugCreate(interfaceid as _, interface as _).ok() }
+pub unsafe fn DebugCreate(interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DebugCreate(interfaceid, interface as _).ok() }
 }
 #[inline]
-pub unsafe fn DebugCreateEx(interfaceid: *mut windows_core::GUID, dbgengoptions: u32, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *mut windows_core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DebugCreateEx(interfaceid as _, dbgengoptions, interface as _).ok() }
+pub unsafe fn DebugCreateEx(interfaceid: *const windows_core::GUID, dbgengoptions: u32, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    windows_core::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DebugCreateEx(interfaceid, dbgengoptions, interface as _).ok() }
 }
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 pub const Ambiguous: SignatureComparison = SignatureComparison(1i32);
@@ -2587,7 +2587,7 @@ pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR: u32 = 3u32;
 pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR_SYMSRV: u32 = 13u32;
 pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;
 pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_core::HRESULT>;
-pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, dwdatatag: u32, pqueryinfo: *mut core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE {
@@ -2630,7 +2630,7 @@ impl Default for EXTSTACKTRACE64 {
 pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> bool>;
 pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> bool>;
 pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: windows_core::Ref<IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
-pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, bucketsuffix: windows_core::PCSTR, cbbucketsuffix: u32, debugtext: windows_core::PCSTR, cbdebugtext: u32, flags: *mut u32, panalysis: windows_core::Ref<IDebugFailureAnalysis>) -> windows_core::HRESULT>;
+pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, bucketsuffix: windows_core::PSTR, cbbucketsuffix: u32, debugtext: windows_core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: windows_core::Ref<IDebugFailureAnalysis>) -> windows_core::HRESULT>;
 pub const EXT_ANALYZER_FLAG_ID: u32 = 2u32;
 pub const EXT_ANALYZER_FLAG_MOD: u32 = 1u32;
 #[repr(C)]
@@ -2923,7 +2923,7 @@ pub struct GET_SET_SYMPATH {
 pub struct GET_TEB_ADDRESS {
     pub Address: u64,
 }
-windows_core::imp::define_interface!(ICodeAddressConcept, ICodeAddressConcept_Vtbl, 0x2eb09584_33a3_5c26_a9ae_39fa5171d10a);
+windows_core::imp::define_interface!(ICodeAddressConcept, ICodeAddressConcept_Vtbl, 0xc7371568_5c78_4a00_a4ab_6ef8823184cb);
 windows_core::imp::interface_hierarchy!(ICodeAddressConcept, windows_core::IUnknown);
 impl ICodeAddressConcept {
     pub unsafe fn GetContainingSymbol<P0>(&self, pcontextobject: P0) -> windows_core::Result<IDebugHostSymbol>
@@ -3010,7 +3010,7 @@ impl IComparableConcept_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IComparableConcept {}
-windows_core::imp::define_interface!(IDataModelConcept, IDataModelConcept_Vtbl, 0xfa46758e_6e0d_530e_8e2e_5374cf6ef2ff);
+windows_core::imp::define_interface!(IDataModelConcept, IDataModelConcept_Vtbl, 0xfcb98d1d_1114_4fbf_b24c_effcb5def0d3);
 windows_core::imp::interface_hierarchy!(IDataModelConcept, windows_core::IUnknown);
 impl IDataModelConcept {
     pub unsafe fn InitializeObject<P0, P1, P2>(&self, modelobject: P0, matchingtypesignature: P1, wildcardmatches: P2) -> windows_core::Result<()>
@@ -3070,7 +3070,7 @@ impl IDataModelConcept_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelConcept {}
-windows_core::imp::define_interface!(IDataModelManager, IDataModelManager_Vtbl, 0x1248ee8c_8597_5af8_ad55_0eb4ae6cd7b6);
+windows_core::imp::define_interface!(IDataModelManager, IDataModelManager_Vtbl, 0x73fe19f4_a110_4500_8ed9_3c28896f508c);
 windows_core::imp::interface_hierarchy!(IDataModelManager, windows_core::IUnknown);
 impl IDataModelManager {
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
@@ -3130,15 +3130,21 @@ impl IDataModelManager {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *mut super::super::super::Variant::VARIANT, object: *mut Option<IModelObject>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateIntrinsicObject)(windows_core::Interface::as_raw(self), objectkind, core::mem::transmute(intrinsicdata), core::mem::transmute(object)).ok() }
+    pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> windows_core::Result<IModelObject> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateIntrinsicObject)(windows_core::Interface::as_raw(self), objectkind, core::mem::transmute(intrinsicdata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTypedIntrinsicObject<P1>(&self, intrinsicdata: *mut super::super::super::Variant::VARIANT, r#type: P1, object: *mut Option<IModelObject>) -> windows_core::Result<()>
+    pub unsafe fn CreateTypedIntrinsicObject<P1>(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P1) -> windows_core::Result<IModelObject>
     where
         P1: windows_core::Param<IDebugHostType>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateTypedIntrinsicObject)(windows_core::Interface::as_raw(self), core::mem::transmute(intrinsicdata), r#type.param().abi(), core::mem::transmute(object)).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateTypedIntrinsicObject)(windows_core::Interface::as_raw(self), core::mem::transmute(intrinsicdata), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetModelForTypeSignature<P0>(&self, typesignature: P0) -> windows_core::Result<IModelObject>
     where
@@ -3233,11 +3239,11 @@ pub struct IDataModelManager_Vtbl {
     pub CreateSyntheticObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateDataModelObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateIntrinsicObject: unsafe extern "system" fn(*mut core::ffi::c_void, ModelObjectKind, *mut super::super::super::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateIntrinsicObject: unsafe extern "system" fn(*mut core::ffi::c_void, ModelObjectKind, *const super::super::super::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateIntrinsicObject: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateTypedIntrinsicObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Variant::VARIANT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTypedIntrinsicObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Variant::VARIANT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateTypedIntrinsicObject: usize,
     pub GetModelForTypeSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3261,8 +3267,8 @@ pub trait IDataModelManager_Impl: windows_core::IUnknownImpl {
     fn CreateTypedObjectReference(&self, context: windows_core::Ref<IDebugHostContext>, objectlocation: &Location, objecttype: windows_core::Ref<IDebugHostType>) -> windows_core::Result<IModelObject>;
     fn CreateSyntheticObject(&self, context: windows_core::Ref<IDebugHostContext>) -> windows_core::Result<IModelObject>;
     fn CreateDataModelObject(&self, datamodel: windows_core::Ref<IDataModelConcept>) -> windows_core::Result<IModelObject>;
-    fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *mut super::super::super::Variant::VARIANT, object: windows_core::OutRef<IModelObject>) -> windows_core::Result<()>;
-    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *mut super::super::super::Variant::VARIANT, r#type: windows_core::Ref<IDebugHostType>, object: windows_core::OutRef<IModelObject>) -> windows_core::Result<()>;
+    fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> windows_core::Result<IModelObject>;
+    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: windows_core::Ref<IDebugHostType>) -> windows_core::Result<IModelObject>;
     fn GetModelForTypeSignature(&self, typesignature: windows_core::Ref<IDebugHostTypeSignature>) -> windows_core::Result<IModelObject>;
     fn GetModelForType(&self, r#type: windows_core::Ref<IDebugHostType>, datamodel: windows_core::OutRef<IModelObject>, typesignature: windows_core::OutRef<IDebugHostTypeSignature>, wildcardmatches: windows_core::OutRef<IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
     fn RegisterModelForTypeSignature(&self, typesignature: windows_core::Ref<IDebugHostTypeSignature>, datamodel: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
@@ -3356,16 +3362,28 @@ impl IDataModelManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *mut super::super::super::Variant::VARIANT, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataModelManager_Impl::CreateIntrinsicObject(this, core::mem::transmute_copy(&objectkind), core::mem::transmute_copy(&intrinsicdata), core::mem::transmute_copy(&object)).into()
+                match IDataModelManager_Impl::CreateIntrinsicObject(this, core::mem::transmute_copy(&objectkind), core::mem::transmute_copy(&intrinsicdata)) {
+                    Ok(ok__) => {
+                        object.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *mut super::super::super::Variant::VARIANT, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataModelManager_Impl::CreateTypedIntrinsicObject(this, core::mem::transmute_copy(&intrinsicdata), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&object)).into()
+                match IDataModelManager_Impl::CreateTypedIntrinsicObject(this, core::mem::transmute_copy(&intrinsicdata), core::mem::transmute_copy(&r#type)) {
+                    Ok(ok__) => {
+                        object.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetModelForTypeSignature<Identity: IDataModelManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typesignature: *mut core::ffi::c_void, datamodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3488,7 +3506,7 @@ impl IDataModelManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDataModelManager {}
-windows_core::imp::define_interface!(IDataModelManager2, IDataModelManager2_Vtbl, 0xcbe552d0_ac35_50bc_a4fa_67de9e6db42d);
+windows_core::imp::define_interface!(IDataModelManager2, IDataModelManager2_Vtbl, 0xf412c5ea_2284_4622_a660_a697160d3312);
 impl core::ops::Deref for IDataModelManager2 {
     type Target = IDataModelManager;
     fn deref(&self) -> &Self::Target {
@@ -3510,12 +3528,15 @@ impl IDataModelManager2 {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTypedIntrinsicObjectEx<P0, P2>(&self, context: P0, intrinsicdata: *mut super::super::super::Variant::VARIANT, r#type: P2, object: *mut Option<IModelObject>) -> windows_core::Result<()>
+    pub unsafe fn CreateTypedIntrinsicObjectEx<P0, P2>(&self, context: P0, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P2) -> windows_core::Result<IModelObject>
     where
         P0: windows_core::Param<IDebugHostContext>,
         P2: windows_core::Param<IDebugHostType>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(intrinsicdata), r#type.param().abi(), core::mem::transmute(object)).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(intrinsicdata), r#type.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -3524,14 +3545,14 @@ pub struct IDataModelManager2_Vtbl {
     pub base__: IDataModelManager_Vtbl,
     pub AcquireSubNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateTypedIntrinsicObjectEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Variant::VARIANT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTypedIntrinsicObjectEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::super::Variant::VARIANT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateTypedIntrinsicObjectEx: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager2_Impl: IDataModelManager_Impl {
     fn AcquireSubNamespace(&self, modelname: &windows_core::PCWSTR, subnamespacemodelname: &windows_core::PCWSTR, accessname: &windows_core::PCWSTR, metadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<IModelObject>;
-    fn CreateTypedIntrinsicObjectEx(&self, context: windows_core::Ref<IDebugHostContext>, intrinsicdata: *mut super::super::super::Variant::VARIANT, r#type: windows_core::Ref<IDebugHostType>, object: windows_core::OutRef<IModelObject>) -> windows_core::Result<()>;
+    fn CreateTypedIntrinsicObjectEx(&self, context: windows_core::Ref<IDebugHostContext>, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: windows_core::Ref<IDebugHostType>) -> windows_core::Result<IModelObject>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataModelManager2_Vtbl {
@@ -3548,10 +3569,16 @@ impl IDataModelManager2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, intrinsicdata: *mut super::super::super::Variant::VARIANT, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: *mut core::ffi::c_void, object: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataModelManager2_Impl::CreateTypedIntrinsicObjectEx(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&intrinsicdata), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&object)).into()
+                match IDataModelManager2_Impl::CreateTypedIntrinsicObjectEx(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&intrinsicdata), core::mem::transmute_copy(&r#type)) {
+                    Ok(ok__) => {
+                        object.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -3566,7 +3593,7 @@ impl IDataModelManager2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDataModelManager2 {}
-windows_core::imp::define_interface!(IDataModelNameBinder, IDataModelNameBinder_Vtbl, 0x8caba152_118c_5763_889d_23fe9e60c59c);
+windows_core::imp::define_interface!(IDataModelNameBinder, IDataModelNameBinder_Vtbl, 0xaf352b7b_8292_4c01_b360_2dc3696c65e7);
 windows_core::imp::interface_hierarchy!(IDataModelNameBinder, windows_core::IUnknown);
 impl IDataModelNameBinder {
     pub unsafe fn BindValue<P0, P1>(&self, contextobject: P0, name: P1, value: *mut Option<IModelObject>, metadata: *mut Option<IKeyStore>) -> windows_core::Result<()>
@@ -3668,7 +3695,7 @@ impl IDataModelNameBinder_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelNameBinder {}
-windows_core::imp::define_interface!(IDataModelScript, IDataModelScript_Vtbl, 0xc79cc280_3ce6_5b23_9f93_88694cd910f3);
+windows_core::imp::define_interface!(IDataModelScript, IDataModelScript_Vtbl, 0x7b4d30fc_b14a_49f8_8d87_d9a1480c97f7);
 windows_core::imp::interface_hierarchy!(IDataModelScript, windows_core::IUnknown);
 impl IDataModelScript {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -3811,7 +3838,7 @@ impl IDataModelScript_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IDataModelScript {}
-windows_core::imp::define_interface!(IDataModelScriptClient, IDataModelScriptClient_Vtbl, 0x89773b37_1831_580f_9f90_5d27ccfaa8e0);
+windows_core::imp::define_interface!(IDataModelScriptClient, IDataModelScriptClient_Vtbl, 0x3b362b0e_89f0_46c6_a663_dfdc95194aef);
 windows_core::imp::interface_hierarchy!(IDataModelScriptClient, windows_core::IUnknown);
 impl IDataModelScriptClient {
     pub unsafe fn ReportError<P2>(&self, errclass: ErrorClass, hrfail: windows_core::HRESULT, message: P2, line: u32, position: u32) -> windows_core::Result<()>
@@ -3845,7 +3872,7 @@ impl IDataModelScriptClient_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptClient {}
-windows_core::imp::define_interface!(IDataModelScriptDebug, IDataModelScriptDebug_Vtbl, 0x0c487ca9_9cd2_5941_ad6c_373ad0a41b74);
+windows_core::imp::define_interface!(IDataModelScriptDebug, IDataModelScriptDebug_Vtbl, 0xde8e0945_9750_4471_ab76_a8f79d6ec350);
 windows_core::imp::interface_hierarchy!(IDataModelScriptDebug, windows_core::IUnknown);
 impl IDataModelScriptDebug {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
@@ -4087,7 +4114,7 @@ impl IDataModelScriptDebug2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptDebug2 {}
-windows_core::imp::define_interface!(IDataModelScriptDebugBreakpoint, IDataModelScriptDebugBreakpoint_Vtbl, 0x1327bd25_cb0f_5f29_b04f_7c45cdd08021);
+windows_core::imp::define_interface!(IDataModelScriptDebugBreakpoint, IDataModelScriptDebugBreakpoint_Vtbl, 0x6bb27b35_02e6_47cb_90a0_5371244032de);
 windows_core::imp::interface_hierarchy!(IDataModelScriptDebugBreakpoint, windows_core::IUnknown);
 impl IDataModelScriptDebugBreakpoint {
     pub unsafe fn GetId(&self) -> u64 {
@@ -4232,32 +4259,41 @@ impl IDataModelScriptDebugBreakpointEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptDebugBreakpointEnumerator {}
-windows_core::imp::define_interface!(IDataModelScriptDebugClient, IDataModelScriptDebugClient_Vtbl, 0xa0e3bd7c_4b52_53bb_b9fe_1f0fbc6e0430);
+windows_core::imp::define_interface!(IDataModelScriptDebugClient, IDataModelScriptDebugClient_Vtbl, 0x53159b6d_d4c4_471b_a863_5b110ca800ca);
 windows_core::imp::interface_hierarchy!(IDataModelScriptDebugClient, windows_core::IUnknown);
 impl IDataModelScriptDebugClient {
-    pub unsafe fn NotifyDebugEvent<P1, P2>(&self, peventinfo: *mut ScriptDebugEventInformation, pscript: P1, peventdataobject: P2, resumeeventkind: *mut ScriptExecutionKind) -> windows_core::Result<()>
+    pub unsafe fn NotifyDebugEvent<P1, P2>(&self, peventinfo: *const ScriptDebugEventInformation, pscript: P1, peventdataobject: P2) -> windows_core::Result<ScriptExecutionKind>
     where
         P1: windows_core::Param<IDataModelScript>,
         P2: windows_core::Param<IModelObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).NotifyDebugEvent)(windows_core::Interface::as_raw(self), peventinfo as _, pscript.param().abi(), peventdataobject.param().abi(), resumeeventkind as _).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).NotifyDebugEvent)(windows_core::Interface::as_raw(self), peventinfo, pscript.param().abi(), peventdataobject.param().abi(), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub NotifyDebugEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ScriptDebugEventInformation, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ScriptExecutionKind) -> windows_core::HRESULT,
+    pub NotifyDebugEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const ScriptDebugEventInformation, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ScriptExecutionKind) -> windows_core::HRESULT,
 }
 pub trait IDataModelScriptDebugClient_Impl: windows_core::IUnknownImpl {
-    fn NotifyDebugEvent(&self, peventinfo: *mut ScriptDebugEventInformation, pscript: windows_core::Ref<IDataModelScript>, peventdataobject: windows_core::Ref<IModelObject>, resumeeventkind: *mut ScriptExecutionKind) -> windows_core::Result<()>;
+    fn NotifyDebugEvent(&self, peventinfo: *const ScriptDebugEventInformation, pscript: windows_core::Ref<IDataModelScript>, peventdataobject: windows_core::Ref<IModelObject>) -> windows_core::Result<ScriptExecutionKind>;
 }
 impl IDataModelScriptDebugClient_Vtbl {
     pub const fn new<Identity: IDataModelScriptDebugClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn NotifyDebugEvent<Identity: IDataModelScriptDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventinfo: *mut ScriptDebugEventInformation, pscript: *mut core::ffi::c_void, peventdataobject: *mut core::ffi::c_void, resumeeventkind: *mut ScriptExecutionKind) -> windows_core::HRESULT {
+        unsafe extern "system" fn NotifyDebugEvent<Identity: IDataModelScriptDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventinfo: *const ScriptDebugEventInformation, pscript: *mut core::ffi::c_void, peventdataobject: *mut core::ffi::c_void, resumeeventkind: *mut ScriptExecutionKind) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataModelScriptDebugClient_Impl::NotifyDebugEvent(this, core::mem::transmute_copy(&peventinfo), core::mem::transmute_copy(&pscript), core::mem::transmute_copy(&peventdataobject), core::mem::transmute_copy(&resumeeventkind)).into()
+                match IDataModelScriptDebugClient_Impl::NotifyDebugEvent(this, core::mem::transmute_copy(&peventinfo), core::mem::transmute_copy(&pscript), core::mem::transmute_copy(&peventdataobject)) {
+                    Ok(ok__) => {
+                        resumeeventkind.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyDebugEvent: NotifyDebugEvent::<Identity, OFFSET> }
@@ -4322,7 +4358,7 @@ impl IDataModelScriptDebugStack_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptDebugStack {}
-windows_core::imp::define_interface!(IDataModelScriptDebugStackFrame, IDataModelScriptDebugStackFrame_Vtbl, 0x1263d901_bac3_56d1_8682_aa1bd1b36d1a);
+windows_core::imp::define_interface!(IDataModelScriptDebugStackFrame, IDataModelScriptDebugStackFrame_Vtbl, 0xdec6ed5e_6360_4941_ab4c_a26409de4f82);
 windows_core::imp::interface_hierarchy!(IDataModelScriptDebugStackFrame, windows_core::IUnknown);
 impl IDataModelScriptDebugStackFrame {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -4518,7 +4554,7 @@ impl IDataModelScriptDebugVariableSetEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptDebugVariableSetEnumerator {}
-windows_core::imp::define_interface!(IDataModelScriptHostContext, IDataModelScriptHostContext_Vtbl, 0x65001d40_dd4a_5180_8ac0_2988760719e5);
+windows_core::imp::define_interface!(IDataModelScriptHostContext, IDataModelScriptHostContext_Vtbl, 0x014d366a_1f23_4981_9219_b2db8b402054);
 windows_core::imp::interface_hierarchy!(IDataModelScriptHostContext, windows_core::IUnknown);
 impl IDataModelScriptHostContext {
     pub unsafe fn NotifyScriptChange<P0>(&self, script: P0, changekind: ScriptChangeKind) -> windows_core::Result<()>
@@ -4576,7 +4612,7 @@ impl IDataModelScriptHostContext_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptHostContext {}
-windows_core::imp::define_interface!(IDataModelScriptManager, IDataModelScriptManager_Vtbl, 0x4db06c7e_974d_5d96_b8b6_adb3903eeee6);
+windows_core::imp::define_interface!(IDataModelScriptManager, IDataModelScriptManager_Vtbl, 0x6fd11e33_e5ad_410b_8011_68c6bc4bf80d);
 windows_core::imp::interface_hierarchy!(IDataModelScriptManager, windows_core::IUnknown);
 impl IDataModelScriptManager {
     pub unsafe fn GetDefaultNameBinder(&self) -> windows_core::Result<IDataModelNameBinder> {
@@ -4718,7 +4754,7 @@ impl IDataModelScriptManager_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptManager {}
-windows_core::imp::define_interface!(IDataModelScriptProvider, IDataModelScriptProvider_Vtbl, 0xa1b95721_5e42_5c2c_9532_1fd93aaf2ae7);
+windows_core::imp::define_interface!(IDataModelScriptProvider, IDataModelScriptProvider_Vtbl, 0x513461e0_4fca_48ce_8658_32f3e2056f3b);
 windows_core::imp::interface_hierarchy!(IDataModelScriptProvider, windows_core::IUnknown);
 impl IDataModelScriptProvider {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -4845,7 +4881,7 @@ impl IDataModelScriptProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptProvider {}
-windows_core::imp::define_interface!(IDataModelScriptProviderEnumerator, IDataModelScriptProviderEnumerator_Vtbl, 0xd7596df9_e44a_5f18_be6b_f1090f0febf3);
+windows_core::imp::define_interface!(IDataModelScriptProviderEnumerator, IDataModelScriptProviderEnumerator_Vtbl, 0x95ba00e2_704a_4fe2_a8f1_a7e7d8fb0941);
 windows_core::imp::interface_hierarchy!(IDataModelScriptProviderEnumerator, windows_core::IUnknown);
 impl IDataModelScriptProviderEnumerator {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
@@ -4896,7 +4932,7 @@ impl IDataModelScriptProviderEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptProviderEnumerator {}
-windows_core::imp::define_interface!(IDataModelScriptTemplate, IDataModelScriptTemplate_Vtbl, 0x9b6f010d_33af_5174_9e8f_db96b625412b);
+windows_core::imp::define_interface!(IDataModelScriptTemplate, IDataModelScriptTemplate_Vtbl, 0x1303dec4_fa3b_4f1b_9224_b953d16babb5);
 windows_core::imp::interface_hierarchy!(IDataModelScriptTemplate, windows_core::IUnknown);
 impl IDataModelScriptTemplate {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -5039,14 +5075,14 @@ impl IDataModelScriptTemplateEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptTemplateEnumerator {}
-windows_core::imp::define_interface!(IDebugAdvanced, IDebugAdvanced_Vtbl, 0x62949e51_96a5_5776_bb97_96ef5d9db1dc);
+windows_core::imp::define_interface!(IDebugAdvanced, IDebugAdvanced_Vtbl, 0xf2df5f53_071f_47bd_9de6_5734c3fed689);
 windows_core::imp::interface_hierarchy!(IDebugAdvanced, windows_core::IUnknown);
 impl IDebugAdvanced {
     pub unsafe fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize).ok() }
     }
-    pub unsafe fn SetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize).ok() }
+    pub unsafe fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetThreadContext)(windows_core::Interface::as_raw(self), context, contextsize).ok() }
     }
 }
 #[repr(C)]
@@ -5054,11 +5090,11 @@ impl IDebugAdvanced {
 pub struct IDebugAdvanced_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugAdvanced_Impl: windows_core::IUnknownImpl {
     fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn SetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
 }
 impl IDebugAdvanced_Vtbl {
     pub const fn new<Identity: IDebugAdvanced_Impl, const OFFSET: isize>() -> Self {
@@ -5068,7 +5104,7 @@ impl IDebugAdvanced_Vtbl {
                 IDebugAdvanced_Impl::GetThreadContext(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn SetThreadContext<Identity: IDebugAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetThreadContext<Identity: IDebugAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced_Impl::SetThreadContext(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
@@ -5197,17 +5233,17 @@ impl IDebugAdvanced2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugAdvanced2 {}
-windows_core::imp::define_interface!(IDebugAdvanced3, IDebugAdvanced3_Vtbl, 0x7b0a2d7b_c605_551e_ac4a_d2a044d5280b);
+windows_core::imp::define_interface!(IDebugAdvanced3, IDebugAdvanced3_Vtbl, 0xcba4abb4_84c4_444d_87ca_a04e13286739);
 windows_core::imp::interface_hierarchy!(IDebugAdvanced3, windows_core::IUnknown);
 impl IDebugAdvanced3 {
     pub unsafe fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize).ok() }
     }
-    pub unsafe fn SetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize).ok() }
+    pub unsafe fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetThreadContext)(windows_core::Interface::as_raw(self), context, contextsize).ok() }
     }
-    pub unsafe fn Request(&self, request: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), request, inbuffer as _, inbuffersize, outbuffer as _, outbuffersize, outsize as _).ok() }
+    pub unsafe fn Request(&self, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), request, inbuffer, inbuffersize, outbuffer as _, outbuffersize, outsize as _).ok() }
     }
     pub unsafe fn GetSourceFileInformation<P1>(&self, which: u32, sourcefile: P1, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>
     where
@@ -5215,11 +5251,11 @@ impl IDebugAdvanced3 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, buffer as _, buffersize, infosize as _).ok() }
     }
-    pub unsafe fn FindSourceFileAndToken<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u8], foundsize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn FindSourceFileAndToken<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u8], foundsize: *mut u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken as _, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: &mut [u8], stringsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer as _, buffersize, infosize as _, core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len().try_into().unwrap(), stringsize as _).ok() }
@@ -5233,11 +5269,11 @@ impl IDebugAdvanced3 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetSourceFileInformationWide)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, buffer as _, buffersize, infosize as _).ok() }
     }
-    pub unsafe fn FindSourceFileAndTokenWide<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u16], foundsize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn FindSourceFileAndTokenWide<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u16], foundsize: *mut u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken as _, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
     }
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer as _, buffersize, infosize as _, core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len().try_into().unwrap(), stringsize as _).ok() }
@@ -5248,26 +5284,26 @@ impl IDebugAdvanced3 {
 pub struct IDebugAdvanced3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSourceFileInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FindSourceFileAndToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCSTR, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub FindSourceFileAndToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCSTR, u32, *const core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemObjectInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSourceFileInformationWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FindSourceFileAndTokenWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCWSTR, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub FindSourceFileAndTokenWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCWSTR, u32, *const core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolInformationWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugAdvanced3_Impl: windows_core::IUnknownImpl {
     fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn SetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn Request(&self, request: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()>;
+    fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn Request(&self, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()>;
     fn GetSourceFileInformation(&self, which: u32, sourcefile: &windows_core::PCSTR, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>;
-    fn FindSourceFileAndToken(&self, startelement: u32, modaddr: u64, file: &windows_core::PCSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
+    fn FindSourceFileAndToken(&self, startelement: u32, modaddr: u64, file: &windows_core::PCSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: windows_core::PSTR, stringbuffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>;
     fn GetSourceFileInformationWide(&self, which: u32, sourcefile: &windows_core::PCWSTR, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>;
-    fn FindSourceFileAndTokenWide(&self, startelement: u32, modaddr: u64, file: &windows_core::PCWSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
+    fn FindSourceFileAndTokenWide(&self, startelement: u32, modaddr: u64, file: &windows_core::PCWSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: windows_core::PWSTR, stringbuffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
 }
 impl IDebugAdvanced3_Vtbl {
@@ -5278,13 +5314,13 @@ impl IDebugAdvanced3_Vtbl {
                 IDebugAdvanced3_Impl::GetThreadContext(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn SetThreadContext<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetThreadContext<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced3_Impl::SetThreadContext(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn Request<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Request<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced3_Impl::Request(this, core::mem::transmute_copy(&request), core::mem::transmute_copy(&inbuffer), core::mem::transmute_copy(&inbuffersize), core::mem::transmute_copy(&outbuffer), core::mem::transmute_copy(&outbuffersize), core::mem::transmute_copy(&outsize)).into()
@@ -5296,7 +5332,7 @@ impl IDebugAdvanced3_Vtbl {
                 IDebugAdvanced3_Impl::GetSourceFileInformation(this, core::mem::transmute_copy(&which), core::mem::transmute(&sourcefile), core::mem::transmute_copy(&arg64), core::mem::transmute_copy(&arg32), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&infosize)).into()
             }
         }
-        unsafe extern "system" fn FindSourceFileAndToken<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindSourceFileAndToken<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced3_Impl::FindSourceFileAndToken(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&modaddr), core::mem::transmute(&file), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&filetoken), core::mem::transmute_copy(&filetokensize), core::mem::transmute_copy(&foundelement), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&foundsize)).into()
@@ -5320,7 +5356,7 @@ impl IDebugAdvanced3_Vtbl {
                 IDebugAdvanced3_Impl::GetSourceFileInformationWide(this, core::mem::transmute_copy(&which), core::mem::transmute(&sourcefile), core::mem::transmute_copy(&arg64), core::mem::transmute_copy(&arg32), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&infosize)).into()
             }
         }
-        unsafe extern "system" fn FindSourceFileAndTokenWide<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCWSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindSourceFileAndTokenWide<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCWSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced3_Impl::FindSourceFileAndTokenWide(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&modaddr), core::mem::transmute(&file), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&filetoken), core::mem::transmute_copy(&filetokensize), core::mem::transmute_copy(&foundelement), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&foundsize)).into()
@@ -5351,17 +5387,17 @@ impl IDebugAdvanced3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugAdvanced3 {}
-windows_core::imp::define_interface!(IDebugAdvanced4, IDebugAdvanced4_Vtbl, 0x88541d11_2b72_51c1_9f1f_783a2d32ff99);
+windows_core::imp::define_interface!(IDebugAdvanced4, IDebugAdvanced4_Vtbl, 0xd1069067_2a65_4bf0_ae97_76184b67856b);
 windows_core::imp::interface_hierarchy!(IDebugAdvanced4, windows_core::IUnknown);
 impl IDebugAdvanced4 {
     pub unsafe fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize).ok() }
     }
-    pub unsafe fn SetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize).ok() }
+    pub unsafe fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetThreadContext)(windows_core::Interface::as_raw(self), context, contextsize).ok() }
     }
-    pub unsafe fn Request(&self, request: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), request, inbuffer as _, inbuffersize, outbuffer as _, outbuffersize, outsize as _).ok() }
+    pub unsafe fn Request(&self, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), request, inbuffer, inbuffersize, outbuffer as _, outbuffersize, outsize as _).ok() }
     }
     pub unsafe fn GetSourceFileInformation<P1>(&self, which: u32, sourcefile: P1, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>
     where
@@ -5369,11 +5405,11 @@ impl IDebugAdvanced4 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetSourceFileInformation)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, buffer as _, buffersize, infosize as _).ok() }
     }
-    pub unsafe fn FindSourceFileAndToken<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u8], foundsize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn FindSourceFileAndToken<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u8], foundsize: *mut u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken as _, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: &mut [u8], stringsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer as _, buffersize, infosize as _, core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len().try_into().unwrap(), stringsize as _).ok() }
@@ -5387,11 +5423,11 @@ impl IDebugAdvanced4 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetSourceFileInformationWide)(windows_core::Interface::as_raw(self), which, sourcefile.param().abi(), arg64, arg32, buffer as _, buffersize, infosize as _).ok() }
     }
-    pub unsafe fn FindSourceFileAndTokenWide<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u16], foundsize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn FindSourceFileAndTokenWide<P2>(&self, startelement: u32, modaddr: u64, file: P2, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: &mut [u16], foundsize: *mut u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken as _, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken, filetokensize, foundelement as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), foundsize as _).ok() }
     }
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer as _, buffersize, infosize as _, core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len().try_into().unwrap(), stringsize as _).ok() }
@@ -5405,27 +5441,27 @@ impl IDebugAdvanced4 {
 pub struct IDebugAdvanced4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSourceFileInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FindSourceFileAndToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCSTR, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub FindSourceFileAndToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCSTR, u32, *const core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemObjectInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSourceFileInformationWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FindSourceFileAndTokenWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCWSTR, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub FindSourceFileAndTokenWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PCWSTR, u32, *const core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolInformationWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolInformationWideEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32, *mut SYMBOL_INFO_EX) -> windows_core::HRESULT,
 }
 pub trait IDebugAdvanced4_Impl: windows_core::IUnknownImpl {
     fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn SetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn Request(&self, request: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()>;
+    fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn Request(&self, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()>;
     fn GetSourceFileInformation(&self, which: u32, sourcefile: &windows_core::PCSTR, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>;
-    fn FindSourceFileAndToken(&self, startelement: u32, modaddr: u64, file: &windows_core::PCSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
+    fn FindSourceFileAndToken(&self, startelement: u32, modaddr: u64, file: &windows_core::PCSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: windows_core::PSTR, stringbuffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>;
     fn GetSourceFileInformationWide(&self, which: u32, sourcefile: &windows_core::PCWSTR, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>;
-    fn FindSourceFileAndTokenWide(&self, startelement: u32, modaddr: u64, file: &windows_core::PCWSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
+    fn FindSourceFileAndTokenWide(&self, startelement: u32, modaddr: u64, file: &windows_core::PCWSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: windows_core::PWSTR, stringbuffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolInformationWideEx(&self, which: u32, arg64: u64, arg32: u32, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: windows_core::PWSTR, stringbuffersize: u32, stringsize: *mut u32, pinfoex: *mut SYMBOL_INFO_EX) -> windows_core::Result<()>;
 }
@@ -5437,13 +5473,13 @@ impl IDebugAdvanced4_Vtbl {
                 IDebugAdvanced4_Impl::GetThreadContext(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn SetThreadContext<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetThreadContext<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced4_Impl::SetThreadContext(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn Request<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: u32, inbuffer: *mut core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Request<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced4_Impl::Request(this, core::mem::transmute_copy(&request), core::mem::transmute_copy(&inbuffer), core::mem::transmute_copy(&inbuffersize), core::mem::transmute_copy(&outbuffer), core::mem::transmute_copy(&outbuffersize), core::mem::transmute_copy(&outsize)).into()
@@ -5455,7 +5491,7 @@ impl IDebugAdvanced4_Vtbl {
                 IDebugAdvanced4_Impl::GetSourceFileInformation(this, core::mem::transmute_copy(&which), core::mem::transmute(&sourcefile), core::mem::transmute_copy(&arg64), core::mem::transmute_copy(&arg32), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&infosize)).into()
             }
         }
-        unsafe extern "system" fn FindSourceFileAndToken<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindSourceFileAndToken<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced4_Impl::FindSourceFileAndToken(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&modaddr), core::mem::transmute(&file), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&filetoken), core::mem::transmute_copy(&filetokensize), core::mem::transmute_copy(&foundelement), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&foundsize)).into()
@@ -5479,7 +5515,7 @@ impl IDebugAdvanced4_Vtbl {
                 IDebugAdvanced4_Impl::GetSourceFileInformationWide(this, core::mem::transmute_copy(&which), core::mem::transmute(&sourcefile), core::mem::transmute_copy(&arg64), core::mem::transmute_copy(&arg32), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&infosize)).into()
             }
         }
-        unsafe extern "system" fn FindSourceFileAndTokenWide<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCWSTR, flags: u32, filetoken: *mut core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindSourceFileAndTokenWide<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startelement: u32, modaddr: u64, file: windows_core::PCWSTR, flags: u32, filetoken: *const core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugAdvanced4_Impl::FindSourceFileAndTokenWide(this, core::mem::transmute_copy(&startelement), core::mem::transmute_copy(&modaddr), core::mem::transmute(&file), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&filetoken), core::mem::transmute_copy(&filetokensize), core::mem::transmute_copy(&foundelement), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&foundsize)).into()
@@ -6257,7 +6293,7 @@ impl IDebugBreakpoint2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugBreakpoint2 {}
-windows_core::imp::define_interface!(IDebugBreakpoint3, IDebugBreakpoint3_Vtbl, 0xac7e394b_d99c_5fe1_aafe_bd55d2a4d1e5);
+windows_core::imp::define_interface!(IDebugBreakpoint3, IDebugBreakpoint3_Vtbl, 0x38f5c249_b448_43bb_9835_579d4ec02249);
 windows_core::imp::interface_hierarchy!(IDebugBreakpoint3, windows_core::IUnknown);
 impl IDebugBreakpoint3 {
     pub unsafe fn GetId(&self) -> windows_core::Result<u32> {
@@ -6675,7 +6711,7 @@ impl IDebugBreakpoint3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugBreakpoint3 {}
-windows_core::imp::define_interface!(IDebugClient, IDebugClient_Vtbl, 0x3054200b_449e_555a_ab32_e0a083ddba3b);
+windows_core::imp::define_interface!(IDebugClient, IDebugClient_Vtbl, 0x27fe5639_8407_4f47_8364_ee118fb08ac8);
 windows_core::imp::interface_hierarchy!(IDebugClient, windows_core::IUnknown);
 impl IDebugClient {
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::Result<()>
@@ -6693,7 +6729,7 @@ impl IDebugClient {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
@@ -6911,7 +6947,7 @@ pub struct IDebugClient_Vtbl {
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub DisconnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetRunningProcessSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -6958,7 +6994,7 @@ pub trait IDebugClient_Impl: windows_core::IUnknownImpl {
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServer(&self, remoteoptions: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()>;
     fn GetRunningProcessSystemIds(&self, server: u64, ids: *mut u32, count: u32, actualcount: *mut u32) -> windows_core::Result<()>;
@@ -7021,7 +7057,7 @@ impl IDebugClient_Vtbl {
                 IDebugClient_Impl::SetKernelConnectionOptions(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient_Impl::StartProcessServer(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -7393,7 +7429,7 @@ impl IDebugClient_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugClient {}
-windows_core::imp::define_interface!(IDebugClient2, IDebugClient2_Vtbl, 0x21440135_a044_5b41_9990_3de1f4494ee7);
+windows_core::imp::define_interface!(IDebugClient2, IDebugClient2_Vtbl, 0xedbed635_372e_4dab_bbfe_ed0d2f63be81);
 windows_core::imp::interface_hierarchy!(IDebugClient2, windows_core::IUnknown);
 impl IDebugClient2 {
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::Result<()>
@@ -7411,7 +7447,7 @@ impl IDebugClient2 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
@@ -7660,7 +7696,7 @@ pub struct IDebugClient2_Vtbl {
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub DisconnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetRunningProcessSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -7715,7 +7751,7 @@ pub trait IDebugClient2_Impl: windows_core::IUnknownImpl {
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServer(&self, remoteoptions: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()>;
     fn GetRunningProcessSystemIds(&self, server: u64, ids: *mut u32, count: u32, actualcount: *mut u32) -> windows_core::Result<()>;
@@ -7786,7 +7822,7 @@ impl IDebugClient2_Vtbl {
                 IDebugClient2_Impl::SetKernelConnectionOptions(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient2_Impl::StartProcessServer(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -8214,7 +8250,7 @@ impl IDebugClient2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugClient2 {}
-windows_core::imp::define_interface!(IDebugClient3, IDebugClient3_Vtbl, 0x2046e3d0_0c0d_5bf3_9af9_36c0f0e3f74d);
+windows_core::imp::define_interface!(IDebugClient3, IDebugClient3_Vtbl, 0xdd492d7f_71b8_4ad6_a8dc_1c887479ff91);
 windows_core::imp::interface_hierarchy!(IDebugClient3, windows_core::IUnknown);
 impl IDebugClient3 {
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::Result<()>
@@ -8232,7 +8268,7 @@ impl IDebugClient3 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
@@ -8505,7 +8541,7 @@ pub struct IDebugClient3_Vtbl {
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub DisconnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetRunningProcessSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -8564,7 +8600,7 @@ pub trait IDebugClient3_Impl: windows_core::IUnknownImpl {
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServer(&self, remoteoptions: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()>;
     fn GetRunningProcessSystemIds(&self, server: u64, ids: *mut u32, count: u32, actualcount: *mut u32) -> windows_core::Result<()>;
@@ -8639,7 +8675,7 @@ impl IDebugClient3_Vtbl {
                 IDebugClient3_Impl::SetKernelConnectionOptions(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient3_Impl::StartProcessServer(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -9101,7 +9137,7 @@ impl IDebugClient3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugClient3 {}
-windows_core::imp::define_interface!(IDebugClient4, IDebugClient4_Vtbl, 0x7a7844fd_6d7d_5408_a6f2_131c936df7b6);
+windows_core::imp::define_interface!(IDebugClient4, IDebugClient4_Vtbl, 0xca83c3de_5089_4cf8_93c8_d892387f2a5e);
 windows_core::imp::interface_hierarchy!(IDebugClient4, windows_core::IUnknown);
 impl IDebugClient4 {
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::Result<()>
@@ -9119,7 +9155,7 @@ impl IDebugClient4 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
@@ -9423,7 +9459,7 @@ pub struct IDebugClient4_Vtbl {
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub DisconnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetRunningProcessSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -9488,7 +9524,7 @@ pub trait IDebugClient4_Impl: windows_core::IUnknownImpl {
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServer(&self, remoteoptions: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()>;
     fn GetRunningProcessSystemIds(&self, server: u64, ids: *mut u32, count: u32, actualcount: *mut u32) -> windows_core::Result<()>;
@@ -9569,7 +9605,7 @@ impl IDebugClient4_Vtbl {
                 IDebugClient4_Impl::SetKernelConnectionOptions(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient4_Impl::StartProcessServer(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -11539,7 +11575,7 @@ impl IDebugClient5_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugClient5 {}
-windows_core::imp::define_interface!(IDebugClient6, IDebugClient6_Vtbl, 0x8cfd9833_e59a_52ed_a2ed_e01178101523);
+windows_core::imp::define_interface!(IDebugClient6, IDebugClient6_Vtbl, 0xfd28b4c5_c498_4686_a28e_62cad2154eb3);
 windows_core::imp::interface_hierarchy!(IDebugClient6, windows_core::IUnknown);
 impl IDebugClient6 {
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::Result<()>
@@ -11557,7 +11593,7 @@ impl IDebugClient6 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
@@ -11868,7 +11904,7 @@ impl IDebugClient6 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServerWide<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServerWide<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -11937,37 +11973,37 @@ impl IDebugClient6 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok() }
     }
-    pub unsafe fn CreateProcess2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
+    pub unsafe fn CreateProcess2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P4: windows_core::Param<windows_core::PCSTR>,
         P5: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
     }
-    pub unsafe fn CreateProcess2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
+    pub unsafe fn CreateProcess2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
     }
-    pub unsafe fn CreateProcessAndAttach2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
+    pub unsafe fn CreateProcessAndAttach2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P4: windows_core::Param<windows_core::PCSTR>,
         P5: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
     }
-    pub unsafe fn CreateProcessAndAttach2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
+    pub unsafe fn CreateProcessAndAttach2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
     }
     pub unsafe fn PushOutputLinePrefix<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
@@ -12040,7 +12076,7 @@ pub struct IDebugClient6_Vtbl {
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub DisconnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetRunningProcessSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -12103,7 +12139,7 @@ pub struct IDebugClient6_Vtbl {
     pub AttachKernelWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptionsWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptionsWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub StartProcessServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub StartServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputServersWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -12115,10 +12151,10 @@ pub struct IDebugClient6_Vtbl {
     pub OutputIdentityWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetEventCallbacksWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEventCallbacksWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub CreateProcess2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub CreateProcessAndAttach2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
-    pub CreateProcessAndAttach2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
+    pub CreateProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *const core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
+    pub CreateProcess2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *const core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub CreateProcessAndAttach2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *const core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
+    pub CreateProcessAndAttach2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *const core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
     pub PushOutputLinePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub PushOutputLinePrefixWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub PopOutputLinePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
@@ -12135,7 +12171,7 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServer(&self, remoteoptions: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()>;
     fn GetRunningProcessSystemIds(&self, server: u64, ids: *mut u32, count: u32, actualcount: *mut u32) -> windows_core::Result<()>;
@@ -12198,7 +12234,7 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
     fn AttachKernelWide(&self, flags: u32, connectoptions: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptionsWide(&self, buffer: windows_core::PWSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptionsWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn StartProcessServerWide(&self, flags: u32, options: &windows_core::PCWSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServerWide(&self, flags: u32, options: &windows_core::PCWSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServerWide(&self, remoteoptions: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn StartServerWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputServersWide(&self, outputcontrol: u32, machine: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<()>;
@@ -12210,10 +12246,10 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
     fn OutputIdentityWide(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide>;
     fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<IDebugEventCallbacksWide>) -> windows_core::Result<()>;
-    fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
-    fn CreateProcessAndAttach2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
+    fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
+    fn CreateProcessAndAttach2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
     fn PushOutputLinePrefix(&self, newprefix: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn PushOutputLinePrefixWide(&self, newprefix: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn PopOutputLinePrefix(&self, handle: u64) -> windows_core::Result<()>;
@@ -12246,7 +12282,7 @@ impl IDebugClient6_Vtbl {
                 IDebugClient6_Impl::SetKernelConnectionOptions(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient6_Impl::StartProcessServer(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -12702,7 +12738,7 @@ impl IDebugClient6_Vtbl {
                 IDebugClient6_Impl::SetKernelConnectionOptionsWide(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServerWide<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCWSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServerWide<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCWSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient6_Impl::StartProcessServerWide(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -12792,25 +12828,25 @@ impl IDebugClient6_Vtbl {
                 IDebugClient6_Impl::SetEventCallbacksWide(this, core::mem::transmute_copy(&callbacks)).into()
             }
         }
-        unsafe extern "system" fn CreateProcess2<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcess2<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient6_Impl::CreateProcess2(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment)).into()
             }
         }
-        unsafe extern "system" fn CreateProcess2Wide<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcess2Wide<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient6_Impl::CreateProcess2Wide(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment)).into()
             }
         }
-        unsafe extern "system" fn CreateProcessAndAttach2<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcessAndAttach2<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient6_Impl::CreateProcessAndAttach2(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment), core::mem::transmute_copy(&processid), core::mem::transmute_copy(&attachflags)).into()
             }
         }
-        unsafe extern "system" fn CreateProcessAndAttach2Wide<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcessAndAttach2Wide<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient6_Impl::CreateProcessAndAttach2Wide(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment), core::mem::transmute_copy(&processid), core::mem::transmute_copy(&attachflags)).into()
@@ -14501,7 +14537,7 @@ impl IDebugClient7_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugClient7 {}
-windows_core::imp::define_interface!(IDebugClient8, IDebugClient8_Vtbl, 0x6a781d26_4985_5254_991b_3ec2d45111ed);
+windows_core::imp::define_interface!(IDebugClient8, IDebugClient8_Vtbl, 0xcec43add_6375_469e_83d5_414e4033c19a);
 windows_core::imp::interface_hierarchy!(IDebugClient8, windows_core::IUnknown);
 impl IDebugClient8 {
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::Result<()>
@@ -14519,7 +14555,7 @@ impl IDebugClient8 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptions)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServer<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
@@ -14830,7 +14866,7 @@ impl IDebugClient8 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), options.param().abi()).ok() }
     }
-    pub unsafe fn StartProcessServerWide<P1>(&self, flags: u32, options: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
+    pub unsafe fn StartProcessServerWide<P1>(&self, flags: u32, options: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -14899,37 +14935,37 @@ impl IDebugClient8 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetEventCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok() }
     }
-    pub unsafe fn CreateProcess2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
+    pub unsafe fn CreateProcess2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P4: windows_core::Param<windows_core::PCSTR>,
         P5: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcess2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
     }
-    pub unsafe fn CreateProcess2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
+    pub unsafe fn CreateProcess2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcess2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi()).ok() }
     }
-    pub unsafe fn CreateProcessAndAttach2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
+    pub unsafe fn CreateProcessAndAttach2<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P4: windows_core::Param<windows_core::PCSTR>,
         P5: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
     }
-    pub unsafe fn CreateProcessAndAttach2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
+    pub unsafe fn CreateProcessAndAttach2Wide<P1, P4, P5>(&self, server: u64, commandline: P1, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: P4, environment: P5, processid: u32, attachflags: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer as _, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcessAndAttach2Wide)(windows_core::Interface::as_raw(self), server, commandline.param().abi(), optionsbuffer, optionsbuffersize, initialdirectory.param().abi(), environment.param().abi(), processid, attachflags).ok() }
     }
     pub unsafe fn PushOutputLinePrefix<P0>(&self, newprefix: P0) -> windows_core::Result<u64>
     where
@@ -14994,8 +15030,8 @@ impl IDebugClient8 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetEventContextCallbacks)(windows_core::Interface::as_raw(self), callbacks.param().abi()).ok() }
     }
-    pub unsafe fn SetClientContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetClientContext)(windows_core::Interface::as_raw(self), context as _, contextsize).ok() }
+    pub unsafe fn SetClientContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetClientContext)(windows_core::Interface::as_raw(self), context, contextsize).ok() }
     }
     pub unsafe fn OpenDumpFileWide2<P0>(&self, filename: P0, filehandle: u64, alternatearch: u32) -> windows_core::Result<()>
     where
@@ -15011,7 +15047,7 @@ pub struct IDebugClient8_Vtbl {
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub DisconnectProcessServer: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetRunningProcessSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32, u32, *mut u32) -> windows_core::HRESULT,
@@ -15074,7 +15110,7 @@ pub struct IDebugClient8_Vtbl {
     pub AttachKernelWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptionsWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptionsWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub StartProcessServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartProcessServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectProcessServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub StartServerWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputServersWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -15086,10 +15122,10 @@ pub struct IDebugClient8_Vtbl {
     pub OutputIdentityWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub GetEventCallbacksWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEventCallbacksWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub CreateProcess2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub CreateProcessAndAttach2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
-    pub CreateProcessAndAttach2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
+    pub CreateProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *const core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
+    pub CreateProcess2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *const core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub CreateProcessAndAttach2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *const core::ffi::c_void, u32, windows_core::PCSTR, windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
+    pub CreateProcessAndAttach2Wide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *const core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
     pub PushOutputLinePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub PushOutputLinePrefixWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub PopOutputLinePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
@@ -15101,14 +15137,14 @@ pub struct IDebugClient8_Vtbl {
     pub GetQuitLockStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetQuitLockStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetEventContextCallbacks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetClientContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetClientContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub OpenDumpFileWide2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u64, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServer(&self, flags: u32, options: &windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServer(&self, remoteoptions: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn DisconnectProcessServer(&self, server: u64) -> windows_core::Result<()>;
     fn GetRunningProcessSystemIds(&self, server: u64, ids: *mut u32, count: u32, actualcount: *mut u32) -> windows_core::Result<()>;
@@ -15171,7 +15207,7 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn AttachKernelWide(&self, flags: u32, connectoptions: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptionsWide(&self, buffer: windows_core::PWSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptionsWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn StartProcessServerWide(&self, flags: u32, options: &windows_core::PCWSTR, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StartProcessServerWide(&self, flags: u32, options: &windows_core::PCWSTR, reserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn ConnectProcessServerWide(&self, remoteoptions: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn StartServerWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputServersWide(&self, outputcontrol: u32, machine: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<()>;
@@ -15183,10 +15219,10 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn OutputIdentityWide(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide>;
     fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<IDebugEventCallbacksWide>) -> windows_core::Result<()>;
-    fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
-    fn CreateProcessAndAttach2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
+    fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
+    fn CreateProcessAndAttach2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
     fn PushOutputLinePrefix(&self, newprefix: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn PushOutputLinePrefixWide(&self, newprefix: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn PopOutputLinePrefix(&self, handle: u64) -> windows_core::Result<()>;
@@ -15198,7 +15234,7 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn GetQuitLockStringWide(&self, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn SetQuitLockStringWide(&self, string: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetEventContextCallbacks(&self, callbacks: windows_core::Ref<IDebugEventContextCallbacks>) -> windows_core::Result<()>;
-    fn SetClientContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn SetClientContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn OpenDumpFileWide2(&self, filename: &windows_core::PCWSTR, filehandle: u64, alternatearch: u32) -> windows_core::Result<()>;
 }
 impl IDebugClient8_Vtbl {
@@ -15221,7 +15257,7 @@ impl IDebugClient8_Vtbl {
                 IDebugClient8_Impl::SetKernelConnectionOptions(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServer<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient8_Impl::StartProcessServer(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -15677,7 +15713,7 @@ impl IDebugClient8_Vtbl {
                 IDebugClient8_Impl::SetKernelConnectionOptionsWide(this, core::mem::transmute(&options)).into()
             }
         }
-        unsafe extern "system" fn StartProcessServerWide<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCWSTR, reserved: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartProcessServerWide<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, options: windows_core::PCWSTR, reserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient8_Impl::StartProcessServerWide(this, core::mem::transmute_copy(&flags), core::mem::transmute(&options), core::mem::transmute_copy(&reserved)).into()
@@ -15767,25 +15803,25 @@ impl IDebugClient8_Vtbl {
                 IDebugClient8_Impl::SetEventCallbacksWide(this, core::mem::transmute_copy(&callbacks)).into()
             }
         }
-        unsafe extern "system" fn CreateProcess2<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcess2<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient8_Impl::CreateProcess2(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment)).into()
             }
         }
-        unsafe extern "system" fn CreateProcess2Wide<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcess2Wide<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient8_Impl::CreateProcess2Wide(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment)).into()
             }
         }
-        unsafe extern "system" fn CreateProcessAndAttach2<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcessAndAttach2<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCSTR, environment: windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient8_Impl::CreateProcessAndAttach2(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment), core::mem::transmute_copy(&processid), core::mem::transmute_copy(&attachflags)).into()
             }
         }
-        unsafe extern "system" fn CreateProcessAndAttach2Wide<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *mut core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcessAndAttach2Wide<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, commandline: windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: windows_core::PCWSTR, environment: windows_core::PCWSTR, processid: u32, attachflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient8_Impl::CreateProcessAndAttach2Wide(this, core::mem::transmute_copy(&server), core::mem::transmute(&commandline), core::mem::transmute_copy(&optionsbuffer), core::mem::transmute_copy(&optionsbuffersize), core::mem::transmute(&initialdirectory), core::mem::transmute(&environment), core::mem::transmute_copy(&processid), core::mem::transmute_copy(&attachflags)).into()
@@ -15887,7 +15923,7 @@ impl IDebugClient8_Vtbl {
                 IDebugClient8_Impl::SetEventContextCallbacks(this, core::mem::transmute_copy(&callbacks)).into()
             }
         }
-        unsafe extern "system" fn SetClientContext<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientContext<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugClient8_Impl::SetClientContext(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
@@ -16003,7 +16039,7 @@ impl IDebugClient8_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugClient8 {}
-windows_core::imp::define_interface!(IDebugControl, IDebugControl_Vtbl, 0x2f19f163_d9cf_55b9_8999_08836957669a);
+windows_core::imp::define_interface!(IDebugControl, IDebugControl_Vtbl, 0x5182e668_105e_416e_ad92_24ef800424ba);
 windows_core::imp::interface_hierarchy!(IDebugControl, windows_core::IUnknown);
 impl IDebugControl {
     pub unsafe fn GetInterrupt(&self) -> windows_core::Result<()> {
@@ -16057,14 +16093,11 @@ impl IDebugControl {
     {
         unsafe { (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutput<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -16072,14 +16105,11 @@ impl IDebugControl {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPrompt<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -16087,14 +16117,11 @@ impl IDebugControl {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptText(&self, buffer: &mut [u8], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -16156,7 +16183,7 @@ impl IDebugControl {
             (windows_core::Interface::vtable(self).GetReturnOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()> {
@@ -16288,11 +16315,11 @@ impl IDebugControl {
     {
         unsafe { (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value as _, remainderindex as _).ok() }
     }
-    pub unsafe fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in as _, outtype, out as _).ok() }
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out as _).ok() }
     }
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in as _, outtypes as _, out as _).ok() }
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in, outtypes, out as _).ok() }
     }
     pub unsafe fn Execute<P1>(&self, outputcontrol: u32, command: P1, flags: u32) -> windows_core::Result<()>
     where
@@ -16324,8 +16351,8 @@ impl IDebugControl {
             (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids as _, start, params as _).ok() }
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids, start, params as _).ok() }
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
@@ -16400,7 +16427,7 @@ impl IDebugControl {
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
-    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: &mut [u8], argumentsize: *mut u32) -> windows_core::Result<()> {
@@ -16412,10 +16439,10 @@ impl IDebugControl {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok() }
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes as _, start, params as _).ok() }
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes, start, params as _).ok() }
     }
-    pub unsafe fn SetExceptionFilterParameters(&self, params: &mut [DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: &mut [u8], commandsize: *mut u32) -> windows_core::Result<()> {
@@ -16450,11 +16477,11 @@ pub struct IDebugControl_Vtbl {
     pub Input: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPrompt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub OutputVersionInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -16468,7 +16495,7 @@ pub struct IDebugControl_Vtbl {
     pub GetNearInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, i32, *mut u64) -> windows_core::HRESULT,
     pub GetStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME, u32, *mut u32) -> windows_core::HRESULT,
     pub GetReturnOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
+    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
     pub GetDebuggeeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetActualProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExecutingProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -16499,14 +16526,14 @@ pub struct IDebugControl_Vtbl {
     pub GetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DEBUG_VALUE, *mut u32) -> windows_core::HRESULT,
-    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE, *mut u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_VALUE, *const u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub ExecuteCommandFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetNumberBreakpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetBreakpointByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBreakpointById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
+    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
     pub AddBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u64) -> windows_core::HRESULT,
@@ -16521,11 +16548,11 @@ pub struct IDebugControl_Vtbl {
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -16544,11 +16571,11 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn Input(&self, buffer: windows_core::PSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInput(&self, buffer: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn Output(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutput(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPrompt(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptText(&self, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
     fn OutputVersionInformation(&self, outputcontrol: u32) -> windows_core::Result<()>;
@@ -16562,7 +16589,7 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64>;
     fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
     fn GetReturnOffset(&self) -> windows_core::Result<u64>;
-    fn OutputStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn OutputStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
     fn GetActualProcessorType(&self) -> windows_core::Result<u32>;
     fn GetExecutingProcessorType(&self) -> windows_core::Result<u32>;
@@ -16593,14 +16620,14 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn GetRadix(&self) -> windows_core::Result<u32>;
     fn SetRadix(&self, radix: u32) -> windows_core::Result<()>;
     fn Evaluate(&self, expression: &windows_core::PCSTR, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: *mut u32) -> windows_core::Result<()>;
-    fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
     fn Execute(&self, outputcontrol: u32, command: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn ExecuteCommandFile(&self, outputcontrol: u32, commandfile: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn GetNumberBreakpoints(&self) -> windows_core::Result<u32>;
     fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
@@ -16615,11 +16642,11 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn GetEventFilterCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetSpecificFilterArgument(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, argumentsize: *mut u32) -> windows_core::Result<()>;
     fn SetSpecificFilterArgument(&self, index: u32, argument: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetExceptionFilterParameters(&self, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetExceptionFilterParameters(&self, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetExceptionFilterSecondCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
@@ -16711,16 +16738,10 @@ impl IDebugControl_Vtbl {
                 IDebugControl_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaList<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaList<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutput<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -16729,16 +16750,10 @@ impl IDebugControl_Vtbl {
                 IDebugControl_Impl::ControlledOutput(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPrompt<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -16747,16 +16762,10 @@ impl IDebugControl_Vtbl {
                 IDebugControl_Impl::OutputPrompt(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptText<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -16873,7 +16882,7 @@ impl IDebugControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::OutputStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
@@ -17125,13 +17134,13 @@ impl IDebugControl_Vtbl {
                 IDebugControl_Impl::Evaluate(this, core::mem::transmute(&expression), core::mem::transmute_copy(&desiredtype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&remainderindex)).into()
             }
         }
-        unsafe extern "system" fn CoerceValue<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValue<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::CoerceValue(this, core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtype), core::mem::transmute_copy(&out)).into()
             }
         }
-        unsafe extern "system" fn CoerceValues<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValues<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::CoerceValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtypes), core::mem::transmute_copy(&out)).into()
@@ -17185,7 +17194,7 @@ impl IDebugControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::GetBreakpointParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
@@ -17299,7 +17308,7 @@ impl IDebugControl_Vtbl {
                 IDebugControl_Impl::GetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::SetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -17317,13 +17326,13 @@ impl IDebugControl_Vtbl {
                 IDebugControl_Impl::SetSpecificFilterArgument(this, core::mem::transmute_copy(&index), core::mem::transmute(&argument)).into()
             }
         }
-        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::GetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&codes), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl_Impl::SetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -17454,7 +17463,7 @@ impl IDebugControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugControl {}
-windows_core::imp::define_interface!(IDebugControl2, IDebugControl2_Vtbl, 0x1109c4b9_8e35_5d8f_b250_3ec8d66ece8e);
+windows_core::imp::define_interface!(IDebugControl2, IDebugControl2_Vtbl, 0xd4366723_44df_4bed_8c7e_4c05424f4588);
 windows_core::imp::interface_hierarchy!(IDebugControl2, windows_core::IUnknown);
 impl IDebugControl2 {
     pub unsafe fn GetInterrupt(&self) -> windows_core::Result<()> {
@@ -17508,14 +17517,11 @@ impl IDebugControl2 {
     {
         unsafe { (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutput<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -17523,14 +17529,11 @@ impl IDebugControl2 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPrompt<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -17538,14 +17541,11 @@ impl IDebugControl2 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptText(&self, buffer: &mut [u8], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -17607,7 +17607,7 @@ impl IDebugControl2 {
             (windows_core::Interface::vtable(self).GetReturnOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()> {
@@ -17739,11 +17739,11 @@ impl IDebugControl2 {
     {
         unsafe { (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value as _, remainderindex as _).ok() }
     }
-    pub unsafe fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in as _, outtype, out as _).ok() }
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out as _).ok() }
     }
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in as _, outtypes as _, out as _).ok() }
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in, outtypes, out as _).ok() }
     }
     pub unsafe fn Execute<P1>(&self, outputcontrol: u32, command: P1, flags: u32) -> windows_core::Result<()>
     where
@@ -17775,8 +17775,8 @@ impl IDebugControl2 {
             (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids as _, start, params as _).ok() }
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids, start, params as _).ok() }
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
@@ -17851,7 +17851,7 @@ impl IDebugControl2 {
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
-    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: &mut [u8], argumentsize: *mut u32) -> windows_core::Result<()> {
@@ -17863,10 +17863,10 @@ impl IDebugControl2 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok() }
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes as _, start, params as _).ok() }
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes, start, params as _).ok() }
     }
-    pub unsafe fn SetExceptionFilterParameters(&self, params: &mut [DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: &mut [u8], commandsize: *mut u32) -> windows_core::Result<()> {
@@ -17944,11 +17944,11 @@ pub struct IDebugControl2_Vtbl {
     pub Input: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPrompt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub OutputVersionInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -17962,7 +17962,7 @@ pub struct IDebugControl2_Vtbl {
     pub GetNearInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, i32, *mut u64) -> windows_core::HRESULT,
     pub GetStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME, u32, *mut u32) -> windows_core::HRESULT,
     pub GetReturnOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
+    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
     pub GetDebuggeeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetActualProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExecutingProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -17993,14 +17993,14 @@ pub struct IDebugControl2_Vtbl {
     pub GetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DEBUG_VALUE, *mut u32) -> windows_core::HRESULT,
-    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE, *mut u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_VALUE, *const u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub ExecuteCommandFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetNumberBreakpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetBreakpointByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBreakpointById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
+    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
     pub AddBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u64) -> windows_core::HRESULT,
@@ -18015,11 +18015,11 @@ pub struct IDebugControl2_Vtbl {
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -18046,11 +18046,11 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn Input(&self, buffer: windows_core::PSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInput(&self, buffer: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn Output(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutput(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPrompt(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptText(&self, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
     fn OutputVersionInformation(&self, outputcontrol: u32) -> windows_core::Result<()>;
@@ -18064,7 +18064,7 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64>;
     fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
     fn GetReturnOffset(&self) -> windows_core::Result<u64>;
-    fn OutputStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn OutputStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
     fn GetActualProcessorType(&self) -> windows_core::Result<u32>;
     fn GetExecutingProcessorType(&self) -> windows_core::Result<u32>;
@@ -18095,14 +18095,14 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn GetRadix(&self) -> windows_core::Result<u32>;
     fn SetRadix(&self, radix: u32) -> windows_core::Result<()>;
     fn Evaluate(&self, expression: &windows_core::PCSTR, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: *mut u32) -> windows_core::Result<()>;
-    fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
     fn Execute(&self, outputcontrol: u32, command: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn ExecuteCommandFile(&self, outputcontrol: u32, commandfile: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn GetNumberBreakpoints(&self) -> windows_core::Result<u32>;
     fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
@@ -18117,11 +18117,11 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn GetEventFilterCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetSpecificFilterArgument(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, argumentsize: *mut u32) -> windows_core::Result<()>;
     fn SetSpecificFilterArgument(&self, index: u32, argument: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetExceptionFilterParameters(&self, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetExceptionFilterParameters(&self, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetExceptionFilterSecondCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
@@ -18221,16 +18221,10 @@ impl IDebugControl2_Vtbl {
                 IDebugControl2_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaList<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaList<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl2_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl2_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutput<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -18239,16 +18233,10 @@ impl IDebugControl2_Vtbl {
                 IDebugControl2_Impl::ControlledOutput(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl2_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl2_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPrompt<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -18257,16 +18245,10 @@ impl IDebugControl2_Vtbl {
                 IDebugControl2_Impl::OutputPrompt(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl2_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl2_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptText<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -18383,7 +18365,7 @@ impl IDebugControl2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::OutputStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
@@ -18635,13 +18617,13 @@ impl IDebugControl2_Vtbl {
                 IDebugControl2_Impl::Evaluate(this, core::mem::transmute(&expression), core::mem::transmute_copy(&desiredtype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&remainderindex)).into()
             }
         }
-        unsafe extern "system" fn CoerceValue<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValue<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::CoerceValue(this, core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtype), core::mem::transmute_copy(&out)).into()
             }
         }
-        unsafe extern "system" fn CoerceValues<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValues<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::CoerceValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtypes), core::mem::transmute_copy(&out)).into()
@@ -18695,7 +18677,7 @@ impl IDebugControl2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::GetBreakpointParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
@@ -18809,7 +18791,7 @@ impl IDebugControl2_Vtbl {
                 IDebugControl2_Impl::GetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::SetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -18827,13 +18809,13 @@ impl IDebugControl2_Vtbl {
                 IDebugControl2_Impl::SetSpecificFilterArgument(this, core::mem::transmute_copy(&index), core::mem::transmute(&argument)).into()
             }
         }
-        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::GetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&codes), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl2_Impl::SetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -19044,7 +19026,7 @@ impl IDebugControl2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugControl2 {}
-windows_core::imp::define_interface!(IDebugControl3, IDebugControl3_Vtbl, 0x3e879b4e_b1a4_5e76_b8ca_84460767e83a);
+windows_core::imp::define_interface!(IDebugControl3, IDebugControl3_Vtbl, 0x7df74a86_b03f_407f_90ab_a20dadcead08);
 windows_core::imp::interface_hierarchy!(IDebugControl3, windows_core::IUnknown);
 impl IDebugControl3 {
     pub unsafe fn GetInterrupt(&self) -> windows_core::Result<()> {
@@ -19098,14 +19080,11 @@ impl IDebugControl3 {
     {
         unsafe { (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutput<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -19113,14 +19092,11 @@ impl IDebugControl3 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPrompt<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -19128,14 +19104,11 @@ impl IDebugControl3 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptText(&self, buffer: &mut [u8], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -19197,7 +19170,7 @@ impl IDebugControl3 {
             (windows_core::Interface::vtable(self).GetReturnOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()> {
@@ -19329,11 +19302,11 @@ impl IDebugControl3 {
     {
         unsafe { (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value as _, remainderindex as _).ok() }
     }
-    pub unsafe fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in as _, outtype, out as _).ok() }
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out as _).ok() }
     }
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in as _, outtypes as _, out as _).ok() }
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in, outtypes, out as _).ok() }
     }
     pub unsafe fn Execute<P1>(&self, outputcontrol: u32, command: P1, flags: u32) -> windows_core::Result<()>
     where
@@ -19365,8 +19338,8 @@ impl IDebugControl3 {
             (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids as _, start, params as _).ok() }
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids, start, params as _).ok() }
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
@@ -19441,7 +19414,7 @@ impl IDebugControl3 {
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
-    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: &mut [u8], argumentsize: *mut u32) -> windows_core::Result<()> {
@@ -19453,10 +19426,10 @@ impl IDebugControl3 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok() }
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes as _, start, params as _).ok() }
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes, start, params as _).ok() }
     }
-    pub unsafe fn SetExceptionFilterParameters(&self, params: &mut [DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: &mut [u8], commandsize: *mut u32) -> windows_core::Result<()> {
@@ -19600,11 +19573,11 @@ pub struct IDebugControl3_Vtbl {
     pub Input: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPrompt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub OutputVersionInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -19618,7 +19591,7 @@ pub struct IDebugControl3_Vtbl {
     pub GetNearInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, i32, *mut u64) -> windows_core::HRESULT,
     pub GetStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME, u32, *mut u32) -> windows_core::HRESULT,
     pub GetReturnOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
+    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
     pub GetDebuggeeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetActualProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExecutingProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -19649,14 +19622,14 @@ pub struct IDebugControl3_Vtbl {
     pub GetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DEBUG_VALUE, *mut u32) -> windows_core::HRESULT,
-    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE, *mut u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_VALUE, *const u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub ExecuteCommandFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetNumberBreakpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetBreakpointByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBreakpointById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
+    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
     pub AddBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u64) -> windows_core::HRESULT,
@@ -19671,11 +19644,11 @@ pub struct IDebugControl3_Vtbl {
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -19715,11 +19688,11 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn Input(&self, buffer: windows_core::PSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInput(&self, buffer: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn Output(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutput(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPrompt(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptText(&self, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
     fn OutputVersionInformation(&self, outputcontrol: u32) -> windows_core::Result<()>;
@@ -19733,7 +19706,7 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64>;
     fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
     fn GetReturnOffset(&self) -> windows_core::Result<u64>;
-    fn OutputStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn OutputStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
     fn GetActualProcessorType(&self) -> windows_core::Result<u32>;
     fn GetExecutingProcessorType(&self) -> windows_core::Result<u32>;
@@ -19764,14 +19737,14 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn GetRadix(&self) -> windows_core::Result<u32>;
     fn SetRadix(&self, radix: u32) -> windows_core::Result<()>;
     fn Evaluate(&self, expression: &windows_core::PCSTR, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: *mut u32) -> windows_core::Result<()>;
-    fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
     fn Execute(&self, outputcontrol: u32, command: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn ExecuteCommandFile(&self, outputcontrol: u32, commandfile: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn GetNumberBreakpoints(&self) -> windows_core::Result<u32>;
     fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
@@ -19786,11 +19759,11 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn GetEventFilterCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetSpecificFilterArgument(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, argumentsize: *mut u32) -> windows_core::Result<()>;
     fn SetSpecificFilterArgument(&self, index: u32, argument: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetExceptionFilterParameters(&self, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetExceptionFilterParameters(&self, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetExceptionFilterSecondCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
@@ -19903,16 +19876,10 @@ impl IDebugControl3_Vtbl {
                 IDebugControl3_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaList<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaList<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl3_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl3_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutput<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -19921,16 +19888,10 @@ impl IDebugControl3_Vtbl {
                 IDebugControl3_Impl::ControlledOutput(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl3_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl3_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPrompt<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -19939,16 +19900,10 @@ impl IDebugControl3_Vtbl {
                 IDebugControl3_Impl::OutputPrompt(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl3_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl3_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptText<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -20065,7 +20020,7 @@ impl IDebugControl3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::OutputStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
@@ -20317,13 +20272,13 @@ impl IDebugControl3_Vtbl {
                 IDebugControl3_Impl::Evaluate(this, core::mem::transmute(&expression), core::mem::transmute_copy(&desiredtype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&remainderindex)).into()
             }
         }
-        unsafe extern "system" fn CoerceValue<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValue<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::CoerceValue(this, core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtype), core::mem::transmute_copy(&out)).into()
             }
         }
-        unsafe extern "system" fn CoerceValues<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValues<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::CoerceValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtypes), core::mem::transmute_copy(&out)).into()
@@ -20377,7 +20332,7 @@ impl IDebugControl3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::GetBreakpointParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
@@ -20491,7 +20446,7 @@ impl IDebugControl3_Vtbl {
                 IDebugControl3_Impl::GetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::SetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -20509,13 +20464,13 @@ impl IDebugControl3_Vtbl {
                 IDebugControl3_Impl::SetSpecificFilterArgument(this, core::mem::transmute_copy(&index), core::mem::transmute(&argument)).into()
             }
         }
-        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::GetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&codes), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl3_Impl::SetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -23438,7 +23393,7 @@ impl IDebugControl4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugControl4 {}
-windows_core::imp::define_interface!(IDebugControl5, IDebugControl5_Vtbl, 0x7e607894_290d_54e0_b8a2_afd62f073a3c);
+windows_core::imp::define_interface!(IDebugControl5, IDebugControl5_Vtbl, 0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
 windows_core::imp::interface_hierarchy!(IDebugControl5, windows_core::IUnknown);
 impl IDebugControl5 {
     pub unsafe fn GetInterrupt(&self) -> windows_core::Result<()> {
@@ -23492,14 +23447,11 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutput<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -23507,14 +23459,11 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPrompt<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -23522,14 +23471,11 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptText(&self, buffer: &mut [u8], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -23591,7 +23537,7 @@ impl IDebugControl5 {
             (windows_core::Interface::vtable(self).GetReturnOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()> {
@@ -23723,11 +23669,11 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value as _, remainderindex as _).ok() }
     }
-    pub unsafe fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in as _, outtype, out as _).ok() }
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out as _).ok() }
     }
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in as _, outtypes as _, out as _).ok() }
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in, outtypes, out as _).ok() }
     }
     pub unsafe fn Execute<P1>(&self, outputcontrol: u32, command: P1, flags: u32) -> windows_core::Result<()>
     where
@@ -23759,8 +23705,8 @@ impl IDebugControl5 {
             (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids as _, start, params as _).ok() }
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids, start, params as _).ok() }
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
@@ -23835,7 +23781,7 @@ impl IDebugControl5 {
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
-    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: &mut [u8], argumentsize: *mut u32) -> windows_core::Result<()> {
@@ -23847,10 +23793,10 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok() }
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes as _, start, params as _).ok() }
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes, start, params as _).ok() }
     }
-    pub unsafe fn SetExceptionFilterParameters(&self, params: &mut [DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: &mut [u8], commandsize: *mut u32) -> windows_core::Result<()> {
@@ -24001,14 +23947,11 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaListWide<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaListWide<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutputWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -24016,14 +23959,11 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaListWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaListWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPromptWide<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -24031,14 +23971,11 @@ impl IDebugControl5 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaListWide<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaListWide<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: &mut [u16], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -24234,11 +24171,11 @@ impl IDebugControl5 {
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
     }
-    pub unsafe fn GetContextStackTrace(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext as _, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
+    pub unsafe fn GetContextStackTrace(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
     }
-    pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, flags).ok() }
+    pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags).ok() }
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStoredEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, context as _, contextsize, contextused as _, extrainformation as _, extrainformationsize, extrainformationused as _).ok() }
@@ -24255,17 +24192,20 @@ impl IDebugControl5 {
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled as _).ok() }
     }
-    pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME_EX], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
-    pub unsafe fn GetContextStackTraceEx(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext as _, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
+    pub unsafe fn GetContextStackTraceEx(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
     }
-    pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, flags).ok() }
+    pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags).ok() }
     }
-    pub unsafe fn GetBreakpointByGuid(&self, guid: *mut windows_core::GUID, bp: *mut Option<IDebugBreakpoint3>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid as _, core::mem::transmute(bp)).ok() }
+    pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -24284,11 +24224,11 @@ pub struct IDebugControl5_Vtbl {
     pub Input: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPrompt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub OutputVersionInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -24302,7 +24242,7 @@ pub struct IDebugControl5_Vtbl {
     pub GetNearInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, i32, *mut u64) -> windows_core::HRESULT,
     pub GetStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME, u32, *mut u32) -> windows_core::HRESULT,
     pub GetReturnOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
+    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
     pub GetDebuggeeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetActualProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExecutingProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -24333,14 +24273,14 @@ pub struct IDebugControl5_Vtbl {
     pub GetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DEBUG_VALUE, *mut u32) -> windows_core::HRESULT,
-    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE, *mut u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_VALUE, *const u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub ExecuteCommandFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetNumberBreakpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetBreakpointByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBreakpointById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
+    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
     pub AddBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u64) -> windows_core::HRESULT,
@@ -24355,11 +24295,11 @@ pub struct IDebugControl5_Vtbl {
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -24390,11 +24330,11 @@ pub struct IDebugControl5_Vtbl {
     pub InputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub OutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPromptWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptTextWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub AssembleWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub DisassembleWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PWSTR, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
@@ -24432,17 +24372,17 @@ pub struct IDebugControl5_Vtbl {
     pub GetSystemVersionValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemVersionString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemVersionStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
+    pub GetContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
+    pub OutputContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub GetStoredEventInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetManagedStatusWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ResetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME_EX, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, u32) -> windows_core::HRESULT,
-    pub GetContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
-    pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OutputStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, u32) -> windows_core::HRESULT,
+    pub GetContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
+    pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
+    pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
@@ -24457,11 +24397,11 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn Input(&self, buffer: windows_core::PSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInput(&self, buffer: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn Output(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutput(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPrompt(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptText(&self, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
     fn OutputVersionInformation(&self, outputcontrol: u32) -> windows_core::Result<()>;
@@ -24475,7 +24415,7 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64>;
     fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
     fn GetReturnOffset(&self) -> windows_core::Result<u64>;
-    fn OutputStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn OutputStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
     fn GetActualProcessorType(&self) -> windows_core::Result<u32>;
     fn GetExecutingProcessorType(&self) -> windows_core::Result<u32>;
@@ -24506,14 +24446,14 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetRadix(&self) -> windows_core::Result<u32>;
     fn SetRadix(&self, radix: u32) -> windows_core::Result<()>;
     fn Evaluate(&self, expression: &windows_core::PCSTR, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: *mut u32) -> windows_core::Result<()>;
-    fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
     fn Execute(&self, outputcontrol: u32, command: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn ExecuteCommandFile(&self, outputcontrol: u32, commandfile: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn GetNumberBreakpoints(&self) -> windows_core::Result<u32>;
     fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
@@ -24528,11 +24468,11 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetEventFilterCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetSpecificFilterArgument(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, argumentsize: *mut u32) -> windows_core::Result<()>;
     fn SetSpecificFilterArgument(&self, index: u32, argument: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetExceptionFilterParameters(&self, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetExceptionFilterParameters(&self, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetExceptionFilterSecondCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
@@ -24563,11 +24503,11 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn InputWide(&self, buffer: windows_core::PWSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInputWide(&self, buffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OutputVaListWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn OutputVaListWide(&self, mask: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutputWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaListWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaListWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPromptWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaListWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaListWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptTextWide(&self, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn AssembleWide(&self, offset: u64, instr: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn DisassembleWide(&self, offset: u64, flags: u32, buffer: windows_core::PWSTR, buffersize: u32, disassemblysize: *mut u32, endoffset: *mut u64) -> windows_core::Result<()>;
@@ -24605,17 +24545,17 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetSystemVersionValues(&self, platformid: *mut u32, win32major: *mut u32, win32minor: *mut u32, kdmajor: *mut u32, kdminor: *mut u32) -> windows_core::Result<()>;
     fn GetSystemVersionString(&self, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn GetSystemVersionStringWide(&self, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
-    fn GetContextStackTrace(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetContextStackTrace(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
+    fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> windows_core::Result<()>;
     fn GetManagedStatus(&self, flags: *mut u32, whichstring: u32, string: windows_core::PSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn GetManagedStatusWide(&self, flags: *mut u32, whichstring: u32, string: windows_core::PWSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn ResetManagedStatus(&self, flags: u32) -> windows_core::Result<()>;
     fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputStackTraceEx(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::Result<()>;
-    fn GetContextStackTraceEx(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
-    fn GetBreakpointByGuid(&self, guid: *mut windows_core::GUID, bp: windows_core::OutRef<IDebugBreakpoint3>) -> windows_core::Result<()>;
+    fn OutputStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetContextStackTraceEx(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
+    fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3>;
 }
 impl IDebugControl5_Vtbl {
     pub const fn new<Identity: IDebugControl5_Impl, const OFFSET: isize>() -> Self {
@@ -24703,16 +24643,10 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaList<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaList<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl5_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl5_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutput<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -24721,16 +24655,10 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::ControlledOutput(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl5_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl5_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPrompt<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -24739,16 +24667,10 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::OutputPrompt(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl5_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl5_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptText<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -24865,7 +24787,7 @@ impl IDebugControl5_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::OutputStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
@@ -25117,13 +25039,13 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::Evaluate(this, core::mem::transmute(&expression), core::mem::transmute_copy(&desiredtype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&remainderindex)).into()
             }
         }
-        unsafe extern "system" fn CoerceValue<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValue<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::CoerceValue(this, core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtype), core::mem::transmute_copy(&out)).into()
             }
         }
-        unsafe extern "system" fn CoerceValues<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValues<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::CoerceValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtypes), core::mem::transmute_copy(&out)).into()
@@ -25177,7 +25099,7 @@ impl IDebugControl5_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::GetBreakpointParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
@@ -25291,7 +25213,7 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::GetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::SetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -25309,13 +25231,13 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::SetSpecificFilterArgument(this, core::mem::transmute_copy(&index), core::mem::transmute(&argument)).into()
             }
         }
-        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::GetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&codes), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::SetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -25567,16 +25489,10 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::OutputWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaListWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaListWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl5_Impl::OutputVaListWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl5_Impl::OutputVaListWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutputWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -25585,16 +25501,10 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::ControlledOutputWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaListWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaListWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl5_Impl::ControlledOutputVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl5_Impl::ControlledOutputVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPromptWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -25603,16 +25513,10 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::OutputPromptWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaListWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaListWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl5_Impl::OutputPromptVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl5_Impl::OutputPromptVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptTextWide<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -25885,13 +25789,13 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::GetSystemVersionStringWide(this, core::mem::transmute_copy(&which), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&stringsize)).into()
             }
         }
-        unsafe extern "system" fn GetContextStackTrace<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContextStackTrace<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::GetContextStackTrace(this, core::mem::transmute_copy(&startcontext), core::mem::transmute_copy(&startcontextsize), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputContextStackTrace<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputContextStackTrace<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::OutputContextStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&flags)).into()
@@ -25927,28 +25831,34 @@ impl IDebugControl5_Vtbl {
                 IDebugControl5_Impl::GetStackTraceEx(this, core::mem::transmute_copy(&frameoffset), core::mem::transmute_copy(&stackoffset), core::mem::transmute_copy(&instructionoffset), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputStackTraceEx<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTraceEx<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::OutputStackTraceEx(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetContextStackTraceEx<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContextStackTraceEx<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::GetContextStackTraceEx(this, core::mem::transmute_copy(&startcontext), core::mem::transmute_copy(&startcontextsize), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputContextStackTraceEx<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputContextStackTraceEx<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl5_Impl::OutputContextStackTraceEx(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetBreakpointByGuid<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID, bp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointByGuid<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, bp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl5_Impl::GetBreakpointByGuid(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&bp)).into()
+                match IDebugControl5_Impl::GetBreakpointByGuid(this, core::mem::transmute_copy(&guid)) {
+                    Ok(ok__) => {
+                        bp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -26131,7 +26041,7 @@ impl IDebugControl5_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugControl5 {}
-windows_core::imp::define_interface!(IDebugControl6, IDebugControl6_Vtbl, 0xc786bcca_15af_56d0_90c0_316edf1ff109);
+windows_core::imp::define_interface!(IDebugControl6, IDebugControl6_Vtbl, 0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
 windows_core::imp::interface_hierarchy!(IDebugControl6, windows_core::IUnknown);
 impl IDebugControl6 {
     pub unsafe fn GetInterrupt(&self) -> windows_core::Result<()> {
@@ -26185,14 +26095,11 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutput<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -26200,14 +26107,11 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPrompt<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -26215,14 +26119,11 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptText(&self, buffer: &mut [u8], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -26284,7 +26185,7 @@ impl IDebugControl6 {
             (windows_core::Interface::vtable(self).GetReturnOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()> {
@@ -26416,11 +26317,11 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value as _, remainderindex as _).ok() }
     }
-    pub unsafe fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in as _, outtype, out as _).ok() }
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out as _).ok() }
     }
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in as _, outtypes as _, out as _).ok() }
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in, outtypes, out as _).ok() }
     }
     pub unsafe fn Execute<P1>(&self, outputcontrol: u32, command: P1, flags: u32) -> windows_core::Result<()>
     where
@@ -26452,8 +26353,8 @@ impl IDebugControl6 {
             (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids as _, start, params as _).ok() }
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids, start, params as _).ok() }
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
@@ -26528,7 +26429,7 @@ impl IDebugControl6 {
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
-    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: &mut [u8], argumentsize: *mut u32) -> windows_core::Result<()> {
@@ -26540,10 +26441,10 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok() }
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes as _, start, params as _).ok() }
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes, start, params as _).ok() }
     }
-    pub unsafe fn SetExceptionFilterParameters(&self, params: &mut [DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: &mut [u8], commandsize: *mut u32) -> windows_core::Result<()> {
@@ -26694,14 +26595,11 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaListWide<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaListWide<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutputWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -26709,14 +26607,11 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaListWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaListWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPromptWide<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -26724,14 +26619,11 @@ impl IDebugControl6 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaListWide<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaListWide<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: &mut [u16], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -26927,11 +26819,11 @@ impl IDebugControl6 {
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
     }
-    pub unsafe fn GetContextStackTrace(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext as _, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
+    pub unsafe fn GetContextStackTrace(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
     }
-    pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, flags).ok() }
+    pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags).ok() }
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStoredEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, context as _, contextsize, contextused as _, extrainformation as _, extrainformationsize, extrainformationused as _).ok() }
@@ -26948,17 +26840,20 @@ impl IDebugControl6 {
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled as _).ok() }
     }
-    pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME_EX], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
-    pub unsafe fn GetContextStackTraceEx(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext as _, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
+    pub unsafe fn GetContextStackTraceEx(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
     }
-    pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, flags).ok() }
+    pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags).ok() }
     }
-    pub unsafe fn GetBreakpointByGuid(&self, guid: *mut windows_core::GUID, bp: *mut Option<IDebugBreakpoint3>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid as _, core::mem::transmute(bp)).ok() }
+    pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetExecutionStatusEx(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -26986,11 +26881,11 @@ pub struct IDebugControl6_Vtbl {
     pub Input: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPrompt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub OutputVersionInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -27004,7 +26899,7 @@ pub struct IDebugControl6_Vtbl {
     pub GetNearInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, i32, *mut u64) -> windows_core::HRESULT,
     pub GetStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME, u32, *mut u32) -> windows_core::HRESULT,
     pub GetReturnOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
+    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
     pub GetDebuggeeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetActualProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExecutingProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -27035,14 +26930,14 @@ pub struct IDebugControl6_Vtbl {
     pub GetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DEBUG_VALUE, *mut u32) -> windows_core::HRESULT,
-    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE, *mut u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_VALUE, *const u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub ExecuteCommandFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetNumberBreakpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetBreakpointByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBreakpointById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
+    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
     pub AddBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u64) -> windows_core::HRESULT,
@@ -27057,11 +26952,11 @@ pub struct IDebugControl6_Vtbl {
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -27092,11 +26987,11 @@ pub struct IDebugControl6_Vtbl {
     pub InputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub OutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPromptWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptTextWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub AssembleWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub DisassembleWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PWSTR, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
@@ -27134,17 +27029,17 @@ pub struct IDebugControl6_Vtbl {
     pub GetSystemVersionValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemVersionString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemVersionStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
+    pub GetContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
+    pub OutputContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub GetStoredEventInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetManagedStatusWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ResetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME_EX, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, u32) -> windows_core::HRESULT,
-    pub GetContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
-    pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OutputStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, u32) -> windows_core::HRESULT,
+    pub GetContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
+    pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
+    pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetExecutionStatusEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSynchronizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
@@ -27161,11 +27056,11 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn Input(&self, buffer: windows_core::PSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInput(&self, buffer: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn Output(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutput(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPrompt(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptText(&self, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
     fn OutputVersionInformation(&self, outputcontrol: u32) -> windows_core::Result<()>;
@@ -27179,7 +27074,7 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64>;
     fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
     fn GetReturnOffset(&self) -> windows_core::Result<u64>;
-    fn OutputStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn OutputStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
     fn GetActualProcessorType(&self) -> windows_core::Result<u32>;
     fn GetExecutingProcessorType(&self) -> windows_core::Result<u32>;
@@ -27210,14 +27105,14 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetRadix(&self) -> windows_core::Result<u32>;
     fn SetRadix(&self, radix: u32) -> windows_core::Result<()>;
     fn Evaluate(&self, expression: &windows_core::PCSTR, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: *mut u32) -> windows_core::Result<()>;
-    fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
     fn Execute(&self, outputcontrol: u32, command: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn ExecuteCommandFile(&self, outputcontrol: u32, commandfile: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn GetNumberBreakpoints(&self) -> windows_core::Result<u32>;
     fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
@@ -27232,11 +27127,11 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetEventFilterCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetSpecificFilterArgument(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, argumentsize: *mut u32) -> windows_core::Result<()>;
     fn SetSpecificFilterArgument(&self, index: u32, argument: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetExceptionFilterParameters(&self, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetExceptionFilterParameters(&self, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetExceptionFilterSecondCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
@@ -27267,11 +27162,11 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn InputWide(&self, buffer: windows_core::PWSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInputWide(&self, buffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OutputVaListWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn OutputVaListWide(&self, mask: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutputWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaListWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaListWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPromptWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaListWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaListWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptTextWide(&self, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn AssembleWide(&self, offset: u64, instr: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn DisassembleWide(&self, offset: u64, flags: u32, buffer: windows_core::PWSTR, buffersize: u32, disassemblysize: *mut u32, endoffset: *mut u64) -> windows_core::Result<()>;
@@ -27309,17 +27204,17 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetSystemVersionValues(&self, platformid: *mut u32, win32major: *mut u32, win32minor: *mut u32, kdmajor: *mut u32, kdminor: *mut u32) -> windows_core::Result<()>;
     fn GetSystemVersionString(&self, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn GetSystemVersionStringWide(&self, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
-    fn GetContextStackTrace(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetContextStackTrace(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
+    fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> windows_core::Result<()>;
     fn GetManagedStatus(&self, flags: *mut u32, whichstring: u32, string: windows_core::PSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn GetManagedStatusWide(&self, flags: *mut u32, whichstring: u32, string: windows_core::PWSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn ResetManagedStatus(&self, flags: u32) -> windows_core::Result<()>;
     fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputStackTraceEx(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::Result<()>;
-    fn GetContextStackTraceEx(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
-    fn GetBreakpointByGuid(&self, guid: *mut windows_core::GUID, bp: windows_core::OutRef<IDebugBreakpoint3>) -> windows_core::Result<()>;
+    fn OutputStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetContextStackTraceEx(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
+    fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3>;
     fn GetExecutionStatusEx(&self) -> windows_core::Result<u32>;
     fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> windows_core::Result<()>;
 }
@@ -27409,16 +27304,10 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaList<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaList<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl6_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl6_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutput<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -27427,16 +27316,10 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::ControlledOutput(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl6_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl6_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPrompt<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -27445,16 +27328,10 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::OutputPrompt(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl6_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl6_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptText<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -27571,7 +27448,7 @@ impl IDebugControl6_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::OutputStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
@@ -27823,13 +27700,13 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::Evaluate(this, core::mem::transmute(&expression), core::mem::transmute_copy(&desiredtype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&remainderindex)).into()
             }
         }
-        unsafe extern "system" fn CoerceValue<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValue<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::CoerceValue(this, core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtype), core::mem::transmute_copy(&out)).into()
             }
         }
-        unsafe extern "system" fn CoerceValues<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValues<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::CoerceValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtypes), core::mem::transmute_copy(&out)).into()
@@ -27883,7 +27760,7 @@ impl IDebugControl6_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::GetBreakpointParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
@@ -27997,7 +27874,7 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::GetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::SetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -28015,13 +27892,13 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::SetSpecificFilterArgument(this, core::mem::transmute_copy(&index), core::mem::transmute(&argument)).into()
             }
         }
-        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::GetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&codes), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::SetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -28273,16 +28150,10 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::OutputWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaListWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaListWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl6_Impl::OutputVaListWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl6_Impl::OutputVaListWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutputWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -28291,16 +28162,10 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::ControlledOutputWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaListWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaListWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl6_Impl::ControlledOutputVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl6_Impl::ControlledOutputVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPromptWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -28309,16 +28174,10 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::OutputPromptWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaListWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaListWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl6_Impl::OutputPromptVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl6_Impl::OutputPromptVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptTextWide<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -28591,13 +28450,13 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::GetSystemVersionStringWide(this, core::mem::transmute_copy(&which), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&stringsize)).into()
             }
         }
-        unsafe extern "system" fn GetContextStackTrace<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContextStackTrace<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::GetContextStackTrace(this, core::mem::transmute_copy(&startcontext), core::mem::transmute_copy(&startcontextsize), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputContextStackTrace<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputContextStackTrace<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::OutputContextStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&flags)).into()
@@ -28633,28 +28492,34 @@ impl IDebugControl6_Vtbl {
                 IDebugControl6_Impl::GetStackTraceEx(this, core::mem::transmute_copy(&frameoffset), core::mem::transmute_copy(&stackoffset), core::mem::transmute_copy(&instructionoffset), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputStackTraceEx<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTraceEx<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::OutputStackTraceEx(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetContextStackTraceEx<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContextStackTraceEx<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::GetContextStackTraceEx(this, core::mem::transmute_copy(&startcontext), core::mem::transmute_copy(&startcontextsize), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputContextStackTraceEx<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputContextStackTraceEx<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl6_Impl::OutputContextStackTraceEx(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetBreakpointByGuid<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID, bp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointByGuid<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, bp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl6_Impl::GetBreakpointByGuid(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&bp)).into()
+                match IDebugControl6_Impl::GetBreakpointByGuid(this, core::mem::transmute_copy(&guid)) {
+                    Ok(ok__) => {
+                        bp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetExecutionStatusEx<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut u32) -> windows_core::HRESULT {
@@ -28857,7 +28722,7 @@ impl IDebugControl6_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugControl6 {}
-windows_core::imp::define_interface!(IDebugControl7, IDebugControl7_Vtbl, 0x39d268b6_925c_579a_adbf_dd5261e8ef77);
+windows_core::imp::define_interface!(IDebugControl7, IDebugControl7_Vtbl, 0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
 windows_core::imp::interface_hierarchy!(IDebugControl7, windows_core::IUnknown);
 impl IDebugControl7 {
     pub unsafe fn GetInterrupt(&self) -> windows_core::Result<()> {
@@ -28911,14 +28776,11 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).Output)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaList<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaList)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutput<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -28926,14 +28788,11 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutput)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaList<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaList)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPrompt<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -28941,14 +28800,11 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPrompt)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaList<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptText(&self, buffer: &mut [u8], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -29010,7 +28866,7 @@ impl IDebugControl7 {
             (windows_core::Interface::vtable(self).GetReturnOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()> {
@@ -29142,11 +28998,11 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).Evaluate)(windows_core::Interface::as_raw(self), expression.param().abi(), desiredtype, value as _, remainderindex as _).ok() }
     }
-    pub unsafe fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in as _, outtype, out as _).ok() }
+    pub unsafe fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValue)(windows_core::Interface::as_raw(self), r#in, outtype, out as _).ok() }
     }
-    pub unsafe fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in as _, outtypes as _, out as _).ok() }
+    pub unsafe fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CoerceValues)(windows_core::Interface::as_raw(self), count, r#in, outtypes, out as _).ok() }
     }
     pub unsafe fn Execute<P1>(&self, outputcontrol: u32, command: P1, flags: u32) -> windows_core::Result<()>
     where
@@ -29178,8 +29034,8 @@ impl IDebugControl7 {
             (windows_core::Interface::vtable(self).GetBreakpointById)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids as _, start, params as _).ok() }
+    pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakpointParameters)(windows_core::Interface::as_raw(self), count, ids, start, params as _).ok() }
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint> {
         unsafe {
@@ -29254,7 +29110,7 @@ impl IDebugControl7 {
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
-    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: &mut [u8], argumentsize: *mut u32) -> windows_core::Result<()> {
@@ -29266,10 +29122,10 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, argument.param().abi()).ok() }
     }
-    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes as _, start, params as _).ok() }
+    pub unsafe fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes, start, params as _).ok() }
     }
-    pub unsafe fn SetExceptionFilterParameters(&self, params: &mut [DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())).ok() }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: &mut [u8], commandsize: *mut u32) -> windows_core::Result<()> {
@@ -29420,14 +29276,11 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputWide)(windows_core::Interface::as_raw(self), mask, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputVaListWide<P1>(&self, mask: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputVaListWide<P1>(&self, mask: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputVaListWide)(windows_core::Interface::as_raw(self), mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn ControlledOutputWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<()>
     where
@@ -29435,14 +29288,11 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).ControlledOutputWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi()).ok() }
     }
-    pub unsafe fn ControlledOutputVaListWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2) -> windows_core::Result<i8>
+    pub unsafe fn ControlledOutputVaListWide<P2>(&self, outputcontrol: u32, mask: u32, format: P2, args: *const i8) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ControlledOutputVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, mask, format.param().abi(), args).ok() }
     }
     pub unsafe fn OutputPromptWide<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<()>
     where
@@ -29450,14 +29300,11 @@ impl IDebugControl7 {
     {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi()).ok() }
     }
-    pub unsafe fn OutputPromptVaListWide<P1>(&self, outputcontrol: u32, format: P1) -> windows_core::Result<i8>
+    pub unsafe fn OutputPromptVaListWide<P1>(&self, outputcontrol: u32, format: P1, args: *const i8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args).ok() }
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: &mut [u16], textsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), textsize as _).ok() }
@@ -29653,11 +29500,11 @@ impl IDebugControl7 {
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
     }
-    pub unsafe fn GetContextStackTrace(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext as _, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
+    pub unsafe fn GetContextStackTrace(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
     }
-    pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, flags).ok() }
+    pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags).ok() }
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStoredEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, context as _, contextsize, contextused as _, extrainformation as _, extrainformationsize, extrainformationused as _).ok() }
@@ -29674,17 +29521,20 @@ impl IDebugControl7 {
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled as _).ok() }
     }
-    pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME_EX], flags: u32) -> windows_core::Result<()> {
+    pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), flags).ok() }
     }
-    pub unsafe fn GetContextStackTraceEx(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext as _, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
+    pub unsafe fn GetContextStackTraceEx(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext, startcontextsize, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, framesfilled as _).ok() }
     }
-    pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &mut [DEBUG_STACK_FRAME_EX], framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts as _, framecontextssize, framecontextsentrysize, flags).ok() }
+    pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags).ok() }
     }
-    pub unsafe fn GetBreakpointByGuid(&self, guid: *mut windows_core::GUID, bp: *mut Option<IDebugBreakpoint3>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid as _, core::mem::transmute(bp)).ok() }
+    pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetBreakpointByGuid)(windows_core::Interface::as_raw(self), guid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetExecutionStatusEx(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -29715,11 +29565,11 @@ pub struct IDebugControl7_Vtbl {
     pub Input: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutput: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPrompt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputCurrentState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub OutputVersionInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -29733,7 +29583,7 @@ pub struct IDebugControl7_Vtbl {
     pub GetNearInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, i32, *mut u64) -> windows_core::HRESULT,
     pub GetStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME, u32, *mut u32) -> windows_core::HRESULT,
     pub GetReturnOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
+    pub OutputStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, u32) -> windows_core::HRESULT,
     pub GetDebuggeeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetActualProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetExecutingProcessorType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -29764,14 +29614,14 @@ pub struct IDebugControl7_Vtbl {
     pub GetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetRadix: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Evaluate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DEBUG_VALUE, *mut u32) -> windows_core::HRESULT,
-    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE, *mut u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_VALUE, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub CoerceValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_VALUE, *const u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
     pub Execute: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub ExecuteCommandFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetNumberBreakpoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetBreakpointByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBreakpointById: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
+    pub GetBreakpointParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
     pub AddBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveBreakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddExtension: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u64) -> windows_core::HRESULT,
@@ -29786,11 +29636,11 @@ pub struct IDebugControl7_Vtbl {
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetSpecificFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetSpecificFilterArgument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
-    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
-    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub GetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
+    pub SetExceptionFilterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT,
     pub GetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetExceptionFilterSecondCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
@@ -29821,11 +29671,11 @@ pub struct IDebugControl7_Vtbl {
     pub InputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReturnInputWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub OutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub OutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub ControlledOutputWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub ControlledOutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub ControlledOutputVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub OutputPromptWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub OutputPromptVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut i8) -> windows_core::HRESULT,
+    pub OutputPromptVaListWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const i8) -> windows_core::HRESULT,
     pub GetPromptTextWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub AssembleWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut u64) -> windows_core::HRESULT,
     pub DisassembleWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PWSTR, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
@@ -29863,17 +29713,17 @@ pub struct IDebugControl7_Vtbl {
     pub GetSystemVersionValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemVersionString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSystemVersionStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
+    pub GetContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
+    pub OutputContextStackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub GetStoredEventInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetManagedStatusWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ResetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut DEBUG_STACK_FRAME_EX, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, u32) -> windows_core::HRESULT,
-    pub GetContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
-    pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
-    pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OutputStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, u32) -> windows_core::HRESULT,
+    pub GetContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, *mut DEBUG_STACK_FRAME_EX, u32, *mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
+    pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
+    pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetExecutionStatusEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSynchronizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetDebuggeeType2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
@@ -29891,11 +29741,11 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn Input(&self, buffer: windows_core::PSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInput(&self, buffer: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn Output(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputVaList(&self, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutput(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaList(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPrompt(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaList(&self, outputcontrol: u32, format: &windows_core::PCSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptText(&self, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
     fn OutputVersionInformation(&self, outputcontrol: u32) -> windows_core::Result<()>;
@@ -29909,7 +29759,7 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64>;
     fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
     fn GetReturnOffset(&self) -> windows_core::Result<u64>;
-    fn OutputStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn OutputStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
     fn GetActualProcessorType(&self) -> windows_core::Result<u32>;
     fn GetExecutingProcessorType(&self) -> windows_core::Result<u32>;
@@ -29940,14 +29790,14 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetRadix(&self) -> windows_core::Result<u32>;
     fn SetRadix(&self, radix: u32) -> windows_core::Result<()>;
     fn Evaluate(&self, expression: &windows_core::PCSTR, desiredtype: u32, value: *mut DEBUG_VALUE, remainderindex: *mut u32) -> windows_core::Result<()>;
-    fn CoerceValue(&self, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn CoerceValues(&self, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValue(&self, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn CoerceValues(&self, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::Result<()>;
     fn Execute(&self, outputcontrol: u32, command: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn ExecuteCommandFile(&self, outputcontrol: u32, commandfile: &windows_core::PCSTR, flags: u32) -> windows_core::Result<()>;
     fn GetNumberBreakpoints(&self) -> windows_core::Result<u32>;
     fn GetBreakpointByIndex(&self, index: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn GetBreakpointParameters(&self, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
@@ -29962,11 +29812,11 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetEventFilterCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetEventFilterCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetSpecificFilterParameters(&self, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetSpecificFilterArgument(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, argumentsize: *mut u32) -> windows_core::Result<()>;
     fn SetSpecificFilterArgument(&self, index: u32, argument: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn GetExceptionFilterParameters(&self, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
-    fn SetExceptionFilterParameters(&self, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn GetExceptionFilterParameters(&self, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
+    fn SetExceptionFilterParameters(&self, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::Result<()>;
     fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: windows_core::PSTR, buffersize: u32, commandsize: *mut u32) -> windows_core::Result<()>;
     fn SetExceptionFilterSecondCommand(&self, index: u32, command: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
@@ -29997,11 +29847,11 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn InputWide(&self, buffer: windows_core::PWSTR, buffersize: u32, inputsize: *mut u32) -> windows_core::Result<()>;
     fn ReturnInputWide(&self, buffer: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OutputVaListWide(&self, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn OutputVaListWide(&self, mask: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn ControlledOutputWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ControlledOutputVaListWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn ControlledOutputVaListWide(&self, outputcontrol: u32, mask: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn OutputPromptWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OutputPromptVaListWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR) -> windows_core::Result<i8>;
+    fn OutputPromptVaListWide(&self, outputcontrol: u32, format: &windows_core::PCWSTR, args: *const i8) -> windows_core::Result<()>;
     fn GetPromptTextWide(&self, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::Result<()>;
     fn AssembleWide(&self, offset: u64, instr: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn DisassembleWide(&self, offset: u64, flags: u32, buffer: windows_core::PWSTR, buffersize: u32, disassemblysize: *mut u32, endoffset: *mut u64) -> windows_core::Result<()>;
@@ -30039,17 +29889,17 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetSystemVersionValues(&self, platformid: *mut u32, win32major: *mut u32, win32minor: *mut u32, kdmajor: *mut u32, kdminor: *mut u32) -> windows_core::Result<()>;
     fn GetSystemVersionString(&self, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn GetSystemVersionStringWide(&self, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
-    fn GetContextStackTrace(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetContextStackTrace(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
+    fn OutputContextStackTrace(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: *mut core::ffi::c_void, contextsize: u32, contextused: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32) -> windows_core::Result<()>;
     fn GetManagedStatus(&self, flags: *mut u32, whichstring: u32, string: windows_core::PSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn GetManagedStatusWide(&self, flags: *mut u32, whichstring: u32, string: windows_core::PWSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn ResetManagedStatus(&self, flags: u32) -> windows_core::Result<()>;
     fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputStackTraceEx(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::Result<()>;
-    fn GetContextStackTraceEx(&self, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
-    fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
-    fn GetBreakpointByGuid(&self, guid: *mut windows_core::GUID, bp: windows_core::OutRef<IDebugBreakpoint3>) -> windows_core::Result<()>;
+    fn OutputStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetContextStackTraceEx(&self, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::Result<()>;
+    fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
+    fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3>;
     fn GetExecutionStatusEx(&self) -> windows_core::Result<u32>;
     fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> windows_core::Result<()>;
     fn GetDebuggeeType2(&self, flags: u32, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
@@ -30140,16 +29990,10 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaList<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaList<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl7_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl7_Impl::OutputVaList(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutput<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -30158,16 +30002,10 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::ControlledOutput(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaList<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl7_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl7_Impl::ControlledOutputVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPrompt<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR) -> windows_core::HRESULT {
@@ -30176,16 +30014,10 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::OutputPrompt(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaList<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl7_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl7_Impl::OutputPromptVaList(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptText<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -30302,7 +30134,7 @@ impl IDebugControl7_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTrace<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::OutputStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
@@ -30554,13 +30386,13 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::Evaluate(this, core::mem::transmute(&expression), core::mem::transmute_copy(&desiredtype), core::mem::transmute_copy(&value), core::mem::transmute_copy(&remainderindex)).into()
             }
         }
-        unsafe extern "system" fn CoerceValue<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *mut DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValue<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#in: *const DEBUG_VALUE, outtype: u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::CoerceValue(this, core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtype), core::mem::transmute_copy(&out)).into()
             }
         }
-        unsafe extern "system" fn CoerceValues<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *mut DEBUG_VALUE, outtypes: *mut u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CoerceValues<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, r#in: *const DEBUG_VALUE, outtypes: *const u32, out: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::CoerceValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&r#in), core::mem::transmute_copy(&outtypes), core::mem::transmute_copy(&out)).into()
@@ -30614,7 +30446,7 @@ impl IDebugControl7_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *mut u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::GetBreakpointParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&ids), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
@@ -30728,7 +30560,7 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::GetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *mut DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSpecificFilterParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u32, count: u32, params: *const DEBUG_SPECIFIC_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::SetSpecificFilterParameters(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -30746,13 +30578,13 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::SetSpecificFilterArgument(this, core::mem::transmute_copy(&index), core::mem::transmute(&argument)).into()
             }
         }
-        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *mut u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExceptionFilterParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, codes: *const u32, start: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::GetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&codes), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
             }
         }
-        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *mut DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExceptionFilterParameters<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, params: *const DEBUG_EXCEPTION_FILTER_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::SetExceptionFilterParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&params)).into()
@@ -31004,16 +30836,10 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::OutputWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputVaListWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputVaListWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl7_Impl::OutputVaListWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl7_Impl::OutputVaListWide(this, core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn ControlledOutputWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -31022,16 +30848,10 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::ControlledOutputWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn ControlledOutputVaListWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlledOutputVaListWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, mask: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl7_Impl::ControlledOutputVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl7_Impl::ControlledOutputVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&mask), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn OutputPromptWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -31040,16 +30860,10 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::OutputPromptWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)).into()
             }
         }
-        unsafe extern "system" fn OutputPromptVaListWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR, args: *mut i8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputPromptVaListWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, format: windows_core::PCWSTR, args: *const i8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugControl7_Impl::OutputPromptVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format)) {
-                    Ok(ok__) => {
-                        args.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugControl7_Impl::OutputPromptVaListWide(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute(&format), core::mem::transmute_copy(&args)).into()
             }
         }
         unsafe extern "system" fn GetPromptTextWide<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: windows_core::PWSTR, buffersize: u32, textsize: *mut u32) -> windows_core::HRESULT {
@@ -31322,13 +31136,13 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::GetSystemVersionStringWide(this, core::mem::transmute_copy(&which), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&stringsize)).into()
             }
         }
-        unsafe extern "system" fn GetContextStackTrace<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContextStackTrace<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::GetContextStackTrace(this, core::mem::transmute_copy(&startcontext), core::mem::transmute_copy(&startcontextsize), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputContextStackTrace<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputContextStackTrace<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::OutputContextStackTrace(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&flags)).into()
@@ -31364,28 +31178,34 @@ impl IDebugControl7_Vtbl {
                 IDebugControl7_Impl::GetStackTraceEx(this, core::mem::transmute_copy(&frameoffset), core::mem::transmute_copy(&stackoffset), core::mem::transmute_copy(&instructionoffset), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputStackTraceEx<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputStackTraceEx<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::OutputStackTraceEx(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetContextStackTraceEx<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *mut core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContextStackTraceEx<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startcontext: *const core::ffi::c_void, startcontextsize: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::GetContextStackTraceEx(this, core::mem::transmute_copy(&startcontext), core::mem::transmute_copy(&startcontextsize), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&framesfilled)).into()
             }
         }
-        unsafe extern "system" fn OutputContextStackTraceEx<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *mut DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *mut core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OutputContextStackTraceEx<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugControl7_Impl::OutputContextStackTraceEx(this, core::mem::transmute_copy(&outputcontrol), core::mem::transmute_copy(&frames), core::mem::transmute_copy(&framessize), core::mem::transmute_copy(&framecontexts), core::mem::transmute_copy(&framecontextssize), core::mem::transmute_copy(&framecontextsentrysize), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetBreakpointByGuid<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID, bp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBreakpointByGuid<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, bp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl7_Impl::GetBreakpointByGuid(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&bp)).into()
+                match IDebugControl7_Impl::GetBreakpointByGuid(this, core::mem::transmute_copy(&guid)) {
+                    Ok(ok__) => {
+                        bp.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetExecutionStatusEx<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut u32) -> windows_core::HRESULT {
@@ -31595,47 +31415,65 @@ impl IDebugControl7_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugControl7 {}
-windows_core::imp::define_interface!(IDebugDataSpaces, IDebugDataSpaces_Vtbl, 0x952fe73e_483b_5738_848c_37c0b40a2cfe);
+windows_core::imp::define_interface!(IDebugDataSpaces, IDebugDataSpaces_Vtbl, 0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces, windows_core::IUnknown);
 impl IDebugDataSpaces {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteVirtual)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SearchVirtual)(windows_core::Interface::as_raw(self), offset, length, pattern as _, patternsize, patterngranularity, matchoffset as _).ok() }
+    pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SearchVirtual)(windows_core::Interface::as_raw(self), offset, length, pattern, patternsize, patterngranularity, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())).ok() }
     }
-    pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::Result<()> {
+    pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &[u64]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())).ok() }
     }
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WritePhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WritePhysical)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadControl)(windows_core::Interface::as_raw(self), processor, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteControl)(windows_core::Interface::as_raw(self), processor, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteControl)(windows_core::Interface::as_raw(self), processor, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> windows_core::Result<u64> {
         unsafe {
@@ -31649,8 +31487,11 @@ impl IDebugDataSpaces {
     pub unsafe fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn CheckLowMemory(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CheckLowMemory)(windows_core::Interface::as_raw(self)).ok() }
@@ -31667,44 +31508,44 @@ impl IDebugDataSpaces {
 pub struct IDebugDataSpaces_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *mut core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
+    pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
     pub ReadVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadPointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut u64) -> windows_core::HRESULT,
-    pub WritePointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut u64) -> windows_core::HRESULT,
+    pub WritePointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const u64) -> windows_core::HRESULT,
     pub ReadPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WritePhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WritePhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadMsr: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
     pub WriteMsr: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
     pub ReadBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub CheckLowMemory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReadDebuggerData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadProcessorSystemData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugDataSpaces_Impl: windows_core::IUnknownImpl {
     fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
-    fn SearchVirtual(&self, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()>;
+    fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
+    fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
     fn ReadVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteVirtualUncached(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadPointersVirtual(&self, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::Result<()>;
-    fn WritePointersVirtual(&self, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::Result<()>;
+    fn WritePointersVirtual(&self, count: u32, offset: u64, ptrs: *const u64) -> windows_core::Result<()>;
     fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WritePhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WritePhysical(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteControl(&self, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadMsr(&self, msr: u32) -> windows_core::Result<u64>;
     fn WriteMsr(&self, msr: u32, value: u64) -> windows_core::Result<()>;
     fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn CheckLowMemory(&self) -> windows_core::Result<()>;
     fn ReadDebuggerData(&self, index: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
     fn ReadProcessorSystemData(&self, processor: u32, index: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
@@ -31717,16 +31558,28 @@ impl IDebugDataSpaces_Vtbl {
                 IDebugDataSpaces_Impl::ReadVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::WriteVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces_Impl::WriteVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn SearchVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::SearchVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity), core::mem::transmute_copy(&matchoffset)).into()
+                match IDebugDataSpaces_Impl::SearchVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity)) {
+                    Ok(ok__) => {
+                        matchoffset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadVirtualUncached<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -31735,10 +31588,16 @@ impl IDebugDataSpaces_Vtbl {
                 IDebugDataSpaces_Impl::ReadVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteVirtualUncached<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteVirtualUncached<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::WriteVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces_Impl::WriteVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadPointersVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::HRESULT {
@@ -31747,7 +31606,7 @@ impl IDebugDataSpaces_Vtbl {
                 IDebugDataSpaces_Impl::ReadPointersVirtual(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&ptrs)).into()
             }
         }
-        unsafe extern "system" fn WritePointersVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePointersVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *const u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugDataSpaces_Impl::WritePointersVirtual(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&ptrs)).into()
@@ -31759,10 +31618,16 @@ impl IDebugDataSpaces_Vtbl {
                 IDebugDataSpaces_Impl::ReadPhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WritePhysical<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePhysical<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::WritePhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces_Impl::WritePhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadControl<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -31771,10 +31636,16 @@ impl IDebugDataSpaces_Vtbl {
                 IDebugDataSpaces_Impl::ReadControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteControl<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteControl<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::WriteControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces_Impl::WriteControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadIo<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -31783,10 +31654,16 @@ impl IDebugDataSpaces_Vtbl {
                 IDebugDataSpaces_Impl::ReadIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteIo<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteIo<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::WriteIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces_Impl::WriteIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadMsr<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msr: u32, value: *mut u64) -> windows_core::HRESULT {
@@ -31813,10 +31690,16 @@ impl IDebugDataSpaces_Vtbl {
                 IDebugDataSpaces_Impl::ReadBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteBusData<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteBusData<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::WriteBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces_Impl::WriteBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CheckLowMemory<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -32306,47 +32189,65 @@ impl IDebugDataSpaces2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl windows_core::RuntimeName for IDebugDataSpaces2 {}
-windows_core::imp::define_interface!(IDebugDataSpaces3, IDebugDataSpaces3_Vtbl, 0x959a1be3_9a09_5b8d_9908_aef3505dfa1f);
+windows_core::imp::define_interface!(IDebugDataSpaces3, IDebugDataSpaces3_Vtbl, 0x23f79d6c_8aaf_4f7c_a607_9995f5407e63);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces3, windows_core::IUnknown);
 impl IDebugDataSpaces3 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteVirtual)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SearchVirtual)(windows_core::Interface::as_raw(self), offset, length, pattern as _, patternsize, patterngranularity, matchoffset as _).ok() }
+    pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SearchVirtual)(windows_core::Interface::as_raw(self), offset, length, pattern, patternsize, patterngranularity, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())).ok() }
     }
-    pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::Result<()> {
+    pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &[u64]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())).ok() }
     }
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WritePhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WritePhysical)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadControl)(windows_core::Interface::as_raw(self), processor, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteControl)(windows_core::Interface::as_raw(self), processor, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteControl)(windows_core::Interface::as_raw(self), processor, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> windows_core::Result<u64> {
         unsafe {
@@ -32360,8 +32261,11 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn CheckLowMemory(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CheckLowMemory)(windows_core::Interface::as_raw(self)).ok() }
@@ -32384,11 +32288,17 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadHandleData)(windows_core::Interface::as_raw(self), handle, datatype, buffer as _, buffersize, datasize as _).ok() }
     }
-    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FillVirtual)(windows_core::Interface::as_raw(self), start, size, pattern as _, patternsize, filled as _).ok() }
+    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FillVirtual)(windows_core::Interface::as_raw(self), start, size, pattern, patternsize, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FillPhysical)(windows_core::Interface::as_raw(self), start, size, pattern as _, patternsize, filled as _).ok() }
+    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FillPhysical)(windows_core::Interface::as_raw(self), start, size, pattern, patternsize, &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::Result<()> {
@@ -32398,8 +32308,8 @@ impl IDebugDataSpaces3 {
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadImageNtHeaders)(windows_core::Interface::as_raw(self), imagebase, headers as _).ok() }
     }
-    pub unsafe fn ReadTagged(&self, tag: *mut windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadTagged)(windows_core::Interface::as_raw(self), tag as _, offset, buffer as _, buffersize, totalsize as _).ok() }
+    pub unsafe fn ReadTagged(&self, tag: *const windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReadTagged)(windows_core::Interface::as_raw(self), tag, offset, buffer as _, buffersize, totalsize as _).ok() }
     }
     pub unsafe fn StartEnumTagged(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -32419,30 +32329,30 @@ impl IDebugDataSpaces3 {
 pub struct IDebugDataSpaces3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *mut core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
+    pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
     pub ReadVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadPointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut u64) -> windows_core::HRESULT,
-    pub WritePointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut u64) -> windows_core::HRESULT,
+    pub WritePointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const u64) -> windows_core::HRESULT,
     pub ReadPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WritePhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WritePhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadMsr: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
     pub WriteMsr: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
     pub ReadBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub CheckLowMemory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReadDebuggerData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadProcessorSystemData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub VirtualToPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
     pub GetVirtualTranslationPhysicalOffsets: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadHandleData: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FillVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FillPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub FillVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub FillPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Memory")]
     pub QueryVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Memory"))]
@@ -32451,7 +32361,7 @@ pub struct IDebugDataSpaces3_Vtbl {
     pub ReadImageNtHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::IMAGE_NT_HEADERS64) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_SystemInformation"))]
     ReadImageNtHeaders: usize,
-    pub ReadTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub ReadTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub StartEnumTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetNextTagged: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub EndEnumTagged: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
@@ -32459,33 +32369,33 @@ pub struct IDebugDataSpaces3_Vtbl {
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces3_Impl: windows_core::IUnknownImpl {
     fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
-    fn SearchVirtual(&self, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()>;
+    fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
+    fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
     fn ReadVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteVirtualUncached(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadPointersVirtual(&self, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::Result<()>;
-    fn WritePointersVirtual(&self, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::Result<()>;
+    fn WritePointersVirtual(&self, count: u32, offset: u64, ptrs: *const u64) -> windows_core::Result<()>;
     fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WritePhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WritePhysical(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteControl(&self, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadMsr(&self, msr: u32) -> windows_core::Result<u64>;
     fn WriteMsr(&self, msr: u32, value: u64) -> windows_core::Result<()>;
     fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn CheckLowMemory(&self) -> windows_core::Result<()>;
     fn ReadDebuggerData(&self, index: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
     fn ReadProcessorSystemData(&self, processor: u32, index: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
     fn VirtualToPhysical(&self, r#virtual: u64) -> windows_core::Result<u64>;
     fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: *mut u64, offsetssize: u32, levels: *mut u32) -> windows_core::Result<()>;
     fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
-    fn FillVirtual(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()>;
-    fn FillPhysical(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()>;
+    fn FillVirtual(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32>;
+    fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32>;
     fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::Result<()>;
     fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> windows_core::Result<()>;
-    fn ReadTagged(&self, tag: *mut windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()>;
+    fn ReadTagged(&self, tag: *const windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()>;
     fn StartEnumTagged(&self) -> windows_core::Result<u64>;
     fn GetNextTagged(&self, handle: u64, tag: *mut windows_core::GUID, size: *mut u32) -> windows_core::Result<()>;
     fn EndEnumTagged(&self, handle: u64) -> windows_core::Result<()>;
@@ -32499,16 +32409,28 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::WriteVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces3_Impl::WriteVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn SearchVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::SearchVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity), core::mem::transmute_copy(&matchoffset)).into()
+                match IDebugDataSpaces3_Impl::SearchVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity)) {
+                    Ok(ok__) => {
+                        matchoffset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadVirtualUncached<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -32517,10 +32439,16 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteVirtualUncached<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteVirtualUncached<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::WriteVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces3_Impl::WriteVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadPointersVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::HRESULT {
@@ -32529,7 +32457,7 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadPointersVirtual(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&ptrs)).into()
             }
         }
-        unsafe extern "system" fn WritePointersVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePointersVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *const u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugDataSpaces3_Impl::WritePointersVirtual(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&ptrs)).into()
@@ -32541,10 +32469,16 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadPhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WritePhysical<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePhysical<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::WritePhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces3_Impl::WritePhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadControl<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -32553,10 +32487,16 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteControl<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteControl<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::WriteControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces3_Impl::WriteControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadIo<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -32565,10 +32505,16 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteIo<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteIo<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::WriteIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces3_Impl::WriteIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadMsr<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msr: u32, value: *mut u64) -> windows_core::HRESULT {
@@ -32595,10 +32541,16 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteBusData<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteBusData<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::WriteBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces3_Impl::WriteBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CheckLowMemory<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -32643,16 +32595,28 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadHandleData(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&datatype), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&datasize)).into()
             }
         }
-        unsafe extern "system" fn FillVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FillVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::FillVirtual(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&filled)).into()
+                match IDebugDataSpaces3_Impl::FillVirtual(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize)) {
+                    Ok(ok__) => {
+                        filled.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn FillPhysical<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FillPhysical<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::FillPhysical(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&filled)).into()
+                match IDebugDataSpaces3_Impl::FillPhysical(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize)) {
+                    Ok(ok__) => {
+                        filled.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT {
@@ -32667,7 +32631,7 @@ impl IDebugDataSpaces3_Vtbl {
                 IDebugDataSpaces3_Impl::ReadImageNtHeaders(this, core::mem::transmute_copy(&imagebase), core::mem::transmute_copy(&headers)).into()
             }
         }
-        unsafe extern "system" fn ReadTagged<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: *mut windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadTagged<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: *const windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugDataSpaces3_Impl::ReadTagged(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&totalsize)).into()
@@ -32738,47 +32702,65 @@ impl IDebugDataSpaces3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 impl windows_core::RuntimeName for IDebugDataSpaces3 {}
-windows_core::imp::define_interface!(IDebugDataSpaces4, IDebugDataSpaces4_Vtbl, 0x5168557e_69da_5a60_aa03_f5a4eba56e87);
+windows_core::imp::define_interface!(IDebugDataSpaces4, IDebugDataSpaces4_Vtbl, 0xd98ada1f_29e9_4ef5_a6c0_e53349883212);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces4, windows_core::IUnknown);
 impl IDebugDataSpaces4 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteVirtual)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SearchVirtual)(windows_core::Interface::as_raw(self), offset, length, pattern as _, patternsize, patterngranularity, matchoffset as _).ok() }
+    pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SearchVirtual)(windows_core::Interface::as_raw(self), offset, length, pattern, patternsize, patterngranularity, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteVirtualUncached(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())).ok() }
     }
-    pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::Result<()> {
+    pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &[u64]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())).ok() }
     }
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WritePhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WritePhysical(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WritePhysical)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadControl)(windows_core::Interface::as_raw(self), processor, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteControl)(windows_core::Interface::as_raw(self), processor, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteControl(&self, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteControl)(windows_core::Interface::as_raw(self), processor, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteIo)(windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> windows_core::Result<u64> {
         unsafe {
@@ -32792,8 +32774,11 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteBusData)(windows_core::Interface::as_raw(self), busdatatype, busnumber, slotnumber, offset, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn CheckLowMemory(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CheckLowMemory)(windows_core::Interface::as_raw(self)).ok() }
@@ -32816,11 +32801,17 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadHandleData)(windows_core::Interface::as_raw(self), handle, datatype, buffer as _, buffersize, datasize as _).ok() }
     }
-    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FillVirtual)(windows_core::Interface::as_raw(self), start, size, pattern as _, patternsize, filled as _).ok() }
+    pub unsafe fn FillVirtual(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FillVirtual)(windows_core::Interface::as_raw(self), start, size, pattern, patternsize, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).FillPhysical)(windows_core::Interface::as_raw(self), start, size, pattern as _, patternsize, filled as _).ok() }
+    pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).FillPhysical)(windows_core::Interface::as_raw(self), start, size, pattern, patternsize, &mut result__).map(|| result__)
+        }
     }
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::Result<()> {
@@ -32830,8 +32821,8 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadImageNtHeaders)(windows_core::Interface::as_raw(self), imagebase, headers as _).ok() }
     }
-    pub unsafe fn ReadTagged(&self, tag: *mut windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReadTagged)(windows_core::Interface::as_raw(self), tag as _, offset, buffer as _, buffersize, totalsize as _).ok() }
+    pub unsafe fn ReadTagged(&self, tag: *const windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReadTagged)(windows_core::Interface::as_raw(self), tag, offset, buffer as _, buffersize, totalsize as _).ok() }
     }
     pub unsafe fn StartEnumTagged(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -32857,8 +32848,11 @@ impl IDebugDataSpaces4 {
     pub unsafe fn GetValidRegionVirtual(&self, base: u64, size: u32, validbase: *mut u64, validsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetValidRegionVirtual)(windows_core::Interface::as_raw(self), base, size, validbase as _, validsize as _).ok() }
     }
-    pub unsafe fn SearchVirtual2(&self, offset: u64, length: u64, flags: u32, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SearchVirtual2)(windows_core::Interface::as_raw(self), offset, length, flags, pattern as _, patternsize, patterngranularity, matchoffset as _).ok() }
+    pub unsafe fn SearchVirtual2(&self, offset: u64, length: u64, flags: u32, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SearchVirtual2)(windows_core::Interface::as_raw(self), offset, length, flags, pattern, patternsize, patterngranularity, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadMultiByteStringVirtual(&self, offset: u64, maxbytes: u32, buffer: &mut [u8], stringbytes: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadMultiByteStringVirtual)(windows_core::Interface::as_raw(self), offset, maxbytes, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringbytes as _).ok() }
@@ -32875,8 +32869,11 @@ impl IDebugDataSpaces4 {
     pub unsafe fn ReadPhysical2(&self, offset: u64, flags: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical2)(windows_core::Interface::as_raw(self), offset, flags, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WritePhysical2)(windows_core::Interface::as_raw(self), offset, flags, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WritePhysical2)(windows_core::Interface::as_raw(self), offset, flags, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -32884,30 +32881,30 @@ impl IDebugDataSpaces4 {
 pub struct IDebugDataSpaces4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *mut core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
+    pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
     pub ReadVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteVirtualUncached: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadPointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut u64) -> windows_core::HRESULT,
-    pub WritePointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut u64) -> windows_core::HRESULT,
+    pub WritePointersVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const u64) -> windows_core::HRESULT,
     pub ReadPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WritePhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WritePhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteIo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadMsr: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
     pub WriteMsr: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
     pub ReadBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteBusData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub CheckLowMemory: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReadDebuggerData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadProcessorSystemData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub VirtualToPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
     pub GetVirtualTranslationPhysicalOffsets: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadHandleData: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FillVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub FillPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub FillVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub FillPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Memory")]
     pub QueryVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Memory"))]
@@ -32916,64 +32913,64 @@ pub struct IDebugDataSpaces4_Vtbl {
     pub ReadImageNtHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut super::IMAGE_NT_HEADERS64) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_SystemInformation"))]
     ReadImageNtHeaders: usize,
-    pub ReadTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub ReadTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub StartEnumTagged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetNextTagged: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
     pub EndEnumTagged: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub GetOffsetInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetNextDifferentlyValidOffsetVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
     pub GetValidRegionVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut u64, *mut u32) -> windows_core::HRESULT,
-    pub SearchVirtual2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *mut core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
+    pub SearchVirtual2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
     pub ReadMultiByteStringVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadMultiByteStringVirtualWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadUnicodeStringVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadUnicodeStringVirtualWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadPhysical2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WritePhysical2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WritePhysical2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces4_Impl: windows_core::IUnknownImpl {
     fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
-    fn SearchVirtual(&self, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()>;
+    fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
+    fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
     fn ReadVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteVirtualUncached(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteVirtualUncached(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadPointersVirtual(&self, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::Result<()>;
-    fn WritePointersVirtual(&self, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::Result<()>;
+    fn WritePointersVirtual(&self, count: u32, offset: u64, ptrs: *const u64) -> windows_core::Result<()>;
     fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WritePhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WritePhysical(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteControl(&self, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteControl(&self, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteIo(&self, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn ReadMsr(&self, msr: u32) -> windows_core::Result<u64>;
     fn WriteMsr(&self, msr: u32, value: u64) -> windows_core::Result<()>;
     fn ReadBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteBusData(&self, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn CheckLowMemory(&self) -> windows_core::Result<()>;
     fn ReadDebuggerData(&self, index: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
     fn ReadProcessorSystemData(&self, processor: u32, index: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
     fn VirtualToPhysical(&self, r#virtual: u64) -> windows_core::Result<u64>;
     fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: *mut u64, offsetssize: u32, levels: *mut u32) -> windows_core::Result<()>;
     fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: *mut core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> windows_core::Result<()>;
-    fn FillVirtual(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()>;
-    fn FillPhysical(&self, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::Result<()>;
+    fn FillVirtual(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32>;
+    fn FillPhysical(&self, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32) -> windows_core::Result<u32>;
     fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::Result<()>;
     fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> windows_core::Result<()>;
-    fn ReadTagged(&self, tag: *mut windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()>;
+    fn ReadTagged(&self, tag: *const windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::Result<()>;
     fn StartEnumTagged(&self) -> windows_core::Result<u64>;
     fn GetNextTagged(&self, handle: u64, tag: *mut windows_core::GUID, size: *mut u32) -> windows_core::Result<()>;
     fn EndEnumTagged(&self, handle: u64) -> windows_core::Result<()>;
     fn GetOffsetInformation(&self, space: u32, which: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> windows_core::Result<()>;
     fn GetNextDifferentlyValidOffsetVirtual(&self, offset: u64) -> windows_core::Result<u64>;
     fn GetValidRegionVirtual(&self, base: u64, size: u32, validbase: *mut u64, validsize: *mut u32) -> windows_core::Result<()>;
-    fn SearchVirtual2(&self, offset: u64, length: u64, flags: u32, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::Result<()>;
+    fn SearchVirtual2(&self, offset: u64, length: u64, flags: u32, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
     fn ReadMultiByteStringVirtual(&self, offset: u64, maxbytes: u32, buffer: windows_core::PSTR, buffersize: u32, stringbytes: *mut u32) -> windows_core::Result<()>;
     fn ReadMultiByteStringVirtualWide(&self, offset: u64, maxbytes: u32, codepage: u32, buffer: windows_core::PWSTR, buffersize: u32, stringbytes: *mut u32) -> windows_core::Result<()>;
     fn ReadUnicodeStringVirtual(&self, offset: u64, maxbytes: u32, codepage: u32, buffer: windows_core::PSTR, buffersize: u32, stringbytes: *mut u32) -> windows_core::Result<()>;
     fn ReadUnicodeStringVirtualWide(&self, offset: u64, maxbytes: u32, buffer: windows_core::PWSTR, buffersize: u32, stringbytes: *mut u32) -> windows_core::Result<()>;
     fn ReadPhysical2(&self, offset: u64, flags: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WritePhysical2(&self, offset: u64, flags: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 impl IDebugDataSpaces4_Vtbl {
@@ -32984,16 +32981,28 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::WriteVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces4_Impl::WriteVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn SearchVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::SearchVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity), core::mem::transmute_copy(&matchoffset)).into()
+                match IDebugDataSpaces4_Impl::SearchVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity)) {
+                    Ok(ok__) => {
+                        matchoffset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadVirtualUncached<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -33002,10 +33011,16 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteVirtualUncached<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteVirtualUncached<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::WriteVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces4_Impl::WriteVirtualUncached(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadPointersVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::HRESULT {
@@ -33014,7 +33029,7 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadPointersVirtual(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&ptrs)).into()
             }
         }
-        unsafe extern "system" fn WritePointersVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePointersVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, offset: u64, ptrs: *const u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugDataSpaces4_Impl::WritePointersVirtual(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&ptrs)).into()
@@ -33026,10 +33041,16 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadPhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WritePhysical<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePhysical<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::WritePhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces4_Impl::WritePhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadControl<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -33038,10 +33059,16 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteControl<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteControl<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processor: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::WriteControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces4_Impl::WriteControl(this, core::mem::transmute_copy(&processor), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadIo<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
@@ -33050,10 +33077,16 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteIo<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteIo<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacetype: u32, busnumber: u32, addressspace: u32, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::WriteIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces4_Impl::WriteIo(this, core::mem::transmute_copy(&interfacetype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&addressspace), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadMsr<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msr: u32, value: *mut u64) -> windows_core::HRESULT {
@@ -33080,10 +33113,16 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteBusData<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteBusData<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busdatatype: u32, busnumber: u32, slotnumber: u32, offset: u32, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::WriteBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces4_Impl::WriteBusData(this, core::mem::transmute_copy(&busdatatype), core::mem::transmute_copy(&busnumber), core::mem::transmute_copy(&slotnumber), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn CheckLowMemory<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -33128,16 +33167,28 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadHandleData(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&datatype), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&datasize)).into()
             }
         }
-        unsafe extern "system" fn FillVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FillVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::FillVirtual(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&filled)).into()
+                match IDebugDataSpaces4_Impl::FillVirtual(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize)) {
+                    Ok(ok__) => {
+                        filled.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn FillPhysical<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *mut core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FillPhysical<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: u64, size: u32, pattern: *const core::ffi::c_void, patternsize: u32, filled: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::FillPhysical(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&filled)).into()
+                match IDebugDataSpaces4_Impl::FillPhysical(this, core::mem::transmute_copy(&start), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize)) {
+                    Ok(ok__) => {
+                        filled.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn QueryVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> windows_core::HRESULT {
@@ -33152,7 +33203,7 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadImageNtHeaders(this, core::mem::transmute_copy(&imagebase), core::mem::transmute_copy(&headers)).into()
             }
         }
-        unsafe extern "system" fn ReadTagged<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: *mut windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadTagged<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: *const windows_core::GUID, offset: u32, buffer: *mut core::ffi::c_void, buffersize: u32, totalsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugDataSpaces4_Impl::ReadTagged(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&offset), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&totalsize)).into()
@@ -33206,10 +33257,16 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::GetValidRegionVirtual(this, core::mem::transmute_copy(&base), core::mem::transmute_copy(&size), core::mem::transmute_copy(&validbase), core::mem::transmute_copy(&validsize)).into()
             }
         }
-        unsafe extern "system" fn SearchVirtual2<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, flags: u32, pattern: *mut core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchVirtual2<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, length: u64, flags: u32, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32, matchoffset: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::SearchVirtual2(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity), core::mem::transmute_copy(&matchoffset)).into()
+                match IDebugDataSpaces4_Impl::SearchVirtual2(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&length), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pattern), core::mem::transmute_copy(&patternsize), core::mem::transmute_copy(&patterngranularity)) {
+                    Ok(ok__) => {
+                        matchoffset.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadMultiByteStringVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, maxbytes: u32, buffer: windows_core::PSTR, buffersize: u32, stringbytes: *mut u32) -> windows_core::HRESULT {
@@ -33242,10 +33299,16 @@ impl IDebugDataSpaces4_Vtbl {
                 IDebugDataSpaces4_Impl::ReadPhysical2(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WritePhysical2<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, flags: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePhysical2<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, flags: u32, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::WritePhysical2(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugDataSpaces4_Impl::WritePhysical2(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -33299,7 +33362,7 @@ impl IDebugDataSpaces4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 impl windows_core::RuntimeName for IDebugDataSpaces4 {}
-windows_core::imp::define_interface!(IDebugEventCallbacks, IDebugEventCallbacks_Vtbl, 0x69a9aa23_fb95_5266_a059_9132ad8a6e7f);
+windows_core::imp::define_interface!(IDebugEventCallbacks, IDebugEventCallbacks_Vtbl, 0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa);
 windows_core::imp::interface_hierarchy!(IDebugEventCallbacks, windows_core::IUnknown);
 impl IDebugEventCallbacks {
     pub unsafe fn GetInterestMask(&self) -> windows_core::Result<u32> {
@@ -33314,8 +33377,8 @@ impl IDebugEventCallbacks {
     {
         unsafe { (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok() }
     }
-    pub unsafe fn Exception(&self, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception as _, firstchance).ok() }
+    pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance).ok() }
     }
     pub unsafe fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CreateThread)(windows_core::Interface::as_raw(self), handle, dataoffset, startoffset).ok() }
@@ -33368,7 +33431,7 @@ pub struct IDebugEventCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::EXCEPTION_RECORD64, u32) -> windows_core::HRESULT,
+    pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::EXCEPTION_RECORD64, u32) -> windows_core::HRESULT,
     pub CreateThread: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
     pub ExitThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CreateProcessA: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, u32, windows_core::PCSTR, windows_core::PCSTR, u32, u32, u64, u64, u64) -> windows_core::HRESULT,
@@ -33384,7 +33447,7 @@ pub struct IDebugEventCallbacks_Vtbl {
 pub trait IDebugEventCallbacks_Impl: windows_core::IUnknownImpl {
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
     fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
-    fn Exception(&self, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
+    fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
     fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64) -> windows_core::Result<()>;
     fn ExitThread(&self, exitcode: u32) -> windows_core::Result<()>;
     fn CreateProcessA(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: &windows_core::PCSTR, imagename: &windows_core::PCSTR, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> windows_core::Result<()>;
@@ -33417,7 +33480,7 @@ impl IDebugEventCallbacks_Vtbl {
                 IDebugEventCallbacks_Impl::Breakpoint(this, core::mem::transmute_copy(&bp)).into()
             }
         }
-        unsafe extern "system" fn Exception<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Exception<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventCallbacks_Impl::Exception(this, core::mem::transmute_copy(&exception), core::mem::transmute_copy(&firstchance)).into()
@@ -33512,7 +33575,7 @@ impl IDebugEventCallbacks_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugEventCallbacks {}
-windows_core::imp::define_interface!(IDebugEventCallbacksWide, IDebugEventCallbacksWide_Vtbl, 0xc10fa6ad_40e1_5d21_a9b7_8126df2181a8);
+windows_core::imp::define_interface!(IDebugEventCallbacksWide, IDebugEventCallbacksWide_Vtbl, 0x0690e046_9c23_45ac_a04f_987ac29ad0d3);
 windows_core::imp::interface_hierarchy!(IDebugEventCallbacksWide, windows_core::IUnknown);
 impl IDebugEventCallbacksWide {
     pub unsafe fn GetInterestMask(&self) -> windows_core::Result<u32> {
@@ -33527,8 +33590,8 @@ impl IDebugEventCallbacksWide {
     {
         unsafe { (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi()).ok() }
     }
-    pub unsafe fn Exception(&self, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception as _, firstchance).ok() }
+    pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance).ok() }
     }
     pub unsafe fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CreateThread)(windows_core::Interface::as_raw(self), handle, dataoffset, startoffset).ok() }
@@ -33581,7 +33644,7 @@ pub struct IDebugEventCallbacksWide_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::EXCEPTION_RECORD64, u32) -> windows_core::HRESULT,
+    pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::EXCEPTION_RECORD64, u32) -> windows_core::HRESULT,
     pub CreateThread: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64) -> windows_core::HRESULT,
     pub ExitThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub CreateProcessA: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32, u64, u64, u64) -> windows_core::HRESULT,
@@ -33597,7 +33660,7 @@ pub struct IDebugEventCallbacksWide_Vtbl {
 pub trait IDebugEventCallbacksWide_Impl: windows_core::IUnknownImpl {
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
     fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint2>) -> windows_core::Result<()>;
-    fn Exception(&self, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
+    fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
     fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64) -> windows_core::Result<()>;
     fn ExitThread(&self, exitcode: u32) -> windows_core::Result<()>;
     fn CreateProcessA(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: &windows_core::PCWSTR, imagename: &windows_core::PCWSTR, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64) -> windows_core::Result<()>;
@@ -33630,7 +33693,7 @@ impl IDebugEventCallbacksWide_Vtbl {
                 IDebugEventCallbacksWide_Impl::Breakpoint(this, core::mem::transmute_copy(&bp)).into()
             }
         }
-        unsafe extern "system" fn Exception<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Exception<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventCallbacksWide_Impl::Exception(this, core::mem::transmute_copy(&exception), core::mem::transmute_copy(&firstchance)).into()
@@ -33725,7 +33788,7 @@ impl IDebugEventCallbacksWide_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugEventCallbacksWide {}
-windows_core::imp::define_interface!(IDebugEventContextCallbacks, IDebugEventContextCallbacks_Vtbl, 0x79586eb8_04fd_5894_8ccf_88e4d3b84ae5);
+windows_core::imp::define_interface!(IDebugEventContextCallbacks, IDebugEventContextCallbacks_Vtbl, 0x61a4905b_23f9_4247_b3c5_53d087529ab7);
 windows_core::imp::interface_hierarchy!(IDebugEventContextCallbacks, windows_core::IUnknown);
 impl IDebugEventContextCallbacks {
     pub unsafe fn GetInterestMask(&self) -> windows_core::Result<u32> {
@@ -33734,55 +33797,55 @@ impl IDebugEventContextCallbacks {
             (windows_core::Interface::vtable(self).GetInterestMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Breakpoint<P0>(&self, bp: P0, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
+    pub unsafe fn Breakpoint<P0>(&self, bp: P0, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDebugBreakpoint2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi(), context as _, contextsize).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Breakpoint)(windows_core::Interface::as_raw(self), bp.param().abi(), context, contextsize).ok() }
     }
-    pub unsafe fn Exception(&self, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception as _, firstchance, context as _, contextsize).ok() }
+    pub unsafe fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Exception)(windows_core::Interface::as_raw(self), exception, firstchance, context, contextsize).ok() }
     }
-    pub unsafe fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateThread)(windows_core::Interface::as_raw(self), handle, dataoffset, startoffset, context as _, contextsize).ok() }
+    pub unsafe fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CreateThread)(windows_core::Interface::as_raw(self), handle, dataoffset, startoffset, context, contextsize).ok() }
     }
-    pub unsafe fn ExitThread(&self, exitcode: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExitThread)(windows_core::Interface::as_raw(self), exitcode, context as _, contextsize).ok() }
+    pub unsafe fn ExitThread(&self, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ExitThread)(windows_core::Interface::as_raw(self), exitcode, context, contextsize).ok() }
     }
-    pub unsafe fn CreateProcessA<P4, P5>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: P4, imagename: P5, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
+    pub unsafe fn CreateProcessA<P4, P5>(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: P4, imagename: P5, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset, context as _, contextsize).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateProcessA)(windows_core::Interface::as_raw(self), imagefilehandle, handle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, initialthreadhandle, threaddataoffset, startoffset, context, contextsize).ok() }
     }
-    pub unsafe fn ExitProcess(&self, exitcode: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ExitProcess)(windows_core::Interface::as_raw(self), exitcode, context as _, contextsize).ok() }
+    pub unsafe fn ExitProcess(&self, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ExitProcess)(windows_core::Interface::as_raw(self), exitcode, context, contextsize).ok() }
     }
-    pub unsafe fn LoadModule<P3, P4>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: P3, imagename: P4, checksum: u32, timedatestamp: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
+    pub unsafe fn LoadModule<P3, P4>(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: P3, imagename: P4, checksum: u32, timedatestamp: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, context as _, contextsize).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LoadModule)(windows_core::Interface::as_raw(self), imagefilehandle, baseoffset, modulesize, modulename.param().abi(), imagename.param().abi(), checksum, timedatestamp, context, contextsize).ok() }
     }
-    pub unsafe fn UnloadModule<P0>(&self, imagebasename: P0, baseoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
+    pub unsafe fn UnloadModule<P0>(&self, imagebasename: P0, baseoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.param().abi(), baseoffset, context as _, contextsize).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnloadModule)(windows_core::Interface::as_raw(self), imagebasename.param().abi(), baseoffset, context, contextsize).ok() }
     }
-    pub unsafe fn SystemError(&self, error: u32, level: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SystemError)(windows_core::Interface::as_raw(self), error, level, context as _, contextsize).ok() }
+    pub unsafe fn SystemError(&self, error: u32, level: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SystemError)(windows_core::Interface::as_raw(self), error, level, context, contextsize).ok() }
     }
     pub unsafe fn SessionStatus(&self, status: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SessionStatus)(windows_core::Interface::as_raw(self), status).ok() }
     }
-    pub unsafe fn ChangeDebuggeeState(&self, flags: u32, argument: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangeDebuggeeState)(windows_core::Interface::as_raw(self), flags, argument, context as _, contextsize).ok() }
+    pub unsafe fn ChangeDebuggeeState(&self, flags: u32, argument: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ChangeDebuggeeState)(windows_core::Interface::as_raw(self), flags, argument, context, contextsize).ok() }
     }
-    pub unsafe fn ChangeEngineState(&self, flags: u32, argument: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ChangeEngineState)(windows_core::Interface::as_raw(self), flags, argument, context as _, contextsize).ok() }
+    pub unsafe fn ChangeEngineState(&self, flags: u32, argument: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ChangeEngineState)(windows_core::Interface::as_raw(self), flags, argument, context, contextsize).ok() }
     }
     pub unsafe fn ChangeSymbolState(&self, flags: u32, argument: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ChangeSymbolState)(windows_core::Interface::as_raw(self), flags, argument).ok() }
@@ -33793,34 +33856,34 @@ impl IDebugEventContextCallbacks {
 pub struct IDebugEventContextCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::EXCEPTION_RECORD64, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub CreateThread: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub ExitThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub CreateProcessA: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32, u64, u64, u64, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub ExitProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub LoadModule: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub UnloadModule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u64, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SystemError: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Exception: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::EXCEPTION_RECORD64, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub CreateThread: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub ExitThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub CreateProcessA: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32, u64, u64, u64, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub ExitProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub LoadModule: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, u32, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub UnloadModule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u64, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SystemError: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SessionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub ChangeDebuggeeState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub ChangeEngineState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub ChangeDebuggeeState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub ChangeEngineState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ChangeSymbolState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64) -> windows_core::HRESULT,
 }
 pub trait IDebugEventContextCallbacks_Impl: windows_core::IUnknownImpl {
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
-    fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint2>, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn Exception(&self, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn ExitThread(&self, exitcode: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn CreateProcessA(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: &windows_core::PCWSTR, imagename: &windows_core::PCWSTR, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn ExitProcess(&self, exitcode: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn LoadModule(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: &windows_core::PCWSTR, imagename: &windows_core::PCWSTR, checksum: u32, timedatestamp: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn UnloadModule(&self, imagebasename: &windows_core::PCWSTR, baseoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn SystemError(&self, error: u32, level: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint2>, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn ExitThread(&self, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn CreateProcessA(&self, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: &windows_core::PCWSTR, imagename: &windows_core::PCWSTR, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn ExitProcess(&self, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn LoadModule(&self, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: &windows_core::PCWSTR, imagename: &windows_core::PCWSTR, checksum: u32, timedatestamp: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn UnloadModule(&self, imagebasename: &windows_core::PCWSTR, baseoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn SystemError(&self, error: u32, level: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn SessionStatus(&self, status: u32) -> windows_core::Result<()>;
-    fn ChangeDebuggeeState(&self, flags: u32, argument: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
-    fn ChangeEngineState(&self, flags: u32, argument: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn ChangeDebuggeeState(&self, flags: u32, argument: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn ChangeEngineState(&self, flags: u32, argument: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn ChangeSymbolState(&self, flags: u32, argument: u64) -> windows_core::Result<()>;
 }
 impl IDebugEventContextCallbacks_Vtbl {
@@ -33837,31 +33900,31 @@ impl IDebugEventContextCallbacks_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Breakpoint<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bp: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Breakpoint<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bp: *mut core::ffi::c_void, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::Breakpoint(this, core::mem::transmute_copy(&bp), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn Exception<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exception: *mut super::EXCEPTION_RECORD64, firstchance: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Exception<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exception: *const super::EXCEPTION_RECORD64, firstchance: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::Exception(this, core::mem::transmute_copy(&exception), core::mem::transmute_copy(&firstchance), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn CreateThread<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, dataoffset: u64, startoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateThread<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64, dataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::CreateThread(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&dataoffset), core::mem::transmute_copy(&startoffset), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn ExitThread<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exitcode: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExitThread<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::ExitThread(this, core::mem::transmute_copy(&exitcode), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn CreateProcessA<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: windows_core::PCWSTR, imagename: windows_core::PCWSTR, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateProcessA<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilehandle: u64, handle: u64, baseoffset: u64, modulesize: u32, modulename: windows_core::PCWSTR, imagename: windows_core::PCWSTR, checksum: u32, timedatestamp: u32, initialthreadhandle: u64, threaddataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::CreateProcessA(
@@ -33883,25 +33946,25 @@ impl IDebugEventContextCallbacks_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ExitProcess<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exitcode: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExitProcess<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::ExitProcess(this, core::mem::transmute_copy(&exitcode), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn LoadModule<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: windows_core::PCWSTR, imagename: windows_core::PCWSTR, checksum: u32, timedatestamp: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LoadModule<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilehandle: u64, baseoffset: u64, modulesize: u32, modulename: windows_core::PCWSTR, imagename: windows_core::PCWSTR, checksum: u32, timedatestamp: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::LoadModule(this, core::mem::transmute_copy(&imagefilehandle), core::mem::transmute_copy(&baseoffset), core::mem::transmute_copy(&modulesize), core::mem::transmute(&modulename), core::mem::transmute(&imagename), core::mem::transmute_copy(&checksum), core::mem::transmute_copy(&timedatestamp), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn UnloadModule<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagebasename: windows_core::PCWSTR, baseoffset: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnloadModule<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagebasename: windows_core::PCWSTR, baseoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::UnloadModule(this, core::mem::transmute(&imagebasename), core::mem::transmute_copy(&baseoffset), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn SystemError<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: u32, level: u32, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SystemError<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: u32, level: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::SystemError(this, core::mem::transmute_copy(&error), core::mem::transmute_copy(&level), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
@@ -33913,13 +33976,13 @@ impl IDebugEventContextCallbacks_Vtbl {
                 IDebugEventContextCallbacks_Impl::SessionStatus(this, core::mem::transmute_copy(&status)).into()
             }
         }
-        unsafe extern "system" fn ChangeDebuggeeState<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, argument: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChangeDebuggeeState<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, argument: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::ChangeDebuggeeState(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&argument), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn ChangeEngineState<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, argument: u64, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChangeEngineState<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, argument: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugEventContextCallbacks_Impl::ChangeEngineState(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&argument), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
@@ -34075,7 +34138,7 @@ impl IDebugFAEntryTags {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-windows_core::imp::define_interface!(IDebugFailureAnalysis, IDebugFailureAnalysis_Vtbl, 0xe06375f9_2f39_56bb_95d2_7ab9f3eb79bf);
+windows_core::imp::define_interface!(IDebugFailureAnalysis, IDebugFailureAnalysis_Vtbl, 0xed0de363_451f_4943_820c_62dccdfa7e6d);
 windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis, windows_core::IUnknown);
 impl IDebugFailureAnalysis {
     pub unsafe fn GetFailureClass(&self) -> u32 {
@@ -34105,8 +34168,8 @@ impl IDebugFailureAnalysis {
     pub unsafe fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).GetUlong64)(windows_core::Interface::as_raw(self), tag, value as _) }
     }
-    pub unsafe fn NextEntry(&self, entry: *mut FA_ENTRY) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).NextEntry)(windows_core::Interface::as_raw(self), entry as _) }
+    pub unsafe fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).NextEntry)(windows_core::Interface::as_raw(self), entry) }
     }
 }
 #[repr(C)]
@@ -34122,7 +34185,7 @@ pub struct IDebugFailureAnalysis_Vtbl {
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut core::ffi::c_void, u32) -> *mut FA_ENTRY,
     pub GetUlong: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut u32) -> *mut FA_ENTRY,
     pub GetUlong64: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut u64) -> *mut FA_ENTRY,
-    pub NextEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FA_ENTRY) -> *mut FA_ENTRY,
+    pub NextEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *const FA_ENTRY) -> *mut FA_ENTRY,
 }
 pub trait IDebugFailureAnalysis_Impl: windows_core::IUnknownImpl {
     fn GetFailureClass(&self) -> u32;
@@ -34134,7 +34197,7 @@ pub trait IDebugFailureAnalysis_Impl: windows_core::IUnknownImpl {
     fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY;
     fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY;
-    fn NextEntry(&self, entry: *mut FA_ENTRY) -> *mut FA_ENTRY;
+    fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY;
 }
 impl IDebugFailureAnalysis_Vtbl {
     pub const fn new<Identity: IDebugFailureAnalysis_Impl, const OFFSET: isize>() -> Self {
@@ -34192,7 +34255,7 @@ impl IDebugFailureAnalysis_Vtbl {
                 IDebugFailureAnalysis_Impl::GetUlong64(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&value))
             }
         }
-        unsafe extern "system" fn NextEntry<Identity: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut FA_ENTRY) -> *mut FA_ENTRY {
+        unsafe extern "system" fn NextEntry<Identity: IDebugFailureAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis_Impl::NextEntry(this, core::mem::transmute_copy(&entry))
@@ -34217,7 +34280,7 @@ impl IDebugFailureAnalysis_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugFailureAnalysis {}
-windows_core::imp::define_interface!(IDebugFailureAnalysis2, IDebugFailureAnalysis2_Vtbl, 0x062be955_7812_5887_b83f_f553960e0226);
+windows_core::imp::define_interface!(IDebugFailureAnalysis2, IDebugFailureAnalysis2_Vtbl, 0xea15c288_8226_4b70_acf6_0be6b189e3ad);
 windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis2, windows_core::IUnknown);
 impl IDebugFailureAnalysis2 {
     pub unsafe fn GetFailureClass(&self) -> u32 {
@@ -34232,8 +34295,8 @@ impl IDebugFailureAnalysis2 {
     pub unsafe fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), tag) }
     }
-    pub unsafe fn GetNext(&self, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), entry as _, tag, tagmask) }
+    pub unsafe fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), entry, tag, tagmask) }
     }
     pub unsafe fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &mut [u8]) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), tag, core::mem::transmute(str.as_ptr()), str.len().try_into().unwrap()) }
@@ -34247,8 +34310,8 @@ impl IDebugFailureAnalysis2 {
     pub unsafe fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).GetUlong64)(windows_core::Interface::as_raw(self), tag, value as _) }
     }
-    pub unsafe fn NextEntry(&self, entry: *mut FA_ENTRY) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).NextEntry)(windows_core::Interface::as_raw(self), entry as _) }
+    pub unsafe fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).NextEntry)(windows_core::Interface::as_raw(self), entry) }
     }
     pub unsafe fn SetString<P1>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P1) -> *mut FA_ENTRY
     where
@@ -34268,8 +34331,8 @@ impl IDebugFailureAnalysis2 {
     pub unsafe fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).SetUlong64)(windows_core::Interface::as_raw(self), tag, value) }
     }
-    pub unsafe fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf as _, size) }
+    pub unsafe fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf, size) }
     }
     pub unsafe fn AddString<P1>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P1) -> *mut FA_ENTRY
     where
@@ -34289,8 +34352,8 @@ impl IDebugFailureAnalysis2 {
     pub unsafe fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).AddUlong64)(windows_core::Interface::as_raw(self), tag, value) }
     }
-    pub unsafe fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).AddBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf as _, size) }
+    pub unsafe fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).AddBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf, size) }
     }
     pub unsafe fn GetDebugFATagControl(&self) -> windows_core::Result<IDebugFAEntryTags> {
         unsafe {
@@ -34320,22 +34383,22 @@ pub struct IDebugFailureAnalysis2_Vtbl {
     pub GetFailureType: unsafe extern "system" fn(*mut core::ffi::c_void) -> DEBUG_FAILURE_TYPE,
     pub GetFailureCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
-    pub GetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FA_ENTRY, DEBUG_FLR_PARAM_TYPE, DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const FA_ENTRY, DEBUG_FLR_PARAM_TYPE, DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PSTR, u32) -> *mut FA_ENTRY,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut core::ffi::c_void, u32) -> *mut FA_ENTRY,
     pub GetUlong: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut u32) -> *mut FA_ENTRY,
     pub GetUlong64: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut u64) -> *mut FA_ENTRY,
-    pub NextEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FA_ENTRY) -> *mut FA_ENTRY,
+    pub NextEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *const FA_ENTRY) -> *mut FA_ENTRY,
     pub SetString: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub SetExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub SetUlong: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u32) -> *mut FA_ENTRY,
     pub SetUlong64: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u64) -> *mut FA_ENTRY,
-    pub SetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *mut core::ffi::c_void, u32) -> *mut FA_ENTRY,
+    pub SetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *const core::ffi::c_void, u32) -> *mut FA_ENTRY,
     pub AddString: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub AddExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub AddUlong: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u32) -> *mut FA_ENTRY,
     pub AddUlong64: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u64) -> *mut FA_ENTRY,
-    pub AddBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *mut core::ffi::c_void, u32) -> *mut FA_ENTRY,
+    pub AddBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *const core::ffi::c_void, u32) -> *mut FA_ENTRY,
     pub GetDebugFATagControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub GetAnalysisXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34349,22 +34412,22 @@ pub trait IDebugFailureAnalysis2_Impl: windows_core::IUnknownImpl {
     fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE;
     fn GetFailureCode(&self) -> u32;
     fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
-    fn GetNext(&self, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
     fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: windows_core::PSTR, maxsize: u32) -> *mut FA_ENTRY;
     fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY;
     fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY;
-    fn NextEntry(&self, entry: *mut FA_ENTRY) -> *mut FA_ENTRY;
+    fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY;
     fn SetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn SetExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
     fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
-    fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn AddString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn AddExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
     fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
-    fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn GetDebugFATagControl(&self) -> windows_core::Result<IDebugFAEntryTags>;
     fn GetAnalysisXml(&self) -> windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement>;
     fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: windows_core::Ref<IDebugFailureAnalysis2>) -> windows_core::Result<()>;
@@ -34396,7 +34459,7 @@ impl IDebugFailureAnalysis2_Vtbl {
                 IDebugFailureAnalysis2_Impl::Get(this, core::mem::transmute_copy(&tag))
             }
         }
-        unsafe extern "system" fn GetNext<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        unsafe extern "system" fn GetNext<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis2_Impl::GetNext(this, core::mem::transmute_copy(&entry), core::mem::transmute_copy(&tag), core::mem::transmute_copy(&tagmask))
@@ -34426,7 +34489,7 @@ impl IDebugFailureAnalysis2_Vtbl {
                 IDebugFailureAnalysis2_Impl::GetUlong64(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&value))
             }
         }
-        unsafe extern "system" fn NextEntry<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut FA_ENTRY) -> *mut FA_ENTRY {
+        unsafe extern "system" fn NextEntry<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis2_Impl::NextEntry(this, core::mem::transmute_copy(&entry))
@@ -34456,7 +34519,7 @@ impl IDebugFailureAnalysis2_Vtbl {
                 IDebugFailureAnalysis2_Impl::SetUlong64(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&value))
             }
         }
-        unsafe extern "system" fn SetBuffer<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe extern "system" fn SetBuffer<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis2_Impl::SetBuffer(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&entrytype), core::mem::transmute_copy(&buf), core::mem::transmute_copy(&size))
@@ -34486,7 +34549,7 @@ impl IDebugFailureAnalysis2_Vtbl {
                 IDebugFailureAnalysis2_Impl::AddUlong64(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&value))
             }
         }
-        unsafe extern "system" fn AddBuffer<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe extern "system" fn AddBuffer<Identity: IDebugFailureAnalysis2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis2_Impl::AddBuffer(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&entrytype), core::mem::transmute_copy(&buf), core::mem::transmute_copy(&size))
@@ -34555,7 +34618,7 @@ impl IDebugFailureAnalysis2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for IDebugFailureAnalysis2 {}
-windows_core::imp::define_interface!(IDebugFailureAnalysis3, IDebugFailureAnalysis3_Vtbl, 0xc8306b89_900f_55f8_b4ce_734037ab5a63);
+windows_core::imp::define_interface!(IDebugFailureAnalysis3, IDebugFailureAnalysis3_Vtbl, 0x3627dc67_fd45_42ff_9ba4_4a67ee64619f);
 windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis3, windows_core::IUnknown);
 impl IDebugFailureAnalysis3 {
     pub unsafe fn GetFailureClass(&self) -> u32 {
@@ -34570,8 +34633,8 @@ impl IDebugFailureAnalysis3 {
     pub unsafe fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), tag) }
     }
-    pub unsafe fn GetNext(&self, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), entry as _, tag, tagmask) }
+    pub unsafe fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), entry, tag, tagmask) }
     }
     pub unsafe fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &mut [u8]) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), tag, core::mem::transmute(str.as_ptr()), str.len().try_into().unwrap()) }
@@ -34585,8 +34648,8 @@ impl IDebugFailureAnalysis3 {
     pub unsafe fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).GetUlong64)(windows_core::Interface::as_raw(self), tag, value as _) }
     }
-    pub unsafe fn NextEntry(&self, entry: *mut FA_ENTRY) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).NextEntry)(windows_core::Interface::as_raw(self), entry as _) }
+    pub unsafe fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).NextEntry)(windows_core::Interface::as_raw(self), entry) }
     }
     pub unsafe fn SetString<P1>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P1) -> *mut FA_ENTRY
     where
@@ -34606,8 +34669,8 @@ impl IDebugFailureAnalysis3 {
     pub unsafe fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).SetUlong64)(windows_core::Interface::as_raw(self), tag, value) }
     }
-    pub unsafe fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf as _, size) }
+    pub unsafe fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf, size) }
     }
     pub unsafe fn AddString<P1>(&self, tag: DEBUG_FLR_PARAM_TYPE, str: P1) -> *mut FA_ENTRY
     where
@@ -34627,8 +34690,8 @@ impl IDebugFailureAnalysis3 {
     pub unsafe fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY {
         unsafe { (windows_core::Interface::vtable(self).AddUlong64)(windows_core::Interface::as_raw(self), tag, value) }
     }
-    pub unsafe fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
-        unsafe { (windows_core::Interface::vtable(self).AddBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf as _, size) }
+    pub unsafe fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe { (windows_core::Interface::vtable(self).AddBuffer)(windows_core::Interface::as_raw(self), tag, entrytype, buf, size) }
     }
     pub unsafe fn GetDebugFATagControl(&self) -> windows_core::Result<IDebugFAEntryTags> {
         unsafe {
@@ -34735,22 +34798,22 @@ pub struct IDebugFailureAnalysis3_Vtbl {
     pub GetFailureType: unsafe extern "system" fn(*mut core::ffi::c_void) -> DEBUG_FAILURE_TYPE,
     pub GetFailureCode: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
-    pub GetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FA_ENTRY, DEBUG_FLR_PARAM_TYPE, DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
+    pub GetNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const FA_ENTRY, DEBUG_FLR_PARAM_TYPE, DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PSTR, u32) -> *mut FA_ENTRY,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut core::ffi::c_void, u32) -> *mut FA_ENTRY,
     pub GetUlong: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut u32) -> *mut FA_ENTRY,
     pub GetUlong64: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, *mut u64) -> *mut FA_ENTRY,
-    pub NextEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FA_ENTRY) -> *mut FA_ENTRY,
+    pub NextEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *const FA_ENTRY) -> *mut FA_ENTRY,
     pub SetString: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub SetExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub SetUlong: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u32) -> *mut FA_ENTRY,
     pub SetUlong64: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u64) -> *mut FA_ENTRY,
-    pub SetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *mut core::ffi::c_void, u32) -> *mut FA_ENTRY,
+    pub SetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *const core::ffi::c_void, u32) -> *mut FA_ENTRY,
     pub AddString: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub AddExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, windows_core::PCSTR) -> *mut FA_ENTRY,
     pub AddUlong: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u32) -> *mut FA_ENTRY,
     pub AddUlong64: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, u64) -> *mut FA_ENTRY,
-    pub AddBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *mut core::ffi::c_void, u32) -> *mut FA_ENTRY,
+    pub AddBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, DEBUG_FLR_PARAM_TYPE, FA_ENTRY_TYPE, *const core::ffi::c_void, u32) -> *mut FA_ENTRY,
     pub GetDebugFATagControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub GetAnalysisXml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -34787,22 +34850,22 @@ pub trait IDebugFailureAnalysis3_Impl: windows_core::IUnknownImpl {
     fn GetFailureType(&self) -> DEBUG_FAILURE_TYPE;
     fn GetFailureCode(&self) -> u32;
     fn Get(&self, tag: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
-    fn GetNext(&self, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
+    fn GetNext(&self, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY;
     fn GetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: windows_core::PSTR, maxsize: u32) -> *mut FA_ENTRY;
     fn GetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn GetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u32) -> *mut FA_ENTRY;
     fn GetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY;
-    fn NextEntry(&self, entry: *mut FA_ENTRY) -> *mut FA_ENTRY;
+    fn NextEntry(&self, entry: *const FA_ENTRY) -> *mut FA_ENTRY;
     fn SetString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn SetExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn SetUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
     fn SetUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
-    fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn SetBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn AddString(&self, tag: DEBUG_FLR_PARAM_TYPE, str: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn AddExtensionCommand(&self, tag: DEBUG_FLR_PARAM_TYPE, extension: &windows_core::PCSTR) -> *mut FA_ENTRY;
     fn AddUlong(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u32) -> *mut FA_ENTRY;
     fn AddUlong64(&self, tag: DEBUG_FLR_PARAM_TYPE, value: u64) -> *mut FA_ENTRY;
-    fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
+    fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn GetDebugFATagControl(&self) -> windows_core::Result<IDebugFAEntryTags>;
     fn GetAnalysisXml(&self) -> windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement>;
     fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: windows_core::Ref<IDebugFailureAnalysis2>) -> windows_core::Result<()>;
@@ -34851,7 +34914,7 @@ impl IDebugFailureAnalysis3_Vtbl {
                 IDebugFailureAnalysis3_Impl::Get(this, core::mem::transmute_copy(&tag))
             }
         }
-        unsafe extern "system" fn GetNext<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
+        unsafe extern "system" fn GetNext<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const FA_ENTRY, tag: DEBUG_FLR_PARAM_TYPE, tagmask: DEBUG_FLR_PARAM_TYPE) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis3_Impl::GetNext(this, core::mem::transmute_copy(&entry), core::mem::transmute_copy(&tag), core::mem::transmute_copy(&tagmask))
@@ -34881,7 +34944,7 @@ impl IDebugFailureAnalysis3_Vtbl {
                 IDebugFailureAnalysis3_Impl::GetUlong64(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&value))
             }
         }
-        unsafe extern "system" fn NextEntry<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut FA_ENTRY) -> *mut FA_ENTRY {
+        unsafe extern "system" fn NextEntry<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis3_Impl::NextEntry(this, core::mem::transmute_copy(&entry))
@@ -34911,7 +34974,7 @@ impl IDebugFailureAnalysis3_Vtbl {
                 IDebugFailureAnalysis3_Impl::SetUlong64(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&value))
             }
         }
-        unsafe extern "system" fn SetBuffer<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe extern "system" fn SetBuffer<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis3_Impl::SetBuffer(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&entrytype), core::mem::transmute_copy(&buf), core::mem::transmute_copy(&size))
@@ -34941,7 +35004,7 @@ impl IDebugFailureAnalysis3_Vtbl {
                 IDebugFailureAnalysis3_Impl::AddUlong64(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&value))
             }
         }
-        unsafe extern "system" fn AddBuffer<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *mut core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
+        unsafe extern "system" fn AddBuffer<Identity: IDebugFailureAnalysis3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugFailureAnalysis3_Impl::AddBuffer(this, core::mem::transmute_copy(&tag), core::mem::transmute_copy(&entrytype), core::mem::transmute_copy(&buf), core::mem::transmute_copy(&size))
@@ -35153,7 +35216,7 @@ impl IDebugFailureAnalysis3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugFailureAnalysis3 {}
-windows_core::imp::define_interface!(IDebugHost, IDebugHost_Vtbl, 0xccacc6e3_5591_51e8_849d_8c16eadb1b89);
+windows_core::imp::define_interface!(IDebugHost, IDebugHost_Vtbl, 0xb8c74943_6b2c_4eeb_b5c5_35d378a6d99d);
 windows_core::imp::interface_hierarchy!(IDebugHost, windows_core::IUnknown);
 impl IDebugHost {
     pub unsafe fn GetHostDefinedInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -35238,7 +35301,7 @@ impl IDebugHost_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHost {}
-windows_core::imp::define_interface!(IDebugHostBaseClass, IDebugHostBaseClass_Vtbl, 0xe80d23f8_396b_5568_847b_3b7ffa462588);
+windows_core::imp::define_interface!(IDebugHostBaseClass, IDebugHostBaseClass_Vtbl, 0xb94d57d2_390b_40f7_b5b4_b6db897d974b);
 impl core::ops::Deref for IDebugHostBaseClass {
     type Target = IDebugHostSymbol;
     fn deref(&self) -> &Self::Target {
@@ -35284,7 +35347,7 @@ impl IDebugHostBaseClass_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostBaseClass {}
-windows_core::imp::define_interface!(IDebugHostConstant, IDebugHostConstant_Vtbl, 0x38185edf_bd0a_5ab4_adc0_13b4ac0e1dae);
+windows_core::imp::define_interface!(IDebugHostConstant, IDebugHostConstant_Vtbl, 0x62787edc_fa76_4690_bd71_5e8c3e2937ec);
 impl core::ops::Deref for IDebugHostConstant {
     type Target = IDebugHostSymbol;
     fn deref(&self) -> &Self::Target {
@@ -35337,7 +35400,7 @@ impl IDebugHostConstant_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugHostConstant {}
-windows_core::imp::define_interface!(IDebugHostContext, IDebugHostContext_Vtbl, 0x08b7dbf1_b5c1_5a82_ae1b_aa964d8fcc1b);
+windows_core::imp::define_interface!(IDebugHostContext, IDebugHostContext_Vtbl, 0xa68c70d8_5ec0_46e5_b775_3134a48ea2e3);
 windows_core::imp::interface_hierarchy!(IDebugHostContext, windows_core::IUnknown);
 impl IDebugHostContext {
     pub unsafe fn IsEqualTo<P0>(&self, pcontext: P0) -> windows_core::Result<bool>
@@ -35478,7 +35541,7 @@ impl IDebugHostData_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugHostData {}
-windows_core::imp::define_interface!(IDebugHostErrorSink, IDebugHostErrorSink_Vtbl, 0x964f38aa_1757_5b69_a2dd_e4e1a4d9c101);
+windows_core::imp::define_interface!(IDebugHostErrorSink, IDebugHostErrorSink_Vtbl, 0xc8ff0f0b_fce9_467e_8bb3_5d69ef109c00);
 windows_core::imp::interface_hierarchy!(IDebugHostErrorSink, windows_core::IUnknown);
 impl IDebugHostErrorSink {
     pub unsafe fn ReportError<P2>(&self, errclass: ErrorClass, hrerror: windows_core::HRESULT, message: P2) -> windows_core::Result<()>
@@ -35512,7 +35575,7 @@ impl IDebugHostErrorSink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostErrorSink {}
-windows_core::imp::define_interface!(IDebugHostEvaluator, IDebugHostEvaluator_Vtbl, 0xec794865_6b6f_5fe1_a82f_ced6b90aba42);
+windows_core::imp::define_interface!(IDebugHostEvaluator, IDebugHostEvaluator_Vtbl, 0x0fef9a21_577e_4997_ac7b_1c4883241d99);
 windows_core::imp::interface_hierarchy!(IDebugHostEvaluator, windows_core::IUnknown);
 impl IDebugHostEvaluator {
     pub unsafe fn EvaluateExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut Option<IModelObject>, metadata: *mut Option<IKeyStore>) -> windows_core::Result<()>
@@ -35568,7 +35631,7 @@ impl IDebugHostEvaluator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostEvaluator {}
-windows_core::imp::define_interface!(IDebugHostEvaluator2, IDebugHostEvaluator2_Vtbl, 0x35ddf7ed_ac37_554e_981f_ce970d7fefce);
+windows_core::imp::define_interface!(IDebugHostEvaluator2, IDebugHostEvaluator2_Vtbl, 0xa117a435_1fb4_4092_a2ab_a929576c1e87);
 impl core::ops::Deref for IDebugHostEvaluator2 {
     type Target = IDebugHostEvaluator;
     fn deref(&self) -> &Self::Target {
@@ -35609,7 +35672,7 @@ impl IDebugHostEvaluator2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostEvaluator2 {}
-windows_core::imp::define_interface!(IDebugHostExtensibility, IDebugHostExtensibility_Vtbl, 0x6378ff16_4e76_54dd_86c7_1d8b83f7fca0);
+windows_core::imp::define_interface!(IDebugHostExtensibility, IDebugHostExtensibility_Vtbl, 0x3c2b24e1_11d0_4f86_8ae5_4df166f73253);
 windows_core::imp::interface_hierarchy!(IDebugHostExtensibility, windows_core::IUnknown);
 impl IDebugHostExtensibility {
     pub unsafe fn CreateFunctionAlias<P0, P1>(&self, aliasname: P0, functionobject: P1) -> windows_core::Result<()>
@@ -35662,7 +35725,7 @@ impl IDebugHostExtensibility_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostExtensibility {}
-windows_core::imp::define_interface!(IDebugHostField, IDebugHostField_Vtbl, 0x0d0a03d3_e262_5e04_8195_330f9d708364);
+windows_core::imp::define_interface!(IDebugHostField, IDebugHostField_Vtbl, 0xe06f6495_16bc_4cc9_b11d_2a6b23fa72f3);
 impl core::ops::Deref for IDebugHostField {
     type Target = IDebugHostSymbol;
     fn deref(&self) -> &Self::Target {
@@ -35781,7 +35844,7 @@ impl IDebugHostField_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDebugHostField {}
-windows_core::imp::define_interface!(IDebugHostMemory, IDebugHostMemory_Vtbl, 0x81a9e612_c563_5451_9a70_002dfc53d240);
+windows_core::imp::define_interface!(IDebugHostMemory, IDebugHostMemory_Vtbl, 0x212149c9_9183_4a3e_b00e_4fd1dc95339b);
 windows_core::imp::interface_hierarchy!(IDebugHostMemory, windows_core::IUnknown);
 impl IDebugHostMemory {
     pub unsafe fn ReadBytes<P0>(&self, context: P0, location: Location, buffer: *mut core::ffi::c_void, buffersize: u64, bytesread: *mut u64) -> windows_core::Result<()>
@@ -35790,11 +35853,14 @@ impl IDebugHostMemory {
     {
         unsafe { (windows_core::Interface::vtable(self).ReadBytes)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *mut core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> windows_core::Result<()>
+    pub unsafe fn WriteBytes<P0>(&self, context: P0, location: Location, buffer: *const core::ffi::c_void, buffersize: u64) -> windows_core::Result<u64>
     where
         P0: windows_core::Param<IDebugHostContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WriteBytes)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), buffer as _, buffersize, byteswritten as _).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteBytes)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn ReadPointers<P0>(&self, context: P0, location: Location, pointers: &mut [u64]) -> windows_core::Result<()>
     where
@@ -35802,7 +35868,7 @@ impl IDebugHostMemory {
     {
         unsafe { (windows_core::Interface::vtable(self).ReadPointers)(windows_core::Interface::as_raw(self), context.param().abi(), core::mem::transmute(location), pointers.len().try_into().unwrap(), core::mem::transmute(pointers.as_ptr())).ok() }
     }
-    pub unsafe fn WritePointers<P0>(&self, context: P0, location: Location, pointers: &mut [u64]) -> windows_core::Result<()>
+    pub unsafe fn WritePointers<P0>(&self, context: P0, location: Location, pointers: &[u64]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDebugHostContext>,
     {
@@ -35823,16 +35889,16 @@ impl IDebugHostMemory {
 pub struct IDebugHostMemory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReadBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
-    pub WriteBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *mut core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
+    pub WriteBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *const core::ffi::c_void, u64, *mut u64) -> windows_core::HRESULT,
     pub ReadPointers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, u64, *mut u64) -> windows_core::HRESULT,
-    pub WritePointers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, u64, *mut u64) -> windows_core::HRESULT,
+    pub WritePointers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, u64, *const u64) -> windows_core::HRESULT,
     pub GetDisplayStringForLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugHostMemory_Impl: windows_core::IUnknownImpl {
     fn ReadBytes(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, buffer: *mut core::ffi::c_void, buffersize: u64, bytesread: *mut u64) -> windows_core::Result<()>;
-    fn WriteBytes(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, buffer: *mut core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> windows_core::Result<()>;
+    fn WriteBytes(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, buffer: *const core::ffi::c_void, buffersize: u64) -> windows_core::Result<u64>;
     fn ReadPointers(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, count: u64, pointers: *mut u64) -> windows_core::Result<()>;
-    fn WritePointers(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, count: u64, pointers: *mut u64) -> windows_core::Result<()>;
+    fn WritePointers(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, count: u64, pointers: *const u64) -> windows_core::Result<()>;
     fn GetDisplayStringForLocation(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, verbose: u8) -> windows_core::Result<windows_core::BSTR>;
 }
 impl IDebugHostMemory_Vtbl {
@@ -35843,10 +35909,16 @@ impl IDebugHostMemory_Vtbl {
                 IDebugHostMemory_Impl::ReadBytes(this, core::mem::transmute_copy(&context), core::mem::transmute(&location), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteBytes<Identity: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, location: Location, buffer: *mut core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteBytes<Identity: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, location: Location, buffer: *const core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugHostMemory_Impl::WriteBytes(this, core::mem::transmute_copy(&context), core::mem::transmute(&location), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugHostMemory_Impl::WriteBytes(this, core::mem::transmute_copy(&context), core::mem::transmute(&location), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ReadPointers<Identity: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, location: Location, count: u64, pointers: *mut u64) -> windows_core::HRESULT {
@@ -35855,7 +35927,7 @@ impl IDebugHostMemory_Vtbl {
                 IDebugHostMemory_Impl::ReadPointers(this, core::mem::transmute_copy(&context), core::mem::transmute(&location), core::mem::transmute_copy(&count), core::mem::transmute_copy(&pointers)).into()
             }
         }
-        unsafe extern "system" fn WritePointers<Identity: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, location: Location, count: u64, pointers: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePointers<Identity: IDebugHostMemory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, location: Location, count: u64, pointers: *const u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugHostMemory_Impl::WritePointers(this, core::mem::transmute_copy(&context), core::mem::transmute(&location), core::mem::transmute_copy(&count), core::mem::transmute_copy(&pointers)).into()
@@ -35936,7 +36008,7 @@ impl IDebugHostMemory2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostMemory2 {}
-windows_core::imp::define_interface!(IDebugHostModule, IDebugHostModule_Vtbl, 0x83ada11c_9562_5a5a_8d5a_73be8fd7b838);
+windows_core::imp::define_interface!(IDebugHostModule, IDebugHostModule_Vtbl, 0xc9ba3e18_d070_4378_bbd0_34613b346e1e);
 impl core::ops::Deref for IDebugHostModule {
     type Target = IDebugHostSymbol;
     fn deref(&self) -> &Self::Target {
@@ -36124,7 +36196,7 @@ impl IDebugHostModule2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostModule2 {}
-windows_core::imp::define_interface!(IDebugHostModuleSignature, IDebugHostModuleSignature_Vtbl, 0x6b69e275_e065_5d36_b59d_ef91ed71b8f2);
+windows_core::imp::define_interface!(IDebugHostModuleSignature, IDebugHostModuleSignature_Vtbl, 0x31e53a5a_01ee_4bbb_b899_4b46ae7d595c);
 windows_core::imp::interface_hierarchy!(IDebugHostModuleSignature, windows_core::IUnknown);
 impl IDebugHostModuleSignature {
     pub unsafe fn IsMatch<P0>(&self, pmodule: P0) -> windows_core::Result<bool>
@@ -36167,7 +36239,7 @@ impl IDebugHostModuleSignature_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostModuleSignature {}
-windows_core::imp::define_interface!(IDebugHostPublic, IDebugHostPublic_Vtbl, 0x6cda03e6_76df_5e61_835a_2086830b249e);
+windows_core::imp::define_interface!(IDebugHostPublic, IDebugHostPublic_Vtbl, 0x6c597ac9_fb4d_4f6d_9f39_22488539f8f4);
 impl core::ops::Deref for IDebugHostPublic {
     type Target = IDebugHostSymbol;
     fn deref(&self) -> &Self::Target {
@@ -36237,7 +36309,7 @@ impl IDebugHostPublic_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostPublic {}
-windows_core::imp::define_interface!(IDebugHostScriptHost, IDebugHostScriptHost_Vtbl, 0x09663510_e762_5e74_b637_70f326d95d5f);
+windows_core::imp::define_interface!(IDebugHostScriptHost, IDebugHostScriptHost_Vtbl, 0xb70334a4_b92c_4570_93a1_d3eb686649a0);
 windows_core::imp::interface_hierarchy!(IDebugHostScriptHost, windows_core::IUnknown);
 impl IDebugHostScriptHost {
     pub unsafe fn CreateContext<P0>(&self, script: P0) -> windows_core::Result<IDataModelScriptHostContext>
@@ -36280,7 +36352,7 @@ impl IDebugHostScriptHost_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostScriptHost {}
-windows_core::imp::define_interface!(IDebugHostStatus, IDebugHostStatus_Vtbl, 0x169a9f43_f6e7_5ff6_8c3d_dd6b9ceb64a9);
+windows_core::imp::define_interface!(IDebugHostStatus, IDebugHostStatus_Vtbl, 0x4f3e1ce2_86b2_4c7a_9c65_d0a9d0eecf44);
 windows_core::imp::interface_hierarchy!(IDebugHostStatus, windows_core::IUnknown);
 impl IDebugHostStatus {
     pub unsafe fn PollUserInterrupt(&self) -> windows_core::Result<bool> {
@@ -36320,7 +36392,7 @@ impl IDebugHostStatus_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostStatus {}
-windows_core::imp::define_interface!(IDebugHostSymbol, IDebugHostSymbol_Vtbl, 0xa3b97a0b_7e66_53b0_9a8c_4172857e20a4);
+windows_core::imp::define_interface!(IDebugHostSymbol, IDebugHostSymbol_Vtbl, 0x0f819103_87de_4e96_8277_e05cd441fb22);
 windows_core::imp::interface_hierarchy!(IDebugHostSymbol, windows_core::IUnknown);
 impl IDebugHostSymbol {
     pub unsafe fn GetContext(&self) -> windows_core::Result<IDebugHostContext> {
@@ -36541,7 +36613,7 @@ impl IDebugHostSymbol2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostSymbol2 {}
-windows_core::imp::define_interface!(IDebugHostSymbolEnumerator, IDebugHostSymbolEnumerator_Vtbl, 0x5ad4a92d_ffe5_5a72_ae4a_decaa0a237a5);
+windows_core::imp::define_interface!(IDebugHostSymbolEnumerator, IDebugHostSymbolEnumerator_Vtbl, 0x28d96c86_10a3_4976_b14e_eaef4790aa1f);
 windows_core::imp::interface_hierarchy!(IDebugHostSymbolEnumerator, windows_core::IUnknown);
 impl IDebugHostSymbolEnumerator {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
@@ -36592,7 +36664,7 @@ impl IDebugHostSymbolEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostSymbolEnumerator {}
-windows_core::imp::define_interface!(IDebugHostSymbols, IDebugHostSymbols_Vtbl, 0x5e53ad50_5344_5c24_a831_258d17a9a5ed);
+windows_core::imp::define_interface!(IDebugHostSymbols, IDebugHostSymbols_Vtbl, 0x854fd751_c2e1_4eb2_b525_6619cb97a588);
 windows_core::imp::interface_hierarchy!(IDebugHostSymbols, windows_core::IUnknown);
 impl IDebugHostSymbols {
     pub unsafe fn CreateModuleSignature<P0, P1, P2>(&self, pwszmodulename: P0, pwszminversion: P1, pwszmaxversion: P2) -> windows_core::Result<IDebugHostModuleSignature>
@@ -36781,7 +36853,7 @@ impl IDebugHostSymbols_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostSymbols {}
-windows_core::imp::define_interface!(IDebugHostType, IDebugHostType_Vtbl, 0x84913c46_de83_5e88_a174_c43dd22366f0);
+windows_core::imp::define_interface!(IDebugHostType, IDebugHostType_Vtbl, 0x3aadc353_2b14_4abb_9893_5e03458e07ee);
 impl core::ops::Deref for IDebugHostType {
     type Target = IDebugHostSymbol;
     fn deref(&self) -> &Self::Target {
@@ -36847,8 +36919,11 @@ impl IDebugHostType {
     pub unsafe fn GetArrayDimensions(&self, pdimensions: &mut [ArrayDimension]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetArrayDimensions)(windows_core::Interface::as_raw(self), pdimensions.len().try_into().unwrap(), core::mem::transmute(pdimensions.as_ptr())).ok() }
     }
-    pub unsafe fn CreateArrayOf(&self, pdimensions: &mut [ArrayDimension], newtype: *mut Option<IDebugHostType>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateArrayOf)(windows_core::Interface::as_raw(self), pdimensions.len().try_into().unwrap(), core::mem::transmute(pdimensions.as_ptr()), core::mem::transmute(newtype)).ok() }
+    pub unsafe fn CreateArrayOf(&self, pdimensions: &[ArrayDimension]) -> windows_core::Result<IDebugHostType> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateArrayOf)(windows_core::Interface::as_raw(self), pdimensions.len().try_into().unwrap(), core::mem::transmute(pdimensions.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub unsafe fn GetFunctionCallingConvention(&self) -> windows_core::Result<CallingConventionKind> {
         unsafe {
@@ -36908,7 +36983,7 @@ pub struct IDebugHostType_Vtbl {
     pub CreatePointerTo: unsafe extern "system" fn(*mut core::ffi::c_void, PointerKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetArrayDimensionality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetArrayDimensions: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut ArrayDimension) -> windows_core::HRESULT,
-    pub CreateArrayOf: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut ArrayDimension, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateArrayOf: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const ArrayDimension, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFunctionCallingConvention: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CallingConventionKind) -> windows_core::HRESULT,
     pub GetFunctionReturnType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFunctionParameterTypeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -36929,7 +37004,7 @@ pub trait IDebugHostType_Impl: IDebugHostSymbol_Impl {
     fn CreatePointerTo(&self, kind: PointerKind) -> windows_core::Result<IDebugHostType>;
     fn GetArrayDimensionality(&self) -> windows_core::Result<u64>;
     fn GetArrayDimensions(&self, dimensions: u64, pdimensions: *mut ArrayDimension) -> windows_core::Result<()>;
-    fn CreateArrayOf(&self, dimensions: u64, pdimensions: *mut ArrayDimension, newtype: windows_core::OutRef<IDebugHostType>) -> windows_core::Result<()>;
+    fn CreateArrayOf(&self, dimensions: u64, pdimensions: *const ArrayDimension) -> windows_core::Result<IDebugHostType>;
     fn GetFunctionCallingConvention(&self) -> windows_core::Result<CallingConventionKind>;
     fn GetFunctionReturnType(&self) -> windows_core::Result<IDebugHostType>;
     fn GetFunctionParameterTypeCount(&self) -> windows_core::Result<u64>;
@@ -37054,10 +37129,16 @@ impl IDebugHostType_Vtbl {
                 IDebugHostType_Impl::GetArrayDimensions(this, core::mem::transmute_copy(&dimensions), core::mem::transmute_copy(&pdimensions)).into()
             }
         }
-        unsafe extern "system" fn CreateArrayOf<Identity: IDebugHostType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimensions: u64, pdimensions: *mut ArrayDimension, newtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateArrayOf<Identity: IDebugHostType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimensions: u64, pdimensions: *const ArrayDimension, newtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugHostType_Impl::CreateArrayOf(this, core::mem::transmute_copy(&dimensions), core::mem::transmute_copy(&pdimensions), core::mem::transmute_copy(&newtype)).into()
+                match IDebugHostType_Impl::CreateArrayOf(this, core::mem::transmute_copy(&dimensions), core::mem::transmute_copy(&pdimensions)) {
+                    Ok(ok__) => {
+                        newtype.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetFunctionCallingConvention<Identity: IDebugHostType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conventionkind: *mut CallingConventionKind) -> windows_core::HRESULT {
@@ -37305,7 +37386,7 @@ impl IDebugHostType2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugHostType2 {}
-windows_core::imp::define_interface!(IDebugHostTypeSignature, IDebugHostTypeSignature_Vtbl, 0xf34b4e9f_e6e5_5eea_923a_f8ad99ac942a);
+windows_core::imp::define_interface!(IDebugHostTypeSignature, IDebugHostTypeSignature_Vtbl, 0x3aadc353_2b14_4abb_9893_5e03458e07ee);
 windows_core::imp::interface_hierarchy!(IDebugHostTypeSignature, windows_core::IUnknown);
 impl IDebugHostTypeSignature {
     pub unsafe fn GetHashCode(&self) -> windows_core::Result<u32> {
@@ -37433,7 +37514,7 @@ impl IDebugInputCallbacks_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugInputCallbacks {}
-windows_core::imp::define_interface!(IDebugOutputCallbacks, IDebugOutputCallbacks_Vtbl, 0x9503ded5_23c9_5f28_92d9_2cfa75b24f07);
+windows_core::imp::define_interface!(IDebugOutputCallbacks, IDebugOutputCallbacks_Vtbl, 0x4bf58045_d654_4c40_b0af_683090f356dc);
 windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks, windows_core::IUnknown);
 impl IDebugOutputCallbacks {
     pub unsafe fn Output<P1>(&self, mask: u32, text: P1) -> windows_core::Result<()>
@@ -37467,7 +37548,7 @@ impl IDebugOutputCallbacks_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugOutputCallbacks {}
-windows_core::imp::define_interface!(IDebugOutputCallbacks2, IDebugOutputCallbacks2_Vtbl, 0x3bff40f6_90d1_5159_9084_80328fbcaa71);
+windows_core::imp::define_interface!(IDebugOutputCallbacks2, IDebugOutputCallbacks2_Vtbl, 0x67721fe9_56d2_4a44_a325_2b65513ce6eb);
 windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks2, windows_core::IUnknown);
 impl IDebugOutputCallbacks2 {
     pub unsafe fn Output<P1>(&self, mask: u32, text: P1) -> windows_core::Result<()>
@@ -37574,7 +37655,7 @@ impl IDebugOutputCallbacksWide_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugOutputCallbacksWide {}
-windows_core::imp::define_interface!(IDebugOutputStream, IDebugOutputStream_Vtbl, 0xf422a9b0_85df_5a7d_b0ba_39d9ef2d1615);
+windows_core::imp::define_interface!(IDebugOutputStream, IDebugOutputStream_Vtbl, 0x7782d8f2_2b85_4059_ab88_28ceddca1c80);
 windows_core::imp::interface_hierarchy!(IDebugOutputStream, windows_core::IUnknown);
 impl IDebugOutputStream {
     pub unsafe fn Write<P0>(&self, psz: P0) -> windows_core::Result<()>
@@ -37608,7 +37689,7 @@ impl IDebugOutputStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugOutputStream {}
-windows_core::imp::define_interface!(IDebugPlmClient, IDebugPlmClient_Vtbl, 0x484eb0da_3408_5b52_835d_21f423cb3438);
+windows_core::imp::define_interface!(IDebugPlmClient, IDebugPlmClient_Vtbl, 0xa02b66c4_aea3_4234_a9f7_fe4c383d4e29);
 windows_core::imp::interface_hierarchy!(IDebugPlmClient, windows_core::IUnknown);
 impl IDebugPlmClient {
     pub unsafe fn LaunchPlmPackageForDebugWide<P2, P3, P4>(&self, server: u64, timeout: u32, packagefullname: P2, appname: P3, arguments: P4, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>
@@ -37644,7 +37725,7 @@ impl IDebugPlmClient_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugPlmClient {}
-windows_core::imp::define_interface!(IDebugPlmClient2, IDebugPlmClient2_Vtbl, 0xedcfe394_c49f_5c63_9acb_c3dd0453c5f8);
+windows_core::imp::define_interface!(IDebugPlmClient2, IDebugPlmClient2_Vtbl, 0x597c980d_e7bd_4309_962c_9d9b69a7372c);
 windows_core::imp::interface_hierarchy!(IDebugPlmClient2, windows_core::IUnknown);
 impl IDebugPlmClient2 {
     pub unsafe fn LaunchPlmPackageForDebugWide<P2, P3, P4>(&self, server: u64, timeout: u32, packagefullname: P2, appname: P3, arguments: P4, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>
@@ -38095,7 +38176,7 @@ impl IDebugRegisters_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugRegisters {}
-windows_core::imp::define_interface!(IDebugRegisters2, IDebugRegisters2_Vtbl, 0x22eace19_5cee_5aae_9778_60888dd20edb);
+windows_core::imp::define_interface!(IDebugRegisters2, IDebugRegisters2_Vtbl, 0x1656afa9_19c6_4e3a_97e7_5dc9160cf9c4);
 windows_core::imp::interface_hierarchy!(IDebugRegisters2, windows_core::IUnknown);
 impl IDebugRegisters2 {
     pub unsafe fn GetNumberRegisters(&self) -> windows_core::Result<u32> {
@@ -38119,14 +38200,14 @@ impl IDebugRegisters2 {
     pub unsafe fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), register, value as _).ok() }
     }
-    pub unsafe fn SetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), register, value as _).ok() }
+    pub unsafe fn SetValue(&self, register: u32, value: *const DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), register, value).ok() }
     }
-    pub unsafe fn GetValues(&self, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetValues)(windows_core::Interface::as_raw(self), count, indices as _, start, values as _).ok() }
+    pub unsafe fn GetValues(&self, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetValues)(windows_core::Interface::as_raw(self), count, indices, start, values as _).ok() }
     }
-    pub unsafe fn SetValues(&self, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValues)(windows_core::Interface::as_raw(self), count, indices as _, start, values as _).ok() }
+    pub unsafe fn SetValues(&self, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetValues)(windows_core::Interface::as_raw(self), count, indices, start, values).ok() }
     }
     pub unsafe fn OutputRegisters(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputRegisters)(windows_core::Interface::as_raw(self), outputcontrol, flags).ok() }
@@ -38191,17 +38272,17 @@ impl IDebugRegisters2 {
             (windows_core::Interface::vtable(self).GetPseudoIndexByNameWide)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPseudoValues(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPseudoValues)(windows_core::Interface::as_raw(self), source, count, indices as _, start, values as _).ok() }
+    pub unsafe fn GetPseudoValues(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPseudoValues)(windows_core::Interface::as_raw(self), source, count, indices, start, values as _).ok() }
     }
-    pub unsafe fn SetPseudoValues(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPseudoValues)(windows_core::Interface::as_raw(self), source, count, indices as _, start, values as _).ok() }
+    pub unsafe fn SetPseudoValues(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetPseudoValues)(windows_core::Interface::as_raw(self), source, count, indices, start, values).ok() }
     }
-    pub unsafe fn GetValues2(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetValues2)(windows_core::Interface::as_raw(self), source, count, indices as _, start, values as _).ok() }
+    pub unsafe fn GetValues2(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetValues2)(windows_core::Interface::as_raw(self), source, count, indices, start, values as _).ok() }
     }
-    pub unsafe fn SetValues2(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetValues2)(windows_core::Interface::as_raw(self), source, count, indices as _, start, values as _).ok() }
+    pub unsafe fn SetValues2(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetValues2)(windows_core::Interface::as_raw(self), source, count, indices, start, values).ok() }
     }
     pub unsafe fn OutputRegisters2(&self, outputcontrol: u32, source: u32, flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputRegisters2)(windows_core::Interface::as_raw(self), outputcontrol, source, flags).ok() }
@@ -38233,9 +38314,9 @@ pub struct IDebugRegisters2_Vtbl {
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32, *mut DEBUG_REGISTER_DESCRIPTION) -> windows_core::HRESULT,
     pub GetIndexByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub GetValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub SetValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_VALUE) -> windows_core::HRESULT,
+    pub GetValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub SetValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u32, u32, *const DEBUG_VALUE) -> windows_core::HRESULT,
     pub OutputRegisters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetInstructionOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub GetStackOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -38247,10 +38328,10 @@ pub struct IDebugRegisters2_Vtbl {
     pub GetPseudoDescriptionWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32, *mut u64, *mut u32) -> windows_core::HRESULT,
     pub GetPseudoIndexByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
     pub GetPseudoIndexByNameWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32) -> windows_core::HRESULT,
-    pub GetPseudoValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub SetPseudoValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub GetValues2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
-    pub SetValues2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub GetPseudoValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub SetPseudoValues: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32, u32, *const DEBUG_VALUE) -> windows_core::HRESULT,
+    pub GetValues2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32, u32, *mut DEBUG_VALUE) -> windows_core::HRESULT,
+    pub SetValues2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u32, u32, *const DEBUG_VALUE) -> windows_core::HRESULT,
     pub OutputRegisters2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub GetInstructionOffset2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
     pub GetStackOffset2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
@@ -38261,9 +38342,9 @@ pub trait IDebugRegisters2_Impl: windows_core::IUnknownImpl {
     fn GetDescription(&self, register: u32, namebuffer: windows_core::PSTR, namebuffersize: u32, namesize: *mut u32, desc: *mut DEBUG_REGISTER_DESCRIPTION) -> windows_core::Result<()>;
     fn GetIndexByName(&self, name: &windows_core::PCSTR) -> windows_core::Result<u32>;
     fn GetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn SetValue(&self, register: u32, value: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn GetValues(&self, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn SetValues(&self, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn SetValue(&self, register: u32, value: *const DEBUG_VALUE) -> windows_core::Result<()>;
+    fn GetValues(&self, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn SetValues(&self, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::Result<()>;
     fn OutputRegisters(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
     fn GetInstructionOffset(&self) -> windows_core::Result<u64>;
     fn GetStackOffset(&self) -> windows_core::Result<u64>;
@@ -38275,10 +38356,10 @@ pub trait IDebugRegisters2_Impl: windows_core::IUnknownImpl {
     fn GetPseudoDescriptionWide(&self, register: u32, namebuffer: windows_core::PWSTR, namebuffersize: u32, namesize: *mut u32, typemodule: *mut u64, typeid: *mut u32) -> windows_core::Result<()>;
     fn GetPseudoIndexByName(&self, name: &windows_core::PCSTR) -> windows_core::Result<u32>;
     fn GetPseudoIndexByNameWide(&self, name: &windows_core::PCWSTR) -> windows_core::Result<u32>;
-    fn GetPseudoValues(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn SetPseudoValues(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn GetValues2(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
-    fn SetValues2(&self, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn GetPseudoValues(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn SetPseudoValues(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::Result<()>;
+    fn GetValues2(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::Result<()>;
+    fn SetValues2(&self, source: u32, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::Result<()>;
     fn OutputRegisters2(&self, outputcontrol: u32, source: u32, flags: u32) -> windows_core::Result<()>;
     fn GetInstructionOffset2(&self, source: u32) -> windows_core::Result<u64>;
     fn GetStackOffset2(&self, source: u32) -> windows_core::Result<u64>;
@@ -38322,19 +38403,19 @@ impl IDebugRegisters2_Vtbl {
                 IDebugRegisters2_Impl::GetValue(this, core::mem::transmute_copy(&register), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn SetValue<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, register: u32, value: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, register: u32, value: *const DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugRegisters2_Impl::SetValue(this, core::mem::transmute_copy(&register), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugRegisters2_Impl::GetValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&start), core::mem::transmute_copy(&values)).into()
             }
         }
-        unsafe extern "system" fn SetValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugRegisters2_Impl::SetValues(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&start), core::mem::transmute_copy(&values)).into()
@@ -38448,25 +38529,25 @@ impl IDebugRegisters2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPseudoValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPseudoValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugRegisters2_Impl::GetPseudoValues(this, core::mem::transmute_copy(&source), core::mem::transmute_copy(&count), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&start), core::mem::transmute_copy(&values)).into()
             }
         }
-        unsafe extern "system" fn SetPseudoValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPseudoValues<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugRegisters2_Impl::SetPseudoValues(this, core::mem::transmute_copy(&source), core::mem::transmute_copy(&count), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&start), core::mem::transmute_copy(&values)).into()
             }
         }
-        unsafe extern "system" fn GetValues2<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValues2<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *const u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugRegisters2_Impl::GetValues2(this, core::mem::transmute_copy(&source), core::mem::transmute_copy(&count), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&start), core::mem::transmute_copy(&values)).into()
             }
         }
-        unsafe extern "system" fn SetValues2<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *mut u32, start: u32, values: *mut DEBUG_VALUE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValues2<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, source: u32, count: u32, indices: *const u32, start: u32, values: *const DEBUG_VALUE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugRegisters2_Impl::SetValues2(this, core::mem::transmute_copy(&source), core::mem::transmute_copy(&count), core::mem::transmute_copy(&indices), core::mem::transmute_copy(&start), core::mem::transmute_copy(&values)).into()
@@ -44693,7 +44774,7 @@ impl IDebugSymbols4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugSymbols4 {}
-windows_core::imp::define_interface!(IDebugSymbols5, IDebugSymbols5_Vtbl, 0xe4b23b17_da09_500a_9df1_4f6195a5e83c);
+windows_core::imp::define_interface!(IDebugSymbols5, IDebugSymbols5_Vtbl, 0xc65fa83e_1e69_475e_8e0e_b5d79e9cc17e);
 windows_core::imp::interface_hierarchy!(IDebugSymbols5, windows_core::IUnknown);
 impl IDebugSymbols5 {
     pub unsafe fn GetSymbolOptions(&self) -> windows_core::Result<u32> {
@@ -44759,8 +44840,8 @@ impl IDebugSymbols5 {
     pub unsafe fn GetModuleNames(&self, index: u32, base: u64, imagenamebuffer: &mut [u8], imagenamesize: *mut u32, modulenamebuffer: &mut [u8], modulenamesize: *mut u32, loadedimagenamebuffer: &mut [u8], loadedimagenamesize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetModuleNames)(windows_core::Interface::as_raw(self), index, base, core::mem::transmute(imagenamebuffer.as_ptr()), imagenamebuffer.len().try_into().unwrap(), imagenamesize as _, core::mem::transmute(modulenamebuffer.as_ptr()), modulenamebuffer.len().try_into().unwrap(), modulenamesize as _, core::mem::transmute(loadedimagenamebuffer.as_ptr()), loadedimagenamebuffer.len().try_into().unwrap(), loadedimagenamesize as _).ok() }
     }
-    pub unsafe fn GetModuleParameters(&self, count: u32, bases: *mut u64, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleParameters)(windows_core::Interface::as_raw(self), count, bases as _, start, params as _).ok() }
+    pub unsafe fn GetModuleParameters(&self, count: u32, bases: *const u64, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetModuleParameters)(windows_core::Interface::as_raw(self), count, bases, start, params as _).ok() }
     }
     pub unsafe fn GetSymbolModule<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -44810,8 +44891,11 @@ impl IDebugSymbols5 {
     pub unsafe fn ReadTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadTypedDataVirtual)(windows_core::Interface::as_raw(self), offset, module, typeid, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteTypedDataVirtual)(windows_core::Interface::as_raw(self), offset, module, typeid, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteTypedDataVirtual)(windows_core::Interface::as_raw(self), offset, module, typeid, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn OutputTypedDataVirtual(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputTypedDataVirtual)(windows_core::Interface::as_raw(self), outputcontrol, offset, module, typeid, flags).ok() }
@@ -44819,8 +44903,11 @@ impl IDebugSymbols5 {
     pub unsafe fn ReadTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadTypedDataPhysical)(windows_core::Interface::as_raw(self), offset, module, typeid, buffer as _, buffersize, bytesread as _).ok() }
     }
-    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).WriteTypedDataPhysical)(windows_core::Interface::as_raw(self), offset, module, typeid, buffer as _, buffersize, byteswritten as _).ok() }
+    pub unsafe fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).WriteTypedDataPhysical)(windows_core::Interface::as_raw(self), offset, module, typeid, buffer, buffersize, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OutputTypedDataPhysical)(windows_core::Interface::as_raw(self), outputcontrol, offset, module, typeid, flags).ok() }
@@ -44828,8 +44915,8 @@ impl IDebugSymbols5 {
     pub unsafe fn GetScope(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetScope)(windows_core::Interface::as_raw(self), instructionoffset as _, scopeframe as _, scopecontext as _, scopecontextsize).ok() }
     }
-    pub unsafe fn SetScope(&self, instructionoffset: u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetScope)(windows_core::Interface::as_raw(self), instructionoffset, scopeframe as _, scopecontext as _, scopecontextsize).ok() }
+    pub unsafe fn SetScope(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetScope)(windows_core::Interface::as_raw(self), instructionoffset, scopeframe, scopecontext, scopecontextsize).ok() }
     }
     pub unsafe fn ResetScope(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ResetScope)(windows_core::Interface::as_raw(self)).ok() }
@@ -45223,11 +45310,8 @@ impl IDebugSymbols5 {
             (windows_core::Interface::vtable(self).AddSyntheticSymbolWide)(windows_core::Interface::as_raw(self), offset, size, name.param().abi(), flags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemoveSyntheticSymbol(&self) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoveSyntheticSymbol)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSyntheticSymbol)(windows_core::Interface::as_raw(self), id).ok() }
     }
     pub unsafe fn GetSymbolEntriesByOffset(&self, offset: u64, flags: u32, ids: *mut DEBUG_MODULE_AND_ID, displacements: *mut u64, idscount: u32, entries: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, ids as _, displacements as _, idscount, entries as _).ok() }
@@ -45250,20 +45334,23 @@ impl IDebugSymbols5 {
             (windows_core::Interface::vtable(self).GetSymbolEntryByToken)(windows_core::Interface::as_raw(self), modulebase, token, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSymbolEntryInformation(&self, id: *mut DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryInformation)(windows_core::Interface::as_raw(self), id as _, info as _).ok() }
+    pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryInformation)(windows_core::Interface::as_raw(self), id, info as _).ok() }
     }
-    pub unsafe fn GetSymbolEntryString(&self, id: *mut DEBUG_MODULE_AND_ID, which: u32, buffer: &mut [u8], stringsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id as _, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
+    pub unsafe fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: &mut [u8], stringsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
     }
-    pub unsafe fn GetSymbolEntryStringWide(&self, id: *mut DEBUG_MODULE_AND_ID, which: u32, buffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id as _, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
+    pub unsafe fn GetSymbolEntryStringWide(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
     }
-    pub unsafe fn GetSymbolEntryOffsetRegions(&self, id: *mut DEBUG_MODULE_AND_ID, flags: u32, regions: &mut [DEBUG_OFFSET_REGION], regionsavail: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id as _, flags, core::mem::transmute(regions.as_ptr()), regions.len().try_into().unwrap(), regionsavail as _).ok() }
+    pub unsafe fn GetSymbolEntryOffsetRegions(&self, id: *const DEBUG_MODULE_AND_ID, flags: u32, regions: &mut [DEBUG_OFFSET_REGION], regionsavail: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id, flags, core::mem::transmute(regions.as_ptr()), regions.len().try_into().unwrap(), regionsavail as _).ok() }
     }
-    pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *mut DEBUG_MODULE_AND_ID, flags: u32, toid: *mut DEBUG_MODULE_AND_ID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryBySymbolEntry)(windows_core::Interface::as_raw(self), fromid as _, flags, toid as _).ok() }
+    pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSymbolEntryBySymbolEntry)(windows_core::Interface::as_raw(self), fromid, flags, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: &mut [DEBUG_SYMBOL_SOURCE_ENTRY], entriesavail: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(entries.as_ptr()), entries.len().try_into().unwrap(), entriesavail as _).ok() }
@@ -45280,23 +45367,23 @@ impl IDebugSymbols5 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_ptr()), entries.len().try_into().unwrap(), entriesavail as _).ok() }
     }
-    pub unsafe fn GetSourceEntryString(&self, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: &mut [u8], stringsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry as _, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
+    pub unsafe fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: &mut [u8], stringsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
     }
-    pub unsafe fn GetSourceEntryStringWide(&self, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry as _, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
+    pub unsafe fn GetSourceEntryStringWide(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: &mut [u16], stringsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), stringsize as _).ok() }
     }
-    pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: &mut [DEBUG_OFFSET_REGION], regionsavail: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry as _, flags, core::mem::transmute(regions.as_ptr()), regions.len().try_into().unwrap(), regionsavail as _).ok() }
+    pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: &mut [DEBUG_OFFSET_REGION], regionsavail: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry, flags, core::mem::transmute(regions.as_ptr()), regions.len().try_into().unwrap(), regionsavail as _).ok() }
     }
-    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(windows_core::Interface::as_raw(self), fromentry as _, flags, toentry as _).ok() }
+    pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(windows_core::Interface::as_raw(self), fromentry, flags, toentry as _).ok() }
     }
     pub unsafe fn GetScopeEx(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME_EX, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetScopeEx)(windows_core::Interface::as_raw(self), instructionoffset as _, scopeframe as _, scopecontext as _, scopecontextsize).ok() }
     }
-    pub unsafe fn SetScopeEx(&self, instructionoffset: u64, scopeframe: *mut DEBUG_STACK_FRAME_EX, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetScopeEx)(windows_core::Interface::as_raw(self), instructionoffset, scopeframe as _, scopecontext as _, scopecontextsize).ok() }
+    pub unsafe fn SetScopeEx(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME_EX, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetScopeEx)(windows_core::Interface::as_raw(self), instructionoffset, scopeframe, scopecontext, scopecontextsize).ok() }
     }
     pub unsafe fn GetNameByInlineContext(&self, offset: u64, inlinecontext: u32, namebuffer: &mut [u8], namesize: *mut u32, displacement: *mut u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_ptr()), namebuffer.len().try_into().unwrap(), namesize as _, displacement as _).ok() }
@@ -45341,7 +45428,7 @@ pub struct IDebugSymbols5_Vtbl {
     pub GetModuleByModuleName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
     pub GetModuleByOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
     pub GetModuleNames: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, windows_core::PSTR, u32, *mut u32, windows_core::PSTR, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetModuleParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64, u32, *mut DEBUG_MODULE_PARAMETERS) -> windows_core::HRESULT,
+    pub GetModuleParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u64, u32, *mut DEBUG_MODULE_PARAMETERS) -> windows_core::HRESULT,
     pub GetSymbolModule: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub GetTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetTypeId: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
@@ -45350,13 +45437,13 @@ pub struct IDebugSymbols5_Vtbl {
     pub GetSymbolTypeId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u32, *mut u64) -> windows_core::HRESULT,
     pub GetOffsetTypeId: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut u32, *mut u64) -> windows_core::HRESULT,
     pub ReadTypedDataVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteTypedDataVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteTypedDataVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputTypedDataVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u64, u32, u32) -> windows_core::HRESULT,
     pub ReadTypedDataPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
-    pub WriteTypedDataPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
+    pub WriteTypedDataPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub OutputTypedDataPhysical: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u64, u32, u32) -> windows_core::HRESULT,
     pub GetScope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut DEBUG_STACK_FRAME, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetScope: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut DEBUG_STACK_FRAME, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetScope: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const DEBUG_STACK_FRAME, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ResetScope: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetScopeSymbolGroup: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSymbolGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -45433,25 +45520,25 @@ pub struct IDebugSymbols5_Vtbl {
     pub GetFieldTypeAndOffsetWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub AddSyntheticSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCSTR, u32, *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT,
     pub AddSyntheticSymbolWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, u32, *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT,
-    pub RemoveSyntheticSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT,
+    pub RemoveSyntheticSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_MODULE_AND_ID) -> windows_core::HRESULT,
     pub GetSymbolEntriesByOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut DEBUG_MODULE_AND_ID, *mut u64, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolEntriesByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut DEBUG_MODULE_AND_ID, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolEntriesByNameWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut DEBUG_MODULE_AND_ID, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSymbolEntryByToken: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT,
-    pub GetSymbolEntryInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_MODULE_AND_ID, *mut DEBUG_SYMBOL_ENTRY) -> windows_core::HRESULT,
-    pub GetSymbolEntryString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_MODULE_AND_ID, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetSymbolEntryStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_MODULE_AND_ID, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetSymbolEntryOffsetRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_MODULE_AND_ID, u32, *mut DEBUG_OFFSET_REGION, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetSymbolEntryBySymbolEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_MODULE_AND_ID, u32, *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT,
+    pub GetSymbolEntryInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_MODULE_AND_ID, *mut DEBUG_SYMBOL_ENTRY) -> windows_core::HRESULT,
+    pub GetSymbolEntryString: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_MODULE_AND_ID, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub GetSymbolEntryStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_MODULE_AND_ID, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub GetSymbolEntryOffsetRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_MODULE_AND_ID, u32, *mut DEBUG_OFFSET_REGION, u32, *mut u32) -> windows_core::HRESULT,
+    pub GetSymbolEntryBySymbolEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_MODULE_AND_ID, u32, *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT,
     pub GetSourceEntriesByOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSourceEntriesByLine: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR, u32, *mut DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut u32) -> windows_core::HRESULT,
     pub GetSourceEntriesByLineWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, u32, *mut DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetSourceEntryString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_SYMBOL_SOURCE_ENTRY, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetSourceEntryStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_SYMBOL_SOURCE_ENTRY, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetSourceEntryOffsetRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut DEBUG_OFFSET_REGION, u32, *mut u32) -> windows_core::HRESULT,
-    pub GetSourceEntryBySourceEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT,
+    pub GetSourceEntryString: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_SYMBOL_SOURCE_ENTRY, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub GetSourceEntryStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_SYMBOL_SOURCE_ENTRY, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
+    pub GetSourceEntryOffsetRegions: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut DEBUG_OFFSET_REGION, u32, *mut u32) -> windows_core::HRESULT,
+    pub GetSourceEntryBySourceEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT,
     pub GetScopeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *mut DEBUG_STACK_FRAME_EX, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetScopeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut DEBUG_STACK_FRAME_EX, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetScopeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const DEBUG_STACK_FRAME_EX, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetNameByInlineContext: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PSTR, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
     pub GetNameByInlineContextWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PWSTR, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
     pub GetLineByInlineContext: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut u32, windows_core::PSTR, u32, *mut u32, *mut u64) -> windows_core::HRESULT,
@@ -45475,7 +45562,7 @@ pub trait IDebugSymbols5_Impl: windows_core::IUnknownImpl {
     fn GetModuleByModuleName(&self, name: &windows_core::PCSTR, startindex: u32, index: *mut u32, base: *mut u64) -> windows_core::Result<()>;
     fn GetModuleByOffset(&self, offset: u64, startindex: u32, index: *mut u32, base: *mut u64) -> windows_core::Result<()>;
     fn GetModuleNames(&self, index: u32, base: u64, imagenamebuffer: windows_core::PSTR, imagenamebuffersize: u32, imagenamesize: *mut u32, modulenamebuffer: windows_core::PSTR, modulenamebuffersize: u32, modulenamesize: *mut u32, loadedimagenamebuffer: windows_core::PSTR, loadedimagenamebuffersize: u32, loadedimagenamesize: *mut u32) -> windows_core::Result<()>;
-    fn GetModuleParameters(&self, count: u32, bases: *mut u64, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> windows_core::Result<()>;
+    fn GetModuleParameters(&self, count: u32, bases: *const u64, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> windows_core::Result<()>;
     fn GetSymbolModule(&self, symbol: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: windows_core::PSTR, namebuffersize: u32, namesize: *mut u32) -> windows_core::Result<()>;
     fn GetTypeId(&self, module: u64, name: &windows_core::PCSTR) -> windows_core::Result<u32>;
@@ -45484,13 +45571,13 @@ pub trait IDebugSymbols5_Impl: windows_core::IUnknownImpl {
     fn GetSymbolTypeId(&self, symbol: &windows_core::PCSTR, typeid: *mut u32, module: *mut u64) -> windows_core::Result<()>;
     fn GetOffsetTypeId(&self, offset: u64, typeid: *mut u32, module: *mut u64) -> windows_core::Result<()>;
     fn ReadTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteTypedDataVirtual(&self, offset: u64, module: u64, typeid: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn OutputTypedDataVirtual(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> windows_core::Result<()>;
     fn ReadTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
-    fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
+    fn WriteTypedDataPhysical(&self, offset: u64, module: u64, typeid: u32, buffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::Result<u32>;
     fn OutputTypedDataPhysical(&self, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> windows_core::Result<()>;
     fn GetScope(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
-    fn SetScope(&self, instructionoffset: u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
+    fn SetScope(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn ResetScope(&self) -> windows_core::Result<()>;
     fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
     fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup>;
@@ -45567,25 +45654,25 @@ pub trait IDebugSymbols5_Impl: windows_core::IUnknownImpl {
     fn GetFieldTypeAndOffsetWide(&self, module: u64, containertypeid: u32, field: &windows_core::PCWSTR, fieldtypeid: *mut u32, offset: *mut u32) -> windows_core::Result<()>;
     fn AddSyntheticSymbol(&self, offset: u64, size: u32, name: &windows_core::PCSTR, flags: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID>;
     fn AddSyntheticSymbolWide(&self, offset: u64, size: u32, name: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID>;
-    fn RemoveSyntheticSymbol(&self) -> windows_core::Result<DEBUG_MODULE_AND_ID>;
+    fn RemoveSyntheticSymbol(&self, id: *const DEBUG_MODULE_AND_ID) -> windows_core::Result<()>;
     fn GetSymbolEntriesByOffset(&self, offset: u64, flags: u32, ids: *mut DEBUG_MODULE_AND_ID, displacements: *mut u64, idscount: u32, entries: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolEntriesByName(&self, symbol: &windows_core::PCSTR, flags: u32, ids: *mut DEBUG_MODULE_AND_ID, idscount: u32, entries: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolEntriesByNameWide(&self, symbol: &windows_core::PCWSTR, flags: u32, ids: *mut DEBUG_MODULE_AND_ID, idscount: u32, entries: *mut u32) -> windows_core::Result<()>;
     fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID>;
-    fn GetSymbolEntryInformation(&self, id: *mut DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> windows_core::Result<()>;
-    fn GetSymbolEntryString(&self, id: *mut DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
-    fn GetSymbolEntryStringWide(&self, id: *mut DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
-    fn GetSymbolEntryOffsetRegions(&self, id: *mut DEBUG_MODULE_AND_ID, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::Result<()>;
-    fn GetSymbolEntryBySymbolEntry(&self, fromid: *mut DEBUG_MODULE_AND_ID, flags: u32, toid: *mut DEBUG_MODULE_AND_ID) -> windows_core::Result<()>;
+    fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> windows_core::Result<()>;
+    fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
+    fn GetSymbolEntryStringWide(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
+    fn GetSymbolEntryOffsetRegions(&self, id: *const DEBUG_MODULE_AND_ID, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::Result<()>;
+    fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID>;
     fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: *mut DEBUG_SYMBOL_SOURCE_ENTRY, entriescount: u32, entriesavail: *mut u32) -> windows_core::Result<()>;
     fn GetSourceEntriesByLine(&self, line: u32, file: &windows_core::PCSTR, flags: u32, entries: *mut DEBUG_SYMBOL_SOURCE_ENTRY, entriescount: u32, entriesavail: *mut u32) -> windows_core::Result<()>;
     fn GetSourceEntriesByLineWide(&self, line: u32, file: &windows_core::PCWSTR, flags: u32, entries: *mut DEBUG_SYMBOL_SOURCE_ENTRY, entriescount: u32, entriesavail: *mut u32) -> windows_core::Result<()>;
-    fn GetSourceEntryString(&self, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
-    fn GetSourceEntryStringWide(&self, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
-    fn GetSourceEntryOffsetRegions(&self, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::Result<()>;
-    fn GetSourceEntryBySourceEntry(&self, fromentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::Result<()>;
+    fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
+    fn GetSourceEntryStringWide(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
+    fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::Result<()>;
+    fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::Result<()>;
     fn GetScopeEx(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME_EX, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
-    fn SetScopeEx(&self, instructionoffset: u64, scopeframe: *mut DEBUG_STACK_FRAME_EX, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
+    fn SetScopeEx(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME_EX, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn GetNameByInlineContext(&self, offset: u64, inlinecontext: u32, namebuffer: windows_core::PSTR, namebuffersize: u32, namesize: *mut u32, displacement: *mut u64) -> windows_core::Result<()>;
     fn GetNameByInlineContextWide(&self, offset: u64, inlinecontext: u32, namebuffer: windows_core::PWSTR, namebuffersize: u32, namesize: *mut u32, displacement: *mut u64) -> windows_core::Result<()>;
     fn GetLineByInlineContext(&self, offset: u64, inlinecontext: u32, line: *mut u32, filebuffer: windows_core::PSTR, filebuffersize: u32, filesize: *mut u32, displacement: *mut u64) -> windows_core::Result<()>;
@@ -45718,7 +45805,7 @@ impl IDebugSymbols5_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn GetModuleParameters<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, bases: *mut u64, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetModuleParameters<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, bases: *const u64, start: u32, params: *mut DEBUG_MODULE_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetModuleParameters(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&bases), core::mem::transmute_copy(&start), core::mem::transmute_copy(&params)).into()
@@ -45796,10 +45883,16 @@ impl IDebugSymbols5_Vtbl {
                 IDebugSymbols5_Impl::ReadTypedDataVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&module), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteTypedDataVirtual<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteTypedDataVirtual<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, module: u64, typeid: u32, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols5_Impl::WriteTypedDataVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&module), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugSymbols5_Impl::WriteTypedDataVirtual(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&module), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OutputTypedDataVirtual<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> windows_core::HRESULT {
@@ -45814,10 +45907,16 @@ impl IDebugSymbols5_Vtbl {
                 IDebugSymbols5_Impl::ReadTypedDataPhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&module), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bytesread)).into()
             }
         }
-        unsafe extern "system" fn WriteTypedDataPhysical<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, module: u64, typeid: u32, buffer: *mut core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteTypedDataPhysical<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, module: u64, typeid: u32, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols5_Impl::WriteTypedDataPhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&module), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&byteswritten)).into()
+                match IDebugSymbols5_Impl::WriteTypedDataPhysical(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&module), core::mem::transmute_copy(&typeid), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)) {
+                    Ok(ok__) => {
+                        byteswritten.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn OutputTypedDataPhysical<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputcontrol: u32, offset: u64, module: u64, typeid: u32, flags: u32) -> windows_core::HRESULT {
@@ -45832,7 +45931,7 @@ impl IDebugSymbols5_Vtbl {
                 IDebugSymbols5_Impl::GetScope(this, core::mem::transmute_copy(&instructionoffset), core::mem::transmute_copy(&scopeframe), core::mem::transmute_copy(&scopecontext), core::mem::transmute_copy(&scopecontextsize)).into()
             }
         }
-        unsafe extern "system" fn SetScope<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instructionoffset: u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScope<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::SetScope(this, core::mem::transmute_copy(&instructionoffset), core::mem::transmute_copy(&scopeframe), core::mem::transmute_copy(&scopecontext), core::mem::transmute_copy(&scopecontextsize)).into()
@@ -46384,16 +46483,10 @@ impl IDebugSymbols5_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveSyntheticSymbol<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveSyntheticSymbol<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *const DEBUG_MODULE_AND_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDebugSymbols5_Impl::RemoveSyntheticSymbol(this) {
-                    Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDebugSymbols5_Impl::RemoveSyntheticSymbol(this, core::mem::transmute_copy(&id)).into()
             }
         }
         unsafe extern "system" fn GetSymbolEntriesByOffset<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, flags: u32, ids: *mut DEBUG_MODULE_AND_ID, displacements: *mut u64, idscount: u32, entries: *mut u32) -> windows_core::HRESULT {
@@ -46426,34 +46519,40 @@ impl IDebugSymbols5_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSymbolEntryInformation<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSymbolEntryInformation<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSymbolEntryInformation(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&info)).into()
             }
         }
-        unsafe extern "system" fn GetSymbolEntryString<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSymbolEntryString<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSymbolEntryString(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&which), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&stringsize)).into()
             }
         }
-        unsafe extern "system" fn GetSymbolEntryStringWide<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSymbolEntryStringWide<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSymbolEntryStringWide(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&which), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&stringsize)).into()
             }
         }
-        unsafe extern "system" fn GetSymbolEntryOffsetRegions<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut DEBUG_MODULE_AND_ID, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSymbolEntryOffsetRegions<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *const DEBUG_MODULE_AND_ID, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSymbolEntryOffsetRegions(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&regions), core::mem::transmute_copy(&regionscount), core::mem::transmute_copy(&regionsavail)).into()
             }
         }
-        unsafe extern "system" fn GetSymbolEntryBySymbolEntry<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fromid: *mut DEBUG_MODULE_AND_ID, flags: u32, toid: *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSymbolEntryBySymbolEntry<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fromid: *const DEBUG_MODULE_AND_ID, flags: u32, toid: *mut DEBUG_MODULE_AND_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols5_Impl::GetSymbolEntryBySymbolEntry(this, core::mem::transmute_copy(&fromid), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&toid)).into()
+                match IDebugSymbols5_Impl::GetSymbolEntryBySymbolEntry(this, core::mem::transmute_copy(&fromid), core::mem::transmute_copy(&flags)) {
+                    Ok(ok__) => {
+                        toid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetSourceEntriesByOffset<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, flags: u32, entries: *mut DEBUG_SYMBOL_SOURCE_ENTRY, entriescount: u32, entriesavail: *mut u32) -> windows_core::HRESULT {
@@ -46474,25 +46573,25 @@ impl IDebugSymbols5_Vtbl {
                 IDebugSymbols5_Impl::GetSourceEntriesByLineWide(this, core::mem::transmute_copy(&line), core::mem::transmute(&file), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&entries), core::mem::transmute_copy(&entriescount), core::mem::transmute_copy(&entriesavail)).into()
             }
         }
-        unsafe extern "system" fn GetSourceEntryString<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceEntryString<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSourceEntryString(this, core::mem::transmute_copy(&entry), core::mem::transmute_copy(&which), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&stringsize)).into()
             }
         }
-        unsafe extern "system" fn GetSourceEntryStringWide<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceEntryStringWide<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSourceEntryStringWide(this, core::mem::transmute_copy(&entry), core::mem::transmute_copy(&which), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&stringsize)).into()
             }
         }
-        unsafe extern "system" fn GetSourceEntryOffsetRegions<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceEntryOffsetRegions<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSourceEntryOffsetRegions(this, core::mem::transmute_copy(&entry), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&regions), core::mem::transmute_copy(&regionscount), core::mem::transmute_copy(&regionsavail)).into()
             }
         }
-        unsafe extern "system" fn GetSourceEntryBySourceEntry<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fromentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceEntryBySourceEntry<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::GetSourceEntryBySourceEntry(this, core::mem::transmute_copy(&fromentry), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&toentry)).into()
@@ -46504,7 +46603,7 @@ impl IDebugSymbols5_Vtbl {
                 IDebugSymbols5_Impl::GetScopeEx(this, core::mem::transmute_copy(&instructionoffset), core::mem::transmute_copy(&scopeframe), core::mem::transmute_copy(&scopecontext), core::mem::transmute_copy(&scopecontextsize)).into()
             }
         }
-        unsafe extern "system" fn SetScopeEx<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instructionoffset: u64, scopeframe: *mut DEBUG_STACK_FRAME_EX, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetScopeEx<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME_EX, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugSymbols5_Impl::SetScopeEx(this, core::mem::transmute_copy(&instructionoffset), core::mem::transmute_copy(&scopeframe), core::mem::transmute_copy(&scopecontext), core::mem::transmute_copy(&scopecontextsize)).into()
@@ -47940,7 +48039,7 @@ impl IDebugSystemObjects2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugSystemObjects2 {}
-windows_core::imp::define_interface!(IDebugSystemObjects3, IDebugSystemObjects3_Vtbl, 0x6e25275a_9717_5cf8_aca0_157378b83a47);
+windows_core::imp::define_interface!(IDebugSystemObjects3, IDebugSystemObjects3_Vtbl, 0xe9676e2f_e286_4ea3_b0f9_dfe5d9fc330e);
 windows_core::imp::interface_hierarchy!(IDebugSystemObjects3, windows_core::IUnknown);
 impl IDebugSystemObjects3 {
     pub unsafe fn GetEventThread(&self) -> windows_core::Result<u32> {
@@ -49598,22 +49697,22 @@ impl IDebugSystemObjects4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDebugSystemObjects4 {}
-windows_core::imp::define_interface!(IDynamicConceptProviderConcept, IDynamicConceptProviderConcept_Vtbl, 0xd3c82b47_bf49_504d_9651_771176964043);
+windows_core::imp::define_interface!(IDynamicConceptProviderConcept, IDynamicConceptProviderConcept_Vtbl, 0x95a7f7dd_602e_483f_9d06_a15c0ee13174);
 windows_core::imp::interface_hierarchy!(IDynamicConceptProviderConcept, windows_core::IUnknown);
 impl IDynamicConceptProviderConcept {
-    pub unsafe fn GetConcept<P0>(&self, contextobject: P0, conceptid: *mut windows_core::GUID, conceptinterface: *mut Option<windows_core::IUnknown>, conceptmetadata: *mut Option<IKeyStore>, hasconcept: *mut bool) -> windows_core::Result<()>
+    pub unsafe fn GetConcept<P0>(&self, contextobject: P0, conceptid: *const windows_core::GUID, conceptinterface: *mut Option<windows_core::IUnknown>, conceptmetadata: *mut Option<IKeyStore>, hasconcept: *mut bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetConcept)(windows_core::Interface::as_raw(self), contextobject.param().abi(), conceptid as _, core::mem::transmute(conceptinterface), core::mem::transmute(conceptmetadata), hasconcept as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConcept)(windows_core::Interface::as_raw(self), contextobject.param().abi(), conceptid, core::mem::transmute(conceptinterface), core::mem::transmute(conceptmetadata), hasconcept as _).ok() }
     }
-    pub unsafe fn SetConcept<P0, P2, P3>(&self, contextobject: P0, conceptid: *mut windows_core::GUID, conceptinterface: P2, conceptmetadata: P3) -> windows_core::Result<()>
+    pub unsafe fn SetConcept<P0, P2, P3>(&self, contextobject: P0, conceptid: *const windows_core::GUID, conceptinterface: P2, conceptmetadata: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
         P2: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<IKeyStore>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), contextobject.param().abi(), conceptid as _, conceptinterface.param().abi(), conceptmetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), contextobject.param().abi(), conceptid, conceptinterface.param().abi(), conceptmetadata.param().abi()).ok() }
     }
     pub unsafe fn NotifyParent<P0>(&self, parentmodel: P0) -> windows_core::Result<()>
     where
@@ -49635,28 +49734,28 @@ impl IDynamicConceptProviderConcept {
 #[doc(hidden)]
 pub struct IDynamicConceptProviderConcept_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyParentChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyDestruct: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
-    fn GetConcept(&self, contextobject: windows_core::Ref<IModelObject>, conceptid: *mut windows_core::GUID, conceptinterface: windows_core::OutRef<windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<IKeyStore>, hasconcept: *mut bool) -> windows_core::Result<()>;
-    fn SetConcept(&self, contextobject: windows_core::Ref<IModelObject>, conceptid: *mut windows_core::GUID, conceptinterface: windows_core::Ref<windows_core::IUnknown>, conceptmetadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
+    fn GetConcept(&self, contextobject: windows_core::Ref<IModelObject>, conceptid: *const windows_core::GUID, conceptinterface: windows_core::OutRef<windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<IKeyStore>, hasconcept: *mut bool) -> windows_core::Result<()>;
+    fn SetConcept(&self, contextobject: windows_core::Ref<IModelObject>, conceptid: *const windows_core::GUID, conceptinterface: windows_core::Ref<windows_core::IUnknown>, conceptmetadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
     fn NotifyParent(&self, parentmodel: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
     fn NotifyParentChange(&self, parentmodel: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
     fn NotifyDestruct(&self) -> windows_core::Result<()>;
 }
 impl IDynamicConceptProviderConcept_Vtbl {
     pub const fn new<Identity: IDynamicConceptProviderConcept_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetConcept<Identity: IDynamicConceptProviderConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextobject: *mut core::ffi::c_void, conceptid: *mut windows_core::GUID, conceptinterface: *mut *mut core::ffi::c_void, conceptmetadata: *mut *mut core::ffi::c_void, hasconcept: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConcept<Identity: IDynamicConceptProviderConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextobject: *mut core::ffi::c_void, conceptid: *const windows_core::GUID, conceptinterface: *mut *mut core::ffi::c_void, conceptmetadata: *mut *mut core::ffi::c_void, hasconcept: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDynamicConceptProviderConcept_Impl::GetConcept(this, core::mem::transmute_copy(&contextobject), core::mem::transmute_copy(&conceptid), core::mem::transmute_copy(&conceptinterface), core::mem::transmute_copy(&conceptmetadata), core::mem::transmute_copy(&hasconcept)).into()
             }
         }
-        unsafe extern "system" fn SetConcept<Identity: IDynamicConceptProviderConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextobject: *mut core::ffi::c_void, conceptid: *mut windows_core::GUID, conceptinterface: *mut core::ffi::c_void, conceptmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConcept<Identity: IDynamicConceptProviderConcept_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextobject: *mut core::ffi::c_void, conceptid: *const windows_core::GUID, conceptinterface: *mut core::ffi::c_void, conceptmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDynamicConceptProviderConcept_Impl::SetConcept(this, core::mem::transmute_copy(&contextobject), core::mem::transmute_copy(&conceptid), core::mem::transmute_copy(&conceptinterface), core::mem::transmute_copy(&conceptmetadata)).into()
@@ -49694,7 +49793,7 @@ impl IDynamicConceptProviderConcept_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDynamicConceptProviderConcept {}
-windows_core::imp::define_interface!(IDynamicKeyProviderConcept, IDynamicKeyProviderConcept_Vtbl, 0xe0859eb9_519d_5c11_8d98_55a3439cc853);
+windows_core::imp::define_interface!(IDynamicKeyProviderConcept, IDynamicKeyProviderConcept_Vtbl, 0xe7983fa1_80a7_498c_988f_518ddc5d4025);
 windows_core::imp::interface_hierarchy!(IDynamicKeyProviderConcept, windows_core::IUnknown);
 impl IDynamicKeyProviderConcept {
     pub unsafe fn GetKey<P0, P1>(&self, contextobject: P0, key: P1, keyvalue: *mut Option<IModelObject>, metadata: *mut Option<IKeyStore>, haskey: *mut bool) -> windows_core::Result<()>
@@ -49774,7 +49873,7 @@ impl IDynamicKeyProviderConcept_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDynamicKeyProviderConcept {}
-windows_core::imp::define_interface!(IEquatableConcept, IEquatableConcept_Vtbl, 0xe9a924e4_7524_56f2_ba18_cad1f6beb0ae);
+windows_core::imp::define_interface!(IEquatableConcept, IEquatableConcept_Vtbl, 0xc52d5d3d_609d_4d5d_8a82_46b0acdec4f4);
 windows_core::imp::interface_hierarchy!(IEquatableConcept, windows_core::IUnknown);
 impl IEquatableConcept {
     pub unsafe fn AreObjectsEqual<P0, P1>(&self, contextobject: P0, otherobject: P1) -> windows_core::Result<bool>
@@ -49868,7 +49967,7 @@ pub const IG_WRITE_IO_SPACE_EX: u32 = 9u32;
 pub const IG_WRITE_MSR: u32 = 13u32;
 pub const IG_WRITE_PHYSICAL: u32 = 7u32;
 pub const IG_WRITE_PHYSICAL_WITH_FLAGS: u32 = 34u32;
-windows_core::imp::define_interface!(IHostDataModelAccess, IHostDataModelAccess_Vtbl, 0x8ce8d0de_9946_5670_8501_0d8815781651);
+windows_core::imp::define_interface!(IHostDataModelAccess, IHostDataModelAccess_Vtbl, 0xf2bce54e_4835_4f8a_836e_7981e29904d1);
 windows_core::imp::interface_hierarchy!(IHostDataModelAccess, windows_core::IUnknown);
 impl IHostDataModelAccess {
     pub unsafe fn GetDataModel(&self, manager: *mut Option<IDataModelManager>, host: *mut Option<IDebugHost>) -> windows_core::Result<()> {
@@ -49976,7 +50075,7 @@ impl IIndexableConcept_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IIndexableConcept {}
-windows_core::imp::define_interface!(IIterableConcept, IIterableConcept_Vtbl, 0xe7e0527d_1440_5364_b977_367d1ebad5c0);
+windows_core::imp::define_interface!(IIterableConcept, IIterableConcept_Vtbl, 0xf5d49d0c_0b02_4301_9c9b_b3a6037628f3);
 windows_core::imp::interface_hierarchy!(IIterableConcept, windows_core::IUnknown);
 impl IIterableConcept {
     pub unsafe fn GetDefaultIndexDimensionality<P0>(&self, contextobject: P0) -> windows_core::Result<u64>
@@ -50046,7 +50145,7 @@ impl IIterableConcept_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IIterableConcept {}
-windows_core::imp::define_interface!(IKeyEnumerator, IKeyEnumerator_Vtbl, 0xf796a767_c241_5480_a2a2_183fb5dbee11);
+windows_core::imp::define_interface!(IKeyEnumerator, IKeyEnumerator_Vtbl, 0x345fa92e_5e00_4319_9cae_971f7601cdcf);
 windows_core::imp::interface_hierarchy!(IKeyEnumerator, windows_core::IUnknown);
 impl IKeyEnumerator {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
@@ -50088,7 +50187,7 @@ impl IKeyEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IKeyEnumerator {}
-windows_core::imp::define_interface!(IKeyStore, IKeyStore_Vtbl, 0xb388ed75_bada_543f_a7d8_5996abdeabb8);
+windows_core::imp::define_interface!(IKeyStore, IKeyStore_Vtbl, 0x0fc7557d_401d_4fca_9365_da1e9850697c);
 windows_core::imp::interface_hierarchy!(IKeyStore, windows_core::IUnknown);
 impl IKeyStore {
     pub unsafe fn GetKey<P0>(&self, key: P0, object: *mut Option<IModelObject>, metadata: *mut Option<IKeyStore>) -> windows_core::Result<()>
@@ -50185,7 +50284,7 @@ impl IKeyStore_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IKeyStore {}
-windows_core::imp::define_interface!(IModelIterator, IModelIterator_Vtbl, 0xe8cd4614_8530_58c3_a8df_23442175fc4d);
+windows_core::imp::define_interface!(IModelIterator, IModelIterator_Vtbl, 0xe4622136_927d_4490_874f_581f3e4e3688);
 windows_core::imp::interface_hierarchy!(IModelIterator, windows_core::IUnknown);
 impl IModelIterator {
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
@@ -50227,7 +50326,7 @@ impl IModelIterator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IModelIterator {}
-windows_core::imp::define_interface!(IModelKeyReference, IModelKeyReference_Vtbl, 0x096e011c_9bf4_5a2f_a971_f50c3d470f60);
+windows_core::imp::define_interface!(IModelKeyReference, IModelKeyReference_Vtbl, 0x5253dcf8_5aff_4c62_b302_56a289e00998);
 windows_core::imp::interface_hierarchy!(IModelKeyReference, windows_core::IUnknown);
 impl IModelKeyReference {
     pub unsafe fn GetKeyName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -50367,7 +50466,7 @@ impl IModelKeyReference_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IModelKeyReference {}
-windows_core::imp::define_interface!(IModelKeyReference2, IModelKeyReference2_Vtbl, 0x409b4b27_5b35_5eac_b67b_594700e6c3fa);
+windows_core::imp::define_interface!(IModelKeyReference2, IModelKeyReference2_Vtbl, 0x80e2f7c5_7159_4e92_887e_7e0347e88406);
 impl core::ops::Deref for IModelKeyReference2 {
     type Target = IModelKeyReference;
     fn deref(&self) -> &Self::Target {
@@ -50441,7 +50540,7 @@ impl IModelMethod_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IModelMethod {}
-windows_core::imp::define_interface!(IModelObject, IModelObject_Vtbl, 0x19cc5dfa_882e_5fc7_a073_24da08520d70);
+windows_core::imp::define_interface!(IModelObject, IModelObject_Vtbl, 0xe28c7893_3f4b_4b96_baca_293cdc55f45d);
 windows_core::imp::interface_hierarchy!(IModelObject, windows_core::IUnknown);
 impl IModelObject {
     pub unsafe fn GetContext(&self) -> windows_core::Result<IDebugHostContext> {
@@ -50516,8 +50615,8 @@ impl IModelObject {
             (windows_core::Interface::vtable(self).TryCastToRuntimeType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetConcept(&self, conceptid: *mut windows_core::GUID, conceptinterface: *mut Option<windows_core::IUnknown>, conceptmetadata: *mut Option<IKeyStore>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConcept)(windows_core::Interface::as_raw(self), conceptid as _, core::mem::transmute(conceptinterface), core::mem::transmute(conceptmetadata)).ok() }
+    pub unsafe fn GetConcept(&self, conceptid: *const windows_core::GUID, conceptinterface: *mut Option<windows_core::IUnknown>, conceptmetadata: *mut Option<IKeyStore>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetConcept)(windows_core::Interface::as_raw(self), conceptid, core::mem::transmute(conceptinterface), core::mem::transmute(conceptmetadata)).ok() }
     }
     pub unsafe fn GetLocation(&self) -> windows_core::Result<Location> {
         unsafe {
@@ -50591,12 +50690,12 @@ impl IModelObject {
             (windows_core::Interface::vtable(self).EnumerateKeyReferences)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetConcept<P1, P2>(&self, conceptid: *mut windows_core::GUID, conceptinterface: P1, conceptmetadata: P2) -> windows_core::Result<()>
+    pub unsafe fn SetConcept<P1, P2>(&self, conceptid: *const windows_core::GUID, conceptinterface: P1, conceptmetadata: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<IKeyStore>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), conceptid as _, conceptinterface.param().abi(), conceptmetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetConcept)(windows_core::Interface::as_raw(self), conceptid, conceptinterface.param().abi(), conceptmetadata.param().abi()).ok() }
     }
     pub unsafe fn ClearConcepts(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearConcepts)(windows_core::Interface::as_raw(self)).ok() }
@@ -50672,7 +50771,7 @@ pub struct IModelObject_Vtbl {
     pub EnumerateRawValues: unsafe extern "system" fn(*mut core::ffi::c_void, SymbolKind, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Dereference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryCastToRuntimeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Location) -> windows_core::HRESULT,
     pub GetTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTargetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Location, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50686,7 +50785,7 @@ pub struct IModelObject_Vtbl {
     pub ClearKeys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateKeyReferences: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetConcept: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearConcepts: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRawReference: unsafe extern "system" fn(*mut core::ffi::c_void, SymbolKind, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumerateRawReferences: unsafe extern "system" fn(*mut core::ffi::c_void, SymbolKind, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -50708,7 +50807,7 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     fn EnumerateRawValues(&self, kind: SymbolKind, searchflags: u32) -> windows_core::Result<IRawEnumerator>;
     fn Dereference(&self) -> windows_core::Result<IModelObject>;
     fn TryCastToRuntimeType(&self) -> windows_core::Result<IModelObject>;
-    fn GetConcept(&self, conceptid: *mut windows_core::GUID, conceptinterface: windows_core::OutRef<windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn GetConcept(&self, conceptid: *const windows_core::GUID, conceptinterface: windows_core::OutRef<windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
     fn GetLocation(&self) -> windows_core::Result<Location>;
     fn GetTypeInfo(&self) -> windows_core::Result<IDebugHostType>;
     fn GetTargetInfo(&self, location: *mut Location, r#type: windows_core::OutRef<IDebugHostType>) -> windows_core::Result<()>;
@@ -50722,7 +50821,7 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     fn ClearKeys(&self) -> windows_core::Result<()>;
     fn EnumerateKeys(&self) -> windows_core::Result<IKeyEnumerator>;
     fn EnumerateKeyReferences(&self) -> windows_core::Result<IKeyEnumerator>;
-    fn SetConcept(&self, conceptid: *mut windows_core::GUID, conceptinterface: windows_core::Ref<windows_core::IUnknown>, conceptmetadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
+    fn SetConcept(&self, conceptid: *const windows_core::GUID, conceptinterface: windows_core::Ref<windows_core::IUnknown>, conceptmetadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
     fn ClearConcepts(&self) -> windows_core::Result<()>;
     fn GetRawReference(&self, kind: SymbolKind, name: &windows_core::PCWSTR, searchflags: u32) -> windows_core::Result<IModelObject>;
     fn EnumerateRawReferences(&self, kind: SymbolKind, searchflags: u32) -> windows_core::Result<IRawEnumerator>;
@@ -50854,7 +50953,7 @@ impl IModelObject_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetConcept<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conceptid: *mut windows_core::GUID, conceptinterface: *mut *mut core::ffi::c_void, conceptmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConcept<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conceptid: *const windows_core::GUID, conceptinterface: *mut *mut core::ffi::c_void, conceptmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IModelObject_Impl::GetConcept(this, core::mem::transmute_copy(&conceptid), core::mem::transmute_copy(&conceptinterface), core::mem::transmute_copy(&conceptmetadata)).into()
@@ -50968,7 +51067,7 @@ impl IModelObject_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetConcept<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conceptid: *mut windows_core::GUID, conceptinterface: *mut core::ffi::c_void, conceptmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConcept<Identity: IModelObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, conceptid: *const windows_core::GUID, conceptinterface: *mut core::ffi::c_void, conceptmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IModelObject_Impl::SetConcept(this, core::mem::transmute_copy(&conceptid), core::mem::transmute_copy(&conceptinterface), core::mem::transmute_copy(&conceptmetadata)).into()
@@ -51220,7 +51319,7 @@ pub struct IOSPACE_EX64 {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
-windows_core::imp::define_interface!(IPreferredRuntimeTypeConcept, IPreferredRuntimeTypeConcept_Vtbl, 0x68488356_59bf_5832_b602_732f6dad043c);
+windows_core::imp::define_interface!(IPreferredRuntimeTypeConcept, IPreferredRuntimeTypeConcept_Vtbl, 0x9d6c1d7b_a76f_4618_8068_5f76bd9a4e8a);
 windows_core::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, windows_core::IUnknown);
 impl IPreferredRuntimeTypeConcept {
     pub unsafe fn CastToPreferredRuntimeType<P0>(&self, contextobject: P0) -> windows_core::Result<IModelObject>
@@ -51638,7 +51737,7 @@ pub struct KDEXTS_PTE_INFO {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *mut KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> bool>;
+pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> bool>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXT_FILELOCK_OWNER {
@@ -51810,19 +51909,19 @@ pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags:
 pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, offset: u64, typename: windows_core::PCSTR, buffer: windows_core::PSTR, bufferchars: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
 pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, name: windows_core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_core::HRESULT>;
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, buffer: windows_core::PCWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, buffer: windows_core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *mut STACK_SYM_FRAME_INFO) -> windows_core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *mut DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_core::HRESULT>;
-pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_core::HRESULT>;
+pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_core::HRESULT>;
-pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, processinfo: *mut KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_core::HRESULT>;
+pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_core::HRESULT>;
 pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_core::HRESULT>;
 pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_core::HRESULT>;
 pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_core::HRESULT>;
@@ -51959,7 +52058,7 @@ pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(p
 pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE64 = Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
 pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
 pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
 pub const PointerCXHat: PointerKind = PointerKind(3i32);
@@ -52467,4 +52566,4 @@ impl Default for XML_DRIVER_NODE_INFO {
     }
 }
 pub const _EXTSAPI_VER_: u32 = 10u32;
-pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, args: windows_core::PCWSTR, flags: u32, rclsid: *mut windows_core::GUID, riid: *mut windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, args: windows_core::PCWSTR, flags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

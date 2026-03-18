@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IEnumNetworkConnections, IEnumNetworkConnections_Vtbl, 0xf1719737_736e_5408_9057_4a991ef46802);
+windows_core::imp::define_interface!(IEnumNetworkConnections, IEnumNetworkConnections_Vtbl, 0xdcb00006_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IEnumNetworkConnections {
     type Target = super::super::System::Com::IDispatch;
@@ -117,7 +117,7 @@ impl IEnumNetworkConnections_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetworkConnections {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IEnumNetworks, IEnumNetworks_Vtbl, 0x71c495dd_44bd_5355_b194_700d62da7d89);
+windows_core::imp::define_interface!(IEnumNetworks, IEnumNetworks_Vtbl, 0xdcb00003_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IEnumNetworks {
     type Target = super::super::System::Com::IDispatch;
@@ -235,7 +235,7 @@ impl IEnumNetworks_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetworks {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetwork, INetwork_Vtbl, 0xd3bcefa0_a968_5a9f_9d72_b1fad48516ee);
+windows_core::imp::define_interface!(INetwork, INetwork_Vtbl, 0xdcb00002_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetwork {
     type Target = super::super::System::Com::IDispatch;
@@ -745,7 +745,7 @@ impl INetworkConnection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetworkConnection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetworkConnection2, INetworkConnection2_Vtbl, 0x61c49ecd_e878_5b11_9948_eb7ce055413f);
+windows_core::imp::define_interface!(INetworkConnection2, INetworkConnection2_Vtbl, 0x00e676ed_5a35_4738_92eb_8581738d0f0a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetworkConnection2 {
     type Target = INetworkConnection;
@@ -798,7 +798,7 @@ impl INetworkConnection2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetworkConnection2 {}
-windows_core::imp::define_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0x3099bffa_9bc9_535f_be88_d4c9f1ee02bb);
+windows_core::imp::define_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionCost, windows_core::IUnknown);
 impl INetworkConnectionCost {
     pub unsafe fn GetCost(&self) -> windows_core::Result<u32> {
@@ -853,7 +853,7 @@ impl INetworkConnectionCost_Vtbl {
     }
 }
 impl windows_core::RuntimeName for INetworkConnectionCost {}
-windows_core::imp::define_interface!(INetworkConnectionCostEvents, INetworkConnectionCostEvents_Vtbl, 0x09254138_62b9_5ee1_8290_b11386758fe0);
+windows_core::imp::define_interface!(INetworkConnectionCostEvents, INetworkConnectionCostEvents_Vtbl, 0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionCostEvents, windows_core::IUnknown);
 impl INetworkConnectionCostEvents {
     pub unsafe fn ConnectionCostChanged(&self, connectionid: windows_core::GUID, newcost: u32) -> windows_core::Result<()> {
@@ -1049,7 +1049,7 @@ impl INetworkCostManagerEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for INetworkCostManagerEvents {}
-windows_core::imp::define_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xb157bb5b_b145_5675_aeb9_8956a52b3c05);
+windows_core::imp::define_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xdcb00004_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkEvents, windows_core::IUnknown);
 impl INetworkEvents {
     pub unsafe fn NetworkAdded(&self, networkid: windows_core::GUID) -> windows_core::Result<()> {
@@ -1120,7 +1120,7 @@ impl INetworkEvents_Vtbl {
 }
 impl windows_core::RuntimeName for INetworkEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetworkListManager, INetworkListManager_Vtbl, 0xfd93e4fd_9129_5be0_a010_27c98e9a90a1);
+windows_core::imp::define_interface!(INetworkListManager, INetworkListManager_Vtbl, 0xdcb00000_570f_4a9b_8d69_199fdba5723b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetworkListManager {
     type Target = super::super::System::Com::IDispatch;
@@ -1174,8 +1174,8 @@ impl INetworkListManager {
             (windows_core::Interface::vtable(self).GetConnectivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *mut NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSimulatedProfileInfo)(windows_core::Interface::as_raw(self), psimulatedinfo as _).ok() }
+    pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetSimulatedProfileInfo)(windows_core::Interface::as_raw(self), psimulatedinfo).ok() }
     }
     pub unsafe fn ClearSimulatedProfileInfo(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearSimulatedProfileInfo)(windows_core::Interface::as_raw(self)).ok() }
@@ -1193,7 +1193,7 @@ pub struct INetworkListManager_Vtbl {
     pub IsConnectedToInternet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub GetConnectivity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_CONNECTIVITY) -> windows_core::HRESULT,
-    pub SetSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT,
+    pub SetSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT,
     pub ClearSimulatedProfileInfo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1205,7 +1205,7 @@ pub trait INetworkListManager_Impl: super::super::System::Com::IDispatch_Impl {
     fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY>;
-    fn SetSimulatedProfileInfo(&self, psimulatedinfo: *mut NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()>;
+    fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()>;
     fn ClearSimulatedProfileInfo(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1295,7 +1295,7 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSimulatedProfileInfo<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psimulatedinfo: *mut NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSimulatedProfileInfo<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 INetworkListManager_Impl::SetSimulatedProfileInfo(this, core::mem::transmute_copy(&psimulatedinfo)).into()
@@ -1326,7 +1326,7 @@ impl INetworkListManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetworkListManager {}
-windows_core::imp::define_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xcb8301de_d2b8_5793_af23_38066db7771f);
+windows_core::imp::define_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xdcb00001_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkListManagerEvents, windows_core::IUnknown);
 impl INetworkListManagerEvents {
     pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {

@@ -46,7 +46,7 @@ impl windows_core::RuntimeName for HolographicKeyboard {
 }
 unsafe impl Send for HolographicKeyboard {}
 unsafe impl Sync for HolographicKeyboard {}
-windows_core::imp::define_interface!(IHolographicKeyboard, IHolographicKeyboard_Vtbl, 0x7975d846_530d_5f1d_acf0_c8c95e472a84);
+windows_core::imp::define_interface!(IHolographicKeyboard, IHolographicKeyboard_Vtbl, 0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 impl windows_core::RuntimeType for IHolographicKeyboard {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

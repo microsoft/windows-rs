@@ -2,7 +2,7 @@ windows_link::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost 
 windows_link::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_sys::core::PCSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_sys::core::PCWSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *mut windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 pub const Ambiguous: SignatureComparison = 1i32;
 #[repr(C)]
@@ -2508,8 +2508,8 @@ pub const EXTDLL_DATA_QUERY_BUILD_WOW64BINDIR_SYMSRV: u32 = 14u32;
 pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR: u32 = 3u32;
 pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR_SYMSRV: u32 = 13u32;
 pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;
-pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *mut core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_sys::core::HRESULT>;
-pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *mut core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_sys::core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_sys::core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct EXTSTACKTRACE {
@@ -2552,7 +2552,7 @@ impl Default for EXTSTACKTRACE64 {
 pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> bool>;
 pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> bool>;
 pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, bucketsuffix: windows_sys::core::PCSTR, cbbucketsuffix: u32, debugtext: windows_sys::core::PCSTR, cbdebugtext: u32, flags: *mut u32, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, bucketsuffix: windows_sys::core::PSTR, cbbucketsuffix: u32, debugtext: windows_sys::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const EXT_ANALYZER_FLAG_ID: u32 = 2u32;
 pub const EXT_ANALYZER_FLAG_MOD: u32 = 1u32;
 #[repr(C)]
@@ -3270,7 +3270,7 @@ pub struct KDEXTS_PTE_INFO {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *mut KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> bool>;
+pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> bool>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KDEXT_FILELOCK_OWNER {
@@ -3435,18 +3435,18 @@ pub const ObjectTargetObjectReference: ModelObjectKind = 3i32;
 pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PCSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PCSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, offset: u64, typename: windows_sys::core::PCSTR, buffer: windows_sys::core::PSTR, bufferchars: *mut u32) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
 pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, name: windows_sys::core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, buffer: windows_sys::core::PCWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, buffer: windows_sys::core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *mut core::ffi::c_void, buffersize: u32) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *mut STACK_SYM_FRAME_INFO) -> windows_sys::core::HRESULT>;
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *mut DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_sys::core::HRESULT>;
+pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
@@ -3588,9 +3588,9 @@ pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(p
 pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE64 = Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
 pub const PointerCXHat: PointerKind = 3i32;
 pub type PointerKind = i32;
 pub const PointerManagedReference: PointerKind = 4i32;
@@ -4073,4 +4073,4 @@ impl Default for XML_DRIVER_NODE_INFO {
     }
 }
 pub const _EXTSAPI_VER_: u32 = 10u32;
-pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCWSTR, flags: u32, rclsid: *mut windows_sys::core::GUID, riid: *mut windows_sys::core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCWSTR, flags: u32, rclsid: *const windows_sys::core::GUID, riid: *const windows_sys::core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

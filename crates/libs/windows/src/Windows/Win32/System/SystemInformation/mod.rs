@@ -1,11 +1,10 @@
 #[inline]
-pub unsafe fn DnsHostnameToComputerNameExW<P0, P1>(hostname: P0, computername: P1, nsize: *mut u32) -> windows_core::BOOL
+pub unsafe fn DnsHostnameToComputerNameExW<P0>(hostname: P0, computername: windows_core::PWSTR, nsize: *mut u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameExW(hostname : windows_core::PCWSTR, computername : windows_core::PCWSTR, nsize : *mut u32) -> windows_core::BOOL);
-    unsafe { DnsHostnameToComputerNameExW(hostname.param().abi(), computername.param().abi(), nsize as _) }
+    windows_core::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameExW(hostname : windows_core::PCWSTR, computername : windows_core::PWSTR, nsize : *mut u32) -> windows_core::BOOL);
+    unsafe { DnsHostnameToComputerNameExW(hostname.param().abi(), core::mem::transmute(computername), nsize as _) }
 }
 #[inline]
 pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut u8, buffersize: u32) -> u32 {
@@ -13,20 +12,14 @@ pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_
     unsafe { EnumSystemFirmwareTables(firmwaretableprovidersignature, pfirmwaretableenumbuffer as _, buffersize) }
 }
 #[inline]
-pub unsafe fn GetComputerNameExA<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1, nsize: *mut u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCSTR, nsize : *mut u32) -> windows_core::BOOL);
-    unsafe { GetComputerNameExA(nametype, lpbuffer.param().abi(), nsize as _) }
+pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: windows_core::PSTR, nsize: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PSTR, nsize : *mut u32) -> windows_core::BOOL);
+    unsafe { GetComputerNameExA(nametype, core::mem::transmute(lpbuffer), nsize as _) }
 }
 #[inline]
-pub unsafe fn GetComputerNameExW<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1, nsize: *mut u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PCWSTR, nsize : *mut u32) -> windows_core::BOOL);
-    unsafe { GetComputerNameExW(nametype, lpbuffer.param().abi(), nsize as _) }
+pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: windows_core::PWSTR, nsize: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PWSTR, nsize : *mut u32) -> windows_core::BOOL);
+    unsafe { GetComputerNameExW(nametype, core::mem::transmute(lpbuffer), nsize as _) }
 }
 #[inline]
 pub unsafe fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE {
@@ -106,20 +99,14 @@ pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
     unsafe { GetSystemDEPPolicy() }
 }
 #[inline]
-pub unsafe fn GetSystemDirectoryA<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetSystemDirectoryA(lpbuffer : windows_core::PCSTR, usize : u32) -> u32);
-    unsafe { GetSystemDirectoryA(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetSystemDirectoryA(lpbuffer: windows_core::PSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemDirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
+    unsafe { GetSystemDirectoryA(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
-pub unsafe fn GetSystemDirectoryW<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetSystemDirectoryW(lpbuffer : windows_core::PCWSTR, usize : u32) -> u32);
-    unsafe { GetSystemDirectoryW(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetSystemDirectoryW(lpbuffer: windows_core::PWSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemDirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
+    unsafe { GetSystemDirectoryW(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
 pub unsafe fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: u32, pfirmwaretablebuffer: *mut u8, buffersize: u32) -> u32 {
@@ -174,20 +161,14 @@ pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::super::Foundation::FILE
     }
 }
 #[inline]
-pub unsafe fn GetSystemWindowsDirectoryA<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryA(lpbuffer : windows_core::PCSTR, usize : u32) -> u32);
-    unsafe { GetSystemWindowsDirectoryA(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: windows_core::PSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
+    unsafe { GetSystemWindowsDirectoryA(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
-pub unsafe fn GetSystemWindowsDirectoryW<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryW(lpbuffer : windows_core::PCWSTR, usize : u32) -> u32);
-    unsafe { GetSystemWindowsDirectoryW(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: windows_core::PWSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
+    unsafe { GetSystemWindowsDirectoryW(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
 pub unsafe fn GetSystemWow64Directory2A(lpbuffer: windows_core::PSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
@@ -195,28 +176,19 @@ pub unsafe fn GetSystemWow64Directory2A(lpbuffer: windows_core::PSTR, usize: u32
     unsafe { GetSystemWow64Directory2A(core::mem::transmute(lpbuffer), usize, imagefilemachinetype) }
 }
 #[inline]
-pub unsafe fn GetSystemWow64Directory2W<P0>(lpbuffer: P0, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2W(lpbuffer : windows_core::PCWSTR, usize : u32, imagefilemachinetype : IMAGE_FILE_MACHINE) -> u32);
-    unsafe { GetSystemWow64Directory2W(lpbuffer.param().abi(), usize, imagefilemachinetype) }
+pub unsafe fn GetSystemWow64Directory2W(lpbuffer: windows_core::PWSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
+    windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2W(lpbuffer : windows_core::PWSTR, usize : u32, imagefilemachinetype : IMAGE_FILE_MACHINE) -> u32);
+    unsafe { GetSystemWow64Directory2W(core::mem::transmute(lpbuffer), usize, imagefilemachinetype) }
 }
 #[inline]
-pub unsafe fn GetSystemWow64DirectoryA<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryA(lpbuffer : windows_core::PCSTR, usize : u32) -> u32);
-    unsafe { GetSystemWow64DirectoryA(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: windows_core::PSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
+    unsafe { GetSystemWow64DirectoryA(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
-pub unsafe fn GetSystemWow64DirectoryW<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryW(lpbuffer : windows_core::PCWSTR, usize : u32) -> u32);
-    unsafe { GetSystemWow64DirectoryW(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: windows_core::PWSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
+    unsafe { GetSystemWow64DirectoryW(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
 pub unsafe fn GetTickCount() -> u32 {
@@ -244,20 +216,14 @@ pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> window
     unsafe { GetVersionExW(lpversioninformation as _) }
 }
 #[inline]
-pub unsafe fn GetWindowsDirectoryA<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryA(lpbuffer : windows_core::PCSTR, usize : u32) -> u32);
-    unsafe { GetWindowsDirectoryA(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetWindowsDirectoryA(lpbuffer: windows_core::PSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
+    unsafe { GetWindowsDirectoryA(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
-pub unsafe fn GetWindowsDirectoryW<P0>(lpbuffer: P0, usize: u32) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryW(lpbuffer : windows_core::PCWSTR, usize : u32) -> u32);
-    unsafe { GetWindowsDirectoryW(lpbuffer.param().abi(), usize) }
+pub unsafe fn GetWindowsDirectoryW(lpbuffer: windows_core::PWSTR, usize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
+    unsafe { GetWindowsDirectoryW(core::mem::transmute(lpbuffer), usize) }
 }
 #[inline]
 pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
@@ -283,13 +249,9 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) 
     }
 }
 #[inline]
-pub unsafe fn RtlConvertDeviceFamilyInfoToString<P2, P3>(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: P2, deviceform: P3) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : *mut u32, puldeviceformbuffersize : *mut u32, devicefamily : windows_core::PCWSTR, deviceform : windows_core::PCWSTR) -> u32);
-    unsafe { RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize as _, puldeviceformbuffersize as _, devicefamily.param().abi(), deviceform.param().abi()) }
+pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: windows_core::PWSTR, deviceform: windows_core::PWSTR) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : *mut u32, puldeviceformbuffersize : *mut u32, devicefamily : windows_core::PWSTR, deviceform : windows_core::PWSTR) -> u32);
+    unsafe { RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize as _, puldeviceformbuffersize as _, core::mem::transmute(devicefamily), core::mem::transmute(deviceform)) }
 }
 #[inline]
 pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut DEVICEFAMILYINFOENUM, puldeviceform: *mut DEVICEFAMILYDEVICEFORM) {
@@ -312,9 +274,9 @@ pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     unsafe { RtlOsDeploymentState(flags) }
 }
 #[inline]
-pub unsafe fn RtlSwitchedVVI(versioninfo: *mut OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : *mut OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> u32);
-    unsafe { RtlSwitchedVVI(versioninfo as _, typemask, conditionmask) }
+pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : *const OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> u32);
+    unsafe { RtlSwitchedVVI(versioninfo, typemask, conditionmask) }
 }
 #[inline]
 pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> windows_core::BOOL
@@ -357,14 +319,14 @@ where
     unsafe { SetComputerNameW(lpcomputername.param().abi()) }
 }
 #[inline]
-pub unsafe fn SetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
-    unsafe { SetLocalTime(lpsystemtime as _) }
+pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    unsafe { SetLocalTime(lpsystemtime) }
 }
 #[inline]
-pub unsafe fn SetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
-    unsafe { SetSystemTime(lpsystemtime as _) }
+pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    unsafe { SetSystemTime(lpsystemtime) }
 }
 #[inline]
 pub unsafe fn SetSystemTimeAdjustment(dwtimeadjustment: u32, btimeadjustmentdisabled: bool) -> windows_core::BOOL {
@@ -807,8 +769,8 @@ pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_S
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OS_PRODUCT_TYPE(pub u32);
-pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_core::PCSTR, usize: u32) -> u32>;
-pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_core::PCWSTR, usize: u32) -> u32>;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_core::PSTR, usize: u32) -> u32>;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_core::PWSTR, usize: u32) -> u32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_ARCHITECTURE(pub u16);

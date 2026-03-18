@@ -1,10 +1,10 @@
 #[inline]
-pub unsafe fn MatchEnumTag<P1>(hmodule: super::super::Foundation::HANDLE, pwcarg: P1, dwnumarg: u32, penumtable: *mut TOKEN_VALUE, pdwvalue: *mut u32) -> u32
+pub unsafe fn MatchEnumTag<P1>(hmodule: super::super::Foundation::HANDLE, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *mut TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
-    unsafe { MatchEnumTag(hmodule, pwcarg.param().abi(), dwnumarg, penumtable as _, pdwvalue as _) }
+    windows_core::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
+    unsafe { MatchEnumTag(hmodule, pwcarg.param().abi(), dwnumarg, penumtable, pdwvalue as _) }
 }
 #[inline]
 pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> windows_core::BOOL
@@ -39,14 +39,14 @@ pub unsafe fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, 
     unsafe { PrintMessageFromModule(hmodule, dwmsgid) }
 }
 #[inline]
-pub unsafe fn RegisterContext(pchildcontext: *mut NS_CONTEXT_ATTRIBUTES) -> u32 {
-    windows_core::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *mut NS_CONTEXT_ATTRIBUTES) -> u32);
-    unsafe { RegisterContext(pchildcontext as _) }
+pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
+    windows_core::link!("netsh.dll" "system" fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
+    unsafe { RegisterContext(pchildcontext) }
 }
 #[inline]
-pub unsafe fn RegisterHelper(pguidparentcontext: *mut windows_core::GUID, pfnregistersubcontext: *mut NS_HELPER_ATTRIBUTES) -> u32 {
-    windows_core::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *mut windows_core::GUID, pfnregistersubcontext : *mut NS_HELPER_ATTRIBUTES) -> u32);
-    unsafe { RegisterHelper(pguidparentcontext as _, pfnregistersubcontext as _) }
+pub unsafe fn RegisterHelper(pguidparentcontext: *const windows_core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
+    windows_core::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const windows_core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
+    unsafe { RegisterHelper(pguidparentcontext, pfnregistersubcontext) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
@@ -214,7 +214,7 @@ pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_
 pub type PGET_RESOURCE_STRING_FN = Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: windows_core::PCWSTR, nbuffermax: u32) -> u32>;
 pub type PNS_CONTEXT_COMMIT_FN = Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
 pub type PNS_CONTEXT_CONNECT_FN = Option<unsafe extern "system" fn(pwszmachine: windows_core::PCWSTR) -> u32>;
-pub type PNS_CONTEXT_DUMP_FN = Option<unsafe extern "system" fn(pwszrouter: windows_core::PCWSTR, ppwcarguments: *mut windows_core::PWSTR, dwargcount: u32, pvdata: *mut core::ffi::c_void) -> u32>;
+pub type PNS_CONTEXT_DUMP_FN = Option<unsafe extern "system" fn(pwszrouter: windows_core::PCWSTR, ppwcarguments: *const windows_core::PCWSTR, dwargcount: u32, pvdata: *const core::ffi::c_void) -> u32>;
 pub type PNS_DLL_INIT_FN = Option<unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut core::ffi::c_void) -> u32>;
 pub type PNS_DLL_STOP_FN = Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 pub type PNS_HELPER_START_FN = Option<unsafe extern "system" fn(pguidparent: *const windows_core::GUID, dwversion: u32) -> u32>;

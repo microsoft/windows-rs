@@ -172,7 +172,7 @@ impl IReferenceClock_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IReferenceClock {}
-windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0xc9105b67_0a84_5588_a417_d88f349e5198);
+windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 impl core::ops::Deref for IReferenceClock2 {
     type Target = IReferenceClock;
     fn deref(&self) -> &Self::Target {

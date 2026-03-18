@@ -4,9 +4,9 @@ pub unsafe fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation
     unsafe { EnumDynamicTimeZoneInformation(dwindex, lptimezoneinformation as _) }
 }
 #[inline]
-pub unsafe fn FileTimeToSystemTime(lpfiletime: *mut super::super::Foundation::FILETIME, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FileTimeToSystemTime(lpfiletime : *mut super::super::Foundation:: FILETIME, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
-    unsafe { FileTimeToSystemTime(lpfiletime as _, lpsystemtime as _) }
+pub unsafe fn FileTimeToSystemTime(lpfiletime: *const super::super::Foundation::FILETIME, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FileTimeToSystemTime(lpfiletime : *const super::super::Foundation:: FILETIME, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    unsafe { FileTimeToSystemTime(lpfiletime, lpsystemtime as _) }
 }
 #[inline]
 pub unsafe fn GetDynamicTimeZoneInformation(ptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32 {
@@ -14,9 +14,9 @@ pub unsafe fn GetDynamicTimeZoneInformation(ptimezoneinformation: *mut DYNAMIC_T
     unsafe { GetDynamicTimeZoneInformation(ptimezoneinformation as _) }
 }
 #[inline]
-pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION, firstyear: *mut u32, lastyear: *mut u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation : *mut DYNAMIC_TIME_ZONE_INFORMATION, firstyear : *mut u32, lastyear : *mut u32) -> u32);
-    unsafe { GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation as _, firstyear as _, lastyear as _) }
+pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, firstyear: *mut u32, lastyear: *mut u32) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation : *const DYNAMIC_TIME_ZONE_INFORMATION, firstyear : *mut u32, lastyear : *mut u32) -> u32);
+    unsafe { GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation, firstyear as _, lastyear as _) }
 }
 #[inline]
 pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFORMATION) -> u32 {
@@ -24,9 +24,9 @@ pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: *mut TIME_ZONE_INFOR
     unsafe { GetTimeZoneInformation(lptimezoneinformation as _) }
 }
 #[inline]
-pub unsafe fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: *mut DYNAMIC_TIME_ZONE_INFORMATION, ptzi: *mut TIME_ZONE_INFORMATION) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetTimeZoneInformationForYear(wyear : u16, pdtzi : *mut DYNAMIC_TIME_ZONE_INFORMATION, ptzi : *mut TIME_ZONE_INFORMATION) -> windows_core::BOOL);
-    unsafe { GetTimeZoneInformationForYear(wyear, pdtzi as _, ptzi as _) }
+pub unsafe fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: *const DYNAMIC_TIME_ZONE_INFORMATION, ptzi: *mut TIME_ZONE_INFORMATION) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GetTimeZoneInformationForYear(wyear : u16, pdtzi : *const DYNAMIC_TIME_ZONE_INFORMATION, ptzi : *mut TIME_ZONE_INFORMATION) -> windows_core::BOOL);
+    unsafe { GetTimeZoneInformationForYear(wyear, pdtzi, ptzi as _) }
 }
 #[inline]
 pub unsafe fn LocalFileTimeToLocalSystemTime(timezoneinformation: *const TIME_ZONE_INFORMATION, localfiletime: *const super::super::Foundation::FILETIME, localsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
@@ -39,9 +39,9 @@ pub unsafe fn LocalSystemTimeToLocalFileTime(timezoneinformation: *const TIME_ZO
     unsafe { LocalSystemTimeToLocalFileTime(timezoneinformation, localsystemtime, localfiletime as _) }
 }
 #[inline]
-pub unsafe fn SetDynamicTimeZoneInformation(lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetDynamicTimeZoneInformation(lptimezoneinformation : *mut DYNAMIC_TIME_ZONE_INFORMATION) -> windows_core::BOOL);
-    unsafe { SetDynamicTimeZoneInformation(lptimezoneinformation as _) }
+pub unsafe fn SetDynamicTimeZoneInformation(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetDynamicTimeZoneInformation(lptimezoneinformation : *const DYNAMIC_TIME_ZONE_INFORMATION) -> windows_core::BOOL);
+    unsafe { SetDynamicTimeZoneInformation(lptimezoneinformation) }
 }
 #[inline]
 pub unsafe fn SetTimeZoneInformation(lptimezoneinformation: *const TIME_ZONE_INFORMATION) -> windows_core::BOOL {
@@ -49,24 +49,24 @@ pub unsafe fn SetTimeZoneInformation(lptimezoneinformation: *const TIME_ZONE_INF
     unsafe { SetTimeZoneInformation(lptimezoneinformation) }
 }
 #[inline]
-pub unsafe fn SystemTimeToFileTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SystemTimeToFileTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME, lpfiletime : *mut super::super::Foundation:: FILETIME) -> windows_core::BOOL);
-    unsafe { SystemTimeToFileTime(lpsystemtime as _, lpfiletime as _) }
+pub unsafe fn SystemTimeToFileTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SystemTimeToFileTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME, lpfiletime : *mut super::super::Foundation:: FILETIME) -> windows_core::BOOL);
+    unsafe { SystemTimeToFileTime(lpsystemtime, lpfiletime as _) }
 }
 #[inline]
-pub unsafe fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation: *mut TIME_ZONE_INFORMATION, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation : *mut TIME_ZONE_INFORMATION, lpuniversaltime : *mut super::super::Foundation:: SYSTEMTIME, lplocaltime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
-    unsafe { SystemTimeToTzSpecificLocalTime(lptimezoneinformation as _, lpuniversaltime as _, lplocaltime as _) }
+pub unsafe fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lpuniversaltime: *const super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation : *const TIME_ZONE_INFORMATION, lpuniversaltime : *const super::super::Foundation:: SYSTEMTIME, lplocaltime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    unsafe { SystemTimeToTzSpecificLocalTime(lptimezoneinformation, lpuniversaltime, lplocaltime as _) }
 }
 #[inline]
-pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation : *mut DYNAMIC_TIME_ZONE_INFORMATION, lpuniversaltime : *mut super::super::Foundation:: SYSTEMTIME, lplocaltime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
-    unsafe { SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation as _, lpuniversaltime as _, lplocaltime as _) }
+pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lpuniversaltime: *const super::super::Foundation::SYSTEMTIME, lplocaltime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation : *const DYNAMIC_TIME_ZONE_INFORMATION, lpuniversaltime : *const super::super::Foundation:: SYSTEMTIME, lplocaltime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    unsafe { SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation, lpuniversaltime, lplocaltime as _) }
 }
 #[inline]
-pub unsafe fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: *mut TIME_ZONE_INFORMATION, lplocaltime: *mut super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation : *mut TIME_ZONE_INFORMATION, lplocaltime : *mut super::super::Foundation:: SYSTEMTIME, lpuniversaltime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
-    unsafe { TzSpecificLocalTimeToSystemTime(lptimezoneinformation as _, lplocaltime as _, lpuniversaltime as _) }
+pub unsafe fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation : *const TIME_ZONE_INFORMATION, lplocaltime : *const super::super::Foundation:: SYSTEMTIME, lpuniversaltime : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    unsafe { TzSpecificLocalTimeToSystemTime(lptimezoneinformation, lplocaltime, lpuniversaltime as _) }
 }
 #[inline]
 pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL {

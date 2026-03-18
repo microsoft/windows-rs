@@ -238,11 +238,11 @@ pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = IFILTER_INIT(512i32
 pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = IFILTER_INIT(2i32);
 pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = IFILTER_INIT(64i32);
 pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = IFILTER_INIT(128i32);
-windows_core::imp::define_interface!(IFilter, IFilter_Vtbl, 0x02a8878a_49b3_5760_915e_09fa151f6057);
+windows_core::imp::define_interface!(IFilter, IFilter_Vtbl, 0x89bcb740_6119_101a_bcb7_00dd010655af);
 windows_core::imp::interface_hierarchy!(IFilter, windows_core::IUnknown);
 impl IFilter {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn Init(&self, grfflags: u32, aattributes: &mut [FULLPROPSPEC], pflags: *mut u32) -> i32 {
+    pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
         unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), grfflags, aattributes.len().try_into().unwrap(), core::mem::transmute(aattributes.as_ptr()), pflags as _) }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -256,8 +256,8 @@ impl IFilter {
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pppropvalue as _) }
     }
-    pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
-        unsafe { (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid as _, ppunk as _) }
+    pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
+        unsafe { (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid, ppunk as _) }
     }
 }
 #[repr(C)]
@@ -265,7 +265,7 @@ impl IFilter {
 pub struct IFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut FULLPROPSPEC, *mut u32) -> i32,
+    pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const FULLPROPSPEC, *mut u32) -> i32,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     Init: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -277,20 +277,20 @@ pub struct IFilter_Vtbl {
     pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetValue: usize,
-    pub BindRegion: unsafe extern "system" fn(*mut core::ffi::c_void, FILTERREGION, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> i32,
+    pub BindRegion: unsafe extern "system" fn(*mut core::ffi::c_void, FILTERREGION, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> i32,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IFilter_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *mut FULLPROPSPEC, pflags: *mut u32) -> i32;
+    fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32;
     fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32;
     fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: windows_core::PWSTR) -> i32;
     fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32;
-    fn BindRegion(&self, origpos: &FILTERREGION, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32;
+    fn BindRegion(&self, origpos: &FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IFilter_Vtbl {
     pub const fn new<Identity: IFilter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Init<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *mut FULLPROPSPEC, pflags: *mut u32) -> i32 {
+        unsafe extern "system" fn Init<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFilter_Impl::Init(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&cattributes), core::mem::transmute_copy(&aattributes), core::mem::transmute_copy(&pflags))
@@ -314,7 +314,7 @@ impl IFilter_Vtbl {
                 IFilter_Impl::GetValue(this, core::mem::transmute_copy(&pppropvalue))
             }
         }
-        unsafe extern "system" fn BindRegion<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origpos: FILTERREGION, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
+        unsafe extern "system" fn BindRegion<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFilter_Impl::BindRegion(this, core::mem::transmute(&origpos), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk))
@@ -335,7 +335,7 @@ impl IFilter_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFilter {}
-windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0x0ca83b0f_52ca_5c4f_9704_ae7a2285f882);
+windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c058_101a_b554_08002b33b0e6);
 windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);
 impl IPhraseSink {
     pub unsafe fn PutSmallPhrase<P0, P2>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>

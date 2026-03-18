@@ -394,7 +394,7 @@ impl IFhConfigMgr_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFhConfigMgr {}
-windows_core::imp::define_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x35a33b1b_92be_5436_96e2_3cafa2514f97);
+windows_core::imp::define_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 windows_core::imp::interface_hierarchy!(IFhReassociation, windows_core::IUnknown);
 impl IFhReassociation {
     pub unsafe fn ValidateTarget(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<FH_DEVICE_VALIDATION_RESULT> {
@@ -485,7 +485,7 @@ impl IFhReassociation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFhReassociation {}
-windows_core::imp::define_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x0ad0e146_013a_57b1_8e19_dc9e0b076b84);
+windows_core::imp::define_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
 windows_core::imp::interface_hierarchy!(IFhScopeIterator, windows_core::IUnknown);
 impl IFhScopeIterator {
     pub unsafe fn MoveToNextItem(&self) -> windows_core::Result<()> {
@@ -540,7 +540,7 @@ impl IFhScopeIterator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IFhScopeIterator {}
-windows_core::imp::define_interface!(IFhTarget, IFhTarget_Vtbl, 0x2c96ffe2_7dd9_5f94_97cd_4291a86ef062);
+windows_core::imp::define_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 windows_core::imp::interface_hierarchy!(IFhTarget, windows_core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<windows_core::BSTR> {

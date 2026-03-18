@@ -144,9 +144,9 @@ pub unsafe fn InjectSyntheticPointerInput(device: super::super::Controls::HSYNTH
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn InjectTouchInput(count: u32, contacts: *mut POINTER_TOUCH_INFO) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *mut POINTER_TOUCH_INFO) -> windows_core::BOOL);
-    unsafe { InjectTouchInput(count, contacts as _) }
+pub unsafe fn InjectTouchInput(count: u32, contacts: *const POINTER_TOUCH_INFO) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *const POINTER_TOUCH_INFO) -> windows_core::BOOL);
+    unsafe { InjectTouchInput(count, contacts) }
 }
 #[inline]
 pub unsafe fn IsMouseInPointerEnabled() -> windows_core::BOOL {

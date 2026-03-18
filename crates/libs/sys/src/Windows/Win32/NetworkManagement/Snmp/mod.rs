@@ -12,7 +12,7 @@ windows_link::link!("wsnmp32.dll" "system" fn SnmpDeleteVb(vbl : isize, index : 
 windows_link::link!("wsnmp32.dll" "system" fn SnmpDuplicatePdu(session : isize, pdu : isize) -> isize);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpDuplicateVbl(session : isize, vbl : isize) -> isize);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpEncodeMsg(session : isize, srcentity : isize, dstentity : isize, context : isize, pdu : isize, msgbufdesc : *mut smiOCTETS) -> u32);
-windows_link::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_sys::core::PCSTR) -> u32);
+windows_link::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_sys::core::PSTR) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpFreeContext(context : isize) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpFreeDescriptor(syntax : u32, descriptor : *mut smiOCTETS) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpFreeEntity(entity : isize) -> u32);
@@ -39,12 +39,12 @@ windows_link::link!("mgmtapi.dll" "system" fn SnmpMgrStrToOid(string : windows_s
 windows_link::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpOidCompare(xoid : *mut smiOID, yoid : *mut smiOID, maxlen : u32, result : *mut i32) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpOidCopy(srcoid : *mut smiOID, dstoid : *mut smiOID) -> u32);
-windows_link::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *mut smiOID, size : u32, string : windows_sys::core::PCSTR) -> u32);
+windows_link::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *const smiOID, size : u32, string : windows_sys::core::PSTR) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpOpen(hwnd : super::super::Foundation:: HWND, wmsg : u32) -> isize);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpRecvMsg(session : isize, srcentity : *mut isize, dstentity : *mut isize, context : *mut isize, pdu : *mut isize) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpRegister(session : isize, srcentity : isize, dstentity : isize, context : isize, notification : *mut smiOID, state : SNMP_STATUS) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpSendMsg(session : isize, srcentity : isize, dstentity : isize, context : isize, pdu : isize) -> u32);
-windows_link::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *mut i32, request_id : *mut i32, non_repeaters : *mut i32, max_repetitions : *mut i32, varbindlist : *mut isize) -> u32);
+windows_link::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *const i32, request_id : *const i32, non_repeaters : *const i32, max_repetitions : *const i32, varbindlist : *const isize) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpSetPort(hentity : isize, nport : u32) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpSetRetransmitMode(nretransmitmode : SNMP_STATUS) -> u32);
 windows_link::link!("wsnmp32.dll" "system" fn SnmpSetRetry(hentity : isize, npolicyretry : u32) -> u32);

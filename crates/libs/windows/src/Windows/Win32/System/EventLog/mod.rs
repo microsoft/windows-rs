@@ -76,9 +76,9 @@ where
     unsafe { EvtCreateBookmark(bookmarkxml.param().abi()) }
 }
 #[inline]
-pub unsafe fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *mut windows_core::PWSTR, flags: u32) -> EVT_HANDLE {
-    windows_core::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *mut windows_core::PWSTR, flags : u32) -> EVT_HANDLE);
-    unsafe { EvtCreateRenderContext(valuepathscount, valuepaths as _, flags) }
+pub unsafe fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const windows_core::PCWSTR, flags: u32) -> EVT_HANDLE {
+    windows_core::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
+    unsafe { EvtCreateRenderContext(valuepathscount, valuepaths, flags) }
 }
 #[inline]
 pub unsafe fn EvtExportLog<P1, P2, P3>(session: EVT_HANDLE, path: P1, query: P2, targetfilepath: P3, flags: u32) -> windows_core::BOOL
@@ -115,12 +115,9 @@ pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: EVT_HANDLE, propertyid:
     unsafe { EvtGetEventMetadataProperty(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, eventmetadatapropertybuffer as _, eventmetadatapropertybufferused as _) }
 }
 #[inline]
-pub unsafe fn EvtGetExtendedStatus<P1>(buffersize: u32, buffer: P1, bufferused: *mut u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : windows_core::PCWSTR, bufferused : *mut u32) -> u32);
-    unsafe { EvtGetExtendedStatus(buffersize, buffer.param().abi(), bufferused as _) }
+pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: windows_core::PWSTR, bufferused: *mut u32) -> u32 {
+    windows_core::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : windows_core::PWSTR, bufferused : *mut u32) -> u32);
+    unsafe { EvtGetExtendedStatus(buffersize, core::mem::transmute(buffer), bufferused as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -157,12 +154,9 @@ pub unsafe fn EvtNext(resultset: EVT_HANDLE, eventssize: u32, events: *mut isize
     unsafe { EvtNext(resultset, eventssize, events as _, timeout, flags, returned as _) }
 }
 #[inline]
-pub unsafe fn EvtNextChannelPath<P2>(channelenum: EVT_HANDLE, channelpathbuffersize: u32, channelpathbuffer: P2, channelpathbufferused: *mut u32) -> windows_core::BOOL
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : windows_core::PCWSTR, channelpathbufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EvtNextChannelPath(channelenum, channelpathbuffersize, channelpathbuffer.param().abi(), channelpathbufferused as _) }
+pub unsafe fn EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffersize: u32, channelpathbuffer: windows_core::PWSTR, channelpathbufferused: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : windows_core::PWSTR, channelpathbufferused : *mut u32) -> windows_core::BOOL);
+    unsafe { EvtNextChannelPath(channelenum, channelpathbuffersize, core::mem::transmute(channelpathbuffer), channelpathbufferused as _) }
 }
 #[inline]
 pub unsafe fn EvtNextEventMetadata(eventmetadataenum: EVT_HANDLE, flags: u32) -> EVT_HANDLE {
@@ -250,13 +244,13 @@ pub unsafe fn EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid:
     unsafe { EvtSetChannelConfigProperty(channelconfig, propertyid, flags, propertyvalue) }
 }
 #[inline]
-pub unsafe fn EvtSubscribe<P2, P3>(session: EVT_HANDLE, signalevent: super::super::Foundation::HANDLE, channelpath: P2, query: P3, bookmark: EVT_HANDLE, context: *mut core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> EVT_HANDLE
+pub unsafe fn EvtSubscribe<P2, P3>(session: EVT_HANDLE, signalevent: super::super::Foundation::HANDLE, channelpath: P2, query: P3, bookmark: EVT_HANDLE, context: *const core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> EVT_HANDLE
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_core::PCWSTR, query : windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *mut core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
-    unsafe { EvtSubscribe(session, signalevent, channelpath.param().abi(), query.param().abi(), bookmark, context as _, callback, flags) }
+    windows_core::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_core::PCWSTR, query : windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
+    unsafe { EvtSubscribe(session, signalevent, channelpath.param().abi(), query.param().abi(), bookmark, context, callback, flags) }
 }
 #[inline]
 pub unsafe fn EvtUpdateBookmark(bookmark: EVT_HANDLE, event: EVT_HANDLE) -> windows_core::BOOL {
@@ -349,15 +343,15 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ReportEventA(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Security::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *mut windows_core::PSTR, lprawdata: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *mut windows_core::PSTR, lprawdata : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ReportEventA(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings as _, lprawdata as _) }
+pub unsafe fn ReportEventA(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Security::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const windows_core::PCSTR, lprawdata: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCSTR, lprawdata : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ReportEventA(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings, lprawdata) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Security::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *mut windows_core::PWSTR, lprawdata: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *mut windows_core::PWSTR, lprawdata : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ReportEventW(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings as _, lprawdata as _) }
+pub unsafe fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Security::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const windows_core::PCWSTR, lprawdata: *const core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCWSTR, lprawdata : *const core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { ReportEventW(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings, lprawdata) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -496,7 +490,7 @@ pub struct EVT_RPC_LOGIN_FLAGS(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_SEEK_FLAGS(pub u32);
-pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *mut core::ffi::c_void, event: EVT_HANDLE) -> u32>;
+pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub u32);

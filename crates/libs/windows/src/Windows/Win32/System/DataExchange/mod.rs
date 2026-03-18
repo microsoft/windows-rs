@@ -45,14 +45,14 @@ pub unsafe fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: *mut u32) -> *mut u8 {
     unsafe { DdeAccessData(hdata, pcbdatasize as _) }
 }
 #[inline]
-pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: *mut u8, cb: u32, cboff: u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : *mut u8, cb : u32, cboff : u32) -> HDDEDATA);
-    unsafe { DdeAddData(hdata, psrc as _, cb, cboff) }
+pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : *const u8, cb : u32, cboff : u32) -> HDDEDATA);
+    unsafe { DdeAddData(hdata, psrc, cb, cboff) }
 }
 #[inline]
-pub unsafe fn DdeClientTransaction(pdata: *mut u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeClientTransaction(pdata : *mut u8, cbdata : u32, hconv : HCONV, hszitem : HSZ, wfmt : u32, wtype : DDE_CLIENT_TRANSACTION_TYPE, dwtimeout : u32, pdwresult : *mut u32) -> HDDEDATA);
-    unsafe { DdeClientTransaction(pdata as _, cbdata, hconv, hszitem, wfmt, wtype, dwtimeout, pdwresult as _) }
+pub unsafe fn DdeClientTransaction(pdata: *const u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeClientTransaction(pdata : *const u8, cbdata : u32, hconv : HCONV, hszitem : HSZ, wfmt : u32, wtype : DDE_CLIENT_TRANSACTION_TYPE, dwtimeout : u32, pdwresult : *mut u32) -> HDDEDATA);
+    unsafe { DdeClientTransaction(pdata, cbdata, hconv, hszitem, wfmt, wtype, dwtimeout, pdwresult as _) }
 }
 #[inline]
 pub unsafe fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32 {
@@ -67,14 +67,14 @@ pub unsafe fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: *cons
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *mut CONVCONTEXT) -> HCONVLIST {
-    windows_core::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : *mut CONVCONTEXT) -> HCONVLIST);
-    unsafe { DdeConnectList(idinst, hszservice, hsztopic, hconvlist, pcc as _) }
+pub unsafe fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *const CONVCONTEXT) -> HCONVLIST {
+    windows_core::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : *const CONVCONTEXT) -> HCONVLIST);
+    unsafe { DdeConnectList(idinst, hszservice, hsztopic, hconvlist, pcc) }
 }
 #[inline]
-pub unsafe fn DdeCreateDataHandle(idinst: u32, psrc: *mut u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : *mut u8, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
-    unsafe { DdeCreateDataHandle(idinst, psrc as _, cb, cboff, hszitem, wfmt, afcmd) }
+pub unsafe fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : *const u8, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
+    unsafe { DdeCreateDataHandle(idinst, psrc, cb, cboff, hszitem, wfmt, afcmd) }
 }
 #[inline]
 pub unsafe fn DdeCreateStringHandleA<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
@@ -169,12 +169,9 @@ pub unsafe fn DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV) -> HCON
     unsafe { DdeQueryNextServer(hconvlist, hconvprev) }
 }
 #[inline]
-pub unsafe fn DdeQueryStringA<P2>(idinst: u32, hsz: HSZ, psz: P2, cchmax: u32, icodepage: i32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("user32.dll" "system" fn DdeQueryStringA(idinst : u32, hsz : HSZ, psz : windows_core::PCSTR, cchmax : u32, icodepage : i32) -> u32);
-    unsafe { DdeQueryStringA(idinst, hsz, psz.param().abi(), cchmax, icodepage) }
+pub unsafe fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: windows_core::PSTR, cchmax: u32, icodepage: i32) -> u32 {
+    windows_core::link!("user32.dll" "system" fn DdeQueryStringA(idinst : u32, hsz : HSZ, psz : windows_core::PSTR, cchmax : u32, icodepage : i32) -> u32);
+    unsafe { DdeQueryStringA(idinst, hsz, core::mem::transmute(psz), cchmax, icodepage) }
 }
 #[inline]
 pub unsafe fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: windows_core::PWSTR, cchmax: u32, icodepage: i32) -> u32 {
@@ -244,12 +241,9 @@ pub unsafe fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) 
     unsafe { FreeDDElParam(msg, lparam) }
 }
 #[inline]
-pub unsafe fn GetAtomNameA<P1>(natom: u16, lpbuffer: P1, nsize: i32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GetAtomNameA(natom : u16, lpbuffer : windows_core::PCSTR, nsize : i32) -> u32);
-    unsafe { GetAtomNameA(natom, lpbuffer.param().abi(), nsize) }
+pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: windows_core::PSTR, nsize: i32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GetAtomNameA(natom : u16, lpbuffer : windows_core::PSTR, nsize : i32) -> u32);
+    unsafe { GetAtomNameA(natom, core::mem::transmute(lpbuffer), nsize) }
 }
 #[inline]
 pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: windows_core::PWSTR, nsize: i32) -> u32 {
@@ -292,9 +286,9 @@ pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
     unsafe { GetOpenClipboardWindow() }
 }
 #[inline]
-pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *mut u32, cformats: i32) -> i32 {
-    windows_core::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *mut u32, cformats : i32) -> i32);
-    unsafe { GetPriorityClipboardFormat(paformatprioritylist as _, cformats) }
+pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32 {
+    windows_core::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *const u32, cformats : i32) -> i32);
+    unsafe { GetPriorityClipboardFormat(paformatprioritylist, cformats) }
 }
 #[inline]
 pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> windows_core::BOOL {
@@ -355,20 +349,14 @@ where
     unsafe { GlobalFindAtomW(lpstring.param().abi()) }
 }
 #[inline]
-pub unsafe fn GlobalGetAtomNameA<P1>(natom: u16, lpbuffer: P1, nsize: i32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GlobalGetAtomNameA(natom : u16, lpbuffer : windows_core::PCSTR, nsize : i32) -> u32);
-    unsafe { GlobalGetAtomNameA(natom, lpbuffer.param().abi(), nsize) }
+pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: windows_core::PSTR, nsize: i32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GlobalGetAtomNameA(natom : u16, lpbuffer : windows_core::PSTR, nsize : i32) -> u32);
+    unsafe { GlobalGetAtomNameA(natom, core::mem::transmute(lpbuffer), nsize) }
 }
 #[inline]
-pub unsafe fn GlobalGetAtomNameW<P1>(natom: u16, lpbuffer: P1, nsize: i32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn GlobalGetAtomNameW(natom : u16, lpbuffer : windows_core::PCWSTR, nsize : i32) -> u32);
-    unsafe { GlobalGetAtomNameW(natom, lpbuffer.param().abi(), nsize) }
+pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: windows_core::PWSTR, nsize: i32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn GlobalGetAtomNameW(natom : u16, lpbuffer : windows_core::PWSTR, nsize : i32) -> u32);
+    unsafe { GlobalGetAtomNameW(natom, core::mem::transmute(lpbuffer), nsize) }
 }
 #[inline]
 pub unsafe fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> windows_core::BOOL {
@@ -433,9 +421,9 @@ pub unsafe fn SetClipboardViewer(hwndnewviewer: super::super::Foundation::HWND) 
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *mut u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *mut METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE {
-    windows_core::link!("gdi32.dll" "system" fn SetWinMetaFileBits(nsize : u32, lpmeta16data : *mut u8, hdcref : super::super::Graphics::Gdi:: HDC, lpmfp : *mut METAFILEPICT) -> super::super::Graphics::Gdi:: HENHMETAFILE);
-    unsafe { SetWinMetaFileBits(nsize, lpmeta16data as _, hdcref, lpmfp as _) }
+pub unsafe fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE {
+    windows_core::link!("gdi32.dll" "system" fn SetWinMetaFileBits(nsize : u32, lpmeta16data : *const u8, hdcref : super::super::Graphics::Gdi:: HDC, lpmfp : *const METAFILEPICT) -> super::super::Graphics::Gdi:: HENHMETAFILE);
+    unsafe { SetWinMetaFileBits(nsize, lpmeta16data, hdcref, lpmfp) }
 }
 #[inline]
 pub unsafe fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> windows_core::BOOL {

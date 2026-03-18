@@ -34,52 +34,34 @@ pub unsafe fn EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32
     unsafe { EnumProcesses(lpidprocess as _, cb, lpcbneeded as _) }
 }
 #[inline]
-pub unsafe fn GetDeviceDriverBaseNameA<P1>(imagebase: *mut core::ffi::c_void, lpfilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameA(imagebase : *mut core::ffi::c_void, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverBaseNameA(imagebase as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn GetDeviceDriverBaseNameA(imagebase: *const core::ffi::c_void, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { GetDeviceDriverBaseNameA(imagebase, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn GetDeviceDriverBaseNameW<P1>(imagebase: *mut core::ffi::c_void, lpbasename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameW(imagebase : *mut core::ffi::c_void, lpbasename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverBaseNameW(imagebase as _, lpbasename.param().abi(), nsize) }
+pub unsafe fn GetDeviceDriverBaseNameW(imagebase: *const core::ffi::c_void, lpbasename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverBaseNameW(imagebase : *const core::ffi::c_void, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { GetDeviceDriverBaseNameW(imagebase, core::mem::transmute(lpbasename), nsize) }
 }
 #[inline]
-pub unsafe fn GetDeviceDriverFileNameA<P1>(imagebase: *mut core::ffi::c_void, lpfilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverFileNameA(imagebase : *mut core::ffi::c_void, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverFileNameA(imagebase as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn GetDeviceDriverFileNameA(imagebase: *const core::ffi::c_void, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverFileNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { GetDeviceDriverFileNameA(imagebase, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn GetDeviceDriverFileNameW<P1>(imagebase: *mut core::ffi::c_void, lpfilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverFileNameW(imagebase : *mut core::ffi::c_void, lpfilename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverFileNameW(imagebase as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn GetDeviceDriverFileNameW(imagebase: *const core::ffi::c_void, lpfilename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { GetDeviceDriverFileNameW(imagebase, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn GetMappedFileNameA<P2>(hprocess: super::super::Foundation::HANDLE, lpv: *mut core::ffi::c_void, lpfilename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *mut core::ffi::c_void, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { GetMappedFileNameA(hprocess, lpv as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { GetMappedFileNameA(hprocess, lpv, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn GetMappedFileNameW<P2>(hprocess: super::super::Foundation::HANDLE, lpv: *mut core::ffi::c_void, lpfilename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *mut core::ffi::c_void, lpfilename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { GetMappedFileNameW(hprocess, lpv as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { GetMappedFileNameW(hprocess, lpv, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
 pub unsafe fn GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpbasename: windows_core::PSTR, nsize: u32) -> u32 {
@@ -87,12 +69,9 @@ pub unsafe fn GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmo
     unsafe { GetModuleBaseNameA(hprocess, hmodule, core::mem::transmute(lpbasename), nsize) }
 }
 #[inline]
-pub unsafe fn GetModuleBaseNameW<P2>(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpbasename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { GetModuleBaseNameW(hprocess, hmodule, lpbasename.param().abi(), nsize) }
+pub unsafe fn GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpbasename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { GetModuleBaseNameW(hprocess, hmodule, core::mem::transmute(lpbasename), nsize) }
 }
 #[inline]
 pub unsafe fn GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
@@ -100,12 +79,9 @@ pub unsafe fn GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, h
     unsafe { GetModuleFileNameExA(hprocess, hmodule, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn GetModuleFileNameExW<P2>(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpfilename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetModuleFileNameExW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpfilename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { GetModuleFileNameExW(hprocess, hmodule, lpfilename.param().abi(), nsize) }
+pub unsafe fn GetModuleFileNameExW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpfilename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetModuleFileNameExW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { GetModuleFileNameExW(hprocess, hmodule, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
 pub unsafe fn GetModuleInformation(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpmodinfo: *mut MODULEINFO, cb: u32) -> windows_core::BOOL {
@@ -123,12 +99,9 @@ pub unsafe fn GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDL
     unsafe { GetProcessImageFileNameA(hprocess, core::mem::transmute(lpimagefilename), nsize) }
 }
 #[inline]
-pub unsafe fn GetProcessImageFileNameW<P1>(hprocess: super::super::Foundation::HANDLE, lpimagefilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("psapi.dll" "system" fn GetProcessImageFileNameW(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { GetProcessImageFileNameW(hprocess, lpimagefilename.param().abi(), nsize) }
+pub unsafe fn GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("psapi.dll" "system" fn GetProcessImageFileNameW(hprocess : super::super::Foundation:: HANDLE, lpimagefilename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { GetProcessImageFileNameW(hprocess, core::mem::transmute(lpimagefilename), nsize) }
 }
 #[inline]
 pub unsafe fn GetProcessMemoryInfo(process: super::super::Foundation::HANDLE, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> windows_core::BOOL {
@@ -186,12 +159,9 @@ pub unsafe fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut 
     unsafe { K32EnumProcesses(lpidprocess as _, cb, lpcbneeded as _) }
 }
 #[inline]
-pub unsafe fn K32GetDeviceDriverBaseNameA<P1>(imagebase: *mut core::ffi::c_void, lpfilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn K32GetDeviceDriverBaseNameA(imagebase : *mut core::ffi::c_void, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { K32GetDeviceDriverBaseNameA(imagebase as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const core::ffi::c_void, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn K32GetDeviceDriverBaseNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { K32GetDeviceDriverBaseNameA(imagebase, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const core::ffi::c_void, lpbasename: windows_core::PWSTR, nsize: u32) -> u32 {
@@ -199,52 +169,34 @@ pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const core::ffi::c_void, l
     unsafe { K32GetDeviceDriverBaseNameW(imagebase, core::mem::transmute(lpbasename), nsize) }
 }
 #[inline]
-pub unsafe fn K32GetDeviceDriverFileNameA<P1>(imagebase: *mut core::ffi::c_void, lpfilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameA(imagebase : *mut core::ffi::c_void, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { K32GetDeviceDriverFileNameA(imagebase as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const core::ffi::c_void, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { K32GetDeviceDriverFileNameA(imagebase, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn K32GetDeviceDriverFileNameW<P1>(imagebase: *mut core::ffi::c_void, lpfilename: P1, nsize: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameW(imagebase : *mut core::ffi::c_void, lpfilename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { K32GetDeviceDriverFileNameW(imagebase as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const core::ffi::c_void, lpfilename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn K32GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { K32GetDeviceDriverFileNameW(imagebase, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn K32GetMappedFileNameA<P2>(hprocess: super::super::Foundation::HANDLE, lpv: *mut core::ffi::c_void, lpfilename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn K32GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *mut core::ffi::c_void, lpfilename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { K32GetMappedFileNameA(hprocess, lpv as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn K32GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn K32GetMappedFileNameA(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { K32GetMappedFileNameA(hprocess, lpv, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn K32GetMappedFileNameW<P2>(hprocess: super::super::Foundation::HANDLE, lpv: *mut core::ffi::c_void, lpfilename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn K32GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *mut core::ffi::c_void, lpfilename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { K32GetMappedFileNameW(hprocess, lpv as _, lpfilename.param().abi(), nsize) }
+pub unsafe fn K32GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const core::ffi::c_void, lpfilename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn K32GetMappedFileNameW(hprocess : super::super::Foundation:: HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { K32GetMappedFileNameW(hprocess, lpv, core::mem::transmute(lpfilename), nsize) }
 }
 #[inline]
-pub unsafe fn K32GetModuleBaseNameA<P2>(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpbasename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn K32GetModuleBaseNameA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PCSTR, nsize : u32) -> u32);
-    unsafe { K32GetModuleBaseNameA(hprocess, hmodule, lpbasename.param().abi(), nsize) }
+pub unsafe fn K32GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpbasename: windows_core::PSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn K32GetModuleBaseNameA(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PSTR, nsize : u32) -> u32);
+    unsafe { K32GetModuleBaseNameA(hprocess, hmodule, core::mem::transmute(lpbasename), nsize) }
 }
 #[inline]
-pub unsafe fn K32GetModuleBaseNameW<P2>(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpbasename: P2, nsize: u32) -> u32
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("kernel32.dll" "system" fn K32GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PCWSTR, nsize : u32) -> u32);
-    unsafe { K32GetModuleBaseNameW(hprocess, hmodule, lpbasename.param().abi(), nsize) }
+pub unsafe fn K32GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpbasename: windows_core::PWSTR, nsize: u32) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn K32GetModuleBaseNameW(hprocess : super::super::Foundation:: HANDLE, hmodule : super::super::Foundation:: HMODULE, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
+    unsafe { K32GetModuleBaseNameW(hprocess, hmodule, core::mem::transmute(lpbasename), nsize) }
 }
 #[inline]
 pub unsafe fn K32GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HMODULE, lpfilename: windows_core::PSTR, nsize: u32) -> u32 {

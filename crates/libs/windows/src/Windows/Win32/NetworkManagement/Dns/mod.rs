@@ -4,9 +4,9 @@ pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *cons
     unsafe { DnsAcquireContextHandle_A(credentialflags, credentials, pcontext as _) }
 }
 #[inline]
-pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *mut core::ffi::c_void, pcontext: *mut super::super::Foundation::HANDLE) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentialflags : u32, credentials : *mut core::ffi::c_void, pcontext : *mut super::super::Foundation:: HANDLE) -> i32);
-    unsafe { DnsAcquireContextHandle_W(credentialflags, credentials as _, pcontext as _) }
+pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const core::ffi::c_void, pcontext: *mut super::super::Foundation::HANDLE) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::super::Foundation:: HANDLE) -> i32);
+    unsafe { DnsAcquireContextHandle_W(credentialflags, credentials, pcontext as _) }
 }
 #[inline]
 pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
@@ -73,21 +73,21 @@ where
     unsafe { DnsConnectionGetProxyInfo(pwszconnectionname.param().abi(), r#type, pproxyinfo as _) }
 }
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<P0>(pwszhosturl: P0, pselectioncontext: *mut u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<P0>(pwszhosturl: P0, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *mut u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
-    unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), pselectioncontext as _, dwselectioncontextlength, dwexplicitinterfaceindex, pproxyinfoex as _) }
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
+    unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), pselectioncontext, dwselectioncontextlength, dwexplicitinterfaceindex, pproxyinfoex as _) }
 }
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfoForHostUrlEx<P0, P4>(pwszhosturl: P0, pselectioncontext: *mut u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pwszconnectionname: P4, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrlEx<P0, P4>(pwszhosturl: P0, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pwszconnectionname: P4, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *mut u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pwszconnectionname : windows_core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
-    unsafe { DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.param().abi(), pselectioncontext as _, dwselectioncontextlength, dwexplicitinterfaceindex, pwszconnectionname.param().abi(), pproxyinfoex as _) }
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pwszconnectionname : windows_core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
+    unsafe { DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.param().abi(), pselectioncontext, dwselectioncontextlength, dwexplicitinterfaceindex, pwszconnectionname.param().abi(), pproxyinfoex as _) }
 }
 #[inline]
 pub unsafe fn DnsConnectionGetProxyList<P0>(pwszconnectionname: P0, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32
@@ -98,17 +98,17 @@ where
     unsafe { DnsConnectionGetProxyList(pwszconnectionname.param().abi(), pproxylist as _) }
 }
 #[inline]
-pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32);
-    unsafe { DnsConnectionSetPolicyEntries(policyentrytag, ppolicyentrylist as _) }
+pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionSetPolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG, ppolicyentrylist : *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32);
+    unsafe { DnsConnectionSetPolicyEntries(policyentrytag, ppolicyentrylist) }
 }
 #[inline]
-pub unsafe fn DnsConnectionSetProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32
+pub unsafe fn DnsConnectionSetProxyInfo<P0>(pwszconnectionname: P0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionSetProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *mut DNS_CONNECTION_PROXY_INFO) -> u32);
-    unsafe { DnsConnectionSetProxyInfo(pwszconnectionname.param().abi(), r#type, pproxyinfo as _) }
+    windows_core::link!("dnsapi.dll" "system" fn DnsConnectionSetProxyInfo(pwszconnectionname : windows_core::PCWSTR, r#type : DNS_CONNECTION_PROXY_TYPE, pproxyinfo : *const DNS_CONNECTION_PROXY_INFO) -> u32);
+    unsafe { DnsConnectionSetProxyInfo(pwszconnectionname.param().abi(), r#type, pproxyinfo) }
 }
 #[inline]
 pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32 {
@@ -116,19 +116,19 @@ pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const 
     unsafe { DnsConnectionUpdateIfIndexTable(pconnectionifindexentries) }
 }
 #[inline]
-pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut *mut DNS_RECORDA) -> i32);
-    unsafe { DnsExtractRecordsFromMessage_UTF8(pdnsbuffer as _, wmessagelength, pprecord as _) }
+pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer : *const DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut *mut DNS_RECORDA) -> i32);
+    unsafe { DnsExtractRecordsFromMessage_UTF8(pdnsbuffer, wmessagelength, pprecord as _) }
 }
 #[inline]
-pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_W(pdnsbuffer : *mut DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut *mut DNS_RECORDA) -> i32);
-    unsafe { DnsExtractRecordsFromMessage_W(pdnsbuffer as _, wmessagelength, pprecord as _) }
+pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsExtractRecordsFromMessage_W(pdnsbuffer : *const DNS_MESSAGE_BUFFER, wmessagelength : u16, pprecord : *mut *mut DNS_RECORDA) -> i32);
+    unsafe { DnsExtractRecordsFromMessage_W(pdnsbuffer, wmessagelength, pprecord as _) }
 }
 #[inline]
-pub unsafe fn DnsFree(pdata: *mut core::ffi::c_void, freetype: DNS_FREE_TYPE) {
-    windows_core::link!("dnsapi.dll" "system" fn DnsFree(pdata : *mut core::ffi::c_void, freetype : DNS_FREE_TYPE));
-    unsafe { DnsFree(pdata as _, freetype) }
+pub unsafe fn DnsFree(pdata: *const core::ffi::c_void, freetype: DNS_FREE_TYPE) {
+    windows_core::link!("dnsapi.dll" "system" fn DnsFree(pdata : *const core::ffi::c_void, freetype : DNS_FREE_TYPE));
+    unsafe { DnsFree(pdata, freetype) }
 }
 #[inline]
 pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER) {
@@ -149,12 +149,12 @@ pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *
     unsafe { DnsGetApplicationSettings(pcservers as _, ppdefaultservers as _, psettings as _) }
 }
 #[inline]
-pub unsafe fn DnsGetProxyInformation<P0>(hostname: P0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: *mut core::ffi::c_void) -> u32
+pub unsafe fn DnsGetProxyInformation<P0>(hostname: P0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsGetProxyInformation(hostname : windows_core::PCWSTR, proxyinformation : *mut DNS_PROXY_INFORMATION, defaultproxyinformation : *mut DNS_PROXY_INFORMATION, completionroutine : DNS_PROXY_COMPLETION_ROUTINE, completioncontext : *mut core::ffi::c_void) -> u32);
-    unsafe { DnsGetProxyInformation(hostname.param().abi(), proxyinformation as _, defaultproxyinformation as _, completionroutine, completioncontext as _) }
+    windows_core::link!("dnsapi.dll" "system" fn DnsGetProxyInformation(hostname : windows_core::PCWSTR, proxyinformation : *mut DNS_PROXY_INFORMATION, defaultproxyinformation : *mut DNS_PROXY_INFORMATION, completionroutine : DNS_PROXY_COMPLETION_ROUTINE, completioncontext : *const core::ffi::c_void) -> u32);
+    unsafe { DnsGetProxyInformation(hostname.param().abi(), proxyinformation as _, defaultproxyinformation as _, completionroutine, completioncontext) }
 }
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_A(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void) -> i32 {
@@ -190,12 +190,12 @@ where
     unsafe { DnsNameCompare_W(pname1.param().abi(), pname2.param().abi()) }
 }
 #[inline]
-pub unsafe fn DnsQueryConfig<P2>(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: P2, preserved: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, pbuflen: *mut u32) -> i32
+pub unsafe fn DnsQueryConfig<P2>(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: P2, preserved: *const core::ffi::c_void, pbuffer: *mut core::ffi::c_void, pbuflen: *mut u32) -> i32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsQueryConfig(config : DNS_CONFIG_TYPE, flag : u32, pwsadaptername : windows_core::PCWSTR, preserved : *mut core::ffi::c_void, pbuffer : *mut core::ffi::c_void, pbuflen : *mut u32) -> i32);
-    unsafe { DnsQueryConfig(config, flag, pwsadaptername.param().abi(), preserved as _, pbuffer as _, pbuflen as _) }
+    windows_core::link!("dnsapi.dll" "system" fn DnsQueryConfig(config : DNS_CONFIG_TYPE, flag : u32, pwsadaptername : windows_core::PCWSTR, preserved : *const core::ffi::c_void, pbuffer : *mut core::ffi::c_void, pbuflen : *mut u32) -> i32);
+    unsafe { DnsQueryConfig(config, flag, pwsadaptername.param().abi(), preserved, pbuffer as _, pbuflen as _) }
 }
 #[inline]
 pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32 {
@@ -203,14 +203,14 @@ pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults:
     unsafe { DnsQueryEx(pqueryrequest, pqueryresults as _, pcancelhandle as _) }
 }
 #[inline]
-pub unsafe fn DnsQueryRaw(queryrequest: *mut DNS_QUERY_RAW_REQUEST, cancelhandle: *mut DNS_QUERY_RAW_CANCEL) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsQueryRaw(queryrequest : *mut DNS_QUERY_RAW_REQUEST, cancelhandle : *mut DNS_QUERY_RAW_CANCEL) -> i32);
-    unsafe { DnsQueryRaw(queryrequest as _, cancelhandle as _) }
+pub unsafe fn DnsQueryRaw(queryrequest: *const DNS_QUERY_RAW_REQUEST, cancelhandle: *mut DNS_QUERY_RAW_CANCEL) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsQueryRaw(queryrequest : *const DNS_QUERY_RAW_REQUEST, cancelhandle : *mut DNS_QUERY_RAW_CANCEL) -> i32);
+    unsafe { DnsQueryRaw(queryrequest, cancelhandle as _) }
 }
 #[inline]
-pub unsafe fn DnsQueryRawResultFree(queryresults: *mut DNS_QUERY_RAW_RESULT) {
-    windows_core::link!("dnsapi.dll" "system" fn DnsQueryRawResultFree(queryresults : *mut DNS_QUERY_RAW_RESULT));
-    unsafe { DnsQueryRawResultFree(queryresults as _) }
+pub unsafe fn DnsQueryRawResultFree(queryresults: *const DNS_QUERY_RAW_RESULT) {
+    windows_core::link!("dnsapi.dll" "system" fn DnsQueryRawResultFree(queryresults : *const DNS_QUERY_RAW_RESULT));
+    unsafe { DnsQueryRawResultFree(queryresults) }
 }
 #[inline]
 pub unsafe fn DnsQuery_A<P0>(pszname: P0, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: *mut core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut core::ffi::c_void) -> windows_core::WIN32_ERROR
@@ -237,14 +237,14 @@ where
     unsafe { DnsQuery_W(pszname.param().abi(), wtype, options, pextra as _, ppqueryresults as _, preserved as _) }
 }
 #[inline]
-pub unsafe fn DnsRecordCompare(precord1: *mut DNS_RECORDA, precord2: *mut DNS_RECORDA) -> windows_core::BOOL {
-    windows_core::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : *mut DNS_RECORDA, precord2 : *mut DNS_RECORDA) -> windows_core::BOOL);
-    unsafe { DnsRecordCompare(precord1 as _, precord2 as _) }
+pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> windows_core::BOOL {
+    windows_core::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : *const DNS_RECORDA, precord2 : *const DNS_RECORDA) -> windows_core::BOOL);
+    unsafe { DnsRecordCompare(precord1, precord2) }
 }
 #[inline]
-pub unsafe fn DnsRecordCopyEx(precord: *mut DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
-    windows_core::link!("dnsapi.dll" "system" fn DnsRecordCopyEx(precord : *mut DNS_RECORDA, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> *mut DNS_RECORDA);
-    unsafe { DnsRecordCopyEx(precord as _, charsetin, charsetout) }
+pub unsafe fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
+    windows_core::link!("dnsapi.dll" "system" fn DnsRecordCopyEx(precord : *const DNS_RECORDA, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> *mut DNS_RECORDA);
+    unsafe { DnsRecordCopyEx(precord, charsetin, charsetout) }
 }
 #[inline]
 pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut *mut DNS_RECORDA, ppdiff2: *mut *mut DNS_RECORDA) -> windows_core::BOOL {
@@ -267,14 +267,14 @@ pub unsafe fn DnsReleaseContextHandle(hcontext: super::super::Foundation::HANDLE
     unsafe { DnsReleaseContextHandle(hcontext) }
 }
 #[inline]
-pub unsafe fn DnsReplaceRecordSetA(preplaceset: *mut DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetA(preplaceset : *mut DNS_RECORDA, options : u32, hcontext : super::super::Foundation:: HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
-    unsafe { DnsReplaceRecordSetA(preplaceset as _, options, hcontext, pextrainfo as _, preserved as _) }
+pub unsafe fn DnsReplaceRecordSetA(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetA(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation:: HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    unsafe { DnsReplaceRecordSetA(preplaceset, options, hcontext, pextrainfo as _, preserved as _) }
 }
 #[inline]
-pub unsafe fn DnsReplaceRecordSetUTF8(preplaceset: *mut DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetUTF8(preplaceset : *mut DNS_RECORDA, options : u32, hcontext : super::super::Foundation:: HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
-    unsafe { DnsReplaceRecordSetUTF8(preplaceset as _, options, hcontext, pextrainfo as _, preserved as _) }
+pub unsafe fn DnsReplaceRecordSetUTF8(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetUTF8(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation:: HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    unsafe { DnsReplaceRecordSetUTF8(preplaceset, options, hcontext, pextrainfo as _, preserved as _) }
 }
 #[inline]
 pub unsafe fn DnsReplaceRecordSetW(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut core::ffi::c_void, preserved: *mut core::ffi::c_void) -> i32 {
@@ -301,9 +301,9 @@ where
     unsafe { DnsServiceConstructInstance(pservicename.param().abi(), phostname.param().abi(), pip4, pip6, wport, wpriority, wweight, dwpropertiescount, keys, values) }
 }
 #[inline]
-pub unsafe fn DnsServiceCopyInstance(porig: *mut DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE {
-    windows_core::link!("dnsapi.dll" "system" fn DnsServiceCopyInstance(porig : *mut DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE);
-    unsafe { DnsServiceCopyInstance(porig as _) }
+pub unsafe fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE {
+    windows_core::link!("dnsapi.dll" "system" fn DnsServiceCopyInstance(porig : *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE);
+    unsafe { DnsServiceCopyInstance(porig) }
 }
 #[inline]
 pub unsafe fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32 {
@@ -316,24 +316,24 @@ pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
     unsafe { DnsServiceFreeInstance(pinstance) }
 }
 #[inline]
-pub unsafe fn DnsServiceRegister(prequest: *mut DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsServiceRegister(prequest : *mut DNS_SERVICE_REGISTER_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> u32);
-    unsafe { DnsServiceRegister(prequest as _, pcancel as _) }
+pub unsafe fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsServiceRegister(prequest : *const DNS_SERVICE_REGISTER_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> u32);
+    unsafe { DnsServiceRegister(prequest, pcancel as _) }
 }
 #[inline]
-pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *mut DNS_SERVICE_CANCEL) -> u32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsServiceRegisterCancel(pcancelhandle : *mut DNS_SERVICE_CANCEL) -> u32);
-    unsafe { DnsServiceRegisterCancel(pcancelhandle as _) }
+pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsServiceRegisterCancel(pcancelhandle : *const DNS_SERVICE_CANCEL) -> u32);
+    unsafe { DnsServiceRegisterCancel(pcancelhandle) }
 }
 #[inline]
-pub unsafe fn DnsServiceResolve(prequest: *mut DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsServiceResolve(prequest : *mut DNS_SERVICE_RESOLVE_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> i32);
-    unsafe { DnsServiceResolve(prequest as _, pcancel as _) }
+pub unsafe fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsServiceResolve(prequest : *const DNS_SERVICE_RESOLVE_REQUEST, pcancel : *mut DNS_SERVICE_CANCEL) -> i32);
+    unsafe { DnsServiceResolve(prequest, pcancel as _) }
 }
 #[inline]
-pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *mut DNS_SERVICE_CANCEL) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsServiceResolveCancel(pcancelhandle : *mut DNS_SERVICE_CANCEL) -> i32);
-    unsafe { DnsServiceResolveCancel(pcancelhandle as _) }
+pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
+    windows_core::link!("dnsapi.dll" "system" fn DnsServiceResolveCancel(pcancelhandle : *const DNS_SERVICE_CANCEL) -> i32);
+    unsafe { DnsServiceResolveCancel(pcancelhandle) }
 }
 #[inline]
 pub unsafe fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32 {
@@ -1111,7 +1111,7 @@ impl Default for DNS_QUERY_RAW_CANCEL {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DNS_QUERY_RAW_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(querycontext: *mut core::ffi::c_void, queryresults: *mut DNS_QUERY_RAW_RESULT)>;
+pub type DNS_QUERY_RAW_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(querycontext: *const core::ffi::c_void, queryresults: *const DNS_QUERY_RAW_RESULT)>;
 pub const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(1u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2306,11 +2306,11 @@ impl Default for MDNS_QUERY_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type PDNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *mut core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
+pub type PDNS_QUERY_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
 pub type PDNS_SERVICE_BROWSE_CALLBACK = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pdnsrecord: *const DNS_RECORDW)>;
 pub type PDNS_SERVICE_REGISTER_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
-pub type PDNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *mut core::ffi::c_void, pinstance: *mut DNS_SERVICE_INSTANCE)>;
-pub type PMDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *mut core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
+pub type PDNS_SERVICE_RESOLVE_COMPLETE = Option<unsafe extern "system" fn(status: u32, pquerycontext: *const core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
+pub type PMDNS_QUERY_CALLBACK = Option<unsafe extern "system" fn(pquerycontext: *const core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
 pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(1i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);

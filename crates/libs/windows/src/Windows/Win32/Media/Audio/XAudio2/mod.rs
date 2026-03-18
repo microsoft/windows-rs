@@ -20,9 +20,12 @@ pub unsafe fn CreateFX(clsid: *const windows_core::GUID, peffect: *mut Option<wi
     unsafe { CreateFX(clsid, core::mem::transmute(peffect), pinitdat, initdatabytesize).ok() }
 }
 #[inline]
-pub unsafe fn CreateHrtfApo(init: *mut HrtfApoInit, xapo: *mut Option<IXAPO>) -> windows_core::Result<()> {
-    windows_core::link!("hrtfapo.dll" "system" fn CreateHrtfApo(init : *mut HrtfApoInit, xapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateHrtfApo(init as _, core::mem::transmute(xapo)).ok() }
+pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> windows_core::Result<IXAPO> {
+    windows_core::link!("hrtfapo.dll" "system" fn CreateHrtfApo(init : *const HrtfApoInit, xapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        CreateHrtfApo(init, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
 }
 #[inline]
 pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> windows_core::Result<()> {
@@ -189,7 +192,7 @@ pub struct HrtfPosition {
     pub y: f32,
     pub z: f32,
 }
-windows_core::imp::define_interface!(IXAPO, IXAPO_Vtbl, 0x8b7a84f6_c917_58b5_a945_c38545a46a3e);
+windows_core::imp::define_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
 windows_core::imp::interface_hierarchy!(IXAPO, windows_core::IUnknown);
 impl IXAPO {
     pub unsafe fn GetRegistrationProperties(&self) -> windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
@@ -198,25 +201,31 @@ impl IXAPO {
             (windows_core::Interface::vtable(self).GetRegistrationProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsInputFormatSupported(&self, poutputformat: *mut super::WAVEFORMATEX, prequestedinputformat: *mut super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poutputformat as _, prequestedinputformat as _, ppsupportedinputformat as _).ok() }
+    pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> windows_core::Result<*mut super::WAVEFORMATEX> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poutputformat, prequestedinputformat, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *mut super::WAVEFORMATEX, prequestedoutputformat: *mut super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), pinputformat as _, prequestedoutputformat as _, ppsupportedoutputformat as _).ok() }
+    pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> windows_core::Result<*mut super::WAVEFORMATEX> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), pinputformat, prequestedoutputformat, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn Initialize(&self, pdata: *mut core::ffi::c_void, databytesize: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pdata as _, databytesize).ok() }
+    pub unsafe fn Initialize(&self, pdata: *const core::ffi::c_void, databytesize: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pdata, databytesize).ok() }
     }
     pub unsafe fn Reset(&self) {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn LockForProcess(&self, pinputlockedparameters: &mut [XAPO_LOCKFORPROCESS_PARAMETERS], poutputlockedparameters: &mut [XAPO_LOCKFORPROCESS_PARAMETERS]) -> windows_core::Result<()> {
+    pub unsafe fn LockForProcess(&self, pinputlockedparameters: &[XAPO_LOCKFORPROCESS_PARAMETERS], poutputlockedparameters: &[XAPO_LOCKFORPROCESS_PARAMETERS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).LockForProcess)(windows_core::Interface::as_raw(self), pinputlockedparameters.len().try_into().unwrap(), core::mem::transmute(pinputlockedparameters.as_ptr()), poutputlockedparameters.len().try_into().unwrap(), core::mem::transmute(poutputlockedparameters.as_ptr())).ok() }
     }
     pub unsafe fn UnlockForProcess(&self) {
         unsafe { (windows_core::Interface::vtable(self).UnlockForProcess)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Process(&self, pinputprocessparameters: &mut [XAPO_PROCESS_BUFFER_PARAMETERS], poutputprocessparameters: &mut [XAPO_PROCESS_BUFFER_PARAMETERS], isenabled: bool) {
+    pub unsafe fn Process(&self, pinputprocessparameters: &[XAPO_PROCESS_BUFFER_PARAMETERS], poutputprocessparameters: &mut [XAPO_PROCESS_BUFFER_PARAMETERS], isenabled: bool) {
         unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pinputprocessparameters.len().try_into().unwrap(), core::mem::transmute(pinputprocessparameters.as_ptr()), poutputprocessparameters.len().try_into().unwrap(), core::mem::transmute(poutputprocessparameters.as_ptr()), isenabled.into()) }
     }
     pub unsafe fn CalcInputFrames(&self, outputframecount: u32) -> u32 {
@@ -231,25 +240,25 @@ impl IXAPO {
 pub struct IXAPO_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRegistrationProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut XAPO_REGISTRATION_PROPERTIES) -> windows_core::HRESULT,
-    pub IsInputFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WAVEFORMATEX, *mut super::WAVEFORMATEX, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    pub IsOutputFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WAVEFORMATEX, *mut super::WAVEFORMATEX, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub IsInputFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::WAVEFORMATEX, *const super::WAVEFORMATEX, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
+    pub IsOutputFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::WAVEFORMATEX, *const super::WAVEFORMATEX, *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void),
-    pub LockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut XAPO_LOCKFORPROCESS_PARAMETERS, u32, *mut XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::HRESULT,
+    pub LockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XAPO_LOCKFORPROCESS_PARAMETERS, u32, *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::HRESULT,
     pub UnlockForProcess: unsafe extern "system" fn(*mut core::ffi::c_void),
-    pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut XAPO_PROCESS_BUFFER_PARAMETERS, u32, *mut XAPO_PROCESS_BUFFER_PARAMETERS, windows_core::BOOL),
+    pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const XAPO_PROCESS_BUFFER_PARAMETERS, u32, *mut XAPO_PROCESS_BUFFER_PARAMETERS, windows_core::BOOL),
     pub CalcInputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub CalcOutputFrames: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
 }
 pub trait IXAPO_Impl: windows_core::IUnknownImpl {
     fn GetRegistrationProperties(&self) -> windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
-    fn IsInputFormatSupported(&self, poutputformat: *mut super::WAVEFORMATEX, prequestedinputformat: *mut super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn IsOutputFormatSupported(&self, pinputformat: *mut super::WAVEFORMATEX, prequestedoutputformat: *mut super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn Initialize(&self, pdata: *mut core::ffi::c_void, databytesize: u32) -> windows_core::Result<()>;
+    fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> windows_core::Result<*mut super::WAVEFORMATEX>;
+    fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> windows_core::Result<*mut super::WAVEFORMATEX>;
+    fn Initialize(&self, pdata: *const core::ffi::c_void, databytesize: u32) -> windows_core::Result<()>;
     fn Reset(&self);
-    fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *mut XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *mut XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::Result<()>;
+    fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::Result<()>;
     fn UnlockForProcess(&self);
-    fn Process(&self, inputprocessparametercount: u32, pinputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: windows_core::BOOL);
+    fn Process(&self, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: windows_core::BOOL);
     fn CalcInputFrames(&self, outputframecount: u32) -> u32;
     fn CalcOutputFrames(&self, inputframecount: u32) -> u32;
 }
@@ -267,19 +276,31 @@ impl IXAPO_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsInputFormatSupported<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputformat: *mut super::WAVEFORMATEX, prequestedinputformat: *mut super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsInputFormatSupported<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXAPO_Impl::IsInputFormatSupported(this, core::mem::transmute_copy(&poutputformat), core::mem::transmute_copy(&prequestedinputformat), core::mem::transmute_copy(&ppsupportedinputformat)).into()
+                match IXAPO_Impl::IsInputFormatSupported(this, core::mem::transmute_copy(&poutputformat), core::mem::transmute_copy(&prequestedinputformat)) {
+                    Ok(ok__) => {
+                        ppsupportedinputformat.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn IsOutputFormatSupported<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputformat: *mut super::WAVEFORMATEX, prequestedoutputformat: *mut super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsOutputFormatSupported<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXAPO_Impl::IsOutputFormatSupported(this, core::mem::transmute_copy(&pinputformat), core::mem::transmute_copy(&prequestedoutputformat), core::mem::transmute_copy(&ppsupportedoutputformat)).into()
+                match IXAPO_Impl::IsOutputFormatSupported(this, core::mem::transmute_copy(&pinputformat), core::mem::transmute_copy(&prequestedoutputformat)) {
+                    Ok(ok__) => {
+                        ppsupportedoutputformat.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn Initialize<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut core::ffi::c_void, databytesize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const core::ffi::c_void, databytesize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXAPO_Impl::Initialize(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&databytesize)).into()
@@ -291,7 +312,7 @@ impl IXAPO_Vtbl {
                 IXAPO_Impl::Reset(this)
             }
         }
-        unsafe extern "system" fn LockForProcess<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputlockedparametercount: u32, pinputlockedparameters: *mut XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *mut XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn LockForProcess<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXAPO_Impl::LockForProcess(this, core::mem::transmute_copy(&inputlockedparametercount), core::mem::transmute_copy(&pinputlockedparameters), core::mem::transmute_copy(&outputlockedparametercount), core::mem::transmute_copy(&poutputlockedparameters)).into()
@@ -303,7 +324,7 @@ impl IXAPO_Vtbl {
                 IXAPO_Impl::UnlockForProcess(this)
             }
         }
-        unsafe extern "system" fn Process<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputprocessparametercount: u32, pinputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: windows_core::BOOL) {
+        unsafe extern "system" fn Process<Identity: IXAPO_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXAPO_Impl::Process(this, core::mem::transmute_copy(&inputprocessparametercount), core::mem::transmute_copy(&pinputprocessparameters), core::mem::transmute_copy(&outputprocessparametercount), core::mem::transmute_copy(&poutputprocessparameters), core::mem::transmute_copy(&isenabled))
@@ -340,17 +361,14 @@ impl IXAPO_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IXAPO {}
-windows_core::imp::define_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0xb525c836_5c19_542e_956a_a76f2803ee92);
+windows_core::imp::define_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, windows_core::IUnknown);
 impl IXAPOHrtfParameters {
-    pub unsafe fn SetSourcePosition(&self) -> windows_core::Result<HrtfPosition> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetSourcePosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetSourcePosition(&self, position: *const HrtfPosition) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetSourcePosition)(windows_core::Interface::as_raw(self), position).ok() }
     }
-    pub unsafe fn SetSourceOrientation(&self, orientation: *mut HrtfOrientation) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceOrientation)(windows_core::Interface::as_raw(self), orientation as _).ok() }
+    pub unsafe fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetSourceOrientation)(windows_core::Interface::as_raw(self), orientation).ok() }
     }
     pub unsafe fn SetSourceGain(&self, gain: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSourceGain)(windows_core::Interface::as_raw(self), gain).ok() }
@@ -363,32 +381,26 @@ impl IXAPOHrtfParameters {
 #[doc(hidden)]
 pub struct IXAPOHrtfParameters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetSourcePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HrtfPosition) -> windows_core::HRESULT,
-    pub SetSourceOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HrtfOrientation) -> windows_core::HRESULT,
+    pub SetSourcePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *const HrtfPosition) -> windows_core::HRESULT,
+    pub SetSourceOrientation: unsafe extern "system" fn(*mut core::ffi::c_void, *const HrtfOrientation) -> windows_core::HRESULT,
     pub SetSourceGain: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub SetEnvironment: unsafe extern "system" fn(*mut core::ffi::c_void, HrtfEnvironment) -> windows_core::HRESULT,
 }
 pub trait IXAPOHrtfParameters_Impl: windows_core::IUnknownImpl {
-    fn SetSourcePosition(&self) -> windows_core::Result<HrtfPosition>;
-    fn SetSourceOrientation(&self, orientation: *mut HrtfOrientation) -> windows_core::Result<()>;
+    fn SetSourcePosition(&self, position: *const HrtfPosition) -> windows_core::Result<()>;
+    fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> windows_core::Result<()>;
     fn SetSourceGain(&self, gain: f32) -> windows_core::Result<()>;
     fn SetEnvironment(&self, environment: HrtfEnvironment) -> windows_core::Result<()>;
 }
 impl IXAPOHrtfParameters_Vtbl {
     pub const fn new<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetSourcePosition<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *mut HrtfPosition) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSourcePosition<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, position: *const HrtfPosition) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXAPOHrtfParameters_Impl::SetSourcePosition(this) {
-                    Ok(ok__) => {
-                        position.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IXAPOHrtfParameters_Impl::SetSourcePosition(this, core::mem::transmute_copy(&position)).into()
             }
         }
-        unsafe extern "system" fn SetSourceOrientation<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, orientation: *mut HrtfOrientation) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSourceOrientation<Identity: IXAPOHrtfParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, orientation: *const HrtfOrientation) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXAPOHrtfParameters_Impl::SetSourceOrientation(this, core::mem::transmute_copy(&orientation)).into()
@@ -684,7 +696,7 @@ impl IXAudio2EngineCallback {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-windows_core::imp::define_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x182697b3_7cee_557e_b068_8211bc56f972);
+windows_core::imp::define_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
 windows_core::imp::interface_hierarchy!(IXAudio2Extension, windows_core::IUnknown);
 impl IXAudio2Extension {
     pub unsafe fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
@@ -803,8 +815,8 @@ impl IXAudio2SourceVoice {
     pub unsafe fn Stop(&self, flags: u32, operationset: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), flags, operationset).ok() }
     }
-    pub unsafe fn SubmitSourceBuffer(&self, pbuffer: *mut XAUDIO2_BUFFER, pbufferwma: *mut XAUDIO2_BUFFER_WMA) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SubmitSourceBuffer)(windows_core::Interface::as_raw(self), pbuffer as _, pbufferwma as _).ok() }
+    pub unsafe fn SubmitSourceBuffer(&self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SubmitSourceBuffer)(windows_core::Interface::as_raw(self), pbuffer, pbufferwma).ok() }
     }
     pub unsafe fn FlushSourceBuffers(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FlushSourceBuffers)(windows_core::Interface::as_raw(self)).ok() }
@@ -838,7 +850,7 @@ pub struct IXAudio2SourceVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    pub SubmitSourceBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XAUDIO2_BUFFER, *mut XAUDIO2_BUFFER_WMA) -> windows_core::HRESULT,
+    pub SubmitSourceBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const XAUDIO2_BUFFER, *const XAUDIO2_BUFFER_WMA) -> windows_core::HRESULT,
     pub FlushSourceBuffers: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Discontinuity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExitLoop: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -850,7 +862,7 @@ pub struct IXAudio2SourceVoice_Vtbl {
 pub trait IXAudio2SourceVoice_Impl: IXAudio2Voice_Impl {
     fn Start(&self, flags: u32, operationset: u32) -> windows_core::Result<()>;
     fn Stop(&self, flags: u32, operationset: u32) -> windows_core::Result<()>;
-    fn SubmitSourceBuffer(&self, pbuffer: *mut XAUDIO2_BUFFER, pbufferwma: *mut XAUDIO2_BUFFER_WMA) -> windows_core::Result<()>;
+    fn SubmitSourceBuffer(&self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> windows_core::Result<()>;
     fn FlushSourceBuffers(&self) -> windows_core::Result<()>;
     fn Discontinuity(&self) -> windows_core::Result<()>;
     fn ExitLoop(&self, operationset: u32) -> windows_core::Result<()>;
@@ -875,7 +887,7 @@ impl IXAudio2SourceVoice_Vtbl {
                 IXAudio2SourceVoice_Impl::Stop(this, core::mem::transmute_copy(&flags), core::mem::transmute_copy(&operationset)).into()
             }
         }
-        unsafe extern "system" fn SubmitSourceBuffer<Identity: IXAudio2SourceVoice_Impl>(this: *mut core::ffi::c_void, pbuffer: *mut XAUDIO2_BUFFER, pbufferwma: *mut XAUDIO2_BUFFER_WMA) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubmitSourceBuffer<Identity: IXAudio2SourceVoice_Impl>(this: *mut core::ffi::c_void, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> windows_core::HRESULT {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);

@@ -563,7 +563,7 @@ impl IITDatabase_Vtbl {
 }
 impl windows_core::RuntimeName for IITDatabase {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IITPropList, IITPropList_Vtbl, 0x73c386e6_9ed1_58f0_bab0_3501afb05af0);
+windows_core::imp::define_interface!(IITPropList, IITPropList_Vtbl, 0x1f403bb1_9997_11d0_a850_00aa006c7d01);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IITPropList {
     type Target = super::super::System::Com::IPersistStreamInit;
@@ -838,7 +838,7 @@ impl IITPropList_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IITPropList {}
-windows_core::imp::define_interface!(IITResultSet, IITResultSet_Vtbl, 0xd200c96e_7dcf_52af_8707_828e13aff791);
+windows_core::imp::define_interface!(IITResultSet, IITResultSet_Vtbl, 0x3bb91d41_998b_11d0_a850_00aa006c7d01);
 windows_core::imp::interface_hierarchy!(IITResultSet, windows_core::IUnknown);
 impl IITResultSet {
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> windows_core::Result<()> {
@@ -1315,7 +1315,7 @@ impl IITResultSet_Vtbl {
 impl windows_core::RuntimeName for IITResultSet {}
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
-windows_core::imp::define_interface!(IStemSink, IStemSink_Vtbl, 0x5c795e38_5204_59ed_8dda_52c859400a87);
+windows_core::imp::define_interface!(IStemSink, IStemSink_Vtbl, 0xfe77c330_7f42_11ce_be57_00aa0051fe20);
 windows_core::imp::interface_hierarchy!(IStemSink, windows_core::IUnknown);
 impl IStemSink {
     pub unsafe fn PutAltWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> windows_core::Result<()>

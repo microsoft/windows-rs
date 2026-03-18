@@ -9,9 +9,9 @@ pub unsafe fn CloseDecompressor(decompressorhandle: DECOMPRESSOR_HANDLE) -> wind
     unsafe { CloseDecompressor(decompressorhandle) }
 }
 #[inline]
-pub unsafe fn Compress(compressorhandle: COMPRESSOR_HANDLE, uncompresseddata: *mut core::ffi::c_void, uncompresseddatasize: usize, compressedbuffer: *mut core::ffi::c_void, compressedbuffersize: usize, compresseddatasize: *mut usize) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *mut core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> windows_core::BOOL);
-    unsafe { Compress(compressorhandle, uncompresseddata as _, uncompresseddatasize, compressedbuffer as _, compressedbuffersize, compresseddatasize as _) }
+pub unsafe fn Compress(compressorhandle: COMPRESSOR_HANDLE, uncompresseddata: *const core::ffi::c_void, uncompresseddatasize: usize, compressedbuffer: *mut core::ffi::c_void, compressedbuffersize: usize, compresseddatasize: *mut usize) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *const core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> windows_core::BOOL);
+    unsafe { Compress(compressorhandle, uncompresseddata, uncompresseddatasize, compressedbuffer as _, compressedbuffersize, compresseddatasize as _) }
 }
 #[inline]
 pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle: *mut COMPRESSOR_HANDLE) -> windows_core::BOOL {
@@ -19,9 +19,9 @@ pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines
     unsafe { CreateCompressor(algorithm, allocationroutines, compressorhandle as _) }
 }
 #[inline]
-pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *mut COMPRESS_ALLOCATION_ROUTINES, decompressorhandle: *mut DECOMPRESSOR_HANDLE) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn CreateDecompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *mut COMPRESS_ALLOCATION_ROUTINES, decompressorhandle : *mut DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
-    unsafe { CreateDecompressor(algorithm, allocationroutines as _, decompressorhandle as _) }
+pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle: *mut DECOMPRESSOR_HANDLE) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn CreateDecompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle : *mut DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
+    unsafe { CreateDecompressor(algorithm, allocationroutines, decompressorhandle as _) }
 }
 #[inline]
 pub unsafe fn Decompress(decompressorhandle: DECOMPRESSOR_HANDLE, compresseddata: *const core::ffi::c_void, compresseddatasize: usize, uncompressedbuffer: *mut core::ffi::c_void, uncompressedbuffersize: usize, uncompresseddatasize: *mut usize) -> windows_core::BOOL {
@@ -54,9 +54,9 @@ pub unsafe fn SetCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, comp
     unsafe { SetCompressorInformation(compressorhandle, compressinformationclass, compressinformation, compressinformationsize) }
 }
 #[inline]
-pub unsafe fn SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut core::ffi::c_void, compressinformationsize: usize) -> windows_core::BOOL {
-    windows_core::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *mut core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
-    unsafe { SetDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation as _, compressinformationsize) }
+pub unsafe fn SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const core::ffi::c_void, compressinformationsize: usize) -> windows_core::BOOL {
+    windows_core::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
+    unsafe { SetDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

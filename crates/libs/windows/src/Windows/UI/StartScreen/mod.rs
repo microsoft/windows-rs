@@ -44,7 +44,7 @@ pub struct IJumpListItem_Vtbl {
     pub Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJumpListItemStatics, IJumpListItemStatics_Vtbl, 0xd9923ba9_f8a5_53c7_979c_47fcef490d69);
+windows_core::imp::define_interface!(IJumpListItemStatics, IJumpListItemStatics_Vtbl, 0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
 impl windows_core::RuntimeType for IJumpListItemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -55,7 +55,7 @@ pub struct IJumpListItemStatics_Vtbl {
     pub CreateWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSeparator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IJumpListStatics, IJumpListStatics_Vtbl, 0xcd9e83d2_c998_5e57_9358_ce66c3dd152d);
+windows_core::imp::define_interface!(IJumpListStatics, IJumpListStatics_Vtbl, 0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
 impl windows_core::RuntimeType for IJumpListStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -66,7 +66,7 @@ pub struct IJumpListStatics_Vtbl {
     pub LoadCurrentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0xd949e7af_5a40_501a_9860_a23e352e8c0c);
+windows_core::imp::define_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 impl windows_core::RuntimeType for ISecondaryTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -114,7 +114,7 @@ pub struct ISecondaryTile_Vtbl {
     RequestDeleteAsyncWithRectAndPlacement: usize,
     pub UpdateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0x3486e08d_c6fd_5a39_b56f_c63653e9e3b0);
+windows_core::imp::define_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 impl windows_core::RuntimeType for ISecondaryTile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -165,7 +165,7 @@ pub struct ISecondaryTileStatics_Vtbl {
     pub FindAllForApplicationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindAllForPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x6bddf998_017c_5245_a3ba_78b43a86ff47);
+windows_core::imp::define_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x1d8df333_815e_413f_9f50_a81da70a96b2);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -194,7 +194,7 @@ pub struct ISecondaryTileVisualElements_Vtbl {
     pub SetShowNameOnSquare310x310Logo: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub ShowNameOnSquare310x310Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileVisualElements2, ISecondaryTileVisualElements2_Vtbl, 0x9300206e_26a2_5037_a464_783c97b1219a);
+windows_core::imp::define_interface!(ISecondaryTileVisualElements2, ISecondaryTileVisualElements2_Vtbl, 0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -205,7 +205,7 @@ pub struct ISecondaryTileVisualElements2_Vtbl {
     pub SetSquare71x71Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Square71x71Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISecondaryTileVisualElements3, ISecondaryTileVisualElements3_Vtbl, 0x89d0fac8_395b_5e65_b350_5727700b3055);
+windows_core::imp::define_interface!(ISecondaryTileVisualElements3, ISecondaryTileVisualElements3_Vtbl, 0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
 impl windows_core::RuntimeType for ISecondaryTileVisualElements3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -226,7 +226,7 @@ pub struct ISecondaryTileVisualElements4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MixedRealityModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x0d113d0e_232d_5a35_a222_714e3bae79fe);
+windows_core::imp::define_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 impl windows_core::RuntimeType for IStartScreenManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -295,7 +295,7 @@ pub struct ITileMixedRealityModel_Vtbl {
     #[cfg(not(feature = "Perception_Spatial"))]
     BoundingBox: usize,
 }
-windows_core::imp::define_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x675fc503_1089_5a3f_9ace_daf19293a9ca);
+windows_core::imp::define_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67);
 impl windows_core::RuntimeType for ITileMixedRealityModel2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -306,7 +306,7 @@ pub struct ITileMixedRealityModel2_Vtbl {
     pub SetActivationBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, TileMixedRealityModelActivationBehavior) -> windows_core::HRESULT,
     pub ActivationBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TileMixedRealityModelActivationBehavior) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVisualElementsRequest, IVisualElementsRequest_Vtbl, 0x9a512994_ad68_59a3_bce9_fc6f05949067);
+windows_core::imp::define_interface!(IVisualElementsRequest, IVisualElementsRequest_Vtbl, 0xc138333a_9308_4072_88cc_d068db347c68);
 impl windows_core::RuntimeType for IVisualElementsRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -329,7 +329,7 @@ pub struct IVisualElementsRequestDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVisualElementsRequestedEventArgs, IVisualElementsRequestedEventArgs_Vtbl, 0xf36318d0_3c6e_5006_9618_2c4a46be0e35);
+windows_core::imp::define_interface!(IVisualElementsRequestedEventArgs, IVisualElementsRequestedEventArgs_Vtbl, 0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 impl windows_core::RuntimeType for IVisualElementsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

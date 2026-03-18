@@ -22,9 +22,9 @@ where
     unsafe { CreateJobObjectW(lpjobattributes, lpname.param().abi()) }
 }
 #[inline]
-pub unsafe fn CreateJobSet(numjob: u32, userjobset: *mut JOB_SET_ARRAY, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn CreateJobSet(numjob : u32, userjobset : *mut JOB_SET_ARRAY, flags : u32) -> windows_core::BOOL);
-    unsafe { CreateJobSet(numjob, userjobset as _, flags) }
+pub unsafe fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn CreateJobSet(numjob : u32, userjobset : *const JOB_SET_ARRAY, flags : u32) -> windows_core::BOOL);
+    unsafe { CreateJobSet(numjob, userjobset, flags) }
 }
 #[inline]
 pub unsafe fn FreeMemoryJobObject(buffer: *const core::ffi::c_void) {
@@ -66,14 +66,14 @@ where
     unsafe { QueryIoRateControlInformationJobObject(hjob, volumename.param().abi(), infoblocks as _, infoblockcount as _) }
 }
 #[inline]
-pub unsafe fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut core::ffi::c_void, cbjobobjectinformationlength : u32) -> windows_core::BOOL);
-    unsafe { SetInformationJobObject(hjob, jobobjectinformationclass, lpjobobjectinformation as _, cbjobobjectinformationlength) }
+pub unsafe fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *const core::ffi::c_void, cbjobobjectinformationlength : u32) -> windows_core::BOOL);
+    unsafe { SetInformationJobObject(hjob, jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength) }
 }
 #[inline]
-pub unsafe fn SetIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, ioratecontrolinfo: *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn SetIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, ioratecontrolinfo : *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32);
-    unsafe { SetIoRateControlInformationJobObject(hjob, ioratecontrolinfo as _) }
+pub unsafe fn SetIoRateControlInformationJobObject(hjob: super::super::Foundation::HANDLE, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn SetIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, ioratecontrolinfo : *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32);
+    unsafe { SetIoRateControlInformationJobObject(hjob, ioratecontrolinfo) }
 }
 #[inline]
 pub unsafe fn TerminateJobObject(hjob: super::super::Foundation::HANDLE, uexitcode: u32) -> windows_core::BOOL {

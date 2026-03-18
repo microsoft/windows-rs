@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *mut windows_core::GUID, dwflags: u32) -> windows_core::BOOL {
-    windows_core::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext(phcatadmin : *mut isize, pgsubsystem : *mut windows_core::GUID, dwflags : u32) -> windows_core::BOOL);
-    unsafe { CryptCATAdminAcquireContext(phcatadmin as _, pgsubsystem as _, dwflags) }
+pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *const windows_core::GUID, dwflags: u32) -> windows_core::BOOL {
+    windows_core::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext(phcatadmin : *mut isize, pgsubsystem : *const windows_core::GUID, dwflags : u32) -> windows_core::BOOL);
+    unsafe { CryptCATAdminAcquireContext(phcatadmin as _, pgsubsystem, dwflags) }
 }
 #[inline]
 pub unsafe fn CryptCATAdminAcquireContext2<P2>(phcatadmin: *mut isize, pgsubsystem: *const windows_core::GUID, pwszhashalgorithm: P2, pstronghashpolicy: *const super::CERT_STRONG_SIGN_PARA, dwflags: u32) -> windows_core::BOOL
@@ -88,12 +88,12 @@ pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CR
 }
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
-pub unsafe fn CryptCATCDFEnumAttributesWithCDFTag<P1>(pcdf: *mut CRYPTCATCDF, pwszmembertag: P1, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE
+pub unsafe fn CryptCATCDFEnumAttributesWithCDFTag<P1>(pcdf: *const CRYPTCATCDF, pwszmembertag: P1, pmember: *const CRYPTCATMEMBER, pprevattr: *const CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributesWithCDFTag(pcdf : *mut CRYPTCATCDF, pwszmembertag : windows_core::PCWSTR, pmember : *mut CRYPTCATMEMBER, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
-    unsafe { CryptCATCDFEnumAttributesWithCDFTag(pcdf as _, pwszmembertag.param().abi(), pmember as _, pprevattr as _, pfnparseerror) }
+    windows_core::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributesWithCDFTag(pcdf : *const CRYPTCATCDF, pwszmembertag : windows_core::PCWSTR, pmember : *const CRYPTCATMEMBER, pprevattr : *const CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
+    unsafe { CryptCATCDFEnumAttributesWithCDFTag(pcdf, pwszmembertag.param().abi(), pmember, pprevattr, pfnparseerror) }
 }
 #[inline]
 pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
@@ -108,12 +108,9 @@ pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut C
 }
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
-pub unsafe fn CryptCATCDFEnumMembersByCDFTagEx<P1>(pcdf: *mut CRYPTCATCDF, pwszprevcdftag: P1, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK, ppmember: *mut *mut CRYPTCATMEMBER, fcontinueonerror: bool, pvreserved: *mut core::ffi::c_void) -> windows_core::PWSTR
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembersByCDFTagEx(pcdf : *mut CRYPTCATCDF, pwszprevcdftag : windows_core::PCWSTR, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK, ppmember : *mut *mut CRYPTCATMEMBER, fcontinueonerror : windows_core::BOOL, pvreserved : *mut core::ffi::c_void) -> windows_core::PWSTR);
-    unsafe { CryptCATCDFEnumMembersByCDFTagEx(pcdf as _, pwszprevcdftag.param().abi(), pfnparseerror, ppmember as _, fcontinueonerror.into(), pvreserved as _) }
+pub unsafe fn CryptCATCDFEnumMembersByCDFTagEx(pcdf: *const CRYPTCATCDF, pwszprevcdftag: windows_core::PWSTR, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK, ppmember: *const *const CRYPTCATMEMBER, fcontinueonerror: bool, pvreserved: *const core::ffi::c_void) -> windows_core::PWSTR {
+    windows_core::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembersByCDFTagEx(pcdf : *const CRYPTCATCDF, pwszprevcdftag : windows_core::PWSTR, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK, ppmember : *const *const CRYPTCATMEMBER, fcontinueonerror : windows_core::BOOL, pvreserved : *const core::ffi::c_void) -> windows_core::PWSTR);
+    unsafe { CryptCATCDFEnumMembersByCDFTagEx(pcdf, core::mem::transmute(pwszprevcdftag), pfnparseerror, ppmember, fcontinueonerror.into(), pvreserved) }
 }
 #[inline]
 pub unsafe fn CryptCATCDFOpen<P0>(pwszfilepath: P0, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF

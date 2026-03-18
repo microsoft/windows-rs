@@ -136,7 +136,7 @@ pub struct IAutomationConnection_Vtbl {
     pub AppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExecutableFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAutomationConnectionBoundObject, IAutomationConnectionBoundObject_Vtbl, 0xbc2794ca_3e24_5b5d_8f35_a275ab231835);
+windows_core::imp::define_interface!(IAutomationConnectionBoundObject, IAutomationConnectionBoundObject_Vtbl, 0x5e8558fb_ca52_5b65_9830_dd2905816093);
 impl windows_core::RuntimeType for IAutomationConnectionBoundObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -146,7 +146,7 @@ pub struct IAutomationConnectionBoundObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Connection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAutomationElement, IAutomationElement_Vtbl, 0x82702ea3_00f1_59df_a71b_5ecec340e8d9);
+windows_core::imp::define_interface!(IAutomationElement, IAutomationElement_Vtbl, 0xa1898370_2c07_56fd_993f_61a72a08058c);
 impl windows_core::RuntimeType for IAutomationElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

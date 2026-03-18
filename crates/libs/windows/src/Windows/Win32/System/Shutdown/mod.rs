@@ -97,12 +97,9 @@ pub unsafe fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -
     unsafe { ShutdownBlockReasonDestroy(hwnd) }
 }
 #[inline]
-pub unsafe fn ShutdownBlockReasonQuery<P1>(hwnd: super::super::Foundation::HWND, pwszbuff: P1, pcchbuff: *mut u32) -> windows_core::BOOL
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : windows_core::PCWSTR, pcchbuff : *mut u32) -> windows_core::BOOL);
-    unsafe { ShutdownBlockReasonQuery(hwnd, pwszbuff.param().abi(), pcchbuff as _) }
+pub unsafe fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: windows_core::PWSTR, pcchbuff: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : windows_core::PWSTR, pcchbuff : *mut u32) -> windows_core::BOOL);
+    unsafe { ShutdownBlockReasonQuery(hwnd, core::mem::transmute(pwszbuff), pcchbuff as _) }
 }
 pub const EWX_ARSO: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(67108864u32);
 pub const EWX_BOOTOPTIONS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(16777216u32);

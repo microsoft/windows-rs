@@ -81,7 +81,7 @@ impl IWSCDefaultProduct_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWSCDefaultProduct {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWSCProductList, IWSCProductList_Vtbl, 0x507fb8f7_9d0a_543e_9d8a_3fd5a60400aa);
+windows_core::imp::define_interface!(IWSCProductList, IWSCProductList_Vtbl, 0x722a338c_6e8e_4e72_ac27_1417fb0c81c2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWSCProductList {
     type Target = super::Com::IDispatch;
@@ -354,7 +354,7 @@ impl IWscProduct_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IWscProduct {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWscProduct2, IWscProduct2_Vtbl, 0xa408a973_1bcc_53b0_9d72_0f8c1c59cb1f);
+windows_core::imp::define_interface!(IWscProduct2, IWscProduct2_Vtbl, 0xf896ca54_fe09_4403_86d4_23cb488d81d8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWscProduct2 {
     type Target = IWscProduct;
