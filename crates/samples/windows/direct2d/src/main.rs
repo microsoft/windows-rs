@@ -528,7 +528,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
         D3D11CreateDevice(
             None,
             drive_type,
-            HMODULE::default(),
+            None,
             flags,
             None,
             D3D11_SDK_VERSION,
