@@ -8,7 +8,12 @@ fn roundtrip(winmd: &str, rdl: &str, filter: &[&str]) {
     }
     w.write().unwrap();
 
-    reader().input(rdl).output(winmd).write().unwrap();
+    reader()
+        .input(rdl)
+        .reference("crates/libs/bindgen/default")
+        .output(winmd)
+        .write()
+        .unwrap();
 }
 
 fn main() {
