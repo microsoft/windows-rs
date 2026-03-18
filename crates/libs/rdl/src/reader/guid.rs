@@ -162,7 +162,7 @@ pub fn type_to_string(ty: &Type) -> String {
         Type::Generic(name, index) => format!("Generic({name},{index})"),
         Type::Name(tn) => {
             if tn.generics.is_empty() {
-                format!("{}.{}", tn.namespace, windows_metadata::trim_tick(&tn.name))
+                format!("{}.{}", tn.namespace, tn.name)
             } else {
                 let args: Vec<String> = tn.generics.iter().map(type_to_string).collect();
                 format!(
