@@ -165,7 +165,12 @@ pub fn type_to_string(ty: &Type) -> String {
                 format!("{}.{}", tn.namespace, tn.name)
             } else {
                 let args: Vec<String> = tn.generics.iter().map(type_to_string).collect();
-                format!("{}.{}<{}>", tn.namespace, tn.name, args.join(","))
+                format!(
+                    "{}.{}<{}>",
+                    tn.namespace,
+                    windows_metadata::trim_tick(&tn.name),
+                    args.join(",")
+                )
             }
         }
         Type::PtrMut(inner, depth) => format!("PtrMut({},{})", type_to_string(inner), depth),

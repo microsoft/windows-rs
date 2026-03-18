@@ -8,7 +8,7 @@ mod r#enum;
 mod field;
 mod file;
 mod r#fn;
-pub(super) mod guid;
+pub(crate) mod guid;
 mod index;
 mod interface;
 mod item;
