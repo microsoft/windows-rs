@@ -14,7 +14,10 @@ fn roundtrip(winmd: &str, rdl: &str) {
 }
 
 fn main() {
-    roundtrip("crates/libs/bindgen/default/Windows.winmd", "target/rdl/Windows");
+    roundtrip(
+        "crates/libs/bindgen/default/Windows.winmd",
+        "target/rdl/Windows",
+    );
 
     roundtrip(
         "crates/libs/bindgen/default/Windows.Win32.winmd",
