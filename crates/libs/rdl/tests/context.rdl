@@ -1370,7 +1370,7 @@ mod Windows {
                             CallingConventionThisCall = 5,
                         }
                         #[library("dbgmodel.dll")]
-                        extern fn CreateDataModelManager(debugHost: IDebugHost, manager: *mut IDataModelManager) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn CreateDataModelManager(debugHost: IDebugHost, #[Windows::Win32::Foundation::Metadata::ComOutPtr] manager: *mut IDataModelManager) -> super::super::super::super::Foundation::HRESULT;
                         struct DBGKD_DEBUG_DATA_HEADER32 {
                             List: super::super::super::Kernel::LIST_ENTRY32,
                             OwnerTag: u32,
@@ -3506,13 +3506,13 @@ mod Windows {
                         interface DebugBaseEventCallbacks: IDebugEventCallbacks {}
                         interface DebugBaseEventCallbacksWide: IDebugEventCallbacksWide {}
                         #[library("dbgeng.dll")]
-                        extern fn DebugConnect(RemoteOptions: super::super::super::super::Foundation::PSTR, InterfaceId: *mut GUID, Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn DebugConnect(#[Windows::Win32::Foundation::Metadata::Const] RemoteOptions: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] InterfaceId: *mut GUID, Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
                         #[library("dbgeng.dll")]
-                        extern fn DebugConnectWide(RemoteOptions: super::super::super::super::Foundation::PWSTR, InterfaceId: *mut GUID, Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn DebugConnectWide(#[Windows::Win32::Foundation::Metadata::Const] RemoteOptions: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] InterfaceId: *mut GUID, Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
                         #[library("dbgeng.dll")]
-                        extern fn DebugCreate(InterfaceId: *mut GUID, Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn DebugCreate(#[Windows::Win32::Foundation::Metadata::Const] InterfaceId: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
                         #[library("dbgeng.dll")]
-                        extern fn DebugCreateEx(InterfaceId: *mut GUID, DbgEngOptions: u32, Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn DebugCreateEx(#[Windows::Win32::Foundation::Metadata::Const] InterfaceId: *mut GUID, DbgEngOptions: u32, #[Windows::Win32::Foundation::Metadata::ComOutPtr] Interface: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
                         extern fn ENTRY_CALLBACK(EntryAddress: u64, Context: *mut void) -> super::super::super::super::Foundation::HRESULT;
                         const ERROR_DBG_CANCELLED: u32 = 3221226695;
                         const ERROR_DBG_TIMEOUT: u32 = 3221226932;
@@ -3526,8 +3526,8 @@ mod Windows {
                         const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR: u32 = 3;
                         const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR_SYMSRV: u32 = 13;
                         extern fn EXTDLL_ITERATERTLBALANCEDNODES(RootNode: u64, EntryOffset: u32, Callback: ENTRY_CALLBACK, CallbackContext: *mut void);
-                        extern fn EXTDLL_QUERYDATABYTAG(Client: IDebugClient4, dwDataTag: u32, pQueryInfo: *mut void, pData: *mut u8, cbData: u32) -> super::super::super::super::Foundation::HRESULT;
-                        extern fn EXTDLL_QUERYDATABYTAGEX(Client: IDebugClient4, dwDataTag: u32, pQueryInfo: *mut void, pData: *mut u8, cbData: u32, pDataEx: *mut u8, cbDataEx: u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn EXTDLL_QUERYDATABYTAG(Client: IDebugClient4, dwDataTag: u32, pQueryInfo: *mut void, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 4)] pData: *mut u8, cbData: u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn EXTDLL_QUERYDATABYTAGEX(Client: IDebugClient4, dwDataTag: u32, pQueryInfo: *mut void, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 4)] pData: *mut u8, cbData: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 6)] pDataEx: *mut u8, cbDataEx: u32) -> super::super::super::super::Foundation::HRESULT;
                         struct EXTSTACKTRACE {
                             FramePointer: u32,
                             ProgramCounter: u32,
@@ -3549,7 +3549,7 @@ mod Windows {
                         extern fn EXTS_JOB_PROCESS_CALLBACK(Job: u64, Process: u64, Context: *mut void) -> super::super::super::super::Foundation::BOOLEAN;
                         extern fn EXTS_TABLE_ENTRY_CALLBACK(Entry: u64, Context: *mut void) -> super::super::super::super::Foundation::BOOLEAN;
                         extern fn EXT_ANALYSIS_PLUGIN(Client: IDebugClient4, CallPhase: FA_EXTENSION_PLUGIN_PHASE, pAnalysis: IDebugFailureAnalysis2) -> super::super::super::super::Foundation::HRESULT;
-                        extern fn EXT_ANALYZER(Client: IDebugClient, BucketSuffix: super::super::super::super::Foundation::PSTR, cbBucketSuffix: u32, DebugText: super::super::super::super::Foundation::PSTR, cbDebugText: u32, Flags: *mut u32, pAnalysis: IDebugFailureAnalysis) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn EXT_ANALYZER(Client: IDebugClient, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 2)] #[out] BucketSuffix: super::super::super::super::Foundation::PSTR, cbBucketSuffix: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 4)] #[out] DebugText: super::super::super::super::Foundation::PSTR, cbDebugText: u32, Flags: *mut u32, pAnalysis: IDebugFailureAnalysis) -> super::super::super::super::Foundation::HRESULT;
                         const EXT_ANALYZER_FLAG_ID: u32 = 2;
                         const EXT_ANALYZER_FLAG_MOD: u32 = 1;
                         struct EXT_API_VERSION {
@@ -3640,7 +3640,7 @@ mod Windows {
                             EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64 = 18,
                             EXT_TDOP_COUNT = 19,
                         }
-                        extern fn EXT_TRIAGE_FOLLOWUP(Client: IDebugClient4, SymbolName: super::super::super::super::Foundation::PSTR, OwnerInfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32;
+                        extern fn EXT_TRIAGE_FOLLOWUP(Client: IDebugClient4, #[Windows::Win32::Foundation::Metadata::Const] SymbolName: super::super::super::super::Foundation::PSTR, OwnerInfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32;
                         struct EXT_TYPED_DATA {
                             Operation: EXT_TDOP,
                             Flags: u32,
@@ -7576,20 +7576,20 @@ mod Windows {
                             WIN_NT6_1 = 8,
                             WIN_UNDEFINED = 255,
                         }
-                        extern fn PDEBUG_EXTENSION_CALL(Client: IDebugClient, Args: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn PDEBUG_EXTENSION_CALL(Client: IDebugClient, #[Windows::Win32::Foundation::Metadata::Const] Args: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
                         extern fn PDEBUG_EXTENSION_CANUNLOAD() -> super::super::super::super::Foundation::HRESULT;
                         extern fn PDEBUG_EXTENSION_INITIALIZE(Version: *mut u32, Flags: *mut u32) -> super::super::super::super::Foundation::HRESULT;
-                        extern fn PDEBUG_EXTENSION_KNOWN_STRUCT(Flags: u32, Offset: u64, TypeName: super::super::super::super::Foundation::PSTR, Buffer: super::super::super::super::Foundation::PSTR, BufferChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
-                        extern fn PDEBUG_EXTENSION_KNOWN_STRUCT_EX(Client: IDebugClient, Flags: u32, Offset: u64, TypeName: super::super::super::super::Foundation::PSTR, Buffer: super::super::super::super::Foundation::PSTR, BufferChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn PDEBUG_EXTENSION_KNOWN_STRUCT(Flags: u32, Offset: u64, TypeName: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] Buffer: super::super::super::super::Foundation::PSTR, BufferChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn PDEBUG_EXTENSION_KNOWN_STRUCT_EX(Client: IDebugClient, Flags: u32, Offset: u64, #[Windows::Win32::Foundation::Metadata::Const] TypeName: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] Buffer: super::super::super::super::Foundation::PSTR, BufferChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
                         extern fn PDEBUG_EXTENSION_NOTIFY(Notify: u32, Argument: u64);
-                        extern fn PDEBUG_EXTENSION_PROVIDE_VALUE(Client: IDebugClient, Flags: u32, Name: super::super::super::super::Foundation::PWSTR, Value: *mut u64, TypeModBase: *mut u64, TypeId: *mut u32, TypeFlags: *mut u32) -> super::super::super::super::Foundation::HRESULT;
-                        extern fn PDEBUG_EXTENSION_QUERY_VALUE_NAMES(Client: IDebugClient, Flags: u32, Buffer: super::super::super::super::Foundation::PWSTR, BufferChars: u32, BufferNeeded: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn PDEBUG_EXTENSION_PROVIDE_VALUE(Client: IDebugClient, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::super::Foundation::PWSTR, Value: *mut u64, TypeModBase: *mut u64, TypeId: *mut u32, TypeFlags: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn PDEBUG_EXTENSION_QUERY_VALUE_NAMES(Client: IDebugClient, Flags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferChars: u32, BufferNeeded: *mut u32) -> super::super::super::super::Foundation::HRESULT;
                         extern fn PDEBUG_EXTENSION_UNINITIALIZE();
                         extern fn PDEBUG_EXTENSION_UNLOAD();
-                        extern fn PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION(StreamType: u32, MiniDumpStreamBuffer: *mut void, BufferSize: u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION(StreamType: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] MiniDumpStreamBuffer: *mut void, BufferSize: u32) -> super::super::super::super::Foundation::HRESULT;
                         extern fn PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION() -> super::super::super::super::Foundation::HRESULT;
                         extern fn PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES(StackSymFrames: *mut STACK_SYM_FRAME_INFO) -> super::super::super::super::Foundation::HRESULT;
-                        extern fn PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK(SystemThreadId: u32, NativeFrames: *mut DEBUG_STACK_FRAME_EX, CountNativeFrames: u32, StackSymFrames: *mut *mut STACK_SYM_FRAME_INFO, StackSymFramesFilled: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK(SystemThreadId: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] NativeFrames: *mut DEBUG_STACK_FRAME_EX, CountNativeFrames: u32, StackSymFrames: *mut *mut STACK_SYM_FRAME_INFO, StackSymFramesFilled: *mut u32) -> super::super::super::super::Foundation::HRESULT;
                         extern fn PENUMERATE_HANDLES(Client: IDebugClient, Process: u64, HandleToDump: u64, Flags: u32, Callback: KDEXT_DUMP_HANDLE_CALLBACK, Context: *mut void) -> super::super::super::super::Foundation::HRESULT;
                         extern fn PENUMERATE_HASH_TABLE(Client: IDebugClient, HashTable: u64, Callback: EXTS_TABLE_ENTRY_CALLBACK, Context: *mut void) -> super::super::super::super::Foundation::HRESULT;
                         extern fn PENUMERATE_JOB_PROCESSES(Client: IDebugClient, Job: u64, Callback: EXTS_JOB_PROCESS_CALLBACK, Context: *mut void) -> super::super::super::super::Foundation::HRESULT;
@@ -7669,29 +7669,29 @@ mod Windows {
                         const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3;
                         extern fn PWINDBG_CHECK_CONTROL_C() -> u32;
                         extern fn PWINDBG_CHECK_VERSION() -> u32;
-                        extern fn PWINDBG_DISASM(lpOffset: *mut usize, lpBuffer: super::super::super::super::Foundation::PSTR, fShowEffectiveAddress: u32) -> u32;
-                        extern fn PWINDBG_DISASM32(lpOffset: *mut u32, lpBuffer: super::super::super::super::Foundation::PSTR, fShowEffectiveAddress: u32) -> u32;
-                        extern fn PWINDBG_DISASM64(lpOffset: *mut u64, lpBuffer: super::super::super::super::Foundation::PSTR, fShowEffectiveAddress: u32) -> u32;
+                        extern fn PWINDBG_DISASM(lpOffset: *mut usize, #[Windows::Win32::Foundation::Metadata::Const] lpBuffer: super::super::super::super::Foundation::PSTR, fShowEffectiveAddress: u32) -> u32;
+                        extern fn PWINDBG_DISASM32(lpOffset: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] lpBuffer: super::super::super::super::Foundation::PSTR, fShowEffectiveAddress: u32) -> u32;
+                        extern fn PWINDBG_DISASM64(lpOffset: *mut u64, #[Windows::Win32::Foundation::Metadata::Const] lpBuffer: super::super::super::super::Foundation::PSTR, fShowEffectiveAddress: u32) -> u32;
                         extern fn PWINDBG_EXTENSION_API_VERSION() -> *mut EXT_API_VERSION;
                         extern fn PWINDBG_EXTENSION_DLL_INIT(lpExtensionApis: *mut WINDBG_EXTENSION_APIS, MajorVersion: u16, MinorVersion: u16);
                         extern fn PWINDBG_EXTENSION_DLL_INIT32(lpExtensionApis: *mut WINDBG_EXTENSION_APIS32, MajorVersion: u16, MinorVersion: u16);
                         extern fn PWINDBG_EXTENSION_DLL_INIT64(lpExtensionApis: *mut WINDBG_EXTENSION_APIS64, MajorVersion: u16, MinorVersion: u16);
-                        extern fn PWINDBG_EXTENSION_ROUTINE(hCurrentProcess: super::super::super::super::Foundation::HANDLE, hCurrentThread: super::super::super::super::Foundation::HANDLE, dwCurrentPc: u32, dwProcessor: u32, lpArgumentString: super::super::super::super::Foundation::PSTR);
-                        extern fn PWINDBG_EXTENSION_ROUTINE32(hCurrentProcess: super::super::super::super::Foundation::HANDLE, hCurrentThread: super::super::super::super::Foundation::HANDLE, dwCurrentPc: u32, dwProcessor: u32, lpArgumentString: super::super::super::super::Foundation::PSTR);
-                        extern fn PWINDBG_EXTENSION_ROUTINE64(hCurrentProcess: super::super::super::super::Foundation::HANDLE, hCurrentThread: super::super::super::super::Foundation::HANDLE, dwCurrentPc: u64, dwProcessor: u32, lpArgumentString: super::super::super::super::Foundation::PSTR);
-                        extern fn PWINDBG_GET_EXPRESSION(lpExpression: super::super::super::super::Foundation::PSTR) -> usize;
-                        extern fn PWINDBG_GET_EXPRESSION32(lpExpression: super::super::super::super::Foundation::PSTR) -> u32;
-                        extern fn PWINDBG_GET_EXPRESSION64(lpExpression: super::super::super::super::Foundation::PSTR) -> u64;
-                        extern fn PWINDBG_GET_SYMBOL(offset: *mut void, pchBuffer: super::super::super::super::Foundation::PSTR, pDisplacement: *mut usize);
-                        extern fn PWINDBG_GET_SYMBOL32(offset: u32, pchBuffer: super::super::super::super::Foundation::PSTR, pDisplacement: *mut u32);
-                        extern fn PWINDBG_GET_SYMBOL64(offset: u64, pchBuffer: super::super::super::super::Foundation::PSTR, pDisplacement: *mut u64);
+                        extern fn PWINDBG_EXTENSION_ROUTINE(hCurrentProcess: super::super::super::super::Foundation::HANDLE, hCurrentThread: super::super::super::super::Foundation::HANDLE, dwCurrentPc: u32, dwProcessor: u32, #[Windows::Win32::Foundation::Metadata::Const] lpArgumentString: super::super::super::super::Foundation::PSTR);
+                        extern fn PWINDBG_EXTENSION_ROUTINE32(hCurrentProcess: super::super::super::super::Foundation::HANDLE, hCurrentThread: super::super::super::super::Foundation::HANDLE, dwCurrentPc: u32, dwProcessor: u32, #[Windows::Win32::Foundation::Metadata::Const] lpArgumentString: super::super::super::super::Foundation::PSTR);
+                        extern fn PWINDBG_EXTENSION_ROUTINE64(hCurrentProcess: super::super::super::super::Foundation::HANDLE, hCurrentThread: super::super::super::super::Foundation::HANDLE, dwCurrentPc: u64, dwProcessor: u32, #[Windows::Win32::Foundation::Metadata::Const] lpArgumentString: super::super::super::super::Foundation::PSTR);
+                        extern fn PWINDBG_GET_EXPRESSION(#[Windows::Win32::Foundation::Metadata::Const] lpExpression: super::super::super::super::Foundation::PSTR) -> usize;
+                        extern fn PWINDBG_GET_EXPRESSION32(#[Windows::Win32::Foundation::Metadata::Const] lpExpression: super::super::super::super::Foundation::PSTR) -> u32;
+                        extern fn PWINDBG_GET_EXPRESSION64(#[Windows::Win32::Foundation::Metadata::Const] lpExpression: super::super::super::super::Foundation::PSTR) -> u64;
+                        extern fn PWINDBG_GET_SYMBOL(offset: *mut void, #[Windows::Win32::Foundation::Metadata::NotNullTerminated] pchBuffer: super::super::super::super::Foundation::PSTR, pDisplacement: *mut usize);
+                        extern fn PWINDBG_GET_SYMBOL32(offset: u32, #[Windows::Win32::Foundation::Metadata::NotNullTerminated] pchBuffer: super::super::super::super::Foundation::PSTR, pDisplacement: *mut u32);
+                        extern fn PWINDBG_GET_SYMBOL64(offset: u64, #[Windows::Win32::Foundation::Metadata::NotNullTerminated] pchBuffer: super::super::super::super::Foundation::PSTR, pDisplacement: *mut u64);
                         extern fn PWINDBG_GET_THREAD_CONTEXT_ROUTINE(Processor: u32, lpContext: *mut super::CONTEXT, cbSizeOfContext: u32) -> u32;
                         extern fn PWINDBG_IOCTL_ROUTINE(IoctlType: u16, lpvData: *mut void, cbSize: u32) -> u32;
-                        extern fn PWINDBG_OLDKD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpArgumentString: super::super::super::super::Foundation::PSTR);
+                        extern fn PWINDBG_OLDKD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *mut WINDBG_OLDKD_EXTENSION_APIS, #[Windows::Win32::Foundation::Metadata::Const] lpArgumentString: super::super::super::super::Foundation::PSTR);
                         extern fn PWINDBG_OLDKD_READ_PHYSICAL_MEMORY(address: u64, buffer: *mut void, count: u32, bytesread: *mut u32) -> u32;
                         extern fn PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY(address: u64, buffer: *mut void, length: u32, byteswritten: *mut u32) -> u32;
-                        extern fn PWINDBG_OLD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *mut WINDBG_EXTENSION_APIS, lpArgumentString: super::super::super::super::Foundation::PSTR);
-                        extern "C" fn PWINDBG_OUTPUT_ROUTINE(lpFormat: super::super::super::super::Foundation::PSTR);
+                        extern fn PWINDBG_OLD_EXTENSION_ROUTINE(dwCurrentPc: u32, lpExtensionApis: *mut WINDBG_EXTENSION_APIS, #[Windows::Win32::Foundation::Metadata::Const] lpArgumentString: super::super::super::super::Foundation::PSTR);
+                        extern "C" fn PWINDBG_OUTPUT_ROUTINE(#[Windows::Win32::Foundation::Metadata::Const] lpFormat: super::super::super::super::Foundation::PSTR);
                         extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE(offset: usize, lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
                         extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE32(offset: u32, lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
                         extern fn PWINDBG_READ_PROCESS_MEMORY_ROUTINE64(offset: u64, lpBuffer: *mut void, cb: u32, lpcbBytesRead: *mut u32) -> u32;
@@ -7699,9 +7699,9 @@ mod Windows {
                         extern fn PWINDBG_STACKTRACE_ROUTINE(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, StackFrames: *mut EXTSTACKTRACE, Frames: u32) -> u32;
                         extern fn PWINDBG_STACKTRACE_ROUTINE32(FramePointer: u32, StackPointer: u32, ProgramCounter: u32, StackFrames: *mut EXTSTACKTRACE32, Frames: u32) -> u32;
                         extern fn PWINDBG_STACKTRACE_ROUTINE64(FramePointer: u64, StackPointer: u64, ProgramCounter: u64, StackFrames: *mut EXTSTACKTRACE64, Frames: u32) -> u32;
-                        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE(offset: usize, lpBuffer: *mut void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
-                        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32(offset: u32, lpBuffer: *mut void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
-                        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64(offset: u64, lpBuffer: *mut void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
+                        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE(offset: usize, #[Windows::Win32::Foundation::Metadata::Const] lpBuffer: *mut void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
+                        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32(offset: u32, #[Windows::Win32::Foundation::Metadata::Const] lpBuffer: *mut void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
+                        extern fn PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64(offset: u64, #[Windows::Win32::Foundation::Metadata::Const] lpBuffer: *mut void, cb: u32, lpcbBytesWritten: *mut u32) -> u32;
                         #[repr(i32)]
                         enum PointerKind {
                             PointerStandard = 0,
@@ -8094,7 +8094,7 @@ mod Windows {
                             Altitude: [super::super::super::super::Foundation::CHAR; 260],
                         }
                         const _EXTSAPI_VER_: u32 = 10;
-                        extern fn fnDebugFailureAnalysisCreateInstance(Client: IDebugClient, Args: super::super::super::super::Foundation::PWSTR, Flags: u32, rclsid: *mut GUID, riid: *mut GUID, ppv: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
+                        extern fn fnDebugFailureAnalysisCreateInstance(Client: IDebugClient, #[Windows::Win32::Foundation::Metadata::Const] Args: super::super::super::super::Foundation::PWSTR, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] rclsid: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppv: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
                     }
                     #[win32]
                     mod WebApp {
@@ -8869,11 +8869,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-bindimage")]
                     #[library("imagehlp.dll")]
-                    extern fn BindImage(ImageName: super::super::super::Foundation::PSTR, DllPath: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn BindImage(#[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] DllPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-bindimageex")]
                     #[library("imagehlp.dll")]
-                    extern fn BindImageEx(Flags: u32, ImageName: super::super::super::Foundation::PSTR, DllPath: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, StatusRoutine: PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation::BOOL;
+                    extern fn BindImageEx(Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] DllPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, StatusRoutine: PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation::BOOL;
                     const CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE: u32 = 2147483648;
                     const CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS: u32 = 1879048192;
                     const CBA_DEBUG_INFO: u32 = 268435456;
@@ -9417,10 +9417,10 @@ mod Windows {
                     }
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[library("dbghelp.dll")]
-                    extern fn DbgHelpCreateUserDump(FileName: super::super::super::Foundation::PSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, UserData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn DbgHelpCreateUserDump(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, UserData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[library("dbghelp.dll")]
-                    extern fn DbgHelpCreateUserDumpW(FileName: super::super::super::Foundation::PWSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, UserData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn DbgHelpCreateUserDumpW(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, Callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, UserData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/debugapi/nf-debugapi-debugactiveprocess")]
                     #[library("KERNEL32.dll")]
@@ -9533,11 +9533,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-enumdirtree")]
                     #[library("dbghelp.dll")]
-                    extern fn EnumDirTree(hProcess: super::super::super::Foundation::HANDLE, RootPath: super::super::super::Foundation::PSTR, InputPathName: super::super::super::Foundation::PSTR, OutputPathBuffer: super::super::super::Foundation::PSTR, cb: PENUMDIRTREE_CALLBACK, data: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn EnumDirTree(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] RootPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] InputPathName: super::super::super::Foundation::PSTR, #[out] OutputPathBuffer: super::super::super::Foundation::PSTR, cb: PENUMDIRTREE_CALLBACK, data: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-enumdirtreew")]
                     #[library("dbghelp.dll")]
-                    extern fn EnumDirTreeW(hProcess: super::super::super::Foundation::HANDLE, RootPath: super::super::super::Foundation::PWSTR, InputPathName: super::super::super::Foundation::PWSTR, OutputPathBuffer: super::super::super::Foundation::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn EnumDirTreeW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] RootPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] InputPathName: super::super::super::Foundation::PWSTR, #[out] OutputPathBuffer: super::super::super::Foundation::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-enumerateloadedmodules")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
@@ -9757,56 +9757,56 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errhandlingapi/nf-errhandlingapi-fatalappexita")]
                     #[library("KERNEL32.dll")]
-                    extern fn FatalAppExitA(uAction: u32, lpMessageText: super::super::super::Foundation::PSTR);
+                    extern fn FatalAppExitA(uAction: u32, #[Windows::Win32::Foundation::Metadata::Const] lpMessageText: super::super::super::Foundation::PSTR);
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errhandlingapi/nf-errhandlingapi-fatalappexitw")]
                     #[library("KERNEL32.dll")]
-                    extern fn FatalAppExitW(uAction: u32, lpMessageText: super::super::super::Foundation::PWSTR);
+                    extern fn FatalAppExitW(uAction: u32, #[Windows::Win32::Foundation::Metadata::Const] lpMessageText: super::super::super::Foundation::PWSTR);
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-fatalexit")]
                     #[library("KERNEL32.dll")]
                     extern fn FatalExit(ExitCode: i32);
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-finddebuginfofile")]
                     #[library("dbghelp.dll")]
-                    extern fn FindDebugInfoFile(FileName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, DebugFilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE;
+                    extern fn FindDebugInfoFile(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, #[out] DebugFilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-finddebuginfofileex")]
                     #[library("dbghelp.dll")]
-                    extern fn FindDebugInfoFileEx(FileName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, DebugFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_DEBUG_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn FindDebugInfoFileEx(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, #[out] DebugFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_DEBUG_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-finddebuginfofileexw")]
                     #[library("dbghelp.dll")]
-                    extern fn FindDebugInfoFileExW(FileName: super::super::super::Foundation::PWSTR, SymbolPath: super::super::super::Foundation::PWSTR, DebugFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_DEBUG_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn FindDebugInfoFileExW(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PWSTR, #[out] DebugFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_DEBUG_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-findexecutableimage")]
                     #[library("dbghelp.dll")]
-                    extern fn FindExecutableImage(FileName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, ImageFilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE;
+                    extern fn FindExecutableImage(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, #[out] ImageFilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-findexecutableimageex")]
                     #[library("dbghelp.dll")]
-                    extern fn FindExecutableImageEx(FileName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, ImageFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_EXE_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn FindExecutableImageEx(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, #[out] ImageFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_EXE_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-findexecutableimageexw")]
                     #[library("dbghelp.dll")]
-                    extern fn FindExecutableImageExW(FileName: super::super::super::Foundation::PWSTR, SymbolPath: super::super::super::Foundation::PWSTR, ImageFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_EXE_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn FindExecutableImageExW(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PWSTR, #[out] ImageFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_EXE_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[library("dbghelp.dll")]
-                    extern fn FindFileInPath(hprocess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PSTR, FileName: super::super::super::Foundation::PSTR, id: *mut void, two: u32, three: u32, flags: u32, FilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn FindFileInPath(hprocess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SearchPathA: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, id: *mut void, two: u32, three: u32, flags: u32, #[out] FilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[library("dbghelp.dll")]
-                    extern fn FindFileInSearchPath(hprocess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PSTR, FileName: super::super::super::Foundation::PSTR, one: u32, two: u32, three: u32, FilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn FindFileInSearchPath(hprocess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SearchPathA: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, one: u32, two: u32, three: u32, #[out] FilePath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processthreadsapi/nf-processthreadsapi-flushinstructioncache")]
                     #[library("KERNEL32.dll")]
-                    extern fn FlushInstructionCache(hProcess: super::super::super::Foundation::HANDLE, lpBaseAddress: *mut void, dwSize: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn FlushInstructionCache(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 2)] lpBaseAddress: *mut void, dwSize: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-formatmessagea")]
                     #[library("KERNEL32.dll")]
-                    extern fn FormatMessageA(dwFlags: FORMAT_MESSAGE_OPTIONS, lpSource: *mut void, dwMessageId: u32, dwLanguageId: u32, lpBuffer: super::super::super::Foundation::PSTR, nSize: u32, Arguments: *mut *mut i8) -> u32;
+                    extern fn FormatMessageA(dwFlags: FORMAT_MESSAGE_OPTIONS, #[Windows::Win32::Foundation::Metadata::Const] lpSource: *mut void, dwMessageId: u32, dwLanguageId: u32, #[out] lpBuffer: super::super::super::Foundation::PSTR, nSize: u32, Arguments: *mut *mut i8) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-formatmessagew")]
                     #[library("KERNEL32.dll")]
-                    extern fn FormatMessageW(dwFlags: FORMAT_MESSAGE_OPTIONS, lpSource: *mut void, dwMessageId: u32, dwLanguageId: u32, lpBuffer: super::super::super::Foundation::PWSTR, nSize: u32, Arguments: *mut *mut i8) -> u32;
+                    extern fn FormatMessageW(dwFlags: FORMAT_MESSAGE_OPTIONS, #[Windows::Win32::Foundation::Metadata::Const] lpSource: *mut void, dwMessageId: u32, dwLanguageId: u32, #[out] lpBuffer: super::super::super::Foundation::PWSTR, nSize: u32, Arguments: *mut *mut i8) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getenabledxstatefeatures")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64 | X86)]
@@ -9848,7 +9848,7 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wct/nf-wct-getthreadwaitchain")]
                     #[library("ADVAPI32.dll")]
-                    extern fn GetThreadWaitChain(WctHandle: *mut void, Context: usize, Flags: WAIT_CHAIN_THREAD_OPTIONS, ThreadId: u32, NodeCount: *mut u32, NodeInfoArray: *mut WAITCHAIN_NODE_INFO, IsCycle: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    extern fn GetThreadWaitChain(WctHandle: *mut void, Context: usize, Flags: WAIT_CHAIN_THREAD_OPTIONS, ThreadId: u32, NodeCount: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] NodeInfoArray: *mut WAITCHAIN_NODE_INFO, IsCycle: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-gettimestampforloadedlibrary")]
                     #[library("dbghelp.dll")]
                     extern fn GetTimestampForLoadedLibrary(Module: super::super::super::Foundation::HMODULE) -> u32;
@@ -10902,7 +10902,7 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-imageenumeratecertificates")]
                     #[library("imagehlp.dll")]
-                    extern fn ImageEnumerateCertificates(FileHandle: super::super::super::Foundation::HANDLE, TypeFilter: u16, CertificateCount: *mut u32, Indices: *mut u32, IndexCount: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn ImageEnumerateCertificates(FileHandle: super::super::super::Foundation::HANDLE, TypeFilter: u16, CertificateCount: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] Indices: *mut u32, IndexCount: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-imagegetcertificatedata")]
                     #[library("imagehlp.dll")]
@@ -10918,7 +10918,7 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-imageload")]
                     #[library("imagehlp.dll")]
-                    extern fn ImageLoad(DllName: super::super::super::Foundation::PSTR, DllPath: super::super::super::Foundation::PSTR) -> *mut LOADED_IMAGE;
+                    extern fn ImageLoad(#[Windows::Win32::Foundation::Metadata::Const] DllName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] DllPath: super::super::super::Foundation::PSTR) -> *mut LOADED_IMAGE;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-imagentheader")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
@@ -10960,10 +10960,10 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-initializecontext")]
                     #[library("KERNEL32.dll")]
-                    extern fn InitializeContext(Buffer: *mut void, ContextFlags: CONTEXT_FLAGS, Context: *mut *mut CONTEXT, ContextLength: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn InitializeContext(#[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] Buffer: *mut void, ContextFlags: CONTEXT_FLAGS, Context: *mut *mut CONTEXT, ContextLength: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-initializecontext2")]
                     #[library("KERNEL32.dll")]
-                    extern fn InitializeContext2(Buffer: *mut void, ContextFlags: CONTEXT_FLAGS, Context: *mut *mut CONTEXT, ContextLength: *mut u32, XStateCompactionMask: u64) -> super::super::super::Foundation::BOOL;
+                    extern fn InitializeContext2(#[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] Buffer: *mut void, ContextFlags: CONTEXT_FLAGS, Context: *mut *mut CONTEXT, ContextLength: *mut u32, XStateCompactionMask: u64) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/debugapi/nf-debugapi-isdebuggerpresent")]
                     #[library("KERNEL32.dll")]
@@ -12102,21 +12102,21 @@ mod Windows {
                     }
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-makesuredirectorypathexists")]
                     #[library("dbghelp.dll")]
-                    extern fn MakeSureDirectoryPathExists(DirPath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn MakeSureDirectoryPathExists(#[Windows::Win32::Foundation::Metadata::Const] DirPath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-mapandload")]
                     #[library("imagehlp.dll")]
-                    extern fn MapAndLoad(ImageName: super::super::super::Foundation::PSTR, DllPath: super::super::super::Foundation::PSTR, LoadedImage: *mut LOADED_IMAGE, DotDll: super::super::super::Foundation::BOOL, ReadOnly: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    extern fn MapAndLoad(#[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] DllPath: super::super::super::Foundation::PSTR, LoadedImage: *mut LOADED_IMAGE, DotDll: super::super::super::Foundation::BOOL, ReadOnly: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-mapfileandchecksuma")]
                     #[library("imagehlp.dll")]
-                    extern fn MapFileAndCheckSumA(Filename: super::super::super::Foundation::PSTR, HeaderSum: *mut u32, CheckSum: *mut u32) -> u32;
+                    extern fn MapFileAndCheckSumA(#[Windows::Win32::Foundation::Metadata::Const] Filename: super::super::super::Foundation::PSTR, HeaderSum: *mut u32, CheckSum: *mut u32) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-mapfileandchecksumw")]
                     #[library("imagehlp.dll")]
-                    extern fn MapFileAndCheckSumW(Filename: super::super::super::Foundation::PWSTR, HeaderSum: *mut u32, CheckSum: *mut u32) -> u32;
+                    extern fn MapFileAndCheckSumW(#[Windows::Win32::Foundation::Metadata::Const] Filename: super::super::super::Foundation::PWSTR, HeaderSum: *mut u32, CheckSum: *mut u32) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-messagebeep")]
                     #[library("USER32.dll")]
@@ -12189,36 +12189,36 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/debugapi/nf-debugapi-outputdebugstringa")]
                     #[library("KERNEL32.dll")]
-                    extern fn OutputDebugStringA(lpOutputString: super::super::super::Foundation::PSTR);
+                    extern fn OutputDebugStringA(#[Windows::Win32::Foundation::Metadata::Const] lpOutputString: super::super::super::Foundation::PSTR);
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/debugapi/nf-debugapi-outputdebugstringw")]
                     #[library("KERNEL32.dll")]
-                    extern fn OutputDebugStringW(lpOutputString: super::super::super::Foundation::PWSTR);
+                    extern fn OutputDebugStringW(#[Windows::Win32::Foundation::Metadata::Const] lpOutputString: super::super::super::Foundation::PWSTR);
                     extern fn PCOGETACTIVATIONSTATE(param0: GUID, param1: u32, param2: *mut u32) -> super::super::super::Foundation::HRESULT;
                     extern fn PCOGETCALLSTATE(param0: i32, param1: *mut u32) -> super::super::super::Foundation::HRESULT;
                     extern fn PDBGHELP_CREATE_USER_DUMP_CALLBACK(DataType: u32, Data: *mut *mut void, DataLength: *mut u32, UserData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PENUMDIRTREE_CALLBACK(FilePath: super::super::super::Foundation::PSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PENUMDIRTREE_CALLBACK(#[Windows::Win32::Foundation::Metadata::Const] FilePath: super::super::super::Foundation::PSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PENUMDIRTREE_CALLBACKW(FilePath: super::super::super::Foundation::PWSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PENUMDIRTREE_CALLBACKW(#[Windows::Win32::Foundation::Metadata::Const] FilePath: super::super::super::Foundation::PWSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
-                    extern fn PENUMLOADED_MODULES_CALLBACK(ModuleName: super::super::super::Foundation::PSTR, ModuleBase: u32, ModuleSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
-                    extern fn PENUMLOADED_MODULES_CALLBACK64(ModuleName: super::super::super::Foundation::PSTR, ModuleBase: u64, ModuleSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
-                    extern fn PENUMLOADED_MODULES_CALLBACKW64(ModuleName: super::super::super::Foundation::PWSTR, ModuleBase: u64, ModuleSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PENUMLOADED_MODULES_CALLBACK(#[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, ModuleBase: u32, ModuleSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PENUMLOADED_MODULES_CALLBACK64(#[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, ModuleBase: u64, ModuleSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PENUMLOADED_MODULES_CALLBACKW64(#[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PWSTR, ModuleBase: u64, ModuleSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     extern fn PENUMSOURCEFILETOKENSCALLBACK(token: *mut void, size: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PFINDFILEINPATHCALLBACK(filename: super::super::super::Foundation::PSTR, context: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PFINDFILEINPATHCALLBACK(#[Windows::Win32::Foundation::Metadata::Const] filename: super::super::super::Foundation::PSTR, context: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PFINDFILEINPATHCALLBACKW(filename: super::super::super::Foundation::PWSTR, context: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PFINDFILEINPATHCALLBACKW(#[Windows::Win32::Foundation::Metadata::Const] filename: super::super::super::Foundation::PWSTR, context: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PFIND_DEBUG_FILE_CALLBACK(FileHandle: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PFIND_DEBUG_FILE_CALLBACK(FileHandle: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PFIND_DEBUG_FILE_CALLBACKW(FileHandle: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PWSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PFIND_DEBUG_FILE_CALLBACKW(FileHandle: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PFIND_EXE_FILE_CALLBACK(FileHandle: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PFIND_EXE_FILE_CALLBACK(FileHandle: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PFIND_EXE_FILE_CALLBACKW(FileHandle: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PWSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PFIND_EXE_FILE_CALLBACKW(FileHandle: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, CallerData: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     extern fn PFUNCTION_TABLE_ACCESS_ROUTINE(hProcess: super::super::super::Foundation::HANDLE, AddrBase: u32) -> *mut void;
                     extern fn PFUNCTION_TABLE_ACCESS_ROUTINE64(ahProcess: super::super::super::Foundation::HANDLE, AddrBase: u64) -> *mut void;
@@ -12250,12 +12250,12 @@ mod Windows {
                         BasePage: u64,
                         PageCount: u64,
                     }
-                    extern fn PIMAGEHLP_STATUS_ROUTINE(Reason: IMAGEHLP_STATUS_REASON, ImageName: super::super::super::Foundation::PSTR, DllName: super::super::super::Foundation::PSTR, Va: usize, Parameter: usize) -> super::super::super::Foundation::BOOL;
-                    extern fn PIMAGEHLP_STATUS_ROUTINE32(Reason: IMAGEHLP_STATUS_REASON, ImageName: super::super::super::Foundation::PSTR, DllName: super::super::super::Foundation::PSTR, Va: u32, Parameter: usize) -> super::super::super::Foundation::BOOL;
-                    extern fn PIMAGEHLP_STATUS_ROUTINE64(Reason: IMAGEHLP_STATUS_REASON, ImageName: super::super::super::Foundation::PSTR, DllName: super::super::super::Foundation::PSTR, Va: u64, Parameter: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn PIMAGEHLP_STATUS_ROUTINE(Reason: IMAGEHLP_STATUS_REASON, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] DllName: super::super::super::Foundation::PSTR, Va: usize, Parameter: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn PIMAGEHLP_STATUS_ROUTINE32(Reason: IMAGEHLP_STATUS_REASON, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] DllName: super::super::super::Foundation::PSTR, Va: u32, Parameter: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn PIMAGEHLP_STATUS_ROUTINE64(Reason: IMAGEHLP_STATUS_REASON, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] DllName: super::super::super::Foundation::PSTR, Va: u64, Parameter: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
-                    extern fn PREAD_PROCESS_MEMORY_ROUTINE(hProcess: super::super::super::Foundation::HANDLE, lpBaseAddress: u32, lpBuffer: *mut void, nSize: u32, lpNumberOfBytesRead: *mut u32) -> super::super::super::Foundation::BOOL;
-                    extern fn PREAD_PROCESS_MEMORY_ROUTINE64(hProcess: super::super::super::Foundation::HANDLE, qwBaseAddress: u64, lpBuffer: *mut void, nSize: u32, lpNumberOfBytesRead: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn PREAD_PROCESS_MEMORY_ROUTINE(hProcess: super::super::super::Foundation::HANDLE, lpBaseAddress: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] lpBuffer: *mut void, nSize: u32, lpNumberOfBytesRead: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn PREAD_PROCESS_MEMORY_ROUTINE64(hProcess: super::super::super::Foundation::HANDLE, qwBaseAddress: u64, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] lpBuffer: *mut void, nSize: u32, lpNumberOfBytesRead: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[repr(i32)]
                     enum PROP_INFO_FLAGS {
                         PROP_INFO_NAME = 1,
@@ -12267,17 +12267,17 @@ mod Windows {
                         PROP_INFO_AUTOEXPAND = 134217728,
                     }
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERBYINDEXPROC(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERBYINDEXPROC(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERBYINDEXPROCA(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERBYINDEXPROCA(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERBYINDEXPROCW(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERBYINDEXPROCW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERCALLBACKPROC(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERCLOSEPROC() -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERDELTANAME(param0: super::super::super::Foundation::PSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERDELTANAME(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERDELTANAMEW(param0: super::super::super::Foundation::PWSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERDELTANAMEW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR, param1: *mut void, param2: u32, param3: u32, param4: *mut void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     extern fn PSYMBOLSERVERGETINDEXSTRING(param0: *mut void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
@@ -12285,42 +12285,42 @@ mod Windows {
                     extern fn PSYMBOLSERVERGETOPTIONDATAPROC(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERGETOPTIONSPROC() -> usize;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERGETSUPPLEMENT(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERGETSUPPLEMENT(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERGETSUPPLEMENTW(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERGETSUPPLEMENTW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERGETVERSION(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERISSTORE(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERISSTORE(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERISSTOREW(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERISSTOREW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERMESSAGEPROC(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVEROPENPROC() -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERPINGPROC(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERPINGPROC(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERPINGPROCA(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERPINGPROCA(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERPINGPROCW(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
-                    extern fn PSYMBOLSERVERPINGPROCWEX(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERPINGPROCW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERPINGPROCWEX(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERPROC(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERPROC(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERPROCA(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERPROCA(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERPROCW(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
-                    extern fn PSYMBOLSERVERSETHTTPAUTHHEADER(pszAuthHeader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERPROCW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PWSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERSETHTTPAUTHHEADER(#[Windows::Win32::Foundation::Metadata::Const] pszAuthHeader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERSETOPTIONSPROC(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERSETOPTIONSWPROC(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERSTOREFILE(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERSTOREFILE(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERSTOREFILEW(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERSTOREFILEW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PWSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYMBOLSERVERSTORESUPPLEMENT(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERSTORESUPPLEMENT(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYMBOLSERVERSTORESUPPLEMENTW(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERSTORESUPPLEMENTW(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOLSERVERVERSION() -> u32;
-                    extern fn PSYMBOLSERVERWEXPROC(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYMBOLSERVERWEXPROC(#[Windows::Win32::Foundation::Metadata::Const] param0: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] param1: super::super::super::Foundation::PWSTR, param2: *mut void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL;
                     extern fn PSYMBOL_FUNCENTRY_CALLBACK(hProcess: super::super::super::Foundation::HANDLE, AddrBase: u32, UserContext: *mut void) -> *mut void;
                     extern fn PSYMBOL_FUNCENTRY_CALLBACK64(hProcess: super::super::super::Foundation::HANDLE, AddrBase: u64, UserContext: u64) -> *mut void;
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
@@ -12335,9 +12335,9 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     extern fn PSYM_ENUMLINES_CALLBACKW(LineInfo: *mut SRCCODEINFOW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
-                    extern fn PSYM_ENUMMODULES_CALLBACK(ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
-                    extern fn PSYM_ENUMMODULES_CALLBACK64(ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u64, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
-                    extern fn PSYM_ENUMMODULES_CALLBACKW64(ModuleName: super::super::super::Foundation::PWSTR, BaseOfDll: u64, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYM_ENUMMODULES_CALLBACK(#[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYM_ENUMMODULES_CALLBACK64(#[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u64, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYM_ENUMMODULES_CALLBACKW64(#[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PWSTR, BaseOfDll: u64, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     extern fn PSYM_ENUMPROCESSES_CALLBACK(hProcess: super::super::super::Foundation::HANDLE, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     extern fn PSYM_ENUMSOURCEFILES_CALLBACK(pSourceFile: *mut SOURCEFILE, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
@@ -12345,14 +12345,14 @@ mod Windows {
                     extern fn PSYM_ENUMSOURCEFILES_CALLBACKW(pSourceFile: *mut SOURCEFILEW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
-                    extern fn PSYM_ENUMSYMBOLS_CALLBACK(SymbolName: super::super::super::Foundation::PSTR, SymbolAddress: u32, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYM_ENUMSYMBOLS_CALLBACK(#[Windows::Win32::Foundation::Metadata::Const] SymbolName: super::super::super::Foundation::PSTR, SymbolAddress: u32, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
-                    extern fn PSYM_ENUMSYMBOLS_CALLBACK64(SymbolName: super::super::super::Foundation::PSTR, SymbolAddress: u64, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYM_ENUMSYMBOLS_CALLBACK64(#[Windows::Win32::Foundation::Metadata::Const] SymbolName: super::super::super::Foundation::PSTR, SymbolAddress: u64, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
-                    extern fn PSYM_ENUMSYMBOLS_CALLBACK64W(SymbolName: super::super::super::Foundation::PWSTR, SymbolAddress: u64, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYM_ENUMSYMBOLS_CALLBACK64W(#[Windows::Win32::Foundation::Metadata::Const] SymbolName: super::super::super::Foundation::PWSTR, SymbolAddress: u64, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
-                    extern fn PSYM_ENUMSYMBOLS_CALLBACKW(SymbolName: super::super::super::Foundation::PWSTR, SymbolAddress: u32, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PSYM_ENUMSYMBOLS_CALLBACKW(#[Windows::Win32::Foundation::Metadata::Const] SymbolName: super::super::super::Foundation::PWSTR, SymbolAddress: u32, SymbolSize: u32, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     extern fn PTRANSLATE_ADDRESS_ROUTINE(hProcess: super::super::super::Foundation::HANDLE, hThread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32;
                     extern fn PTRANSLATE_ADDRESS_ROUTINE64(hProcess: super::super::super::Foundation::HANDLE, hThread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS64) -> u64;
@@ -12383,35 +12383,35 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errhandlingapi/nf-errhandlingapi-raiseexception")]
                     #[library("KERNEL32.dll")]
-                    extern fn RaiseException(dwExceptionCode: u32, dwExceptionFlags: u32, nNumberOfArguments: u32, lpArguments: *mut usize);
+                    extern fn RaiseException(dwExceptionCode: u32, dwExceptionFlags: u32, nNumberOfArguments: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] lpArguments: *mut usize);
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errhandlingapi/nf-errhandlingapi-raisefailfastexception")]
                     #[library("KERNEL32.dll")]
                     extern fn RaiseFailFastException(pExceptionRecord: *mut EXCEPTION_RECORD, pContextRecord: *mut CONTEXT, dwFlags: u32);
                     #[library("dbghelp.dll")]
-                    extern fn RangeMapAddPeImageSections(RmapHandle: *mut void, ImageName: super::super::super::Foundation::PWSTR, MappedImage: *mut void, MappingBytes: u32, ImageBase: u64, UserTag: u64, MappingFlags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn RangeMapAddPeImageSections(RmapHandle: *mut void, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] MappedImage: *mut void, MappingBytes: u32, ImageBase: u64, UserTag: u64, MappingFlags: u32) -> super::super::super::Foundation::BOOL;
                     #[library("dbghelp.dll")]
                     extern fn RangeMapCreate() -> *mut void;
                     #[library("dbghelp.dll")]
                     extern fn RangeMapFree(RmapHandle: *mut void);
                     #[library("dbghelp.dll")]
-                    extern fn RangeMapRead(RmapHandle: *mut void, Offset: u64, Buffer: *mut void, RequestBytes: u32, Flags: u32, DoneBytes: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn RangeMapRead(RmapHandle: *mut void, Offset: u64, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] Buffer: *mut void, RequestBytes: u32, Flags: u32, DoneBytes: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[library("dbghelp.dll")]
                     extern fn RangeMapRemove(RmapHandle: *mut void, UserTag: u64) -> super::super::super::Foundation::BOOL;
                     #[library("dbghelp.dll")]
-                    extern fn RangeMapWrite(RmapHandle: *mut void, Offset: u64, Buffer: *mut void, RequestBytes: u32, Flags: u32, DoneBytes: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn RangeMapWrite(RmapHandle: *mut void, Offset: u64, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] Buffer: *mut void, RequestBytes: u32, Flags: u32, DoneBytes: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-rebaseimage")]
                     #[library("imagehlp.dll")]
-                    extern fn ReBaseImage(CurrentImageName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, fReBase: super::super::super::Foundation::BOOL, fRebaseSysfileOk: super::super::super::Foundation::BOOL, fGoingDown: super::super::super::Foundation::BOOL, CheckImageSize: u32, OldImageSize: *mut u32, OldImageBase: *mut usize, NewImageSize: *mut u32, NewImageBase: *mut usize, TimeStamp: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn ReBaseImage(#[Windows::Win32::Foundation::Metadata::Const] CurrentImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, fReBase: super::super::super::Foundation::BOOL, fRebaseSysfileOk: super::super::super::Foundation::BOOL, fGoingDown: super::super::super::Foundation::BOOL, CheckImageSize: u32, OldImageSize: *mut u32, OldImageBase: *mut usize, NewImageSize: *mut u32, NewImageBase: *mut usize, TimeStamp: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-rebaseimage64")]
                     #[library("imagehlp.dll")]
-                    extern fn ReBaseImage64(CurrentImageName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, fReBase: super::super::super::Foundation::BOOL, fRebaseSysfileOk: super::super::super::Foundation::BOOL, fGoingDown: super::super::super::Foundation::BOOL, CheckImageSize: u32, OldImageSize: *mut u32, OldImageBase: *mut u64, NewImageSize: *mut u32, NewImageBase: *mut u64, TimeStamp: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn ReBaseImage64(#[Windows::Win32::Foundation::Metadata::Const] CurrentImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, fReBase: super::super::super::Foundation::BOOL, fRebaseSysfileOk: super::super::super::Foundation::BOOL, fGoingDown: super::super::super::Foundation::BOOL, CheckImageSize: u32, OldImageSize: *mut u32, OldImageBase: *mut u64, NewImageSize: *mut u32, NewImageBase: *mut u64, TimeStamp: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/memoryapi/nf-memoryapi-readprocessmemory")]
                     #[library("KERNEL32.dll")]
-                    extern fn ReadProcessMemory(hProcess: super::super::super::Foundation::HANDLE, lpBaseAddress: *mut void, lpBuffer: *mut void, nSize: usize, lpNumberOfBytesRead: *mut usize) -> super::super::super::Foundation::BOOL;
+                    extern fn ReadProcessMemory(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] lpBaseAddress: *mut void, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] lpBuffer: *mut void, nSize: usize, lpNumberOfBytesRead: *mut usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wct/nf-wct-registerwaitchaincomcallback")]
                     #[library("ADVAPI32.dll")]
@@ -12427,25 +12427,25 @@ mod Windows {
                     #[library("KERNEL32.dll")]
                     extern fn RemoveVectoredExceptionHandler(Handle: *mut void) -> u32;
                     #[library("dbghelp.dll")]
-                    extern fn ReportSymbolLoadSummary(hProcess: super::super::super::Foundation::HANDLE, pLoadModule: super::super::super::Foundation::PWSTR, pSymbolData: *mut DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL;
+                    extern fn ReportSymbolLoadSummary(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] pLoadModule: super::super::super::Foundation::PWSTR, pSymbolData: *mut DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
                     #[library("KERNEL32.dll")]
-                    extern fn RtlAddFunctionTable(FunctionTable: *mut IMAGE_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, BaseAddress: u64) -> super::super::super::Foundation::BOOLEAN;
+                    extern fn RtlAddFunctionTable(#[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] FunctionTable: *mut IMAGE_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, BaseAddress: u64) -> super::super::super::Foundation::BOOLEAN;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtladdfunctiontable")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
                     #[library("KERNEL32.dll")]
-                    extern fn RtlAddFunctionTable(FunctionTable: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, BaseAddress: usize) -> super::super::super::Foundation::BOOLEAN;
+                    extern fn RtlAddFunctionTable(#[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] FunctionTable: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, BaseAddress: usize) -> super::super::super::Foundation::BOOLEAN;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
                     #[library("ntdll.dll")]
-                    extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, FunctionTable: *mut IMAGE_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
+                    extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] FunctionTable: *mut IMAGE_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtladdgrowablefunctiontable")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
                     #[library("ntdll.dll")]
-                    extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, FunctionTable: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
+                    extern fn RtlAddGrowableFunctionTable(DynamicTable: *mut *mut void, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] FunctionTable: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, EntryCount: u32, MaximumEntryCount: u32, RangeBase: usize, RangeEnd: usize) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlcapturecontext")]
                     #[library("KERNEL32.dll")]
@@ -12456,7 +12456,7 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlcapturestackbacktrace")]
                     #[library("KERNEL32.dll")]
-                    extern fn RtlCaptureStackBackTrace(FramesToSkip: u32, FramesToCapture: u32, BackTrace: *mut *mut void, BackTraceHash: *mut u32) -> u16;
+                    extern fn RtlCaptureStackBackTrace(FramesToSkip: u32, FramesToCapture: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] BackTrace: *mut *mut void, BackTraceHash: *mut u32) -> u16;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtldeletefunctiontable")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
                     #[library("KERNEL32.dll")]
@@ -12478,11 +12478,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
                     #[library("KERNEL32.dll")]
-                    extern fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, Context: *mut void, OutOfProcessCallbackDll: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
+                    extern fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, Context: *mut void, #[Windows::Win32::Foundation::Metadata::Const] OutOfProcessCallbackDll: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlinstallfunctiontablecallback")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
                     #[library("KERNEL32.dll")]
-                    extern fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, Context: *mut void, OutOfProcessCallbackDll: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
+                    extern fn RtlInstallFunctionTableCallback(TableIdentifier: u64, BaseAddress: u64, Length: u32, Callback: PGET_RUNTIME_FUNCTION_CALLBACK, Context: *mut void, #[Windows::Win32::Foundation::Metadata::Const] OutOfProcessCallbackDll: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtllookupfunctionentry")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
                     #[library("KERNEL32.dll")]
@@ -12650,8 +12650,8 @@ mod Windows {
                         StackFrameSize: u32,
                         InlineFrameContext: u32,
                     }
-                    extern fn SYMADDSOURCESTREAM(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
-                    extern fn SYMADDSOURCESTREAMA(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn SYMADDSOURCESTREAM(param0: super::super::super::Foundation::HANDLE, param1: u64, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn SYMADDSOURCESTREAMA(param0: super::super::super::Foundation::HANDLE, param1: u64, #[Windows::Win32::Foundation::Metadata::Const] param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/ns-dbghelp-symbol_info")]
                     struct SYMBOL_INFO {
@@ -12866,11 +12866,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-searchtreeforfile")]
                     #[library("dbghelp.dll")]
-                    extern fn SearchTreeForFile(RootPath: super::super::super::Foundation::PSTR, InputPathName: super::super::super::Foundation::PSTR, OutputPathBuffer: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SearchTreeForFile(#[Windows::Win32::Foundation::Metadata::Const] RootPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] InputPathName: super::super::super::Foundation::PSTR, #[out] OutputPathBuffer: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-searchtreeforfilew")]
                     #[library("dbghelp.dll")]
-                    extern fn SearchTreeForFileW(RootPath: super::super::super::Foundation::PWSTR, InputPathName: super::super::super::Foundation::PWSTR, OutputPathBuffer: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SearchTreeForFileW(#[Windows::Win32::Foundation::Metadata::Const] RootPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] InputPathName: super::super::super::Foundation::PWSTR, #[out] OutputPathBuffer: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     #[library("dbghelp.dll")]
                     extern fn SetCheckUserInterruptShared(lpStartAddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
@@ -12893,7 +12893,7 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processthreadsapi/nf-processthreadsapi-setthreadcontext")]
                     #[library("KERNEL32.dll")]
-                    extern fn SetThreadContext(hThread: super::super::super::Foundation::HANDLE, lpContext: *mut CONTEXT) -> super::super::super::Foundation::BOOL;
+                    extern fn SetThreadContext(hThread: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] lpContext: *mut CONTEXT) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errhandlingapi/nf-errhandlingapi-setthreaderrormode")]
                     #[library("KERNEL32.dll")]
@@ -12922,23 +12922,23 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symaddsourcestream")]
                     #[library("dbghelp.dll")]
-                    extern fn SymAddSourceStream(hProcess: super::super::super::Foundation::HANDLE, Base: u64, StreamFile: super::super::super::Foundation::PSTR, Buffer: *mut u8, Size: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn SymAddSourceStream(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] StreamFile: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 4)] Buffer: *mut u8, Size: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symaddsourcestreama")]
                     #[library("dbghelp.dll")]
-                    extern fn SymAddSourceStreamA(hProcess: super::super::super::Foundation::HANDLE, Base: u64, StreamFile: super::super::super::Foundation::PSTR, Buffer: *mut u8, Size: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn SymAddSourceStreamA(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] StreamFile: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 4)] Buffer: *mut u8, Size: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symaddsourcestreamw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymAddSourceStreamW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, FileSpec: super::super::super::Foundation::PWSTR, Buffer: *mut u8, Size: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn SymAddSourceStreamW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 4)] Buffer: *mut u8, Size: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symaddsymbol")]
                     #[library("dbghelp.dll")]
-                    extern fn SymAddSymbol(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Name: super::super::super::Foundation::PSTR, Address: u64, Size: u32, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymAddSymbol(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PSTR, Address: u64, Size: u32, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symaddsymbolw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymAddSymbolW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Name: super::super::super::Foundation::PWSTR, Address: u64, Size: u32, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymAddSymbolW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PWSTR, Address: u64, Size: u32, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symaddrincludeinlinetrace")]
                     #[library("dbghelp.dll")]
                     extern fn SymAddrIncludeInlineTrace(hProcess: super::super::super::Foundation::HANDLE, Address: u64) -> u32;
@@ -12951,19 +12951,19 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symdeletesymbol")]
                     #[library("dbghelp.dll")]
-                    extern fn SymDeleteSymbol(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Name: super::super::super::Foundation::PSTR, Address: u64, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymDeleteSymbol(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PSTR, Address: u64, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symdeletesymbolw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymDeleteSymbolW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Name: super::super::super::Foundation::PWSTR, Address: u64, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymDeleteSymbolW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PWSTR, Address: u64, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumlines")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumLines(hProcess: super::super::super::Foundation::HANDLE, Base: u64, Obj: super::super::super::Foundation::PSTR, File: super::super::super::Foundation::PSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumLines(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] Obj: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumlinesw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumLinesW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, Obj: super::super::super::Foundation::PWSTR, File: super::super::super::Foundation::PWSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumLinesW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] Obj: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumprocesses")]
                     #[library("dbghelp.dll")]
                     extern fn SymEnumProcesses(EnumProcessesCallback: PSYM_ENUMPROCESSES_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
@@ -12973,33 +12973,33 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsourcefiles")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSourceFiles(hProcess: super::super::super::Foundation::HANDLE, ModBase: u64, Mask: super::super::super::Foundation::PSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSourceFiles(hProcess: super::super::super::Foundation::HANDLE, ModBase: u64, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsourcefilesw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSourceFilesW(hProcess: super::super::super::Foundation::HANDLE, ModBase: u64, Mask: super::super::super::Foundation::PWSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSourceFilesW(hProcess: super::super::super::Foundation::HANDLE, ModBase: u64, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PWSTR, cbSrcFiles: PSYM_ENUMSOURCEFILES_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsourcelines")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSourceLines(hProcess: super::super::super::Foundation::HANDLE, Base: u64, Obj: super::super::super::Foundation::PSTR, File: super::super::super::Foundation::PSTR, Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSourceLines(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] Obj: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR, Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsourcelinesw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSourceLinesW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, Obj: super::super::super::Foundation::PWSTR, File: super::super::super::Foundation::PWSTR, Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSourceLinesW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] Obj: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR, Line: u32, Flags: u32, EnumLinesCallback: PSYM_ENUMLINES_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[library("dbghelp.dll")]
                     extern fn SymEnumSym(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsymbols")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSymbols(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Mask: super::super::super::Foundation::PSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSymbols(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsymbolsex")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSymbolsEx(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Mask: super::super::super::Foundation::PSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSymbolsEx(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsymbolsexw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSymbolsExW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Mask: super::super::super::Foundation::PWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSymbolsExW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsymbolsforaddr")]
                     #[library("dbghelp.dll")]
@@ -13011,7 +13011,7 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumsymbolsw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumSymbolsW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Mask: super::super::super::Foundation::PWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumSymbolsW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumtypes")]
                     #[library("dbghelp.dll")]
@@ -13019,11 +13019,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumtypesbyname")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumTypesByName(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, mask: super::super::super::Foundation::PSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumTypesByName(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] mask: super::super::super::Foundation::PSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumtypesbynamew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymEnumTypesByNameW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, mask: super::super::super::Foundation::PWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymEnumTypesByNameW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] mask: super::super::super::Foundation::PWSTR, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symenumtypesw")]
                     #[library("dbghelp.dll")]
@@ -13057,27 +13057,27 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfinddebuginfofile")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFindDebugInfoFile(hProcess: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PSTR, DebugFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_DEBUG_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn SymFindDebugInfoFile(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[out] DebugFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_DEBUG_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfinddebuginfofilew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFindDebugInfoFileW(hProcess: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PWSTR, DebugFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_DEBUG_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn SymFindDebugInfoFileW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, #[out] DebugFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_DEBUG_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfindexecutableimage")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFindExecutableImage(hProcess: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PSTR, ImageFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_EXE_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn SymFindExecutableImage(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[out] ImageFilePath: super::super::super::Foundation::PSTR, Callback: PFIND_EXE_FILE_CALLBACK, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfindexecutableimagew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFindExecutableImageW(hProcess: super::super::super::Foundation::HANDLE, FileName: super::super::super::Foundation::PWSTR, ImageFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_EXE_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
+                    extern fn SymFindExecutableImageW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, #[out] ImageFilePath: super::super::super::Foundation::PWSTR, Callback: PFIND_EXE_FILE_CALLBACKW, CallerData: *mut void) -> super::super::super::Foundation::HANDLE;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfindfileinpath")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFindFileInPath(hprocess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PSTR, FileName: super::super::super::Foundation::PSTR, id: *mut void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, FoundFile: super::super::super::Foundation::PSTR, callback: PFINDFILEINPATHCALLBACK, context: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymFindFileInPath(hprocess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SearchPathA: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, id: *mut void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, #[out] FoundFile: super::super::super::Foundation::PSTR, callback: PFINDFILEINPATHCALLBACK, context: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfindfileinpathw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFindFileInPathW(hprocess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PWSTR, FileName: super::super::super::Foundation::PWSTR, id: *mut void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, FoundFile: super::super::super::Foundation::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn SymFindFileInPathW(hprocess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SearchPathA: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, id: *mut void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, #[out] FoundFile: super::super::super::Foundation::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: *mut void) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfromaddr")]
                     #[library("dbghelp.dll")]
@@ -13105,11 +13105,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfromname")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFromName(hProcess: super::super::super::Foundation::HANDLE, Name: super::super::super::Foundation::PSTR, Symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
+                    extern fn SymFromName(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PSTR, Symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfromnamew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymFromNameW(hProcess: super::super::super::Foundation::HANDLE, Name: super::super::super::Foundation::PWSTR, Symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
+                    extern fn SymFromNameW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PWSTR, Symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symfromtoken")]
                     #[library("dbghelp.dll")]
@@ -13133,15 +13133,15 @@ mod Windows {
                     extern fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetfilelineoffsets64")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetFileLineOffsets64(hProcess: super::super::super::Foundation::HANDLE, ModuleName: super::super::super::Foundation::PSTR, FileName: super::super::super::Foundation::PSTR, Buffer: *mut u64, BufferLines: u32) -> u32;
+                    extern fn SymGetFileLineOffsets64(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] Buffer: *mut u64, BufferLines: u32) -> u32;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgethomedirectory")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetHomeDirectory(r#type: u32, dir: super::super::super::Foundation::PSTR, size: usize) -> super::super::super::Foundation::PSTR;
+                    extern fn SymGetHomeDirectory(#[Windows::Win32::Foundation::Metadata::AssociatedEnum("IMAGEHLP_HD_TYPE")] r#type: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] dir: super::super::super::Foundation::PSTR, size: usize) -> super::super::super::Foundation::PSTR;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgethomedirectoryw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetHomeDirectoryW(r#type: u32, dir: super::super::super::Foundation::PWSTR, size: usize) -> super::super::super::Foundation::PWSTR;
+                    extern fn SymGetHomeDirectoryW(#[Windows::Win32::Foundation::Metadata::AssociatedEnum("IMAGEHLP_HD_TYPE")] r#type: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] dir: super::super::super::Foundation::PWSTR, size: usize) -> super::super::super::Foundation::PWSTR;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetlinefromaddr")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
@@ -13164,13 +13164,13 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetlinefromname")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetLineFromName(hProcess: super::super::super::Foundation::HANDLE, ModuleName: super::super::super::Foundation::PSTR, FileName: super::super::super::Foundation::PSTR, dwLineNumber: u32, plDisplacement: *mut i32, Line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetLineFromName(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, dwLineNumber: u32, plDisplacement: *mut i32, Line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetlinefromname64")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetLineFromName64(hProcess: super::super::super::Foundation::HANDLE, ModuleName: super::super::super::Foundation::PSTR, FileName: super::super::super::Foundation::PSTR, dwLineNumber: u32, plDisplacement: *mut i32, Line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetLineFromName64(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, dwLineNumber: u32, plDisplacement: *mut i32, Line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetlinefromnamew64")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetLineFromNameW64(hProcess: super::super::super::Foundation::HANDLE, ModuleName: super::super::super::Foundation::PWSTR, FileName: super::super::super::Foundation::PWSTR, dwLineNumber: u32, plDisplacement: *mut i32, Line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetLineFromNameW64(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, dwLineNumber: u32, plDisplacement: *mut i32, Line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetlinenext")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
@@ -13233,63 +13233,63 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsearchpath")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSearchPath(hProcess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PSTR, SearchPathLength: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSearchPath(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] SearchPathA: super::super::super::Foundation::PSTR, SearchPathLength: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsearchpathw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSearchPathW(hProcess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PWSTR, SearchPathLength: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSearchPathW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] SearchPathA: super::super::super::Foundation::PWSTR, SearchPathLength: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefile")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFile(hProcess: super::super::super::Foundation::HANDLE, Base: u64, Params: super::super::super::Foundation::PSTR, FileSpec: super::super::super::Foundation::PSTR, FilePath: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFile(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] FilePath: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefilechecksum")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileChecksum(hProcess: super::super::super::Foundation::HANDLE, Base: u64, FileSpec: super::super::super::Foundation::PSTR, pCheckSumType: *mut u32, pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileChecksum(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PSTR, pCheckSumType: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefilechecksumw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileChecksumW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, FileSpec: super::super::super::Foundation::PWSTR, pCheckSumType: *mut u32, pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileChecksumW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PWSTR, pCheckSumType: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] pChecksum: *mut u8, checksumSize: u32, pActualBytesWritten: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefilefromtoken")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileFromToken(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, Params: super::super::super::Foundation::PSTR, FilePath: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileFromToken(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] FilePath: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileFromTokenByTokenName(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, TokenName: super::super::super::Foundation::PSTR, Params: super::super::super::Foundation::PSTR, FilePath: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileFromTokenByTokenName(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, #[Windows::Win32::Foundation::Metadata::Const] TokenName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] FilePath: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileFromTokenByTokenNameW(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, TokenName: super::super::super::Foundation::PWSTR, Params: super::super::super::Foundation::PWSTR, FilePath: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileFromTokenByTokenNameW(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, #[Windows::Win32::Foundation::Metadata::Const] TokenName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] FilePath: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefilefromtokenw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileFromTokenW(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, Params: super::super::super::Foundation::PWSTR, FilePath: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileFromTokenW(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] FilePath: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefiletoken")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileToken(hProcess: super::super::super::Foundation::HANDLE, Base: u64, FileSpec: super::super::super::Foundation::PSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileToken(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileTokenByTokenName(hProcess: super::super::super::Foundation::HANDLE, Base: u64, FileSpec: super::super::super::Foundation::PSTR, TokenName: super::super::super::Foundation::PSTR, TokenParameters: super::super::super::Foundation::PSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileTokenByTokenName(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] TokenName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] TokenParameters: super::super::super::Foundation::PSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileTokenByTokenNameW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, FileSpec: super::super::super::Foundation::PWSTR, TokenName: super::super::super::Foundation::PWSTR, TokenParameters: super::super::super::Foundation::PWSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileTokenByTokenNameW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] TokenName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] TokenParameters: super::super::super::Foundation::PWSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefiletokenw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileTokenW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, FileSpec: super::super::super::Foundation::PWSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileTokenW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PWSTR, Token: *mut *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcefilew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceFileW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, Params: super::super::super::Foundation::PWSTR, FileSpec: super::super::super::Foundation::PWSTR, FilePath: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceFileW(hProcess: super::super::super::Foundation::HANDLE, Base: u64, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] FileSpec: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] FilePath: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcevarfromtoken")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceVarFromToken(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, Params: super::super::super::Foundation::PSTR, VarName: super::super::super::Foundation::PSTR, Value: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceVarFromToken(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] VarName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] Value: super::super::super::Foundation::PSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsourcevarfromtokenw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSourceVarFromTokenW(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, Params: super::super::super::Foundation::PWSTR, VarName: super::super::super::Foundation::PWSTR, Value: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSourceVarFromTokenW(hProcess: super::super::super::Foundation::HANDLE, Token: *mut void, #[Windows::Win32::Foundation::Metadata::Const] Params: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] VarName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] Value: super::super::super::Foundation::PWSTR, Size: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsymfromaddr")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
@@ -13300,10 +13300,10 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsymfromname")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSymFromName(hProcess: super::super::super::Foundation::HANDLE, Name: super::super::super::Foundation::PSTR, Symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSymFromName(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PSTR, Symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsymfromname64")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSymFromName64(hProcess: super::super::super::Foundation::HANDLE, Name: super::super::super::Foundation::PSTR, Symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSymFromName64(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PSTR, Symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsymnext")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
@@ -13323,19 +13323,19 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsymbolfile")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSymbolFile(hProcess: super::super::super::Foundation::HANDLE, SymPath: super::super::super::Foundation::PSTR, ImageFile: super::super::super::Foundation::PSTR, Type: u32, SymbolFile: super::super::super::Foundation::PSTR, cSymbolFile: usize, DbgFile: super::super::super::Foundation::PSTR, cDbgFile: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSymbolFile(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SymPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] ImageFile: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::AssociatedEnum("IMAGEHLP_SF_TYPE")] Type: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] SymbolFile: super::super::super::Foundation::PSTR, cSymbolFile: usize, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] #[out] DbgFile: super::super::super::Foundation::PSTR, cDbgFile: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetsymbolfilew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetSymbolFileW(hProcess: super::super::super::Foundation::HANDLE, SymPath: super::super::super::Foundation::PWSTR, ImageFile: super::super::super::Foundation::PWSTR, Type: u32, SymbolFile: super::super::super::Foundation::PWSTR, cSymbolFile: usize, DbgFile: super::super::super::Foundation::PWSTR, cDbgFile: usize) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetSymbolFileW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SymPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] ImageFile: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::AssociatedEnum("IMAGEHLP_SF_TYPE")] Type: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] SymbolFile: super::super::super::Foundation::PWSTR, cSymbolFile: usize, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] #[out] DbgFile: super::super::super::Foundation::PWSTR, cDbgFile: usize) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgettypefromname")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetTypeFromName(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Name: super::super::super::Foundation::PSTR, Symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetTypeFromName(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PSTR, Symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgettypefromnamew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymGetTypeFromNameW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Name: super::super::super::Foundation::PWSTR, Symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetTypeFromNameW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::super::Foundation::PWSTR, Symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgettypeinfo")]
                     #[library("dbghelp.dll")]
                     extern fn SymGetTypeInfo(hProcess: super::super::super::Foundation::HANDLE, ModBase: u64, TypeId: u32, GetType: IMAGEHLP_SYMBOL_TYPE_INFO, pInfo: *mut void) -> super::super::super::Foundation::BOOL;
@@ -13343,50 +13343,50 @@ mod Windows {
                     #[library("dbghelp.dll")]
                     extern fn SymGetTypeInfoEx(hProcess: super::super::super::Foundation::HANDLE, ModBase: u64, Params: *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> super::super::super::Foundation::BOOL;
                     #[library("dbghelp.dll")]
-                    extern fn SymGetUnwindInfo(hProcess: super::super::super::Foundation::HANDLE, Address: u64, Buffer: *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymGetUnwindInfo(hProcess: super::super::super::Foundation::HANDLE, Address: u64, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] Buffer: *mut void, Size: *mut u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-syminitialize")]
                     #[library("dbghelp.dll")]
-                    extern fn SymInitialize(hProcess: super::super::super::Foundation::HANDLE, UserSearchPath: super::super::super::Foundation::PSTR, fInvadeProcess: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    extern fn SymInitialize(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] UserSearchPath: super::super::super::Foundation::PSTR, fInvadeProcess: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-syminitializew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymInitializeW(hProcess: super::super::super::Foundation::HANDLE, UserSearchPath: super::super::super::Foundation::PWSTR, fInvadeProcess: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    extern fn SymInitializeW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] UserSearchPath: super::super::super::Foundation::PWSTR, fInvadeProcess: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symloadmodule")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
-                    extern fn SymLoadModule(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, ImageName: super::super::super::Foundation::PSTR, ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u32, SizeOfDll: u32) -> u32;
+                    extern fn SymLoadModule(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u32, SizeOfDll: u32) -> u32;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symloadmodule64")]
                     #[library("dbghelp.dll")]
-                    extern fn SymLoadModule64(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, ImageName: super::super::super::Foundation::PSTR, ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u64, SizeOfDll: u32) -> u64;
+                    extern fn SymLoadModule64(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u64, SizeOfDll: u32) -> u64;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symloadmoduleex")]
                     #[library("dbghelp.dll")]
-                    extern fn SymLoadModuleEx(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, ImageName: super::super::super::Foundation::PSTR, ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u64, DllSize: u32, Data: *mut MODLOAD_DATA, Flags: SYM_LOAD_FLAGS) -> u64;
+                    extern fn SymLoadModuleEx(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PSTR, BaseOfDll: u64, DllSize: u32, Data: *mut MODLOAD_DATA, Flags: SYM_LOAD_FLAGS) -> u64;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symloadmoduleexw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymLoadModuleExW(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, ImageName: super::super::super::Foundation::PWSTR, ModuleName: super::super::super::Foundation::PWSTR, BaseOfDll: u64, DllSize: u32, Data: *mut MODLOAD_DATA, Flags: SYM_LOAD_FLAGS) -> u64;
+                    extern fn SymLoadModuleExW(hProcess: super::super::super::Foundation::HANDLE, hFile: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] ImageName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] ModuleName: super::super::super::Foundation::PWSTR, BaseOfDll: u64, DllSize: u32, Data: *mut MODLOAD_DATA, Flags: SYM_LOAD_FLAGS) -> u64;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symmatchfilename")]
                     #[library("dbghelp.dll")]
-                    extern fn SymMatchFileName(FileName: super::super::super::Foundation::PSTR, Match: super::super::super::Foundation::PSTR, FileNameStop: *mut super::super::super::Foundation::PSTR, MatchStop: *mut super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SymMatchFileName(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] Match: super::super::super::Foundation::PSTR, FileNameStop: *mut super::super::super::Foundation::PSTR, MatchStop: *mut super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symmatchfilenamew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymMatchFileNameW(FileName: super::super::super::Foundation::PWSTR, Match: super::super::super::Foundation::PWSTR, FileNameStop: *mut super::super::super::Foundation::PWSTR, MatchStop: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SymMatchFileNameW(#[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Match: super::super::super::Foundation::PWSTR, FileNameStop: *mut super::super::super::Foundation::PWSTR, MatchStop: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symmatchstring")]
                     #[library("dbghelp.dll")]
-                    extern fn SymMatchString(string: super::super::super::Foundation::PSTR, expression: super::super::super::Foundation::PSTR, fCase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    extern fn SymMatchString(#[Windows::Win32::Foundation::Metadata::Const] string: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] expression: super::super::super::Foundation::PSTR, fCase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symmatchstringa")]
                     #[library("dbghelp.dll")]
-                    extern fn SymMatchStringA(string: super::super::super::Foundation::PSTR, expression: super::super::super::Foundation::PSTR, fCase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    extern fn SymMatchStringA(#[Windows::Win32::Foundation::Metadata::Const] string: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] expression: super::super::super::Foundation::PSTR, fCase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symmatchstringw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymMatchStringW(string: super::super::super::Foundation::PWSTR, expression: super::super::super::Foundation::PWSTR, fCase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    extern fn SymMatchStringW(#[Windows::Win32::Foundation::Metadata::Const] string: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] expression: super::super::super::Foundation::PWSTR, fCase: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symnext")]
                     #[library("dbghelp.dll")]
@@ -13429,11 +13429,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsearch")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSearch(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Index: u32, SymTag: u32, Mask: super::super::super::Foundation::PSTR, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSearch(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Index: u32, SymTag: u32, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PSTR, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACK, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsearchw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSearchW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Index: u32, SymTag: u32, Mask: super::super::super::Foundation::PWSTR, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSearchW(hProcess: super::super::super::Foundation::HANDLE, BaseOfDll: u64, Index: u32, SymTag: u32, #[Windows::Win32::Foundation::Metadata::Const] Mask: super::super::super::Foundation::PWSTR, Address: u64, EnumSymbolsCallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, UserContext: *mut void, Options: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsetcontext")]
                     #[library("dbghelp.dll")]
                     extern fn SymSetContext(hProcess: super::super::super::Foundation::HANDLE, StackFrame: *mut IMAGEHLP_STACK_FRAME, Context: *mut void) -> super::super::super::Foundation::BOOL;
@@ -13443,11 +13443,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsethomedirectory")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSetHomeDirectory(hProcess: super::super::super::Foundation::HANDLE, dir: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::PSTR;
+                    extern fn SymSetHomeDirectory(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] dir: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::PSTR;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsethomedirectoryw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSetHomeDirectoryW(hProcess: super::super::super::Foundation::HANDLE, dir: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
+                    extern fn SymSetHomeDirectoryW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] dir: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsetoptions")]
                     #[library("dbghelp.dll")]
                     extern fn SymSetOptions(SymOptions: u32) -> u32;
@@ -13466,82 +13466,82 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsetsearchpath")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSetSearchPath(hProcess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSetSearchPath(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SearchPathA: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsetsearchpathw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSetSearchPathW(hProcess: super::super::super::Foundation::HANDLE, SearchPathA: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSetSearchPathW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SearchPathA: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvdeltaname")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvDeltaName(hProcess: super::super::super::Foundation::HANDLE, SymPath: super::super::super::Foundation::PSTR, Type: super::super::super::Foundation::PSTR, File1: super::super::super::Foundation::PSTR, File2: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::PSTR;
+                    extern fn SymSrvDeltaName(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SymPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] Type: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File1: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File2: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::PSTR;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvdeltanamew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvDeltaNameW(hProcess: super::super::super::Foundation::HANDLE, SymPath: super::super::super::Foundation::PWSTR, Type: super::super::super::Foundation::PWSTR, File1: super::super::super::Foundation::PWSTR, File2: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
+                    extern fn SymSrvDeltaNameW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SymPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Type: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File1: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File2: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetfileindexinfo")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetFileIndexInfo(File: super::super::super::Foundation::PSTR, Info: *mut SYMSRV_INDEX_INFO, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvGetFileIndexInfo(#[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR, Info: *mut SYMSRV_INDEX_INFO, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetfileindexinfow")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetFileIndexInfoW(File: super::super::super::Foundation::PWSTR, Info: *mut SYMSRV_INDEX_INFOW, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvGetFileIndexInfoW(#[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR, Info: *mut SYMSRV_INDEX_INFOW, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetfileindexstring")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetFileIndexString(hProcess: super::super::super::Foundation::HANDLE, SrvPath: super::super::super::Foundation::PSTR, File: super::super::super::Foundation::PSTR, Index: super::super::super::Foundation::PSTR, Size: usize, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvGetFileIndexString(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SrvPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] Index: super::super::super::Foundation::PSTR, Size: usize, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetfileindexstringw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetFileIndexStringW(hProcess: super::super::super::Foundation::HANDLE, SrvPath: super::super::super::Foundation::PWSTR, File: super::super::super::Foundation::PWSTR, Index: super::super::super::Foundation::PWSTR, Size: usize, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvGetFileIndexStringW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SrvPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] Index: super::super::super::Foundation::PWSTR, Size: usize, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetfileindexes")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetFileIndexes(File: super::super::super::Foundation::PSTR, Id: *mut GUID, Val1: *mut u32, Val2: *mut u32, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvGetFileIndexes(#[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR, Id: *mut GUID, Val1: *mut u32, Val2: *mut u32, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetfileindexesw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetFileIndexesW(File: super::super::super::Foundation::PWSTR, Id: *mut GUID, Val1: *mut u32, Val2: *mut u32, Flags: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvGetFileIndexesW(#[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR, Id: *mut GUID, Val1: *mut u32, Val2: *mut u32, Flags: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetsupplement")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetSupplement(hProcess: super::super::super::Foundation::HANDLE, SymPath: super::super::super::Foundation::PSTR, Node: super::super::super::Foundation::PSTR, File: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::PSTR;
+                    extern fn SymSrvGetSupplement(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SymPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] Node: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::PSTR;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvgetsupplementw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvGetSupplementW(hProcess: super::super::super::Foundation::HANDLE, SymPath: super::super::super::Foundation::PWSTR, Node: super::super::super::Foundation::PWSTR, File: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
+                    extern fn SymSrvGetSupplementW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SymPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Node: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvisstore")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvIsStore(hProcess: super::super::super::Foundation::HANDLE, path: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvIsStore(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] path: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvisstorew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvIsStoreW(hProcess: super::super::super::Foundation::HANDLE, path: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+                    extern fn SymSrvIsStoreW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] path: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvstorefile")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvStoreFile(hProcess: super::super::super::Foundation::HANDLE, SrvPath: super::super::super::Foundation::PSTR, File: super::super::super::Foundation::PSTR, Flags: SYM_SRV_STORE_FILE_FLAGS) -> super::super::super::Foundation::PSTR;
+                    extern fn SymSrvStoreFile(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SrvPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR, Flags: SYM_SRV_STORE_FILE_FLAGS) -> super::super::super::Foundation::PSTR;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvstorefilew")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvStoreFileW(hProcess: super::super::super::Foundation::HANDLE, SrvPath: super::super::super::Foundation::PWSTR, File: super::super::super::Foundation::PWSTR, Flags: SYM_SRV_STORE_FILE_FLAGS) -> super::super::super::Foundation::PWSTR;
+                    extern fn SymSrvStoreFileW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SrvPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR, Flags: SYM_SRV_STORE_FILE_FLAGS) -> super::super::super::Foundation::PWSTR;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvstoresupplement")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvStoreSupplement(hProcess: super::super::super::Foundation::HANDLE, SrvPath: super::super::super::Foundation::PSTR, Node: super::super::super::Foundation::PSTR, File: super::super::super::Foundation::PSTR, Flags: u32) -> super::super::super::Foundation::PSTR;
+                    extern fn SymSrvStoreSupplement(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SrvPath: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] Node: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PSTR, Flags: u32) -> super::super::super::Foundation::PSTR;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symsrvstoresupplementw")]
                     #[library("dbghelp.dll")]
-                    extern fn SymSrvStoreSupplementW(hProcess: super::super::super::Foundation::HANDLE, SymPath: super::super::super::Foundation::PWSTR, Node: super::super::super::Foundation::PWSTR, File: super::super::super::Foundation::PWSTR, Flags: u32) -> super::super::super::Foundation::PWSTR;
+                    extern fn SymSrvStoreSupplementW(hProcess: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] SymPath: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Node: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] File: super::super::super::Foundation::PWSTR, Flags: u32) -> super::super::super::Foundation::PWSTR;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symundname")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
-                    extern fn SymUnDName(sym: *mut IMAGEHLP_SYMBOL, UnDecName: super::super::super::Foundation::PSTR, UnDecNameLength: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymUnDName(sym: *mut IMAGEHLP_SYMBOL, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] UnDecName: super::super::super::Foundation::PSTR, UnDecNameLength: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symundname64")]
                     #[library("dbghelp.dll")]
-                    extern fn SymUnDName64(sym: *mut IMAGEHLP_SYMBOL64, UnDecName: super::super::super::Foundation::PSTR, UnDecNameLength: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn SymUnDName64(sym: *mut IMAGEHLP_SYMBOL64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] UnDecName: super::super::super::Foundation::PSTR, UnDecNameLength: u32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symunloadmodule")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     #[library("dbghelp.dll")]
@@ -13628,11 +13628,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-undecoratesymbolname")]
                     #[library("dbghelp.dll")]
-                    extern fn UnDecorateSymbolName(name: super::super::super::Foundation::PSTR, outputString: super::super::super::Foundation::PSTR, maxStringLength: u32, flags: u32) -> u32;
+                    extern fn UnDecorateSymbolName(#[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] outputString: super::super::super::Foundation::PSTR, maxStringLength: u32, flags: u32) -> u32;
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-undecoratesymbolnamew")]
                     #[library("dbghelp.dll")]
-                    extern fn UnDecorateSymbolNameW(name: super::super::super::Foundation::PWSTR, outputString: super::super::super::Foundation::PWSTR, maxStringLength: u32, flags: u32) -> u32;
+                    extern fn UnDecorateSymbolNameW(#[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] outputString: super::super::super::Foundation::PWSTR, maxStringLength: u32, flags: u32) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-unmapandload")]
                     #[library("imagehlp.dll")]
@@ -13644,11 +13644,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-updatedebuginfofile")]
                     #[library("imagehlp.dll")]
-                    extern fn UpdateDebugInfoFile(ImageFileName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, DebugFilePath: super::super::super::Foundation::PSTR, NtHeaders: *mut IMAGE_NT_HEADERS32) -> super::super::super::Foundation::BOOL;
+                    extern fn UpdateDebugInfoFile(#[Windows::Win32::Foundation::Metadata::Const] ImageFileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, #[out] DebugFilePath: super::super::super::Foundation::PSTR, NtHeaders: *mut IMAGE_NT_HEADERS32) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/imagehlp/nf-imagehlp-updatedebuginfofileex")]
                     #[library("imagehlp.dll")]
-                    extern fn UpdateDebugInfoFileEx(ImageFileName: super::super::super::Foundation::PSTR, SymbolPath: super::super::super::Foundation::PSTR, DebugFilePath: super::super::super::Foundation::PSTR, NtHeaders: *mut IMAGE_NT_HEADERS32, OldCheckSum: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn UpdateDebugInfoFileEx(#[Windows::Win32::Foundation::Metadata::Const] ImageFileName: super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] SymbolPath: super::super::super::Foundation::PSTR, #[out] DebugFilePath: super::super::super::Foundation::PSTR, NtHeaders: *mut IMAGE_NT_HEADERS32, OldCheckSum: u32) -> super::super::super::Foundation::BOOL;
                     #[repr(u32)]
                     enum VER_PLATFORM {
                         VER_PLATFORM_WIN32s = 0,
@@ -14223,11 +14223,11 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-wow64setthreadcontext")]
                     #[library("KERNEL32.dll")]
-                    extern fn Wow64SetThreadContext(hThread: super::super::super::Foundation::HANDLE, lpContext: *mut WOW64_CONTEXT) -> super::super::super::Foundation::BOOL;
+                    extern fn Wow64SetThreadContext(hThread: super::super::super::Foundation::HANDLE, #[Windows::Win32::Foundation::Metadata::Const] lpContext: *mut WOW64_CONTEXT) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/memoryapi/nf-memoryapi-writeprocessmemory")]
                     #[library("KERNEL32.dll")]
-                    extern fn WriteProcessMemory(hProcess: super::super::super::Foundation::HANDLE, lpBaseAddress: *mut void, lpBuffer: *mut void, nSize: usize, lpNumberOfBytesWritten: *mut usize) -> super::super::super::Foundation::BOOL;
+                    extern fn WriteProcessMemory(hProcess: super::super::super::Foundation::HANDLE, lpBaseAddress: *mut void, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] lpBuffer: *mut void, nSize: usize, lpNumberOfBytesWritten: *mut usize) -> super::super::super::Foundation::BOOL;
                     union XPF_MCE_FLAGS {
                         Anonymous: XPF_MCE_FLAGS_0,
                         AsULONG: u32,
