@@ -134,7 +134,7 @@ impl Callback {
 #[test]
 #[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:23")]
 fn unexpected_self() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -151,7 +151,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: param names must be unique\n --> .rdl:4:31")]
 fn param_name_unique() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -168,7 +168,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: callback abi not supported\n --> .rdl:4:12")]
 fn abi_not_supported() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]

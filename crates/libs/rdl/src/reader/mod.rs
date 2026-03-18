@@ -5,9 +5,10 @@ mod class;
 mod r#const;
 mod delegate;
 mod r#enum;
+mod field;
 mod file;
 mod r#fn;
-pub(super) mod guid;
+pub(crate) mod guid;
 mod index;
 mod interface;
 mod item;
@@ -23,6 +24,7 @@ use attribute_ref::*;
 use callback::*;
 use class::*;
 use delegate::*;
+use field::*;
 use file::*;
 use index::*;
 use interface::*;
@@ -411,15 +413,49 @@ fn encode_value(
         metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
         metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
         metadata::Type::String => metadata::Value::Utf16(encode_lit_string(encoder, value)?),
+        metadata::Type::ISize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
+        metadata::Type::USize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
+        metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
+            metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?)
+        }
+        metadata::Type::Name(tn) => {
+            let underlying = encoder
+                .reference
+                .get(&tn.namespace, &tn.name)
+                .next()
+                .and_then(|def| def.underlying_type())
+                .or_else(|| rdl_underlying_type(encoder, &tn.namespace, &tn.name));
+
+            match underlying {
+                Some(underlying) => return encode_value(encoder, &underlying, value),
+                None => return encoder.err(value, &format!("constant type not supported: {ty:?}")),
+            }
+        }
         rest => return encoder.err(value, &format!("constant type not supported: {rest:?}")),
     };
 
     Ok(value)
 }
 
+fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option<metadata::Type> {
+    let item = encoder.index.get(namespace, name)?;
+
+    if let Item::Struct(s) = item {
+        let mut fields = s.fields.iter();
+
+        if let Some(field) = fields.next() {
+            if fields.next().is_none() {
+                return encode_type(encoder, &field.ty).ok();
+            }
+        }
+    }
+
+    None
+}
+
 fn encode_neg_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
 where
-    T: std::str::FromStr + std::ops::Neg<Output = T>,
+    T: std::str::FromStr + TryFrom<i128>,
     T::Err: std::fmt::Display,
 {
     let value = match expr {
@@ -435,7 +471,10 @@ where
             syn::Expr::Lit(syn::ExprLit {
                 lit: syn::Lit::Int(int),
                 ..
-            }) => int.base10_parse().ok().map(|value: T| -value),
+            }) => int
+                .base10_parse::<u64>()
+                .ok()
+                .and_then(|v| T::try_from(-(v as i128)).ok()),
             _ => None,
         },
         _ => None,
@@ -690,7 +729,7 @@ impl IdentMethods for syn::Ident {
 #[test]
 #[should_panic(expected = "error: use namespace not found\n --> .rdl:2:1")]
 fn use_glob_invalid_path() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 use NonExistent::*;
@@ -711,7 +750,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: type not found\n --> .rdl:7:12")]
 fn use_glob_unresolved_type() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 use Other::*;
@@ -738,7 +777,7 @@ mod Other {
 fn use_glob_resolves_type() {
     let output = std::env::temp_dir().join("windows_rdl_use_glob_resolves_type.winmd");
 
-    Reader::new()
+    reader()
         .input_str(
             r#"
 use Other::*;
@@ -767,7 +806,7 @@ mod Other {
 #[test]
 #[should_panic(expected = "error: type not supported\n --> .rdl:5:12")]
 fn unsupported_type_errors() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]

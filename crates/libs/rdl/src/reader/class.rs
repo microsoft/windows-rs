@@ -140,7 +140,7 @@ fn encode_implement(
 #[test]
 #[should_panic(expected = "error: `default` attribute does not accept arguments\n --> .rdl:6:9")]
 fn default_with_args_on_class_interface_errors() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]

@@ -2,13 +2,13 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/attribute-on-struct.rdl")
         .output("tests/attribute-on-struct.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/attribute-on-struct.winmd")
         .output("tests/attribute-on-struct.rdl")
         .namespace("Test")

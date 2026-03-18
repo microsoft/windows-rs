@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    struct HANDLE {
+        Value: *mut void,
+    }
+    const INVALID_HANDLE_VALUE: HANDLE = -1;
+    const NULL_HANDLE: HANDLE = 0;
+}

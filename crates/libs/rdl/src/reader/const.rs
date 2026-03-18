@@ -149,7 +149,7 @@ fn encode_const_guid(
 #[test]
 #[should_panic(expected = "error: GUID constant requires a value\n --> .rdl:4:11")]
 fn guid_const_missing_value() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]

@@ -150,7 +150,7 @@ fn is_ansi_encoding(row: Field) -> bool {
 fn is_signed_error(ty: &Type, reader: &Reader) -> bool {
     match ty {
         Type::HRESULT => true,
-        Type::CppStruct(ty) => !ty.def.underlying_type(reader).is_unsigned(),
+        Type::CppStruct(ty) => !ty.def.underlying_type_ext(reader).is_unsigned(),
         _ => false,
     }
 }

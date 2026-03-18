@@ -103,14 +103,16 @@ impl Writer {
 
                 let mut layout = Layout::new();
 
-                for (name, item) in index.namespace_items(namespace) {
-                    layout.insert(
-                        namespace,
-                        name,
-                        item_arches(item),
-                        item_winrt(item),
-                        write(namespace, item).to_string(),
-                    );
+                for (_, item) in index.namespace_items(namespace) {
+                    for (name, tokens) in write_items(namespace, item) {
+                        layout.insert(
+                            namespace,
+                            &name,
+                            item_arches(item),
+                            item_winrt(item),
+                            tokens.to_string(),
+                        );
+                    }
                 }
 
                 let output = layout.to_string();
@@ -135,14 +137,16 @@ impl Writer {
                     }
                 }
 
-                for (name, item) in index.namespace_items(namespace) {
-                    layout.insert(
-                        namespace,
-                        name,
-                        item_arches(item),
-                        item_winrt(item),
-                        write(namespace, item).to_string(),
-                    );
+                for (_, item) in index.namespace_items(namespace) {
+                    for (name, tokens) in write_items(namespace, item) {
+                        layout.insert(
+                            namespace,
+                            &name,
+                            item_arches(item),
+                            item_winrt(item),
+                            tokens.to_string(),
+                        );
+                    }
                 }
             }
 
@@ -190,11 +194,30 @@ fn item_winrt(item: &metadata::reader::Item) -> bool {
     }
 }
 
-fn write(namespace: &str, item: &metadata::reader::Item) -> TokenStream {
+fn write_items(namespace: &str, item: &metadata::reader::Item) -> Vec<(String, TokenStream)> {
     match item {
-        metadata::reader::Item::Type(ty) => write_type_def(ty),
-        metadata::reader::Item::Fn(ty) => write_fn(namespace, ty),
-        metadata::reader::Item::Const(ty) => write_const(namespace, ty),
+        metadata::reader::Item::Type(ty) => write_type_def_items(namespace, ty),
+        metadata::reader::Item::Fn(ty) => vec![(ty.name().to_string(), write_fn(namespace, ty))],
+        metadata::reader::Item::Const(ty) => {
+            vec![(ty.name().to_string(), write_const(namespace, ty))]
+        }
+    }
+}
+
+fn write_type_def_items(
+    _namespace: &str,
+    item: &metadata::reader::TypeDef,
+) -> Vec<(String, TokenStream)> {
+    match item.category() {
+        metadata::reader::TypeCategory::Struct => write_struct_items(item),
+        _ => {
+            let tokens = write_type_def(item);
+            if tokens.is_empty() {
+                vec![]
+            } else {
+                vec![(item.name().to_string(), tokens)]
+            }
+        }
     }
 }
 
@@ -280,9 +303,11 @@ fn write_custom_attributes_except<'a>(
     exclude: &[&str],
 ) -> Vec<TokenStream> {
     attributes
-        .filter(|attr| !exclude.contains(&attr.name()))
+        .filter(|attr| {
+            !namespace_starts_with(attr.namespace(), "System") && !exclude.contains(&attr.name())
+        })
         .map(|attr| {
-            let attr_ns = attr.ctor().parent().namespace();
+            let attr_ns = attr.namespace();
             let attr_short = attr
                 .name()
                 .strip_suffix("Attribute")
@@ -453,7 +478,10 @@ fn write_flags_combination(
 
 fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
     match item.category() {
-        metadata::reader::TypeCategory::Struct => write_struct(item),
+        // Structs/unions are handled by write_struct_items (which may return
+        // multiple flat items) so this branch is never reached from the main
+        // write loop.  It is kept for completeness and internal callers.
+        metadata::reader::TypeCategory::Struct => quote! {},
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
         metadata::reader::TypeCategory::Class => write_class(item),
@@ -638,6 +666,103 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
             quote! { #name }
         }
     }
+}
+
+/// Extracts the raw GUID tuple `(data1, data2, data3, data4)` from a `GuidAttribute`.
+fn extract_guid_from_attribute(attr: metadata::reader::Attribute) -> (u32, u16, u16, [u8; 8]) {
+    let values: Vec<_> = attr.value().into_iter().map(|(_, v)| v).collect();
+    assert_eq!(
+        values.len(),
+        11,
+        "GuidAttribute must have exactly 11 arguments"
+    );
+    let d1 = match values[0] {
+        metadata::Value::U32(v) => v,
+        ref v => panic!("GuidAttribute d1: expected U32, got {v:?}"),
+    };
+    let d2 = match values[1] {
+        metadata::Value::U16(v) => v,
+        ref v => panic!("GuidAttribute d2: expected U16, got {v:?}"),
+    };
+    let d3 = match values[2] {
+        metadata::Value::U16(v) => v,
+        ref v => panic!("GuidAttribute d3: expected U16, got {v:?}"),
+    };
+    let d4 = std::array::from_fn(|i| match values[3 + i] {
+        metadata::Value::U8(v) => v,
+        ref v => panic!("GuidAttribute d4[{i}]: expected U8, got {v:?}"),
+    });
+    (d1, d2, d3, d4)
+}
+
+/// Returns `true` when the `GuidAttribute` stored on an interface `TypeDef` matches what
+/// would be automatically derived from the interface shape (name + method signatures).
+/// When `true`, the attribute is redundant and may be omitted from the RDL output.
+/// When `false`, the GUID was set explicitly and must be preserved.
+fn interface_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+    let Some(attr) = item.find_attribute("GuidAttribute") else {
+        return true;
+    };
+    let stored = extract_guid_from_attribute(attr);
+
+    let generics: Vec<_> = item
+        .generic_params()
+        .map(|p| metadata::Type::Generic(p.name().to_string(), p.sequence()))
+        .collect();
+
+    let sigs: Vec<(String, Vec<metadata::Type>, metadata::Type)> = item
+        .methods()
+        .map(|m| {
+            let sig = m.signature(&generics);
+            (m.name().to_string(), sig.types, sig.return_type)
+        })
+        .collect();
+
+    let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = sigs
+        .iter()
+        .map(|(n, t, r)| (n.as_str(), t.as_slice(), r))
+        .collect();
+
+    let s = crate::reader::guid::build_interface_string(
+        item.namespace(),
+        metadata::trim_tick(item.name()),
+        &methods,
+    );
+    let derived = crate::reader::guid::guid_from_interface_string(&s);
+    stored == derived
+}
+
+/// Returns `true` when the `GuidAttribute` stored on a delegate `TypeDef` matches what
+/// would be automatically derived from the `Invoke` method signature.
+/// When `true`, the attribute is redundant and may be omitted from the RDL output.
+/// When `false`, the GUID was set explicitly and must be preserved.
+fn delegate_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+    let Some(attr) = item.find_attribute("GuidAttribute") else {
+        return true;
+    };
+    let stored = extract_guid_from_attribute(attr);
+
+    let generics: Vec<_> = item
+        .generic_params()
+        .map(|p| metadata::Type::Generic(p.name().to_string(), p.sequence()))
+        .collect();
+
+    let (types, return_type) = item
+        .methods()
+        .find(|m| m.name() == "Invoke")
+        .map(|invoke| {
+            let sig = invoke.signature(&generics);
+            (sig.types, sig.return_type)
+        })
+        .unwrap_or_else(|| (vec![], metadata::Type::Void));
+
+    let s = crate::reader::guid::build_interface_string(
+        item.namespace(),
+        metadata::trim_tick(item.name()),
+        &[("Invoke", types.as_slice(), &return_type)],
+    );
+    let derived = crate::reader::guid::guid_from_interface_string(&s);
+    stored == derived
 }
 
 fn write_ident(name: &str) -> TokenStream {

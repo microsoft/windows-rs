@@ -2,14 +2,14 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/complex-attribute-refs.rdl")
         .reference("../bindgen/default/Windows.winmd")
         .output("tests/complex-attribute-refs.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/complex-attribute-refs.winmd")
         .output("tests/complex-attribute-refs.rdl")
         .namespace("Test")

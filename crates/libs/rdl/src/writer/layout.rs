@@ -3,8 +3,8 @@ use super::*;
 #[derive(Default)]
 pub struct Layout {
     modules: BTreeMap<String, Layout>,
-    winrt: BTreeMap<String, String>,        // key is type name
-    win32: BTreeMap<(String, i32), String>, // key is type name + arches
+    winrt: BTreeMap<String, Vec<String>>, // key is type name
+    win32: BTreeMap<(String, i32), Vec<String>>, // key is type name + arches
 }
 
 impl Layout {
@@ -34,13 +34,17 @@ impl Layout {
                 .entry(namespace.to_string())
                 .or_default()
                 .winrt
-                .insert(name.to_string(), tokens);
+                .entry(name.to_string())
+                .or_default()
+                .push(tokens);
         } else {
             self.modules
                 .entry(namespace.to_string())
                 .or_default()
                 .win32
-                .insert((name.to_string(), arches), tokens);
+                .entry((name.to_string(), arches))
+                .or_default()
+                .push(tokens);
         }
     }
 
@@ -64,8 +68,12 @@ impl Layout {
             output.push_str(name);
             output.push('{');
 
-            for tokens in self.winrt.values() {
-                output.push_str(tokens);
+            for items in self.winrt.values() {
+                let mut items = items.clone();
+                items.sort();
+                for tokens in &items {
+                    output.push_str(tokens);
+                }
             }
 
             output.push('}')
@@ -76,8 +84,12 @@ impl Layout {
             output.push_str(name);
             output.push('{');
 
-            for tokens in self.win32.values() {
-                output.push_str(tokens);
+            for items in self.win32.values() {
+                let mut items = items.clone();
+                items.sort();
+                for tokens in &items {
+                    output.push_str(tokens);
+                }
             }
 
             output.push('}')
