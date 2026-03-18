@@ -12,7 +12,7 @@ pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORW: GRAPHICS_EFFECT_PROPERTY_MAP
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORX: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(2i32);
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORY: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(3i32);
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(4i32);
-windows_core::imp::define_interface!(IGeometrySource2DInterop, IGeometrySource2DInterop_Vtbl, 0x0657af73_53fd_47cf_84ff_c8492d2a80a3);
+windows_core::imp::define_interface!(IGeometrySource2DInterop, IGeometrySource2DInterop_Vtbl, 0x80ae4aab_cfab_5dcc_a24e_d73dce5d1f40);
 windows_core::imp::interface_hierarchy!(IGeometrySource2DInterop, windows_core::IUnknown);
 impl IGeometrySource2DInterop {
     #[cfg(feature = "Win32_Graphics_Direct2D")]
@@ -90,7 +90,7 @@ impl IGeometrySource2DInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 impl windows_core::RuntimeName for IGeometrySource2DInterop {}
-windows_core::imp::define_interface!(IGraphicsEffectD2D1Interop, IGraphicsEffectD2D1Interop_Vtbl, 0x2fc57384_a068_44d7_a331_30982fcf7177);
+windows_core::imp::define_interface!(IGraphicsEffectD2D1Interop, IGraphicsEffectD2D1Interop_Vtbl, 0xbba7a196_f1e4_5694_819a_4a2cdb17f464);
 windows_core::imp::interface_hierarchy!(IGraphicsEffectD2D1Interop, windows_core::IUnknown);
 impl IGraphicsEffectD2D1Interop {
     pub unsafe fn GetEffectId(&self) -> windows_core::Result<windows_core::GUID> {

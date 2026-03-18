@@ -4,7 +4,7 @@ pub mod Automation;
 pub mod People;
 #[cfg(feature = "Perception_Spatial")]
 pub mod Spatial;
-windows_core::imp::define_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
+windows_core::imp::define_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x3239cb2f_3261_532e_a3fc_1e922ebd3cd8);
 impl windows_core::RuntimeType for IPerceptionTimestamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -15,7 +15,7 @@ pub struct IPerceptionTimestamp_Vtbl {
     pub TargetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
     pub PredictionAmount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPerceptionTimestamp2, IPerceptionTimestamp2_Vtbl, 0xe354b7ed_2bd1_41b7_9ed0_74a15c354537);
+windows_core::imp::define_interface!(IPerceptionTimestamp2, IPerceptionTimestamp2_Vtbl, 0xee06a761_03c6_5b6d_a393_4ca73148aa07);
 impl windows_core::RuntimeType for IPerceptionTimestamp2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

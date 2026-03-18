@@ -1,32 +1,32 @@
-windows_link::link!("vertdll.dll" "system" fn CallEnclave(lproutine : isize, lpparameter : *const core::ffi::c_void, fwaitforthread : windows_sys::core::BOOL, lpreturnvalue : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("vertdll.dll" "system" fn CallEnclave(lproutine : isize, lpparameter : *mut core::ffi::c_void, fwaitforthread : windows_sys::core::BOOL, lpreturnvalue : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn CreateEnclave(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, dwsize : usize, dwinitialcommitment : usize, flenclavetype : u32, lpenclaveinformation : *const core::ffi::c_void, dwinfolength : u32, lpenclaveerror : *mut u32) -> *mut core::ffi::c_void);
 windows_link::link!("userenv.dll" "system" fn CreateEnvironmentBlock(lpenvironment : *mut *mut core::ffi::c_void, htoken : super::super::Foundation:: HANDLE, binherit : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn DeleteEnclave(lpaddress : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("userenv.dll" "system" fn DestroyEnvironmentBlock(lpenvironment : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("vertdll.dll" "system" fn EnclaveGetAttestationReport(enclavedata : *const u8, report : *mut core::ffi::c_void, buffersize : u32, outputsize : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn DeleteEnclave(lpaddress : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("userenv.dll" "system" fn DestroyEnvironmentBlock(lpenvironment : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("vertdll.dll" "system" fn EnclaveGetAttestationReport(enclavedata : *mut u8, report : *mut core::ffi::c_void, buffersize : u32, outputsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("vertdll.dll" "system" fn EnclaveGetEnclaveInformation(informationsize : u32, enclaveinformation : *mut ENCLAVE_INFORMATION) -> windows_sys::core::HRESULT);
-windows_link::link!("vertdll.dll" "system" fn EnclaveSealData(datatoencrypt : *const core::ffi::c_void, datatoencryptsize : u32, identitypolicy : ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy : u32, protectedblob : *mut core::ffi::c_void, buffersize : u32, protectedblobsize : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("vertdll.dll" "system" fn EnclaveUnsealData(protectedblob : *const core::ffi::c_void, protectedblobsize : u32, decrypteddata : *mut core::ffi::c_void, buffersize : u32, decrypteddatasize : *mut u32, sealingidentity : *mut ENCLAVE_IDENTITY, unsealingflags : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("vertdll.dll" "system" fn EnclaveVerifyAttestationReport(enclavetype : u32, report : *const core::ffi::c_void, reportsize : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsA(lpsrc : windows_sys::core::PCSTR, lpdst : windows_sys::core::PSTR, nsize : u32) -> u32);
-windows_link::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserA(htoken : super::super::Foundation:: HANDLE, lpsrc : windows_sys::core::PCSTR, lpdest : windows_sys::core::PSTR, dwsize : u32) -> windows_sys::core::BOOL);
+windows_link::link!("vertdll.dll" "system" fn EnclaveSealData(datatoencrypt : *mut core::ffi::c_void, datatoencryptsize : u32, identitypolicy : ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy : u32, protectedblob : *mut core::ffi::c_void, buffersize : u32, protectedblobsize : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("vertdll.dll" "system" fn EnclaveUnsealData(protectedblob : *mut core::ffi::c_void, protectedblobsize : u32, decrypteddata : *mut core::ffi::c_void, buffersize : u32, decrypteddatasize : *mut u32, sealingidentity : *mut ENCLAVE_IDENTITY, unsealingflags : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("vertdll.dll" "system" fn EnclaveVerifyAttestationReport(enclavetype : u32, report : *mut core::ffi::c_void, reportsize : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsA(lpsrc : windows_sys::core::PCSTR, lpdst : windows_sys::core::PCSTR, nsize : u32) -> u32);
+windows_link::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserA(htoken : super::super::Foundation:: HANDLE, lpsrc : windows_sys::core::PCSTR, lpdest : windows_sys::core::PCSTR, dwsize : u32) -> windows_sys::core::BOOL);
 windows_link::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserW(htoken : super::super::Foundation:: HANDLE, lpsrc : windows_sys::core::PCWSTR, lpdest : windows_sys::core::PWSTR, dwsize : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsW(lpsrc : windows_sys::core::PCWSTR, lpdst : windows_sys::core::PWSTR, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn FreeEnvironmentStringsA(penv : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn FreeEnvironmentStringsW(penv : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetCommandLineA() -> windows_sys::core::PCSTR);
-windows_link::link!("kernel32.dll" "system" fn GetCommandLineW() -> windows_sys::core::PCWSTR);
+windows_link::link!("kernel32.dll" "system" fn GetCommandLineA() -> windows_sys::core::PSTR);
+windows_link::link!("kernel32.dll" "system" fn GetCommandLineW() -> windows_sys::core::PWSTR);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentDirectoryA(nbufferlength : u32, lpbuffer : windows_sys::core::PSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentDirectoryW(nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetEnvironmentStrings() -> windows_sys::core::PSTR);
 windows_link::link!("kernel32.dll" "system" fn GetEnvironmentStringsW() -> windows_sys::core::PWSTR);
-windows_link::link!("kernel32.dll" "system" fn GetEnvironmentVariableA(lpname : windows_sys::core::PCSTR, lpbuffer : windows_sys::core::PSTR, nsize : u32) -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetEnvironmentVariableW(lpname : windows_sys::core::PCWSTR, lpbuffer : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetEnvironmentVariableA(lpname : windows_sys::core::PCSTR, lpbuffer : windows_sys::core::PCSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetEnvironmentVariableW(lpname : windows_sys::core::PCWSTR, lpbuffer : windows_sys::core::PCWSTR, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn InitializeEnclave(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, lpenclaveinformation : *const core::ffi::c_void, dwinfolength : u32, lpenclaveerror : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn IsEnclaveTypeSupported(flenclavetype : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn LoadEnclaveData(hprocess : super::super::Foundation:: HANDLE, lpaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, flprotect : u32, lppageinformation : *const core::ffi::c_void, dwinfolength : u32, lpnumberofbyteswritten : *mut usize, lpenclaveerror : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageA(lpenclaveaddress : *const core::ffi::c_void, lpimagename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_link::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageW(lpenclaveaddress : *const core::ffi::c_void, lpimagename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn LoadEnclaveData(hprocess : super::super::Foundation:: HANDLE, lpaddress : *mut core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, flprotect : u32, lppageinformation : *mut core::ffi::c_void, dwinfolength : u32, lpnumberofbyteswritten : *mut usize, lpenclaveerror : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageA(lpenclaveaddress : *mut core::ffi::c_void, lpimagename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageW(lpenclaveaddress : *mut core::ffi::c_void, lpimagename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn NeedCurrentDirectoryForExePathA(exename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn NeedCurrentDirectoryForExePathW(exename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetCurrentDirectoryA(lppathname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
@@ -34,11 +34,11 @@ windows_link::link!("kernel32.dll" "system" fn SetCurrentDirectoryW(lppathname :
 windows_link::link!("kernel32.dll" "system" fn SetEnvironmentStringsW(newenvironment : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetEnvironmentVariableA(lpname : windows_sys::core::PCSTR, lpvalue : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetEnvironmentVariableW(lpname : windows_sys::core::PCWSTR, lpvalue : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *mut core::ffi::c_void, fwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [u8; 32],
@@ -96,30 +96,22 @@ pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub SystemKeyID: u32,
     pub CurrentSystemKeyID: u32,
 }
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
-#[cfg(target_arch = "x86")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *mut core::ffi::c_void, numberofbytes: usize, sourceaddress: *mut core::ffi::c_void, pageprotection: u32) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = Option<unsafe extern "system" fn(keyrequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, requestedkeysize: u32, returnedkey: *mut u8) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = Option<unsafe extern "system" fn(buffer: *mut u8, numberofbytes: u32, generation: *mut u64) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = Option<unsafe extern "system" fn(enclavedata: *const u8, report: *mut core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = Option<unsafe extern "system" fn(enclavedata: *mut u8, report: *mut core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = Option<unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
-#[cfg(target_arch = "x86")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *mut core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = Option<unsafe extern "system" fn(returnvalue: usize)>;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = Option<unsafe extern "system" fn(exceptionrecord: *const VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = Option<unsafe extern "system" fn(exceptionrecord: *const core::ffi::c_void) -> i32>;
-#[cfg(target_arch = "x86")]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = Option<unsafe extern "system" fn(report: *const core::ffi::c_void, reportsize: u32) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -185,7 +177,7 @@ impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: u32,
@@ -198,7 +190,7 @@ impl Default for VBS_ENCLAVE_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
@@ -214,7 +206,7 @@ impl Default for VBS_ENCLAVE_REPORT_MODULE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
@@ -226,7 +218,7 @@ pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
 }
 pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,

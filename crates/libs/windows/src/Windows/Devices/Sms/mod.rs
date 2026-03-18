@@ -17,7 +17,7 @@ pub type DeleteSmsMessagesOperation = windows_future::IAsyncAction;
 pub type GetSmsDeviceOperation = windows_future::IAsyncOperation<SmsDevice>;
 pub type GetSmsMessageOperation = windows_future::IAsyncOperation<ISmsMessage>;
 pub type GetSmsMessagesOperation = windows_future::IAsyncOperationWithProgress<windows_collections::IVectorView<ISmsMessage>, i32>;
-windows_core::imp::define_interface!(ISmsAppMessage, ISmsAppMessage_Vtbl, 0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
+windows_core::imp::define_interface!(ISmsAppMessage, ISmsAppMessage_Vtbl, 0x8cffbbc4_a73d_5805_a902_eba2419d1d87);
 impl windows_core::RuntimeType for ISmsAppMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -54,7 +54,7 @@ pub struct ISmsAppMessage_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetBinaryBody: usize,
 }
-windows_core::imp::define_interface!(ISmsBinaryMessage, ISmsBinaryMessage_Vtbl, 0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
+windows_core::imp::define_interface!(ISmsBinaryMessage, ISmsBinaryMessage_Vtbl, 0xf151eae6_af9f_5dc9_952c_ca7617d6436f);
 impl windows_core::RuntimeType for ISmsBinaryMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -187,7 +187,7 @@ pub struct ISmsBroadcastMessage_Vtbl {
     pub IsEmergencyAlert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsUserPopupRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsDevice, ISmsDevice_Vtbl, 0x091791ed_872b_4eec_9c72_ab11627b34ec);
+windows_core::imp::define_interface!(ISmsDevice, ISmsDevice_Vtbl, 0xd8985b73_2eb6_585a_a6c2_dc0cf53db967);
 impl windows_core::RuntimeType for ISmsDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -431,7 +431,7 @@ pub struct ISmsDevice_Vtbl {
     pub SmsDeviceStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveSmsDeviceStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsDevice2, ISmsDevice2_Vtbl, 0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
+windows_core::imp::define_interface!(ISmsDevice2, ISmsDevice2_Vtbl, 0xb59e316c_f68d_5e35_a7fc_1e4518210e10);
 impl windows_core::RuntimeType for ISmsDevice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -464,7 +464,7 @@ pub struct ISmsDevice2Statics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromParentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsDeviceMessageStore, ISmsDeviceMessageStore_Vtbl, 0x9889f253_f188_4427_8d54_ce0c2423c5c1);
+windows_core::imp::define_interface!(ISmsDeviceMessageStore, ISmsDeviceMessageStore_Vtbl, 0x6aeaa329_3a16_5dcf_b056_f3315fb4ed8d);
 impl windows_core::RuntimeType for ISmsDeviceMessageStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -478,7 +478,7 @@ pub struct ISmsDeviceMessageStore_Vtbl {
     pub GetMessagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, SmsMessageFilter, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxMessages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsDeviceStatics, ISmsDeviceStatics_Vtbl, 0xf88d07ea_d815_4dd1_a234_4520ce4604a4);
+windows_core::imp::define_interface!(ISmsDeviceStatics, ISmsDeviceStatics_Vtbl, 0x82c37df4_faf6_5c9c_985c_1acc3e8e7d50);
 impl windows_core::RuntimeType for ISmsDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -490,7 +490,7 @@ pub struct ISmsDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsDeviceStatics2, ISmsDeviceStatics2_Vtbl, 0x2ca11c87_0873_4caf_8a7d_bd471e8586d1);
+windows_core::imp::define_interface!(ISmsDeviceStatics2, ISmsDeviceStatics2_Vtbl, 0x7c0dde14_e0a2_50c9_bc54_c7cdad402669);
 impl windows_core::RuntimeType for ISmsDeviceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -500,7 +500,7 @@ pub struct ISmsDeviceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromNetworkAccountIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsFilterRule, ISmsFilterRule_Vtbl, 0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
+windows_core::imp::define_interface!(ISmsFilterRule, ISmsFilterRule_Vtbl, 0xdc9a7639_bf13_54a4_8821_20a1158936ac);
 impl windows_core::RuntimeType for ISmsFilterRule {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -533,7 +533,7 @@ pub struct ISmsFilterRuleFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFilterRule: unsafe extern "system" fn(*mut core::ffi::c_void, SmsMessageType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsFilterRules, ISmsFilterRules_Vtbl, 0x4e47eafb_79cd_4881_9894_55a4135b23fa);
+windows_core::imp::define_interface!(ISmsFilterRules, ISmsFilterRules_Vtbl, 0xd94285d7_cffb_564d_8a82_402dd8f44249);
 impl windows_core::RuntimeType for ISmsFilterRules {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -554,7 +554,7 @@ pub struct ISmsFilterRulesFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFilterRules: unsafe extern "system" fn(*mut core::ffi::c_void, SmsFilterActionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsMessage, ISmsMessage_Vtbl, 0xed3c5e28_6984_4b07_811d_8d5906ed3cea);
+windows_core::imp::define_interface!(ISmsMessage, ISmsMessage_Vtbl, 0x034e759f_3246_5bc4_83a7_30724e49e576);
 impl windows_core::RuntimeType for ISmsMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -793,7 +793,7 @@ pub struct ISmsMessageReceivedTriggerDetails_Vtbl {
     pub Drop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Accept: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsMessageRegistration, ISmsMessageRegistration_Vtbl, 0x1720503e_f34f_446b_83b3_0ff19923b409);
+windows_core::imp::define_interface!(ISmsMessageRegistration, ISmsMessageRegistration_Vtbl, 0x1b9a81c4_4096_5f2f_a069_6f5f937c427d);
 impl windows_core::RuntimeType for ISmsMessageRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -817,7 +817,7 @@ pub struct ISmsMessageRegistrationStatics_Vtbl {
     pub AllRegistrations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsReceivedEventDetails, ISmsReceivedEventDetails_Vtbl, 0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
+windows_core::imp::define_interface!(ISmsReceivedEventDetails, ISmsReceivedEventDetails_Vtbl, 0xfb54edb8_d866_5c14_8b3d_1a51eedfa785);
 impl windows_core::RuntimeType for ISmsReceivedEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -828,7 +828,7 @@ pub struct ISmsReceivedEventDetails_Vtbl {
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MessageIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsReceivedEventDetails2, ISmsReceivedEventDetails2_Vtbl, 0x40e05c86_a7b4_4771_9ae7_0b5ffb12c03a);
+windows_core::imp::define_interface!(ISmsReceivedEventDetails2, ISmsReceivedEventDetails2_Vtbl, 0xcf4dff31_f82d_5815_9bb4_b210ec85806d);
 impl windows_core::RuntimeType for ISmsReceivedEventDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -839,7 +839,7 @@ pub struct ISmsReceivedEventDetails2_Vtbl {
     pub MessageClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmsMessageClass) -> windows_core::HRESULT,
     pub BinaryMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsSendMessageResult, ISmsSendMessageResult_Vtbl, 0xdb139af2_78c9_4feb_9622_452328088d62);
+windows_core::imp::define_interface!(ISmsSendMessageResult, ISmsSendMessageResult_Vtbl, 0x0467e5fc_1de8_59c9_a7c4_83b47e50cbde);
 impl windows_core::RuntimeType for ISmsSendMessageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -855,7 +855,7 @@ pub struct ISmsSendMessageResult_Vtbl {
     pub NetworkCauseCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub TransportFailureCause: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsStatusMessage, ISmsStatusMessage_Vtbl, 0xe6d28342_b70b_4677_9379_c9783fdff8f4);
+windows_core::imp::define_interface!(ISmsStatusMessage, ISmsStatusMessage_Vtbl, 0x88471d8f_c4b0_56a7_9eb1_c1f9149eaf54);
 impl windows_core::RuntimeType for ISmsStatusMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1192,7 +1192,7 @@ pub struct ISmsTextMessage2_Vtbl {
     pub TeleserviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ProtocolId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsTextMessageStatics, ISmsTextMessageStatics_Vtbl, 0x7f68c5ed_3ccc_47a3_8c55_380d3b010892);
+windows_core::imp::define_interface!(ISmsTextMessageStatics, ISmsTextMessageStatics_Vtbl, 0x00f1b62f_9c0a_5a25_926c_f833bf49a1e2);
 impl windows_core::RuntimeType for ISmsTextMessageStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1203,7 +1203,7 @@ pub struct ISmsTextMessageStatics_Vtbl {
     pub FromBinaryMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromBinaryData: unsafe extern "system" fn(*mut core::ffi::c_void, SmsDataFormat, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsVoicemailMessage, ISmsVoicemailMessage_Vtbl, 0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
+windows_core::imp::define_interface!(ISmsVoicemailMessage, ISmsVoicemailMessage_Vtbl, 0xf58e3792_0985_5a2a_9714_c984b5f26c26);
 impl windows_core::RuntimeType for ISmsVoicemailMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1216,7 +1216,7 @@ pub struct ISmsVoicemailMessage_Vtbl {
     pub Body: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MessageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISmsWapMessage, ISmsWapMessage_Vtbl, 0xcd937743_7a55_4d3b_9021_f22e022d09c5);
+windows_core::imp::define_interface!(ISmsWapMessage, ISmsWapMessage_Vtbl, 0x0ad40f15_ac0f_519a_b157_41daeca959ac);
 impl windows_core::RuntimeType for ISmsWapMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1972,7 +1972,7 @@ impl windows_core::TypeKind for SmsDeviceStatus {
 impl windows_core::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
 }
-windows_core::imp::define_interface!(SmsDeviceStatusChangedEventHandler, SmsDeviceStatusChangedEventHandler_Vtbl, 0x982b1162_3dd7_4618_af89_0c272d5d06d8);
+windows_core::imp::define_interface!(SmsDeviceStatusChangedEventHandler, SmsDeviceStatusChangedEventHandler_Vtbl, 0x7d4d895b_7b06_5ae0_9f12_4eedaf64437f);
 impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

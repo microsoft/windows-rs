@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IVariablePhotoCapturedEventArgs, IVariablePhotoCapturedEventArgs_Vtbl, 0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
+windows_core::imp::define_interface!(IVariablePhotoCapturedEventArgs, IVariablePhotoCapturedEventArgs_Vtbl, 0x7427a5b7_0e20_5a29_b940_d7815d336723);
 impl windows_core::RuntimeType for IVariablePhotoCapturedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -30,7 +30,7 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
     pub Stopped: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStopped: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVariablePhotoSequenceCapture2, IVariablePhotoSequenceCapture2_Vtbl, 0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
+windows_core::imp::define_interface!(IVariablePhotoSequenceCapture2, IVariablePhotoSequenceCapture2_Vtbl, 0x58bb4b0c_e8d3_5e2e_be18_41b4b8db7782);
 impl windows_core::RuntimeType for IVariablePhotoSequenceCapture2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

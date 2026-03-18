@@ -1115,7 +1115,7 @@ impl windows_core::RuntimeName for GuidanceUpdatedEventArgs {
 }
 unsafe impl Send for GuidanceUpdatedEventArgs {}
 unsafe impl Sync for GuidanceUpdatedEventArgs {}
-windows_core::imp::define_interface!(IGuidanceAudioNotificationRequestedEventArgs, IGuidanceAudioNotificationRequestedEventArgs_Vtbl, 0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
+windows_core::imp::define_interface!(IGuidanceAudioNotificationRequestedEventArgs, IGuidanceAudioNotificationRequestedEventArgs_Vtbl, 0x63e77937_2628_5460_bdf5_ac7cc293c286);
 impl windows_core::RuntimeType for IGuidanceAudioNotificationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1127,7 +1127,7 @@ pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
     pub AudioFilePaths: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AudioText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceLaneInfo, IGuidanceLaneInfo_Vtbl, 0x8404d114_6581_43b7_ac15_c9079bf90df1);
+windows_core::imp::define_interface!(IGuidanceLaneInfo, IGuidanceLaneInfo_Vtbl, 0x434b1fa9_94b0_5c67_b863_97065777bb4c);
 impl windows_core::RuntimeType for IGuidanceLaneInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1138,7 +1138,7 @@ pub struct IGuidanceLaneInfo_Vtbl {
     pub LaneMarkers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GuidanceLaneMarkers) -> windows_core::HRESULT,
     pub IsOnRoute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceManeuver, IGuidanceManeuver_Vtbl, 0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
+windows_core::imp::define_interface!(IGuidanceManeuver, IGuidanceManeuver_Vtbl, 0x88546638_741e_537e_b5e3_1fe9152e75a3);
 impl windows_core::RuntimeType for IGuidanceManeuver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1162,7 +1162,7 @@ pub struct IGuidanceManeuver_Vtbl {
     pub RoadSignpost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InstructionText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceMapMatchedCoordinate, IGuidanceMapMatchedCoordinate_Vtbl, 0xb7acb168_2912_4a99_aff1_798609b981fe);
+windows_core::imp::define_interface!(IGuidanceMapMatchedCoordinate, IGuidanceMapMatchedCoordinate_Vtbl, 0x1c3e080a_6749_53be_963d_71741b9d62ef);
 impl windows_core::RuntimeType for IGuidanceMapMatchedCoordinate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1179,7 +1179,7 @@ pub struct IGuidanceMapMatchedCoordinate_Vtbl {
     pub IsOnStreet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Road: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceNavigator, IGuidanceNavigator_Vtbl, 0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
+windows_core::imp::define_interface!(IGuidanceNavigator, IGuidanceNavigator_Vtbl, 0x40e29ba0_7ded_5e36_ad82_43552fa23c10);
 impl windows_core::RuntimeType for IGuidanceNavigator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1235,7 +1235,7 @@ pub struct IGuidanceNavigator2_Vtbl {
     pub IsGuidanceAudioMuted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsGuidanceAudioMuted: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceNavigatorStatics, IGuidanceNavigatorStatics_Vtbl, 0x00fd9513_4456_4e66_a143_3add6be08426);
+windows_core::imp::define_interface!(IGuidanceNavigatorStatics, IGuidanceNavigatorStatics_Vtbl, 0x37848bf8_f946_50c2_aef7_be7dcfef61a8);
 impl windows_core::RuntimeType for IGuidanceNavigatorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1255,7 +1255,7 @@ pub struct IGuidanceNavigatorStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UseAppProvidedVoice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceReroutedEventArgs, IGuidanceReroutedEventArgs_Vtbl, 0x115d4008_d528_454e_bb94_a50341d2c9f1);
+windows_core::imp::define_interface!(IGuidanceReroutedEventArgs, IGuidanceReroutedEventArgs_Vtbl, 0x12196439_7cfd_5c0d_9289_f63c34e72311);
 impl windows_core::RuntimeType for IGuidanceReroutedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1265,7 +1265,7 @@ pub struct IGuidanceReroutedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Route: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceRoadSegment, IGuidanceRoadSegment_Vtbl, 0xb32758a6_be78_4c63_afe7_6c2957479b3e);
+windows_core::imp::define_interface!(IGuidanceRoadSegment, IGuidanceRoadSegment_Vtbl, 0x1d70677d_a00f_5de2_812a_6bf306591105);
 impl windows_core::RuntimeType for IGuidanceRoadSegment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1286,7 +1286,7 @@ pub struct IGuidanceRoadSegment_Vtbl {
     pub IsTunnel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsTollRoad: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceRoadSegment2, IGuidanceRoadSegment2_Vtbl, 0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
+windows_core::imp::define_interface!(IGuidanceRoadSegment2, IGuidanceRoadSegment2_Vtbl, 0xc81cda82_e167_5241_a437_c980e0cb7590);
 impl windows_core::RuntimeType for IGuidanceRoadSegment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1296,7 +1296,7 @@ pub struct IGuidanceRoadSegment2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsScenic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceRoadSignpost, IGuidanceRoadSignpost_Vtbl, 0xf1a728b6_f77a_4742_8312_53300f9845f0);
+windows_core::imp::define_interface!(IGuidanceRoadSignpost, IGuidanceRoadSignpost_Vtbl, 0x946b7fab_01fa_5f00_a3d6_29640110fbc8);
 impl windows_core::RuntimeType for IGuidanceRoadSignpost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1316,7 +1316,7 @@ pub struct IGuidanceRoadSignpost_Vtbl {
     ForegroundColor: usize,
     pub ExitDirections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceRoute, IGuidanceRoute_Vtbl, 0x3a14545d_801a_40bd_a286_afb2010cce6c);
+windows_core::imp::define_interface!(IGuidanceRoute, IGuidanceRoute_Vtbl, 0x33b8c8d2_1c92_53ca_be67_c6113f05484e);
 impl windows_core::RuntimeType for IGuidanceRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1349,7 +1349,7 @@ pub struct IGuidanceRouteStatics_Vtbl {
     pub CanCreateFromMapRoute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TryCreateFromMapRoute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceTelemetryCollector, IGuidanceTelemetryCollector_Vtbl, 0xdb1f8da5_b878_4d92_98dd_347d23d38262);
+windows_core::imp::define_interface!(IGuidanceTelemetryCollector, IGuidanceTelemetryCollector_Vtbl, 0x00648cc9_0ae6_50e5_8086_480e97dda3a4);
 impl windows_core::RuntimeType for IGuidanceTelemetryCollector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1375,7 +1375,7 @@ pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGuidanceUpdatedEventArgs, IGuidanceUpdatedEventArgs_Vtbl, 0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
+windows_core::imp::define_interface!(IGuidanceUpdatedEventArgs, IGuidanceUpdatedEventArgs_Vtbl, 0x5b97cd72_40bf_59ce_8049_6cb5b2bda956);
 impl windows_core::RuntimeType for IGuidanceUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

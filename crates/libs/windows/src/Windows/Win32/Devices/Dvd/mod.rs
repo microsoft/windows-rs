@@ -175,8 +175,8 @@ pub const DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
 pub const DVD_CGMS_NO_COPY: u32 = 24u32;
 pub const DVD_CGMS_RESERVED_MASK: u32 = 120u32;
 pub const DVD_COPYRIGHTED: u32 = 64u32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_COPYRIGHT_DESCRIPTOR {
     pub CopyrightProtectionType: u8,
     pub RegionManagementInformation: u8,
@@ -209,12 +209,12 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
+pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_3 {
+pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
@@ -224,11 +224,11 @@ pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
+pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_3 {
     pub _bitfield: u8,
 }
 pub const DVD_COPYRIGHT_MASK: u32 = 64u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DVD_COPY_PROTECT_KEY {
     pub KeyLength: u32,
@@ -243,7 +243,7 @@ impl Default for DVD_COPY_PROTECT_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union DVD_COPY_PROTECT_KEY_0 {
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -254,8 +254,8 @@ impl Default for DVD_COPY_PROTECT_KEY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_DESCRIPTOR_HEADER {
     pub Length: u16,
     pub Reserved: [u8; 2],
@@ -456,7 +456,7 @@ impl Default for DVD_DUAL_LAYER_REMAPPING_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVD_FULL_LAYER_DESCRIPTOR {
     pub commonHeader: DVD_LAYER_DESCRIPTOR,
     pub MediaSpecific: [u8; 2031],
@@ -469,8 +469,8 @@ impl Default for DVD_FULL_LAYER_DESCRIPTOR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_KEY_TYPE(pub i32);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_LAYER_DESCRIPTOR {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
@@ -569,8 +569,8 @@ impl Default for DVD_RAM_SPARE_AREA_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DVD_READ_STRUCTURE {
     pub BlockByteOffset: i64,
     pub Format: DVD_STRUCTURE_FORMAT,
@@ -713,8 +713,8 @@ pub const IOCTL_DVD_SEND_KEY2: u32 = 3395608u32;
 pub const IOCTL_DVD_SET_READ_AHEAD: u32 = 3362832u32;
 pub const IOCTL_DVD_START_SESSION: u32 = 3362816u32;
 pub const IOCTL_STORAGE_SET_READ_AHEAD: u32 = 2966528u32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STORAGE_SET_READ_AHEAD {
     pub TriggerAddress: i64,
     pub TargetAddress: i64,

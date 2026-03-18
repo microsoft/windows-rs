@@ -104,7 +104,7 @@ impl windows_core::TypeKind for ChallengeResponseKind {
 impl windows_core::RuntimeType for ChallengeResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.ChallengeResponseKind;i4)");
 }
-windows_core::imp::define_interface!(ICredentialFactory, ICredentialFactory_Vtbl, 0x54ef13a1_bf26_47b5_97dd_de779b7cad58);
+windows_core::imp::define_interface!(ICredentialFactory, ICredentialFactory_Vtbl, 0x79cb80c3_542e_5bee_8073_7c0546691b69);
 impl windows_core::RuntimeType for ICredentialFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -137,7 +137,7 @@ pub struct IKeyCredential_Vtbl {
     RequestSignAsync: usize,
     pub GetAttestationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyCredential2, IKeyCredential2_Vtbl, 0x3b7c5e09_7b72_5a05_b2f0_7119ca3fd5df);
+windows_core::imp::define_interface!(IKeyCredential2, IKeyCredential2_Vtbl, 0xa7e23fa5_2456_5092_9341_b145f5926714);
 impl windows_core::RuntimeType for IKeyCredential2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -154,7 +154,7 @@ pub struct IKeyCredential2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     RetrieveAuthorizationContext: usize,
 }
-windows_core::imp::define_interface!(IKeyCredentialAttestationResult, IKeyCredentialAttestationResult_Vtbl, 0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
+windows_core::imp::define_interface!(IKeyCredentialAttestationResult, IKeyCredentialAttestationResult_Vtbl, 0xab37165c_dbc0_538b_a132_b2b86a9a78a0);
 impl windows_core::RuntimeType for IKeyCredentialAttestationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -172,7 +172,7 @@ pub struct IKeyCredentialAttestationResult_Vtbl {
     AttestationBuffer: usize,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyCredentialAttestationStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyCredentialCacheConfiguration, IKeyCredentialCacheConfiguration_Vtbl, 0x438bd21a_61ff_5468_95a6_b1d5216e458d);
+windows_core::imp::define_interface!(IKeyCredentialCacheConfiguration, IKeyCredentialCacheConfiguration_Vtbl, 0xf8107e72_a333_5898_bc63_1edeb20e670c);
 impl windows_core::RuntimeType for IKeyCredentialCacheConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -184,7 +184,7 @@ pub struct IKeyCredentialCacheConfiguration_Vtbl {
     pub Timeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub UsageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyCredentialCacheConfigurationFactory, IKeyCredentialCacheConfigurationFactory_Vtbl, 0x9948c31b_c827_5b58_9442_40acd8ab1e7d);
+windows_core::imp::define_interface!(IKeyCredentialCacheConfigurationFactory, IKeyCredentialCacheConfigurationFactory_Vtbl, 0xad2f894c_ca19_5495_bdb3_4067e1f29884);
 impl windows_core::RuntimeType for IKeyCredentialCacheConfigurationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -234,7 +234,7 @@ pub struct IKeyCredentialCacheConfigurationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, KeyCredentialCacheOption, super::super::Foundation::TimeSpan, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyCredentialManagerCreateWithWindowStatics, IKeyCredentialManagerCreateWithWindowStatics_Vtbl, 0x30b1b9c9_61ef_43e8_88ac_cc433b38d1a6);
+windows_core::imp::define_interface!(IKeyCredentialManagerCreateWithWindowStatics, IKeyCredentialManagerCreateWithWindowStatics_Vtbl, 0x3932a9f8_e43d_55ae_ba4c_81842beba4f1);
 impl windows_core::RuntimeType for IKeyCredentialManagerCreateWithWindowStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -247,7 +247,7 @@ pub struct IKeyCredentialManagerCreateWithWindowStatics_Vtbl {
     #[cfg(not(feature = "UI"))]
     RequestCreateForWindowAsync: usize,
 }
-windows_core::imp::define_interface!(IKeyCredentialManagerStatics, IKeyCredentialManagerStatics_Vtbl, 0x6aac468b_0ef1_4ce0_8290_4106da6a63b5);
+windows_core::imp::define_interface!(IKeyCredentialManagerStatics, IKeyCredentialManagerStatics_Vtbl, 0x465a6240_d159_52ab_af37_c0b6f5d3e160);
 impl windows_core::RuntimeType for IKeyCredentialManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -296,7 +296,7 @@ pub struct IKeyCredentialOperationResult_Vtbl {
     Result: usize,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyCredentialStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IKeyCredentialRetrievalResult, IKeyCredentialRetrievalResult_Vtbl, 0x58cd7703_8d87_4249_9b58_f6598cc9644e);
+windows_core::imp::define_interface!(IKeyCredentialRetrievalResult, IKeyCredentialRetrievalResult_Vtbl, 0xb27acf84_2f5d_55c0_b2d6_31455cc8660c);
 impl windows_core::RuntimeType for IKeyCredentialRetrievalResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -320,7 +320,7 @@ pub struct IKeyCredentialWithWindow_Vtbl {
     #[cfg(not(all(feature = "Storage_Streams", feature = "UI")))]
     RequestSignForWindowAsync: usize,
 }
-windows_core::imp::define_interface!(IPasswordCredential, IPasswordCredential_Vtbl, 0x6ab18989_c720_41a7_a6c1_feadb36329a0);
+windows_core::imp::define_interface!(IPasswordCredential, IPasswordCredential_Vtbl, 0xf2eda868_0759_59c9_a108_4cd8da63d49e);
 impl windows_core::RuntimeType for IPasswordCredential {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -340,7 +340,7 @@ pub struct IPasswordCredential_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::define_interface!(IPasswordVault, IPasswordVault_Vtbl, 0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
+windows_core::imp::define_interface!(IPasswordVault, IPasswordVault_Vtbl, 0x2fd29c61_557f_5776_bbac_aaf1895e7bc4);
 impl windows_core::RuntimeType for IPasswordVault {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -477,7 +477,7 @@ pub struct IWebAccountFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWebAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, WebAccountState, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountProvider, IWebAccountProvider_Vtbl, 0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
+windows_core::imp::define_interface!(IWebAccountProvider, IWebAccountProvider_Vtbl, 0x8ca0e69b_b95c_5be7_a6ca_3df0e13a0722);
 impl windows_core::RuntimeType for IWebAccountProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -489,7 +489,7 @@ pub struct IWebAccountProvider_Vtbl {
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IconUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountProvider2, IWebAccountProvider2_Vtbl, 0x4a01eb05_4e42_41d4_b518_e008a5163614);
+windows_core::imp::define_interface!(IWebAccountProvider2, IWebAccountProvider2_Vtbl, 0x8949b137_d871_54aa_b861_fd04f5923099);
 impl windows_core::RuntimeType for IWebAccountProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -500,7 +500,7 @@ pub struct IWebAccountProvider2_Vtbl {
     pub DisplayPurpose: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Authority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountProvider3, IWebAccountProvider3_Vtbl, 0xda1c518b_970d_4d49_825c_f2706f8ca7fe);
+windows_core::imp::define_interface!(IWebAccountProvider3, IWebAccountProvider3_Vtbl, 0x6eba94c1_76aa_5c45_bc20_cc685c3ba93e);
 impl windows_core::RuntimeType for IWebAccountProvider3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -513,7 +513,7 @@ pub struct IWebAccountProvider3_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IWebAccountProvider4, IWebAccountProvider4_Vtbl, 0x718fd8db_e796_4210_b74e_84d29894b080);
+windows_core::imp::define_interface!(IWebAccountProvider4, IWebAccountProvider4_Vtbl, 0xcc92fe5c_1b49_5a4c_8433_4baef93d25d8);
 impl windows_core::RuntimeType for IWebAccountProvider4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -523,7 +523,7 @@ pub struct IWebAccountProvider4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsSystemProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountProviderFactory, IWebAccountProviderFactory_Vtbl, 0x1d767df1_e1e1_4b9a_a774_5c7c7e3bf371);
+windows_core::imp::define_interface!(IWebAccountProviderFactory, IWebAccountProviderFactory_Vtbl, 0xf1624e75_aa16_569d_82a0_6a60b592e12b);
 impl windows_core::RuntimeType for IWebAccountProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -317,7 +317,7 @@ impl windows_core::RuntimeName for ForceFeedbackMotor {
 }
 unsafe impl Send for ForceFeedbackMotor {}
 unsafe impl Sync for ForceFeedbackMotor {}
-windows_core::imp::define_interface!(IConditionForceEffect, IConditionForceEffect_Vtbl, 0x32d1ea68_3695_4e69_85c0_cd1944189140);
+windows_core::imp::define_interface!(IConditionForceEffect, IConditionForceEffect_Vtbl, 0x2018d8d7_f4e8_5231_87f4_cad8c6975b51);
 impl windows_core::RuntimeType for IConditionForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -328,7 +328,7 @@ pub struct IConditionForceEffect_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ConditionForceEffectKind) -> windows_core::HRESULT,
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConditionForceEffectFactory, IConditionForceEffectFactory_Vtbl, 0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
+windows_core::imp::define_interface!(IConditionForceEffectFactory, IConditionForceEffectFactory_Vtbl, 0xf93c2b20_8f8d_5ae8_971c_f7569666de45);
 impl windows_core::RuntimeType for IConditionForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -338,7 +338,7 @@ pub struct IConditionForceEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, ConditionForceEffectKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConstantForceEffect, IConstantForceEffect_Vtbl, 0x9bfa0140_f3c7_415c_b068_0f068734bce0);
+windows_core::imp::define_interface!(IConstantForceEffect, IConstantForceEffect_Vtbl, 0x4c4832b8_da82_598f_a03f_cdbf99890dfb);
 impl windows_core::RuntimeType for IConstantForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -481,7 +481,7 @@ pub struct IForceFeedbackMotor_Vtbl {
     pub TryResetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryUnloadEffectAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeriodicForceEffect, IPeriodicForceEffect_Vtbl, 0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
+windows_core::imp::define_interface!(IPeriodicForceEffect, IPeriodicForceEffect_Vtbl, 0xec385d34_897e_5cd2_947d_f1e6564b9548);
 impl windows_core::RuntimeType for IPeriodicForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -493,7 +493,7 @@ pub struct IPeriodicForceEffect_Vtbl {
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub SetParametersWithEnvelope: unsafe extern "system" fn(*mut core::ffi::c_void, windows_numerics::Vector3, f32, f32, f32, f32, f32, f32, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, super::super::super::Foundation::TimeSpan, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPeriodicForceEffectFactory, IPeriodicForceEffectFactory_Vtbl, 0x6f62eb1a_9851_477b_b318_35ecaa15070f);
+windows_core::imp::define_interface!(IPeriodicForceEffectFactory, IPeriodicForceEffectFactory_Vtbl, 0x916b2ba7_006b_5def_a444_d7840e07a7e2);
 impl windows_core::RuntimeType for IPeriodicForceEffectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -503,7 +503,7 @@ pub struct IPeriodicForceEffectFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, PeriodicForceEffectKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRampForceEffect, IRampForceEffect_Vtbl, 0xf1f81259_1ca6_4080_b56d_b43f3354d052);
+windows_core::imp::define_interface!(IRampForceEffect, IRampForceEffect_Vtbl, 0x36eed0f3_e682_5481_97fd_55759a218757);
 impl windows_core::RuntimeType for IRampForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

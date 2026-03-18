@@ -1,16 +1,16 @@
-windows_link::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *mut KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("ksuser.dll" "system" fn KsCreateAllocator2(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *mut KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("ksuser.dll" "system" fn KsCreateClock2(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *mut KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::super::Foundation:: HANDLE, connect : *mut KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("ksuser.dll" "system" fn KsCreatePin2(filterhandle : super::super::Foundation:: HANDLE, connect : *mut KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *mut KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("ksuser.dll" "system" fn KsCreateTopologyNode2(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("ksproxy.ax" "system" fn KsGetMediaTypeCount(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, mediatypecount : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ksproxy.ax" "system" fn KsGetMultiplePinFactoryItems(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, propertyid : u32, items : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ksproxy.ax" "system" fn KsOpenDefaultDevice(category : *const windows_sys::core::GUID, access : u32, devicehandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
-windows_link::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> windows_sys::core::HRESULT);
-windows_link::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const core::ffi::c_void, inlength : u32, outbuffer : *mut core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *mut KSDATAFORMAT, attributes : *mut KSMULTIPLE_ITEM) -> windows_sys::core::HRESULT);
+windows_link::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *mut core::ffi::c_void, inlength : u32, outbuffer : *mut core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> windows_sys::core::HRESULT);
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
 pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;
 pub const AEC_MODE_PASS_THROUGH: u32 = 0u32;
@@ -1257,15 +1257,15 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
-    pub Numerator: u32,
-    pub Denominator: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
     pub X: u32,
     pub Y: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
+    pub Numerator: u32,
+    pub Denominator: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1754,17 +1754,6 @@ impl Default for KSEVENTDATA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct KSEVENTDATA_0_2 {
-    pub Unused: *mut core::ffi::c_void,
-    pub Alignment: [isize; 2],
-}
-impl Default for KSEVENTDATA_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_0 {
     pub Event: super::super::Foundation::HANDLE,
     pub Reserved: [usize; 2],
@@ -1782,6 +1771,17 @@ pub struct KSEVENTDATA_0_1 {
     pub Adjustment: i32,
 }
 impl Default for KSEVENTDATA_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSEVENTDATA_0_2 {
+    pub Unused: *mut core::ffi::c_void,
+    pub Alignment: [isize; 2],
+}
+impl Default for KSEVENTDATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2197,20 +2197,6 @@ impl Default for KSNODEPROPERTY {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    pub NodeProperty: KSNODEPROPERTY,
-    pub ListenerId: *mut core::ffi::c_void,
-    pub Reserved: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
@@ -2244,21 +2230,6 @@ pub struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     pub Length: u32,
 }
 impl Default for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
-    pub NodeProperty: KSNODEPROPERTY,
-    pub AppContext: *mut core::ffi::c_void,
-    pub Length: u32,
-    pub Reserved: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2655,18 +2626,6 @@ impl Default for KSPROPERTY_BOUNDS_LONG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct KSPROPERTY_BOUNDS_LONG_0 {
-    pub SignedMinimum: i32,
-    pub SignedMaximum: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct KSPROPERTY_BOUNDS_LONG_1 {
-    pub UnsignedMinimum: u32,
-    pub UnsignedMaximum: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_BOUNDS_LONGLONG {
     pub Anonymous1: KSPROPERTY_BOUNDS_LONGLONG_0,
@@ -2688,6 +2647,18 @@ pub struct KSPROPERTY_BOUNDS_LONGLONG_0 {
 pub struct KSPROPERTY_BOUNDS_LONGLONG_1 {
     pub UnsignedMinimum: u64,
     pub UnsignedMaximum: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSPROPERTY_BOUNDS_LONG_0 {
+    pub SignedMinimum: i32,
+    pub SignedMaximum: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSPROPERTY_BOUNDS_LONG_1 {
+    pub UnsignedMinimum: u32,
+    pub UnsignedMaximum: u32,
 }
 pub type KSPROPERTY_BTAUDIO = i32;
 pub const KSPROPERTY_CAMERACONTROL_AUTO_EXPOSURE_PRIORITY: KSPROPERTY_VIDCAP_CAMERACONTROL = 19i32;
@@ -3146,6 +3117,14 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+    pub frame: u8,
+    pub second: u8,
+    pub minute: u8,
+    pub hour: u8,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub PayloadSize: u32,
@@ -3155,14 +3134,6 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
 }
 pub const KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = 2i32;
 pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = 9i32;
@@ -3177,6 +3148,8 @@ impl Default for KSPROPERTY_EXTXPORT_S {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = 5i32;
+pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = 6i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTXPORT_S_0 {
@@ -3196,6 +3169,14 @@ impl Default for KSPROPERTY_EXTXPORT_S_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSPROPERTY_EXTXPORT_S_0_0 {
+    pub frame: u8,
+    pub second: u8,
+    pub minute: u8,
+    pub hour: u8,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub PayloadSize: u32,
@@ -3206,16 +3187,6 @@ impl Default for KSPROPERTY_EXTXPORT_S_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct KSPROPERTY_EXTXPORT_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
-}
-pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = 5i32;
-pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = 6i32;
 pub const KSPROPERTY_EXTXPORT_TIMECODE_SEARCH: KSPROPERTY_EXTXPORT = 7i32;
 pub const KSPROPERTY_FMRX_ANTENNAENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = 2i32;
 pub type KSPROPERTY_FMRX_CONTROL = i32;
@@ -3417,7 +3388,7 @@ impl Default for KSPROPERTY_SERIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_SERIALHDR {
     pub PropertySet: windows_sys::core::GUID,
@@ -4563,25 +4534,6 @@ impl Default for KSSTREAMALLOCATOR_STATUS_EX {
     }
 }
 pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct KSSTREAM_HEADER {
-    pub Size: u32,
-    pub TypeSpecificFlags: u32,
-    pub PresentationTime: KSTIME,
-    pub Duration: i64,
-    pub FrameExtent: u32,
-    pub DataUsed: u32,
-    pub Data: *mut core::ffi::c_void,
-    pub OptionsFlags: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for KSSTREAM_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -5743,18 +5695,6 @@ impl Default for KS_VIDEOINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub union KS_VIDEOINFO_0 {
-    pub bmiColors: [KS_RGBQUAD; 256],
-    pub dwBitMasks: [u32; 3],
-    pub TrueColorInfo: KS_TRUECOLORINFO,
-}
-impl Default for KS_VIDEOINFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -5792,6 +5732,18 @@ pub union KS_VIDEOINFOHEADER2_0 {
     pub dwReserved1: u32,
 }
 impl Default for KS_VIDEOINFOHEADER2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union KS_VIDEOINFO_0 {
+    pub bmiColors: [KS_RGBQUAD; 256],
+    pub dwBitMasks: [u32; 3],
+    pub TrueColorInfo: KS_TRUECOLORINFO,
+}
+impl Default for KS_VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5936,7 +5888,7 @@ impl Default for NABTSFEC_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NABTS_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
@@ -6050,8 +6002,8 @@ pub const Pipe_Allocator_FirstPin: PIPE_ALLOCATOR_PLACE = 1i32;
 pub const Pipe_Allocator_LastPin: PIPE_ALLOCATOR_PLACE = 2i32;
 pub const Pipe_Allocator_MiddlePin: PIPE_ALLOCATOR_PLACE = 3i32;
 pub const Pipe_Allocator_None: PIPE_ALLOCATOR_PLACE = 0i32;
-pub const RT_RCDATA: windows_sys::core::PCWSTR = 10u16 as _;
-pub const RT_STRING: windows_sys::core::PCWSTR = 6u16 as _;
+pub const RT_RCDATA: windows_sys::core::PCWSTR = 10i64 as _;
+pub const RT_STRING: windows_sys::core::PCWSTR = 6i64 as _;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURE_BUFFER_INFO {

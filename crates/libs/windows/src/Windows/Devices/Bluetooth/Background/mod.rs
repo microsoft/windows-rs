@@ -228,7 +228,7 @@ impl windows_core::RuntimeName for GattServiceProviderTriggerDetails {
 }
 unsafe impl Send for GattServiceProviderTriggerDetails {}
 unsafe impl Sync for GattServiceProviderTriggerDetails {}
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTriggerDetails, IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl, 0x610eca86_3480_41c9_a918_7ddadf207e00);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTriggerDetails, IBluetoothLEAdvertisementPublisherTriggerDetails_Vtbl, 0x7ffd5e4d_e4bc_5399_a823_e30d92b55c3b);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -252,7 +252,7 @@ pub struct IBluetoothLEAdvertisementPublisherTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SelectedTransmitPowerLevelInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTriggerDetails, IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl, 0xa7db5ad7_2257_4e69_9784_fee645c1dce0);
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTriggerDetails, IBluetoothLEAdvertisementWatcherTriggerDetails_Vtbl, 0x6d439234_870c_5887_9e33_b6b41873bb11);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -284,7 +284,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Value: usize,
 }
-windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerDetails2, IGattCharacteristicNotificationTriggerDetails2_Vtbl, 0x727a50dc_949d_454a_b192_983467e3d50f);
+windows_core::imp::define_interface!(IGattCharacteristicNotificationTriggerDetails2, IGattCharacteristicNotificationTriggerDetails2_Vtbl, 0x761389c7_6048_5828_9c7a_742041cbd400);
 impl windows_core::RuntimeType for IGattCharacteristicNotificationTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -299,7 +299,7 @@ pub struct IGattCharacteristicNotificationTriggerDetails2_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     ValueChangedEvents: usize,
 }
-windows_core::imp::define_interface!(IGattServiceProviderConnection, IGattServiceProviderConnection_Vtbl, 0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13);
+windows_core::imp::define_interface!(IGattServiceProviderConnection, IGattServiceProviderConnection_Vtbl, 0x8349db17_7548_57fc_af87_eac0ecd9e89d);
 impl windows_core::RuntimeType for IGattServiceProviderConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -314,7 +314,7 @@ pub struct IGattServiceProviderConnection_Vtbl {
     Service: usize,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGattServiceProviderConnection2, IGattServiceProviderConnection2_Vtbl, 0x90d12be0_ebc0_484f_ae0a_7eb8b6266bac);
+windows_core::imp::define_interface!(IGattServiceProviderConnection2, IGattServiceProviderConnection2_Vtbl, 0x3945fbba_610c_5bbc_9fb7_fb6366850929);
 impl windows_core::RuntimeType for IGattServiceProviderConnection2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -327,7 +327,7 @@ pub struct IGattServiceProviderConnection2_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     UpdateAdvertisingParameters: usize,
 }
-windows_core::imp::define_interface!(IGattServiceProviderConnectionStatics, IGattServiceProviderConnectionStatics_Vtbl, 0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d);
+windows_core::imp::define_interface!(IGattServiceProviderConnectionStatics, IGattServiceProviderConnectionStatics_Vtbl, 0xe18d091e_cb29_5aad_8a53_c4c40fa3ab9b);
 impl windows_core::RuntimeType for IGattServiceProviderConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -362,7 +362,7 @@ pub struct IRfcommConnectionTriggerDetails_Vtbl {
     pub Incoming: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub RemoteDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommInboundConnectionInformation, IRfcommInboundConnectionInformation_Vtbl, 0x6d3e75a8_5429_4059_92e3_1e8b65528707);
+windows_core::imp::define_interface!(IRfcommInboundConnectionInformation, IRfcommInboundConnectionInformation_Vtbl, 0x7fc21739_54ad_51c0_9582_a3b797dc1445);
 impl windows_core::RuntimeType for IRfcommInboundConnectionInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -389,7 +389,7 @@ pub struct IRfcommInboundConnectionInformation_Vtbl {
     pub ServiceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothServiceCapabilities) -> windows_core::HRESULT,
     pub SetServiceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, super::BluetoothServiceCapabilities) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommOutboundConnectionInformation, IRfcommOutboundConnectionInformation_Vtbl, 0xb091227b_f434_4cb0_99b1_4ab8cedaedd7);
+windows_core::imp::define_interface!(IRfcommOutboundConnectionInformation, IRfcommOutboundConnectionInformation_Vtbl, 0x781a53b9_b207_5bf8_bf68_a5e089c8881e);
 impl windows_core::RuntimeType for IRfcommOutboundConnectionInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

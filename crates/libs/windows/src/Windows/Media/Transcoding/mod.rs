@@ -34,7 +34,7 @@ pub struct IMediaTranscoder_Vtbl {
     #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     PrepareStreamTranscodeAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
+windows_core::imp::define_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x4320a364_e67d_5572_a843_61cd247830c8);
 impl windows_core::RuntimeType for IMediaTranscoder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -49,7 +49,7 @@ pub struct IMediaTranscoder2_Vtbl {
     pub SetVideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
     pub VideoProcessingAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaVideoProcessingAlgorithm) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
+windows_core::imp::define_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x70cc7fdc_1cce_52a6_8c0e_8e23aa43b014);
 impl windows_core::RuntimeType for IPrepareTranscodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

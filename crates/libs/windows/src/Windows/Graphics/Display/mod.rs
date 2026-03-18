@@ -981,7 +981,7 @@ impl DisplayProperties {
 impl windows_core::RuntimeName for DisplayProperties {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayProperties";
 }
-windows_core::imp::define_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
+windows_core::imp::define_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xefce1ed3_f477_5d75_b946_a667dcfc20b7);
 impl windows_core::RuntimeType for DisplayPropertiesEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1141,7 +1141,7 @@ pub struct IBrightnessOverride_Vtbl {
     pub BrightnessLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveBrightnessLevelChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBrightnessOverrideSettings, IBrightnessOverrideSettings_Vtbl, 0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
+windows_core::imp::define_interface!(IBrightnessOverrideSettings, IBrightnessOverrideSettings_Vtbl, 0x75d87154_aeee_574b_aec5_ac099f90b0e3);
 impl windows_core::RuntimeType for IBrightnessOverrideSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1152,7 +1152,7 @@ pub struct IBrightnessOverrideSettings_Vtbl {
     pub DesiredLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub DesiredNits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IBrightnessOverrideSettingsStatics, IBrightnessOverrideSettingsStatics_Vtbl, 0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
+windows_core::imp::define_interface!(IBrightnessOverrideSettingsStatics, IBrightnessOverrideSettingsStatics_Vtbl, 0x27687bef_7f10_5e05_8d2a_edf80e328f76);
 impl windows_core::RuntimeType for IBrightnessOverrideSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1186,7 +1186,7 @@ pub struct IColorOverrideSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredDisplayColorOverrideScenario: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayColorOverrideScenario) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IColorOverrideSettingsStatics, IColorOverrideSettingsStatics_Vtbl, 0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
+windows_core::imp::define_interface!(IColorOverrideSettingsStatics, IColorOverrideSettingsStatics_Vtbl, 0x01f1af9f_74b1_500f_be5f_c1fb884573ae);
 impl windows_core::RuntimeType for IColorOverrideSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1196,7 +1196,7 @@ pub struct IColorOverrideSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromDisplayColorOverrideScenario: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayColorOverrideScenario, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayEnhancementOverride, IDisplayEnhancementOverride_Vtbl, 0x429594cf_d97a_4b02_a428_5c4292f7f522);
+windows_core::imp::define_interface!(IDisplayEnhancementOverride, IDisplayEnhancementOverride_Vtbl, 0x8459b403_c725_5714_910a_2bfae093736b);
 impl windows_core::RuntimeType for IDisplayEnhancementOverride {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1242,7 +1242,7 @@ pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayEnhancementOverrideStatics, IDisplayEnhancementOverrideStatics_Vtbl, 0xcf5b7ec1_9791_4453_b013_29b6f778e519);
+windows_core::imp::define_interface!(IDisplayEnhancementOverrideStatics, IDisplayEnhancementOverrideStatics_Vtbl, 0x23bb05c9_7f89_5219_9791_d4438cafadeb);
 impl windows_core::RuntimeType for IDisplayEnhancementOverrideStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1252,7 +1252,7 @@ pub struct IDisplayEnhancementOverrideStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayInformation, IDisplayInformation_Vtbl, 0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
+windows_core::imp::define_interface!(IDisplayInformation, IDisplayInformation_Vtbl, 0xf9efd326_6a5b_5c09_8eec_80e78c848c69);
 impl windows_core::RuntimeType for IDisplayInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1280,7 +1280,7 @@ pub struct IDisplayInformation_Vtbl {
     pub ColorProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveColorProfileChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayInformation2, IDisplayInformation2_Vtbl, 0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
+windows_core::imp::define_interface!(IDisplayInformation2, IDisplayInformation2_Vtbl, 0x816c1246_ac27_5233_a868_5c672eeca13e);
 impl windows_core::RuntimeType for IDisplayInformation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1290,7 +1290,7 @@ pub struct IDisplayInformation2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RawPixelsPerViewPixel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayInformation3, IDisplayInformation3_Vtbl, 0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
+windows_core::imp::define_interface!(IDisplayInformation3, IDisplayInformation3_Vtbl, 0xdf4dcff6_75a0_5af5_b810_75608785b2a5);
 impl windows_core::RuntimeType for IDisplayInformation3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1300,7 +1300,7 @@ pub struct IDisplayInformation3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DiagonalSizeInInches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayInformation4, IDisplayInformation4_Vtbl, 0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
+windows_core::imp::define_interface!(IDisplayInformation4, IDisplayInformation4_Vtbl, 0x6ef74ac9_d5e3_5916_92d6_eddbbdcd89c4);
 impl windows_core::RuntimeType for IDisplayInformation4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1311,7 +1311,7 @@ pub struct IDisplayInformation4_Vtbl {
     pub ScreenWidthInRawPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ScreenHeightInRawPixels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayInformation5, IDisplayInformation5_Vtbl, 0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
+windows_core::imp::define_interface!(IDisplayInformation5, IDisplayInformation5_Vtbl, 0xc7ba0d7b_1698_526e_a96c_26e46acbf3b7);
 impl windows_core::RuntimeType for IDisplayInformation5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1323,7 +1323,7 @@ pub struct IDisplayInformation5_Vtbl {
     pub AdvancedColorInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAdvancedColorInfoChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayInformationStatics, IDisplayInformationStatics_Vtbl, 0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
+windows_core::imp::define_interface!(IDisplayInformationStatics, IDisplayInformationStatics_Vtbl, 0x55890aa5_81ef_5197_bbfa_d28861a4745e);
 impl windows_core::RuntimeType for IDisplayInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1337,7 +1337,7 @@ pub struct IDisplayInformationStatics_Vtbl {
     pub DisplayContentsInvalidated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDisplayContentsInvalidated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDisplayPropertiesStatics, IDisplayPropertiesStatics_Vtbl, 0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
+windows_core::imp::define_interface!(IDisplayPropertiesStatics, IDisplayPropertiesStatics_Vtbl, 0x7a24e4f7_f760_5e03_95a4_f6f3398044f7);
 impl windows_core::RuntimeType for IDisplayPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

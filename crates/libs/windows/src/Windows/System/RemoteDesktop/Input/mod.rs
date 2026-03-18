@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
+windows_core::imp::define_interface!(IRemoteTextConnection, IRemoteTextConnection_Vtbl, 0x6793b022_2171_5aba_8dd6_1f364f184a5a);
 impl windows_core::RuntimeType for IRemoteTextConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -12,7 +12,7 @@ pub struct IRemoteTextConnection_Vtbl {
     pub UnregisterThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ReportDataReceived: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRemoteTextConnection2, IRemoteTextConnection2_Vtbl, 0x05f99345_84c8_56c5_934f_73ea00f8c2d5);
+windows_core::imp::define_interface!(IRemoteTextConnection2, IRemoteTextConnection2_Vtbl, 0x4fe481d0_b87f_5444_b29e_2b1276d130fd);
 impl windows_core::RuntimeType for IRemoteTextConnection2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -32,7 +32,7 @@ pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRemoteTextConnectionFactory2, IRemoteTextConnectionFactory2_Vtbl, 0x9425c7d9_ed9b_5d00_99cc_b0b8dc9e4c60);
+windows_core::imp::define_interface!(IRemoteTextConnectionFactory2, IRemoteTextConnectionFactory2_Vtbl, 0x576472c8_0510_5205_9b9f_ed71213b5fc7);
 impl windows_core::RuntimeType for IRemoteTextConnectionFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

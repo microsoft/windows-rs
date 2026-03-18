@@ -3642,7 +3642,7 @@ pub struct IEmailAttachment2_Vtbl {
     pub MimeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMimeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailAttachmentFactory, IEmailAttachmentFactory_Vtbl, 0x796eac46_ed56_4979_8708_abb8bc854b7d);
+windows_core::imp::define_interface!(IEmailAttachmentFactory, IEmailAttachmentFactory_Vtbl, 0x8575bbe8_50be_583a_bceb_2d0e0ee28bfe);
 impl windows_core::RuntimeType for IEmailAttachmentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3668,7 +3668,7 @@ pub struct IEmailAttachmentFactory2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Create: usize,
 }
-windows_core::imp::define_interface!(IEmailConversation, IEmailConversation_Vtbl, 0xda18c248_a0bc_4349_902d_90f66389f51b);
+windows_core::imp::define_interface!(IEmailConversation, IEmailConversation_Vtbl, 0xab7c8ddd_9eb6_5f67_b7fc_fbc17c5444f0);
 impl windows_core::RuntimeType for IEmailConversation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3703,7 +3703,7 @@ pub struct IEmailConversationBatch_Vtbl {
     pub Conversations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EmailBatchStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailConversationReader, IEmailConversationReader_Vtbl, 0xb4630f82_2875_44c8_9b8c_85beb3a3c653);
+windows_core::imp::define_interface!(IEmailConversationReader, IEmailConversationReader_Vtbl, 0x26f531b3_6dc3_5e17_b42c_62c7893b5a6a);
 impl windows_core::RuntimeType for IEmailConversationReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3887,7 +3887,7 @@ pub struct IEmailMailbox_Vtbl {
     pub TrySetAutoReplySettingsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryGetAutoReplySettingsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, EmailMailboxAutoReplyMessageResponseKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailbox2, IEmailMailbox2_Vtbl, 0x14f8e404_6ca2_4ab2_9241_79cd7bf46346);
+windows_core::imp::define_interface!(IEmailMailbox2, IEmailMailbox2_Vtbl, 0x966f8ece_5676_506a_bd0d_314316bac5d3);
 impl windows_core::RuntimeType for IEmailMailbox2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3899,7 +3899,7 @@ pub struct IEmailMailbox2_Vtbl {
     pub NetworkAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NetworkId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailbox3, IEmailMailbox3_Vtbl, 0x3da5897b_458b_408a_8e37_ac8b05d8af56);
+windows_core::imp::define_interface!(IEmailMailbox3, IEmailMailbox3_Vtbl, 0x72de5c39_6807_5f11_a8e0_da7120919390);
 impl windows_core::RuntimeType for IEmailMailbox3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3916,7 +3916,7 @@ pub struct IEmailMailbox3_Vtbl {
     pub TryCreateFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryDeleteFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailbox4, IEmailMailbox4_Vtbl, 0x5d1f301b_f222_48a7_b7b6_716356cd26a1);
+windows_core::imp::define_interface!(IEmailMailbox4, IEmailMailbox4_Vtbl, 0x7181d8b1_b7df_52fd_af70_452171c6098c);
 impl windows_core::RuntimeType for IEmailMailbox4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3926,7 +3926,7 @@ pub struct IEmailMailbox4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RegisterSyncManagerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailbox5, IEmailMailbox5_Vtbl, 0x39967087_0092_49be_bd0e_5d4dc9d96d90);
+windows_core::imp::define_interface!(IEmailMailbox5, IEmailMailbox5_Vtbl, 0xea558771_1e18_54dd_b4c2_d467d734776a);
 impl windows_core::RuntimeType for IEmailMailbox5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3936,7 +3936,7 @@ pub struct IEmailMailbox5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxAction, IEmailMailboxAction_Vtbl, 0xac9889fa_21fa_4927_9210_d410582fdf3e);
+windows_core::imp::define_interface!(IEmailMailboxAction, IEmailMailboxAction_Vtbl, 0xd2d14eb4_109d_5fe2_a611_5107722cd11b);
 impl windows_core::RuntimeType for IEmailMailboxAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3960,7 +3960,7 @@ pub struct IEmailMailboxAutoReply_Vtbl {
     pub Response: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxAutoReplySettings, IEmailMailboxAutoReplySettings_Vtbl, 0xa87a9fa8_0ac6_4b77_ba77_a6b99e9a27b8);
+windows_core::imp::define_interface!(IEmailMailboxAutoReplySettings, IEmailMailboxAutoReplySettings_Vtbl, 0x1bd17e2b_059b_55b6_b2ec_c66061e57709);
 impl windows_core::RuntimeType for IEmailMailboxAutoReplySettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3980,7 +3980,7 @@ pub struct IEmailMailboxAutoReplySettings_Vtbl {
     pub KnownExternalReply: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnknownExternalReply: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxCapabilities, IEmailMailboxCapabilities_Vtbl, 0xeedec3a6_89db_4305_82c4_439e0a33da11);
+windows_core::imp::define_interface!(IEmailMailboxCapabilities, IEmailMailboxCapabilities_Vtbl, 0xec6844f1_c6ab_56c6_80f9_7d18d5897375);
 impl windows_core::RuntimeType for IEmailMailboxCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4012,7 +4012,7 @@ pub struct IEmailMailboxCapabilities2_Vtbl {
     pub CanDeleteFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CanMoveFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxCapabilities3, IEmailMailboxCapabilities3_Vtbl, 0xf690e944_56f2_45aa_872c_0ce9f3db0b5c);
+windows_core::imp::define_interface!(IEmailMailboxCapabilities3, IEmailMailboxCapabilities3_Vtbl, 0xb730c4db_b18a_5824_909e_1498f4c059ce);
 impl windows_core::RuntimeType for IEmailMailboxCapabilities3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4035,7 +4035,7 @@ pub struct IEmailMailboxCapabilities3_Vtbl {
     pub SetCanDeleteFolder: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SetCanMoveFolder: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxChange, IEmailMailboxChange_Vtbl, 0x61edf54b_11ef_400c_adde_8cde65c85e66);
+windows_core::imp::define_interface!(IEmailMailboxChange, IEmailMailboxChange_Vtbl, 0x8531dde0_cbf6_5776_a81e_75feccf7b843);
 impl windows_core::RuntimeType for IEmailMailboxChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4060,7 +4060,7 @@ pub struct IEmailMailboxChangeReader_Vtbl {
     pub AcceptChangesThrough: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxChangeTracker, IEmailMailboxChangeTracker_Vtbl, 0x7ae48638_5166_42b7_8882_fd21c92bdd4b);
+windows_core::imp::define_interface!(IEmailMailboxChangeTracker, IEmailMailboxChangeTracker_Vtbl, 0x535c6dbd_3c93_5c5d_a800_614a7513619b);
 impl windows_core::RuntimeType for IEmailMailboxChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4073,7 +4073,7 @@ pub struct IEmailMailboxChangeTracker_Vtbl {
     pub GetChangeReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxChangedDeferral, IEmailMailboxChangedDeferral_Vtbl, 0x779a74c1_97c5_4b54_b30d_306232623e6d);
+windows_core::imp::define_interface!(IEmailMailboxChangedDeferral, IEmailMailboxChangedDeferral_Vtbl, 0x2d42d76a_0da1_52b1_9002_93b4c65b6fcd);
 impl windows_core::RuntimeType for IEmailMailboxChangedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4083,7 +4083,7 @@ pub struct IEmailMailboxChangedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxChangedEventArgs, IEmailMailboxChangedEventArgs_Vtbl, 0x3cfd5f6e_01d4_4e4a_a44c_b22dd42ec207);
+windows_core::imp::define_interface!(IEmailMailboxChangedEventArgs, IEmailMailboxChangedEventArgs_Vtbl, 0x97066af9_2092_534a_8026_b9ac512464bd);
 impl windows_core::RuntimeType for IEmailMailboxChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4104,7 +4104,7 @@ pub struct IEmailMailboxCreateFolderResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EmailMailboxCreateFolderStatus) -> windows_core::HRESULT,
     pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxPolicies, IEmailMailboxPolicies_Vtbl, 0x1f3345c5_1c3b_4dc7_b410_6373783e545d);
+windows_core::imp::define_interface!(IEmailMailboxPolicies, IEmailMailboxPolicies_Vtbl, 0x78fc40ce_150a_547a_ab4a_9f48d44d1099);
 impl windows_core::RuntimeType for IEmailMailboxPolicies {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4117,7 +4117,7 @@ pub struct IEmailMailboxPolicies_Vtbl {
     pub RequiredSmimeEncryptionAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequiredSmimeSigningAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMailboxPolicies2, IEmailMailboxPolicies2_Vtbl, 0xbab58afb_a14b_497c_a8e2_55eac29cc4b5);
+windows_core::imp::define_interface!(IEmailMailboxPolicies2, IEmailMailboxPolicies2_Vtbl, 0xa491208b_ba5b_581a_8eae_8e0b67136836);
 impl windows_core::RuntimeType for IEmailMailboxPolicies2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4170,7 +4170,7 @@ pub struct IEmailMailboxSyncManager2_Vtbl {
     pub SetLastSuccessfulSyncTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub SetLastAttemptedSyncTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailManagerForUser, IEmailManagerForUser_Vtbl, 0xf773de9f_3ca5_4b0f_90c1_156e40174ce5);
+windows_core::imp::define_interface!(IEmailManagerForUser, IEmailManagerForUser_Vtbl, 0x2b07db18_6989_5c5e_be7e_5de89f423cac);
 impl windows_core::RuntimeType for IEmailManagerForUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4185,7 +4185,7 @@ pub struct IEmailManagerForUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-windows_core::imp::define_interface!(IEmailManagerStatics, IEmailManagerStatics_Vtbl, 0xf5128654_55c5_4890_a824_216c2618ce7f);
+windows_core::imp::define_interface!(IEmailManagerStatics, IEmailManagerStatics_Vtbl, 0x5fb94393_14cc_526b_bc12_a6a430dd9189);
 impl windows_core::RuntimeType for IEmailManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4195,7 +4195,7 @@ pub struct IEmailManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowComposeNewEmailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailManagerStatics2, IEmailManagerStatics2_Vtbl, 0xac052da3_b194_425d_b6d9_d0f04135eda2);
+windows_core::imp::define_interface!(IEmailManagerStatics2, IEmailManagerStatics2_Vtbl, 0x9b6ca464_98e9_5382_957c_f239c221938d);
 impl windows_core::RuntimeType for IEmailManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4205,7 +4205,7 @@ pub struct IEmailManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, EmailStoreAccessType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailManagerStatics3, IEmailManagerStatics3_Vtbl, 0x4a722395_843e_4945_b3aa_349e07a362c5);
+windows_core::imp::define_interface!(IEmailManagerStatics3, IEmailManagerStatics3_Vtbl, 0xb9df671c_2447_59ef_a4b2_cbf158cc9a08);
 impl windows_core::RuntimeType for IEmailManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4218,7 +4218,7 @@ pub struct IEmailManagerStatics3_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-windows_core::imp::define_interface!(IEmailMeetingInfo, IEmailMeetingInfo_Vtbl, 0x31c03fa9_7933_415f_a275_d165ba07026b);
+windows_core::imp::define_interface!(IEmailMeetingInfo, IEmailMeetingInfo_Vtbl, 0x96400289_fed5_54a5_a36c_0b2c07b33a07);
 impl windows_core::RuntimeType for IEmailMeetingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4286,7 +4286,7 @@ pub struct IEmailMessage_Vtbl {
     pub Bcc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Attachments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMessage2, IEmailMessage2_Vtbl, 0xfdc8248b_9f1a_44db_bd3c_65c384770f86);
+windows_core::imp::define_interface!(IEmailMessage2, IEmailMessage2_Vtbl, 0x72b76829_343e_5fdd_aa52_5b84c4b2b635);
 impl windows_core::RuntimeType for IEmailMessage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4365,7 +4365,7 @@ pub struct IEmailMessage3_Vtbl {
     pub SmimeKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EmailMessageSmimeKind) -> windows_core::HRESULT,
     pub SetSmimeKind: unsafe extern "system" fn(*mut core::ffi::c_void, EmailMessageSmimeKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMessage4, IEmailMessage4_Vtbl, 0x317cf181_3e7f_4a05_8394_3e10336dd435);
+windows_core::imp::define_interface!(IEmailMessage4, IEmailMessage4_Vtbl, 0xdd878a7b_0feb_5b19_ae81_bb16018d3462);
 impl windows_core::RuntimeType for IEmailMessage4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4377,7 +4377,7 @@ pub struct IEmailMessage4_Vtbl {
     pub SentRepresenting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSentRepresenting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailMessageBatch, IEmailMessageBatch_Vtbl, 0x605cd08f_25d9_4f1b_9e51_0514c0149653);
+windows_core::imp::define_interface!(IEmailMessageBatch, IEmailMessageBatch_Vtbl, 0xe777c43c_60d1_5f4c_ad97_69b6ed568fa6);
 impl windows_core::RuntimeType for IEmailMessageBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4415,7 +4415,7 @@ pub struct IEmailQueryOptions_Vtbl {
     pub SetKind: unsafe extern "system" fn(*mut core::ffi::c_void, EmailQueryKind) -> windows_core::HRESULT,
     pub FolderIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailQueryOptionsFactory, IEmailQueryOptionsFactory_Vtbl, 0x88f1a1b8_78ab_4ee8_b4e3_046d6e2fe5e2);
+windows_core::imp::define_interface!(IEmailQueryOptionsFactory, IEmailQueryOptionsFactory_Vtbl, 0x36d6d99a_a12d_5654_b558_59fb850eae22);
 impl windows_core::RuntimeType for IEmailQueryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4479,7 +4479,7 @@ pub struct IEmailRecipientResolutionResult_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     PublicKeys: usize,
 }
-windows_core::imp::define_interface!(IEmailRecipientResolutionResult2, IEmailRecipientResolutionResult2_Vtbl, 0x5e420bb6_ce5b_4bde_b9d4_e16da0b09fca);
+windows_core::imp::define_interface!(IEmailRecipientResolutionResult2, IEmailRecipientResolutionResult2_Vtbl, 0xcacaf7d4_b9f9_5cbc_ad94_de61cbb31b6e);
 impl windows_core::RuntimeType for IEmailRecipientResolutionResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -4513,7 +4513,7 @@ pub struct IEmailStore_Vtbl {
     pub CreateMailboxAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateMailboxInAccountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEmailStoreNotificationTriggerDetails, IEmailStoreNotificationTriggerDetails_Vtbl, 0xce17563c_46e6_43c9_96f7_facf7dd710cb);
+windows_core::imp::define_interface!(IEmailStoreNotificationTriggerDetails, IEmailStoreNotificationTriggerDetails_Vtbl, 0xae84817b_bc3d_5d69_9001_1ea283fe59c1);
 impl windows_core::RuntimeType for IEmailStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -148,7 +148,7 @@ pub struct ICompositionDebugHeatMaps_Vtbl {
     pub ShowOverdraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, CompositionDebugOverdrawContentKinds) -> windows_core::HRESULT,
     pub ShowRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompositionDebugSettings, ICompositionDebugSettings_Vtbl, 0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
+windows_core::imp::define_interface!(ICompositionDebugSettings, ICompositionDebugSettings_Vtbl, 0xed5cf6e5_06f8_5a2f_be08_4fba23e15900);
 impl windows_core::RuntimeType for ICompositionDebugSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

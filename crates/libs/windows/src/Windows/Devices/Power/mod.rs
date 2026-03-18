@@ -120,7 +120,7 @@ impl windows_core::RuntimeName for BatteryReport {
 }
 unsafe impl Send for BatteryReport {}
 unsafe impl Sync for BatteryReport {}
-windows_core::imp::define_interface!(IBattery, IBattery_Vtbl, 0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
+windows_core::imp::define_interface!(IBattery, IBattery_Vtbl, 0xbacd2814_5db5_56bc_a151_5129cc19d3ad);
 impl windows_core::RuntimeType for IBattery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -150,7 +150,7 @@ pub struct IBatteryReport_Vtbl {
     #[cfg(not(feature = "System_Power"))]
     Status: usize,
 }
-windows_core::imp::define_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
+windows_core::imp::define_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0x761cbe27_a4ea_5d0e_8b69_3d71b01064c6);
 impl windows_core::RuntimeType for IBatteryStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -173,7 +173,7 @@ pub struct IPowerGridData_Vtbl {
     pub Severity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub IsLowUserExperienceImpact: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerGridForecast, IPowerGridForecast_Vtbl, 0x077e4de9_ed60_58bb_a850_003c6a138685);
+windows_core::imp::define_interface!(IPowerGridForecast, IPowerGridForecast_Vtbl, 0x4b6a2a1f_690f_5513_b8e8_add48a708748);
 impl windows_core::RuntimeType for IPowerGridForecast {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -185,7 +185,7 @@ pub struct IPowerGridForecast_Vtbl {
     pub BlockDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub Forecast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPowerGridForecastStatics, IPowerGridForecastStatics_Vtbl, 0x5b78c806_2e4e_5bcc_bb34_cb81c60f9e12);
+windows_core::imp::define_interface!(IPowerGridForecastStatics, IPowerGridForecastStatics_Vtbl, 0x1409385d_24d0_5250_b4f7_90b5e3d618e1);
 impl windows_core::RuntimeType for IPowerGridForecastStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

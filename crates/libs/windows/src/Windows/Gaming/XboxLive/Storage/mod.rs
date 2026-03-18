@@ -517,7 +517,7 @@ impl windows_core::RuntimeName for GameSaveProviderGetResult {
 }
 unsafe impl Send for GameSaveProviderGetResult {}
 unsafe impl Sync for GameSaveProviderGetResult {}
-windows_core::imp::define_interface!(IGameSaveBlobGetResult, IGameSaveBlobGetResult_Vtbl, 0x917281e0_7201_4953_aa2c_4008f03aef45);
+windows_core::imp::define_interface!(IGameSaveBlobGetResult, IGameSaveBlobGetResult_Vtbl, 0x2f270bd4_5201_5985_8b3f_060b1970f2bd);
 impl windows_core::RuntimeType for IGameSaveBlobGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -531,7 +531,7 @@ pub struct IGameSaveBlobGetResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Value: usize,
 }
-windows_core::imp::define_interface!(IGameSaveBlobInfo, IGameSaveBlobInfo_Vtbl, 0xadd38034_baf0_4645_b6d0_46edaffb3c2b);
+windows_core::imp::define_interface!(IGameSaveBlobInfo, IGameSaveBlobInfo_Vtbl, 0xe6bf28b1_fa3f_58cc_ac6b_4a5cf0cd7730);
 impl windows_core::RuntimeType for IGameSaveBlobInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -553,7 +553,7 @@ pub struct IGameSaveBlobInfoGetResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameSaveErrorStatus) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameSaveBlobInfoQuery, IGameSaveBlobInfoQuery_Vtbl, 0x9fdd74b2_eeee_447b_a9d2_7f96c0f83208);
+windows_core::imp::define_interface!(IGameSaveBlobInfoQuery, IGameSaveBlobInfoQuery_Vtbl, 0x347598bc_3a86_5cf3_b56e_85f6d334b4aa);
 impl windows_core::RuntimeType for IGameSaveBlobInfoQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -565,7 +565,7 @@ pub struct IGameSaveBlobInfoQuery_Vtbl {
     pub GetBlobInfoWithIndexAndMaxAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetItemCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameSaveContainer, IGameSaveContainer_Vtbl, 0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
+windows_core::imp::define_interface!(IGameSaveContainer, IGameSaveContainer_Vtbl, 0x96824d93_bf40_5ade_b641_c11506041fe6);
 impl windows_core::RuntimeType for IGameSaveContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -590,7 +590,7 @@ pub struct IGameSaveContainer_Vtbl {
     SubmitPropertySetUpdatesAsync: usize,
     pub CreateBlobInfoQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameSaveContainerInfo, IGameSaveContainerInfo_Vtbl, 0xb7e27300_155d_4bb4_b2ba_930306f391b5);
+windows_core::imp::define_interface!(IGameSaveContainerInfo, IGameSaveContainerInfo_Vtbl, 0xf21c7e9c_19c4_5efa_ade9_7c3e3ee6eba3);
 impl windows_core::RuntimeType for IGameSaveContainerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -604,7 +604,7 @@ pub struct IGameSaveContainerInfo_Vtbl {
     pub LastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub NeedsSync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameSaveContainerInfoGetResult, IGameSaveContainerInfoGetResult_Vtbl, 0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
+windows_core::imp::define_interface!(IGameSaveContainerInfoGetResult, IGameSaveContainerInfoGetResult_Vtbl, 0x4f71c494_36fa_510c_b320_a10751fdde92);
 impl windows_core::RuntimeType for IGameSaveContainerInfoGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -637,7 +637,7 @@ pub struct IGameSaveOperationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameSaveErrorStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameSaveProvider, IGameSaveProvider_Vtbl, 0x90a60394_80fe_4211_97f8_a5de14dd95d2);
+windows_core::imp::define_interface!(IGameSaveProvider, IGameSaveProvider_Vtbl, 0x0b108c2b_6f2e_5916_9265_5591e2e88946);
 impl windows_core::RuntimeType for IGameSaveProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -656,7 +656,7 @@ pub struct IGameSaveProvider_Vtbl {
     pub GetRemainingBytesInQuotaAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ContainersChangedSinceLastSync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameSaveProviderGetResult, IGameSaveProviderGetResult_Vtbl, 0x3ab90816_d393_4d65_ac16_41c3e67ab945);
+windows_core::imp::define_interface!(IGameSaveProviderGetResult, IGameSaveProviderGetResult_Vtbl, 0x53894efa_c96f_5036_95b0_bb504197ad0c);
 impl windows_core::RuntimeType for IGameSaveProviderGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -667,7 +667,7 @@ pub struct IGameSaveProviderGetResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameSaveErrorStatus) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGameSaveProviderStatics, IGameSaveProviderStatics_Vtbl, 0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
+windows_core::imp::define_interface!(IGameSaveProviderStatics, IGameSaveProviderStatics_Vtbl, 0xd31ab7d9_c185_5f55_8f56_7e53b213f131);
 impl windows_core::RuntimeType for IGameSaveProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

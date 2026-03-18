@@ -424,7 +424,7 @@ impl windows_core::RuntimeName for AppServiceTriggerDetails {
 }
 unsafe impl Send for AppServiceTriggerDetails {}
 unsafe impl Sync for AppServiceTriggerDetails {}
-windows_core::imp::define_interface!(IAppServiceCatalogStatics, IAppServiceCatalogStatics_Vtbl, 0xef0d2507_d132_4c85_8395_3c31d5a1e941);
+windows_core::imp::define_interface!(IAppServiceCatalogStatics, IAppServiceCatalogStatics_Vtbl, 0x3116f677_94e6_5ef0_a245_fc274f3167bd);
 impl windows_core::RuntimeType for IAppServiceCatalogStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -466,7 +466,7 @@ pub struct IAppServiceConnection_Vtbl {
     pub ServiceClosed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveServiceClosed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppServiceConnection2, IAppServiceConnection2_Vtbl, 0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
+windows_core::imp::define_interface!(IAppServiceConnection2, IAppServiceConnection2_Vtbl, 0xad7ca93a_f747_5bba_849e_27b5acafd87f);
 impl windows_core::RuntimeType for IAppServiceConnection2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -487,7 +487,7 @@ pub struct IAppServiceConnection2_Vtbl {
     #[cfg(not(feature = "System"))]
     SetUser: usize,
 }
-windows_core::imp::define_interface!(IAppServiceConnectionStatics, IAppServiceConnectionStatics_Vtbl, 0xadc56ce9_d408_5673_8637_827a4b274168);
+windows_core::imp::define_interface!(IAppServiceConnectionStatics, IAppServiceConnectionStatics_Vtbl, 0x513515ed_4775_5606_9df0_79cdff515fc6);
 impl windows_core::RuntimeType for IAppServiceConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -510,7 +510,7 @@ pub struct IAppServiceDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppServiceRequest, IAppServiceRequest_Vtbl, 0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
+windows_core::imp::define_interface!(IAppServiceRequest, IAppServiceRequest_Vtbl, 0x0ba68687_2843_5169_a5da_9270cc1b7378);
 impl windows_core::RuntimeType for IAppServiceRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -527,7 +527,7 @@ pub struct IAppServiceRequest_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SendResponseAsync: usize,
 }
-windows_core::imp::define_interface!(IAppServiceRequestReceivedEventArgs, IAppServiceRequestReceivedEventArgs_Vtbl, 0x6e122360_ff65_44ae_9e45_857fe4180681);
+windows_core::imp::define_interface!(IAppServiceRequestReceivedEventArgs, IAppServiceRequestReceivedEventArgs_Vtbl, 0x09e6381b_b2af_5a18_98ab_9c794c8b1f30);
 impl windows_core::RuntimeType for IAppServiceRequestReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -538,7 +538,7 @@ pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppServiceResponse, IAppServiceResponse_Vtbl, 0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
+windows_core::imp::define_interface!(IAppServiceResponse, IAppServiceResponse_Vtbl, 0xbb13de22_df36_5ac1_a130_8336ed9c7510);
 impl windows_core::RuntimeType for IAppServiceResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -574,7 +574,7 @@ pub struct IAppServiceTriggerDetails2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsRemoteSystemConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppServiceTriggerDetails3, IAppServiceTriggerDetails3_Vtbl, 0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
+windows_core::imp::define_interface!(IAppServiceTriggerDetails3, IAppServiceTriggerDetails3_Vtbl, 0x45a04f36_d008_513e_bac8_9a310a944464);
 impl windows_core::RuntimeType for IAppServiceTriggerDetails3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -584,7 +584,7 @@ pub struct IAppServiceTriggerDetails3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CheckCallerForCapabilityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppServiceTriggerDetails4, IAppServiceTriggerDetails4_Vtbl, 0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
+windows_core::imp::define_interface!(IAppServiceTriggerDetails4, IAppServiceTriggerDetails4_Vtbl, 0xe482412c_19e2_5384_a9fe_e34d532aabb0);
 impl windows_core::RuntimeType for IAppServiceTriggerDetails4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

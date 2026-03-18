@@ -67,7 +67,7 @@ pub struct IRfcommDeviceServiceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
+windows_core::imp::define_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0x4bd52ac0_636b_59bd_99c9_4cefcd275098);
 impl windows_core::RuntimeType for IRfcommDeviceServiceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -80,7 +80,7 @@ pub struct IRfcommDeviceServiceStatics2_Vtbl {
     pub GetDeviceSelectorForBluetoothDeviceAndServiceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::BluetoothCacheMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x3b48388c_7ccf_488e_9625_d259a5732d55);
+windows_core::imp::define_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x2385dd5c_3980_5ca5_81af_cc54ec5d7f93);
 impl windows_core::RuntimeType for IRfcommDeviceServicesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -91,7 +91,7 @@ pub struct IRfcommDeviceServicesResult_Vtbl {
     pub Error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BluetoothError) -> windows_core::HRESULT,
     pub Services: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf);
+windows_core::imp::define_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x45706261_681d_553c_a9a5_3c7ed64f0ca9);
 impl windows_core::RuntimeType for IRfcommServiceId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -139,7 +139,7 @@ pub struct IRfcommServiceProvider_Vtbl {
     StartAdvertising: usize,
     pub StopAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
+windows_core::imp::define_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0xb24da952_6cbe_5c2a_8e83_196cda32878b);
 impl windows_core::RuntimeType for IRfcommServiceProvider2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -152,7 +152,7 @@ pub struct IRfcommServiceProvider2_Vtbl {
     #[cfg(not(feature = "Networking_Sockets"))]
     StartAdvertisingWithRadioDiscoverability: usize,
 }
-windows_core::imp::define_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x98888303_69ca_413a_84f7_4344c7292997);
+windows_core::imp::define_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x2b12f9eb_2e06_5639_9bfa_e00ac1130c8d);
 impl windows_core::RuntimeType for IRfcommServiceProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

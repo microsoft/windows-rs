@@ -264,7 +264,7 @@ impl windows_core::TypeKind for AppTaskState {
 impl windows_core::RuntimeType for AppTaskState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.Tasks.AppTaskState;i4)");
 }
-windows_core::imp::define_interface!(IAppTaskContent, IAppTaskContent_Vtbl, 0x2411bf59_1b2d_5b63_8181_03d6c2248a68);
+windows_core::imp::define_interface!(IAppTaskContent, IAppTaskContent_Vtbl, 0x54667bd2_5415_534b_8600_80d7a979a198);
 impl windows_core::RuntimeType for IAppTaskContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -312,7 +312,7 @@ pub struct IAppTaskInfo_Vtbl {
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub EndTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppTaskInfo2, IAppTaskInfo2_Vtbl, 0xad724d71_f137_51c0_8111_3552436bf447);
+windows_core::imp::define_interface!(IAppTaskInfo2, IAppTaskInfo2_Vtbl, 0x7b7610cd_0882_5ef5_a5de_7ce760500a3e);
 impl windows_core::RuntimeType for IAppTaskInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

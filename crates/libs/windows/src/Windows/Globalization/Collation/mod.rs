@@ -136,7 +136,7 @@ pub struct ICharacterGrouping_Vtbl {
     pub First: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Label: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICharacterGroupings, ICharacterGroupings_Vtbl, 0xb8d20a75_d4cf_4055_80e5_ce169c226496);
+windows_core::imp::define_interface!(ICharacterGroupings, ICharacterGroupings_Vtbl, 0x992fe736_6c58_51ea_94f6_49baf15ef761);
 impl windows_core::RuntimeType for ICharacterGroupings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -146,7 +146,7 @@ pub struct ICharacterGroupings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICharacterGroupingsFactory, ICharacterGroupingsFactory_Vtbl, 0x99ea9fd9_886d_4401_9f98_69c82d4c2f78);
+windows_core::imp::define_interface!(ICharacterGroupingsFactory, ICharacterGroupingsFactory_Vtbl, 0x78333de7_e211_5a35_8e2d_435cea25b858);
 impl windows_core::RuntimeType for ICharacterGroupingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

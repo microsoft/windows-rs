@@ -1,15 +1,12 @@
 #[inline]
-pub unsafe fn CreateAppContainerProfile<P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: Option<&[super::SID_AND_ATTRIBUTES]>) -> windows_core::Result<super::PSID>
+pub unsafe fn CreateAppContainerProfile<P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: *mut super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32, ppsidappcontainersid: *mut super::PSID) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : *const super:: SID_AND_ATTRIBUTES, dwcapabilitycount : u32, ppsidappcontainersid : *mut super:: PSID) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CreateAppContainerProfile(pszappcontainername.param().abi(), pszdisplayname.param().abi(), pszdescription.param().abi(), core::mem::transmute(pcapabilities.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
-    }
+    windows_core::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : *mut super:: SID_AND_ATTRIBUTES, dwcapabilitycount : u32, ppsidappcontainersid : *mut super:: PSID) -> windows_core::HRESULT);
+    unsafe { CreateAppContainerProfile(pszappcontainername.param().abi(), pszdisplayname.param().abi(), pszdescription.param().abi(), pcapabilities as _, dwcapabilitycount, ppsidappcontainersid as _).ok() }
 }
 #[inline]
 pub unsafe fn DeleteAppContainerProfile<P0>(pszappcontainername: P0) -> windows_core::Result<()>
@@ -53,9 +50,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn GetAppContainerNamedObjectPath(token: Option<super::super::Foundation::HANDLE>, appcontainersid: Option<super::PSID>, objectpath: Option<&mut [u16]>, returnlength: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super:: PSID, objectpathlength : u32, objectpath : windows_core::PWSTR, returnlength : *mut u32) -> windows_core::BOOL);
-    unsafe { GetAppContainerNamedObjectPath(token.unwrap_or(core::mem::zeroed()) as _, appcontainersid.unwrap_or(core::mem::zeroed()) as _, objectpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(objectpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnlength as _).ok() }
+pub unsafe fn GetAppContainerNamedObjectPath<P3>(token: super::super::Foundation::HANDLE, appcontainersid: super::PSID, objectpathlength: u32, objectpath: P3, returnlength: *mut u32) -> windows_core::BOOL
+where
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("kernel32.dll" "system" fn GetAppContainerNamedObjectPath(token : super::super::Foundation:: HANDLE, appcontainersid : super:: PSID, objectpathlength : u32, objectpath : windows_core::PCWSTR, returnlength : *mut u32) -> windows_core::BOOL);
+    unsafe { GetAppContainerNamedObjectPath(token, appcontainersid, objectpathlength, objectpath.param().abi(), returnlength as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -91,12 +91,9 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> windows_core::Result<wi
     }
 }
 #[inline]
-pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> windows_core::Result<windows_core::BOOL> {
-    windows_core::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const core::ffi::c_void, isprocessinwdagcontainer : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        IsProcessInWDAGContainer(reserved, &mut result__).map(|| result__)
-    }
+pub unsafe fn IsProcessInWDAGContainer(reserved: *mut core::ffi::c_void, isprocessinwdagcontainer: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    windows_core::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *mut core::ffi::c_void, isprocessinwdagcontainer : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    unsafe { IsProcessInWDAGContainer(reserved as _, isprocessinwdagcontainer as _).ok() }
 }
 windows_core::imp::define_interface!(IIsolatedAppLauncher, IIsolatedAppLauncher_Vtbl, 0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
 windows_core::imp::interface_hierarchy!(IIsolatedAppLauncher, windows_core::IUnknown);
@@ -133,7 +130,7 @@ impl IIsolatedAppLauncher_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IIsolatedAppLauncher {}
-windows_core::imp::define_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
+windows_core::imp::define_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x3a8fe26b_1d02_59eb_ad5a_b425f95ad79d);
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher, windows_core::IUnknown);
 impl IIsolatedProcessLauncher {
     pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> windows_core::Result<()>
@@ -242,7 +239,7 @@ impl IIsolatedProcessLauncher_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IIsolatedProcessLauncher {}
-windows_core::imp::define_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x780e4416_5e72_4123_808e_66dc6479feef);
+windows_core::imp::define_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x309f50a7_c37c_59df_b96b_e45028a00281);
 impl core::ops::Deref for IIsolatedProcessLauncher2 {
     type Target = IIsolatedProcessLauncher;
     fn deref(&self) -> &Self::Target {
@@ -251,30 +248,39 @@ impl core::ops::Deref for IIsolatedProcessLauncher2 {
 }
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher2, windows_core::IUnknown, IIsolatedProcessLauncher);
 impl IIsolatedProcessLauncher2 {
-    pub unsafe fn LaunchProcess2<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2, correlationguid: *const windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn LaunchProcess2<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> windows_core::Result<windows_core::GUID>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi(), correlationguid).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi(), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedProcessLauncher2_Vtbl {
     pub base__: IIsolatedProcessLauncher_Vtbl,
-    pub LaunchProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub LaunchProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IIsolatedProcessLauncher2_Impl: IIsolatedProcessLauncher_Impl {
-    fn LaunchProcess2(&self, process: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, workingdirectory: &windows_core::PCWSTR, correlationguid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn LaunchProcess2(&self, process: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<windows_core::GUID>;
 }
 impl IIsolatedProcessLauncher2_Vtbl {
     pub const fn new<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn LaunchProcess2<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR, correlationguid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn LaunchProcess2<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR, correlationguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IIsolatedProcessLauncher2_Impl::LaunchProcess2(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory), core::mem::transmute_copy(&correlationguid)).into()
+                match IIsolatedProcessLauncher2_Impl::LaunchProcess2(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory)) {
+                    Ok(ok__) => {
+                        correlationguid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: IIsolatedProcessLauncher_Vtbl::new::<Identity, OFFSET>(), LaunchProcess2: LaunchProcess2::<Identity, OFFSET> }

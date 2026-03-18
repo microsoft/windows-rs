@@ -115,7 +115,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IObservableMap<K, V> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({65df2bf5-bf39-41b5-aebc-5a9d865e472b}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({a1763636-dba4-5e48-a83e-4815a5b91d11}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_collections::IIterable<windows_collections::IKeyValuePair<K, V>>> for IObservableMap<K, V> {
     const QUERY: bool = true;
@@ -284,7 +284,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IObservableVector<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({5917eb53-50b4-4a0d-b309-65862b3f1dbc}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({81d902d7-0232-53bc-b1ba-5e6e11df355d}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_collections::IIterable<T>> for IObservableVector<T> {
     const QUERY: bool = true;
@@ -644,7 +644,7 @@ unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeType for MapChangedEventHandler<K, V> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({b6aade6e-db2c-579a-9e62-5ecbb3e2f855}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
     pub fn new<F: Fn(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
@@ -1062,7 +1062,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for VectorChangedEventHandler<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({0c051752-9fbf-4c70-aa0c-0e4c82d9a761}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({ca8823c4-dc74-552d-84b4-812bf919c490}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     pub fn new<F: Fn(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {

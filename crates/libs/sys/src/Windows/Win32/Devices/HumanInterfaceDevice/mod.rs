@@ -15,7 +15,7 @@ windows_link::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject 
 windows_link::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
 windows_link::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
 windows_link::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::super::Foundation:: HANDLE, configuration : *const HIDD_CONFIGURATION, configurationlength : u32) -> bool);
-windows_link::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> bool);
+windows_link::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> bool);
 windows_link::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::super::Foundation:: HANDLE, numberbuffers : u32) -> bool);
 windows_link::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::super::Foundation:: HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> bool);
 windows_link::link!("hid.dll" "system" fn HidP_GetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
@@ -29,19 +29,19 @@ windows_link::link!("hid.dll" "system" fn HidP_GetSpecificButtonCaps(reporttype 
 windows_link::link!("hid.dll" "system" fn HidP_GetSpecificValueCaps(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_GetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : windows_sys::core::PSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-windows_link::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+windows_link::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_GetUsagesEx(reporttype : HIDP_REPORT_TYPE, linkcollection : u16, buttonlist : *mut USAGE_AND_PAGE, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_GetValueCaps(reporttype : HIDP_REPORT_TYPE, valuecaps : *mut HIDP_VALUE_CAPS, valuecapslength : *mut u16, preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: NTSTATUS);
-windows_link::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+windows_link::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_MaxDataListLength(reporttype : HIDP_REPORT_TYPE, preparseddata : PHIDP_PREPARSED_DATA) -> u32);
 windows_link::link!("hid.dll" "system" fn HidP_MaxUsageListLength(reporttype : HIDP_REPORT_TYPE, usagepage : u16, preparseddata : PHIDP_PREPARSED_DATA) -> u32);
-windows_link::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+windows_link::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, buttondata : *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_SetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : i32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-windows_link::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-windows_link::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : windows_sys::core::PCSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+windows_link::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
+windows_link::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usage : u16, usagevalue : windows_sys::core::PCSTR, usagevaluebytelength : u16, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_SetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
-windows_link::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
+windows_link::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *mut u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *mut core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> super::super::Foundation:: NTSTATUS);
 windows_link::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> u32);
@@ -2694,7 +2694,7 @@ pub struct HIDD_ATTRIBUTES {
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut core::ffi::c_void,
@@ -2749,18 +2749,6 @@ impl Default for HIDP_BUTTON_CAPS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct HIDP_BUTTON_CAPS_0_1 {
-    pub Usage: u16,
-    pub Reserved1: u16,
-    pub StringIndex: u16,
-    pub Reserved2: u16,
-    pub DesignatorIndex: u16,
-    pub Reserved3: u16,
-    pub DataIndex: u16,
-    pub Reserved4: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -2770,6 +2758,18 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
     pub DesignatorMax: u16,
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HIDP_BUTTON_CAPS_0_1 {
+    pub Usage: u16,
+    pub Reserved1: u16,
+    pub StringIndex: u16,
+    pub Reserved2: u16,
+    pub DesignatorIndex: u16,
+    pub Reserved3: u16,
+    pub DataIndex: u16,
+    pub Reserved4: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2819,7 +2819,7 @@ impl Default for HIDP_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
@@ -2859,7 +2859,7 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: u16,
@@ -2955,18 +2955,6 @@ impl Default for HIDP_VALUE_CAPS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct HIDP_VALUE_CAPS_0_1 {
-    pub Usage: u16,
-    pub Reserved1: u16,
-    pub StringIndex: u16,
-    pub Reserved2: u16,
-    pub DesignatorIndex: u16,
-    pub Reserved3: u16,
-    pub DataIndex: u16,
-    pub Reserved4: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -2976,6 +2964,18 @@ pub struct HIDP_VALUE_CAPS_0_0 {
     pub DesignatorMax: u16,
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HIDP_VALUE_CAPS_0_1 {
+    pub Usage: u16,
+    pub Reserved1: u16,
+    pub StringIndex: u16,
+    pub Reserved2: u16,
+    pub DesignatorIndex: u16,
+    pub Reserved3: u16,
+    pub DataIndex: u16,
+    pub Reserved4: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3983,7 +3983,7 @@ pub struct MOUSE_UNIT_ID_PARAMETER {
 }
 pub const MOUSE_WHEEL: u32 = 1024u32;
 pub type PFN_HidP_GetVersionInternal = Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
-pub type PHIDP_INSERT_SCANCODES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, newscancodes: windows_sys::core::PCSTR, length: u32) -> bool>;
+pub type PHIDP_INSERT_SCANCODES = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, newscancodes: windows_sys::core::PCSTR, length: u32) -> bool>;
 pub type PHIDP_PREPARSED_DATA = isize;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

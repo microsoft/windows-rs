@@ -72,7 +72,7 @@ impl windows_core::RuntimeName for HolographicKeyboardPlacementOverridePreview {
 }
 unsafe impl Send for HolographicKeyboardPlacementOverridePreview {}
 unsafe impl Sync for HolographicKeyboardPlacementOverridePreview {}
-windows_core::imp::define_interface!(IHolographicApplicationPreviewStatics, IHolographicApplicationPreviewStatics_Vtbl, 0xfe038691_2a3a_45a9_a208_7bed691919f3);
+windows_core::imp::define_interface!(IHolographicApplicationPreviewStatics, IHolographicApplicationPreviewStatics_Vtbl, 0x82ca5f4c_8418_5e8f_b295_30d86549b73e);
 impl windows_core::RuntimeType for IHolographicApplicationPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -86,7 +86,7 @@ pub struct IHolographicApplicationPreviewStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Activation"))]
     IsHolographicActivation: usize,
 }
-windows_core::imp::define_interface!(IHolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreview_Vtbl, 0xc8a8ce3a_dfde_5a14_8d5f_182c526dd9c4);
+windows_core::imp::define_interface!(IHolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreview_Vtbl, 0xdaed1aff_bdfc_5966_ab25_6164c5207eab);
 impl windows_core::RuntimeType for IHolographicKeyboardPlacementOverridePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

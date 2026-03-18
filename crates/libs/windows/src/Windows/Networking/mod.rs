@@ -281,7 +281,7 @@ pub struct IEndpointPair_Vtbl {
     pub RemoteServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRemoteServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEndpointPairFactory, IEndpointPairFactory_Vtbl, 0xb609d971_64e0_442b_aa6f_cc8c8f181f78);
+windows_core::imp::define_interface!(IEndpointPairFactory, IEndpointPairFactory_Vtbl, 0x1e97e8aa_75ba_5391_a349_a1378df6d627);
 impl windows_core::RuntimeType for IEndpointPairFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -319,7 +319,7 @@ pub struct IHostNameFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateHostName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHostNameStatics, IHostNameStatics_Vtbl, 0xf68cd4bf_a388_4e8b_91ea_54dd6dd901c0);
+windows_core::imp::define_interface!(IHostNameStatics, IHostNameStatics_Vtbl, 0x64ae7bd5_1fad_5f61_a1ad_896d0ec0c15d);
 impl windows_core::RuntimeType for IHostNameStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

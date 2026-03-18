@@ -66,7 +66,7 @@ impl IRendezvousApplication_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRendezvousApplication {}
-windows_core::imp::define_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
+windows_core::imp::define_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0xc119a8e7_d16f_5cdc_abf9_8bf58d5cf9c5);
 windows_core::imp::interface_hierarchy!(IRendezvousSession, windows_core::IUnknown);
 impl IRendezvousSession {
     pub unsafe fn State(&self) -> windows_core::Result<RENDEZVOUS_SESSION_STATE> {

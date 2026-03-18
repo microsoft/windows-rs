@@ -732,7 +732,7 @@ impl IMXAttributes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMXAttributes {}
-windows_core::imp::define_interface!(IMXNamespaceManager, IMXNamespaceManager_Vtbl, 0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
+windows_core::imp::define_interface!(IMXNamespaceManager, IMXNamespaceManager_Vtbl, 0xc23d93ec_bf4f_5a86_9a2a_97e3517168c8);
 windows_core::imp::interface_hierarchy!(IMXNamespaceManager, windows_core::IUnknown);
 impl IMXNamespaceManager {
     pub unsafe fn putAllowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
@@ -909,7 +909,7 @@ impl IMXNamespaceManager_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IMXNamespaceManager {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMXNamespacePrefixes, IMXNamespacePrefixes_Vtbl, 0xc90352f4_643c_4fbc_bb23_e996eb2d51fd);
+windows_core::imp::define_interface!(IMXNamespacePrefixes, IMXNamespacePrefixes_Vtbl, 0x4aa094a3_7a6b_5d25_bc99_5b735f689fb7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMXNamespacePrefixes {
     type Target = super::super::super::System::Com::IDispatch;
@@ -1128,7 +1128,7 @@ impl IMXSchemaDeclHandler_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMXSchemaDeclHandler {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMXWriter, IMXWriter_Vtbl, 0x4d7ff4ba_1565_4ea8_94e1_6e724a46f98d);
+windows_core::imp::define_interface!(IMXWriter, IMXWriter_Vtbl, 0xc263d1db_6963_5c80_87b8_9f36fbc443c4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMXWriter {
     type Target = super::super::super::System::Com::IDispatch;
@@ -1448,7 +1448,7 @@ impl IMXWriter_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMXWriter {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMXXMLFilter, IMXXMLFilter_Vtbl, 0xc90352f7_643c_4fbc_bb23_e996eb2d51fd);
+windows_core::imp::define_interface!(IMXXMLFilter, IMXXMLFilter_Vtbl, 0x765d2ccf_15da_5a7e_b5a9_0aed4ea4011e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMXXMLFilter {
     type Target = super::super::super::System::Com::IDispatch;
@@ -1701,7 +1701,7 @@ impl IMXXMLFilter_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMXXMLFilter {}
-windows_core::imp::define_interface!(ISAXAttributes, ISAXAttributes_Vtbl, 0xf078abe1_45d2_4832_91ea_4466ce2f25c9);
+windows_core::imp::define_interface!(ISAXAttributes, ISAXAttributes_Vtbl, 0x82a7260a_99ba_5f76_add2_d529fc734da0);
 windows_core::imp::interface_hierarchy!(ISAXAttributes, windows_core::IUnknown);
 impl ISAXAttributes {
     pub unsafe fn getLength(&self) -> windows_core::Result<i32> {
@@ -1927,7 +1927,7 @@ impl ISAXAttributes_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISAXAttributes {}
-windows_core::imp::define_interface!(ISAXContentHandler, ISAXContentHandler_Vtbl, 0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
+windows_core::imp::define_interface!(ISAXContentHandler, ISAXContentHandler_Vtbl, 0x791a6be0_476e_57e1_9db0_1e7d636f259d);
 windows_core::imp::interface_hierarchy!(ISAXContentHandler, windows_core::IUnknown);
 impl ISAXContentHandler {
     pub unsafe fn putDocumentLocator<P0>(&self, plocator: P0) -> windows_core::Result<()>
@@ -2115,7 +2115,7 @@ impl ISAXContentHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISAXContentHandler {}
-windows_core::imp::define_interface!(ISAXDTDHandler, ISAXDTDHandler_Vtbl, 0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
+windows_core::imp::define_interface!(ISAXDTDHandler, ISAXDTDHandler_Vtbl, 0x79335bde_dbf8_577c_a760_f2600f1e5dba);
 windows_core::imp::interface_hierarchy!(ISAXDTDHandler, windows_core::IUnknown);
 impl ISAXDTDHandler {
     pub unsafe fn notationDecl<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::Result<()>
@@ -2172,7 +2172,7 @@ impl ISAXDTDHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISAXDTDHandler {}
-windows_core::imp::define_interface!(ISAXDeclHandler, ISAXDeclHandler_Vtbl, 0x862629ac_771a_47b2_8337_4e6843c1be90);
+windows_core::imp::define_interface!(ISAXDeclHandler, ISAXDeclHandler_Vtbl, 0x9188cd89_db42_5ab9_9cc5_bf15a426ef11);
 windows_core::imp::interface_hierarchy!(ISAXDeclHandler, windows_core::IUnknown);
 impl ISAXDeclHandler {
     pub unsafe fn elementDecl<P0, P2>(&self, pwchname: P0, cchname: i32, pwchmodel: P2, cchmodel: i32) -> windows_core::Result<()>
@@ -2262,7 +2262,7 @@ impl ISAXDeclHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISAXDeclHandler {}
-windows_core::imp::define_interface!(ISAXEntityResolver, ISAXEntityResolver_Vtbl, 0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07);
+windows_core::imp::define_interface!(ISAXEntityResolver, ISAXEntityResolver_Vtbl, 0x63987bf6_e8e8_599f_8378_24a66d02f920);
 windows_core::imp::interface_hierarchy!(ISAXEntityResolver, windows_core::IUnknown);
 impl ISAXEntityResolver {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3031,7 +3031,7 @@ impl ISAXXMLReader_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISAXXMLReader {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISchema, ISchema_Vtbl, 0x50ea08b4_dd1b_4664_9a50_c2f40f4bd79a);
+windows_core::imp::define_interface!(ISchema, ISchema_Vtbl, 0xd9cab114_e1ff_5325_88e3_80622e7682a0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISchema {
     type Target = ISchemaItem;
@@ -3256,7 +3256,7 @@ impl ISchema_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISchema {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISchemaAny, ISchemaAny_Vtbl, 0x50ea08bc_dd1b_4664_9a50_c2f40f4bd79a);
+windows_core::imp::define_interface!(ISchemaAny, ISchemaAny_Vtbl, 0x5bcb570a_a3fc_5e50_b347_38d12f2407f1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISchemaAny {
     type Target = ISchemaParticle;
@@ -3999,7 +3999,7 @@ impl ISchemaElement_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISchemaElement {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISchemaIdentityConstraint, ISchemaIdentityConstraint_Vtbl, 0x50ea08bd_dd1b_4664_9a50_c2f40f4bd79a);
+windows_core::imp::define_interface!(ISchemaIdentityConstraint, ISchemaIdentityConstraint_Vtbl, 0xfec22387_8948_5fb6_ae0f_d0c6cdf15459);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISchemaIdentityConstraint {
     type Target = ISchemaItem;
@@ -4284,7 +4284,7 @@ impl ISchemaItem_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISchemaItem {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISchemaItemCollection, ISchemaItemCollection_Vtbl, 0x50ea08b2_dd1b_4664_9a50_c2f40f4bd79a);
+windows_core::imp::define_interface!(ISchemaItemCollection, ISchemaItemCollection_Vtbl, 0x80782c7a_bb70_5395_ad8b_4b433de31f16);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISchemaItemCollection {
     type Target = super::super::super::System::Com::IDispatch;
@@ -4425,7 +4425,7 @@ impl ISchemaItemCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISchemaItemCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISchemaModelGroup, ISchemaModelGroup_Vtbl, 0x50ea08bb_dd1b_4664_9a50_c2f40f4bd79a);
+windows_core::imp::define_interface!(ISchemaModelGroup, ISchemaModelGroup_Vtbl, 0xa84fcb09_a61b_5a03_8555_f6937fa9059a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISchemaModelGroup {
     type Target = ISchemaParticle;
@@ -4639,7 +4639,7 @@ impl ISchemaParticle_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISchemaParticle {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISchemaStringCollection, ISchemaStringCollection_Vtbl, 0x50ea08b1_dd1b_4664_9a50_c2f40f4bd79a);
+windows_core::imp::define_interface!(ISchemaStringCollection, ISchemaStringCollection_Vtbl, 0x0fc8efd4_213c_53ba_bbea_c0831077b8b2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISchemaStringCollection {
     type Target = super::super::super::System::Com::IDispatch;
@@ -4738,7 +4738,7 @@ impl ISchemaStringCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISchemaStringCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ISchemaType, ISchemaType_Vtbl, 0x50ea08b8_dd1b_4664_9a50_c2f40f4bd79a);
+windows_core::imp::define_interface!(ISchemaType, ISchemaType_Vtbl, 0xfb6276e3_34d1_52b0_8c8d_1570b740393f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ISchemaType {
     type Target = ISchemaItem;
@@ -5151,7 +5151,7 @@ impl ISchemaType_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISchemaType {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IServerXMLHTTPRequest, IServerXMLHTTPRequest_Vtbl, 0x2e9196bf_13ba_4dd4_91ca_6c571f281495);
+windows_core::imp::define_interface!(IServerXMLHTTPRequest, IServerXMLHTTPRequest_Vtbl, 0xf45a785b_26ba_51f8_8351_1ec84ac77419);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IServerXMLHTTPRequest {
     type Target = IXMLHTTPRequest;
@@ -5329,7 +5329,7 @@ impl IServerXMLHTTPRequest2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IServerXMLHTTPRequest2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBMXNamespaceManager, IVBMXNamespaceManager_Vtbl, 0xc90352f5_643c_4fbc_bb23_e996eb2d51fd);
+windows_core::imp::define_interface!(IVBMXNamespaceManager, IVBMXNamespaceManager_Vtbl, 0x8a28bf88_24f2_562f_9c00_b4a079c74ada);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBMXNamespaceManager {
     type Target = super::super::super::System::Com::IDispatch;
@@ -5556,7 +5556,7 @@ impl IVBMXNamespaceManager_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBMXNamespaceManager {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBSAXAttributes, IVBSAXAttributes_Vtbl, 0x10dc0586_132b_4cac_8bb3_db00ac8b7ee0);
+windows_core::imp::define_interface!(IVBSAXAttributes, IVBSAXAttributes_Vtbl, 0xdd770e72_f706_5f9b_983e_b559c61a6845);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBSAXAttributes {
     type Target = super::super::super::System::Com::IDispatch;
@@ -5844,7 +5844,7 @@ impl IVBSAXAttributes_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBSAXAttributes {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBSAXContentHandler, IVBSAXContentHandler_Vtbl, 0x2ed7290a_4dd5_4b46_bb26_4e4155e77faa);
+windows_core::imp::define_interface!(IVBSAXContentHandler, IVBSAXContentHandler_Vtbl, 0xb3222db3_d077_5af2_9f75_023dec979463);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBSAXContentHandler {
     type Target = super::super::super::System::Com::IDispatch;
@@ -5871,8 +5871,11 @@ impl IVBSAXContentHandler {
     pub unsafe fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix), core::mem::transmute(struri)).ok() }
     }
-    pub unsafe fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix)).ok() }
+    pub unsafe fn endPrefixMapping(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn startElement<P3>(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: P3) -> windows_core::Result<()>
     where
@@ -5883,17 +5886,26 @@ impl IVBSAXContentHandler {
     pub unsafe fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname)).ok() }
     }
-    pub unsafe fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
+    pub unsafe fn characters(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
-    pub unsafe fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
+    pub unsafe fn ignorableWhitespace(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn processingInstruction(&self, strtarget: *mut windows_core::BSTR, strdata: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), core::mem::transmute(strtarget), core::mem::transmute(strdata)).ok() }
     }
-    pub unsafe fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
+    pub unsafe fn skippedEntity(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5919,13 +5931,13 @@ pub trait IVBSAXContentHandler_Impl: super::super::super::System::Com::IDispatch
     fn startDocument(&self) -> windows_core::Result<()>;
     fn endDocument(&self) -> windows_core::Result<()>;
     fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn endPrefixMapping(&self) -> windows_core::Result<windows_core::BSTR>;
     fn startElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: windows_core::Ref<IVBSAXAttributes>) -> windows_core::Result<()>;
     fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn characters(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn ignorableWhitespace(&self) -> windows_core::Result<windows_core::BSTR>;
     fn processingInstruction(&self, strtarget: *mut windows_core::BSTR, strdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn skippedEntity(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXContentHandler_Vtbl {
@@ -5957,7 +5969,13 @@ impl IVBSAXContentHandler_Vtbl {
         unsafe extern "system" fn endPrefixMapping<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXContentHandler_Impl::endPrefixMapping(this, core::mem::transmute_copy(&strprefix)).into()
+                match IVBSAXContentHandler_Impl::endPrefixMapping(this) {
+                    Ok(ok__) => {
+                        strprefix.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn startElement<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespaceuri: *mut *mut core::ffi::c_void, strlocalname: *mut *mut core::ffi::c_void, strqname: *mut *mut core::ffi::c_void, oattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5975,13 +5993,25 @@ impl IVBSAXContentHandler_Vtbl {
         unsafe extern "system" fn characters<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXContentHandler_Impl::characters(this, core::mem::transmute_copy(&strchars)).into()
+                match IVBSAXContentHandler_Impl::characters(this) {
+                    Ok(ok__) => {
+                        strchars.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn ignorableWhitespace<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXContentHandler_Impl::ignorableWhitespace(this, core::mem::transmute_copy(&strchars)).into()
+                match IVBSAXContentHandler_Impl::ignorableWhitespace(this) {
+                    Ok(ok__) => {
+                        strchars.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn processingInstruction<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtarget: *mut *mut core::ffi::c_void, strdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5993,7 +6023,13 @@ impl IVBSAXContentHandler_Vtbl {
         unsafe extern "system" fn skippedEntity<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXContentHandler_Impl::skippedEntity(this, core::mem::transmute_copy(&strname)).into()
+                match IVBSAXContentHandler_Impl::skippedEntity(this) {
+                    Ok(ok__) => {
+                        strname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -6078,7 +6114,7 @@ impl IVBSAXDTDHandler_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBSAXDTDHandler {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBSAXDeclHandler, IVBSAXDeclHandler_Vtbl, 0xe8917260_7579_4be1_b5dd_7afbfa6f077b);
+windows_core::imp::define_interface!(IVBSAXDeclHandler, IVBSAXDeclHandler_Vtbl, 0x097a2f07_2e96_523e_babc_f36bf408142b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBSAXDeclHandler {
     type Target = super::super::super::System::Com::IDispatch;
@@ -6162,7 +6198,7 @@ impl IVBSAXDeclHandler_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBSAXDeclHandler {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBSAXEntityResolver, IVBSAXEntityResolver_Vtbl, 0x0c05d096_f45b_4aca_ad1a_aa0bc25518dc);
+windows_core::imp::define_interface!(IVBSAXEntityResolver, IVBSAXEntityResolver_Vtbl, 0x2790355d_7bc9_52a1_beb2_409feb47bd61);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBSAXEntityResolver {
     type Target = super::super::super::System::Com::IDispatch;
@@ -6301,7 +6337,7 @@ impl IVBSAXErrorHandler_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBSAXErrorHandler {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBSAXLexicalHandler, IVBSAXLexicalHandler_Vtbl, 0x032aac35_8c0e_4d9d_979f_e3b702935576);
+windows_core::imp::define_interface!(IVBSAXLexicalHandler, IVBSAXLexicalHandler_Vtbl, 0x428279e6_c887_5151_91a2_f23ea73de334);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBSAXLexicalHandler {
     type Target = super::super::super::System::Com::IDispatch;
@@ -6319,11 +6355,17 @@ impl IVBSAXLexicalHandler {
     pub unsafe fn endDTD(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).endDTD)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
+    pub unsafe fn startEntity(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
-    pub unsafe fn endEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
+    pub unsafe fn endEntity(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn startCDATA(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).startCDATA)(windows_core::Interface::as_raw(self)).ok() }
@@ -6331,8 +6373,11 @@ impl IVBSAXLexicalHandler {
     pub unsafe fn endCDATA(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).endCDATA)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
+    pub unsafe fn comment(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6352,11 +6397,11 @@ pub struct IVBSAXLexicalHandler_Vtbl {
 pub trait IVBSAXLexicalHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn startDTD(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn endDTD(&self) -> windows_core::Result<()>;
-    fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn endEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn startEntity(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn endEntity(&self) -> windows_core::Result<windows_core::BSTR>;
     fn startCDATA(&self) -> windows_core::Result<()>;
     fn endCDATA(&self) -> windows_core::Result<()>;
-    fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn comment(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXLexicalHandler_Vtbl {
@@ -6376,13 +6421,25 @@ impl IVBSAXLexicalHandler_Vtbl {
         unsafe extern "system" fn startEntity<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXLexicalHandler_Impl::startEntity(this, core::mem::transmute_copy(&strname)).into()
+                match IVBSAXLexicalHandler_Impl::startEntity(this) {
+                    Ok(ok__) => {
+                        strname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn endEntity<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXLexicalHandler_Impl::endEntity(this, core::mem::transmute_copy(&strname)).into()
+                match IVBSAXLexicalHandler_Impl::endEntity(this) {
+                    Ok(ok__) => {
+                        strname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn startCDATA<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6400,7 +6457,13 @@ impl IVBSAXLexicalHandler_Vtbl {
         unsafe extern "system" fn comment<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVBSAXLexicalHandler_Impl::comment(this, core::mem::transmute_copy(&strchars)).into()
+                match IVBSAXLexicalHandler_Impl::comment(this) {
+                    Ok(ok__) => {
+                        strchars.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -6421,7 +6484,7 @@ impl IVBSAXLexicalHandler_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBSAXLexicalHandler {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBSAXLocator, IVBSAXLocator_Vtbl, 0x796e7ac5_5aa2_4eff_acad_3faaf01a3288);
+windows_core::imp::define_interface!(IVBSAXLocator, IVBSAXLocator_Vtbl, 0x866d1f56_149b_5784_bc9b_afc1e92b7a54);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBSAXLocator {
     type Target = super::super::super::System::Com::IDispatch;
@@ -6541,7 +6604,7 @@ impl IVBSAXLocator_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBSAXLocator {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IVBSAXXMLFilter, IVBSAXXMLFilter_Vtbl, 0x1299eb1b_5b88_433e_82de_82ca75ad4e04);
+windows_core::imp::define_interface!(IVBSAXXMLFilter, IVBSAXXMLFilter_Vtbl, 0x45cf1d72_5ed0_55ce_9539_9605ecccce0d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IVBSAXXMLFilter {
     type Target = super::super::super::System::Com::IDispatch;
@@ -6961,7 +7024,7 @@ impl IVBSAXXMLReader_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IVBSAXXMLReader {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLAttribute, IXMLAttribute_Vtbl, 0xd4d4a0fc_3b73_11d1_b2b4_00c04fb92596);
+windows_core::imp::define_interface!(IXMLAttribute, IXMLAttribute_Vtbl, 0x4640c65a_676e_5807_b7ae_a846afe82aae);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLAttribute {
     type Target = super::super::super::System::Com::IDispatch;
@@ -7167,7 +7230,7 @@ impl IXMLDOMCDATASection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMCDATASection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMCharacterData, IXMLDOMCharacterData_Vtbl, 0x2933bf84_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMCharacterData, IXMLDOMCharacterData_Vtbl, 0x1ac84786_1a2a_5da8_9180_59292ed6543e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMCharacterData {
     type Target = IXMLDOMNode;
@@ -7326,7 +7389,7 @@ impl IXMLDOMCharacterData_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMCharacterData {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMComment, IXMLDOMComment_Vtbl, 0x2933bf88_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMComment, IXMLDOMComment_Vtbl, 0x2a3d6b65_4381_544f_87c3_87e0ca405eb2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMComment {
     type Target = IXMLDOMCharacterData;
@@ -8182,7 +8245,7 @@ impl IXMLDOMDocument2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMDocument2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMDocument3, IXMLDOMDocument3_Vtbl, 0x2933bf96_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMDocument3, IXMLDOMDocument3_Vtbl, 0x15d12073_d8b3_5fd5_af16_86ed5f198c64);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMDocument3 {
     type Target = IXMLDOMDocument2;
@@ -8266,7 +8329,7 @@ impl IXMLDOMDocument3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMDocument3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMDocumentFragment, IXMLDOMDocumentFragment_Vtbl, 0x3efaa413_272f_11d2_836f_0000f87a7782);
+windows_core::imp::define_interface!(IXMLDOMDocumentFragment, IXMLDOMDocumentFragment_Vtbl, 0x1e7c349a_d4c7_5887_8bff_7fa6e0675266);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMDocumentFragment {
     type Target = IXMLDOMNode;
@@ -8395,7 +8458,7 @@ impl IXMLDOMDocumentType_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMDocumentType {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMElement, IXMLDOMElement_Vtbl, 0x2933bf86_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMElement, IXMLDOMElement_Vtbl, 0x6d24e276_4a48_50fe_99f0_1ec0f1c687f0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMElement {
     type Target = IXMLDOMNode;
@@ -8607,7 +8670,7 @@ impl IXMLDOMElement_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMElement {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMEntity, IXMLDOMEntity_Vtbl, 0x2933bf8d_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMEntity, IXMLDOMEntity_Vtbl, 0xd1b78d9b_d4b2_55be_9df8_d3690554d34a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMEntity {
     type Target = IXMLDOMNode;
@@ -8714,7 +8777,7 @@ impl IXMLDOMEntity_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMEntity {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMEntityReference, IXMLDOMEntityReference_Vtbl, 0x2933bf8e_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMEntityReference, IXMLDOMEntityReference_Vtbl, 0xebb8ad3b_c2f0_5c60_9dab_f6ac6a3e2fd3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMEntityReference {
     type Target = IXMLDOMNode;
@@ -8744,7 +8807,7 @@ impl IXMLDOMEntityReference_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMEntityReference {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMImplementation, IXMLDOMImplementation_Vtbl, 0x2933bf8f_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMImplementation, IXMLDOMImplementation_Vtbl, 0x9bdf5aae_b5ca_53b8_9ca6_10e1cdcb589d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMImplementation {
     type Target = super::super::super::System::Com::IDispatch;
@@ -9038,7 +9101,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMNamedNodeMap {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMNode, IXMLDOMNode_Vtbl, 0x2933bf80_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMNode, IXMLDOMNode_Vtbl, 0xbb545e3c_0a61_516b_a210_831b4d48d7f8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMNode {
     type Target = super::super::super::System::Com::IDispatch;
@@ -9832,7 +9895,7 @@ impl IXMLDOMNode_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMNode {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMNodeList, IXMLDOMNodeList_Vtbl, 0x2933bf82_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMNodeList, IXMLDOMNodeList_Vtbl, 0x5ded0cf5_28fd_57ae_b49e_513aea10e491);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMNodeList {
     type Target = super::super::super::System::Com::IDispatch;
@@ -9964,7 +10027,7 @@ impl IXMLDOMNodeList_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMNodeList {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMNotation, IXMLDOMNotation_Vtbl, 0x2933bf8c_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXMLDOMNotation, IXMLDOMNotation_Vtbl, 0xf14fceb6_aacc_5239_bf2e_cb341afa67d8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMNotation {
     type Target = IXMLDOMNode;
@@ -10349,7 +10412,7 @@ impl IXMLDOMParseError2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMParseError2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMParseErrorCollection, IXMLDOMParseErrorCollection_Vtbl, 0x3efaa429_272f_11d2_836f_0000f87a7782);
+windows_core::imp::define_interface!(IXMLDOMParseErrorCollection, IXMLDOMParseErrorCollection_Vtbl, 0x629586c1_a47a_5090_a1d1_77f346514254);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMParseErrorCollection {
     type Target = super::super::super::System::Com::IDispatch;
@@ -10571,7 +10634,7 @@ impl IXMLDOMProcessingInstruction_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDOMProcessingInstruction {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDOMSchemaCollection, IXMLDOMSchemaCollection_Vtbl, 0x373984c8_b845_449b_91e7_45ac83036ade);
+windows_core::imp::define_interface!(IXMLDOMSchemaCollection, IXMLDOMSchemaCollection_Vtbl, 0x4e0c8d69_0e6f_573b_b0b3_b751fe022980);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDOMSchemaCollection {
     type Target = super::super::super::System::Com::IDispatch;
@@ -11601,7 +11664,7 @@ impl IXMLDocument_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLDocument {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLDocument2, IXMLDocument2_Vtbl, 0x2b8de2fe_8d2d_11d1_b2fc_00c04fd915a9);
+windows_core::imp::define_interface!(IXMLDocument2, IXMLDocument2_Vtbl, 0x8c1b4e06_c676_5230_a559_5f9788b48848);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLDocument2 {
     type Target = super::super::super::System::Com::IDispatch;
@@ -12198,7 +12261,7 @@ impl IXMLElement_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLElement {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLElement2, IXMLElement2_Vtbl, 0x2b8de2ff_8d2d_11d1_b2fc_00c04fd915a9);
+windows_core::imp::define_interface!(IXMLElement2, IXMLElement2_Vtbl, 0x2ce91652_5b4b_5fa0_b598_88226802aa4d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLElement2 {
     type Target = super::super::super::System::Com::IDispatch;
@@ -12467,7 +12530,7 @@ impl IXMLElement2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLElement2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLElementCollection, IXMLElementCollection_Vtbl, 0x65725580_9b5d_11d0_9bfe_00c04fc99c8e);
+windows_core::imp::define_interface!(IXMLElementCollection, IXMLElementCollection_Vtbl, 0x2ef5f1ea_2c87_57c5_8711_cdf8f459ae97);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLElementCollection {
     type Target = super::super::super::System::Com::IDispatch;
@@ -12581,7 +12644,7 @@ impl IXMLElementCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLElementCollection {}
-windows_core::imp::define_interface!(IXMLError, IXMLError_Vtbl, 0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
+windows_core::imp::define_interface!(IXMLError, IXMLError_Vtbl, 0x992905d0_5eed_5dc5_bcae_0c9ed2265182);
 windows_core::imp::interface_hierarchy!(IXMLError, windows_core::IUnknown);
 impl IXMLError {
     pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::Result<()> {
@@ -12613,7 +12676,7 @@ impl IXMLError_Vtbl {
 }
 impl windows_core::RuntimeName for IXMLError {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXMLHTTPRequest, IXMLHTTPRequest_Vtbl, 0xed8c108d_4349_11d2_91a4_00c04f7969e8);
+windows_core::imp::define_interface!(IXMLHTTPRequest, IXMLHTTPRequest_Vtbl, 0x25b9fd91_f4b0_59a2_809f_58ebb15d80d2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXMLHTTPRequest {
     type Target = super::super::super::System::Com::IDispatch;
@@ -12916,7 +12979,7 @@ impl IXMLHTTPRequest_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXMLHTTPRequest {}
-windows_core::imp::define_interface!(IXMLHTTPRequest2, IXMLHTTPRequest2_Vtbl, 0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
+windows_core::imp::define_interface!(IXMLHTTPRequest2, IXMLHTTPRequest2_Vtbl, 0x6fb8e4f2_68d5_5061_a71b_553dd23b2bf0);
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest2, windows_core::IUnknown);
 impl IXMLHTTPRequest2 {
     pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> windows_core::Result<()>
@@ -12941,11 +13004,8 @@ impl IXMLHTTPRequest2 {
     pub unsafe fn Abort(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetCookie)(windows_core::Interface::as_raw(self), pcookie, &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetCookie(&self, pcookie: *mut XHR_COOKIE, pdwcookiestate: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetCookie)(windows_core::Interface::as_raw(self), pcookie as _, pdwcookiestate as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCustomResponseStream<P0>(&self, psequentialstream: P0) -> windows_core::Result<()>
@@ -12997,7 +13057,7 @@ pub struct IXMLHTTPRequest2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Send: usize,
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *const XHR_COOKIE, *mut u32) -> windows_core::HRESULT,
+    pub SetCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XHR_COOKIE, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub SetCustomResponseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -13013,7 +13073,7 @@ pub trait IXMLHTTPRequest2_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pwszmethod: &windows_core::PCWSTR, pwszurl: &windows_core::PCWSTR, pstatuscallback: windows_core::Ref<IXMLHTTPRequest2Callback>, pwszusername: &windows_core::PCWSTR, pwszpassword: &windows_core::PCWSTR, pwszproxyusername: &windows_core::PCWSTR, pwszproxypassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Send(&self, pbody: windows_core::Ref<super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
-    fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> windows_core::Result<u32>;
+    fn SetCookie(&self, pcookie: *mut XHR_COOKIE, pdwcookiestate: *mut u32) -> windows_core::Result<()>;
     fn SetCustomResponseStream(&self, psequentialstream: windows_core::Ref<super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
     fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> windows_core::Result<()>;
     fn SetRequestHeader(&self, pwszheader: &windows_core::PCWSTR, pwszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -13042,16 +13102,10 @@ impl IXMLHTTPRequest2_Vtbl {
                 IXMLHTTPRequest2_Impl::Abort(this).into()
             }
         }
-        unsafe extern "system" fn SetCookie<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCookie<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *mut XHR_COOKIE, pdwcookiestate: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXMLHTTPRequest2_Impl::SetCookie(this, core::mem::transmute_copy(&pcookie)) {
-                    Ok(ok__) => {
-                        pdwcookiestate.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IXMLHTTPRequest2_Impl::SetCookie(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&pdwcookiestate)).into()
             }
         }
         unsafe extern "system" fn SetCustomResponseStream<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psequentialstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -13234,7 +13288,7 @@ impl IXMLHTTPRequest2Callback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXMLHTTPRequest2Callback {}
-windows_core::imp::define_interface!(IXMLHTTPRequest3, IXMLHTTPRequest3_Vtbl, 0xa1c9feee_0617_4f23_9d58_8961ea43567c);
+windows_core::imp::define_interface!(IXMLHTTPRequest3, IXMLHTTPRequest3_Vtbl, 0x6584fbda_a7af_5707_b0af_01a5c5dc4efe);
 impl core::ops::Deref for IXMLHTTPRequest3 {
     type Target = IXMLHTTPRequest2;
     fn deref(&self) -> &Self::Target {
@@ -13243,7 +13297,7 @@ impl core::ops::Deref for IXMLHTTPRequest3 {
 }
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3, windows_core::IUnknown, IXMLHTTPRequest2);
 impl IXMLHTTPRequest3 {
-    pub unsafe fn SetClientCertificate<P2>(&self, pbclientcertificatehash: &[u8], pwszpin: P2) -> windows_core::Result<()>
+    pub unsafe fn SetClientCertificate<P2>(&self, pbclientcertificatehash: &mut [u8], pwszpin: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -13254,16 +13308,16 @@ impl IXMLHTTPRequest3 {
 #[doc(hidden)]
 pub struct IXMLHTTPRequest3_Vtbl {
     pub base__: IXMLHTTPRequest2_Vtbl,
-    pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest3_Impl: IXMLHTTPRequest2_Impl {
-    fn SetClientCertificate(&self, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetClientCertificate(&self, cbclientcertificatehash: u32, pbclientcertificatehash: *mut u8, pwszpin: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest3_Vtbl {
     pub const fn new<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetClientCertificate<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientCertificate<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *mut u8, pwszpin: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXMLHTTPRequest3_Impl::SetClientCertificate(this, core::mem::transmute_copy(&cbclientcertificatehash), core::mem::transmute_copy(&pbclientcertificatehash), core::mem::transmute(&pwszpin)).into()
@@ -13277,7 +13331,7 @@ impl IXMLHTTPRequest3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXMLHTTPRequest3 {}
-windows_core::imp::define_interface!(IXMLHTTPRequest3Callback, IXMLHTTPRequest3Callback_Vtbl, 0xb9e57830_8c6c_4a6f_9c13_47772bb047bb);
+windows_core::imp::define_interface!(IXMLHTTPRequest3Callback, IXMLHTTPRequest3Callback_Vtbl, 0x1cecba2e_74de_5904_be91_de571d529e62);
 impl core::ops::Deref for IXMLHTTPRequest3Callback {
     type Target = IXMLHTTPRequest2Callback;
     fn deref(&self) -> &Self::Target {
@@ -13286,13 +13340,13 @@ impl core::ops::Deref for IXMLHTTPRequest3Callback {
 }
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3Callback, windows_core::IUnknown, IXMLHTTPRequest2Callback);
 impl IXMLHTTPRequest3Callback {
-    pub unsafe fn OnServerCertificateReceived<P0>(&self, pxhr: P0, dwcertificateerrors: u32, rgservercertificatechain: &[XHR_CERT]) -> windows_core::Result<()>
+    pub unsafe fn OnServerCertificateReceived<P0>(&self, pxhr: P0, dwcertificateerrors: u32, rgservercertificatechain: &mut [XHR_CERT]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLHTTPRequest3>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnServerCertificateReceived)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwcertificateerrors, rgservercertificatechain.len().try_into().unwrap(), core::mem::transmute(rgservercertificatechain.as_ptr())).ok() }
     }
-    pub unsafe fn OnClientCertificateRequested<P0>(&self, pxhr: P0, rgpwszissuerlist: &[*const u16]) -> windows_core::Result<()>
+    pub unsafe fn OnClientCertificateRequested<P0>(&self, pxhr: P0, rgpwszissuerlist: &mut [*mut u16]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLHTTPRequest3>,
     {
@@ -13303,24 +13357,24 @@ impl IXMLHTTPRequest3Callback {
 #[doc(hidden)]
 pub struct IXMLHTTPRequest3Callback_Vtbl {
     pub base__: IXMLHTTPRequest2Callback_Vtbl,
-    pub OnServerCertificateReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *const XHR_CERT) -> windows_core::HRESULT,
-    pub OnClientCertificateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const *const u16) -> windows_core::HRESULT,
+    pub OnServerCertificateReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut XHR_CERT) -> windows_core::HRESULT,
+    pub OnClientCertificateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut u16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest3Callback_Impl: IXMLHTTPRequest2Callback_Impl {
-    fn OnServerCertificateReceived(&self, pxhr: windows_core::Ref<IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::Result<()>;
-    fn OnClientCertificateRequested(&self, pxhr: windows_core::Ref<IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> windows_core::Result<()>;
+    fn OnServerCertificateReceived(&self, pxhr: windows_core::Ref<IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *mut XHR_CERT) -> windows_core::Result<()>;
+    fn OnClientCertificateRequested(&self, pxhr: windows_core::Ref<IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *mut *mut u16) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest3Callback_Vtbl {
     pub const fn new<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnServerCertificateReceived<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnServerCertificateReceived<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *mut XHR_CERT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXMLHTTPRequest3Callback_Impl::OnServerCertificateReceived(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&dwcertificateerrors), core::mem::transmute_copy(&cservercertificatechain), core::mem::transmute_copy(&rgservercertificatechain)).into()
             }
         }
-        unsafe extern "system" fn OnClientCertificateRequested<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnClientCertificateRequested<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, cissuerlist: u32, rgpwszissuerlist: *mut *mut u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IXMLHTTPRequest3Callback_Impl::OnClientCertificateRequested(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&cissuerlist), core::mem::transmute_copy(&rgpwszissuerlist)).into()
@@ -13339,7 +13393,7 @@ impl IXMLHTTPRequest3Callback_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IXMLHTTPRequest3Callback {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXSLProcessor, IXSLProcessor_Vtbl, 0x2933bf92_7b36_11d2_b20e_00c04f983e60);
+windows_core::imp::define_interface!(IXSLProcessor, IXSLProcessor_Vtbl, 0xaec5543e_be32_5f22_a3d9_6e8cceef3509);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXSLProcessor {
     type Target = super::super::super::System::Com::IDispatch;
@@ -13731,7 +13785,7 @@ impl IXSLTemplate_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IXSLTemplate {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IXTLRuntime, IXTLRuntime_Vtbl, 0x3efaa425_272f_11d2_836f_0000f87a7782);
+windows_core::imp::define_interface!(IXTLRuntime, IXTLRuntime_Vtbl, 0x21b6038f_beed_5ae1_8496_8bb887edadad);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IXTLRuntime {
     type Target = IXMLDOMNode;
@@ -14232,7 +14286,7 @@ pub const XHR_PROP_REPORT_REDIRECT_STATUS: XHR_PROPERTY = XHR_PROPERTY(4i32);
 pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = XHR_PROPERTY(10i32);
 pub const XHR_PROP_TIMEOUT: XHR_PROPERTY = XHR_PROPERTY(2i32);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(XMLDOMDocumentEvents, XMLDOMDocumentEvents_Vtbl, 0x3efaa427_272f_11d2_836f_0000f87a7782);
+windows_core::imp::define_interface!(XMLDOMDocumentEvents, XMLDOMDocumentEvents_Vtbl, 0x59e1f509_bf1d_580c_a808_8f1414051a6e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for XMLDOMDocumentEvents {
     type Target = super::super::super::System::Com::IDispatch;

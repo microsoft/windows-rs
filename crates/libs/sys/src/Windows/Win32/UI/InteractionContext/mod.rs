@@ -1,6 +1,6 @@
 windows_link::link!("ninput.dll" "system" fn AddPointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-windows_link::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> windows_sys::core::HRESULT);
+windows_link::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *mut super::Input::Pointer:: POINTER_INFO) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn CreateInteractionContext(interactioncontext : *mut HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn DestroyInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn GetCrossSlideParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, threshold : CROSS_SLIDE_THRESHOLD, distance : *mut f32) -> windows_sys::core::HRESULT);
@@ -10,7 +10,7 @@ windows_link::link!("ninput.dll" "system" fn GetInteractionConfigurationInteract
 windows_link::link!("ninput.dll" "system" fn GetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn GetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-windows_link::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_sys::core::HRESULT);
+windows_link::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *mut super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn GetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn GetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn ProcessBufferedPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
@@ -23,7 +23,7 @@ windows_link::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionCo
 windows_link::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext2(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn RemovePointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn ResetInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
-windows_link::link!("ninput.dll" "system" fn SetCrossSlideParametersInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parametercount : u32, crossslideparameters : *const CROSS_SLIDE_PARAMETER) -> windows_sys::core::HRESULT);
+windows_link::link!("ninput.dll" "system" fn SetCrossSlideParametersInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parametercount : u32, crossslideparameters : *mut CROSS_SLIDE_PARAMETER) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn SetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : f32) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn SetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : f32) -> windows_sys::core::HRESULT);
 windows_link::link!("ninput.dll" "system" fn SetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *const INTERACTION_CONTEXT_CONFIGURATION) -> windows_sys::core::HRESULT);
@@ -140,20 +140,6 @@ impl Default for INTERACTION_CONTEXT_OUTPUT {
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
-pub union INTERACTION_CONTEXT_OUTPUT_0 {
-    pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
-    pub tap: INTERACTION_ARGUMENTS_TAP,
-    pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
 pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -171,15 +157,25 @@ impl Default for INTERACTION_CONTEXT_OUTPUT2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for INTERACTION_CONTEXT_OUTPUT2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union INTERACTION_CONTEXT_OUTPUT_0 {
+    pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
+    pub tap: INTERACTION_ARGUMENTS_TAP,
+    pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
+}
+impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -187,7 +183,7 @@ impl Default for INTERACTION_CONTEXT_OUTPUT2_0 {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = Option<unsafe extern "system" fn(clientdata: *const core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = Option<unsafe extern "system" fn(clientdata: *const core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2)>;
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = Option<unsafe extern "system" fn(clientdata: *mut core::ffi::c_void, output: *mut INTERACTION_CONTEXT_OUTPUT2)>;
 pub type INTERACTION_CONTEXT_PROPERTY = i32;
 pub const INTERACTION_CONTEXT_PROPERTY_FILTER_POINTERS: INTERACTION_CONTEXT_PROPERTY = 3i32;
 pub const INTERACTION_CONTEXT_PROPERTY_INTERACTION_UI_FEEDBACK: INTERACTION_CONTEXT_PROPERTY = 2i32;

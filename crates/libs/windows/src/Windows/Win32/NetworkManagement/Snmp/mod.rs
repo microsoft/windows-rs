@@ -69,9 +69,12 @@ pub unsafe fn SnmpEncodeMsg(session: isize, srcentity: isize, dstentity: isize, 
     unsafe { SnmpEncodeMsg(session, srcentity, dstentity, context, pdu, msgbufdesc as _) }
 }
 #[inline]
-pub unsafe fn SnmpEntityToStr(entity: isize, string: &mut [u8]) -> u32 {
-    windows_core::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_core::PSTR) -> u32);
-    unsafe { SnmpEntityToStr(entity, string.len().try_into().unwrap(), core::mem::transmute(string.as_ptr())) }
+pub unsafe fn SnmpEntityToStr<P2>(entity: isize, size: u32, string: P2) -> u32
+where
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("wsnmp32.dll" "system" fn SnmpEntityToStr(entity : isize, size : u32, string : windows_core::PCSTR) -> u32);
+    unsafe { SnmpEntityToStr(entity, size, string.param().abi()) }
 }
 #[inline]
 pub unsafe fn SnmpFreeContext(context: isize) -> u32 {
@@ -154,9 +157,9 @@ pub unsafe fn SnmpMgrClose(session: *mut core::ffi::c_void) -> windows_core::BOO
     unsafe { SnmpMgrClose(session as _) }
 }
 #[inline]
-pub unsafe fn SnmpMgrCtl(session: *mut core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn SnmpMgrCtl(session: *mut core::ffi::c_void, dwctlcode: u32, lpvinbuffer: *mut core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32) -> windows_core::BOOL {
     windows_core::link!("mgmtapi.dll" "system" fn SnmpMgrCtl(session : *mut core::ffi::c_void, dwctlcode : u32, lpvinbuffer : *mut core::ffi::c_void, cbinbuffer : u32, lpvoutbuffer : *mut core::ffi::c_void, cboutbuffer : u32, lpcbbytesreturned : *mut u32) -> windows_core::BOOL);
-    unsafe { SnmpMgrCtl(session as _, dwctlcode, lpvinbuffer as _, cbinbuffer, lpvoutbuffer as _, cboutbuffer, lpcbbytesreturned as _).ok() }
+    unsafe { SnmpMgrCtl(session as _, dwctlcode, lpvinbuffer as _, cbinbuffer, lpvoutbuffer as _, cboutbuffer, lpcbbytesreturned as _) }
 }
 #[inline]
 pub unsafe fn SnmpMgrGetTrap(enterprise: *mut AsnObjectIdentifier, ipaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> windows_core::BOOL {
@@ -169,9 +172,9 @@ pub unsafe fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddres
     unsafe { SnmpMgrGetTrapEx(enterprise as _, agentaddress as _, sourceaddress as _, generictrap as _, specifictrap as _, community as _, timestamp as _, variablebindings as _) }
 }
 #[inline]
-pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: Option<*mut windows_core::PSTR>) -> windows_core::BOOL {
+pub unsafe fn SnmpMgrOidToStr(oid: *mut AsnObjectIdentifier, string: *mut windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("mgmtapi.dll" "system" fn SnmpMgrOidToStr(oid : *mut AsnObjectIdentifier, string : *mut windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { SnmpMgrOidToStr(oid as _, string.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SnmpMgrOidToStr(oid as _, string as _) }
 }
 #[inline]
 pub unsafe fn SnmpMgrOpen<P0, P1>(lpagentaddress: P0, lpagentcommunity: P1, ntimeout: i32, nretries: i32) -> *mut core::ffi::c_void
@@ -196,9 +199,9 @@ where
     unsafe { SnmpMgrStrToOid(string.param().abi(), oid as _) }
 }
 #[inline]
-pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> windows_core::BOOL {
     windows_core::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { SnmpMgrTrapListen(phtrapavailable as _).ok() }
+    unsafe { SnmpMgrTrapListen(phtrapavailable as _) }
 }
 #[inline]
 pub unsafe fn SnmpOidCompare(xoid: *mut smiOID, yoid: *mut smiOID, maxlen: u32, result: *mut i32) -> u32 {
@@ -211,9 +214,9 @@ pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
     unsafe { SnmpOidCopy(srcoid as _, dstoid as _) }
 }
 #[inline]
-pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
+pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, size: u32, string: windows_core::PSTR) -> u32 {
     windows_core::link!("wsnmp32.dll" "system" fn SnmpOidToStr(srcoid : *const smiOID, size : u32, string : windows_core::PSTR) -> u32);
-    unsafe { SnmpOidToStr(srcoid, string.len().try_into().unwrap(), core::mem::transmute(string.as_ptr())) }
+    unsafe { SnmpOidToStr(srcoid, size, core::mem::transmute(string)) }
 }
 #[inline]
 pub unsafe fn SnmpOpen(hwnd: super::super::Foundation::HWND, wmsg: u32) -> isize {
@@ -236,9 +239,9 @@ pub unsafe fn SnmpSendMsg(session: isize, srcentity: isize, dstentity: isize, co
     unsafe { SnmpSendMsg(session, srcentity, dstentity, context, pdu) }
 }
 #[inline]
-pub unsafe fn SnmpSetPduData(pdu: isize, pdu_type: *const i32, request_id: *const i32, non_repeaters: *const i32, max_repetitions: *const i32, varbindlist: *const isize) -> u32 {
-    windows_core::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *const i32, request_id : *const i32, non_repeaters : *const i32, max_repetitions : *const i32, varbindlist : *const isize) -> u32);
-    unsafe { SnmpSetPduData(pdu, pdu_type, request_id, non_repeaters, max_repetitions, varbindlist) }
+pub unsafe fn SnmpSetPduData(pdu: isize, pdu_type: *mut i32, request_id: *mut i32, non_repeaters: *mut i32, max_repetitions: *mut i32, varbindlist: *mut isize) -> u32 {
+    windows_core::link!("wsnmp32.dll" "system" fn SnmpSetPduData(pdu : isize, pdu_type : *mut i32, request_id : *mut i32, non_repeaters : *mut i32, max_repetitions : *mut i32, varbindlist : *mut isize) -> u32);
+    unsafe { SnmpSetPduData(pdu, pdu_type as _, request_id as _, non_repeaters as _, max_repetitions as _, varbindlist as _) }
 }
 #[inline]
 pub unsafe fn SnmpSetPort(hentity: isize, nport: u32) -> u32 {
@@ -312,9 +315,9 @@ pub unsafe fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
     unsafe { SnmpSvcSetLogLevel(nloglevel) }
 }
 #[inline]
-pub unsafe fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE) {
+pub unsafe fn SnmpSvcSetLogType(nlogtype: i32) {
     windows_core::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32));
-    unsafe { SnmpSvcSetLogType(nlogtype.0 as _) }
+    unsafe { SnmpSvcSetLogType(nlogtype) }
 }
 #[inline]
 pub unsafe fn SnmpUtilAsnAnyCpy(panydst: *mut AsnAny, panysrc: *mut AsnAny) -> i32 {
@@ -365,9 +368,13 @@ pub unsafe fn SnmpUtilOctetsCpy(poctetsdst: *mut AsnOctetString, poctetssrc: *mu
     unsafe { SnmpUtilOctetsCpy(poctetsdst as _, poctetssrc as _) }
 }
 #[inline]
-pub unsafe fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString) {
+pub unsafe fn SnmpUtilOctetsFree() -> AsnOctetString {
     windows_core::link!("snmpapi.dll" "system" fn SnmpUtilOctetsFree(poctets : *mut AsnOctetString));
-    unsafe { SnmpUtilOctetsFree(poctets as _) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SnmpUtilOctetsFree(&mut result__);
+        result__
+    }
 }
 #[inline]
 pub unsafe fn SnmpUtilOctetsNCmp(poctets1: *mut AsnOctetString, poctets2: *mut AsnOctetString, nchars: u32) -> i32 {
@@ -390,9 +397,13 @@ pub unsafe fn SnmpUtilOidCpy(poiddst: *mut AsnObjectIdentifier, poidsrc: *mut As
     unsafe { SnmpUtilOidCpy(poiddst as _, poidsrc as _) }
 }
 #[inline]
-pub unsafe fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier) {
+pub unsafe fn SnmpUtilOidFree() -> AsnObjectIdentifier {
     windows_core::link!("snmpapi.dll" "system" fn SnmpUtilOidFree(poid : *mut AsnObjectIdentifier));
-    unsafe { SnmpUtilOidFree(poid as _) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SnmpUtilOidFree(&mut result__);
+        result__
+    }
 }
 #[inline]
 pub unsafe fn SnmpUtilOidNCmp(poid1: *mut AsnObjectIdentifier, poid2: *mut AsnObjectIdentifier, nsubids: u32) -> i32 {
@@ -410,9 +421,13 @@ pub unsafe fn SnmpUtilPrintAsnAny(pany: *mut AsnAny) {
     unsafe { SnmpUtilPrintAsnAny(pany as _) }
 }
 #[inline]
-pub unsafe fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier) {
+pub unsafe fn SnmpUtilPrintOid() -> AsnObjectIdentifier {
     windows_core::link!("snmpapi.dll" "system" fn SnmpUtilPrintOid(oid : *mut AsnObjectIdentifier));
-    unsafe { SnmpUtilPrintOid(oid as _) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SnmpUtilPrintOid(&mut result__);
+        result__
+    }
 }
 #[inline]
 pub unsafe fn SnmpUtilVarBindCpy(pvbdst: *mut SnmpVarBind, pvbsrc: *mut SnmpVarBind) -> i32 {
@@ -430,9 +445,13 @@ pub unsafe fn SnmpUtilVarBindListCpy(pvbldst: *mut SnmpVarBindList, pvblsrc: *mu
     unsafe { SnmpUtilVarBindListCpy(pvbldst as _, pvblsrc as _) }
 }
 #[inline]
-pub unsafe fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList) {
+pub unsafe fn SnmpUtilVarBindListFree() -> SnmpVarBindList {
     windows_core::link!("snmpapi.dll" "system" fn SnmpUtilVarBindListFree(pvbl : *mut SnmpVarBindList));
-    unsafe { SnmpUtilVarBindListFree(pvbl as _) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        SnmpUtilVarBindListFree(&mut result__);
+        result__
+    }
 }
 pub const ASN_APPLICATION: u32 = 64u32;
 pub const ASN_CONSTRUCTOR: u32 = 32u32;
@@ -442,7 +461,7 @@ pub const ASN_PRIMATIVE: u32 = 0u32;
 pub const ASN_PRIMITIVE: u32 = 0u32;
 pub const ASN_PRIVATE: u32 = 192u32;
 pub const ASN_UNIVERSAL: u32 = 0u32;
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AsnAny {
     pub asnType: u8,
@@ -453,7 +472,7 @@ impl Default for AsnAny {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union AsnAny_0 {
     pub number: i32,
@@ -475,21 +494,8 @@ impl Default for AsnAny_0 {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct AsnObjectIdentifier {
-    pub idLength: u32,
-    pub ids: *mut u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for AsnObjectIdentifier {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
@@ -501,22 +507,8 @@ impl Default for AsnObjectIdentifier {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct AsnOctetString {
-    pub stream: *mut u8,
-    pub length: u32,
-    pub dynamic: windows_core::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl Default for AsnOctetString {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
@@ -720,7 +712,7 @@ pub const SNMP_TRAP_ENTERPRISESPECIFIC: u32 = 6u32;
 pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
@@ -732,21 +724,8 @@ impl Default for SnmpVarBind {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SnmpVarBindList {
-    pub list: *mut SnmpVarBind,
-    pub len: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for SnmpVarBindList {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,

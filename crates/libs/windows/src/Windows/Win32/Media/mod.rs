@@ -172,7 +172,7 @@ impl IReferenceClock_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IReferenceClock {}
-windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
+windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0xc9105b67_0a84_5588_a417_d88f349e5198);
 impl core::ops::Deref for IReferenceClock2 {
     type Target = IReferenceClock;
     fn deref(&self) -> &Self::Target {
@@ -288,7 +288,7 @@ pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
 pub const MMSYSERR_READERROR: u32 = 16u32;
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MMTIME {
     pub wType: u32,
@@ -299,7 +299,7 @@ impl Default for MMTIME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MMTIME_0 {
     pub ms: u32,
@@ -313,11 +313,6 @@ impl Default for MMTIME_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
-pub struct MMTIME_0_1 {
-    pub songptrpos: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -334,6 +329,11 @@ impl Default for MMTIME_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MMTIME_0_1 {
+    pub songptrpos: u32,
 }
 pub const MM_ADLIB: u32 = 9u32;
 pub const MM_DRVM_CLOSE: u32 = 977u32;

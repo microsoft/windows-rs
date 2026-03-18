@@ -37,13 +37,13 @@ windows_link::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointeri
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut super::super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_Controls")]
-windows_link::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : u32, historycount : u32, propertiescount : u32, pproperties : *const super::super::Controls:: POINTER_DEVICE_PROPERTY, pvalues : *mut i32) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : u32, historycount : u32, propertiescount : u32, pproperties : *mut super::super::Controls:: POINTER_DEVICE_PROPERTY, pvalues : *mut i32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetUnpredictedMessagePos() -> u32);
 windows_link::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount : u32, dwmode : TOUCH_FEEDBACK_MODE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-windows_link::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : super::super::Controls:: HSYNTHETICPOINTERDEVICE, pointerinfo : *const super::super::Controls:: POINTER_TYPE_INFO, count : u32) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : super::super::Controls:: HSYNTHETICPOINTERDEVICE, pointerinfo : *mut super::super::Controls:: POINTER_TYPE_INFO, count : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *const POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsMouseInPointerEnabled() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SkipPointerFrameMessages(pointerid : u32) -> windows_sys::core::BOOL);
 #[repr(C)]

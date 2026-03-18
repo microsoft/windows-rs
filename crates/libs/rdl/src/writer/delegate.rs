@@ -20,8 +20,10 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let params = params.zip(signature.types).map(|(param, ty)| {
         let name = write_ident(param.name());
+        let is_out = param.flags().contains(metadata::ParamAttributes::Out);
+        let out_attr = param_out_attr(is_out, &ty);
         let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
+        quote! { #out_attr #name: #ty }
     });
 
     let generics = if generics.is_empty() {
@@ -35,8 +37,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         item.attributes(),
         namespace,
         item.index(),
-        // GuidAttribute is derived from the delegate shape; skip it so round-trips stay clean
-        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
+        &["UnmanagedFunctionPointerAttribute"],
     );
 
     let mut abi = None;

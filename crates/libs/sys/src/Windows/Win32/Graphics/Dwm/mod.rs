@@ -2,7 +2,7 @@ windows_link::link!("dwmapi.dll" "system" fn DwmAttachMilContent(hwnd : super::s
 windows_link::link!("dwmapi.dll" "system" fn DwmDefWindowProc(hwnd : super::super::Foundation:: HWND, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, plresult : *mut super::super::Foundation:: LRESULT) -> windows_sys::core::BOOL);
 windows_link::link!("dwmapi.dll" "system" fn DwmDetachMilContent(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("dwmapi.dll" "system" fn DwmEnableBlurBehindWindow(hwnd : super::super::Foundation:: HWND, pblurbehind : *const DWM_BLURBEHIND) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmEnableBlurBehindWindow(hwnd : super::super::Foundation:: HWND, pblurbehind : *mut DWM_BLURBEHIND) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmEnableComposition(ucompositionaction : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmEnableMMCSS(fenablemmcss : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Controls")]
@@ -20,19 +20,19 @@ windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled :
 windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::super::Foundation:: HWND, crefreshes : i32, frelative : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : isize, psize : *mut super::super::Foundation:: SIZE) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::super::Foundation:: HWND, hwndsource : super::super::Foundation:: HWND, phthumbnailid : *mut isize) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::super::Foundation:: POINT) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *mut u32, ppoints : *mut super::super::Foundation:: POINT) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmSetDxFrameDuration(hwnd : super::super::Foundation:: HWND, crefreshes : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::super::Foundation:: HWND, hbmp : super::Gdi:: HBITMAP, pptclient : *const super::super::Foundation:: POINT, dwsitflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::super::Foundation:: HWND, hbmp : super::Gdi:: HBITMAP, dwsitflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::super::Foundation:: HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_sys::core::BOOL, pttether : super::super::Foundation:: POINT) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmTransitionOwnedWindow(hwnd : super::super::Foundation:: HWND, target : DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_sys::core::HRESULT);
 windows_link::link!("dwmapi.dll" "system" fn DwmUnregisterThumbnail(hthumbnailid : isize) -> windows_sys::core::HRESULT);
-windows_link::link!("dwmapi.dll" "system" fn DwmUpdateThumbnailProperties(hthumbnailid : isize, ptnproperties : *const DWM_THUMBNAIL_PROPERTIES) -> windows_sys::core::HRESULT);
+windows_link::link!("dwmapi.dll" "system" fn DwmUpdateThumbnailProperties(hthumbnailid : isize, ptnproperties : *mut DWM_THUMBNAIL_PROPERTIES) -> windows_sys::core::HRESULT);
 pub type DWMFLIP3DWINDOWPOLICY = i32;
 pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = 0i32;
 pub const DWMFLIP3D_EXCLUDEABOVE: DWMFLIP3DWINDOWPOLICY = 2i32;
@@ -104,7 +104,7 @@ pub type DWMWINDOWATTRIBUTE = i32;
 pub const DWM_BB_BLURREGION: u32 = 2u32;
 pub const DWM_BB_ENABLE: u32 = 1u32;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct DWM_BLURBEHIND {
@@ -125,7 +125,7 @@ pub const DWM_CLOAKED_SHELL: u32 = 2u32;
 pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
@@ -145,7 +145,7 @@ pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = 2i32;
 pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = 0i32;
 pub type DWM_SYSTEMBACKDROP_TYPE = i32;
 pub type DWM_TAB_WINDOW_REQUIREMENTS = i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
@@ -155,7 +155,7 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
     pub fVisible: windows_sys::core::BOOL,
     pub fSourceClientAreaOnly: windows_sys::core::BOOL,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
@@ -217,7 +217,7 @@ pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = 9i32;
 pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10i32;
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7i32;
 pub const GT_TOUCH_TAP: GESTURE_TYPE = 5i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
@@ -227,7 +227,7 @@ pub struct MilMatrix3x2D {
     pub DX: f64,
     pub DY: f64,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,

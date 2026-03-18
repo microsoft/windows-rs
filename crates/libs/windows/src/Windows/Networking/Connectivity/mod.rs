@@ -861,7 +861,7 @@ pub struct ICellularApnContext_Vtbl {
     pub AuthenticationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CellularApnAuthenticationType) -> windows_core::HRESULT,
     pub SetAuthenticationType: unsafe extern "system" fn(*mut core::ffi::c_void, CellularApnAuthenticationType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICellularApnContext2, ICellularApnContext2_Vtbl, 0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
+windows_core::imp::define_interface!(ICellularApnContext2, ICellularApnContext2_Vtbl, 0x1d5bcfec_72dc_52f8_8bba_dfda1f17ccb4);
 impl windows_core::RuntimeType for ICellularApnContext2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -872,7 +872,7 @@ pub struct ICellularApnContext2_Vtbl {
     pub ProfileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetProfileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectionCost, IConnectionCost_Vtbl, 0xbad7d829_3416_4b10_a202_bac0b075bdae);
+windows_core::imp::define_interface!(IConnectionCost, IConnectionCost_Vtbl, 0xe1f7f296_7a2c_5a84_b5eb_04a0aa55319f);
 impl windows_core::RuntimeType for IConnectionCost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -895,7 +895,7 @@ pub struct IConnectionCost2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BackgroundDataUsageRestricted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectionProfile, IConnectionProfile_Vtbl, 0x71ba143c_598e_49d0_84eb_8febaedcc195);
+windows_core::imp::define_interface!(IConnectionProfile, IConnectionProfile_Vtbl, 0xadc11d01_eb75_54ac_9585_da342239621f);
 impl windows_core::RuntimeType for IConnectionProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -913,7 +913,7 @@ pub struct IConnectionProfile_Vtbl {
     pub GetLocalUsagePerRoamingStates: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, RoamingStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NetworkSecuritySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectionProfile2, IConnectionProfile2_Vtbl, 0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
+windows_core::imp::define_interface!(IConnectionProfile2, IConnectionProfile2_Vtbl, 0x1cf00af5_4999_5956_a079_3590f81eae4c);
 impl windows_core::RuntimeType for IConnectionProfile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -931,7 +931,7 @@ pub struct IConnectionProfile2_Vtbl {
     pub GetNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, DataUsageGranularity, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetConnectivityIntervalsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectionProfile3, IConnectionProfile3_Vtbl, 0x578c2528_4cd9_4161_8045_201cfd5b115c);
+windows_core::imp::define_interface!(IConnectionProfile3, IConnectionProfile3_Vtbl, 0xf7d411ff_5aa0_5b04_9b5f_b8715789679e);
 impl windows_core::RuntimeType for IConnectionProfile3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -951,7 +951,7 @@ pub struct IConnectionProfile4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetProviderNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectionProfile5, IConnectionProfile5_Vtbl, 0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
+windows_core::imp::define_interface!(IConnectionProfile5, IConnectionProfile5_Vtbl, 0xd3156244_9e82_5423_b281_8a576577a637);
 impl windows_core::RuntimeType for IConnectionProfile5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -962,7 +962,7 @@ pub struct IConnectionProfile5_Vtbl {
     pub CanDelete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub TryDeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectionProfile6, IConnectionProfile6_Vtbl, 0xdc27dfe2_7a6f_5d0e_9589_2fe2e5b6f9aa);
+windows_core::imp::define_interface!(IConnectionProfile6, IConnectionProfile6_Vtbl, 0x8627dce8_3d37_561f_88f5_39c8f60aca7c);
 impl windows_core::RuntimeType for IConnectionProfile6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -972,7 +972,7 @@ pub struct IConnectionProfile6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut core::ffi::c_void, DomainAuthenticationKind, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectionProfileFilter, IConnectionProfileFilter_Vtbl, 0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
+windows_core::imp::define_interface!(IConnectionProfileFilter, IConnectionProfileFilter_Vtbl, 0x2bf51266_7357_5138_9cd3_d9a56360923a);
 impl windows_core::RuntimeType for IConnectionProfileFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1031,7 +1031,7 @@ pub struct IConnectionSession_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ConnectionProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectivityInterval, IConnectivityInterval_Vtbl, 0x4faa3fff_6746_4824_a964_eed8e87f8709);
+windows_core::imp::define_interface!(IConnectivityInterval, IConnectivityInterval_Vtbl, 0x40adfde0_3f6b_5936_b551_3ccc7a7a7c1c);
 impl windows_core::RuntimeType for IConnectivityInterval {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1042,7 +1042,7 @@ pub struct IConnectivityInterval_Vtbl {
     pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub ConnectionDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IConnectivityManagerStatics, IConnectivityManagerStatics_Vtbl, 0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
+windows_core::imp::define_interface!(IConnectivityManagerStatics, IConnectivityManagerStatics_Vtbl, 0x62702f7f_e6ff_5d3b_bdee_340885223a4d);
 impl windows_core::RuntimeType for IConnectivityManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1069,7 +1069,7 @@ pub struct IDataPlanStatus_Vtbl {
     pub NextBillingCycle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxTransferSizeInMegabytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDataPlanUsage, IDataPlanUsage_Vtbl, 0xb921492d_3b44_47ff_b361_be59e69ed1b0);
+windows_core::imp::define_interface!(IDataPlanUsage, IDataPlanUsage_Vtbl, 0x3048daf5_7174_588a_aad7_30301ca24d0d);
 impl windows_core::RuntimeType for IDataPlanUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1091,7 +1091,7 @@ pub struct IDataUsage_Vtbl {
     pub BytesSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IIPInformation, IIPInformation_Vtbl, 0xd85145e0_138f_47d7_9b3a_36bb488cef33);
+windows_core::imp::define_interface!(IIPInformation, IIPInformation_Vtbl, 0x2ea9f3d4_38b6_58cd_a07b_c5456d1d65f5);
 impl windows_core::RuntimeType for IIPInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1102,7 +1102,7 @@ pub struct IIPInformation_Vtbl {
     pub NetworkAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrefixLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILanIdentifier, ILanIdentifier_Vtbl, 0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
+windows_core::imp::define_interface!(ILanIdentifier, ILanIdentifier_Vtbl, 0xcf0b73d9_89ea_5ce2_8c61_3370e3ab4735);
 impl windows_core::RuntimeType for ILanIdentifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1140,7 +1140,7 @@ pub struct INetworkAdapter_Vtbl {
     pub NetworkAdapterId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetConnectedProfileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkInformationStatics, INetworkInformationStatics_Vtbl, 0x5074f851_950d_4165_9c15_365619481eea);
+windows_core::imp::define_interface!(INetworkInformationStatics, INetworkInformationStatics_Vtbl, 0xd3141dbd_a349_5595_bfa9_7bee02a6cba0);
 impl windows_core::RuntimeType for INetworkInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1157,7 +1157,7 @@ pub struct INetworkInformationStatics_Vtbl {
     pub NetworkStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveNetworkStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkInformationStatics2, INetworkInformationStatics2_Vtbl, 0x459ced14_2832_49b6_ba6e_e265f04786a8);
+windows_core::imp::define_interface!(INetworkInformationStatics2, INetworkInformationStatics2_Vtbl, 0x0eb71679_585a_59fd_9923_7d73bdb10fa2);
 impl windows_core::RuntimeType for INetworkInformationStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1167,7 +1167,7 @@ pub struct INetworkInformationStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FindConnectionProfilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkItem, INetworkItem_Vtbl, 0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
+windows_core::imp::define_interface!(INetworkItem, INetworkItem_Vtbl, 0x3b5c8f43_c51a_539d_b8d1_333047c4fcb2);
 impl windows_core::RuntimeType for INetworkItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1189,7 +1189,7 @@ pub struct INetworkSecuritySettings_Vtbl {
     pub NetworkAuthenticationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NetworkAuthenticationType) -> windows_core::HRESULT,
     pub NetworkEncryptionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NetworkEncryptionType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkStateChangeEventDetails, INetworkStateChangeEventDetails_Vtbl, 0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
+windows_core::imp::define_interface!(INetworkStateChangeEventDetails, INetworkStateChangeEventDetails_Vtbl, 0xb50614f7_56b0_5c89_b8f3_8bb8a90649d7);
 impl windows_core::RuntimeType for INetworkStateChangeEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1204,7 +1204,7 @@ pub struct INetworkStateChangeEventDetails_Vtbl {
     pub HasNewHostNameList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub HasNewWwanRegistrationState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkStateChangeEventDetails2, INetworkStateChangeEventDetails2_Vtbl, 0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
+windows_core::imp::define_interface!(INetworkStateChangeEventDetails2, INetworkStateChangeEventDetails2_Vtbl, 0xa321b7ce_9057_5ceb_a66b_9617f537b3cc);
 impl windows_core::RuntimeType for INetworkStateChangeEventDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1215,7 +1215,7 @@ pub struct INetworkStateChangeEventDetails2_Vtbl {
     pub HasNewTetheringOperationalState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub HasNewTetheringClientCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(INetworkUsage, INetworkUsage_Vtbl, 0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
+windows_core::imp::define_interface!(INetworkUsage, INetworkUsage_Vtbl, 0x1b976edb_2158_50a2_bc2f_567a326384f6);
 impl windows_core::RuntimeType for INetworkUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1259,7 +1259,7 @@ impl windows_core::RuntimeName for IPInformation {
 }
 unsafe impl Send for IPInformation {}
 unsafe impl Sync for IPInformation {}
-windows_core::imp::define_interface!(IProviderNetworkUsage, IProviderNetworkUsage_Vtbl, 0x5ec69e04_7931_48c8_b8f3_46300fa42728);
+windows_core::imp::define_interface!(IProviderNetworkUsage, IProviderNetworkUsage_Vtbl, 0xa25bc3a0_69da_5164_996a_35ffc027ea6d);
 impl windows_core::RuntimeType for IProviderNetworkUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1271,7 +1271,7 @@ pub struct IProviderNetworkUsage_Vtbl {
     pub BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProxyConfiguration, IProxyConfiguration_Vtbl, 0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
+windows_core::imp::define_interface!(IProxyConfiguration, IProxyConfiguration_Vtbl, 0x3d7875e0_e8ef_54a2_bcea_99815d6c328e);
 impl windows_core::RuntimeType for IProxyConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1282,7 +1282,7 @@ pub struct IProxyConfiguration_Vtbl {
     pub ProxyUris: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CanConnectDirectly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRoutePolicy, IRoutePolicy_Vtbl, 0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
+windows_core::imp::define_interface!(IRoutePolicy, IRoutePolicy_Vtbl, 0x7f03b17f_cd88_5969_880d_429b0f044ac6);
 impl windows_core::RuntimeType for IRoutePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1314,7 +1314,7 @@ pub struct IWlanConnectionProfileDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetConnectedSsid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWwanConnectionProfileDetails, IWwanConnectionProfileDetails_Vtbl, 0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
+windows_core::imp::define_interface!(IWwanConnectionProfileDetails, IWwanConnectionProfileDetails_Vtbl, 0x6f7b1416_af30_5c20_977a_6808d0234b4d);
 impl windows_core::RuntimeType for IWwanConnectionProfileDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1763,7 +1763,7 @@ impl windows_core::RuntimeName for NetworkStateChangeEventDetails {
 }
 unsafe impl Send for NetworkStateChangeEventDetails {}
 unsafe impl Sync for NetworkStateChangeEventDetails {}
-windows_core::imp::define_interface!(NetworkStatusChangedEventHandler, NetworkStatusChangedEventHandler_Vtbl, 0x71ba143f_598e_49d0_84eb_8febaedcc195);
+windows_core::imp::define_interface!(NetworkStatusChangedEventHandler, NetworkStatusChangedEventHandler_Vtbl, 0x4f2df58d_3a71_5c5d_8998_3cab8a8f9c85);
 impl windows_core::RuntimeType for NetworkStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

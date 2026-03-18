@@ -31,13 +31,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let custom_attrs = write_custom_attributes_except(
-        item.attributes(),
-        namespace,
-        item.index(),
-        // GuidAttribute is derived from the interface shape; skip it so round-trips stay clean
-        &["GuidAttribute"],
-    );
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
     quote! {
         #(#custom_attrs)*
@@ -61,13 +55,8 @@ fn write_method(
     let params =
         std::iter::once(quote! { &self }).chain(params.zip(signature.types).map(|(param, ty)| {
             let name = write_ident(param.name());
-            let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
-                && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
-            {
-                quote! { #[out] }
-            } else {
-                quote! {}
-            };
+            let is_out = param.flags().contains(metadata::ParamAttributes::Out);
+            let out_attr = param_out_attr(is_out, &ty);
             let ty = write_type(namespace, &ty);
             let param_attrs = write_custom_attributes(param.attributes(), namespace, item.index());
             quote! { #(#param_attrs)* #out_attr #name: #ty }

@@ -2,7 +2,7 @@
 pub mod Input;
 #[cfg(feature = "System_RemoteDesktop_Provider")]
 pub mod Provider;
-windows_core::imp::define_interface!(IInteractiveSessionStatics, IInteractiveSessionStatics_Vtbl, 0x60884631_dd3a_4576_9c8d_e8027618bdce);
+windows_core::imp::define_interface!(IInteractiveSessionStatics, IInteractiveSessionStatics_Vtbl, 0xfe33175e_f270_52a9_8fc1_22c3dea46a1f);
 impl windows_core::RuntimeType for IInteractiveSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

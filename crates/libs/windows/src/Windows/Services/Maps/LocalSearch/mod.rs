@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ILocalCategoriesStatics, ILocalCategoriesStatics_Vtbl, 0xf49399f5_8261_4321_9974_ef92d49a8dca);
+windows_core::imp::define_interface!(ILocalCategoriesStatics, ILocalCategoriesStatics_Vtbl, 0x8f3f80ca_ef06_5f42_a7c1_73128cc5ae66);
 impl windows_core::RuntimeType for ILocalCategoriesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -46,7 +46,7 @@ pub struct ILocalLocation2_Vtbl {
     pub RatingInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HoursOfOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocationFinderResult, ILocalLocationFinderResult_Vtbl, 0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
+windows_core::imp::define_interface!(ILocalLocationFinderResult, ILocalLocationFinderResult_Vtbl, 0x6e750119_afff_535f_a19a_64a7d08c74e5);
 impl windows_core::RuntimeType for ILocalLocationFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -57,7 +57,7 @@ pub struct ILocalLocationFinderResult_Vtbl {
     pub LocalLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LocalLocationFinderStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocationFinderStatics, ILocalLocationFinderStatics_Vtbl, 0xd2ef7344_a0de_48ca_81a8_07c7dcfd37ab);
+windows_core::imp::define_interface!(ILocalLocationFinderStatics, ILocalLocationFinderStatics_Vtbl, 0x7b038315_d113_5627_a27e_9a14097797c6);
 impl windows_core::RuntimeType for ILocalLocationFinderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -85,7 +85,7 @@ pub struct ILocalLocationHoursOfOperationItem_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub Span: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILocalLocationRatingInfo, ILocalLocationRatingInfo_Vtbl, 0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
+windows_core::imp::define_interface!(ILocalLocationRatingInfo, ILocalLocationRatingInfo_Vtbl, 0xe3ec72f9_a66f_5b49_870b_c49461ffe7d2);
 impl windows_core::RuntimeType for ILocalLocationRatingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

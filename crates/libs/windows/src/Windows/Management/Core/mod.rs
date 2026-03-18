@@ -27,7 +27,7 @@ impl windows_core::RuntimeName for ApplicationDataManager {
 }
 unsafe impl Send for ApplicationDataManager {}
 unsafe impl Sync for ApplicationDataManager {}
-windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
+windows_core::imp::define_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0xec4c15f5_c4d0_597c_a136_974f0911f9d3);
 impl windows_core::RuntimeType for IApplicationDataManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -36,7 +36,7 @@ impl windows_core::RuntimeType for IApplicationDataManager {
 pub struct IApplicationDataManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
+windows_core::imp::define_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0xf4ea7d70_a63c_563d_b379_8e05ecba806e);
 impl windows_core::RuntimeType for IApplicationDataManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

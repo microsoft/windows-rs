@@ -1197,7 +1197,7 @@ impl windows_core::RuntimeName for DispatcherQueueController {
 }
 unsafe impl Send for DispatcherQueueController {}
 unsafe impl Sync for DispatcherQueueController {}
-windows_core::imp::define_interface!(DispatcherQueueHandler, DispatcherQueueHandler_Vtbl, 0xdfa2dc9c_1a2d_4917_98f2_939af1d6e0c8);
+windows_core::imp::define_interface!(DispatcherQueueHandler, DispatcherQueueHandler_Vtbl, 0x4583987f_7dda_554c_b1f9_03ade30d221a);
 impl windows_core::RuntimeType for DispatcherQueueHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1436,7 +1436,7 @@ pub struct IAppActivationResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
     pub AppResourceGroupInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppDiagnosticInfo, IAppDiagnosticInfo_Vtbl, 0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
+windows_core::imp::define_interface!(IAppDiagnosticInfo, IAppDiagnosticInfo_Vtbl, 0x7596d36d_554b_5fc7_8bc6_d7804e30b799);
 impl windows_core::RuntimeType for IAppDiagnosticInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1460,7 +1460,7 @@ pub struct IAppDiagnosticInfo2_Vtbl {
     pub GetResourceGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateResourceGroupWatcher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppDiagnosticInfo3, IAppDiagnosticInfo3_Vtbl, 0xc895c63d_dd61_4c65_babd_81a10b4f9815);
+windows_core::imp::define_interface!(IAppDiagnosticInfo3, IAppDiagnosticInfo3_Vtbl, 0xe586ebe4_ea7e_51ce_ae0a_877203c25d5a);
 impl windows_core::RuntimeType for IAppDiagnosticInfo3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1470,7 +1470,7 @@ pub struct IAppDiagnosticInfo3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LaunchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppDiagnosticInfoStatics, IAppDiagnosticInfoStatics_Vtbl, 0xce6925bf_10ca_40c8_a9ca_c5c96501866e);
+windows_core::imp::define_interface!(IAppDiagnosticInfoStatics, IAppDiagnosticInfoStatics_Vtbl, 0xcadf8736_1531_5731_b69b_b313eb4fc3e6);
 impl windows_core::RuntimeType for IAppDiagnosticInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1494,7 +1494,7 @@ pub struct IAppDiagnosticInfoStatics2_Vtbl {
     pub RequestInfoForAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestInfoForAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppDiagnosticInfoWatcher, IAppDiagnosticInfoWatcher_Vtbl, 0x75575070_01d3_489a_9325_52f9cc6ede0a);
+windows_core::imp::define_interface!(IAppDiagnosticInfoWatcher, IAppDiagnosticInfoWatcher_Vtbl, 0x13363df0_b11c_55f7_ba29_4bd88ab275b4);
 impl windows_core::RuntimeType for IAppDiagnosticInfoWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1524,7 +1524,7 @@ pub struct IAppDiagnosticInfoWatcherEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppDiagnosticInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppExecutionStateChangeResult, IAppExecutionStateChangeResult_Vtbl, 0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
+windows_core::imp::define_interface!(IAppExecutionStateChangeResult, IAppExecutionStateChangeResult_Vtbl, 0x7a4c6222_a296_5853_a649_61e496443937);
 impl windows_core::RuntimeType for IAppExecutionStateChangeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1534,7 +1534,7 @@ pub struct IAppExecutionStateChangeResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppMemoryReport, IAppMemoryReport_Vtbl, 0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
+windows_core::imp::define_interface!(IAppMemoryReport, IAppMemoryReport_Vtbl, 0x79b4fbd2_1bdb_5edb_bdef_7fb5d779bb7e);
 impl windows_core::RuntimeType for IAppMemoryReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1547,7 +1547,7 @@ pub struct IAppMemoryReport_Vtbl {
     pub TotalCommitUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub TotalCommitLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppMemoryReport2, IAppMemoryReport2_Vtbl, 0x5f7f3738_51b7_42dc_b7ed_79ba46d28857);
+windows_core::imp::define_interface!(IAppMemoryReport2, IAppMemoryReport2_Vtbl, 0x864d6625_37df_5993_8192_abe57960e1cc);
 impl windows_core::RuntimeType for IAppMemoryReport2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1568,7 +1568,7 @@ pub struct IAppMemoryUsageLimitChangingEventArgs_Vtbl {
     pub OldLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub NewLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppResourceGroupBackgroundTaskReport, IAppResourceGroupBackgroundTaskReport_Vtbl, 0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
+windows_core::imp::define_interface!(IAppResourceGroupBackgroundTaskReport, IAppResourceGroupBackgroundTaskReport_Vtbl, 0x98c164c0_17b1_5df9_88c3_56889cc4c592);
 impl windows_core::RuntimeType for IAppResourceGroupBackgroundTaskReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1581,7 +1581,7 @@ pub struct IAppResourceGroupBackgroundTaskReport_Vtbl {
     pub Trigger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppResourceGroupInfo, IAppResourceGroupInfo_Vtbl, 0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
+windows_core::imp::define_interface!(IAppResourceGroupInfo, IAppResourceGroupInfo_Vtbl, 0xcc6e1d65_75e0_53da_8336_6038a5e92850);
 impl windows_core::RuntimeType for IAppResourceGroupInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1599,7 +1599,7 @@ pub struct IAppResourceGroupInfo_Vtbl {
     GetProcessDiagnosticInfos: usize,
     pub GetStateReport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppResourceGroupInfo2, IAppResourceGroupInfo2_Vtbl, 0xee9b236d_d305_4d6b_92f7_6afdad72dedc);
+windows_core::imp::define_interface!(IAppResourceGroupInfo2, IAppResourceGroupInfo2_Vtbl, 0x9a22ca8f_566f_581f_9eba_8795033947ce);
 impl windows_core::RuntimeType for IAppResourceGroupInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1633,7 +1633,7 @@ pub struct IAppResourceGroupInfoWatcher_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppResourceGroupInfoWatcherEventArgs, IAppResourceGroupInfoWatcherEventArgs_Vtbl, 0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
+windows_core::imp::define_interface!(IAppResourceGroupInfoWatcherEventArgs, IAppResourceGroupInfoWatcherEventArgs_Vtbl, 0x78fb2bcb_0edf_5d01_9850_2a6b04f68ca9);
 impl windows_core::RuntimeType for IAppResourceGroupInfoWatcherEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1644,7 +1644,7 @@ pub struct IAppResourceGroupInfoWatcherEventArgs_Vtbl {
     pub AppDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AppResourceGroupInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs, IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl, 0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
+windows_core::imp::define_interface!(IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs, IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl, 0x1c26bb3b_d4b8_54b0_b1da_50cced3d49f7);
 impl windows_core::RuntimeType for IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1655,7 +1655,7 @@ pub struct IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl {
     pub AppDiagnosticInfos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AppResourceGroupInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppResourceGroupMemoryReport, IAppResourceGroupMemoryReport_Vtbl, 0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
+windows_core::imp::define_interface!(IAppResourceGroupMemoryReport, IAppResourceGroupMemoryReport_Vtbl, 0xb261b490_7617_56ad_bb77_cc9327e4df01);
 impl windows_core::RuntimeType for IAppResourceGroupMemoryReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1679,7 +1679,7 @@ pub struct IAppResourceGroupStateReport_Vtbl {
     pub ExecutionState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppResourceGroupExecutionState) -> windows_core::HRESULT,
     pub EnergyQuotaState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AppResourceGroupEnergyQuotaState) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppUriHandlerHost, IAppUriHandlerHost_Vtbl, 0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
+windows_core::imp::define_interface!(IAppUriHandlerHost, IAppUriHandlerHost_Vtbl, 0x76804ac9_028e_5f66_8390_76737f526c3a);
 impl windows_core::RuntimeType for IAppUriHandlerHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1701,7 +1701,7 @@ pub struct IAppUriHandlerHost2_Vtbl {
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppUriHandlerHostFactory, IAppUriHandlerHostFactory_Vtbl, 0x257c3c96_ce04_5f98_96bb_3ebd3e9275bb);
+windows_core::imp::define_interface!(IAppUriHandlerHostFactory, IAppUriHandlerHostFactory_Vtbl, 0x9ccb9797_f912_5e3f_91f0_928dee488d6d);
 impl windows_core::RuntimeType for IAppUriHandlerHostFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1711,7 +1711,7 @@ pub struct IAppUriHandlerHostFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppUriHandlerRegistration, IAppUriHandlerRegistration_Vtbl, 0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
+windows_core::imp::define_interface!(IAppUriHandlerRegistration, IAppUriHandlerRegistration_Vtbl, 0x5ca230fc_cc4c_5619_94b6_a4e38e1d39d2);
 impl windows_core::RuntimeType for IAppUriHandlerRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1724,7 +1724,7 @@ pub struct IAppUriHandlerRegistration_Vtbl {
     pub GetAppAddedHostsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetAppAddedHostsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppUriHandlerRegistration2, IAppUriHandlerRegistration2_Vtbl, 0xd54dac97_cb39_5f1f_883e_01853730bd6d);
+windows_core::imp::define_interface!(IAppUriHandlerRegistration2, IAppUriHandlerRegistration2_Vtbl, 0x0d005980_b989_50e8_b414_2fe6bd899151);
 impl windows_core::RuntimeType for IAppUriHandlerRegistration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1747,7 +1747,7 @@ pub struct IAppUriHandlerRegistrationManager_Vtbl {
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryGetRegistration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppUriHandlerRegistrationManager2, IAppUriHandlerRegistrationManager2_Vtbl, 0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123);
+windows_core::imp::define_interface!(IAppUriHandlerRegistrationManager2, IAppUriHandlerRegistrationManager2_Vtbl, 0x4de61ed1_65d4_58ea_8553_2f7525a27760);
 impl windows_core::RuntimeType for IAppUriHandlerRegistrationManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1768,7 +1768,7 @@ pub struct IAppUriHandlerRegistrationManagerStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppUriHandlerRegistrationManagerStatics2, IAppUriHandlerRegistrationManagerStatics2_Vtbl, 0x14f78379_6890_5080_90a7_98824a7f079e);
+windows_core::imp::define_interface!(IAppUriHandlerRegistrationManagerStatics2, IAppUriHandlerRegistrationManagerStatics2_Vtbl, 0x1dd42b63_5779_536a_89cd_598484c25504);
 impl windows_core::RuntimeType for IAppUriHandlerRegistrationManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1779,7 +1779,7 @@ pub struct IAppUriHandlerRegistrationManagerStatics2_Vtbl {
     pub GetForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForPackageForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDateTimeSettingsStatics, IDateTimeSettingsStatics_Vtbl, 0x5d2150d1_47ee_48ab_a52b_9f1954278d82);
+windows_core::imp::define_interface!(IDateTimeSettingsStatics, IDateTimeSettingsStatics_Vtbl, 0xba59d0a7_5639_5e10_9737_38955cb72e14);
 impl windows_core::RuntimeType for IDateTimeSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1815,7 +1815,7 @@ pub struct IDispatcherQueue2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub HasThreadAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDispatcherQueueController, IDispatcherQueueController_Vtbl, 0x22f34e66_50db_4e36_a98d_61c01b384d20);
+windows_core::imp::define_interface!(IDispatcherQueueController, IDispatcherQueueController_Vtbl, 0x4ae2b7f4_4428_5fae_8dc6_9e95dbc3d56d);
 impl windows_core::RuntimeType for IDispatcherQueueController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1836,7 +1836,7 @@ pub struct IDispatcherQueueControllerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateOnDedicatedThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDispatcherQueueShutdownStartingEventArgs, IDispatcherQueueShutdownStartingEventArgs_Vtbl, 0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
+windows_core::imp::define_interface!(IDispatcherQueueShutdownStartingEventArgs, IDispatcherQueueShutdownStartingEventArgs_Vtbl, 0x8440975a_8c78_50b7_a903_178804206984);
 impl windows_core::RuntimeType for IDispatcherQueueShutdownStartingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1846,7 +1846,7 @@ pub struct IDispatcherQueueShutdownStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDispatcherQueueStatics, IDispatcherQueueStatics_Vtbl, 0xa96d83d7_9371_4517_9245_d0824ac12c74);
+windows_core::imp::define_interface!(IDispatcherQueueStatics, IDispatcherQueueStatics_Vtbl, 0x73c62239_2ff9_592c_9be8_c7ead41f4955);
 impl windows_core::RuntimeType for IDispatcherQueueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1856,7 +1856,7 @@ pub struct IDispatcherQueueStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetForCurrentThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDispatcherQueueTimer, IDispatcherQueueTimer_Vtbl, 0x5feabb1d_a31c_4727_b1ac_37454649d56a);
+windows_core::imp::define_interface!(IDispatcherQueueTimer, IDispatcherQueueTimer_Vtbl, 0x0943d875_6735_5f1d_86ff_f40fde815cf9);
 impl windows_core::RuntimeType for IDispatcherQueueTimer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1887,7 +1887,7 @@ pub struct IFolderLauncherOptions_Vtbl {
     #[cfg(not(feature = "Storage"))]
     ItemsToSelect: usize,
 }
-windows_core::imp::define_interface!(IKnownUserPropertiesStatics, IKnownUserPropertiesStatics_Vtbl, 0x7755911a_70c5_48e5_b637_5ba3441e4ee4);
+windows_core::imp::define_interface!(IKnownUserPropertiesStatics, IKnownUserPropertiesStatics_Vtbl, 0x65f6783d_e098_530e_a9d5_1f5ec595a7b2);
 impl windows_core::RuntimeType for IKnownUserPropertiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1915,7 +1915,7 @@ pub struct IKnownUserPropertiesStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AgeEnforcementRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILaunchUriResult, ILaunchUriResult_Vtbl, 0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
+windows_core::imp::define_interface!(ILaunchUriResult, ILaunchUriResult_Vtbl, 0xc45e4475_2b01_56f4_9b44_4d3a338940fa);
 impl windows_core::RuntimeType for ILaunchUriResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1970,7 +1970,7 @@ pub struct ILauncherOptions2_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     SetNeighboringFilesQuery: usize,
 }
-windows_core::imp::define_interface!(ILauncherOptions3, ILauncherOptions3_Vtbl, 0xf0770655_4b63_4e3a_9107_4e687841923a);
+windows_core::imp::define_interface!(ILauncherOptions3, ILauncherOptions3_Vtbl, 0x7d5fb218_e59f_5674_8246_fd9616276ca0);
 impl windows_core::RuntimeType for ILauncherOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2068,7 +2068,7 @@ pub struct ILauncherStatics3_Vtbl {
     #[cfg(not(feature = "Storage"))]
     LaunchFolderWithOptionsAsync: usize,
 }
-windows_core::imp::define_interface!(ILauncherStatics4, ILauncherStatics4_Vtbl, 0xb9ec819f_b5a5_41c6_b3b3_dd1b3178bcf2);
+windows_core::imp::define_interface!(ILauncherStatics4, ILauncherStatics4_Vtbl, 0x32be7d1b_2e70_5aa2_af97_cc9ca99e4677);
 impl windows_core::RuntimeType for ILauncherStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2107,7 +2107,7 @@ pub struct ILauncherStatics5_Vtbl {
     pub LaunchFolderPathForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LaunchFolderPathWithOptionsForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ILauncherUIOptions, ILauncherUIOptions_Vtbl, 0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
+windows_core::imp::define_interface!(ILauncherUIOptions, ILauncherUIOptions_Vtbl, 0x6935328f_9d28_5ea5_a492_43e06e1331c9);
 impl windows_core::RuntimeType for ILauncherUIOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2219,7 +2219,7 @@ pub struct IMemoryManagerStatics_Vtbl {
     pub AppMemoryUsageLimitChanging: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAppMemoryUsageLimitChanging: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMemoryManagerStatics2, IMemoryManagerStatics2_Vtbl, 0x6eee351f_6d62_423f_9479_b01f9c9f7669);
+windows_core::imp::define_interface!(IMemoryManagerStatics2, IMemoryManagerStatics2_Vtbl, 0x19f2f938_532b_56cd_b27d_f00fe4e11c7e);
 impl windows_core::RuntimeType for IMemoryManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2250,7 +2250,7 @@ pub struct IMemoryManagerStatics4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpectedAppMemoryUsageLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProcessLauncherOptions, IProcessLauncherOptions_Vtbl, 0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
+windows_core::imp::define_interface!(IProcessLauncherOptions, IProcessLauncherOptions_Vtbl, 0xb42b21ce_2229_54fa_9ab0_e77abfab875c);
 impl windows_core::RuntimeType for IProcessLauncherOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2306,7 +2306,7 @@ pub struct IProcessLauncherStatics_Vtbl {
     pub RunToCompletionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RunToCompletionAsyncWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProcessMemoryReport, IProcessMemoryReport_Vtbl, 0x087305a8_9b70_4782_8741_3a982b6ce5e4);
+windows_core::imp::define_interface!(IProcessMemoryReport, IProcessMemoryReport_Vtbl, 0x405cc730_6224_5f2f_8bba_0115552ea3b2);
 impl windows_core::RuntimeType for IProcessMemoryReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2363,7 +2363,7 @@ pub struct IRemoteLauncherStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "System_RemoteSystems")))]
     LaunchUriWithDataAsync: usize,
 }
-windows_core::imp::define_interface!(IShutdownManagerStatics, IShutdownManagerStatics_Vtbl, 0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94);
+windows_core::imp::define_interface!(IShutdownManagerStatics, IShutdownManagerStatics_Vtbl, 0x5baaee85_d407_5811_9264_b1b344ce4b52);
 impl windows_core::RuntimeType for IShutdownManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2374,7 +2374,7 @@ pub struct IShutdownManagerStatics_Vtbl {
     pub BeginShutdown: unsafe extern "system" fn(*mut core::ffi::c_void, ShutdownKind, super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub CancelShutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShutdownManagerStatics2, IShutdownManagerStatics2_Vtbl, 0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
+windows_core::imp::define_interface!(IShutdownManagerStatics2, IShutdownManagerStatics2_Vtbl, 0x76161a95_db9d_588f_ba23_eedcad3da1c6);
 impl windows_core::RuntimeType for IShutdownManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2409,7 +2409,7 @@ pub struct ITimeZoneSettingsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AutoUpdateTimeZoneAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUser, IUser_Vtbl, 0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
+windows_core::imp::define_interface!(IUser, IUser_Vtbl, 0xf6d321a9_ba02_5a36_ba4f_f03e380ea090);
 impl windows_core::RuntimeType for IUser {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2430,7 +2430,7 @@ pub struct IUser_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetPictureAsync: usize,
 }
-windows_core::imp::define_interface!(IUser2, IUser2_Vtbl, 0x98ba5628_a6e3_518e_89d9_d3b2b1991a10);
+windows_core::imp::define_interface!(IUser2, IUser2_Vtbl, 0xf8b05c8b_4635_518c_9442_385e50d95314);
 impl windows_core::RuntimeType for IUser2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2440,7 +2440,7 @@ pub struct IUser2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CheckUserAgeConsentGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, UserAgeConsentGroup, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserAuthenticationStatusChangeDeferral, IUserAuthenticationStatusChangeDeferral_Vtbl, 0x88b59568_bb30_42fb_a270_e9902e40efa7);
+windows_core::imp::define_interface!(IUserAuthenticationStatusChangeDeferral, IUserAuthenticationStatusChangeDeferral_Vtbl, 0xe6246a34_73b4_53b4_a700_f5e17f504861);
 impl windows_core::RuntimeType for IUserAuthenticationStatusChangeDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2450,7 +2450,7 @@ pub struct IUserAuthenticationStatusChangeDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserAuthenticationStatusChangingEventArgs, IUserAuthenticationStatusChangingEventArgs_Vtbl, 0x8c030f28_a711_4c1e_ab48_04179c15938f);
+windows_core::imp::define_interface!(IUserAuthenticationStatusChangingEventArgs, IUserAuthenticationStatusChangingEventArgs_Vtbl, 0xd404de93_0441_50f8_8beb_99cf751c6935);
 impl windows_core::RuntimeType for IUserAuthenticationStatusChangingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2463,7 +2463,7 @@ pub struct IUserAuthenticationStatusChangingEventArgs_Vtbl {
     pub NewStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserAuthenticationStatus) -> windows_core::HRESULT,
     pub CurrentStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserAuthenticationStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserChangedEventArgs, IUserChangedEventArgs_Vtbl, 0x086459dc_18c6_48db_bc99_724fb9203ccc);
+windows_core::imp::define_interface!(IUserChangedEventArgs, IUserChangedEventArgs_Vtbl, 0x4e742ed7_e0bb_5d33_9ac7_2ddfd62797c2);
 impl windows_core::RuntimeType for IUserChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2473,7 +2473,7 @@ pub struct IUserChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserChangedEventArgs2, IUserChangedEventArgs2_Vtbl, 0x6b2ccb44_6f01_560c_97ad_fc7f32ec581f);
+windows_core::imp::define_interface!(IUserChangedEventArgs2, IUserChangedEventArgs2_Vtbl, 0xe49cc640_cf29_5202_91ef_36b05782faa2);
 impl windows_core::RuntimeType for IUserChangedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2495,7 +2495,7 @@ pub struct IUserDeviceAssociationChangedEventArgs_Vtbl {
     pub NewUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OldUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDeviceAssociationStatics, IUserDeviceAssociationStatics_Vtbl, 0x7e491e14_f85a_4c07_8da9_7fe3d0542343);
+windows_core::imp::define_interface!(IUserDeviceAssociationStatics, IUserDeviceAssociationStatics_Vtbl, 0x1d449c02_903e_55f2_9661_30866a8c7df6);
 impl windows_core::RuntimeType for IUserDeviceAssociationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2507,7 +2507,7 @@ pub struct IUserDeviceAssociationStatics_Vtbl {
     pub UserDeviceAssociationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUserDeviceAssociationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserPicker, IUserPicker_Vtbl, 0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
+windows_core::imp::define_interface!(IUserPicker, IUserPicker_Vtbl, 0xac036fa5_0475_5c01_8912_225eb26f90c3);
 impl windows_core::RuntimeType for IUserPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2521,7 +2521,7 @@ pub struct IUserPicker_Vtbl {
     pub SetSuggestedSelectedUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PickSingleUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserPickerStatics, IUserPickerStatics_Vtbl, 0xde3290dc_7e73_4df6_a1ae_4d7eca82b40d);
+windows_core::imp::define_interface!(IUserPickerStatics, IUserPickerStatics_Vtbl, 0xd5b0ddd2_35e4_5ec7_b32c_0626631d3f9a);
 impl windows_core::RuntimeType for IUserPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2545,7 +2545,7 @@ pub struct IUserStatics_Vtbl {
     pub FindAllAsyncByTypeAndStatus: unsafe extern "system" fn(*mut core::ffi::c_void, UserType, UserAuthenticationStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserStatics2, IUserStatics2_Vtbl, 0x74a37e11_2eb5_4487_b0d5_2c6790e013e9);
+windows_core::imp::define_interface!(IUserStatics2, IUserStatics2_Vtbl, 0xc07c05df_92cf_5fca_93b2_674091f78714);
 impl windows_core::RuntimeType for IUserStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2555,7 +2555,7 @@ pub struct IUserStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserWatcher, IUserWatcher_Vtbl, 0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
+windows_core::imp::define_interface!(IUserWatcher, IUserWatcher_Vtbl, 0x028161ef_6e81_552d_be06_739064cadc45);
 impl windows_core::RuntimeType for IUserWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

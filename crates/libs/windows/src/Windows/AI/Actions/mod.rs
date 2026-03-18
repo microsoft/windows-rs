@@ -1133,7 +1133,7 @@ pub struct IActionEntity2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionEntityDisplayInfo, IActionEntityDisplayInfo_Vtbl, 0x057a9ede_03e1_55c6_acba_c7056216735a);
+windows_core::imp::define_interface!(IActionEntityDisplayInfo, IActionEntityDisplayInfo_Vtbl, 0x39429c35_93fd_573d_ad06_e36e0d847487);
 impl windows_core::RuntimeType for IActionEntityDisplayInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1165,7 +1165,7 @@ pub struct IActionEntityFactory2_Vtbl {
     pub CreatePhotoEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTextEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionEntityFactory3, IActionEntityFactory3_Vtbl, 0x4910e689_00b5_56bb_9c65_0fcc76215283);
+windows_core::imp::define_interface!(IActionEntityFactory3, IActionEntityFactory3_Vtbl, 0x5eaa5125_79d3_5b61_9ddf_8f3684fd8d7f);
 impl windows_core::RuntimeType for IActionEntityFactory3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1191,7 +1191,7 @@ pub struct IActionEntityFactory4_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     CreateContactEntity: usize,
 }
-windows_core::imp::define_interface!(IActionEntityFactory5, IActionEntityFactory5_Vtbl, 0xb59faab1_cfe4_564a_a5ba_53ad7ff6f924);
+windows_core::imp::define_interface!(IActionEntityFactory5, IActionEntityFactory5_Vtbl, 0xf9198001_dfab_5261_9ee8_86f94fc1057e);
 impl windows_core::RuntimeType for IActionEntityFactory5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1202,7 +1202,7 @@ pub struct IActionEntityFactory5_Vtbl {
     pub CreateUriEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateArrayEntity: unsafe extern "system" fn(*mut core::ffi::c_void, ActionEntityKind, u32, *const ActionEntity, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionEntityFactory6, IActionEntityFactory6_Vtbl, 0xda7123da_5639_590f_a2db_c3b5e221f3b6);
+windows_core::imp::define_interface!(IActionEntityFactory6, IActionEntityFactory6_Vtbl, 0xc7ae691b_8683_5961_99e4_56b2d790f934);
 impl windows_core::RuntimeType for IActionEntityFactory6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1246,7 +1246,7 @@ pub struct IActionFeedback_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FeedbackKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActionFeedbackKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionInvocationContext, IActionInvocationContext_Vtbl, 0xc32b622e_86e1_5eba_9661_605910104978);
+windows_core::imp::define_interface!(IActionInvocationContext, IActionInvocationContext_Vtbl, 0xb1d25396_1aaa_5440_9a50_dc918cd41823);
 impl windows_core::RuntimeType for IActionInvocationContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1299,7 +1299,7 @@ pub struct IActionInvocationHelpDetails_Vtbl {
     pub HelpUriDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetHelpUriDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionInvocationHelpDetails2, IActionInvocationHelpDetails2_Vtbl, 0x307f6ba5_5fda_59f1_9722_1859801ad550);
+windows_core::imp::define_interface!(IActionInvocationHelpDetails2, IActionInvocationHelpDetails2_Vtbl, 0x1fc793fe_6a34_5dbf_8af1_fba266306e11);
 impl windows_core::RuntimeType for IActionInvocationHelpDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1310,7 +1310,7 @@ pub struct IActionInvocationHelpDetails2_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionRuntime, IActionRuntime_Vtbl, 0x206efa2c_c909_508a_b4b0_9482be96db9c);
+windows_core::imp::define_interface!(IActionRuntime, IActionRuntime_Vtbl, 0x9fa7ff44_b5fa_5d82_9643_6ff6347c5426);
 impl windows_core::RuntimeType for IActionRuntime {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1325,7 +1325,7 @@ pub struct IActionRuntime_Vtbl {
     pub EntityFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInvocationContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionRuntime2, IActionRuntime2_Vtbl, 0x2da4d2c0_e593_5350_8143_15bb24f63411);
+windows_core::imp::define_interface!(IActionRuntime2, IActionRuntime2_Vtbl, 0xb719fe91_6f17_5f14_9857_9fbd59b8c57e);
 impl windows_core::RuntimeType for IActionRuntime2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1337,7 +1337,7 @@ pub struct IActionRuntime2_Vtbl {
     pub SetActionAvailability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub GetActionAvailability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionRuntime3, IActionRuntime3_Vtbl, 0xf020c3c0_caec_5928_ad00_81069b80fbc1);
+windows_core::imp::define_interface!(IActionRuntime3, IActionRuntime3_Vtbl, 0x7daece33_a768_5afc_9861_c2e6dff9f34a);
 impl windows_core::RuntimeType for IActionRuntime3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1381,7 +1381,7 @@ impl windows_core::RuntimeType for IActionRuntimeFactory {
 pub struct IActionRuntimeFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IActionRuntimeStatics, IActionRuntimeStatics_Vtbl, 0x2c697aab_55f2_55aa_9d63_a73ec190cecd);
+windows_core::imp::define_interface!(IActionRuntimeStatics, IActionRuntimeStatics_Vtbl, 0xda3ec618_ee20_5616_bf5f_e08a54b54c3f);
 impl windows_core::RuntimeType for IActionRuntimeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1410,7 +1410,7 @@ pub struct IAppointmentActionEntity_Vtbl {
     pub GetSharedFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSharedFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const RemoteFileActionEntity) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IArrayActionEntity, IArrayActionEntity_Vtbl, 0x45798e78_1059_5311_8a1b_de0081a4ca3b);
+windows_core::imp::define_interface!(IArrayActionEntity, IArrayActionEntity_Vtbl, 0xbcc97007_76c8_538d_8503_0fd3008be823);
 impl windows_core::RuntimeType for IArrayActionEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1421,7 +1421,7 @@ pub struct IArrayActionEntity_Vtbl {
     pub ElementKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActionEntityKind) -> windows_core::HRESULT,
     pub GetAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IArrayActionEntity2, IArrayActionEntity2_Vtbl, 0x7366e049_7fe8_5df9_bbca_cea5c0f3d316);
+windows_core::imp::define_interface!(IArrayActionEntity2, IArrayActionEntity2_Vtbl, 0x94a8c63d_89cf_5d29_9ad3_7ec2fc181a9c);
 impl windows_core::RuntimeType for IArrayActionEntity2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1431,7 +1431,7 @@ pub struct IArrayActionEntity2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CustomElementKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContactActionEntity, IContactActionEntity_Vtbl, 0x458c3e07_5892_5485_bd9b_8f7a540c9501);
+windows_core::imp::define_interface!(IContactActionEntity, IContactActionEntity_Vtbl, 0xd0a1a7f9_8dc9_5895_a8f0_2d8e00380772);
 impl windows_core::RuntimeType for IContactActionEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1521,7 +1521,7 @@ pub struct INamedActionEntity_Vtbl {
     pub Entity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhotoActionEntity, IPhotoActionEntity_Vtbl, 0x425123b3_20ef_51a6_b35f_8414384765c5);
+windows_core::imp::define_interface!(IPhotoActionEntity, IPhotoActionEntity_Vtbl, 0x286bab50_dff1_5e76_9923_c333d58f88be);
 impl windows_core::RuntimeType for IPhotoActionEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1531,7 +1531,7 @@ pub struct IPhotoActionEntity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FullPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRemoteFileActionEntity, IRemoteFileActionEntity_Vtbl, 0xa5d8ec21_a2bd_545a_abfc_d7aa79fd0b81);
+windows_core::imp::define_interface!(IRemoteFileActionEntity, IRemoteFileActionEntity_Vtbl, 0x6090f330_c562_54f3_8b07_b5801c7f4e49);
 impl windows_core::RuntimeType for IRemoteFileActionEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1548,7 +1548,7 @@ pub struct IRemoteFileActionEntity_Vtbl {
     pub AccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Extension: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRemoteFileActionEntity2, IRemoteFileActionEntity2_Vtbl, 0x9cc8cc54_77d8_5537_83c4_6f18c1bc9f67);
+windows_core::imp::define_interface!(IRemoteFileActionEntity2, IRemoteFileActionEntity2_Vtbl, 0xcd2fbcba_5d69_5644_b783_fc1840d46e31);
 impl windows_core::RuntimeType for IRemoteFileActionEntity2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1579,7 +1579,7 @@ pub struct IStreamingTextActionEntity_Vtbl {
     pub TextChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveTextChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamingTextActionEntityTextChangedArgs, IStreamingTextActionEntityTextChangedArgs_Vtbl, 0x2c62011f_3e06_588b_a3bd_d726bd82fb13);
+windows_core::imp::define_interface!(IStreamingTextActionEntityTextChangedArgs, IStreamingTextActionEntityTextChangedArgs_Vtbl, 0x6a2d1faa_68a6_5f28_9746_bcf51ca8f043);
 impl windows_core::RuntimeType for IStreamingTextActionEntityTextChangedArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1602,7 +1602,7 @@ pub struct IStreamingTextActionEntityWriter_Vtbl {
     pub TextFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActionEntityTextFormat) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITableActionEntity, ITableActionEntity_Vtbl, 0x0f252cdb_ba24_5dbb_9d17_1b300773d141);
+windows_core::imp::define_interface!(ITableActionEntity, ITableActionEntity_Vtbl, 0x3279cb57_3df2_526e_b937_b98d90d9c14a);
 impl windows_core::RuntimeType for ITableActionEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1614,7 +1614,7 @@ pub struct ITableActionEntity_Vtbl {
     pub RowCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ColumnCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITextActionEntity, ITextActionEntity_Vtbl, 0x3c4ec25f_5adb_5f73_b8f3_080fbeadd612);
+windows_core::imp::define_interface!(ITextActionEntity, ITextActionEntity_Vtbl, 0xd09084eb_5d42_5b30_8c18_8aa10dab8236);
 impl windows_core::RuntimeType for ITextActionEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1634,7 +1634,7 @@ pub struct ITextActionEntity2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TextFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ActionEntityTextFormat) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUriActionEntity, IUriActionEntity_Vtbl, 0xa81cde77_bc25_532d_905e_b0725c5bcd4e);
+windows_core::imp::define_interface!(IUriActionEntity, IUriActionEntity_Vtbl, 0xdd1ec905_eb6e_56b5_adcd_bbb8db76c2cc);
 impl windows_core::RuntimeType for IUriActionEntity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -1,21 +1,21 @@
 windows_link::link!("projectedfslib.dll" "system" fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size : usize) -> *mut core::ffi::c_void);
 windows_link::link!("projectedfslib.dll" "system" fn PrjClearNegativePathCache(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : windows_sys::core::HRESULT, extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> windows_sys::core::HRESULT);
+windows_link::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : windows_sys::core::HRESULT, extendedparameters : *mut PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjDeleteFile(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_sys::core::PCWSTR, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_sys::core::PCWSTR) -> bool);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFileNameCompare(filename1 : windows_sys::core::PCWSTR, filename2 : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_sys::core::PCWSTR, pattern : windows_sys::core::PCWSTR) -> bool);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer(filename : windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_sys::core::HRESULT);
-windows_link::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const core::ffi::c_void));
+windows_link::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *mut core::ffi::c_void));
 windows_link::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : windows_sys::core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> windows_sys::core::HRESULT);
-windows_link::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : windows_sys::core::PCWSTR, targetpathname : windows_sys::core::PCWSTR, versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
+windows_link::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : windows_sys::core::PCWSTR, targetpathname : windows_sys::core::PCWSTR, versioninfo : *mut PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : windows_sys::core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT));
-windows_link::link!("projectedfslib.dll" "system" fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_sys::core::HRESULT);
+windows_link::link!("projectedfslib.dll" "system" fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_sys::core::PCWSTR, placeholderinfo : *mut PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjWriteFileData(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid : *const windows_sys::core::GUID, buffer : *const core::ffi::c_void, byteoffset : u64, length : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_sys::core::PCWSTR, placeholderinfo : *mut PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -50,7 +50,7 @@ impl Default for PRJ_CALLBACK_DATA {
     }
 }
 pub type PRJ_CALLBACK_DATA_FLAGS = i32;
-pub type PRJ_CANCEL_COMMAND_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
+pub type PRJ_CANCEL_COMMAND_CB = Option<unsafe extern "system" fn(callbackdata: *mut PRJ_CALLBACK_DATA)>;
 pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = 1i32;
 pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: PRJ_CALLBACK_DATA_FLAGS = 2i32;
 #[repr(C)]
@@ -76,6 +76,11 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+    pub NotificationMask: PRJ_NOTIFY_TYPES,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
@@ -85,16 +90,11 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    pub NotificationMask: PRJ_NOTIFY_TYPES,
-}
 pub type PRJ_COMPLETE_COMMAND_TYPE = i32;
 pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: PRJ_COMPLETE_COMMAND_TYPE = 2i32;
 pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = 1i32;
 pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = *mut core::ffi::c_void;
-pub type PRJ_END_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
+pub type PRJ_END_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *mut PRJ_CALLBACK_DATA, enumerationid: *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRJ_EXTENDED_INFO {
@@ -148,12 +148,12 @@ pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = 1i32;
 pub const PRJ_FILE_STATE_TOMBSTONE: PRJ_FILE_STATE = 16i32;
 pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = 0i32;
 pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: PRJ_STARTVIRTUALIZING_FLAGS = 1i32;
-pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const windows_sys::core::GUID, searchexpression: windows_sys::core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_sys::core::HRESULT>;
-pub type PRJ_GET_FILE_DATA_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> windows_sys::core::HRESULT>;
-pub type PRJ_GET_PLACEHOLDER_INFO_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> windows_sys::core::HRESULT>;
+pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *mut PRJ_CALLBACK_DATA, enumerationid: *mut windows_sys::core::GUID, searchexpression: windows_sys::core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_sys::core::HRESULT>;
+pub type PRJ_GET_FILE_DATA_CB = Option<unsafe extern "system" fn(callbackdata: *mut PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> windows_sys::core::HRESULT>;
+pub type PRJ_GET_PLACEHOLDER_INFO_CB = Option<unsafe extern "system" fn(callbackdata: *mut PRJ_CALLBACK_DATA) -> windows_sys::core::HRESULT>;
 pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = *mut core::ffi::c_void;
 pub type PRJ_NOTIFICATION = i32;
-pub type PRJ_NOTIFICATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: bool, notification: PRJ_NOTIFICATION, destinationfilename: windows_sys::core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> windows_sys::core::HRESULT>;
+pub type PRJ_NOTIFICATION_CB = Option<unsafe extern "system" fn(callbackdata: *mut PRJ_CALLBACK_DATA, isdirectory: bool, notification: PRJ_NOTIFICATION, destinationfilename: windows_sys::core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> windows_sys::core::HRESULT>;
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFICATION = 2048i32;
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFICATION = 1024i32;
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFICATION = 512i32;
@@ -188,8 +188,8 @@ impl Default for PRJ_NOTIFICATION_PARAMETERS {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
-    pub IsFileModified: bool,
+pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
+    pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -198,8 +198,8 @@ pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
-    pub NotificationMask: PRJ_NOTIFY_TYPES,
+pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
+    pub IsFileModified: bool,
 }
 pub const PRJ_NOTIFICATION_PRE_DELETE: PRJ_NOTIFICATION = 16i32;
 pub const PRJ_NOTIFICATION_PRE_RENAME: PRJ_NOTIFICATION = 32i32;
@@ -266,7 +266,7 @@ impl Default for PRJ_PLACEHOLDER_VERSION_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type PRJ_QUERY_FILE_NAME_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> windows_sys::core::HRESULT>;
+pub type PRJ_QUERY_FILE_NAME_CB = Option<unsafe extern "system" fn(callbackdata: *mut PRJ_CALLBACK_DATA) -> windows_sys::core::HRESULT>;
 pub type PRJ_STARTVIRTUALIZING_FLAGS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]

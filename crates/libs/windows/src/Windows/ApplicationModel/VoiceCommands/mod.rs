@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IVoiceCommand, IVoiceCommand_Vtbl, 0x936f5273_ec82_42a6_a55c_d2d79ec6f920);
+windows_core::imp::define_interface!(IVoiceCommand, IVoiceCommand_Vtbl, 0x9598f04f_20cd_52a7_b57d_986bf70a29ec);
 impl windows_core::RuntimeType for IVoiceCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -13,7 +13,7 @@ pub struct IVoiceCommand_Vtbl {
     #[cfg(not(feature = "Media_SpeechRecognition"))]
     SpeechRecognitionResult: usize,
 }
-windows_core::imp::define_interface!(IVoiceCommandCompletedEventArgs, IVoiceCommandCompletedEventArgs_Vtbl, 0xc85e675d_fe42_432c_9907_09df9fcf64e8);
+windows_core::imp::define_interface!(IVoiceCommandCompletedEventArgs, IVoiceCommandCompletedEventArgs_Vtbl, 0xfa41bf91_0fe0_5823_b8fc_8c4d47617968);
 impl windows_core::RuntimeType for IVoiceCommandCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -23,7 +23,7 @@ pub struct IVoiceCommandCompletedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoiceCommandCompletionReason) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceCommandConfirmationResult, IVoiceCommandConfirmationResult_Vtbl, 0xa022593e_8221_4526_b083_840972262247);
+windows_core::imp::define_interface!(IVoiceCommandConfirmationResult, IVoiceCommandConfirmationResult_Vtbl, 0xd948f8cf_230f_50ea_b2b0_3dcb994b5cc4);
 impl windows_core::RuntimeType for IVoiceCommandConfirmationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -33,7 +33,7 @@ pub struct IVoiceCommandConfirmationResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Confirmed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceCommandContentTile, IVoiceCommandContentTile_Vtbl, 0x3eefe9f0_b8c7_4c76_a0de_1607895ee327);
+windows_core::imp::define_interface!(IVoiceCommandContentTile, IVoiceCommandContentTile_Vtbl, 0xbf66c7a0_3d21_5a67_95f1_13e5335e25b3);
 impl windows_core::RuntimeType for IVoiceCommandContentTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -64,7 +64,7 @@ pub struct IVoiceCommandContentTile_Vtbl {
     pub ContentTileType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VoiceCommandContentTileType) -> windows_core::HRESULT,
     pub SetContentTileType: unsafe extern "system" fn(*mut core::ffi::c_void, VoiceCommandContentTileType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceCommandDefinition, IVoiceCommandDefinition_Vtbl, 0x7972aad0_0974_4979_984b_cb8959cd61ae);
+windows_core::imp::define_interface!(IVoiceCommandDefinition, IVoiceCommandDefinition_Vtbl, 0xf954a914_5381_5fbd_94fc_c24e187a924c);
 impl windows_core::RuntimeType for IVoiceCommandDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -90,7 +90,7 @@ pub struct IVoiceCommandDefinitionManagerStatics_Vtbl {
     InstallCommandDefinitionsFromStorageFileAsync: usize,
     pub InstalledCommandDefinitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceCommandDisambiguationResult, IVoiceCommandDisambiguationResult_Vtbl, 0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e);
+windows_core::imp::define_interface!(IVoiceCommandDisambiguationResult, IVoiceCommandDisambiguationResult_Vtbl, 0x1c19fd97_91a7_52a6_91a4_b286eb7c8633);
 impl windows_core::RuntimeType for IVoiceCommandDisambiguationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -130,7 +130,7 @@ pub struct IVoiceCommandResponseStatics_Vtbl {
     pub CreateResponseForPrompt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateResponseForPromptWithTiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceCommandServiceConnection, IVoiceCommandServiceConnection_Vtbl, 0xd894bb9f_21da_44a4_98a2_fb131920a9cc);
+windows_core::imp::define_interface!(IVoiceCommandServiceConnection, IVoiceCommandServiceConnection_Vtbl, 0x90121b69_e8d5_51f6_9db3_2c99a37802c0);
 impl windows_core::RuntimeType for IVoiceCommandServiceConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -152,7 +152,7 @@ pub struct IVoiceCommandServiceConnection_Vtbl {
     pub VoiceCommandCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveVoiceCommandCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceCommandServiceConnectionStatics, IVoiceCommandServiceConnectionStatics_Vtbl, 0x370ebffb_2d34_42df_8770_074d0f334697);
+windows_core::imp::define_interface!(IVoiceCommandServiceConnectionStatics, IVoiceCommandServiceConnectionStatics_Vtbl, 0x72c0a85e_07e0_5a22_a968_f41d7e9e3b70);
 impl windows_core::RuntimeType for IVoiceCommandServiceConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

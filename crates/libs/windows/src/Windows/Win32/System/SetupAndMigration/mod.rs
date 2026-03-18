@@ -1,16 +1,16 @@
 #[inline]
-pub unsafe fn OOBEComplete(isoobecomplete: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn OOBEComplete(isoobecomplete: *mut windows_core::BOOL) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn OOBEComplete(isoobecomplete : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { OOBEComplete(isoobecomplete as _).ok() }
+    unsafe { OOBEComplete(isoobecomplete as _) }
 }
 #[inline]
-pub unsafe fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: OOBE_COMPLETED_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>, waithandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn RegisterWaitUntilOOBECompleted(oobecompletedcallback : OOBE_COMPLETED_CALLBACK, callbackcontext : *const core::ffi::c_void, waithandle : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { RegisterWaitUntilOOBECompleted(oobecompletedcallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _, waithandle as _).ok() }
+pub unsafe fn RegisterWaitUntilOOBECompleted(oobecompletedcallback: OOBE_COMPLETED_CALLBACK, callbackcontext: *mut core::ffi::c_void, waithandle: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn RegisterWaitUntilOOBECompleted(oobecompletedcallback : OOBE_COMPLETED_CALLBACK, callbackcontext : *mut core::ffi::c_void, waithandle : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { RegisterWaitUntilOOBECompleted(oobecompletedcallback, callbackcontext as _, waithandle as _) }
 }
 #[inline]
-pub unsafe fn UnregisterWaitUntilOOBECompleted(waithandle: *const core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn UnregisterWaitUntilOOBECompleted(waithandle : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { UnregisterWaitUntilOOBECompleted(waithandle).ok() }
+pub unsafe fn UnregisterWaitUntilOOBECompleted(waithandle: *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn UnregisterWaitUntilOOBECompleted(waithandle : *mut core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { UnregisterWaitUntilOOBECompleted(waithandle as _) }
 }
-pub type OOBE_COMPLETED_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void)>;
+pub type OOBE_COMPLETED_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void)>;

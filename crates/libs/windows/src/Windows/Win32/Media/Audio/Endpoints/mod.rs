@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     pub u32Size: u32,
     pub u32TSSessionId: u32,
@@ -45,15 +45,19 @@ impl IAudioEndpointFormatControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAudioEndpointFormatControl {}
-windows_core::imp::define_interface!(IAudioEndpointLastBufferControl, IAudioEndpointLastBufferControl_Vtbl, 0xf8520dd3_8f9d_4437_9861_62f584c33dd6);
+windows_core::imp::define_interface!(IAudioEndpointLastBufferControl, IAudioEndpointLastBufferControl_Vtbl, 0x901672a8_abbc_538e_b3e9_f53e8db809d3);
 windows_core::imp::interface_hierarchy!(IAudioEndpointLastBufferControl, windows_core::IUnknown);
 impl IAudioEndpointLastBufferControl {
     pub unsafe fn IsLastBufferControlSupported(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsLastBufferControlSupported)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_Media_Audio_Apo")]
-    pub unsafe fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseOutputDataPointerForLastBuffer)(windows_core::Interface::as_raw(self), pconnectionproperty) }
+    pub unsafe fn ReleaseOutputDataPointerForLastBuffer(&self) -> super::Apo::APO_CONNECTION_PROPERTY {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ReleaseOutputDataPointerForLastBuffer)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
     }
 }
 #[repr(C)]
@@ -62,14 +66,14 @@ pub struct IAudioEndpointLastBufferControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsLastBufferControlSupported: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     #[cfg(feature = "Win32_Media_Audio_Apo")]
-    pub ReleaseOutputDataPointerForLastBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Apo::APO_CONNECTION_PROPERTY),
+    pub ReleaseOutputDataPointerForLastBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Apo::APO_CONNECTION_PROPERTY),
     #[cfg(not(feature = "Win32_Media_Audio_Apo"))]
     ReleaseOutputDataPointerForLastBuffer: usize,
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub trait IAudioEndpointLastBufferControl_Impl: windows_core::IUnknownImpl {
     fn IsLastBufferControlSupported(&self) -> windows_core::BOOL;
-    fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY);
+    fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *mut super::Apo::APO_CONNECTION_PROPERTY);
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 impl IAudioEndpointLastBufferControl_Vtbl {
@@ -80,7 +84,7 @@ impl IAudioEndpointLastBufferControl_Vtbl {
                 IAudioEndpointLastBufferControl_Impl::IsLastBufferControlSupported(this)
             }
         }
-        unsafe extern "system" fn ReleaseOutputDataPointerForLastBuffer<Identity: IAudioEndpointLastBufferControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
+        unsafe extern "system" fn ReleaseOutputDataPointerForLastBuffer<Identity: IAudioEndpointLastBufferControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectionproperty: *mut super::Apo::APO_CONNECTION_PROPERTY) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioEndpointLastBufferControl_Impl::ReleaseOutputDataPointerForLastBuffer(this, core::mem::transmute_copy(&pconnectionproperty))
@@ -98,7 +102,7 @@ impl IAudioEndpointLastBufferControl_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 impl windows_core::RuntimeName for IAudioEndpointLastBufferControl {}
-windows_core::imp::define_interface!(IAudioEndpointOffloadStreamMeter, IAudioEndpointOffloadStreamMeter_Vtbl, 0xe1546dce_9dd1_418b_9ab2_348ced161c86);
+windows_core::imp::define_interface!(IAudioEndpointOffloadStreamMeter, IAudioEndpointOffloadStreamMeter_Vtbl, 0x213f4d7c_4c27_50f1_817e_9d8b18cb8cfc);
 windows_core::imp::interface_hierarchy!(IAudioEndpointOffloadStreamMeter, windows_core::IUnknown);
 impl IAudioEndpointOffloadStreamMeter {
     pub unsafe fn GetMeterChannelCount(&self) -> windows_core::Result<u32> {
@@ -162,7 +166,7 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAudioEndpointOffloadStreamMeter {}
-windows_core::imp::define_interface!(IAudioEndpointOffloadStreamMute, IAudioEndpointOffloadStreamMute_Vtbl, 0xdfe21355_5ec2_40e0_8d6b_710ac3c00249);
+windows_core::imp::define_interface!(IAudioEndpointOffloadStreamMute, IAudioEndpointOffloadStreamMute_Vtbl, 0xaad9a0be_e49a_582a_b2ee_c9c96a3177e5);
 windows_core::imp::interface_hierarchy!(IAudioEndpointOffloadStreamMute, windows_core::IUnknown);
 impl IAudioEndpointOffloadStreamMute {
     pub unsafe fn SetMute(&self, bmuted: u8) -> windows_core::Result<()> {
@@ -213,7 +217,7 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAudioEndpointOffloadStreamMute {}
-windows_core::imp::define_interface!(IAudioEndpointOffloadStreamVolume, IAudioEndpointOffloadStreamVolume_Vtbl, 0x64f1dd49_71ca_4281_8672_3a9eddd1d0b6);
+windows_core::imp::define_interface!(IAudioEndpointOffloadStreamVolume, IAudioEndpointOffloadStreamVolume_Vtbl, 0x9fd9e1b7_0214_5c2c_8145_a435491ce39d);
 windows_core::imp::interface_hierarchy!(IAudioEndpointOffloadStreamVolume, windows_core::IUnknown);
 impl IAudioEndpointOffloadStreamVolume {
     pub unsafe fn GetVolumeChannelCount(&self) -> windows_core::Result<u32> {
@@ -223,8 +227,8 @@ impl IAudioEndpointOffloadStreamVolume {
         }
     }
     #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub unsafe fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), u32channelcount, pf32volumes, u32curvetype, pcurveduration).ok() }
+    pub unsafe fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *mut f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *mut i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), u32channelcount, pf32volumes as _, u32curvetype, pcurveduration as _).ok() }
     }
     pub unsafe fn GetChannelVolumes(&self, u32channelcount: u32) -> windows_core::Result<f32> {
         unsafe {
@@ -239,7 +243,7 @@ pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetVolumeChannelCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub SetChannelVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, super::super::KernelStreaming::AUDIO_CURVE_TYPE, *const i64) -> windows_core::HRESULT,
+    pub SetChannelVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32, super::super::KernelStreaming::AUDIO_CURVE_TYPE, *mut i64) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_KernelStreaming"))]
     SetChannelVolumes: usize,
     pub GetChannelVolumes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
@@ -247,7 +251,7 @@ pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub trait IAudioEndpointOffloadStreamVolume_Impl: windows_core::IUnknownImpl {
     fn GetVolumeChannelCount(&self) -> windows_core::Result<u32>;
-    fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> windows_core::Result<()>;
+    fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *mut f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *mut i64) -> windows_core::Result<()>;
     fn GetChannelVolumes(&self, u32channelcount: u32) -> windows_core::Result<f32>;
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
@@ -265,7 +269,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetChannelVolumes<Identity: IAudioEndpointOffloadStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetChannelVolumes<Identity: IAudioEndpointOffloadStreamVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32channelcount: u32, pf32volumes: *mut f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioEndpointOffloadStreamVolume_Impl::SetChannelVolumes(this, core::mem::transmute_copy(&u32channelcount), core::mem::transmute_copy(&pf32volumes), core::mem::transmute_copy(&u32curvetype), core::mem::transmute_copy(&pcurveduration)).into()
@@ -603,7 +607,7 @@ impl IAudioEndpointVolume_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAudioEndpointVolume {}
-windows_core::imp::define_interface!(IAudioEndpointVolumeCallback, IAudioEndpointVolumeCallback_Vtbl, 0x657804fa_d6ad_4496_8a60_352752af4f89);
+windows_core::imp::define_interface!(IAudioEndpointVolumeCallback, IAudioEndpointVolumeCallback_Vtbl, 0xfeee798e_bf4b_5609_9b76_1ad7d1417994);
 windows_core::imp::interface_hierarchy!(IAudioEndpointVolumeCallback, windows_core::IUnknown);
 impl IAudioEndpointVolumeCallback {
     pub unsafe fn OnNotify(&self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> windows_core::Result<()> {
@@ -634,7 +638,7 @@ impl IAudioEndpointVolumeCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAudioEndpointVolumeCallback {}
-windows_core::imp::define_interface!(IAudioEndpointVolumeEx, IAudioEndpointVolumeEx_Vtbl, 0x66e11784_f695_4f28_a505_a7080081a78f);
+windows_core::imp::define_interface!(IAudioEndpointVolumeEx, IAudioEndpointVolumeEx_Vtbl, 0xcfbda025_5059_5515_8a68_77c9b53588f3);
 impl core::ops::Deref for IAudioEndpointVolumeEx {
     type Target = IAudioEndpointVolume;
     fn deref(&self) -> &Self::Target {
@@ -835,11 +839,14 @@ impl IHardwareAudioEngineBase {
             (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), _pwstrdeviceid.param().abi(), _uconnectorid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEngineFormat<P0>(&self, pdevice: P0, _brequestdeviceformat: bool, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>
+    pub unsafe fn GetEngineFormat<P0>(&self, pdevice: P0, _brequestdeviceformat: bool) -> windows_core::Result<*mut super::WAVEFORMATEX>
     where
         P0: windows_core::Param<super::IMMDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _brequestdeviceformat.into(), _ppwfxformat as _).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _brequestdeviceformat.into(), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn SetEngineDeviceFormat<P0>(&self, pdevice: P0, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where
@@ -875,7 +882,7 @@ pub struct IHardwareAudioEngineBase_Vtbl {
 }
 pub trait IHardwareAudioEngineBase_Impl: windows_core::IUnknownImpl {
     fn GetAvailableOffloadConnectorCount(&self, _pwstrdeviceid: &windows_core::PCWSTR, _uconnectorid: u32) -> windows_core::Result<u32>;
-    fn GetEngineFormat(&self, pdevice: windows_core::Ref<super::IMMDevice>, _brequestdeviceformat: windows_core::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn GetEngineFormat(&self, pdevice: windows_core::Ref<super::IMMDevice>, _brequestdeviceformat: windows_core::BOOL) -> windows_core::Result<*mut super::WAVEFORMATEX>;
     fn SetEngineDeviceFormat(&self, pdevice: windows_core::Ref<super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
     fn SetGfxState(&self, pdevice: windows_core::Ref<super::IMMDevice>, _benable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetGfxState(&self, pdevice: windows_core::Ref<super::IMMDevice>) -> windows_core::Result<windows_core::BOOL>;
@@ -897,7 +904,13 @@ impl IHardwareAudioEngineBase_Vtbl {
         unsafe extern "system" fn GetEngineFormat<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, _brequestdeviceformat: windows_core::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHardwareAudioEngineBase_Impl::GetEngineFormat(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&_brequestdeviceformat), core::mem::transmute_copy(&_ppwfxformat)).into()
+                match IHardwareAudioEngineBase_Impl::GetEngineFormat(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&_brequestdeviceformat)) {
+                    Ok(ok__) => {
+                        _ppwfxformat.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn SetEngineDeviceFormat<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::HRESULT {

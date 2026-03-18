@@ -238,7 +238,7 @@ unsafe impl Send for AtomPubClient {}
 #[cfg(feature = "Web_Syndication")]
 unsafe impl Sync for AtomPubClient {}
 #[cfg(feature = "Web_Syndication")]
-windows_core::imp::define_interface!(IAtomPubClient, IAtomPubClient_Vtbl, 0x35392c38_cded_4d4c_9637_05f15c1c9406);
+windows_core::imp::define_interface!(IAtomPubClient, IAtomPubClient_Vtbl, 0x9d45c09f_ceff_5969_9ecb_218c57fd4451);
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IAtomPubClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -299,7 +299,7 @@ pub struct IResourceCollection_Vtbl {
     pub Accepts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Web_Syndication")]
-windows_core::imp::define_interface!(IServiceDocument, IServiceDocument_Vtbl, 0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
+windows_core::imp::define_interface!(IServiceDocument, IServiceDocument_Vtbl, 0xb147fc33_970c_5b82_ac32_cebc06de006a);
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IServiceDocument {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

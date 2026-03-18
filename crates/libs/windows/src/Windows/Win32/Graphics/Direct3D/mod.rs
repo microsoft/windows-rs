@@ -307,6 +307,37 @@ pub const D3DFTL_FULL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-1i32)
 pub const D3DFTL_NO_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(0i32);
 pub const D3DFTL_PARTIAL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-2i32);
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DMATRIX_0 {
+    pub Anonymous: D3DMATRIX_0_0,
+    pub m: [f32; 16],
+}
+impl Default for D3DMATRIX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DMATRIX_0_0 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _13: f32,
+    pub _14: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _23: f32,
+    pub _24: f32,
+    pub _31: f32,
+    pub _32: f32,
+    pub _33: f32,
+    pub _34: f32,
+    pub _41: f32,
+    pub _42: f32,
+    pub _43: f32,
+    pub _44: f32,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3DVECTOR {
     pub x: f32,
@@ -741,7 +772,7 @@ pub const D3D_TESSELLATOR_PARTITIONING_POW2: D3D_TESSELLATOR_PARTITIONING = D3D_
 pub const D3D_TESSELLATOR_PARTITIONING_UNDEFINED: D3D_TESSELLATOR_PARTITIONING = D3D_TESSELLATOR_PARTITIONING(0i32);
 pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: windows_core::GUID = windows_core::GUID::from_u128(0x4c0f29e3_3f5f_4d35_84c9_bc0983b62c28);
 pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: windows_core::GUID = windows_core::GUID::from_u128(0xb5dc234f_72bb_4bec_9705_8cf258df6b6c);
-windows_core::imp::define_interface!(ID3DBlob, ID3DBlob_Vtbl, 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
+windows_core::imp::define_interface!(ID3DBlob, ID3DBlob_Vtbl, 0xb35c5312_d853_5c6e_b3d1_13c88d8b87a3);
 windows_core::imp::interface_hierarchy!(ID3DBlob, windows_core::IUnknown);
 impl ID3DBlob {
     pub unsafe fn GetBufferPointer(&self) -> *mut core::ffi::c_void {

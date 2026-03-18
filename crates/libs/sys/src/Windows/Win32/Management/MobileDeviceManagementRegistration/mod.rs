@@ -1,10 +1,10 @@
 windows_link::link!("mdmlocalmanagement.dll" "system" fn ApplyLocalManagementSyncML(syncmlrequest : windows_sys::core::PCWSTR, syncmlresult : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn DiscoverManagementService(pszupn : windows_sys::core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn DiscoverManagementServiceEx(pszupn : windows_sys::core::PCWSTR, pszdiscoveryservicecandidate : windows_sys::core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> windows_sys::core::HRESULT);
-windows_link::link!("mdmregistration.dll" "system" fn GetDeviceManagementConfigInfo(providerid : windows_sys::core::PCWSTR, configstringbufferlength : *mut u32, configstring : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("mdmregistration.dll" "system" fn GetDeviceManagementConfigInfo(providerid : windows_sys::core::PCWSTR, configstringbufferlength : *mut u32, configstring : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn GetDeviceRegistrationInfo(deviceinformationclass : REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut windows_sys::core::BOOL, cchupn : u32, pszupn : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut windows_sys::core::BOOL, cchupn : u32, pszupn : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);

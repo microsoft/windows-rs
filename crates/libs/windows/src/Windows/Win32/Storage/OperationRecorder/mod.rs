@@ -4,9 +4,9 @@ pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) 
     unsafe { OperationEnd(operationendparams) }
 }
 #[inline]
-pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn OperationStart(operationstartparams : *const OPERATION_START_PARAMETERS) -> windows_core::BOOL);
-    unsafe { OperationStart(operationstartparams) }
+pub unsafe fn OperationStart(operationstartparams: *mut OPERATION_START_PARAMETERS) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn OperationStart(operationstartparams : *mut OPERATION_START_PARAMETERS) -> windows_core::BOOL);
+    unsafe { OperationStart(operationstartparams as _) }
 }
 pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
 #[repr(C)]

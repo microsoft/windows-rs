@@ -1,6 +1,6 @@
 windows_link::link!("wldap32.dll" "C" fn LdapGetLastError() -> u32);
 windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> super::super::Foundation:: WIN32_ERROR);
-windows_link::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
+windows_link::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PCWSTR, cchdest : i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn ber_alloc_t(options : i32) -> *mut BerElement);
 windows_link::link!("wldap32.dll" "C" fn ber_bvdup(pberval : *mut LDAP_BERVAL) -> *mut LDAP_BERVAL);
@@ -12,8 +12,8 @@ windows_link::link!("wldap32.dll" "C" fn ber_free(pberelement : *mut BerElement,
 windows_link::link!("wldap32.dll" "C" fn ber_init(pberval : *mut LDAP_BERVAL) -> *mut BerElement);
 windows_link::link!("wldap32.dll" "C" fn ber_next_element(pberelement : *mut BerElement, plen : *mut u32, opaque : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ber_peek_tag(pberelement : *mut BerElement, plen : *mut u32) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ber_printf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR, ...) -> i32);
-windows_link::link!("wldap32.dll" "C" fn ber_scanf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR, ...) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ber_printf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("wldap32.dll" "C" fn ber_scanf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ber_skip_tag(pberelement : *mut BerElement, plen : *mut u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn cldap_open(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
 windows_link::link!("wldap32.dll" "C" fn cldap_openA(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
@@ -48,7 +48,7 @@ windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext(ld : *mut LDAP, dn : w
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_extA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_extW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attr : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, messagenumber : *mut u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_ext_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, attr : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_s(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_compare_sA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
@@ -63,9 +63,9 @@ windows_link::link!("wldap32.dll" "C" fn ldap_controls_freeA(controls : *mut *mu
 windows_link::link!("wldap32.dll" "C" fn ldap_controls_freeW(control : *mut *mut LDAPControlW) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_count_entries(ld : *mut LDAP, res : *mut LDAPMessage) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_count_references(ld : *mut LDAP, res : *mut LDAPMessage) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_count_values(vals : *const windows_sys::core::PCSTR) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_count_valuesA(vals : *const windows_sys::core::PCSTR) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_count_valuesW(vals : *const windows_sys::core::PCWSTR) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_count_values(vals : *mut windows_sys::core::PSTR) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_count_valuesA(vals : *mut windows_sys::core::PSTR) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_count_valuesW(vals : *mut windows_sys::core::PWSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_count_values_len(vals : *mut *mut LDAP_BERVAL) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_create_page_control(externalhandle : *mut LDAP, pagesize : u32, cookie : *mut LDAP_BERVAL, iscritical : u8, control : *mut *mut LDAPControlA) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_create_page_controlA(externalhandle : *mut LDAP, pagesize : u32, cookie : *mut LDAP_BERVAL, iscritical : u8, control : *mut *mut LDAPControlA) -> u32);
@@ -95,7 +95,7 @@ windows_link::link!("wldap32.dll" "C" fn ldap_encode_sort_controlW(externalhandl
 windows_link::link!("wldap32.dll" "C" fn ldap_err2string(err : u32) -> windows_sys::core::PSTR);
 windows_link::link!("wldap32.dll" "C" fn ldap_err2stringA(err : u32) -> windows_sys::core::PSTR);
 windows_link::link!("wldap32.dll" "C" fn ldap_err2stringW(err : u32) -> windows_sys::core::PWSTR);
-windows_link::link!("wldap32.dll" "C" fn ldap_escape_filter_element(sourcefilterelement : windows_sys::core::PCSTR, sourcelength : u32, destfilterelement : windows_sys::core::PSTR, destlength : u32) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_escape_filter_element(sourcefilterelement : windows_sys::core::PCSTR, sourcelength : u32, destfilterelement : windows_sys::core::PCSTR, destlength : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_escape_filter_elementA(sourcefilterelement : windows_sys::core::PCSTR, sourcelength : u32, destfilterelement : windows_sys::core::PSTR, destlength : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_escape_filter_elementW(sourcefilterelement : windows_sys::core::PCSTR, sourcelength : u32, destfilterelement : windows_sys::core::PWSTR, destlength : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_explode_dn(dn : windows_sys::core::PCSTR, notypes : u32) -> *mut windows_sys::core::PSTR);
@@ -192,33 +192,33 @@ windows_link::link!("wldap32.dll" "C" fn ldap_rename_ext_sA(ld : *mut LDAP, dn :
 windows_link::link!("wldap32.dll" "C" fn ldap_rename_ext_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, newrdn : windows_sys::core::PCWSTR, newparent : windows_sys::core::PCWSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_result(ld : *mut LDAP, msgid : u32, all : u32, timeout : *const LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_result2error(ld : *mut LDAP, res : *mut LDAPMessage, freeit : u32) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bindA(externalhandle : *mut LDAP, distname : windows_sys::core::PCSTR, authmechanism : windows_sys::core::PCSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlA, clientctrls : *mut *mut LDAPControlA, messagenumber : *mut i32) -> i32);
+windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bindA(externalhandle : *mut LDAP, distname : windows_sys::core::PCSTR, authmechanism : windows_sys::core::PCSTR, cred : *mut LDAP_BERVAL, serverctrls : *mut *mut LDAPControlA, clientctrls : *mut *mut LDAPControlA, messagenumber : *mut i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bindW(externalhandle : *mut LDAP, distname : windows_sys::core::PCWSTR, authmechanism : windows_sys::core::PCWSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlW, clientctrls : *mut *mut LDAPControlW, messagenumber : *mut i32) -> i32);
-windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bind_sA(externalhandle : *mut LDAP, distname : windows_sys::core::PCSTR, authmechanism : windows_sys::core::PCSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlA, clientctrls : *mut *mut LDAPControlA, serverdata : *mut *mut LDAP_BERVAL) -> i32);
-windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bind_sW(externalhandle : *mut LDAP, distname : windows_sys::core::PCWSTR, authmechanism : windows_sys::core::PCWSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlW, clientctrls : *mut *mut LDAPControlW, serverdata : *mut *mut LDAP_BERVAL) -> i32);
+windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bind_sA(externalhandle : *mut LDAP, distname : windows_sys::core::PCSTR, authmechanism : windows_sys::core::PCSTR, cred : *mut LDAP_BERVAL, serverctrls : *mut *mut LDAPControlA, clientctrls : *mut *mut LDAPControlA, serverdata : *mut *mut LDAP_BERVAL) -> i32);
+windows_link::link!("wldap32.dll" "C" fn ldap_sasl_bind_sW(externalhandle : *mut LDAP, distname : windows_sys::core::PCWSTR, authmechanism : windows_sys::core::PCWSTR, cred : *mut LDAP_BERVAL, serverctrls : *mut *mut LDAPControlW, clientctrls : *mut *mut LDAPControlW, serverdata : *mut *mut LDAP_BERVAL) -> i32);
 windows_link::link!("wldap32.dll" "C" fn ldap_search(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_searchA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_searchW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const *const u16, attrsonly : u32) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_searchW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *mut *mut u16, attrsonly : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_search_abandon_page(externalhandle : *mut LDAP, searchblock : PLDAPSearch) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_search_ext(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_search_extA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_extW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const *const u16, attrsonly : u32, servercontrols : *const *const LDAPControlW, clientcontrols : *const *const LDAPControlW, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_s(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_extW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *mut *mut u16, attrsonly : u32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_s(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *mut *mut i8, attrsonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_sA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_sW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const *const u16, attrsonly : u32, servercontrols : *const *const LDAPControlW, clientcontrols : *const *const LDAPControlW, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_ext_sW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *mut *mut u16, attrsonly : u32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_search_init_page(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCSTR, attributelist : *mut *mut i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> PLDAPSearch);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_init_pageA(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCSTR, attributelist : *const *const i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> PLDAPSearch);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_init_pageW(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCWSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCWSTR, attributelist : *const *const u16, attributesonly : u32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyW) -> PLDAPSearch);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_s(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_sA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_sW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const *const u16, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_st(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_stA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *const *const i8, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_search_stW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *const *const u16, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_init_pageA(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCSTR, attributelist : *mut *mut i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> PLDAPSearch);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_init_pageW(externalhandle : *mut LDAP, distinguishedname : windows_sys::core::PCWSTR, scopeofsearch : u32, searchfilter : windows_sys::core::PCWSTR, attributelist : *mut *mut u16, attributesonly : u32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyW) -> PLDAPSearch);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_s(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *mut *mut i8, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_sA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *mut *mut i8, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_sW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *mut *mut u16, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_st(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *mut *mut i8, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_stA(ld : *mut LDAP, base : windows_sys::core::PCSTR, scope : u32, filter : windows_sys::core::PCSTR, attrs : *mut *mut i8, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_search_stW(ld : *mut LDAP, base : windows_sys::core::PCWSTR, scope : u32, filter : windows_sys::core::PCWSTR, attrs : *mut *mut u16, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_set_dbg_flags(newflags : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_set_dbg_routine(debugprintroutine : DBGPRINT));
-windows_link::link!("wldap32.dll" "C" fn ldap_set_option(ld : *mut LDAP, option : i32, invalue : *const core::ffi::c_void) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_set_optionW(ld : *mut LDAP, option : i32, invalue : *const core::ffi::c_void) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_set_option(ld : *mut LDAP, option : i32, invalue : *mut core::ffi::c_void) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_set_optionW(ld : *mut LDAP, option : i32, invalue : *mut core::ffi::c_void) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bind(ld : *mut LDAP, dn : windows_sys::core::PCSTR, passwd : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bindA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, passwd : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_simple_bindW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, passwd : windows_sys::core::PCWSTR) -> u32);
@@ -237,9 +237,9 @@ windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dnA(ufn : windows_sys::core::P
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dnW(ufn : windows_sys::core::PCWSTR, pdn : *mut windows_sys::core::PWSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_unbind(ld : *mut LDAP) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_unbind_s(ld : *mut LDAP) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_value_free(vals : *const windows_sys::core::PCSTR) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_value_freeA(vals : *const windows_sys::core::PCSTR) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_value_freeW(vals : *const windows_sys::core::PCWSTR) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_value_free(vals : *mut windows_sys::core::PSTR) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_value_freeA(vals : *mut windows_sys::core::PSTR) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_value_freeW(vals : *mut windows_sys::core::PWSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_value_free_len(vals : *mut *mut LDAP_BERVAL) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -281,19 +281,6 @@ pub struct LDAP {
     pub ld_options: u32,
 }
 impl Default for LDAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LDAP_0 {
-    pub sb_sd: usize,
-    pub Reserved1: [u8; 41],
-    pub sb_naddr: usize,
-    pub Reserved2: [u8; 24],
-}
-impl Default for LDAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -481,6 +468,19 @@ pub struct LDAPVLVInfo {
     pub ldvlv_extradata: *mut core::ffi::c_void,
 }
 impl Default for LDAPVLVInfo {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LDAP_0 {
+    pub sb_sd: usize,
+    pub Reserved1: [u8; 41],
+    pub sb_naddr: usize,
+    pub Reserved2: [u8; 24],
+}
+impl Default for LDAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

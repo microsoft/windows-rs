@@ -68,7 +68,7 @@ windows_link::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : *mut MIDIINCAPSA, cbmic : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : *mut MIDIINCAPSW, cbmic : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
-windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
+windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PCWSTR, cchtext : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
@@ -79,16 +79,16 @@ windows_link::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : *const u16, fucache : u32) -> u32);
-windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *const u16, fucache : u32) -> u32);
+windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *mut u16, fucache : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : *mut MIDIOUTCAPSA, cbmoc : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : *mut MIDIOUTCAPSW, cbmoc : u32) -> u32);
-windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
+windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PCSTR, cchtext : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> u32);
-windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *const MIDIHDR, cbmh : u32) -> u32);
+windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutOpen(phmo : *mut HMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
 windows_link::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
@@ -125,7 +125,7 @@ windows_link::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : *mut WAVEINCAPSW, cbwic : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
-windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
+windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PCWSTR, cchtext : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
 windows_link::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
@@ -141,7 +141,7 @@ windows_link::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> u32)
 windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : *mut WAVEOUTCAPSA, cbwoc : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : *mut WAVEOUTCAPSW, cbwoc : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> u32);
-windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> u32);
+windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : u32, psztext : windows_sys::core::PCWSTR, cchtext : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> u32);
@@ -149,7 +149,7 @@ windows_link::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOU
 windows_link::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : *mut u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
-windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *mut WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
 windows_link::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> u32);
@@ -180,7 +180,7 @@ pub const ACMDM_STREAM_SIZE: u32 = 24654u32;
 pub const ACMDM_STREAM_UNPREPARE: u32 = 24658u32;
 pub const ACMDM_STREAM_UPDATE: u32 = 24659u32;
 pub const ACMDM_USER: u32 = 16384u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSA {
@@ -207,7 +207,7 @@ impl Default for ACMDRIVERDETAILSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSW {
@@ -247,7 +247,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
 pub type ACMDRIVERENUMCB = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMDRVFORMATSUGGEST {
     pub cbStruct: u32,
@@ -262,7 +262,7 @@ impl Default for ACMDRVFORMATSUGGEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMDRVOPENDESCA {
     pub cbStruct: u32,
@@ -280,7 +280,7 @@ impl Default for ACMDRVOPENDESCA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMDRVOPENDESCW {
     pub cbStruct: u32,
@@ -298,7 +298,7 @@ impl Default for ACMDRVOPENDESCW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMHEADER {
     pub cbStruct: u32,
@@ -328,7 +328,7 @@ impl Default for ACMDRVSTREAMHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMINSTANCE {
     pub cbStruct: u32,
@@ -347,7 +347,7 @@ impl Default for ACMDRVSTREAMINSTANCE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ACMDRVSTREAMSIZE {
     pub cbStruct: u32,
@@ -360,7 +360,7 @@ pub const ACMERR_BUSY: u32 = 513u32;
 pub const ACMERR_CANCELED: u32 = 515u32;
 pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
 pub const ACMERR_UNPREPARED: u32 = 514u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEA {
     pub cbStruct: u32,
@@ -387,7 +387,7 @@ impl Default for ACMFILTERCHOOSEA {
 }
 pub type ACMFILTERCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
 pub type ACMFILTERCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEW {
     pub cbStruct: u32,
@@ -418,7 +418,7 @@ pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
 pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64i32;
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: u32,
@@ -434,7 +434,7 @@ impl Default for ACMFILTERDETAILSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSW {
     pub cbStruct: u32,
@@ -453,7 +453,7 @@ impl Default for ACMFILTERDETAILSW {
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
 pub type ACMFILTERENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 pub type ACMFILTERENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSA {
     pub cbStruct: u32,
@@ -469,7 +469,7 @@ impl Default for ACMFILTERTAGDETAILSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSW {
     pub cbStruct: u32,
@@ -488,7 +488,7 @@ impl Default for ACMFILTERTAGDETAILSW {
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
 pub type ACMFILTERTAGENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 pub type ACMFILTERTAGENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEA {
     pub cbStruct: u32,
@@ -515,7 +515,7 @@ impl Default for ACMFORMATCHOOSEA {
 }
 pub type ACMFORMATCHOOSEHOOKPROCA = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
 pub type ACMFORMATCHOOSEHOOKPROCW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEW {
     pub cbStruct: u32,
@@ -546,7 +546,7 @@ pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
 pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: u32,
@@ -565,7 +565,7 @@ impl Default for ACMFORMATDETAILSA {
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 pub type ACMFORMATENUMCBA = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
 pub type ACMFORMATENUMCBW = Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> windows_sys::core::BOOL>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSA {
     pub cbStruct: u32,
@@ -581,7 +581,7 @@ impl Default for ACMFORMATTAGDETAILSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSW {
     pub cbStruct: u32,
@@ -609,30 +609,7 @@ pub const ACMHELPMSGCONTEXTMENUW: windows_sys::core::PCWSTR = windows_sys::core:
 pub const ACMHELPMSGSTRING: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_help");
 pub const ACMHELPMSGSTRINGA: windows_sys::core::PCSTR = windows_sys::core::s!("acmchoose_help");
 pub const ACMHELPMSGSTRINGW: windows_sys::core::PCWSTR = windows_sys::core::w!("acmchoose_help");
-#[repr(C, packed(1))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct ACMSTREAMHEADER {
-    pub cbStruct: u32,
-    pub fdwStatus: u32,
-    pub dwUser: usize,
-    pub pbSrc: *mut u8,
-    pub cbSrcLength: u32,
-    pub cbSrcLengthUsed: u32,
-    pub dwSrcUser: usize,
-    pub pbDst: *mut u8,
-    pub cbDstLength: u32,
-    pub cbDstLengthUsed: u32,
-    pub dwDstUser: usize,
-    pub dwReservedDriver: [u32; 10],
-}
-#[cfg(target_arch = "x86")]
-impl Default for ACMSTREAMHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct ACMSTREAMHEADER {
@@ -878,7 +855,7 @@ impl Default for AUDIO_VOLUME_NOTIFICATION_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUXCAPS2A {
     pub wMid: u16,
@@ -897,7 +874,7 @@ impl Default for AUXCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUXCAPS2W {
     pub wMid: u16,
@@ -916,7 +893,7 @@ impl Default for AUXCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUXCAPSA {
     pub wMid: u16,
@@ -932,7 +909,7 @@ impl Default for AUXCAPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct AUXCAPSW {
     pub wMid: u16,
@@ -1067,7 +1044,7 @@ pub const DisconnectReasonFormatChanged: AudioSessionDisconnectReason = 2i32;
 pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = 1i32;
 pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = 4i32;
 pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = 3i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
@@ -1146,7 +1123,7 @@ pub const MIDIERR_NOMAP: u32 = 66u32;
 pub const MIDIERR_NOTREADY: u32 = 67u32;
 pub const MIDIERR_STILLPLAYING: u32 = 65u32;
 pub const MIDIERR_UNPREPARED: u32 = 64u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIEVENT {
     pub dwDeltaTime: u32,
@@ -1159,7 +1136,7 @@ impl Default for MIDIEVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIHDR {
     pub lpData: windows_sys::core::PSTR,
@@ -1177,7 +1154,7 @@ impl Default for MIDIHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPS2A {
     pub wMid: u16,
@@ -1194,7 +1171,7 @@ impl Default for MIDIINCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPS2W {
     pub wMid: u16,
@@ -1211,7 +1188,7 @@ impl Default for MIDIINCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPSA {
     pub wMid: u16,
@@ -1225,7 +1202,7 @@ impl Default for MIDIINCAPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIINCAPSW {
     pub wMid: u16,
@@ -1239,7 +1216,7 @@ impl Default for MIDIINCAPSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
@@ -1260,7 +1237,7 @@ impl Default for MIDIOUTCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2W {
     pub wMid: u16,
@@ -1281,7 +1258,7 @@ impl Default for MIDIOUTCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSA {
     pub wMid: u16,
@@ -1299,7 +1276,7 @@ impl Default for MIDIOUTCAPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSW {
     pub wMid: u16,
@@ -1318,13 +1295,13 @@ impl Default for MIDIOUTCAPSW {
     }
 }
 pub const MIDIPATCHSIZE: u32 = 128u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIDIPROPTEMPO {
     pub cbStruct: u32,
     pub dwTempo: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIDIPROPTIMEDIV {
     pub cbStruct: u32,
@@ -1334,7 +1311,7 @@ pub const MIDIPROP_GET: i32 = 1073741824i32;
 pub const MIDIPROP_SET: i32 = -2147483648i32;
 pub const MIDIPROP_TEMPO: i32 = 2i32;
 pub const MIDIPROP_TIMEDIV: i32 = 1i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIDISTRMBUFFVER {
     pub dwVersion: u32,
@@ -1348,7 +1325,7 @@ pub const MIDI_CACHE_QUERY: u32 = 3u32;
 pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = 32u32;
 pub const MIDI_UNCACHE: u32 = 4u32;
 pub type MIDI_WAVE_OPEN_TYPE = u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPS2A {
     pub wMid: u16,
@@ -1366,7 +1343,7 @@ impl Default for MIXERCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPS2W {
     pub wMid: u16,
@@ -1384,7 +1361,7 @@ impl Default for MIXERCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPSA {
     pub wMid: u16,
@@ -1399,7 +1376,7 @@ impl Default for MIXERCAPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCAPSW {
     pub wMid: u16,
@@ -1414,7 +1391,7 @@ impl Default for MIXERCAPSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLA {
     pub cbStruct: u32,
@@ -1432,7 +1409,7 @@ impl Default for MIXERCONTROLA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLA_0 {
     pub Anonymous1: MIXERCONTROLA_0_0,
@@ -1444,19 +1421,19 @@ impl Default for MIXERCONTROLA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLA_1 {
     pub cSteps: u32,
@@ -1468,7 +1445,7 @@ impl Default for MIXERCONTROLA_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS {
     pub cbStruct: u32,
@@ -1483,7 +1460,7 @@ impl Default for MIXERCONTROLDETAILS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1494,12 +1471,12 @@ impl Default for MIXERCONTROLDETAILS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
     pub fValue: i32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: u32,
@@ -1511,7 +1488,7 @@ impl Default for MIXERCONTROLDETAILS_LISTTEXTA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTW {
     pub dwParam1: u32,
@@ -1523,17 +1500,17 @@ impl Default for MIXERCONTROLDETAILS_LISTTEXTW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_SIGNED {
     pub lValue: i32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
     pub dwValue: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERCONTROLW {
     pub cbStruct: u32,
@@ -1551,7 +1528,7 @@ impl Default for MIXERCONTROLW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLW_0 {
     pub Anonymous1: MIXERCONTROLW_0_0,
@@ -1563,19 +1540,19 @@ impl Default for MIXERCONTROLW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLW_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MIXERCONTROLW_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIXERCONTROLW_1 {
     pub cSteps: u32,
@@ -1645,7 +1622,7 @@ pub const MIXERCONTROL_CT_UNITS_MASK: i32 = 16711680i32;
 pub const MIXERCONTROL_CT_UNITS_PERCENT: i32 = 327680i32;
 pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEA {
     pub cbStruct: u32,
@@ -1667,7 +1644,7 @@ impl Default for MIXERLINEA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
@@ -1682,7 +1659,7 @@ impl Default for MIXERLINEA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSA {
     pub cbStruct: u32,
@@ -1697,7 +1674,7 @@ impl Default for MIXERLINECONTROLSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
@@ -1708,7 +1685,7 @@ impl Default for MIXERLINECONTROLSA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSW {
     pub cbStruct: u32,
@@ -1723,7 +1700,7 @@ impl Default for MIXERLINECONTROLSW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSW_0 {
     pub dwControlID: u32,
@@ -1734,7 +1711,7 @@ impl Default for MIXERLINECONTROLSW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEW {
     pub cbStruct: u32,
@@ -1756,7 +1733,7 @@ impl Default for MIXERLINEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIXERLINEW_0 {
     pub dwType: u32,
@@ -1848,7 +1825,7 @@ pub const Microphone: EndpointFormFactor = 4i32;
 pub const Muted: AudioStateMonitorSoundLevel = 0i32;
 pub const Out: DataFlow = 1i32;
 pub type PAudioStateMonitorCallback = Option<unsafe extern "system" fn(audiostatemonitor: *mut core::ffi::c_void, context: *const core::ffi::c_void)>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
@@ -1948,7 +1925,7 @@ pub struct SpatialAudioClientActivationParams {
     pub minorVersion2: i32,
     pub minorVersion3: i32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
@@ -1968,7 +1945,7 @@ impl Default for SpatialAudioHrtfActivationParams {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
@@ -1989,19 +1966,19 @@ impl Default for SpatialAudioHrtfActivationParams2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDirectivity {
     pub Type: SpatialAudioHrtfDirectivityType,
     pub Scaling: f32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDirectivityCardioid {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub Order: f32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDirectivityCone {
     pub directivity: SpatialAudioHrtfDirectivity,
@@ -2024,7 +2001,7 @@ impl Default for SpatialAudioHrtfDirectivityUnion {
 pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = 1i32;
 pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = 2i32;
 pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = 0i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioHrtfDistanceDecay {
     pub Type: SpatialAudioHrtfDistanceDecayType,
@@ -2047,7 +2024,7 @@ pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = 1i32;
 pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = 3i32;
 pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = 2i32;
 pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = 0i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SpatialAudioMetadataItemsInfo {
     pub FrameCount: u16,
@@ -2059,7 +2036,7 @@ pub type SpatialAudioMetadataWriterOverflowMode = i32;
 pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = 0i32;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2i32;
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
@@ -2075,7 +2052,7 @@ impl Default for SpatialAudioObjectRenderStreamActivationParams {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
@@ -2092,7 +2069,7 @@ impl Default for SpatialAudioObjectRenderStreamActivationParams2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
@@ -2113,7 +2090,7 @@ impl Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
@@ -2140,7 +2117,7 @@ pub const Subunit: PartType = 1i32;
 pub const UnknownDigitalPassthrough: EndpointFormFactor = 7i32;
 pub const UnknownFormFactor: EndpointFormFactor = 10i32;
 pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: windows_sys::core::PCWSTR = windows_sys::core::w!("VAD\\Process_Loopback");
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct VOLUMEWAVEFILTER {
     pub wfltr: WAVEFILTER,
@@ -2152,7 +2129,7 @@ pub const WAVECAPS_PLAYBACKRATE: u32 = 2u32;
 pub const WAVECAPS_SAMPLEACCURATE: u32 = 32u32;
 pub const WAVECAPS_SYNC: u32 = 16u32;
 pub const WAVECAPS_VOLUME: u32 = 4u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEFILTER {
     pub cbStruct: u32,
@@ -2165,7 +2142,7 @@ impl Default for WAVEFILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WAVEFORMAT {
     pub wFormatTag: u16,
@@ -2174,7 +2151,7 @@ pub struct WAVEFORMAT {
     pub nAvgBytesPerSec: u32,
     pub nBlockAlign: u16,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WAVEFORMATEX {
     pub wFormatTag: u16,
@@ -2185,7 +2162,7 @@ pub struct WAVEFORMATEX {
     pub wBitsPerSample: u16,
     pub cbSize: u16,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEFORMATEXTENSIBLE {
     pub Format: WAVEFORMATEX,
@@ -2198,7 +2175,7 @@ impl Default for WAVEFORMATEXTENSIBLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union WAVEFORMATEXTENSIBLE_0 {
     pub wValidBitsPerSample: u16,
@@ -2210,7 +2187,7 @@ impl Default for WAVEFORMATEXTENSIBLE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEHDR {
     pub lpData: windows_sys::core::PSTR,
@@ -2227,7 +2204,7 @@ impl Default for WAVEHDR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPS2A {
     pub wMid: u16,
@@ -2246,7 +2223,7 @@ impl Default for WAVEINCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPS2W {
     pub wMid: u16,
@@ -2265,7 +2242,7 @@ impl Default for WAVEINCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPSA {
     pub wMid: u16,
@@ -2281,7 +2258,7 @@ impl Default for WAVEINCAPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEINCAPSW {
     pub wMid: u16,
@@ -2300,7 +2277,7 @@ impl Default for WAVEINCAPSW {
 pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0u32;
 pub const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2u32;
 pub const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
@@ -2320,7 +2297,7 @@ impl Default for WAVEOUTCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2W {
     pub wMid: u16,
@@ -2340,7 +2317,7 @@ impl Default for WAVEOUTCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSA {
     pub wMid: u16,
@@ -2357,7 +2334,7 @@ impl Default for WAVEOUTCAPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSW {
     pub wMid: u16,
@@ -2429,7 +2406,7 @@ pub const eCommunications: ERole = 2i32;
 pub const eConsole: ERole = 0i32;
 pub const eMultimedia: ERole = 1i32;
 pub const eRender: EDataFlow = 0i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct tACMFORMATDETAILSW {
     pub cbStruct: u32,

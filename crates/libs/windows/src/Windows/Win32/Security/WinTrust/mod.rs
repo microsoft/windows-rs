@@ -1,12 +1,12 @@
 #[inline]
-pub unsafe fn OpenPersonalTrustDBDialog(hwndparent: Option<super::super::Foundation::HWND>) -> windows_core::BOOL {
+pub unsafe fn OpenPersonalTrustDBDialog(hwndparent: super::super::Foundation::HWND) -> windows_core::BOOL {
     windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation:: HWND) -> windows_core::BOOL);
-    unsafe { OpenPersonalTrustDBDialog(hwndparent.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OpenPersonalTrustDBDialog(hwndparent) }
 }
 #[inline]
-pub unsafe fn OpenPersonalTrustDBDialogEx(hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32, pvreserved: Option<*mut *mut core::ffi::c_void>) -> windows_core::BOOL {
+pub unsafe fn OpenPersonalTrustDBDialogEx(hwndparent: super::super::Foundation::HWND, dwflags: u32, pvreserved: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
     windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { OpenPersonalTrustDBDialogEx(hwndparent.unwrap_or(core::mem::zeroed()) as _, dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OpenPersonalTrustDBDialogEx(hwndparent, dwflags, pvreserved as _) }
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
@@ -56,30 +56,34 @@ pub unsafe fn WinVerifyTrustEx(hwnd: super::super::Foundation::HWND, pgactionid:
     unsafe { WinVerifyTrustEx(hwnd, pgactionid as _, pwintrustdata as _) }
 }
 #[inline]
-pub unsafe fn WintrustAddActionID(pgactionid: *const windows_core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> windows_core::Result<()> {
-    windows_core::link!("wintrust.dll" "system" fn WintrustAddActionID(pgactionid : *const windows_core::GUID, fdwflags : u32, psprovinfo : *const CRYPT_REGISTER_ACTIONID) -> windows_core::BOOL);
-    unsafe { WintrustAddActionID(pgactionid, fdwflags, psprovinfo).ok() }
+pub unsafe fn WintrustAddActionID(pgactionid: *mut windows_core::GUID, fdwflags: u32, psprovinfo: *mut CRYPT_REGISTER_ACTIONID) -> windows_core::BOOL {
+    windows_core::link!("wintrust.dll" "system" fn WintrustAddActionID(pgactionid : *mut windows_core::GUID, fdwflags : u32, psprovinfo : *mut CRYPT_REGISTER_ACTIONID) -> windows_core::BOOL);
+    unsafe { WintrustAddActionID(pgactionid as _, fdwflags, psprovinfo as _) }
 }
 #[inline]
-pub unsafe fn WintrustAddDefaultForUsage<P0>(pszusageoid: P0, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> windows_core::Result<()>
+pub unsafe fn WintrustAddDefaultForUsage<P0>(pszusageoid: P0, psdefusage: *mut CRYPT_PROVIDER_REGDEFUSAGE) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("wintrust.dll" "system" fn WintrustAddDefaultForUsage(pszusageoid : windows_core::PCSTR, psdefusage : *const CRYPT_PROVIDER_REGDEFUSAGE) -> windows_core::BOOL);
-    unsafe { WintrustAddDefaultForUsage(pszusageoid.param().abi(), psdefusage).ok() }
+    windows_core::link!("wintrust.dll" "system" fn WintrustAddDefaultForUsage(pszusageoid : windows_core::PCSTR, psdefusage : *mut CRYPT_PROVIDER_REGDEFUSAGE) -> windows_core::BOOL);
+    unsafe { WintrustAddDefaultForUsage(pszusageoid.param().abi(), psdefusage as _) }
 }
 #[inline]
-pub unsafe fn WintrustGetDefaultForUsage<P1>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: P1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_core::Result<()>
+pub unsafe fn WintrustGetDefaultForUsage<P1>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: P1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wintrust.dll" "system" fn WintrustGetDefaultForUsage(dwaction : WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid : windows_core::PCSTR, psusage : *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL);
-    unsafe { WintrustGetDefaultForUsage(dwaction, pszusageoid.param().abi(), psusage as _).ok() }
+    unsafe { WintrustGetDefaultForUsage(dwaction, pszusageoid.param().abi(), psusage as _) }
 }
 #[inline]
-pub unsafe fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS) {
+pub unsafe fn WintrustGetRegPolicyFlags() -> WINTRUST_POLICY_FLAGS {
     windows_core::link!("wintrust.dll" "system" fn WintrustGetRegPolicyFlags(pdwpolicyflags : *mut WINTRUST_POLICY_FLAGS));
-    unsafe { WintrustGetRegPolicyFlags(pdwpolicyflags as _) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        WintrustGetRegPolicyFlags(&mut result__);
+        result__
+    }
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
@@ -88,9 +92,9 @@ pub unsafe fn WintrustLoadFunctionPointers(pgactionid: *mut windows_core::GUID, 
     unsafe { WintrustLoadFunctionPointers(pgactionid as _, ppfns as _) }
 }
 #[inline]
-pub unsafe fn WintrustRemoveActionID(pgactionid: *const windows_core::GUID) -> windows_core::BOOL {
-    windows_core::link!("wintrust.dll" "system" fn WintrustRemoveActionID(pgactionid : *const windows_core::GUID) -> windows_core::BOOL);
-    unsafe { WintrustRemoveActionID(pgactionid) }
+pub unsafe fn WintrustRemoveActionID(pgactionid: *mut windows_core::GUID) -> windows_core::BOOL {
+    windows_core::link!("wintrust.dll" "system" fn WintrustRemoveActionID(pgactionid : *mut windows_core::GUID) -> windows_core::BOOL);
+    unsafe { WintrustRemoveActionID(pgactionid as _) }
 }
 #[inline]
 pub unsafe fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: bool) {
@@ -115,9 +119,9 @@ pub struct CAT_MEMBERINFO2 {
     pub dwCertVersion: u32,
 }
 pub const CAT_MEMBERINFO2_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.3");
-pub const CAT_MEMBERINFO2_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2223i32 as _);
+pub const CAT_MEMBERINFO2_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2223i64 as _);
 pub const CAT_MEMBERINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.2");
-pub const CAT_MEMBERINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2222i32 as _);
+pub const CAT_MEMBERINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2222i64 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -127,7 +131,7 @@ pub struct CAT_NAMEVALUE {
     pub Value: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
 pub const CAT_NAMEVALUE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.2.1");
-pub const CAT_NAMEVALUE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2221i32 as _);
+pub const CAT_NAMEVALUE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2221i64 as _);
 pub const CCPI_RESULT_ALLOW: u32 = 1u32;
 pub const CCPI_RESULT_AUDIT: u32 = 3u32;
 pub const CCPI_RESULT_DENY: u32 = 2u32;
@@ -481,23 +485,23 @@ pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
     pub seal: bool,
 }
-pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2010i32 as _);
+pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2010i64 as _);
 pub const OFFICESIGN_ACTION_VERIFY: windows_core::GUID = windows_core::GUID::from_u128(0x5555c2cd_17fb_11d1_85c4_00c04fc295ee);
 pub const OFFICE_CLEANUPPOLICY_FUNCTION: windows_core::PCWSTR = windows_core::w!("OfficeCleanupPolicy");
 pub const OFFICE_INITPROV_FUNCTION: windows_core::PCWSTR = windows_core::w!("OfficeInitializePolicy");
 pub const OFFICE_POLICY_PROVIDER_DLL_NAME: windows_core::PCWSTR = windows_core::w!("WINTRUST.DLL");
-pub type PFN_ALLOCANDFILLDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL>;
+pub type PFN_ALLOCANDFILLDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_core::PCSTR, psdefusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_CERT = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: windows_core::BOOL, idxcountersigner: u32, pcert2add: *const super::Cryptography::CERT_CONTEXT) -> windows_core::BOOL>;
+pub type PFN_CPD_ADD_CERT = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: windows_core::BOOL, idxcountersigner: u32, pcert2add: *mut super::Cryptography::CERT_CONTEXT) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_PRIVDATA = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> windows_core::BOOL>;
+pub type PFN_CPD_ADD_PRIVDATA = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, pprivdata2add: *mut CRYPT_PROVIDER_PRIVDATA) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_SGNR = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: windows_core::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> windows_core::BOOL>;
+pub type PFN_CPD_ADD_SGNR = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, fcountersigner: windows_core::BOOL, idxsigner: u32, psgnr2add: *mut CRYPT_PROVIDER_SGNR) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_CPD_ADD_STORE = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: super::Cryptography::HCERTSTORE) -> windows_core::BOOL>;
+pub type PFN_CPD_ADD_STORE = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, hstore2add: super::Cryptography::HCERTSTORE) -> windows_core::BOOL>;
 pub type PFN_CPD_MEM_ALLOC = Option<unsafe extern "system" fn(cbsize: u32) -> *mut core::ffi::c_void>;
 pub type PFN_CPD_MEM_FREE = Option<unsafe extern "system" fn(pvmem2free: *const core::ffi::c_void)>;
-pub type PFN_FREEDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_core::PCSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL>;
+pub type PFN_FREEDEFUSAGE = Option<unsafe extern "system" fn(pszusageoid: windows_core::PCSTR, psdefusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: windows_core::BOOL, idxcountersigner: u32) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -515,7 +519,7 @@ pub type PFN_PROVIDER_SIGTRUST_CALL = Option<unsafe extern "system" fn(pprovdata
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_TESTFINALPOLICY_CALL = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-pub type PFN_PROVUI_CALL = Option<unsafe extern "system" fn(hwndsecuritydialog: super::super::Foundation::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> windows_core::BOOL>;
+pub type PFN_PROVUI_CALL = Option<unsafe extern "system" fn(hwndsecuritydialog: super::super::Foundation::HWND, pprovdata: *mut CRYPT_PROVIDER_DATA) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK = Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, dwsteperror: u32, dwregpolicysettings: u32, csigner: u32, rgpsigner: *mut *mut WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO, pvpolicyarg: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
@@ -545,7 +549,7 @@ pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub signatureAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub encryptedDigest: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
-pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2011i32 as _);
+pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2011i64 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -554,10 +558,10 @@ pub struct SEALING_TIMESTAMP_ATTRIBUTE {
     pub signerIndex: u32,
     pub sealTimeStampToken: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
-pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2012i32 as _);
+pub const SEALING_TIMESTAMP_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2012i64 as _);
 pub const SGNR_TYPE_TIMESTAMP: u32 = 16u32;
 pub const SPC_CAB_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.25");
-pub const SPC_CAB_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2008i32 as _);
+pub const SPC_CAB_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2008i64 as _);
 pub const SPC_CERT_EXTENSIONS_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.14");
 pub const SPC_COMMERCIAL_SP_KEY_PURPOSE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.22");
 pub const SPC_COMMON_NAME_OBJID: windows_core::PCWSTR = windows_core::w!("2.5.4.3");
@@ -570,7 +574,7 @@ pub struct SPC_FINANCIAL_CRITERIA {
     pub fMeetsCriteria: windows_core::BOOL,
 }
 pub const SPC_FINANCIAL_CRITERIA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.27");
-pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2002i32 as _);
+pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2002i64 as _);
 pub const SPC_GLUE_RDN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.25");
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -596,11 +600,11 @@ pub struct SPC_INDIRECT_DATA_CONTENT {
     pub DigestAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
     pub Digest: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
-pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2003i32 as _);
+pub const SPC_INDIRECT_DATA_CONTENT_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2003i64 as _);
 pub const SPC_INDIRECT_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.4");
 pub const SPC_INDIVIDUAL_SP_KEY_PURPOSE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.21");
 pub const SPC_JAVA_CLASS_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.20");
-pub const SPC_JAVA_CLASS_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2009i32 as _);
+pub const SPC_JAVA_CLASS_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2009i64 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
@@ -629,9 +633,9 @@ impl Default for SPC_LINK_0 {
     }
 }
 pub const SPC_LINK_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.28");
-pub const SPC_LINK_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2005i32 as _);
+pub const SPC_LINK_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2005i64 as _);
 pub const SPC_MINIMAL_CRITERIA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.26");
-pub const SPC_MINIMAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2001i32 as _);
+pub const SPC_MINIMAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2001i64 as _);
 pub const SPC_MONIKER_LINK_CHOICE: u32 = 2u32;
 pub const SPC_NATURAL_AUTH_PLUGIN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.96.1.1");
 #[repr(C)]
@@ -648,7 +652,7 @@ impl Default for SPC_PE_IMAGE_DATA {
     }
 }
 pub const SPC_PE_IMAGE_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.15");
-pub const SPC_PE_IMAGE_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2004i32 as _);
+pub const SPC_PE_IMAGE_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2004i64 as _);
 pub const SPC_PE_IMAGE_PAGE_HASHES_V1_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.3.1");
 pub const SPC_PE_IMAGE_PAGE_HASHES_V2_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.3.2");
 pub const SPC_RAW_FILE_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.18");
@@ -678,7 +682,7 @@ pub struct SPC_SIGINFO {
     pub dwReserved5: u32,
 }
 pub const SPC_SIGINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.30");
-pub const SPC_SIGINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2130i32 as _);
+pub const SPC_SIGINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2130i64 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -695,7 +699,7 @@ impl Default for SPC_SP_AGENCY_INFO {
     }
 }
 pub const SPC_SP_AGENCY_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.10");
-pub const SPC_SP_AGENCY_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2000i32 as _);
+pub const SPC_SP_AGENCY_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2000i64 as _);
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -711,7 +715,7 @@ impl Default for SPC_SP_OPUS_INFO {
     }
 }
 pub const SPC_SP_OPUS_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.12");
-pub const SPC_SP_OPUS_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2007i32 as _);
+pub const SPC_SP_OPUS_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2007i64 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPC_STATEMENT_TYPE {
@@ -724,7 +728,7 @@ impl Default for SPC_STATEMENT_TYPE {
     }
 }
 pub const SPC_STATEMENT_TYPE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.11");
-pub const SPC_STATEMENT_TYPE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2006i32 as _);
+pub const SPC_STATEMENT_TYPE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2006i64 as _);
 pub const SPC_STRUCTURED_STORAGE_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.19");
 pub const SPC_TIME_STAMP_REQUEST_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.3.2.1");
 pub const SPC_URL_LINK_CHOICE: u32 = 1u32;
@@ -1159,13 +1163,11 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
 pub union WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1188,13 +1190,11 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_DATA {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[derive(Clone, Copy)]
 pub union WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
-#[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl Default for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1219,13 +1219,11 @@ impl Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography")]
 #[derive(Clone, Copy)]
 pub union WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

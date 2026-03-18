@@ -1,12 +1,10 @@
 #[inline]
-pub unsafe fn CreatePresentationFactory<P0, T>(d3ddevice: P0) -> windows_core::Result<T>
+pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const windows_core::GUID, presentationfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreatePresentationFactory(d3ddevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { CreatePresentationFactory(d3ddevice.param().abi(), riid, presentationfactory as _).ok() }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -27,7 +25,7 @@ pub struct CompositionFrameInstanceKind(pub i32);
 pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
 pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
 pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
-windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
+windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0x46e5ff2a_e617_5ee0_8f3f_9566cfeb69f3);
 impl core::ops::Deref for ICompositionFramePresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
@@ -98,7 +96,7 @@ impl ICompositionFramePresentStatistics_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ICompositionFramePresentStatistics {}
-windows_core::imp::define_interface!(IIndependentFlipFramePresentStatistics, IIndependentFlipFramePresentStatistics_Vtbl, 0x8c93be27_ad94_4da0_8fd4_2413132d124e);
+windows_core::imp::define_interface!(IIndependentFlipFramePresentStatistics, IIndependentFlipFramePresentStatistics_Vtbl, 0x7cdabf9d_64d6_5a3a_9bec_ed06815cfa11);
 impl core::ops::Deref for IIndependentFlipFramePresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
@@ -244,7 +242,7 @@ impl IPresentStatistics_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPresentStatistics {}
-windows_core::imp::define_interface!(IPresentStatusPresentStatistics, IPresentStatusPresentStatistics_Vtbl, 0xc9ed2a41_79cb_435e_964e_c8553055420c);
+windows_core::imp::define_interface!(IPresentStatusPresentStatistics, IPresentStatusPresentStatistics_Vtbl, 0x123fc0c7_8254_568e_af92_8976ab522853);
 impl core::ops::Deref for IPresentStatusPresentStatistics {
     type Target = IPresentStatistics;
     fn deref(&self) -> &Self::Target {
@@ -296,7 +294,7 @@ impl IPresentStatusPresentStatistics_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPresentStatusPresentStatistics {}
-windows_core::imp::define_interface!(IPresentationBuffer, IPresentationBuffer_Vtbl, 0x2e217d3a_5abb_4138_9a13_a775593c89ca);
+windows_core::imp::define_interface!(IPresentationBuffer, IPresentationBuffer_Vtbl, 0x3d14bac6_b2aa_5031_a50a_4ea7dc3340cd);
 windows_core::imp::interface_hierarchy!(IPresentationBuffer, windows_core::IUnknown);
 impl IPresentationBuffer {
     pub unsafe fn GetAvailableEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -360,7 +358,7 @@ impl IPresentationBuffer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPresentationBuffer {}
-windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_Vtbl, 0x5668bb79_3d8e_415c_b215_f38020f2d252);
+windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_Vtbl, 0x10573d07_57b9_5c1b_bf6d_9a8cd2f1520c);
 windows_core::imp::interface_hierarchy!(IPresentationContent, windows_core::IUnknown);
 impl IPresentationContent {
     pub unsafe fn SetTag(&self, tag: usize) {
@@ -688,7 +686,7 @@ impl IPresentationManager_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPresentationManager {}
-windows_core::imp::define_interface!(IPresentationSurface, IPresentationSurface_Vtbl, 0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
+windows_core::imp::define_interface!(IPresentationSurface, IPresentationSurface_Vtbl, 0x55a8bd12_a005_5899_9f66_4751cedd62d8);
 impl core::ops::Deref for IPresentationSurface {
     type Target = IPresentationContent;
     fn deref(&self) -> &Self::Target {
@@ -711,11 +709,14 @@ impl IPresentationSurface {
     pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAlphaMode)(windows_core::Interface::as_raw(self), alphamode).ok() }
     }
-    pub unsafe fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceRect)(windows_core::Interface::as_raw(self), sourcerect).ok() }
+    pub unsafe fn SetSourceRect(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SetSourceRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn SetTransform(&self, transform: *const PresentationTransform) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform).ok() }
+    pub unsafe fn SetTransform(&self, transform: *mut PresentationTransform) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), transform as _).ok() }
     }
     pub unsafe fn RestrictToOutput<P0>(&self, output: P0) -> windows_core::Result<()>
     where
@@ -743,8 +744,8 @@ pub struct IPresentationSurface_Vtbl {
     pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     SetAlphaMode: usize,
-    pub SetSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const PresentationTransform) -> windows_core::HRESULT,
+    pub SetSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::RECT) -> windows_core::HRESULT,
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PresentationTransform) -> windows_core::HRESULT,
     pub RestrictToOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDisableReadback: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub SetLetterboxingMargins: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32) -> windows_core::HRESULT,
@@ -754,8 +755,8 @@ pub trait IPresentationSurface_Impl: IPresentationContent_Impl {
     fn SetBuffer(&self, presentationbuffer: windows_core::Ref<IPresentationBuffer>) -> windows_core::Result<()>;
     fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()>;
     fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<()>;
-    fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn SetTransform(&self, transform: *const PresentationTransform) -> windows_core::Result<()>;
+    fn SetSourceRect(&self) -> windows_core::Result<super::super::Foundation::RECT>;
+    fn SetTransform(&self, transform: *mut PresentationTransform) -> windows_core::Result<()>;
     fn RestrictToOutput(&self, output: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetDisableReadback(&self, value: u8) -> windows_core::Result<()>;
     fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> windows_core::Result<()>;
@@ -781,13 +782,19 @@ impl IPresentationSurface_Vtbl {
                 IPresentationSurface_Impl::SetAlphaMode(this, core::mem::transmute_copy(&alphamode)).into()
             }
         }
-        unsafe extern "system" fn SetSourceRect<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcerect: *const super::super::Foundation::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSourceRect<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcerect: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPresentationSurface_Impl::SetSourceRect(this, core::mem::transmute_copy(&sourcerect)).into()
+                match IPresentationSurface_Impl::SetSourceRect(this) {
+                    Ok(ok__) => {
+                        sourcerect.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn SetTransform<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *const PresentationTransform) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut PresentationTransform) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPresentationSurface_Impl::SetTransform(this, core::mem::transmute_copy(&transform)).into()

@@ -197,7 +197,7 @@ pub struct IBasicProperties_Vtbl {
     pub DateModified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub ItemDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IDocumentProperties, IDocumentProperties_Vtbl, 0x7eab19bc_1821_4923_b4a9_0aea404d0070);
+windows_core::imp::define_interface!(IDocumentProperties, IDocumentProperties_Vtbl, 0x2dced98c_7b31_5504_8f5a_529e4eb2ba51);
 impl windows_core::RuntimeType for IDocumentProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -233,7 +233,7 @@ pub struct IGeotagHelperStatics_Vtbl {
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Storage_Streams")))]
     SetGeotagAsync: usize,
 }
-windows_core::imp::define_interface!(IImageProperties, IImageProperties_Vtbl, 0x523c9424_fcff_4275_afee_ecdb9ab47973);
+windows_core::imp::define_interface!(IImageProperties, IImageProperties_Vtbl, 0x197e0834_e97b_5762_bc46_0b83cb27892f);
 impl windows_core::RuntimeType for IImageProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -408,7 +408,7 @@ pub struct IStorageItemExtraProperties_Vtbl {
     pub SavePropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SavePropertiesAsyncOverloadDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
+windows_core::imp::define_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0xd5502104_0967_5989_a87f_3673435f5092);
 impl windows_core::RuntimeType for IThumbnailProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -421,7 +421,7 @@ pub struct IThumbnailProperties_Vtbl {
     pub ReturnedSmallerCachedSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ThumbnailType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoProperties, IVideoProperties_Vtbl, 0x719ae507_68de_4db8_97de_49998c059f2f);
+windows_core::imp::define_interface!(IVideoProperties, IVideoProperties_Vtbl, 0x1de20cff_a049_5a7b_a383_f550ae41fa80);
 impl windows_core::RuntimeType for IVideoProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

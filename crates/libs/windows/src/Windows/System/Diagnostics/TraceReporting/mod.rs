@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPlatformDiagnosticActionsStatics, IPlatformDiagnosticActionsStatics_Vtbl, 0xc1145cfa_9292_4267_890a_9ea3ed072312);
+windows_core::imp::define_interface!(IPlatformDiagnosticActionsStatics, IPlatformDiagnosticActionsStatics_Vtbl, 0x37a20a2a_7ff6_5f96_90bf_f5f86a6436f8);
 impl windows_core::RuntimeType for IPlatformDiagnosticActionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -15,7 +15,7 @@ pub struct IPlatformDiagnosticActionsStatics_Vtbl {
     pub GetActiveTraceRuntime: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetKnownTraceList: unsafe extern "system" fn(*mut core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo_Vtbl, 0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
+windows_core::imp::define_interface!(IPlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo_Vtbl, 0xc522595c_f0c9_5d2b_a685_4a6e9a43bd4a);
 impl windows_core::RuntimeType for IPlatformDiagnosticTraceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

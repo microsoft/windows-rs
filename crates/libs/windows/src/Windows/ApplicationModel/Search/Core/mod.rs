@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IRequestingFocusOnKeyboardInputEventArgs, IRequestingFocusOnKeyboardInputEventArgs_Vtbl, 0xa1195f27_b1a7_41a2_879d_6a68687e5985);
+windows_core::imp::define_interface!(IRequestingFocusOnKeyboardInputEventArgs, IRequestingFocusOnKeyboardInputEventArgs_Vtbl, 0x2537bde6_68ea_517b_8749_ee6eac3c7f05);
 impl windows_core::RuntimeType for IRequestingFocusOnKeyboardInputEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -7,7 +7,7 @@ impl windows_core::RuntimeType for IRequestingFocusOnKeyboardInputEventArgs {
 pub struct IRequestingFocusOnKeyboardInputEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ISearchSuggestion, ISearchSuggestion_Vtbl, 0x5b5554b0_1527_437b_95c5_8d18d2b8af55);
+windows_core::imp::define_interface!(ISearchSuggestion, ISearchSuggestion_Vtbl, 0xcaca58a5_467d_56c5_ba6c_45ac8557adf6);
 impl windows_core::RuntimeType for ISearchSuggestion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -25,7 +25,7 @@ pub struct ISearchSuggestion_Vtbl {
     Image: usize,
     pub ImageAlternateText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISearchSuggestionManager, ISearchSuggestionManager_Vtbl, 0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2);
+windows_core::imp::define_interface!(ISearchSuggestionManager, ISearchSuggestionManager_Vtbl, 0xc8b03ed4_086e_5fe1_a378_8d65129c7ca3);
 impl windows_core::RuntimeType for ISearchSuggestionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -53,7 +53,7 @@ pub struct ISearchSuggestionManager_Vtbl {
     pub RequestingFocusOnKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveRequestingFocusOnKeyboardInput: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISearchSuggestionsRequestedEventArgs, ISearchSuggestionsRequestedEventArgs_Vtbl, 0x6fd519e5_9e7e_4ab4_8be3_c76b1bd4344a);
+windows_core::imp::define_interface!(ISearchSuggestionsRequestedEventArgs, ISearchSuggestionsRequestedEventArgs_Vtbl, 0xc0e76922_02db_53d7_93e2_95250483dc3a);
 impl windows_core::RuntimeType for ISearchSuggestionsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -321,7 +321,7 @@ impl IRDPSRAPIApplication_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplication {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIApplicationFilter, IRDPSRAPIApplicationFilter_Vtbl, 0xd20f10ca_6637_4f06_b1d5_277ea7e5160d);
+windows_core::imp::define_interface!(IRDPSRAPIApplicationFilter, IRDPSRAPIApplicationFilter_Vtbl, 0x60977ebf_cb1c_5060_ab79_e8365f7bdab7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIApplicationFilter {
     type Target = super::Com::IDispatch;
@@ -432,7 +432,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplicationFilter {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIApplicationList, IRDPSRAPIApplicationList_Vtbl, 0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a);
+windows_core::imp::define_interface!(IRDPSRAPIApplicationList, IRDPSRAPIApplicationList_Vtbl, 0x70ab74e8_cd36_5d77_9487_b297ab1341d1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIApplicationList {
     type Target = super::Com::IDispatch;
@@ -506,7 +506,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIApplicationList {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIAttendee, IRDPSRAPIAttendee_Vtbl, 0xec0671b3_1b78_4b80_a464_9132247543e3);
+windows_core::imp::define_interface!(IRDPSRAPIAttendee, IRDPSRAPIAttendee_Vtbl, 0x758aedf3_f1e4_550f_bfbd_609d349e8080);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIAttendee {
     type Target = super::Com::IDispatch;
@@ -692,7 +692,7 @@ impl IRDPSRAPIAttendee_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendee {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIAttendeeDisconnectInfo, IRDPSRAPIAttendeeDisconnectInfo_Vtbl, 0xc187689f_447c_44a1_9c14_fffbb3b7ec17);
+windows_core::imp::define_interface!(IRDPSRAPIAttendeeDisconnectInfo, IRDPSRAPIAttendeeDisconnectInfo_Vtbl, 0x6a9c6a93_44a7_59d6_8160_83a73e440623);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIAttendeeDisconnectInfo {
     type Target = super::Com::IDispatch;
@@ -791,7 +791,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendeeDisconnectInfo {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIAttendeeManager, IRDPSRAPIAttendeeManager_Vtbl, 0xba3a37e8_33da_4749_8da0_07fa34da7944);
+windows_core::imp::define_interface!(IRDPSRAPIAttendeeManager, IRDPSRAPIAttendeeManager_Vtbl, 0x982c6975_a755_5517_98ac_c35ad0ea4d25);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIAttendeeManager {
     type Target = super::Com::IDispatch;
@@ -864,7 +864,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIAttendeeManager {}
-windows_core::imp::define_interface!(IRDPSRAPIAudioStream, IRDPSRAPIAudioStream_Vtbl, 0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
+windows_core::imp::define_interface!(IRDPSRAPIAudioStream, IRDPSRAPIAudioStream_Vtbl, 0x08351690_2cb8_5b05_825f_6189e3a1c46e);
 windows_core::imp::interface_hierarchy!(IRDPSRAPIAudioStream, windows_core::IUnknown);
 impl IRDPSRAPIAudioStream {
     pub unsafe fn Initialize(&self) -> windows_core::Result<i64> {
@@ -1061,7 +1061,7 @@ impl IRDPSRAPIDebug_Vtbl {
 }
 impl windows_core::RuntimeName for IRDPSRAPIDebug {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIFrameBuffer, IRDPSRAPIFrameBuffer_Vtbl, 0x3d67e7d2_b27b_448e_81b3_c6110ed8b4be);
+windows_core::imp::define_interface!(IRDPSRAPIFrameBuffer, IRDPSRAPIFrameBuffer_Vtbl, 0xb7138ab5_f277_5674_90a7_b3792c7cc56f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIFrameBuffer {
     type Target = super::Com::IDispatch;
@@ -1181,7 +1181,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIFrameBuffer {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIInvitation, IRDPSRAPIInvitation_Vtbl, 0x4fac1d43_fc51_45bb_b1b4_2b53aa562fa3);
+windows_core::imp::define_interface!(IRDPSRAPIInvitation, IRDPSRAPIInvitation_Vtbl, 0x965384cb_19ee_5b0e_a516_b80e60d8853f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIInvitation {
     type Target = super::Com::IDispatch;
@@ -1618,7 +1618,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISessionProperties {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPISharingSession, IRDPSRAPISharingSession_Vtbl, 0xeeb20886_e470_4cf6_842b_2739c0ec5cfb);
+windows_core::imp::define_interface!(IRDPSRAPISharingSession, IRDPSRAPISharingSession_Vtbl, 0x234e237e_380a_536f_8cfc_c3512b1bc33e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPISharingSession {
     type Target = super::Com::IDispatch;
@@ -1876,7 +1876,7 @@ impl IRDPSRAPISharingSession_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISharingSession {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPISharingSession2, IRDPSRAPISharingSession2_Vtbl, 0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21);
+windows_core::imp::define_interface!(IRDPSRAPISharingSession2, IRDPSRAPISharingSession2_Vtbl, 0x3b793f1a_7841_541e_89a5_5a36dba0b0be);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPISharingSession2 {
     type Target = IRDPSRAPISharingSession;
@@ -1963,7 +1963,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPISharingSession2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPITcpConnectionInfo, IRDPSRAPITcpConnectionInfo_Vtbl, 0xf74049a4_3d06_4028_8193_0a8c29bc2452);
+windows_core::imp::define_interface!(IRDPSRAPITcpConnectionInfo, IRDPSRAPITcpConnectionInfo_Vtbl, 0x848ad0ec_4020_5bb8_b43e_a245576d11c5);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPITcpConnectionInfo {
     type Target = super::Com::IDispatch;
@@ -2218,7 +2218,7 @@ impl IRDPSRAPITransportStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRDPSRAPITransportStream {}
-windows_core::imp::define_interface!(IRDPSRAPITransportStreamBuffer, IRDPSRAPITransportStreamBuffer_Vtbl, 0x81c80290_5085_44b0_b460_f865c39cb4a9);
+windows_core::imp::define_interface!(IRDPSRAPITransportStreamBuffer, IRDPSRAPITransportStreamBuffer_Vtbl, 0x99581326_6873_56f5_9951_2cda1892d32d);
 windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStreamBuffer, windows_core::IUnknown);
 impl IRDPSRAPITransportStreamBuffer {
     pub unsafe fn Storage(&self) -> windows_core::Result<*mut u8> {
@@ -2482,7 +2482,7 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
 }
 impl windows_core::RuntimeName for IRDPSRAPITransportStreamEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIViewer, IRDPSRAPIViewer_Vtbl, 0xc6bfcd38_8ce9_404d_8ae8_f31d00c65cb5);
+windows_core::imp::define_interface!(IRDPSRAPIViewer, IRDPSRAPIViewer_Vtbl, 0xaad7b7a2_c7bc_5f30_a0ff_8b730d6366c4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIViewer {
     type Target = super::Com::IDispatch;
@@ -2881,7 +2881,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIVirtualChannel {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIVirtualChannelManager, IRDPSRAPIVirtualChannelManager_Vtbl, 0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed);
+windows_core::imp::define_interface!(IRDPSRAPIVirtualChannelManager, IRDPSRAPIVirtualChannelManager_Vtbl, 0x1200bfa4_2e0c_5a87_808f_29020f91d453);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIVirtualChannelManager {
     type Target = super::Com::IDispatch;
@@ -2984,7 +2984,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIVirtualChannelManager {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIWindow, IRDPSRAPIWindow_Vtbl, 0xbeafe0f9_c77b_4933_ba9f_a24cddcc27cf);
+windows_core::imp::define_interface!(IRDPSRAPIWindow, IRDPSRAPIWindow_Vtbl, 0x0f69a296_f26e_5aae_a189_9d5a12cfe5b0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIWindow {
     type Target = super::Com::IDispatch;
@@ -3149,7 +3149,7 @@ impl IRDPSRAPIWindow_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIWindow {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRDPSRAPIWindowList, IRDPSRAPIWindowList_Vtbl, 0x8a05ce44_715a_4116_a189_a118f30a07bd);
+windows_core::imp::define_interface!(IRDPSRAPIWindowList, IRDPSRAPIWindowList_Vtbl, 0x47c43922_6aa0_5efc_b910_9403d8337904);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRDPSRAPIWindowList {
     type Target = super::Com::IDispatch;
@@ -3222,7 +3222,7 @@ impl IRDPSRAPIWindowList_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRDPSRAPIWindowList {}
-windows_core::imp::define_interface!(IRDPViewerInputSink, IRDPViewerInputSink_Vtbl, 0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
+windows_core::imp::define_interface!(IRDPViewerInputSink, IRDPViewerInputSink_Vtbl, 0x0d684ce6_8f9d_5b3d_aa6c_149c7f696e99);
 windows_core::imp::interface_hierarchy!(IRDPViewerInputSink, windows_core::IUnknown);
 impl IRDPViewerInputSink {
     pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> windows_core::Result<()> {
@@ -3392,7 +3392,7 @@ pub const RDPTransportStreamEvents: windows_core::GUID = windows_core::GUID::fro
 pub const RDPViewer: windows_core::GUID = windows_core::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
 pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(_IRDPSessionEvents, _IRDPSessionEvents_Vtbl, 0x98a97042_6698_40e9_8efd_b3200990004b);
+windows_core::imp::define_interface!(_IRDPSessionEvents, _IRDPSessionEvents_Vtbl, 0x70064a28_dd5a_585c_99c0_edb89ee302ad);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for _IRDPSessionEvents {
     type Target = super::Com::IDispatch;

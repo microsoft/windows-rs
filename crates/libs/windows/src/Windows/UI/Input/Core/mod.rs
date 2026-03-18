@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x644b8e9b_aa36_5b81_9467_406a95ac43ba);
 impl windows_core::RuntimeType for IRadialControllerIndependentInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -12,7 +12,7 @@ pub struct IRadialControllerIndependentInputSource_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     Dispatcher: usize,
 }
-windows_core::imp::define_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0xa3e56f8d_bdbc_5098_9736_55cfb9c8b29f);
 impl windows_core::RuntimeType for IRadialControllerIndependentInputSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -25,7 +25,7 @@ pub struct IRadialControllerIndependentInputSource2_Vtbl {
     #[cfg(not(feature = "System"))]
     DispatcherQueue: usize,
 }
-windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
+windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x97f7e85d_fa56_537f_ac66_694ce583bf24);
 impl windows_core::RuntimeType for IRadialControllerIndependentInputSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

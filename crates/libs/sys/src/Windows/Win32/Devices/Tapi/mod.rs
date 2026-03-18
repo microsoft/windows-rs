@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-windows_link::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *mut i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-windows_link::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *mut i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : windows_sys::core::PCSTR, dwsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
@@ -37,14 +37,14 @@ windows_link::link!("tapi32.dll" "system" fn lineDialW(hcall : u32, lpszdestaddr
 windows_link::link!("tapi32.dll" "system" fn lineDrop(hcall : u32, lpsuseruserinfo : windows_sys::core::PCSTR, dwsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineForward(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineForwardA(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineForwardW(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_sys::core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_sys::core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineForwardW(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *mut LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_sys::core::PCSTR, dwnumdigits : u32, lpszterminationdigits : windows_sys::core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGatherDigitsA(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_sys::core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_sys::core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGatherDigitsW(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_sys::core::PWSTR, dwnumdigits : u32, lpszterminationdigits : windows_sys::core::PCWSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGenerateDigits(hcall : u32, dwdigitmode : u32, lpszdigits : windows_sys::core::PCSTR, dwduration : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGenerateDigitsA(hcall : u32, dwdigitmode : u32, lpszdigits : windows_sys::core::PCSTR, dwduration : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGenerateDigitsW(hcall : u32, dwdigitmode : u32, lpszdigits : windows_sys::core::PCWSTR, dwduration : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineGenerateTone(hcall : u32, dwtonemode : u32, dwduration : u32, dwnumtones : u32, lptones : *const LINEGENERATETONE) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineGenerateTone(hcall : u32, dwtonemode : u32, dwduration : u32, dwnumtones : u32, lptones : *mut LINEGENERATETONE) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGetAddressCaps(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGetAddressCapsA(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGetAddressCapsW(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
@@ -122,16 +122,16 @@ windows_link::link!("tapi32.dll" "system" fn lineHold(hcall : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineInitialize(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineInitializeExA(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineInitializeExW(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_sys::core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineMakeCallA(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCWSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, dwcountrycode : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineMakeCallA(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, dwcountrycode : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCWSTR, dwcountrycode : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineMonitorDigits(hcall : u32, dwdigitmodes : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineMonitorMedia(hcall : u32, dwmediamodes : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineMonitorTones(hcall : u32, lptonelist : *const LINEMONITORTONE, dwnumentries : u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineMonitorTones(hcall : u32, lptonelist : *mut LINEMONITORTONE, dwnumentries : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineNegotiateAPIVersion(hlineapp : u32, dwdeviceid : u32, dwapilowversion : u32, dwapihighversion : u32, lpdwapiversion : *mut u32, lpextensionid : *mut LINEEXTENSIONID) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineNegotiateExtVersion(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextlowversion : u32, dwexthighversion : u32, lpdwextversion : *mut u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineOpen(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineOpenA(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineOpen(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineOpenA(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineOpenW(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn linePark(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_sys::core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineParkA(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_sys::core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
@@ -139,9 +139,9 @@ windows_link::link!("tapi32.dll" "system" fn lineParkW(hcall : u32, dwparkmode :
 windows_link::link!("tapi32.dll" "system" fn linePickup(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, lpszgroupid : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn linePickupA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, lpszgroupid : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn linePickupW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCWSTR, lpszgroupid : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConference(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConference(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConferenceA(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConferenceW(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConferenceW(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineProxyMessage(hline : u32, hcall : u32, dwmsg : u32, dwparam1 : u32, dwparam2 : u32, dwparam3 : u32) -> i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("tapi32.dll" "system" fn lineProxyResponse(hline : u32, lpproxyrequest : *mut LINEPROXYREQUEST, dwresult : u32) -> i32);
@@ -165,16 +165,16 @@ windows_link::link!("tapi32.dll" "system" fn lineSetAppPriorityA(lpszappfilename
 windows_link::link!("tapi32.dll" "system" fn lineSetAppPriorityW(lpszappfilename : windows_sys::core::PCWSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_sys::core::PCWSTR, dwpriority : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetAppSpecific(hcall : u32, dwappspecific : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetCallData(hcall : u32, lpcalldata : *mut core::ffi::c_void, dwsize : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineSetCallParams(hcall : u32, dwbearermode : u32, dwminrate : u32, dwmaxrate : u32, lpdialparams : *const LINEDIALPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineSetCallParams(hcall : u32, dwbearermode : u32, dwminrate : u32, dwmaxrate : u32, lpdialparams : *mut LINEDIALPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetCallPrivilege(hcall : u32, dwcallprivilege : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetCallQualityOfService(hcall : u32, lpsendingflowspec : *mut core::ffi::c_void, dwsendingflowspecsize : u32, lpreceivingflowspec : *mut core::ffi::c_void, dwreceivingflowspecsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetCallTreatment(hcall : u32, dwtreatment : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetCurrentLocation(hlineapp : u32, dwlocation : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineSetDevConfig(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineSetDevConfig(dwdeviceid : u32, lpdeviceconfig : *mut core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineSetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineSetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *mut core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetLineDevStatus(hline : u32, dwstatustochange : u32, fstatus : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineSetMediaControl(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdigitlist : *const LINEMEDIACONTROLDIGIT, dwdigitnumentries : u32, lpmedialist : *const LINEMEDIACONTROLMEDIA, dwmedianumentries : u32, lptonelist : *const LINEMEDIACONTROLTONE, dwtonenumentries : u32, lpcallstatelist : *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries : u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineSetMediaControl(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdigitlist : *mut LINEMEDIACONTROLDIGIT, dwdigitnumentries : u32, lpmedialist : *mut LINEMEDIACONTROLMEDIA, dwmedianumentries : u32, lptonelist : *mut LINEMEDIACONTROLTONE, dwtonenumentries : u32, lpcallstatelist : *mut LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetMediaMode(hcall : u32, dwmediamodes : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetNumRings(hline : u32, dwaddressid : u32, dwnumrings : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetQueueMeasurementPeriod(hline : u32, dwqueueid : u32, dwmeasurementperiod : u32) -> i32);
@@ -184,10 +184,10 @@ windows_link::link!("tapi32.dll" "system" fn lineSetTollList(hlineapp : u32, dwd
 windows_link::link!("tapi32.dll" "system" fn lineSetTollListA(hlineapp : u32, dwdeviceid : u32, lpszaddressin : windows_sys::core::PCSTR, dwtolllistoption : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetTollListW(hlineapp : u32, dwdeviceid : u32, lpszaddressinw : windows_sys::core::PCWSTR, dwtolllistoption : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetupConference(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineSetupConferenceA(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineSetupConferenceW(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineSetupConferenceA(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineSetupConferenceW(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetupTransfer(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineSetupTransferA(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineSetupTransferA(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *mut LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetupTransferW(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineShutdown(hlineapp : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSwapHold(hactivecall : u32, hheldcall : u32) -> i32);
@@ -240,10 +240,10 @@ windows_link::link!("tapi32.dll" "system" fn phoneInitializeExW(lphphoneapp : *m
 windows_link::link!("tapi32.dll" "system" fn phoneNegotiateAPIVersion(hphoneapp : u32, dwdeviceid : u32, dwapilowversion : u32, dwapihighversion : u32, lpdwapiversion : *mut u32, lpextensionid : *mut PHONEEXTENSIONID) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneNegotiateExtVersion(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextlowversion : u32, dwexthighversion : u32, lpdwextversion : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneOpen(hphoneapp : u32, dwdeviceid : u32, lphphone : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivilege : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfoA(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfoW(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneSetData(hphone : u32, dwdataid : u32, lpdata : *const core::ffi::c_void, dwsize : u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfoA(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfoW(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneSetData(hphone : u32, dwdataid : u32, lpdata : *mut core::ffi::c_void, dwsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneSetDisplay(hphone : u32, dwrow : u32, dwcolumn : u32, lpsdisplay : windows_sys::core::PCSTR, dwsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneSetGain(hphone : u32, dwhookswitchdev : u32, dwgain : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneSetHookSwitch(hphone : u32, dwhookswitchdevs : u32, dwhookswitchmode : u32) -> i32);
@@ -252,9 +252,9 @@ windows_link::link!("tapi32.dll" "system" fn phoneSetRing(hphone : u32, dwringmo
 windows_link::link!("tapi32.dll" "system" fn phoneSetStatusMessages(hphone : u32, dwphonestates : u32, dwbuttonmodes : u32, dwbuttonstates : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneSetVolume(hphone : u32, dwhookswitchdev : u32, dwvolume : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneShutdown(hphoneapp : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfo(lpszcountrycode : windows_sys::core::PSTR, lpszcitycode : windows_sys::core::PSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_sys::core::PSTR, lpszcitycode : windows_sys::core::PSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_sys::core::PWSTR, lpszcitycodew : windows_sys::core::PWSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfo(lpszcountrycode : windows_sys::core::PCSTR, lpszcitycode : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_sys::core::PCSTR, lpszcitycode : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_sys::core::PCWSTR, lpszcitycodew : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiRequestDrop(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCall(lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCallA(lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
@@ -535,7 +535,7 @@ pub type DIRECTORY_OBJECT_TYPE = i32;
 pub type DIRECTORY_TYPE = i32;
 pub type DISCONNECT_CODE = i32;
 pub const DISPIDMASK: u32 = 65535u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DTR {
     pub wYear: u16,
@@ -631,7 +631,7 @@ pub const LINEADDRCAPFLAGS_SETCALLINGID: u32 = 536870912u32;
 pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
 pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
 pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEADDRESSCAPS {
     pub dwTotalSize: u32,
@@ -708,7 +708,7 @@ pub const LINEADDRESSSTATE_INUSEZERO: u32 = 4u32;
 pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
 pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
 pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEADDRESSSTATUS {
     pub dwTotalSize: u32,
@@ -747,14 +747,14 @@ pub const LINEADDRFEATURE_SETTERMINAL: u32 = 16u32;
 pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
 pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
 pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTACTIVITYENTRY {
     pub dwID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTACTIVITYLIST {
     pub dwTotalSize: u32,
@@ -764,7 +764,7 @@ pub struct LINEAGENTACTIVITYLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTCAPS {
     pub dwTotalSize: u32,
@@ -783,7 +783,7 @@ pub struct LINEAGENTCAPS {
     pub dwAgentExtensionIDListOffset: u32,
     pub ProxyGUID: windows_sys::core::GUID,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTENTRY {
     pub hAgent: u32,
@@ -800,14 +800,14 @@ pub const LINEAGENTFEATURE_GETAGENTGROUP: u32 = 32u32;
 pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
 pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
 pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPENTRY {
     pub GroupID: LINEAGENTGROUPENTRY_0,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID1: u32,
@@ -815,7 +815,7 @@ pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID3: u32,
     pub dwGroupID4: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPLIST {
     pub dwTotalSize: u32,
@@ -825,7 +825,7 @@ pub struct LINEAGENTGROUPLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTINFO {
@@ -849,7 +849,7 @@ impl Default for LINEAGENTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTLIST {
     pub dwTotalSize: u32,
@@ -859,7 +859,7 @@ pub struct LINEAGENTLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSESSIONENTRY {
     pub hAgentSession: u32,
@@ -867,7 +867,7 @@ pub struct LINEAGENTSESSIONENTRY {
     pub GroupID: windows_sys::core::GUID,
     pub dwWorkingAddressID: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONINFO {
@@ -895,7 +895,7 @@ impl Default for LINEAGENTSESSIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSESSIONLIST {
     pub dwTotalSize: u32,
@@ -931,7 +931,7 @@ pub const LINEAGENTSTATE_READY: u32 = 4u32;
 pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
 pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
 pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSTATUS {
     pub dwTotalSize: u32,
@@ -964,7 +964,7 @@ pub const LINEAGENTSTATUS_VALIDSTATES: u32 = 128u32;
 pub const LINEANSWERMODE_DROP: u32 = 2u32;
 pub const LINEANSWERMODE_HOLD: u32 = 4u32;
 pub const LINEANSWERMODE_NONE: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEAPPINFO {
     pub dwMachineNameSize: u32,
@@ -1042,7 +1042,7 @@ pub const LINECALLFEATURE_UNHOLD: u32 = 134217728u32;
 pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
 pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
 pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECALLINFO {
     pub dwTotalSize: u32,
@@ -1155,7 +1155,7 @@ pub const LINECALLINFOSTATE_TERMINAL: u32 = 33554432u32;
 pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
 pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
 pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECALLLIST {
     pub dwTotalSize: u32,
@@ -1180,7 +1180,7 @@ pub const LINECALLPARAMFLAGS_ONESTEPTRANSFER: u32 = 128u32;
 pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
 pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
 pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECALLPARAMS {
     pub dwTotalSize: u32,
@@ -1272,7 +1272,7 @@ pub const LINECALLSTATE_PROCEEDING: u32 = 512u32;
 pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
 pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
 pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECALLSTATUS {
     pub dwTotalSize: u32,
@@ -1287,7 +1287,7 @@ pub struct LINECALLSTATUS {
     pub dwCallFeatures2: u32,
     pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECALLTREATMENTENTRY {
     pub dwCallTreatmentID: u32,
@@ -1298,7 +1298,7 @@ pub const LINECALLTREATMENT_BUSY: u32 = 3u32;
 pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
 pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
 pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECARDENTRY {
     pub dwPermanentCardID: u32,
@@ -1320,7 +1320,7 @@ pub const LINECONNECTEDMODE_ACTIVEHELD: u32 = 4u32;
 pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
 pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
 pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECOUNTRYENTRY {
     pub dwCountryID: u32,
@@ -1335,7 +1335,7 @@ pub struct LINECOUNTRYENTRY {
     pub dwInternationalRuleSize: u32,
     pub dwInternationalRuleOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINECOUNTRYLIST {
     pub dwTotalSize: u32,
@@ -1359,7 +1359,7 @@ pub const LINEDEVCAPFLAGS_MEDIACONTROL: u32 = 8u32;
 pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
 pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
 pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEDEVCAPS {
     pub dwTotalSize: u32,
@@ -1443,7 +1443,7 @@ pub const LINEDEVSTATE_ROAMMODE: u32 = 16384u32;
 pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
 pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
 pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEDEVSTATUS {
     pub dwTotalSize: u32,
@@ -1473,7 +1473,7 @@ pub const LINEDEVSTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
 pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
 pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEDIALPARAMS {
     pub dwDialPause: u32,
@@ -1612,7 +1612,7 @@ pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
 pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEEXTENSIONID {
     pub dwExtensionID0: u32,
@@ -1629,7 +1629,7 @@ pub const LINEFEATURE_MAKECALL: u32 = 8u32;
 pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
 pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
 pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEFORWARD {
     pub dwForwardMode: u32,
@@ -1639,7 +1639,7 @@ pub struct LINEFORWARD {
     pub dwDestAddressSize: u32,
     pub dwDestAddressOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LINEFORWARDLIST {
     pub dwTotalSize: u32,
@@ -1676,7 +1676,7 @@ pub const LINEGATHERTERM_INTERTIMEOUT: u32 = 8u32;
 pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
 pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
 pub const LINEGENERATETERM_DONE: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEGENERATETONE {
     pub dwFrequency: u32,
@@ -1690,7 +1690,7 @@ pub const LINEINITIALIZEEXOPTION_CALLHUBTRACKING: u32 = 2147483648u32;
 pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LINEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -1705,7 +1705,7 @@ impl Default for LINEINITIALIZEEXPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union LINEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -1716,7 +1716,7 @@ impl Default for LINEINITIALIZEEXPARAMS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINELOCATIONENTRY {
     pub dwPermanentLocationID: u32,
@@ -1739,27 +1739,27 @@ pub struct LINELOCATIONENTRY {
 }
 pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
 pub const LINEMAPPER: u32 = 4294967295u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLCALLSTATE {
     pub dwCallStates: u32,
     pub dwMediaControl: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLDIGIT {
     pub dwDigit: u32,
     pub dwDigitModes: u32,
     pub dwMediaControl: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLMEDIA {
     pub dwMediaModes: u32,
     pub dwDuration: u32,
     pub dwMediaControl: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLTONE {
     pub dwAppSpecific: u32,
@@ -1795,7 +1795,7 @@ pub const LINEMEDIAMODE_UNKNOWN: u32 = 2u32;
 pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
 pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
 pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEMESSAGE {
     pub hDevice: u32,
@@ -1805,7 +1805,7 @@ pub struct LINEMESSAGE {
     pub dwParam2: usize,
     pub dwParam3: usize,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEMONITORTONE {
     pub dwAppSpecific: u32,
@@ -1820,14 +1820,14 @@ pub const LINEOPENOPTION_PROXY: u32 = 1073741824u32;
 pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
 pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
 pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEPROVIDERENTRY {
     pub dwPermanentProviderID: u32,
     pub dwProviderFilenameSize: u32,
     pub dwProviderFilenameOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEPROVIDERLIST {
     pub dwTotalSize: u32,
@@ -1837,7 +1837,7 @@ pub struct LINEPROVIDERLIST {
     pub dwProviderListSize: u32,
     pub dwProviderListOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST {
@@ -1855,6 +1855,16 @@ impl Default for LINEPROXYREQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUESTLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -1887,64 +1897,26 @@ impl Default for LINEPROXYREQUEST_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_5 {
-    pub dwAddressID: u32,
-    pub dwAgentExtensionIDIndex: u32,
-    pub dwSize: u32,
-    pub Params: [u8; 1],
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_12 {
-    pub hAgentSession: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-    pub hAgent: u32,
-    pub GroupID: windows_sys::core::GUID,
-    pub dwWorkingAddressID: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_8 {
-    pub hAgent: u32,
-    pub dwAgentIDSize: u32,
-    pub dwAgentIDOffset: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_6 {
-    pub dwAddressID: u32,
-    pub ActivityList: LINEAGENTACTIVITYLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_3 {
-    pub dwAddressID: u32,
-    pub AgentCaps: LINEAGENTCAPS,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_7 {
+pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_1 {
+    pub dwAddressID: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_10 {
+    pub hAgent: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_11 {
@@ -1957,7 +1929,23 @@ impl Default for LINEPROXYREQUEST_0_11 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_12 {
+    pub hAgentSession: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+    pub hAgent: u32,
+    pub GroupID: windows_sys::core::GUID,
+    pub dwWorkingAddressID: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_13 {
+    pub hAgent: u32,
+    pub SessionList: LINEAGENTSESSIONLIST,
+}
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_14 {
@@ -1970,101 +1958,94 @@ impl Default for LINEPROXYREQUEST_0_14 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_13 {
-    pub hAgent: u32,
-    pub SessionList: LINEAGENTSESSIONLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_4 {
-    pub dwAddressID: u32,
-    pub AgentStatus: LINEAGENTSTATUS,
-}
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_19 {
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_18 {
-    pub dwQueueID: u32,
-    pub QueueInfo: LINEQUEUEINFO,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_16 {
-    pub GroupID: windows_sys::core::GUID,
-    pub QueueList: LINEQUEUELIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_2 {
-    pub dwAddressID: u32,
-    pub dwActivityID: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_0 {
-    pub dwAddressID: u32,
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_10 {
-    pub hAgent: u32,
-    pub dwMeasurementPeriod: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
 }
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_9 {
-    pub hAgent: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
+pub struct LINEPROXYREQUEST_0_16 {
+    pub GroupID: windows_sys::core::GUID,
+    pub QueueList: LINEQUEUELIST,
 }
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_1 {
-    pub dwAddressID: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_17 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUESTLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
+pub struct LINEPROXYREQUEST_0_18 {
+    pub dwQueueID: u32,
+    pub QueueInfo: LINEQUEUEINFO,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_19 {
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_2 {
+    pub dwAddressID: u32,
+    pub dwActivityID: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_3 {
+    pub dwAddressID: u32,
+    pub AgentCaps: LINEAGENTCAPS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_4 {
+    pub dwAddressID: u32,
+    pub AgentStatus: LINEAGENTSTATUS,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_5 {
+    pub dwAddressID: u32,
+    pub dwAgentExtensionIDIndex: u32,
+    pub dwSize: u32,
+    pub Params: [u8; 1],
+}
+impl Default for LINEPROXYREQUEST_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_6 {
+    pub dwAddressID: u32,
+    pub ActivityList: LINEAGENTACTIVITYLIST,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_7 {
+    pub dwAddressID: u32,
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_8 {
+    pub hAgent: u32,
+    pub dwAgentIDSize: u32,
+    pub dwAgentIDOffset: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_9 {
+    pub hAgent: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
 }
 pub const LINEPROXYREQUEST_AGENTSPECIFIC: u32 = 6u32;
 pub const LINEPROXYREQUEST_CREATEAGENT: u32 = 9u32;
@@ -2093,14 +2074,14 @@ pub const LINEQOSREQUESTTYPE_SERVICELEVEL: u32 = 1u32;
 pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
 pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
 pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEQUEUEENTRY {
     pub dwQueueID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEQUEUEINFO {
     pub dwTotalSize: u32,
@@ -2117,7 +2098,7 @@ pub struct LINEQUEUEINFO {
     pub dwAverageWaitTime: u32,
     pub dwFinalDisposition: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINEQUEUELIST {
     pub dwTotalSize: u32,
@@ -2146,7 +2127,7 @@ impl Default for LINEREQMAKECALL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LINEREQMAKECALLW {
     pub szDestAddress: [u16; 80],
@@ -2159,7 +2140,7 @@ impl Default for LINEREQMAKECALLW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
@@ -2178,7 +2159,7 @@ impl Default for LINEREQMEDIACALL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALLW {
     pub hWnd: super::super::Foundation::HWND,
@@ -2210,7 +2191,7 @@ pub const LINESPECIALINFO_NOCIRCUIT: u32 = 1u32;
 pub const LINESPECIALINFO_REORDER: u32 = 4u32;
 pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
 pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINETERMCAPS {
     pub dwTermDev: u32,
@@ -2240,7 +2221,7 @@ pub const LINETONEMODE_CUSTOM: u32 = 1u32;
 pub const LINETONEMODE_RINGBACK: u32 = 2u32;
 pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
 pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINETRANSLATECAPS {
     pub dwTotalSize: u32,
@@ -2259,7 +2240,7 @@ pub const LINETRANSLATEOPTION_CANCELCALLWAITING: u32 = 2u32;
 pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
 pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
 pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct LINETRANSLATEOUTPUT {
     pub dwTotalSize: u32,
@@ -2325,9 +2306,9 @@ pub const LM_WINK: PHONE_LAMP_MODE = 8i32;
 #[cfg(feature = "Win32_System_Com")]
 pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: *mut core::ffi::c_void, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *mut i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpadressbook: *mut core::ffi::c_void, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *mut i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpadressbook: *mut core::ffi::c_void, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const ME_ADDRESS_EVENT: MSP_EVENT = 0i32;
 pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = 4i32;
 pub const ME_CALL_EVENT: MSP_EVENT = 1i32;
@@ -2390,19 +2371,6 @@ impl Default for MSP_EVENT_INFO_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_5 {
-    pub pASRTerminal: *mut core::ffi::c_void,
-    pub hrErrorCode: windows_sys::core::HRESULT,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -2412,6 +2380,30 @@ pub struct MSP_EVENT_INFO_0_1 {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_2 {
+    pub dwBufferSize: u32,
+    pub pBuffer: [u8; 1],
+}
+impl Default for MSP_EVENT_INFO_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_3 {
+    pub pEvent: *mut core::ffi::c_void,
+    pub lEventCode: i32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for MSP_EVENT_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2435,38 +2427,12 @@ impl Default for MSP_EVENT_INFO_0_4 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_3 {
-    pub pEvent: *mut core::ffi::c_void,
-    pub lEventCode: i32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_7 {
-    pub pToneTerminal: *mut core::ffi::c_void,
+pub struct MSP_EVENT_INFO_0_5 {
+    pub pASRTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_2 {
-    pub dwBufferSize: u32,
-    pub pBuffer: [u8; 1],
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_2 {
+impl Default for MSP_EVENT_INFO_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2480,6 +2446,19 @@ pub struct MSP_EVENT_INFO_0_6 {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct MSP_EVENT_INFO_0_7 {
+    pub pToneTerminal: *mut core::ffi::c_void,
+    pub hrErrorCode: windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for MSP_EVENT_INFO_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2646,7 +2625,7 @@ pub const PHONEBUTTONFUNCTION_TRANSFER: u32 = 2u32;
 pub const PHONEBUTTONFUNCTION_UNKNOWN: u32 = 0u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEDOWN: u32 = 20u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEUP: u32 = 19u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PHONEBUTTONINFO {
     pub dwTotalSize: u32,
@@ -2671,7 +2650,7 @@ pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
 pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PHONECAPS {
     pub dwTotalSize: u32,
@@ -2761,7 +2740,7 @@ pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
 pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PHONEEXTENSIONID {
     pub dwExtensionID0: u32,
@@ -2809,7 +2788,7 @@ pub const PHONEHOOKSWITCHMODE_UNKNOWN: u32 = 16u32;
 pub const PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const PHONEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PHONEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -2824,7 +2803,7 @@ impl Default for PHONEINITIALIZEEXPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union PHONEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -2843,7 +2822,7 @@ pub const PHONELAMPMODE_OFF: u32 = 2u32;
 pub const PHONELAMPMODE_STEADY: u32 = 4u32;
 pub const PHONELAMPMODE_UNKNOWN: u32 = 128u32;
 pub const PHONELAMPMODE_WINK: u32 = 8u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PHONEMESSAGE {
     pub hDevice: u32,
@@ -2879,7 +2858,7 @@ pub const PHONESTATE_SPEAKERGAIN: u32 = 16384u32;
 pub const PHONESTATE_SPEAKERHOOKSWITCH: u32 = 4096u32;
 pub const PHONESTATE_SPEAKERVOLUME: u32 = 8192u32;
 pub const PHONESTATE_SUSPEND: u32 = 262144u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PHONESTATUS {
     pub dwTotalSize: u32,
@@ -2983,7 +2962,7 @@ pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
 pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct RENDDATA {
     pub atyp: u16,
@@ -3380,7 +3359,7 @@ pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct VARSTRING {
     pub dwTotalSize: u32,

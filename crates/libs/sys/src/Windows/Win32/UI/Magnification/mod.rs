@@ -9,11 +9,11 @@ windows_link::link!("magnification.dll" "system" fn MagGetWindowSource(hwnd : su
 windows_link::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagInitialize() -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::super::Foundation:: HWND, peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
-windows_link::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : *const MAGCOLOREFFECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetFullscreenTransform(maglevel : f32, xoffset : i32, yoffset : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("magnification.dll" "system" fn MagSetImageScalingCallback(hwnd : super::super::Foundation:: HWND, callback : MagImageScalingCallback) -> windows_sys::core::BOOL);
-windows_link::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_sys::core::BOOL, prectsource : *const super::super::Foundation:: RECT, prectdest : *const super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
+windows_link::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_sys::core::BOOL, prectsource : *mut super::super::Foundation:: RECT, prectdest : *mut super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetWindowFilterList(hwnd : super::super::Foundation:: HWND, dwfiltermode : MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetWindowSource(hwnd : super::super::Foundation:: HWND, rect : super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
 windows_link::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> windows_sys::core::BOOL);

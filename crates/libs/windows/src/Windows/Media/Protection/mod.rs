@@ -32,7 +32,7 @@ impl windows_core::RuntimeName for ComponentLoadFailedEventArgs {
 }
 unsafe impl Send for ComponentLoadFailedEventArgs {}
 unsafe impl Sync for ComponentLoadFailedEventArgs {}
-windows_core::imp::define_interface!(ComponentLoadFailedEventHandler, ComponentLoadFailedEventHandler_Vtbl, 0x95da643c_6db9_424b_86ca_091af432081c);
+windows_core::imp::define_interface!(ComponentLoadFailedEventHandler, ComponentLoadFailedEventHandler_Vtbl, 0xd7500bb6_6128_5041_8831_0fd3e1981c84);
 impl windows_core::RuntimeType for ComponentLoadFailedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -239,7 +239,7 @@ impl windows_core::TypeKind for HdcpSetProtectionResult {
 impl windows_core::RuntimeType for HdcpSetProtectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpSetProtectionResult;i4)");
 }
-windows_core::imp::define_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x95972e93_7746_417e_8495_f031bbc5862c);
+windows_core::imp::define_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x7771a8ff_26a0_549e_b9fd_7e277c5043d3);
 impl windows_core::RuntimeType for IComponentLoadFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -250,7 +250,7 @@ pub struct IComponentLoadFailedEventArgs_Vtbl {
     pub Information: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Completion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IComponentRenewalStatics, IComponentRenewalStatics_Vtbl, 0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
+windows_core::imp::define_interface!(IComponentRenewalStatics, IComponentRenewalStatics_Vtbl, 0x6b86d5cb_c517_5564_a612_c21327fe1e26);
 impl windows_core::RuntimeType for IComponentRenewalStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -260,7 +260,7 @@ pub struct IComponentRenewalStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RenewSystemComponentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHdcpSession, IHdcpSession_Vtbl, 0x718845e9_64d7_426d_809b_1be461941a2a);
+windows_core::imp::define_interface!(IHdcpSession, IHdcpSession_Vtbl, 0xfbff131a_a144_5106_a15f_5891d29183b4);
 impl windows_core::RuntimeType for IHdcpSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -319,7 +319,7 @@ pub struct IMediaProtectionPMPServerFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreatePMPServer: usize,
 }
-windows_core::imp::define_interface!(IMediaProtectionServiceCompletion, IMediaProtectionServiceCompletion_Vtbl, 0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
+windows_core::imp::define_interface!(IMediaProtectionServiceCompletion, IMediaProtectionServiceCompletion_Vtbl, 0x48ae214f_0220_5d26_8607_e2edda6746ec);
 impl windows_core::RuntimeType for IMediaProtectionServiceCompletion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -400,7 +400,7 @@ pub struct IMediaProtectionServiceRequest_Vtbl {
     pub ProtectionSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
+windows_core::imp::define_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0x668f7893_d4bd_5422_b449_a83b2e10057d);
 impl windows_core::RuntimeType for IProtectionCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -410,7 +410,7 @@ pub struct IProtectionCapabilities_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ProtectionCapabilityResult) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
+windows_core::imp::define_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0x61cd2e2f_2290_5497_8745_7e90d0c76bff);
 impl windows_core::RuntimeType for IRevocationAndRenewalInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -420,7 +420,7 @@ pub struct IRevocationAndRenewalInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
+windows_core::imp::define_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x7bee863f_6323_50c4_b35f_6ab3e6f240de);
 impl windows_core::RuntimeType for IRevocationAndRenewalItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -641,7 +641,7 @@ impl windows_core::TypeKind for ProtectionCapabilityResult {
 impl windows_core::RuntimeType for ProtectionCapabilityResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.ProtectionCapabilityResult;i4)");
 }
-windows_core::imp::define_interface!(RebootNeededEventHandler, RebootNeededEventHandler_Vtbl, 0x64e12a45_973b_4a3a_b260_91898a49a82c);
+windows_core::imp::define_interface!(RebootNeededEventHandler, RebootNeededEventHandler_Vtbl, 0xa1618f58_365b_5d81_a9eb_406b01a153d6);
 impl windows_core::RuntimeType for RebootNeededEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -910,7 +910,7 @@ impl windows_core::RuntimeName for ServiceRequestedEventArgs {
 }
 unsafe impl Send for ServiceRequestedEventArgs {}
 unsafe impl Sync for ServiceRequestedEventArgs {}
-windows_core::imp::define_interface!(ServiceRequestedEventHandler, ServiceRequestedEventHandler_Vtbl, 0xd2d690ba_cac9_48e1_95c0_d38495a84055);
+windows_core::imp::define_interface!(ServiceRequestedEventHandler, ServiceRequestedEventHandler_Vtbl, 0xbd6a5202_7042_5e2f_bbc9_207ff974c4fb);
 impl windows_core::RuntimeType for ServiceRequestedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

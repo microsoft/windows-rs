@@ -23,7 +23,7 @@ pub struct ISceneLightingEffect_Vtbl {
     pub SpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetSpecularShine: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
+windows_core::imp::define_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x759d512a_1d69_59b2_8b80_e4a6cdc4a5ff);
 impl windows_core::RuntimeType for ISceneLightingEffect2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

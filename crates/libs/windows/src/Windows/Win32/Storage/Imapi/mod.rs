@@ -112,7 +112,7 @@ impl DDiscFormat2DataEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DDiscFormat2DataEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(DDiscFormat2EraseEvents, DDiscFormat2EraseEvents_Vtbl, 0x2735413a_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(DDiscFormat2EraseEvents, DDiscFormat2EraseEvents_Vtbl, 0x41275d4e_dfe6_5ec0_9742_743a45ec8b05);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for DDiscFormat2EraseEvents {
     type Target = super::super::System::Com::IDispatch;
@@ -160,7 +160,7 @@ impl DDiscFormat2EraseEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DDiscFormat2EraseEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(DDiscFormat2RawCDEvents, DDiscFormat2RawCDEvents_Vtbl, 0x27354142_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(DDiscFormat2RawCDEvents, DDiscFormat2RawCDEvents_Vtbl, 0x8751a5e3_3527_5581_990c_f2c391873e60);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for DDiscFormat2RawCDEvents {
     type Target = super::super::System::Com::IDispatch;
@@ -209,7 +209,7 @@ impl DDiscFormat2RawCDEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DDiscFormat2RawCDEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(DDiscFormat2TrackAtOnceEvents, DDiscFormat2TrackAtOnceEvents_Vtbl, 0x2735413f_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(DDiscFormat2TrackAtOnceEvents, DDiscFormat2TrackAtOnceEvents_Vtbl, 0x47b71dee_fda2_5021_94b9_50f7acc53114);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for DDiscFormat2TrackAtOnceEvents {
     type Target = super::super::System::Com::IDispatch;
@@ -258,7 +258,7 @@ impl DDiscFormat2TrackAtOnceEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DDiscFormat2TrackAtOnceEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(DDiscMaster2Events, DDiscMaster2Events_Vtbl, 0x27354131_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(DDiscMaster2Events, DDiscMaster2Events_Vtbl, 0x571f1cf7_bdb7_5bd3_842a_2a71797e302d);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for DDiscMaster2Events {
     type Target = super::super::System::Com::IDispatch;
@@ -324,7 +324,7 @@ impl DDiscMaster2Events_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DDiscMaster2Events {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(DFileSystemImageEvents, DFileSystemImageEvents_Vtbl, 0x2c941fdf_975b_59be_a960_9a2a262853a5);
+windows_core::imp::define_interface!(DFileSystemImageEvents, DFileSystemImageEvents_Vtbl, 0x233c3bed_9913_57fc_9214_d7965ca520cf);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for DFileSystemImageEvents {
     type Target = super::super::System::Com::IDispatch;
@@ -372,7 +372,7 @@ impl DFileSystemImageEvents_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for DFileSystemImageEvents {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(DFileSystemImageImportEvents, DFileSystemImageImportEvents_Vtbl, 0xd25c30f9_4087_4366_9e24_e55be286424b);
+windows_core::imp::define_interface!(DFileSystemImageImportEvents, DFileSystemImageImportEvents_Vtbl, 0x92641b57_c968_532d_8887_f23f685c3d36);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for DFileSystemImageImportEvents {
     type Target = super::super::System::Com::IDispatch;
@@ -595,7 +595,7 @@ pub const DISPID_IWRITEENGINE2_USESTREAMINGWRITE12: u32 = 257u32;
 pub const DISPID_IWRITEENGINE2_WRITEINPROGRESS: u32 = 261u32;
 pub const DISPID_IWRITEENGINE2_WRITESECTION: u32 = 512u32;
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(DWriteEngine2Events, DWriteEngine2Events_Vtbl, 0x27354137_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(DWriteEngine2Events, DWriteEngine2Events_Vtbl, 0xa91b597a_b63b_53a6_b36d_292ed47a2bec);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for DWriteEngine2Events {
     type Target = super::super::System::Com::IDispatch;
@@ -675,7 +675,7 @@ pub const FsiStream: windows_core::GUID = windows_core::GUID::from_u128(0x2c941f
 pub const GUID_SMTPSVC_SOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x1b3c0666_e470_11d1_aa67_00c04fa345f6);
 pub const GUID_SMTP_SOURCE_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xfb65c4dc_e468_11d1_aa67_00c04fa345f6);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IBlockRange, IBlockRange_Vtbl, 0xb507ca25_2204_11dd_966a_001aa01bbc58);
+windows_core::imp::define_interface!(IBlockRange, IBlockRange_Vtbl, 0xe56866a9_ea18_5fac_931b_ed942201d111);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IBlockRange {
     type Target = super::super::System::Com::IDispatch;
@@ -807,7 +807,7 @@ impl IBlockRangeList_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBlockRangeList {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IBootOptions, IBootOptions_Vtbl, 0x2c941fd4_975b_59be_a960_9a2a262853a5);
+windows_core::imp::define_interface!(IBootOptions, IBootOptions_Vtbl, 0xdde51c69_bef7_587e_89f6_f17fd1873c31);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IBootOptions {
     type Target = super::super::System::Com::IDispatch;
@@ -998,7 +998,7 @@ impl IBootOptions_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IBootOptions {}
-windows_core::imp::define_interface!(IBurnVerification, IBurnVerification_Vtbl, 0xd2ffd834_958b_426d_8470_2a13879c6a91);
+windows_core::imp::define_interface!(IBurnVerification, IBurnVerification_Vtbl, 0x1356a71d_6043_5ed5_8dec_cc5a45bbdac4);
 windows_core::imp::interface_hierarchy!(IBurnVerification, windows_core::IUnknown);
 impl IBurnVerification {
     pub unsafe fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> windows_core::Result<()> {
@@ -1054,7 +1054,7 @@ impl IBurnVerification_Vtbl {
 }
 impl windows_core::RuntimeName for IBurnVerification {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2, IDiscFormat2_Vtbl, 0x27354152_8f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2, IDiscFormat2_Vtbl, 0xd29e4f43_6fe4_5334_81af_cfc111c631b2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2 {
     type Target = super::super::System::Com::IDispatch;
@@ -1201,7 +1201,7 @@ impl IDiscFormat2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2Data, IDiscFormat2Data_Vtbl, 0x27354153_9f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2Data, IDiscFormat2Data_Vtbl, 0x0db97f15_3a0f_54f3_9217_fa50da7c9f05);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2Data {
     type Target = IDiscFormat2;
@@ -1825,7 +1825,7 @@ impl IDiscFormat2Data_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2Data {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2DataEventArgs, IDiscFormat2DataEventArgs_Vtbl, 0x2735413d_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2DataEventArgs, IDiscFormat2DataEventArgs_Vtbl, 0x0523dff1_aef8_532b_b29c_bc58658b252c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2DataEventArgs {
     type Target = IWriteEngine2EventArgs;
@@ -1945,7 +1945,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2DataEventArgs {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2Erase, IDiscFormat2Erase_Vtbl, 0x27354156_8f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2Erase, IDiscFormat2Erase_Vtbl, 0xb95e1017_73f1_5536_8fab_f8e7db54cab4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2Erase {
     type Target = IDiscFormat2;
@@ -2116,7 +2116,7 @@ impl IDiscFormat2Erase_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2Erase {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2RawCD, IDiscFormat2RawCD_Vtbl, 0x27354155_8f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2RawCD, IDiscFormat2RawCD_Vtbl, 0x90b4fe0d_2eba_5728_8080_44f8ff275bc3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2RawCD {
     type Target = IDiscFormat2;
@@ -2575,7 +2575,7 @@ impl IDiscFormat2RawCD_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2RawCD {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2RawCDEventArgs, IDiscFormat2RawCDEventArgs_Vtbl, 0x27354143_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2RawCDEventArgs, IDiscFormat2RawCDEventArgs_Vtbl, 0xbc88e9cd_b58c_5a94_8fbd_78139d7ed67f);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2RawCDEventArgs {
     type Target = IWriteEngine2EventArgs;
@@ -2674,7 +2674,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2RawCDEventArgs {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2TrackAtOnce, IDiscFormat2TrackAtOnce_Vtbl, 0x27354154_8f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2TrackAtOnce, IDiscFormat2TrackAtOnce_Vtbl, 0xd3d84bd2_2843_5b49_a8e4_56473cc914de);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2TrackAtOnce {
     type Target = IDiscFormat2;
@@ -3160,7 +3160,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2TrackAtOnce {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscFormat2TrackAtOnceEventArgs, IDiscFormat2TrackAtOnceEventArgs_Vtbl, 0x27354140_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscFormat2TrackAtOnceEventArgs, IDiscFormat2TrackAtOnceEventArgs_Vtbl, 0x34191bfc_039e_5082_86d9_868a9d2de321);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscFormat2TrackAtOnceEventArgs {
     type Target = IWriteEngine2EventArgs;
@@ -3279,7 +3279,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscFormat2TrackAtOnceEventArgs {}
-windows_core::imp::define_interface!(IDiscMaster, IDiscMaster_Vtbl, 0x520cca62_51a5_11d3_9144_00104ba11c5e);
+windows_core::imp::define_interface!(IDiscMaster, IDiscMaster_Vtbl, 0xa5a53a7c_6670_53a5_b214_58f71391ebe0);
 windows_core::imp::interface_hierarchy!(IDiscMaster, windows_core::IUnknown);
 impl IDiscMaster {
     pub unsafe fn Open(&self) -> windows_core::Result<()> {
@@ -3297,8 +3297,8 @@ impl IDiscMaster {
             (windows_core::Interface::vtable(self).GetActiveDiscMasterFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetActiveDiscMasterFormat(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetActiveDiscMasterFormat)(windows_core::Interface::as_raw(self), riid, ppunk as _).ok() }
+    pub unsafe fn SetActiveDiscMasterFormat(&self, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetActiveDiscMasterFormat)(windows_core::Interface::as_raw(self), riid as _, ppunk as _).ok() }
     }
     pub unsafe fn EnumDiscRecorders(&self) -> windows_core::Result<IEnumDiscRecorders> {
         unsafe {
@@ -3347,7 +3347,7 @@ pub struct IDiscMaster_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDiscMasterFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetActiveDiscMasterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub SetActiveDiscMasterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetActiveDiscMasterFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDiscRecorders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetActiveDiscRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetActiveDiscRecorder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3361,7 +3361,7 @@ pub trait IDiscMaster_Impl: windows_core::IUnknownImpl {
     fn Open(&self) -> windows_core::Result<()>;
     fn EnumDiscMasterFormats(&self) -> windows_core::Result<IEnumDiscMasterFormats>;
     fn GetActiveDiscMasterFormat(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SetActiveDiscMasterFormat(&self, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn SetActiveDiscMasterFormat(&self, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn EnumDiscRecorders(&self) -> windows_core::Result<IEnumDiscRecorders>;
     fn GetActiveDiscRecorder(&self) -> windows_core::Result<IDiscRecorder>;
     fn SetActiveDiscRecorder(&self, precorder: windows_core::Ref<IDiscRecorder>) -> windows_core::Result<()>;
@@ -3403,7 +3403,7 @@ impl IDiscMaster_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetActiveDiscMasterFormat<Identity: IDiscMaster_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetActiveDiscMasterFormat<Identity: IDiscMaster_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *mut windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscMaster_Impl::SetActiveDiscMasterFormat(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
@@ -3620,7 +3620,7 @@ impl IDiscMaster2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscMaster2 {}
-windows_core::imp::define_interface!(IDiscMasterProgressEvents, IDiscMasterProgressEvents_Vtbl, 0xec9e51c1_4e5d_11d3_9144_00104ba11c5e);
+windows_core::imp::define_interface!(IDiscMasterProgressEvents, IDiscMasterProgressEvents_Vtbl, 0x1c505dd4_3584_52ff_9022_713d41879b0a);
 windows_core::imp::interface_hierarchy!(IDiscMasterProgressEvents, windows_core::IUnknown);
 impl IDiscMasterProgressEvents {
     pub unsafe fn QueryCancel(&self) -> windows_core::Result<u8> {
@@ -3759,14 +3759,14 @@ impl IDiscMasterProgressEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDiscMasterProgressEvents {}
-windows_core::imp::define_interface!(IDiscRecorder, IDiscRecorder_Vtbl, 0x85ac9776_ca88_4cf2_894e_09598c078a41);
+windows_core::imp::define_interface!(IDiscRecorder, IDiscRecorder_Vtbl, 0x1188d479_2044_5e05_90d1_fd8b69b38c90);
 windows_core::imp::interface_hierarchy!(IDiscRecorder, windows_core::IUnknown);
 impl IDiscRecorder {
-    pub unsafe fn Init(&self, pbyuniqueid: &[u8], nuldrivenumber: u32) -> windows_core::Result<()> {
+    pub unsafe fn Init(&self, pbyuniqueid: &mut [u8], nuldrivenumber: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len().try_into().unwrap(), nuldrivenumber).ok() }
     }
-    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: Option<&mut [u8]>, pulreturnsizerequired: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRecorderGUID)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbyuniqueid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pulreturnsizerequired as _).ok() }
+    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: &mut [u8], pulreturnsizerequired: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRecorderGUID)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len().try_into().unwrap(), pulreturnsizerequired as _).ok() }
     }
     pub unsafe fn GetRecorderType(&self) -> windows_core::Result<RECORDER_TYPES> {
         unsafe {
@@ -3774,8 +3774,8 @@ impl IDiscRecorder {
             (windows_core::Interface::vtable(self).GetRecorderType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: Option<*mut windows_core::BSTR>, pbstrproductid: Option<*mut windows_core::BSTR>, pbstrrevision: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayNames)(windows_core::Interface::as_raw(self), pbstrvendorid.unwrap_or(core::mem::zeroed()) as _, pbstrproductid.unwrap_or(core::mem::zeroed()) as _, pbstrrevision.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: *mut windows_core::BSTR, pbstrproductid: *mut windows_core::BSTR, pbstrrevision: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayNames)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrvendorid), core::mem::transmute(pbstrproductid), core::mem::transmute(pbstrrevision)).ok() }
     }
     pub unsafe fn GetBasePnPID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -3832,7 +3832,7 @@ impl IDiscRecorder {
 #[doc(hidden)]
 pub struct IDiscRecorder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32) -> windows_core::HRESULT,
+    pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, u32) -> windows_core::HRESULT,
     pub GetRecorderGUID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
     pub GetRecorderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RECORDER_TYPES) -> windows_core::HRESULT,
     pub GetDisplayNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3856,7 +3856,7 @@ pub struct IDiscRecorder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IDiscRecorder_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> windows_core::Result<()>;
+    fn Init(&self, pbyuniqueid: *mut u8, nulidsize: u32, nuldrivenumber: u32) -> windows_core::Result<()>;
     fn GetRecorderGUID(&self, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> windows_core::Result<()>;
     fn GetRecorderType(&self) -> windows_core::Result<RECORDER_TYPES>;
     fn GetDisplayNames(&self, pbstrvendorid: *mut windows_core::BSTR, pbstrproductid: *mut windows_core::BSTR, pbstrrevision: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -3875,7 +3875,7 @@ pub trait IDiscRecorder_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IDiscRecorder_Vtbl {
     pub const fn new<Identity: IDiscRecorder_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Init<Identity: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Init<Identity: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbyuniqueid: *mut u8, nulidsize: u32, nuldrivenumber: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder_Impl::Init(this, core::mem::transmute_copy(&pbyuniqueid), core::mem::transmute_copy(&nulidsize), core::mem::transmute_copy(&nuldrivenumber)).into()
@@ -4021,7 +4021,7 @@ impl IDiscRecorder_Vtbl {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl windows_core::RuntimeName for IDiscRecorder {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IDiscRecorder2, IDiscRecorder2_Vtbl, 0x27354133_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscRecorder2, IDiscRecorder2_Vtbl, 0xc1945ac9_2a67_5e56_a2e3_be5231284620);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IDiscRecorder2 {
     type Target = super::super::System::Com::IDispatch;
@@ -4434,22 +4434,22 @@ impl IDiscRecorder2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDiscRecorder2 {}
-windows_core::imp::define_interface!(IDiscRecorder2Ex, IDiscRecorder2Ex_Vtbl, 0x27354132_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IDiscRecorder2Ex, IDiscRecorder2Ex_Vtbl, 0x52e5065f_1683_5227_b6dd_7b3589a87b55);
 windows_core::imp::interface_hierarchy!(IDiscRecorder2Ex, windows_core::IUnknown);
 impl IDiscRecorder2Ex {
-    pub unsafe fn SendCommandNoData(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32) -> windows_core::Result<()> {
+    pub unsafe fn SendCommandNoData(&self, cdb: &mut [u8], sensebuffer: &mut [u8; 18], timeout: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendCommandNoData)(windows_core::Interface::as_raw(self), core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), core::mem::transmute(sensebuffer.as_ptr()), timeout).ok() }
     }
-    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn SendCommandSendDataToDevice(&self, cdb: &mut [u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &mut [u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), core::mem::transmute(sensebuffer.as_ptr()), timeout, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &[u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &mut [u8], bufferfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: &mut [u8], sensebuffer: &mut [u8; 18], timeout: u32, buffer: &mut [u8], bufferfetched: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(windows_core::Interface::as_raw(self), core::mem::transmute(cdb.as_ptr()), cdb.len().try_into().unwrap(), core::mem::transmute(sensebuffer.as_ptr()), timeout, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), bufferfetched as _).ok() }
     }
     pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadDvdStructure)(windows_core::Interface::as_raw(self), format, address, layer, agid, data as _, count as _).ok() }
     }
-    pub unsafe fn SendDvdStructure(&self, format: u32, data: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn SendDvdStructure(&self, format: u32, data: &mut [u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendDvdStructure)(windows_core::Interface::as_raw(self), format, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
@@ -4470,7 +4470,7 @@ impl IDiscRecorder2Ex {
     pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetModePage)(windows_core::Interface::as_raw(self), requestedmodepage, requesttype, modepagedata as _, bytesize as _).ok() }
     }
-    pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &mut [u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetModePage)(windows_core::Interface::as_raw(self), requesttype, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> windows_core::Result<()> {
@@ -4505,18 +4505,18 @@ impl IDiscRecorder2Ex {
 #[doc(hidden)]
 pub struct IDiscRecorder2Ex_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SendCommandNoData: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u8, u32) -> windows_core::HRESULT,
-    pub SendCommandSendDataToDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u8, u32, *const u8, u32) -> windows_core::HRESULT,
-    pub SendCommandGetDataFromDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u8, u32, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
+    pub SendCommandNoData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut u8, u32) -> windows_core::HRESULT,
+    pub SendCommandSendDataToDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut u8, u32, *mut u8, u32) -> windows_core::HRESULT,
+    pub SendCommandGetDataFromDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, *mut u8, u32, *mut u8, u32, *mut u32) -> windows_core::HRESULT,
     pub ReadDvdStructure: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub SendDvdStructure: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32) -> windows_core::HRESULT,
+    pub SendDvdStructure: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, u32) -> windows_core::HRESULT,
     pub GetAdapterDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetDeviceDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetDiscInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetTrackInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, IMAPI_READ_TRACK_ADDRESS_TYPE, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetFeaturePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_FEATURE_PAGE_TYPE, bool, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetModePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_TYPE, IMAPI_MODE_PAGE_REQUEST_TYPE, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
-    pub SetModePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_REQUEST_TYPE, *const u8, u32) -> windows_core::HRESULT,
+    pub SetModePage: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_REQUEST_TYPE, *mut u8, u32) -> windows_core::HRESULT,
     pub GetSupportedFeaturePages: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut IMAPI_FEATURE_PAGE_TYPE, *mut u32) -> windows_core::HRESULT,
     pub GetSupportedProfiles: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut IMAPI_PROFILE_TYPE, *mut u32) -> windows_core::HRESULT,
     pub GetSupportedModePages: unsafe extern "system" fn(*mut core::ffi::c_void, IMAPI_MODE_PAGE_REQUEST_TYPE, *mut *mut IMAPI_MODE_PAGE_TYPE, *mut u32) -> windows_core::HRESULT,
@@ -4525,18 +4525,18 @@ pub struct IDiscRecorder2Ex_Vtbl {
     pub GetMaximumPageAlignedTransferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDiscRecorder2Ex_Impl: windows_core::IUnknownImpl {
-    fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::Result<()>;
-    fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> windows_core::Result<()>;
-    fn SendCommandGetDataFromDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> windows_core::Result<()>;
+    fn SendCommandNoData(&self, cdb: *mut u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::Result<()>;
+    fn SendCommandSendDataToDevice(&self, cdb: *mut u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32) -> windows_core::Result<()>;
+    fn SendCommandGetDataFromDevice(&self, cdb: *mut u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> windows_core::Result<()>;
     fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> windows_core::Result<()>;
-    fn SendDvdStructure(&self, format: u32, data: *const u8, count: u32) -> windows_core::Result<()>;
+    fn SendDvdStructure(&self, format: u32, data: *mut u8, count: u32) -> windows_core::Result<()>;
     fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
     fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
     fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
     fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
     fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: bool, featuredata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
     fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> windows_core::Result<()>;
-    fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: u32) -> windows_core::Result<()>;
+    fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *mut u8, bytesize: u32) -> windows_core::Result<()>;
     fn GetSupportedFeaturePages(&self, currentfeatureonly: bool, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> windows_core::Result<()>;
     fn GetSupportedProfiles(&self, currentonly: bool, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> windows_core::Result<()>;
     fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> windows_core::Result<()>;
@@ -4546,19 +4546,19 @@ pub trait IDiscRecorder2Ex_Impl: windows_core::IUnknownImpl {
 }
 impl IDiscRecorder2Ex_Vtbl {
     pub const fn new<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SendCommandNoData<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendCommandNoData<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *mut u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::SendCommandNoData(this, core::mem::transmute_copy(&cdb), core::mem::transmute_copy(&cdbsize), core::mem::transmute_copy(&sensebuffer), core::mem::transmute_copy(&timeout)).into()
             }
         }
-        unsafe extern "system" fn SendCommandSendDataToDevice<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendCommandSendDataToDevice<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *mut u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::SendCommandSendDataToDevice(this, core::mem::transmute_copy(&cdb), core::mem::transmute_copy(&cdbsize), core::mem::transmute_copy(&sensebuffer), core::mem::transmute_copy(&timeout), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize)).into()
             }
         }
-        unsafe extern "system" fn SendCommandGetDataFromDevice<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendCommandGetDataFromDevice<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdb: *mut u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::SendCommandGetDataFromDevice(this, core::mem::transmute_copy(&cdb), core::mem::transmute_copy(&cdbsize), core::mem::transmute_copy(&sensebuffer), core::mem::transmute_copy(&timeout), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&buffersize), core::mem::transmute_copy(&bufferfetched)).into()
@@ -4570,7 +4570,7 @@ impl IDiscRecorder2Ex_Vtbl {
                 IDiscRecorder2Ex_Impl::ReadDvdStructure(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&address), core::mem::transmute_copy(&layer), core::mem::transmute_copy(&agid), core::mem::transmute_copy(&data), core::mem::transmute_copy(&count)).into()
             }
         }
-        unsafe extern "system" fn SendDvdStructure<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: u32, data: *const u8, count: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendDvdStructure<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: u32, data: *mut u8, count: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::SendDvdStructure(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&data), core::mem::transmute_copy(&count)).into()
@@ -4612,7 +4612,7 @@ impl IDiscRecorder2Ex_Vtbl {
                 IDiscRecorder2Ex_Impl::GetModePage(this, core::mem::transmute_copy(&requestedmodepage), core::mem::transmute_copy(&requesttype), core::mem::transmute_copy(&modepagedata), core::mem::transmute_copy(&bytesize)).into()
             }
         }
-        unsafe extern "system" fn SetModePage<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetModePage<Identity: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *mut u8, bytesize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDiscRecorder2Ex_Impl::SetModePage(this, core::mem::transmute_copy(&requesttype), core::mem::transmute_copy(&data), core::mem::transmute_copy(&bytesize)).into()
@@ -4778,7 +4778,7 @@ impl IEnumDiscMasterFormats_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumDiscMasterFormats {}
-windows_core::imp::define_interface!(IEnumDiscRecorders, IEnumDiscRecorders_Vtbl, 0x9b1921e1_54ac_11d3_9144_00104ba11c5e);
+windows_core::imp::define_interface!(IEnumDiscRecorders, IEnumDiscRecorders_Vtbl, 0xf0aeb84d_bfa4_51ff_853b_1a37ae1790ff);
 windows_core::imp::interface_hierarchy!(IEnumDiscRecorders, windows_core::IUnknown);
 impl IEnumDiscRecorders {
     pub unsafe fn Next(&self, pprecorder: &mut [Option<IDiscRecorder>], pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -4857,7 +4857,7 @@ impl IEnumDiscRecorders_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumDiscRecorders {}
-windows_core::imp::define_interface!(IEnumFsiItems, IEnumFsiItems_Vtbl, 0x2c941fda_975b_59be_a960_9a2a262853a5);
+windows_core::imp::define_interface!(IEnumFsiItems, IEnumFsiItems_Vtbl, 0x7c7dcb6d_c4e2_515e_aebe_ae2cfd792967);
 windows_core::imp::interface_hierarchy!(IEnumFsiItems, windows_core::IUnknown);
 impl IEnumFsiItems {
     #[cfg(feature = "Win32_System_Com")]
@@ -5030,7 +5030,7 @@ impl IEnumProgressItems_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IEnumProgressItems {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFileSystemImage, IFileSystemImage_Vtbl, 0x2c941fe1_975b_59be_a960_9a2a262853a5);
+windows_core::imp::define_interface!(IFileSystemImage, IFileSystemImage_Vtbl, 0x27c86751_2d0b_53e7_9af7_c1f07fcf91b4);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFileSystemImage {
     type Target = super::super::System::Com::IDispatch;
@@ -5297,8 +5297,8 @@ impl IFileSystemImage {
             (windows_core::Interface::vtable(self).MultisessionInterfaces)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMultisessionInterfaces)(windows_core::Interface::as_raw(self), newval).ok() }
+    pub unsafe fn SetMultisessionInterfaces(&self, newval: *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetMultisessionInterfaces)(windows_core::Interface::as_raw(self), newval as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5355,7 +5355,7 @@ pub struct IFileSystemImage_Vtbl {
     pub StageFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub SetStageFiles: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub MultisessionInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
-    pub SetMultisessionInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
+    pub SetMultisessionInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFileSystemImage_Impl: super::super::System::Com::IDispatch_Impl {
@@ -5408,7 +5408,7 @@ pub trait IFileSystemImage_Impl: super::super::System::Com::IDispatch_Impl {
     fn StageFiles(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetStageFiles(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn MultisessionInterfaces(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn SetMultisessionInterfaces(&self, newval: *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFileSystemImage_Vtbl {
@@ -5899,7 +5899,7 @@ impl IFileSystemImage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMultisessionInterfaces<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMultisessionInterfaces<Identity: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFileSystemImage_Impl::SetMultisessionInterfaces(this, core::mem::transmute_copy(&newval)).into()
@@ -6035,7 +6035,7 @@ impl IFileSystemImage2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFileSystemImage2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFileSystemImage3, IFileSystemImage3_Vtbl, 0x7cff842c_7e97_4807_8304_910dd8f7c051);
+windows_core::imp::define_interface!(IFileSystemImage3, IFileSystemImage3_Vtbl, 0x1678ed9c_a899_5a51_8376_9e32e6016af5);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFileSystemImage3 {
     type Target = IFileSystemImage2;
@@ -6320,7 +6320,7 @@ impl IFileSystemImageResult2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFileSystemImageResult2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFsiDirectoryItem, IFsiDirectoryItem_Vtbl, 0x2c941fdc_975b_59be_a960_9a2a262853a5);
+windows_core::imp::define_interface!(IFsiDirectoryItem, IFsiDirectoryItem_Vtbl, 0x406396b8_e1b5_50ca_92b1_005e66e8dee5);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFsiDirectoryItem {
     type Target = IFsiItem;
@@ -6702,7 +6702,7 @@ impl IFsiFileItem_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsiFileItem {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFsiFileItem2, IFsiFileItem2_Vtbl, 0x199d0c19_11e1_40eb_8ec2_c8c822a07792);
+windows_core::imp::define_interface!(IFsiFileItem2, IFsiFileItem2_Vtbl, 0x965ef858_8574_54bc_8031_0bac13379cf9);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFsiFileItem2 {
     type Target = IFsiFileItem;
@@ -7092,7 +7092,7 @@ impl IFsiItem_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsiItem {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFsiNamedStreams, IFsiNamedStreams_Vtbl, 0xed79ba56_5294_4250_8d46_f9aecee23459);
+windows_core::imp::define_interface!(IFsiNamedStreams, IFsiNamedStreams_Vtbl, 0x7352e64e_cfe9_5382_82bb_26b3126baa22);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFsiNamedStreams {
     type Target = super::super::System::Com::IDispatch;
@@ -7216,7 +7216,7 @@ impl IFsiNamedStreams_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFsiNamedStreams {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IIsoImageManager, IIsoImageManager_Vtbl, 0x6ca38be5_fbbb_4800_95a1_a438865eb0d4);
+windows_core::imp::define_interface!(IIsoImageManager, IIsoImageManager_Vtbl, 0x87592495_4f47_5ae9_bac0_4a2f3475afea);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IIsoImageManager {
     type Target = super::super::System::Com::IDispatch;
@@ -7332,7 +7332,7 @@ impl IIsoImageManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IIsoImageManager {}
-windows_core::imp::define_interface!(IJolietDiscMaster, IJolietDiscMaster_Vtbl, 0xe3bc42ce_4e5c_11d3_9144_00104ba11c5e);
+windows_core::imp::define_interface!(IJolietDiscMaster, IJolietDiscMaster_Vtbl, 0xf48cf12a_897e_5398_bb3a_0b5e294868f9);
 windows_core::imp::interface_hierarchy!(IJolietDiscMaster, windows_core::IUnknown);
 impl IJolietDiscMaster {
     pub unsafe fn GetTotalDataBlocks(&self) -> windows_core::Result<i32> {
@@ -8095,7 +8095,7 @@ impl IMultisessionRandomWrite_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMultisessionRandomWrite {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMultisessionSequential, IMultisessionSequential_Vtbl, 0x27354151_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IMultisessionSequential, IMultisessionSequential_Vtbl, 0x3c9d2d70_0306_568f_bf7b_b933ba64fdd9);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMultisessionSequential {
     type Target = IMultisession;
@@ -8236,7 +8236,7 @@ impl IMultisessionSequential_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMultisessionSequential {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IMultisessionSequential2, IMultisessionSequential2_Vtbl, 0xb507ca22_2204_11dd_966a_001aa01bbc58);
+windows_core::imp::define_interface!(IMultisessionSequential2, IMultisessionSequential2_Vtbl, 0x06b7baf3_b2d8_5899_9fcc_f82cf1da3a06);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMultisessionSequential2 {
     type Target = IMultisessionSequential;
@@ -8290,7 +8290,7 @@ impl IMultisessionSequential2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IMultisessionSequential2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IProgressItem, IProgressItem_Vtbl, 0x2c941fd5_975b_59be_a960_9a2a262853a5);
+windows_core::imp::define_interface!(IProgressItem, IProgressItem_Vtbl, 0xca0ee4b6_343d_5fde_b1b1_54bb239b27d7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IProgressItem {
     type Target = super::super::System::Com::IDispatch;
@@ -8410,7 +8410,7 @@ impl IProgressItem_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IProgressItem {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IProgressItems, IProgressItems_Vtbl, 0x2c941fd7_975b_59be_a960_9a2a262853a5);
+windows_core::imp::define_interface!(IProgressItems, IProgressItems_Vtbl, 0xc183eafc_fc95_5d1e_8f05_ae8cf7485370);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IProgressItems {
     type Target = super::super::System::Com::IDispatch;
@@ -8576,7 +8576,7 @@ impl IProgressItems_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IProgressItems {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRawCDImageCreator, IRawCDImageCreator_Vtbl, 0x25983550_9d65_49ce_b335_40630d901227);
+windows_core::imp::define_interface!(IRawCDImageCreator, IRawCDImageCreator_Vtbl, 0x9e464706_e878_5068_aab8_c98641e2e56b);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRawCDImageCreator {
     type Target = super::super::System::Com::IDispatch;
@@ -9384,7 +9384,7 @@ impl IRedbookDiscMaster_Vtbl {
 }
 impl windows_core::RuntimeName for IRedbookDiscMaster {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IStreamConcatenate, IStreamConcatenate_Vtbl, 0x27354146_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IStreamConcatenate, IStreamConcatenate_Vtbl, 0x3cf0e99c_82cf_54d0_a336_24c0d03dc592);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IStreamConcatenate {
     type Target = super::super::System::Com::IStream;
@@ -9403,7 +9403,7 @@ impl IStreamConcatenate {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), stream1.param().abi(), stream2.param().abi()).ok() }
     }
-    pub unsafe fn Initialize2(&self, streams: &[Option<super::super::System::Com::IStream>]) -> windows_core::Result<()> {
+    pub unsafe fn Initialize2(&self, streams: &mut [Option<super::super::System::Com::IStream>]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Initialize2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn Append<P0>(&self, stream: P0) -> windows_core::Result<()>
@@ -9412,7 +9412,7 @@ impl IStreamConcatenate {
     {
         unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), stream.param().abi()).ok() }
     }
-    pub unsafe fn Append2(&self, streams: &[Option<super::super::System::Com::IStream>]) -> windows_core::Result<()> {
+    pub unsafe fn Append2(&self, streams: &mut [Option<super::super::System::Com::IStream>]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Append2)(windows_core::Interface::as_raw(self), core::mem::transmute(streams.as_ptr()), streams.len().try_into().unwrap()).ok() }
     }
 }
@@ -9422,16 +9422,16 @@ impl IStreamConcatenate {
 pub struct IStreamConcatenate_Vtbl {
     pub base__: super::super::System::Com::IStream_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Initialize2: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Initialize2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Append2: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Append2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStreamConcatenate_Impl: super::super::System::Com::IStream_Impl {
     fn Initialize(&self, stream1: windows_core::Ref<super::super::System::Com::IStream>, stream2: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Initialize2(&self, streams: *const Option<super::super::System::Com::IStream>, streamcount: u32) -> windows_core::Result<()>;
+    fn Initialize2(&self, streams: *mut Option<super::super::System::Com::IStream>, streamcount: u32) -> windows_core::Result<()>;
     fn Append(&self, stream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Append2(&self, streams: *const Option<super::super::System::Com::IStream>, streamcount: u32) -> windows_core::Result<()>;
+    fn Append2(&self, streams: *mut Option<super::super::System::Com::IStream>, streamcount: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamConcatenate_Vtbl {
@@ -9442,7 +9442,7 @@ impl IStreamConcatenate_Vtbl {
                 IStreamConcatenate_Impl::Initialize(this, core::mem::transmute_copy(&stream1), core::mem::transmute_copy(&stream2)).into()
             }
         }
-        unsafe extern "system" fn Initialize2<Identity: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *const *mut core::ffi::c_void, streamcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize2<Identity: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *mut *mut core::ffi::c_void, streamcount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamConcatenate_Impl::Initialize2(this, core::mem::transmute_copy(&streams), core::mem::transmute_copy(&streamcount)).into()
@@ -9454,7 +9454,7 @@ impl IStreamConcatenate_Vtbl {
                 IStreamConcatenate_Impl::Append(this, core::mem::transmute_copy(&stream)).into()
             }
         }
-        unsafe extern "system" fn Append2<Identity: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *const *mut core::ffi::c_void, streamcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Append2<Identity: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *mut *mut core::ffi::c_void, streamcount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamConcatenate_Impl::Append2(this, core::mem::transmute_copy(&streams), core::mem::transmute_copy(&streamcount)).into()
@@ -9475,7 +9475,7 @@ impl IStreamConcatenate_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IStreamConcatenate {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IStreamInterleave, IStreamInterleave_Vtbl, 0x27354147_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IStreamInterleave, IStreamInterleave_Vtbl, 0x0b6eaa5e_0f8e_5e6e_a5cc_52a623f9cfbb);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IStreamInterleave {
     type Target = super::super::System::Com::IStream;
@@ -9487,8 +9487,8 @@ impl core::ops::Deref for IStreamInterleave {
 windows_core::imp::interface_hierarchy!(IStreamInterleave, windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamInterleave {
-    pub unsafe fn Initialize(&self, streams: *const Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), interleavesizes, streamcount).ok() }
+    pub unsafe fn Initialize(&self, streams: *mut Option<super::super::System::Com::IStream>, interleavesizes: *mut u32, streamcount: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(streams), interleavesizes as _, streamcount).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9496,16 +9496,16 @@ impl IStreamInterleave {
 #[doc(hidden)]
 pub struct IStreamInterleave_Vtbl {
     pub base__: super::super::System::Com::IStream_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, *const u32, u32) -> windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStreamInterleave_Impl: super::super::System::Com::IStream_Impl {
-    fn Initialize(&self, streams: *const Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, streams: windows_core::OutRef<super::super::System::Com::IStream>, interleavesizes: *mut u32, streamcount: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamInterleave_Vtbl {
     pub const fn new<Identity: IStreamInterleave_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IStreamInterleave_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *const *mut core::ffi::c_void, interleavesizes: *const u32, streamcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IStreamInterleave_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streams: *mut *mut core::ffi::c_void, interleavesizes: *mut u32, streamcount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamInterleave_Impl::Initialize(this, core::mem::transmute_copy(&streams), core::mem::transmute_copy(&interleavesizes), core::mem::transmute_copy(&streamcount)).into()
@@ -9520,7 +9520,7 @@ impl IStreamInterleave_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IStreamInterleave {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IStreamPseudoRandomBased, IStreamPseudoRandomBased_Vtbl, 0x27354145_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IStreamPseudoRandomBased, IStreamPseudoRandomBased_Vtbl, 0x2108ad89_80c4_5188_85cf_8e115ec8e713);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IStreamPseudoRandomBased {
     type Target = super::super::System::Com::IStream;
@@ -9541,7 +9541,7 @@ impl IStreamPseudoRandomBased {
             (windows_core::Interface::vtable(self).Seed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn put_ExtendedSeed(&self, values: &[u32]) -> windows_core::Result<()> {
+    pub unsafe fn put_ExtendedSeed(&self, values: &mut [u32]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_ExtendedSeed)(windows_core::Interface::as_raw(self), core::mem::transmute(values.as_ptr()), values.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> windows_core::Result<()> {
@@ -9555,14 +9555,14 @@ pub struct IStreamPseudoRandomBased_Vtbl {
     pub base__: super::super::System::Com::IStream_Vtbl,
     pub SetSeed: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Seed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub put_ExtendedSeed: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32, u32) -> windows_core::HRESULT,
+    pub put_ExtendedSeed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32) -> windows_core::HRESULT,
     pub get_ExtendedSeed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStreamPseudoRandomBased_Impl: super::super::System::Com::IStream_Impl {
     fn SetSeed(&self, value: u32) -> windows_core::Result<()>;
     fn Seed(&self) -> windows_core::Result<u32>;
-    fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> windows_core::Result<()>;
+    fn put_ExtendedSeed(&self, values: *mut u32, ecount: u32) -> windows_core::Result<()>;
     fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9586,7 +9586,7 @@ impl IStreamPseudoRandomBased_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_ExtendedSeed<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, values: *const u32, ecount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_ExtendedSeed<Identity: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, values: *mut u32, ecount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStreamPseudoRandomBased_Impl::put_ExtendedSeed(this, core::mem::transmute_copy(&values), core::mem::transmute_copy(&ecount)).into()
@@ -9613,7 +9613,7 @@ impl IStreamPseudoRandomBased_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IStreamPseudoRandomBased {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IWriteEngine2, IWriteEngine2_Vtbl, 0x27354135_7f64_5b0f_8f00_5d77afbe261e);
+windows_core::imp::define_interface!(IWriteEngine2, IWriteEngine2_Vtbl, 0xcbf4a3b9_39ca_55ac_9328_e86ca2798f97);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IWriteEngine2 {
     type Target = super::super::System::Com::IDispatch;

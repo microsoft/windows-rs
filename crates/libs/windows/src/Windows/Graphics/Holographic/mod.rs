@@ -1361,7 +1361,7 @@ impl windows_core::TypeKind for HolographicViewConfigurationKind {
 impl windows_core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
 }
-windows_core::imp::define_interface!(IHolographicCamera, IHolographicCamera_Vtbl, 0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
+windows_core::imp::define_interface!(IHolographicCamera, IHolographicCamera_Vtbl, 0x4ff5c79e_fa85_561f_81fc_f1ac226a3d3e);
 impl windows_core::RuntimeType for IHolographicCamera {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1377,7 +1377,7 @@ pub struct IHolographicCamera_Vtbl {
     pub SetNearPlaneDistance: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub SetFarPlaneDistance: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCamera2, IHolographicCamera2_Vtbl, 0xb55b9f1a_ba8c_4f84_ad79_2e7e1e2450f3);
+windows_core::imp::define_interface!(IHolographicCamera2, IHolographicCamera2_Vtbl, 0xdc5ef42a_b998_5b25_b0b0_aa4b76327271);
 impl windows_core::RuntimeType for IHolographicCamera2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1389,7 +1389,7 @@ pub struct IHolographicCamera2_Vtbl {
     pub RightViewportParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Display: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCamera3, IHolographicCamera3_Vtbl, 0x45aa4fb3_7b59_524e_4a3f_4a6ad6650477);
+windows_core::imp::define_interface!(IHolographicCamera3, IHolographicCamera3_Vtbl, 0x3e70cecf_3b64_50ba_a587_2c8ae9ce235c);
 impl windows_core::RuntimeType for IHolographicCamera3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1402,7 +1402,7 @@ pub struct IHolographicCamera3_Vtbl {
     pub MaxQuadLayerCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub QuadLayers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCamera4, IHolographicCamera4_Vtbl, 0x9a2531d6_4723_4f39_a9a5_9d05181d9b44);
+windows_core::imp::define_interface!(IHolographicCamera4, IHolographicCamera4_Vtbl, 0x8b1d78d8_49e0_555a_b5fa_bd5a8a064637);
 impl windows_core::RuntimeType for IHolographicCamera4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1412,7 +1412,7 @@ pub struct IHolographicCamera4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanOverrideViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCamera5, IHolographicCamera5_Vtbl, 0x229706f2_628d_4ef5_9c08_a63fdd7787c6);
+windows_core::imp::define_interface!(IHolographicCamera5, IHolographicCamera5_Vtbl, 0x6d45c6b4_e34d_583b_9d7c_d7d1d321bf4d);
 impl windows_core::RuntimeType for IHolographicCamera5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1434,7 +1434,7 @@ pub struct IHolographicCamera6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ViewConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCameraPose, IHolographicCameraPose_Vtbl, 0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
+windows_core::imp::define_interface!(IHolographicCameraPose, IHolographicCameraPose_Vtbl, 0x062ccdcc_0572_5f2d_91c3_ca44f9160e70);
 impl windows_core::RuntimeType for IHolographicCameraPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1460,7 +1460,7 @@ pub struct IHolographicCameraPose_Vtbl {
     pub NearPlaneDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub FarPlaneDistance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCameraPose2, IHolographicCameraPose2_Vtbl, 0x232be073_5d2d_4560_814e_2697c4fce16b);
+windows_core::imp::define_interface!(IHolographicCameraPose2, IHolographicCameraPose2_Vtbl, 0xc7247d50_c05c_5773_891b_6ecb3cca975b);
 impl windows_core::RuntimeType for IHolographicCameraPose2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1475,7 +1475,7 @@ pub struct IHolographicCameraPose2_Vtbl {
     pub OverrideProjectionTransform: unsafe extern "system" fn(*mut core::ffi::c_void, HolographicStereoTransform) -> windows_core::HRESULT,
     pub OverrideViewport: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCameraRenderingParameters, IHolographicCameraRenderingParameters_Vtbl, 0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
+windows_core::imp::define_interface!(IHolographicCameraRenderingParameters, IHolographicCameraRenderingParameters_Vtbl, 0x5ff53bcf_650d_507b_b273_3a450bc1ebce);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1504,7 +1504,7 @@ pub struct IHolographicCameraRenderingParameters_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     Direct3D11BackBuffer: usize,
 }
-windows_core::imp::define_interface!(IHolographicCameraRenderingParameters2, IHolographicCameraRenderingParameters2_Vtbl, 0x261270e3_b696_4634_94d6_be0681643599);
+windows_core::imp::define_interface!(IHolographicCameraRenderingParameters2, IHolographicCameraRenderingParameters2_Vtbl, 0x3d5311c0_5329_5cca_b237_0b71401c5ec8);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1519,7 +1519,7 @@ pub struct IHolographicCameraRenderingParameters2_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CommitDirect3D11DepthBuffer: usize,
 }
-windows_core::imp::define_interface!(IHolographicCameraRenderingParameters3, IHolographicCameraRenderingParameters3_Vtbl, 0xb1aa513f_136d_4b06_b9d4_e4b914cd0683);
+windows_core::imp::define_interface!(IHolographicCameraRenderingParameters3, IHolographicCameraRenderingParameters3_Vtbl, 0x22e34459_6e36_5268_b93d_384665df615d);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1530,7 +1530,7 @@ pub struct IHolographicCameraRenderingParameters3_Vtbl {
     pub IsContentProtectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsContentProtectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicCameraRenderingParameters4, IHolographicCameraRenderingParameters4_Vtbl, 0x0878fa4c_e163_57dc_82b7_c406ab3e0537);
+windows_core::imp::define_interface!(IHolographicCameraRenderingParameters4, IHolographicCameraRenderingParameters4_Vtbl, 0x7bb7b07a_54f4_5e98_a24b_84bf7bc12fae);
 impl windows_core::RuntimeType for IHolographicCameraRenderingParameters4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1552,7 +1552,7 @@ pub struct IHolographicCameraViewportParameters_Vtbl {
     pub HiddenAreaMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_numerics::Vector2) -> windows_core::HRESULT,
     pub VisibleAreaMesh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut windows_numerics::Vector2) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicDisplay, IHolographicDisplay_Vtbl, 0x9acea414_1d9f_4090_a388_90c06f6eae9c);
+windows_core::imp::define_interface!(IHolographicDisplay, IHolographicDisplay_Vtbl, 0x950b9203_cd49_55cc_bb56_be464024ba91);
 impl windows_core::RuntimeType for IHolographicDisplay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1580,7 +1580,7 @@ pub struct IHolographicDisplay2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RefreshRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicDisplay3, IHolographicDisplay3_Vtbl, 0xfc4c6ac6_6480_5008_b29e_157d77c843f7);
+windows_core::imp::define_interface!(IHolographicDisplay3, IHolographicDisplay3_Vtbl, 0x4b44fd98_87cd_5cc8_997e_548767e15e3e);
 impl windows_core::RuntimeType for IHolographicDisplay3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1590,7 +1590,7 @@ pub struct IHolographicDisplay3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetViewConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, HolographicViewConfigurationKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicDisplayStatics, IHolographicDisplayStatics_Vtbl, 0xcb374983_e7b0_4841_8355_3ae5b536e9a4);
+windows_core::imp::define_interface!(IHolographicDisplayStatics, IHolographicDisplayStatics_Vtbl, 0xa50869f1_8881_5e7f_a411_f0c4132ca0af);
 impl windows_core::RuntimeType for IHolographicDisplayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1600,7 +1600,7 @@ pub struct IHolographicDisplayStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicFrame, IHolographicFrame_Vtbl, 0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
+windows_core::imp::define_interface!(IHolographicFrame, IHolographicFrame_Vtbl, 0x9775beb4_e910_5b39_9e5f_ef988afa7701);
 impl windows_core::RuntimeType for IHolographicFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1618,7 +1618,7 @@ pub struct IHolographicFrame_Vtbl {
     pub PresentUsingCurrentPredictionWithBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, HolographicFramePresentWaitBehavior, *mut HolographicFramePresentResult) -> windows_core::HRESULT,
     pub WaitForFrameToFinish: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicFrame2, IHolographicFrame2_Vtbl, 0x283f37bf_3bf2_5e91_6633_870574e6f217);
+windows_core::imp::define_interface!(IHolographicFrame2, IHolographicFrame2_Vtbl, 0x4cb6d712_2201_5705_8984_0ac3714630c5);
 impl windows_core::RuntimeType for IHolographicFrame2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1652,7 +1652,7 @@ pub struct IHolographicFramePrediction_Vtbl {
     #[cfg(not(feature = "Perception"))]
     Timestamp: usize,
 }
-windows_core::imp::define_interface!(IHolographicFramePresentationMonitor, IHolographicFramePresentationMonitor_Vtbl, 0xca87256c_6fae_428e_bb83_25dfee51136b);
+windows_core::imp::define_interface!(IHolographicFramePresentationMonitor, IHolographicFramePresentationMonitor_Vtbl, 0xa46fd114_5266_5816_bd2b_56ed3c6d582e);
 impl windows_core::RuntimeType for IHolographicFramePresentationMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1700,7 +1700,7 @@ pub struct IHolographicFrameScanoutMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadReports: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicFrameScanoutReport, IHolographicFrameScanoutReport_Vtbl, 0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
+windows_core::imp::define_interface!(IHolographicFrameScanoutReport, IHolographicFrameScanoutReport_Vtbl, 0xd3defceb_f60b_54be_a085_679e182c7551);
 impl windows_core::RuntimeType for IHolographicFrameScanoutReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1714,7 +1714,7 @@ pub struct IHolographicFrameScanoutReport_Vtbl {
     pub SystemRelativeScanoutStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub SystemRelativePhotonTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicQuadLayer, IHolographicQuadLayer_Vtbl, 0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
+windows_core::imp::define_interface!(IHolographicQuadLayer, IHolographicQuadLayer_Vtbl, 0x241a6e60_e9c7_577c_a217_a51c6c227d35);
 impl windows_core::RuntimeType for IHolographicQuadLayer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1728,7 +1728,7 @@ pub struct IHolographicQuadLayer_Vtbl {
     PixelFormat: usize,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicQuadLayerFactory, IHolographicQuadLayerFactory_Vtbl, 0xa67538f3_5a14_5a10_489a_455065b37b76);
+windows_core::imp::define_interface!(IHolographicQuadLayerFactory, IHolographicQuadLayerFactory_Vtbl, 0x378cac1d_0189_5ccb_96cc_3d509697ad6d);
 impl windows_core::RuntimeType for IHolographicQuadLayerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1780,7 +1780,7 @@ pub struct IHolographicQuadLayerUpdateParameters2_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     AcquireBufferToUpdateContentWithHardwareProtection: usize,
 }
-windows_core::imp::define_interface!(IHolographicSpace, IHolographicSpace_Vtbl, 0x4380dba6_5e78_434f_807c_3433d1efe8b7);
+windows_core::imp::define_interface!(IHolographicSpace, IHolographicSpace_Vtbl, 0x3d1429dc_1f8b_5e55_bb5a_e7ce4361f942);
 impl windows_core::RuntimeType for IHolographicSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1799,7 +1799,7 @@ pub struct IHolographicSpace_Vtbl {
     pub RemoveCameraRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub CreateNextFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicSpace2, IHolographicSpace2_Vtbl, 0x4f81a9a8_b7ff_4883_9827_7d677287ea70);
+windows_core::imp::define_interface!(IHolographicSpace2, IHolographicSpace2_Vtbl, 0xec22d41f_e7bd_5ac2_81fe_e6fa1701fc53);
 impl windows_core::RuntimeType for IHolographicSpace2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1814,7 +1814,7 @@ pub struct IHolographicSpace2_Vtbl {
     pub WaitForNextFrameReadyWithHeadStart: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub CreateFramePresentationMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicSpace3, IHolographicSpace3_Vtbl, 0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
+windows_core::imp::define_interface!(IHolographicSpace3, IHolographicSpace3_Vtbl, 0x8a4c8445_a610_5a49_ac98_3d56fc13e56d);
 impl windows_core::RuntimeType for IHolographicSpace3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1845,7 +1845,7 @@ pub struct IHolographicSpaceCameraRemovedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Camera: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicSpaceStatics, IHolographicSpaceStatics_Vtbl, 0x364e6064_c8f2_3ba1_8391_66b8489e67fd);
+windows_core::imp::define_interface!(IHolographicSpaceStatics, IHolographicSpaceStatics_Vtbl, 0xe81e991c_a062_5164_802d_13fbe4fdd0de);
 impl windows_core::RuntimeType for IHolographicSpaceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1858,7 +1858,7 @@ pub struct IHolographicSpaceStatics_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     CreateForCoreWindow: usize,
 }
-windows_core::imp::define_interface!(IHolographicSpaceStatics2, IHolographicSpaceStatics2_Vtbl, 0x0e777088_75fc_48af_8758_0652f6f07c59);
+windows_core::imp::define_interface!(IHolographicSpaceStatics2, IHolographicSpaceStatics2_Vtbl, 0x4687adb1_c7b3_516c_8219_06b2269693ef);
 impl windows_core::RuntimeType for IHolographicSpaceStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1911,7 +1911,7 @@ pub struct IHolographicViewConfiguration_Vtbl {
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHolographicViewConfiguration2, IHolographicViewConfiguration2_Vtbl, 0xe241756e_e0d0_5019_9af5_1b165bc2f54e);
+windows_core::imp::define_interface!(IHolographicViewConfiguration2, IHolographicViewConfiguration2_Vtbl, 0x62f3beda_7721_5473_b424_dc5e5acd0898);
 impl windows_core::RuntimeType for IHolographicViewConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

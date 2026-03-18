@@ -13,7 +13,7 @@ pub struct INamedResource_Vtbl {
     pub ResolveAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResolveAllForContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
+windows_core::imp::define_interface!(IResourceCandidate, IResourceCandidate_Vtbl, 0xe2ef0583_0fa2_5064_82ee_8547b2ac6acc);
 impl windows_core::RuntimeType for IResourceCandidate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -45,7 +45,7 @@ pub struct IResourceCandidate2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetValueAsStreamAsync: usize,
 }
-windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b);
+windows_core::imp::define_interface!(IResourceCandidate3, IResourceCandidate3_Vtbl, 0x31fd16b0_fae6_57f0_8753_c00c14ba5867);
 impl windows_core::RuntimeType for IResourceCandidate3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -74,7 +74,7 @@ pub struct IResourceContext_Vtbl {
     pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x98be9d6c_6338_4b31_99df_b2b442f17149);
+windows_core::imp::define_interface!(IResourceContextStatics, IResourceContextStatics_Vtbl, 0x053339c3_cd38_59c8_8016_176ff107d586);
 impl windows_core::RuntimeType for IResourceContextStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -84,7 +84,7 @@ pub struct IResourceContextStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateMatchingContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x41f752ef_12af_41b9_ab36_b1eb4b512460);
+windows_core::imp::define_interface!(IResourceContextStatics2, IResourceContextStatics2_Vtbl, 0x4c7e5196_a9bb_5b2a_948d_c8f20d361314);
 impl windows_core::RuntimeType for IResourceContextStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -121,7 +121,7 @@ pub struct IResourceContextStatics4_Vtbl {
     #[cfg(not(feature = "UI"))]
     GetForUIContext: usize,
 }
-windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xf744d97b_9988_44fb_abd6_5378844cfa8b);
+windows_core::imp::define_interface!(IResourceManager, IResourceManager_Vtbl, 0xc73e3b24_17f9_5891_a060_f8b0b91c07c3);
 impl windows_core::RuntimeType for IResourceManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -141,7 +141,7 @@ pub struct IResourceManager_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnloadPriFiles: usize,
 }
-windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x9d66fe6c_a4d7_4c23_9e85_675f304c252d);
+windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0x8323cd00_91e3_549c_a242_9760e7b4723f);
 impl windows_core::RuntimeType for IResourceManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -163,7 +163,7 @@ pub struct IResourceManagerStatics_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsResourceReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x72284824_db8c_42f8_b08c_53ff357dad82);
+windows_core::imp::define_interface!(IResourceMap, IResourceMap_Vtbl, 0x6fc6d2ef_9c76_52f8_a973_3ae412163ef3);
 impl windows_core::RuntimeType for IResourceMap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

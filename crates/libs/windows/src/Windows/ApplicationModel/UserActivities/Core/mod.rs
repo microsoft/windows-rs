@@ -26,7 +26,7 @@ impl CoreUserActivityManager {
 impl windows_core::RuntimeName for CoreUserActivityManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager";
 }
-windows_core::imp::define_interface!(ICoreUserActivityManagerStatics, ICoreUserActivityManagerStatics_Vtbl, 0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
+windows_core::imp::define_interface!(ICoreUserActivityManagerStatics, ICoreUserActivityManagerStatics_Vtbl, 0x1d6903c7_2fa8_5e8d_829b_6a564d384711);
 impl windows_core::RuntimeType for ICoreUserActivityManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -36,9 +36,9 @@ pub unsafe fn NetworkIsolationEnumerateAppContainerRules() -> windows_core::Resu
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
-    windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationFreeAppContainers(ppublicappcs : *const INET_FIREWALL_APP_CONTAINER) -> u32);
-    unsafe { NetworkIsolationFreeAppContainers(ppublicappcs) }
+pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
+    windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationFreeAppContainers(ppublicappcs : *mut INET_FIREWALL_APP_CONTAINER) -> u32);
+    unsafe { NetworkIsolationFreeAppContainers(ppublicappcs as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -47,12 +47,12 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32,
     unsafe { NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs as _, appcontainersids as _) }
 }
 #[inline]
-pub unsafe fn NetworkIsolationGetEnterpriseIdAsync<P0>(wszservername: P0, dwflags: u32, context: Option<*const core::ffi::c_void>, callback: PNETISO_EDP_ID_CALLBACK_FN, hoperation: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn NetworkIsolationGetEnterpriseIdAsync<P0>(wszservername: P0, dwflags: u32, context: *mut core::ffi::c_void, callback: PNETISO_EDP_ID_CALLBACK_FN, hoperation: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdAsync(wszservername : windows_core::PCWSTR, dwflags : u32, context : *const core::ffi::c_void, callback : PNETISO_EDP_ID_CALLBACK_FN, hoperation : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { NetworkIsolationGetEnterpriseIdAsync(wszservername.param().abi(), dwflags, context.unwrap_or(core::mem::zeroed()) as _, callback, hoperation as _) }
+    windows_core::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdAsync(wszservername : windows_core::PCWSTR, dwflags : u32, context : *mut core::ffi::c_void, callback : PNETISO_EDP_ID_CALLBACK_FN, hoperation : *mut super::super::Foundation:: HANDLE) -> u32);
+    unsafe { NetworkIsolationGetEnterpriseIdAsync(wszservername.param().abi(), dwflags, context as _, callback, hoperation as _) }
 }
 #[inline]
 pub unsafe fn NetworkIsolationGetEnterpriseIdClose(hoperation: super::super::Foundation::HANDLE, bwaitforoperation: bool) -> u32 {
@@ -61,26 +61,26 @@ pub unsafe fn NetworkIsolationGetEnterpriseIdClose(hoperation: super::super::Fou
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: Option<*const core::ffi::c_void>, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationRegisterForAppContainerChanges(flags : u32, callback : PAC_CHANGES_CALLBACK_FN, context : *const core::ffi::c_void, registrationobject : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { NetworkIsolationRegisterForAppContainerChanges(flags, callback, context.unwrap_or(core::mem::zeroed()) as _, registrationobject as _) }
+pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *mut core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationRegisterForAppContainerChanges(flags : u32, callback : PAC_CHANGES_CALLBACK_FN, context : *mut core::ffi::c_void, registrationobject : *mut super::super::Foundation:: HANDLE) -> u32);
+    unsafe { NetworkIsolationRegisterForAppContainerChanges(flags, callback, context as _, registrationobject as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
-    windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs : u32, appcontainersids : *const super::super::Security:: SID_AND_ATTRIBUTES) -> u32);
-    unsafe { NetworkIsolationSetAppContainerConfig(appcontainersids.len().try_into().unwrap(), core::mem::transmute(appcontainersids.as_ptr())) }
+pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
+    windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs : u32, appcontainersids : *mut super::super::Security:: SID_AND_ATTRIBUTES) -> u32);
+    unsafe { NetworkIsolationSetAppContainerConfig(dwnumpublicappcs, appcontainersids as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P1, P2, P3>(applicationcontainersid: super::super::Security::PSID, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: bool, binaries: &[windows_core::PCWSTR]) -> windows_core::Result<()>
+pub unsafe fn NetworkIsolationSetupAppContainerBinaries<P1, P2, P3>(applicationcontainersid: super::super::Security::PSID, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: bool, binaries: *const windows_core::PCWSTR, binariescount: u32) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::super::Security:: PSID, packagefullname : windows_core::PCWSTR, packagefolder : windows_core::PCWSTR, displayname : windows_core::PCWSTR, bbinariesfullycomputed : windows_core::BOOL, binaries : *const windows_core::PCWSTR, binariescount : u32) -> windows_core::HRESULT);
-    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), core::mem::transmute(binaries.as_ptr()), binaries.len().try_into().unwrap()).ok() }
+    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), binaries, binariescount).ok() }
 }
 #[inline]
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32 {
@@ -625,7 +625,7 @@ impl IDynamicPortMappingCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IDynamicPortMappingCollection {}
-windows_core::imp::define_interface!(IEnumNetConnection, IEnumNetConnection_Vtbl, 0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(IEnumNetConnection, IEnumNetConnection_Vtbl, 0xe633be41_d4d2_51a1_b785_f66a9824531d);
 windows_core::imp::interface_hierarchy!(IEnumNetConnection, windows_core::IUnknown);
 impl IEnumNetConnection {
     pub unsafe fn Next(&self, rgelt: &mut [Option<INetConnection>], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -704,7 +704,7 @@ impl IEnumNetConnection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumNetConnection {}
-windows_core::imp::define_interface!(IEnumNetSharingEveryConnection, IEnumNetSharingEveryConnection_Vtbl, 0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(IEnumNetSharingEveryConnection, IEnumNetSharingEveryConnection_Vtbl, 0x1fdcbd96_5caf_555e_8030_0bf1149ff73d);
 windows_core::imp::interface_hierarchy!(IEnumNetSharingEveryConnection, windows_core::IUnknown);
 impl IEnumNetSharingEveryConnection {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -790,7 +790,7 @@ impl IEnumNetSharingEveryConnection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetSharingEveryConnection {}
-windows_core::imp::define_interface!(IEnumNetSharingPortMapping, IEnumNetSharingPortMapping_Vtbl, 0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(IEnumNetSharingPortMapping, IEnumNetSharingPortMapping_Vtbl, 0xcf34f836_dce4_57e2_b964_def86d787ac3);
 windows_core::imp::interface_hierarchy!(IEnumNetSharingPortMapping, windows_core::IUnknown);
 impl IEnumNetSharingPortMapping {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -876,7 +876,7 @@ impl IEnumNetSharingPortMapping_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetSharingPortMapping {}
-windows_core::imp::define_interface!(IEnumNetSharingPrivateConnection, IEnumNetSharingPrivateConnection_Vtbl, 0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(IEnumNetSharingPrivateConnection, IEnumNetSharingPrivateConnection_Vtbl, 0x667c5dcc_3d34_5c8e_a26a_a3791882db6c);
 windows_core::imp::interface_hierarchy!(IEnumNetSharingPrivateConnection, windows_core::IUnknown);
 impl IEnumNetSharingPrivateConnection {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -962,7 +962,7 @@ impl IEnumNetSharingPrivateConnection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IEnumNetSharingPrivateConnection {}
-windows_core::imp::define_interface!(IEnumNetSharingPublicConnection, IEnumNetSharingPublicConnection_Vtbl, 0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(IEnumNetSharingPublicConnection, IEnumNetSharingPublicConnection_Vtbl, 0x91578093_4dc6_57c9_bcd1_0810fa855729);
 windows_core::imp::interface_hierarchy!(IEnumNetSharingPublicConnection, windows_core::IUnknown);
 impl IEnumNetSharingPublicConnection {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1114,7 +1114,7 @@ impl INATEventManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INATEventManager {}
-windows_core::imp::define_interface!(INATExternalIPAddressCallback, INATExternalIPAddressCallback_Vtbl, 0x9c416740_a34e_446f_ba06_abd04c3149ae);
+windows_core::imp::define_interface!(INATExternalIPAddressCallback, INATExternalIPAddressCallback_Vtbl, 0x9618f379_bfe2_521a_97fe_23f9d4986372);
 windows_core::imp::interface_hierarchy!(INATExternalIPAddressCallback, windows_core::IUnknown);
 impl INATExternalIPAddressCallback {
     pub unsafe fn NewExternalIPAddress(&self, bstrnewexternalipaddress: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -1264,7 +1264,7 @@ impl Default for INET_FIREWALL_APP_CONTAINER {
         unsafe { core::mem::zeroed() }
     }
 }
-windows_core::imp::define_interface!(INetConnection, INetConnection_Vtbl, 0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(INetConnection, INetConnection_Vtbl, 0x06a02f23_f19f_5400_a4cb_36e9ba46ae2d);
 windows_core::imp::interface_hierarchy!(INetConnection, windows_core::IUnknown);
 impl INetConnection {
     pub unsafe fn Connect(&self) -> windows_core::Result<()> {
@@ -1403,7 +1403,7 @@ impl INetConnection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for INetConnection {}
-windows_core::imp::define_interface!(INetConnectionConnectUi, INetConnectionConnectUi_Vtbl, 0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(INetConnectionConnectUi, INetConnectionConnectUi_Vtbl, 0x0849c945_b9fc_5359_b7ca_139904b44555);
 windows_core::imp::interface_hierarchy!(INetConnectionConnectUi, windows_core::IUnknown);
 impl INetConnectionConnectUi {
     pub unsafe fn SetConnection<P0>(&self, pcon: P0) -> windows_core::Result<()>
@@ -1505,7 +1505,7 @@ impl INetConnectionManager_Vtbl {
 }
 impl windows_core::RuntimeName for INetConnectionManager {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetConnectionProps, INetConnectionProps_Vtbl, 0xf4277c95_ce5b_463d_8167_5662d9bcaa72);
+windows_core::imp::define_interface!(INetConnectionProps, INetConnectionProps_Vtbl, 0x74b6d637_3bd1_53c8_a72d_053a97692b19);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetConnectionProps {
     type Target = super::super::System::Com::IDispatch;
@@ -1667,7 +1667,7 @@ impl INetConnectionProps_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetConnectionProps {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwAuthorizedApplication, INetFwAuthorizedApplication_Vtbl, 0xb5e64ffa_c2c5_444e_a301_fb5e00018050);
+windows_core::imp::define_interface!(INetFwAuthorizedApplication, INetFwAuthorizedApplication_Vtbl, 0x05639766_f34b_5747_b087_88047b1d8ac8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwAuthorizedApplication {
     type Target = super::super::System::Com::IDispatch;
@@ -1901,7 +1901,7 @@ impl INetFwAuthorizedApplication_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwAuthorizedApplication {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwAuthorizedApplications, INetFwAuthorizedApplications_Vtbl, 0x644efd52_ccf9_486c_97a2_39f352570b30);
+windows_core::imp::define_interface!(INetFwAuthorizedApplications, INetFwAuthorizedApplications_Vtbl, 0xe7bb334a_5ef8_5de8_8d68_7c04a5328791);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwAuthorizedApplications {
     type Target = super::super::System::Com::IDispatch;
@@ -2027,7 +2027,7 @@ impl INetFwAuthorizedApplications_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwAuthorizedApplications {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwIcmpSettings, INetFwIcmpSettings_Vtbl, 0xa6207b2e_7cdd_426a_951e_5e1cbc5afead);
+windows_core::imp::define_interface!(INetFwIcmpSettings, INetFwIcmpSettings_Vtbl, 0xdf62a9ad_0170_5c85_8285_b29755084ce1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwIcmpSettings {
     type Target = super::super::System::Com::IDispatch;
@@ -2803,7 +2803,7 @@ impl INetFwOpenPort_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwOpenPort {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwOpenPorts, INetFwOpenPorts_Vtbl, 0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2);
+windows_core::imp::define_interface!(INetFwOpenPorts, INetFwOpenPorts_Vtbl, 0xce00a1b7_e683_5bdb_8443_7e5529bf8205);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwOpenPorts {
     type Target = super::super::System::Com::IDispatch;
@@ -3432,7 +3432,7 @@ impl INetFwPolicy2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwPolicy2 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwProduct, INetFwProduct_Vtbl, 0x71881699_18f4_458b_b892_3ffce5e07f75);
+windows_core::imp::define_interface!(INetFwProduct, INetFwProduct_Vtbl, 0x54beb406_da5e_52e6_8d74_8e086c851ae6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwProduct {
     type Target = super::super::System::Com::IDispatch;
@@ -3980,7 +3980,7 @@ impl INetFwProfile_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwProfile {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwRemoteAdminSettings, INetFwRemoteAdminSettings_Vtbl, 0xd4becddf_6f73_4a83_b832_9c66874cd20e);
+windows_core::imp::define_interface!(INetFwRemoteAdminSettings, INetFwRemoteAdminSettings_Vtbl, 0x0f5f05a8_76a5_5392_9f9a_88859ce843e2);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwRemoteAdminSettings {
     type Target = super::super::System::Com::IDispatch;
@@ -4148,7 +4148,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRemoteAdminSettings {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwRule, INetFwRule_Vtbl, 0xaf230d27_baba_4e42_aced_f524f22cfce2);
+windows_core::imp::define_interface!(INetFwRule, INetFwRule_Vtbl, 0x4eb08148_ad92_54dc_b8df_d908e95b24ff);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwRule {
     type Target = super::super::System::Com::IDispatch;
@@ -4786,7 +4786,7 @@ impl INetFwRule_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRule {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwRule2, INetFwRule2_Vtbl, 0x9c27c8da_189b_4dde_89f7_8b39a316782c);
+windows_core::imp::define_interface!(INetFwRule2, INetFwRule2_Vtbl, 0xac8009b2_81c3_5cf6_ada4_08e392a56ad1);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwRule2 {
     type Target = INetFwRule;
@@ -5089,7 +5089,7 @@ impl INetFwRule3_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwRule3 {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwRules, INetFwRules_Vtbl, 0x9c4c6277_5027_441e_afae_ca1f542da009);
+windows_core::imp::define_interface!(INetFwRules, INetFwRules_Vtbl, 0x6348fa3b_77f8_5c38_9e30_52ca7265f8dc);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwRules {
     type Target = super::super::System::Com::IDispatch;
@@ -5467,7 +5467,7 @@ impl INetFwService_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetFwService {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetFwServiceRestriction, INetFwServiceRestriction_Vtbl, 0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b);
+windows_core::imp::define_interface!(INetFwServiceRestriction, INetFwServiceRestriction_Vtbl, 0x0339e920_f928_54e0_875f_d4c299e4f3a8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetFwServiceRestriction {
     type Target = super::super::System::Com::IDispatch;
@@ -6106,7 +6106,7 @@ impl INetSharingManager_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingManager {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetSharingPortMapping, INetSharingPortMapping_Vtbl, 0xc08956b1_1cd3_11d1_b1c5_00805fc1270e);
+windows_core::imp::define_interface!(INetSharingPortMapping, INetSharingPortMapping_Vtbl, 0x66c7d25f_0d5e_5fe0_b449_1bd521ef4d47);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetSharingPortMapping {
     type Target = super::super::System::Com::IDispatch;
@@ -6199,7 +6199,7 @@ impl INetSharingPortMapping_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPortMapping {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetSharingPortMappingCollection, INetSharingPortMappingCollection_Vtbl, 0x02e4a2de_da20_4e34_89c8_ac22275a010b);
+windows_core::imp::define_interface!(INetSharingPortMappingCollection, INetSharingPortMappingCollection_Vtbl, 0x030a985a_f5ea_5593_a514_f930afaf232a);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetSharingPortMappingCollection {
     type Target = super::super::System::Com::IDispatch;
@@ -6277,7 +6277,7 @@ impl INetSharingPortMappingCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPortMappingCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetSharingPortMappingProps, INetSharingPortMappingProps_Vtbl, 0x24b7e9b5_e38f_4685_851b_00892cf5f940);
+windows_core::imp::define_interface!(INetSharingPortMappingProps, INetSharingPortMappingProps_Vtbl, 0x1496222a_c30a_506f_8f47_bc06601d8cee);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetSharingPortMappingProps {
     type Target = super::super::System::Com::IDispatch;
@@ -6559,7 +6559,7 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPrivateConnectionCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(INetSharingPublicConnectionCollection, INetSharingPublicConnectionCollection_Vtbl, 0x7d7a6355_f372_4971_a149_bfc927be762a);
+windows_core::imp::define_interface!(INetSharingPublicConnectionCollection, INetSharingPublicConnectionCollection_Vtbl, 0xff5974d8_c1eb_5577_82db_790c00e502a3);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for INetSharingPublicConnectionCollection {
     type Target = super::super::System::Com::IDispatch;
@@ -6637,7 +6637,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for INetSharingPublicConnectionCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IStaticPortMapping, IStaticPortMapping_Vtbl, 0x6f10711f_729b_41e5_93b8_f21d0f818df1);
+windows_core::imp::define_interface!(IStaticPortMapping, IStaticPortMapping_Vtbl, 0x7f855ddc_b8e1_5575_8b5a_0fd1353fefdb);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IStaticPortMapping {
     type Target = super::super::System::Com::IDispatch;
@@ -6868,7 +6868,7 @@ impl IStaticPortMapping_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IStaticPortMapping {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IStaticPortMappingCollection, IStaticPortMappingCollection_Vtbl, 0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1);
+windows_core::imp::define_interface!(IStaticPortMappingCollection, IStaticPortMappingCollection_Vtbl, 0xbaeb282b_76c2_5a92_a0a3_81cd2452e11e);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IStaticPortMappingCollection {
     type Target = super::super::System::Com::IDispatch;
@@ -7000,7 +7000,7 @@ impl IStaticPortMappingCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IStaticPortMappingCollection {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IUPnPNAT, IUPnPNAT_Vtbl, 0xb171c812_cc76_485a_94d8_b6b3a2794e99);
+windows_core::imp::define_interface!(IUPnPNAT, IUPnPNAT_Vtbl, 0xb52a18b3_a356_56d9_8067_33f62f63aee7);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUPnPNAT {
     type Target = super::super::System::Com::IDispatch;
@@ -7302,12 +7302,12 @@ pub const NetFwProducts: windows_core::GUID = windows_core::GUID::from_u128(0xcc
 pub const NetFwRule: windows_core::GUID = windows_core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
 pub const NetSharingManager: windows_core::GUID = windows_core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
 #[cfg(feature = "Win32_Security")]
-pub type PAC_CHANGES_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
+pub type PAC_CHANGES_CALLBACK_FN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, pchange: *mut INET_FIREWALL_AC_CHANGE)>;
 pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddress: *const FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
 pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_core::GUID) -> u32>;
 pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_core::GUID, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
 pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = Option<unsafe extern "system" fn(dynamickeywordaddressdata: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
 pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = Option<unsafe extern "system" fn(dynamickeywordaddressid: windows_core::GUID, updatedaddresses: windows_core::PCWSTR, append: windows_core::BOOL) -> u32>;
 pub type PNETISO_EDP_ID_CALLBACK_FN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, wszenterpriseid: windows_core::PCWSTR, dwerr: u32)>;
 #[repr(transparent)]

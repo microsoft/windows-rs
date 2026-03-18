@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPhoneCallOrigin, IPhoneCallOrigin_Vtbl, 0x20613479_0ef9_4454_871c_afb66a14b6a5);
+windows_core::imp::define_interface!(IPhoneCallOrigin, IPhoneCallOrigin_Vtbl, 0x530cb036_d239_5227_85fa_fbe659f1f215);
 impl windows_core::RuntimeType for IPhoneCallOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -13,7 +13,7 @@ pub struct IPhoneCallOrigin_Vtbl {
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhoneCallOrigin2, IPhoneCallOrigin2_Vtbl, 0x04c7e980_9ac2_4768_b536_b68da4957d02);
+windows_core::imp::define_interface!(IPhoneCallOrigin2, IPhoneCallOrigin2_Vtbl, 0x73e84565_2a6a_5fd3_afd2_c8f93ffef7ca);
 impl windows_core::RuntimeType for IPhoneCallOrigin2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -41,7 +41,7 @@ pub struct IPhoneCallOrigin3_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetDisplayPicture: usize,
 }
-windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics, IPhoneCallOriginManagerStatics_Vtbl, 0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
+windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics, IPhoneCallOriginManagerStatics_Vtbl, 0xc102b4f1_7ed4_54fb_8b00_08bbe053e423);
 impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -53,7 +53,7 @@ pub struct IPhoneCallOriginManagerStatics_Vtbl {
     pub ShowPhoneCallOriginSettingsUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCallOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics2, IPhoneCallOriginManagerStatics2_Vtbl, 0x8bf3ee3f_40f4_4380_8c7c_aea2c9b8dd7a);
+windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics2, IPhoneCallOriginManagerStatics2_Vtbl, 0x54c4651b_e0c6_5d3c_9c57_410f8b46b7d7);
 impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

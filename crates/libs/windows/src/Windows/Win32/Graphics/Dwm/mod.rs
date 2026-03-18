@@ -69,17 +69,17 @@ pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut windows_core::BOOL, p
     unsafe { DwmGetTransportAttributes(pfisremoting as _, pfisconnected as _, pdwgeneration as _).ok() }
 }
 #[inline]
-pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::super::Foundation::HWND>) -> windows_core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
+pub unsafe fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND) -> windows_core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::super::Foundation:: HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DwmGetUnmetTabRequirements(appwindow.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        DwmGetUnmetTabRequirements(appwindow, &mut result__).map(|| result__)
     }
 }
 #[inline]
-pub unsafe fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()> {
+pub unsafe fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: u32, pvattribute: *mut core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()> {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
-    unsafe { DwmGetWindowAttribute(hwnd, dwattribute.0 as _, pvattribute as _, cbattribute).ok() }
+    unsafe { DwmGetWindowAttribute(hwnd, dwattribute, pvattribute as _, cbattribute).ok() }
 }
 #[inline]
 pub unsafe fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
@@ -116,9 +116,9 @@ pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HW
     }
 }
 #[inline]
-pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> windows_core::Result<()> {
-    windows_core::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::super::Foundation:: POINT) -> windows_core::HRESULT);
-    unsafe { DwmRenderGesture(gt, ccontacts, pdwpointerid, ppoints).ok() }
+pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *mut u32, ppoints: *mut super::super::Foundation::POINT) -> windows_core::Result<()> {
+    windows_core::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *mut u32, ppoints : *mut super::super::Foundation:: POINT) -> windows_core::HRESULT);
+    unsafe { DwmRenderGesture(gt, ccontacts, pdwpointerid as _, ppoints as _).ok() }
 }
 #[inline]
 pub unsafe fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> windows_core::Result<()> {
@@ -127,9 +127,9 @@ pub unsafe fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefre
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: Option<*const super::super::Foundation::POINT>, dwsitflags: u32) -> windows_core::Result<()> {
-    windows_core::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::super::Foundation:: HWND, hbmp : super::Gdi:: HBITMAP, pptclient : *const super::super::Foundation:: POINT, dwsitflags : u32) -> windows_core::HRESULT);
-    unsafe { DwmSetIconicLivePreviewBitmap(hwnd, hbmp, pptclient.unwrap_or(core::mem::zeroed()) as _, dwsitflags).ok() }
+pub unsafe fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *mut super::super::Foundation::POINT, dwsitflags: u32) -> windows_core::Result<()> {
+    windows_core::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::super::Foundation:: HWND, hbmp : super::Gdi:: HBITMAP, pptclient : *mut super::super::Foundation:: POINT, dwsitflags : u32) -> windows_core::HRESULT);
+    unsafe { DwmSetIconicLivePreviewBitmap(hwnd, hbmp, pptclient as _, dwsitflags).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -143,9 +143,9 @@ pub unsafe fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppre
     unsafe { DwmSetPresentParameters(hwnd, ppresentparams as _).ok() }
 }
 #[inline]
-pub unsafe fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()> {
-    windows_core::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
-    unsafe { DwmSetWindowAttribute(hwnd, dwattribute.0 as _, pvattribute, cbattribute).ok() }
+pub unsafe fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: u32, pvattribute: *mut core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()> {
+    windows_core::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
+    unsafe { DwmSetWindowAttribute(hwnd, dwattribute, pvattribute as _, cbattribute).ok() }
 }
 #[inline]
 pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> windows_core::Result<()> {
@@ -251,9 +251,9 @@ pub struct DWMWINDOWATTRIBUTE(pub i32);
 pub const DWM_BB_BLURREGION: u32 = 2u32;
 pub const DWM_BB_ENABLE: u32 = 1u32;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
     pub fEnable: windows_core::BOOL,
@@ -266,8 +266,8 @@ pub const DWM_CLOAKED_SHELL: u32 = 2u32;
 pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
     pub fQueue: windows_core::BOOL,
@@ -360,8 +360,8 @@ impl core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
         Self(self.0.not())
     }
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
     pub rcDestination: super::super::Foundation::RECT,
@@ -370,8 +370,8 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
     pub fVisible: windows_core::BOOL,
     pub fSourceClientAreaOnly: windows_core::BOOL,
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -436,8 +436,8 @@ pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(9i32);
 pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = GESTURE_TYPE(10i32);
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(7i32);
 pub const GT_TOUCH_TAP: GESTURE_TYPE = GESTURE_TYPE(5i32);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
     pub S_12: f64,
@@ -446,8 +446,8 @@ pub struct MilMatrix3x2D {
     pub DX: f64,
     pub DY: f64,
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,

@@ -4,9 +4,9 @@ pub unsafe fn SRRemoveRestorePoint(dwrpnum: u32) -> u32 {
     unsafe { SRRemoveRestorePoint(dwrpnum) }
 }
 #[inline]
-pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {
-    windows_core::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
-    unsafe { SRSetRestorePointA(prestoreptspec, psmgrstatus as _) }
+pub unsafe fn SRSetRestorePointA(prestoreptspec: *mut RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {
+    windows_core::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *mut RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
+    unsafe { SRSetRestorePointA(prestoreptspec as _, psmgrstatus as _) }
 }
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {
@@ -40,8 +40,8 @@ pub const MIN_RPT: u32 = 0u32;
 pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(12u32);
 pub const OE_SETTING: u32 = 4u32;
 pub const RESTORE: u32 = 6u32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
@@ -53,8 +53,8 @@ impl Default for RESTOREPOINTINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESTOREPOINTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,
     pub dwEventType: u32,
@@ -67,8 +67,8 @@ impl Default for RESTOREPOINTINFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
@@ -86,8 +86,8 @@ pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STATEMGRSTATUS {
     pub nStatus: windows_core::WIN32_ERROR,
     pub llSequenceNumber: i64,

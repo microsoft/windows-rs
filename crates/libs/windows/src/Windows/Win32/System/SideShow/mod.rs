@@ -1,5 +1,5 @@
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPLICATION_EVENT_DATA {
     pub cbApplicationEventData: u32,
     pub ApplicationId: windows_core::GUID,
@@ -15,22 +15,22 @@ impl Default for APPLICATION_EVENT_DATA {
 }
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
 pub const CONTENT_ID_HOME: u32 = 1u32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CONTENT_MISSING_EVENT_DATA {
     pub cbContentMissingEventData: u32,
     pub ApplicationId: windows_core::GUID,
     pub EndpointId: windows_core::GUID,
     pub ContentId: u32,
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DEVICE_USER_CHANGE_EVENT_DATA {
     pub cbDeviceUserChangeEventData: u32,
     pub wszUser: u16,
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVENT_DATA_HEADER {
     pub cbEventDataHeader: u32,
     pub guidEventType: windows_core::GUID,
@@ -38,7 +38,7 @@ pub struct EVENT_DATA_HEADER {
     pub cbEventDataSid: u32,
 }
 pub const GUID_DEVINTERFACE_SIDESHOW: windows_core::GUID = windows_core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
-windows_core::imp::define_interface!(ISideShowBulkCapabilities, ISideShowBulkCapabilities_Vtbl, 0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
+windows_core::imp::define_interface!(ISideShowBulkCapabilities, ISideShowBulkCapabilities_Vtbl, 0x3f1f2de9_bcd0_5f71_aca4_06b51f52c4be);
 impl core::ops::Deref for ISideShowBulkCapabilities {
     type Target = ISideShowCapabilities;
     fn deref(&self) -> &Self::Target {
@@ -47,11 +47,14 @@ impl core::ops::Deref for ISideShowBulkCapabilities {
 }
 windows_core::imp::interface_hierarchy!(ISideShowBulkCapabilities, windows_core::IUnknown, ISideShowCapabilities);
 impl ISideShowBulkCapabilities {
-    pub unsafe fn GetCapabilities<P0>(&self, in_keycollection: P0, inout_pvalues: *mut Option<ISideShowPropVariantCollection>) -> windows_core::Result<()>
+    pub unsafe fn GetCapabilities<P0>(&self, in_keycollection: P0) -> windows_core::Result<ISideShowPropVariantCollection>
     where
         P0: windows_core::Param<ISideShowKeyCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), in_keycollection.param().abi(), core::mem::transmute(inout_pvalues)).ok() }
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), in_keycollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[repr(C)]
@@ -62,7 +65,7 @@ pub struct ISideShowBulkCapabilities_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISideShowBulkCapabilities_Impl: ISideShowCapabilities_Impl {
-    fn GetCapabilities(&self, in_keycollection: windows_core::Ref<ISideShowKeyCollection>, inout_pvalues: windows_core::OutRef<ISideShowPropVariantCollection>) -> windows_core::Result<()>;
+    fn GetCapabilities(&self, in_keycollection: windows_core::Ref<ISideShowKeyCollection>) -> windows_core::Result<ISideShowPropVariantCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ISideShowBulkCapabilities_Vtbl {
@@ -70,7 +73,13 @@ impl ISideShowBulkCapabilities_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ISideShowBulkCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, in_keycollection: *mut core::ffi::c_void, inout_pvalues: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISideShowBulkCapabilities_Impl::GetCapabilities(this, core::mem::transmute_copy(&in_keycollection), core::mem::transmute_copy(&inout_pvalues)).into()
+                match ISideShowBulkCapabilities_Impl::GetCapabilities(this, core::mem::transmute_copy(&in_keycollection)) {
+                    Ok(ok__) => {
+                        inout_pvalues.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: ISideShowCapabilities_Vtbl::new::<Identity, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, OFFSET> }
@@ -81,12 +90,12 @@ impl ISideShowBulkCapabilities_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISideShowBulkCapabilities {}
-windows_core::imp::define_interface!(ISideShowCapabilities, ISideShowCapabilities_Vtbl, 0x535e1379_c09e_4a54_a511_597bab3a72b8);
+windows_core::imp::define_interface!(ISideShowCapabilities, ISideShowCapabilities_Vtbl, 0x4f7d962f_c6ee_5caf_a007_6dc1f0bde874);
 windows_core::imp::interface_hierarchy!(ISideShowCapabilities, windows_core::IUnknown);
 impl ISideShowCapabilities {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::Foundation::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCapability)(windows_core::Interface::as_raw(self), in_keycapability, core::mem::transmute(inout_pvalue)).ok() }
+    pub unsafe fn GetCapability(&self, in_keycapability: *mut super::super::Foundation::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCapability)(windows_core::Interface::as_raw(self), in_keycapability as _, core::mem::transmute(inout_pvalue)).ok() }
     }
 }
 #[repr(C)]
@@ -94,18 +103,18 @@ impl ISideShowCapabilities {
 pub struct ISideShowCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub GetCapability: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY, *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT,
+    pub GetCapability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PROPERTYKEY, *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetCapability: usize,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISideShowCapabilities_Impl: windows_core::IUnknownImpl {
-    fn GetCapability(&self, in_keycapability: *const super::super::Foundation::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetCapability(&self, in_keycapability: *mut super::super::Foundation::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ISideShowCapabilities_Vtbl {
     pub const fn new<Identity: ISideShowCapabilities_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCapability<Identity: ISideShowCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, in_keycapability: *const super::super::Foundation::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCapability<Identity: ISideShowCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, in_keycapability: *mut super::super::Foundation::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISideShowCapabilities_Impl::GetCapability(this, core::mem::transmute_copy(&in_keycapability), core::mem::transmute_copy(&inout_pvalue)).into()
@@ -355,7 +364,7 @@ impl ISideShowContentManager_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISideShowContentManager {}
-windows_core::imp::define_interface!(ISideShowEvents, ISideShowEvents_Vtbl, 0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
+windows_core::imp::define_interface!(ISideShowEvents, ISideShowEvents_Vtbl, 0x8fab548b_4508_5d43_a01b_d622b45c7cd4);
 windows_core::imp::interface_hierarchy!(ISideShowEvents, windows_core::IUnknown);
 impl ISideShowEvents {
     pub unsafe fn ContentMissing(&self, in_contentid: u32) -> windows_core::Result<ISideShowContent> {
@@ -364,11 +373,11 @@ impl ISideShowEvents {
             (windows_core::Interface::vtable(self).ContentMissing)(windows_core::Interface::as_raw(self), in_contentid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ApplicationEvent<P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: Option<&[u8]>) -> windows_core::Result<()>
+    pub unsafe fn ApplicationEvent<P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: &mut [u8]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISideShowCapabilities>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ApplicationEvent)(windows_core::Interface::as_raw(self), in_picapabilities.param().abi(), in_dweventid, in_pbeventdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(in_pbeventdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ApplicationEvent)(windows_core::Interface::as_raw(self), in_picapabilities.param().abi(), in_dweventid, in_pbeventdata.len().try_into().unwrap(), core::mem::transmute(in_pbeventdata.as_ptr())).ok() }
     }
     pub unsafe fn DeviceAdded<P0>(&self, in_pidevice: P0) -> windows_core::Result<()>
     where
@@ -388,13 +397,13 @@ impl ISideShowEvents {
 pub struct ISideShowEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ContentMissing: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ApplicationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *const u8) -> windows_core::HRESULT,
+    pub ApplicationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut u8) -> windows_core::HRESULT,
     pub DeviceAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeviceRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISideShowEvents_Impl: windows_core::IUnknownImpl {
     fn ContentMissing(&self, in_contentid: u32) -> windows_core::Result<ISideShowContent>;
-    fn ApplicationEvent(&self, in_picapabilities: windows_core::Ref<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> windows_core::Result<()>;
+    fn ApplicationEvent(&self, in_picapabilities: windows_core::Ref<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *mut u8) -> windows_core::Result<()>;
     fn DeviceAdded(&self, in_pidevice: windows_core::Ref<ISideShowCapabilities>) -> windows_core::Result<()>;
     fn DeviceRemoved(&self, in_pidevice: windows_core::Ref<ISideShowCapabilities>) -> windows_core::Result<()>;
 }
@@ -412,7 +421,7 @@ impl ISideShowEvents_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ApplicationEvent<Identity: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, in_picapabilities: *mut core::ffi::c_void, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ApplicationEvent<Identity: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, in_picapabilities: *mut core::ffi::c_void, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISideShowEvents_Impl::ApplicationEvent(this, core::mem::transmute_copy(&in_picapabilities), core::mem::transmute_copy(&in_dweventid), core::mem::transmute_copy(&in_dweventsize), core::mem::transmute_copy(&in_pbeventdata)).into()
@@ -443,11 +452,11 @@ impl ISideShowEvents_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISideShowEvents {}
-windows_core::imp::define_interface!(ISideShowKeyCollection, ISideShowKeyCollection_Vtbl, 0x045473bc_a37b_4957_b144_68105411ed8e);
+windows_core::imp::define_interface!(ISideShowKeyCollection, ISideShowKeyCollection_Vtbl, 0x77984b6b_5cb8_5d77_9925_aa59989ad4d7);
 windows_core::imp::interface_hierarchy!(ISideShowKeyCollection, windows_core::IUnknown);
 impl ISideShowKeyCollection {
-    pub unsafe fn Add(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), key).ok() }
+    pub unsafe fn Add(&self, key: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), key as _).ok() }
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
@@ -455,8 +464,11 @@ impl ISideShowKeyCollection {
     pub unsafe fn GetAt(&self, dwindex: u32, pkey: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, pkey as _).ok() }
     }
-    pub unsafe fn GetCount(&self, pcelems: *const u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelems).ok() }
+    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn RemoveAt(&self, dwindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), dwindex).ok() }
@@ -466,22 +478,22 @@ impl ISideShowKeyCollection {
 #[doc(hidden)]
 pub struct ISideShowKeyCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ISideShowKeyCollection_Impl: windows_core::IUnknownImpl {
-    fn Add(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
+    fn Add(&self, key: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn GetAt(&self, dwindex: u32, pkey: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
-    fn GetCount(&self, pcelems: *const u32) -> windows_core::Result<()>;
+    fn GetCount(&self) -> windows_core::Result<u32>;
     fn RemoveAt(&self, dwindex: u32) -> windows_core::Result<()>;
 }
 impl ISideShowKeyCollection_Vtbl {
     pub const fn new<Identity: ISideShowKeyCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Add<Identity: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISideShowKeyCollection_Impl::Add(this, core::mem::transmute_copy(&key)).into()
@@ -499,10 +511,16 @@ impl ISideShowKeyCollection_Vtbl {
                 ISideShowKeyCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pkey)).into()
             }
         }
-        unsafe extern "system" fn GetCount<Identity: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISideShowKeyCollection_Impl::GetCount(this, core::mem::transmute_copy(&pcelems)).into()
+                match ISideShowKeyCollection_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelems.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemoveAt<Identity: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32) -> windows_core::HRESULT {
@@ -578,8 +596,8 @@ impl ISideShowNotification {
             (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetExpirationTime(&self, in_ptime: Option<*const super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), in_ptime.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn SetExpirationTime(&self, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), in_ptime).ok() }
     }
 }
 #[repr(C)]
@@ -729,7 +747,7 @@ impl ISideShowNotification_Vtbl {
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl windows_core::RuntimeName for ISideShowNotification {}
-windows_core::imp::define_interface!(ISideShowNotificationManager, ISideShowNotificationManager_Vtbl, 0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
+windows_core::imp::define_interface!(ISideShowNotificationManager, ISideShowNotificationManager_Vtbl, 0x92c766dd_8193_5468_85c4_0c2b3954e61b);
 windows_core::imp::interface_hierarchy!(ISideShowNotificationManager, windows_core::IUnknown);
 impl ISideShowNotificationManager {
     pub unsafe fn Show<P0>(&self, in_pinotification: P0) -> windows_core::Result<()>
@@ -790,22 +808,31 @@ impl ISideShowNotificationManager_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISideShowNotificationManager {}
-windows_core::imp::define_interface!(ISideShowPropVariantCollection, ISideShowPropVariantCollection_Vtbl, 0x2ea7a549_7bff_4aae_bab0_22d43111de49);
+windows_core::imp::define_interface!(ISideShowPropVariantCollection, ISideShowPropVariantCollection_Vtbl, 0xfdec0503_6662_5cdf_a19a_978dc674722d);
 windows_core::imp::interface_hierarchy!(ISideShowPropVariantCollection, windows_core::IUnknown);
 impl ISideShowPropVariantCollection {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalue)).ok() }
+    pub unsafe fn Add(&self) -> windows_core::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pvalue)).ok() }
+    pub unsafe fn GetAt(&self, dwindex: u32) -> windows_core::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| core::mem::transmute(result__))
+        }
     }
-    pub unsafe fn GetCount(&self, pcelems: *const u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), pcelems).ok() }
+    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn RemoveAt(&self, dwindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), dwindex).ok() }
@@ -816,7 +843,7 @@ impl ISideShowPropVariantCollection {
 pub struct ISideShowPropVariantCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     Add: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -824,24 +851,30 @@ pub struct ISideShowPropVariantCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetAt: usize,
-    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *const u32) -> windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISideShowPropVariantCollection_Impl: windows_core::IUnknownImpl {
-    fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn Add(&self) -> windows_core::Result<super::Com::StructuredStorage::PROPVARIANT>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn GetAt(&self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetCount(&self, pcelems: *const u32) -> windows_core::Result<()>;
+    fn GetAt(&self, dwindex: u32) -> windows_core::Result<super::Com::StructuredStorage::PROPVARIANT>;
+    fn GetCount(&self) -> windows_core::Result<u32>;
     fn RemoveAt(&self, dwindex: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ISideShowPropVariantCollection_Vtbl {
     pub const fn new<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Add<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISideShowPropVariantCollection_Impl::Add(this, core::mem::transmute_copy(&pvalue)).into()
+                match ISideShowPropVariantCollection_Impl::Add(this) {
+                    Ok(ok__) => {
+                        pvalue.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn Clear<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -853,13 +886,25 @@ impl ISideShowPropVariantCollection_Vtbl {
         unsafe extern "system" fn GetAt<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISideShowPropVariantCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pvalue)).into()
+                match ISideShowPropVariantCollection_Impl::GetAt(this, core::mem::transmute_copy(&dwindex)) {
+                    Ok(ok__) => {
+                        pvalue.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn GetCount<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCount<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelems: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISideShowPropVariantCollection_Impl::GetCount(this, core::mem::transmute_copy(&pcelems)).into()
+                match ISideShowPropVariantCollection_Impl::GetCount(this) {
+                    Ok(ok__) => {
+                        pcelems.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RemoveAt<Identity: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32) -> windows_core::HRESULT {
@@ -947,8 +992,8 @@ impl ISideShowSession_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISideShowSession {}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NEW_EVENT_DATA_AVAILABLE {
     pub cbNewEventDataAvailable: u32,
     pub dwVersion: u32,

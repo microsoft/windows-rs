@@ -144,7 +144,7 @@ impl windows_core::RuntimeName for DesktopWindowTarget {
 }
 unsafe impl Send for DesktopWindowTarget {}
 unsafe impl Sync for DesktopWindowTarget {}
-windows_core::imp::define_interface!(IDesktopWindowTarget, IDesktopWindowTarget_Vtbl, 0x6329d6ca_3366_490e_9db3_25312929ac51);
+windows_core::imp::define_interface!(IDesktopWindowTarget, IDesktopWindowTarget_Vtbl, 0x5d6b4529_837c_5f67_9ac7_a70ffc34e8c7);
 impl windows_core::RuntimeType for IDesktopWindowTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -1,6 +1,6 @@
 windows_link::link!("prntvpt.dll" "system" fn PTCloseProvider(hprovider : HPTPROVIDER) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-windows_link::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : u32, pdevmode : *const super::super::Gdi:: DEVMODEA, scope : EPrintTicketScope, pprintticket : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : u32, pdevmode : *mut super::super::Gdi:: DEVMODEA, scope : EPrintTicketScope, pprintticket : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 windows_link::link!("prntvpt.dll" "system" fn PTConvertPrintTicketToDevMode(hprovider : HPTPROVIDER, pprintticket : * mut core::ffi::c_void, basedevmodetype : EDefaultDevmodeType, scope : EPrintTicketScope, pcbdevmode : *mut u32, ppdevmode : *mut *mut super::super::Gdi:: DEVMODEA, pbstrerrormessage : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -14,7 +14,7 @@ windows_link::link!("prntvpt.dll" "system" fn PTMergeAndValidatePrintTicket(hpro
 windows_link::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : windows_sys::core::PCWSTR, dwversion : u32, phprovider : *mut HPTPROVIDER) -> windows_sys::core::HRESULT);
 windows_link::link!("prntvpt.dll" "system" fn PTOpenProviderEx(pszprintername : windows_sys::core::PCWSTR, dwmaxversion : u32, dwprefversion : u32, phprovider : *mut HPTPROVIDER, pusedversion : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : windows_sys::core::PCWSTR, pmaxversion : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type EDefaultDevmodeType = i32;
 pub type EPrintTicketScope = i32;
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;

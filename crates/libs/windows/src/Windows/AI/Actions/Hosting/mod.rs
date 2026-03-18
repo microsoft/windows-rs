@@ -363,7 +363,7 @@ impl windows_core::RuntimeName for ActionOverload {
 }
 unsafe impl Send for ActionOverload {}
 unsafe impl Sync for ActionOverload {}
-windows_core::imp::define_interface!(IActionCatalog, IActionCatalog_Vtbl, 0xdbe7c537_66ea_5394_9085_4fc19d78375c);
+windows_core::imp::define_interface!(IActionCatalog, IActionCatalog_Vtbl, 0x1fbb41c8_05bc_5d63_a077_e126f41a866f);
 impl windows_core::RuntimeType for IActionCatalog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -375,7 +375,7 @@ pub struct IActionCatalog_Vtbl {
     pub Changed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionCatalog2, IActionCatalog2_Vtbl, 0x370360b1_a14b_5ea8_b611_b5f70342ba44);
+windows_core::imp::define_interface!(IActionCatalog2, IActionCatalog2_Vtbl, 0xea6822c0_3aad_5be3_afad_72aed4fb7946);
 impl windows_core::RuntimeType for IActionCatalog2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -399,7 +399,7 @@ pub struct IActionCatalog3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetActionsForCurrentApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionDefinition, IActionDefinition_Vtbl, 0xfe766add_924d_5231_855e_dac9e82c7e6c);
+windows_core::imp::define_interface!(IActionDefinition, IActionDefinition_Vtbl, 0x21e6d368_481b_5ea8_981b_c0fe9bc0bddb);
 impl windows_core::RuntimeType for IActionDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -437,7 +437,7 @@ pub struct IActionDefinition3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PackageRelativeApplicationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionDefinition4, IActionDefinition4_Vtbl, 0x6dd91071_8847_55b6_9518_9ff8de421eb7);
+windows_core::imp::define_interface!(IActionDefinition4, IActionDefinition4_Vtbl, 0x42a6f51d_5a4f_5235_ba26_9b3f7a4578d9);
 impl windows_core::RuntimeType for IActionDefinition4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -447,7 +447,7 @@ pub struct IActionDefinition4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentlyAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionDefinition5, IActionDefinition5_Vtbl, 0x5bea33ef_d325_53a8_8db3_0d771f4d1e54);
+windows_core::imp::define_interface!(IActionDefinition5, IActionDefinition5_Vtbl, 0xaec78d2a_d40b_51d9_9348_ae5c881f6e2c);
 impl windows_core::RuntimeType for IActionDefinition5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -460,7 +460,7 @@ pub struct IActionDefinition5_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetIconFullPath: usize,
 }
-windows_core::imp::define_interface!(IActionEntityRegistrationInfo, IActionEntityRegistrationInfo_Vtbl, 0xc3b92bdb_03c3_5a9e_b049_002fa0405699);
+windows_core::imp::define_interface!(IActionEntityRegistrationInfo, IActionEntityRegistrationInfo_Vtbl, 0x7d8a9781_1b98_5d45_b538_12ec0d628b5e);
 impl windows_core::RuntimeType for IActionEntityRegistrationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -473,7 +473,7 @@ pub struct IActionEntityRegistrationInfo_Vtbl {
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ActionEntityKind) -> windows_core::HRESULT,
     pub SetKind: unsafe extern "system" fn(*mut core::ffi::c_void, super::ActionEntityKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionInstance, IActionInstance_Vtbl, 0x809bcb6e_e6ef_5f16_b89a_06b8893df20e);
+windows_core::imp::define_interface!(IActionInstance, IActionInstance_Vtbl, 0xf0b7aefc_6cda_5cb2_b4da_46241955533f);
 impl windows_core::RuntimeType for IActionInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -486,7 +486,7 @@ pub struct IActionInstance_Vtbl {
     pub Context: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InvokeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionInstanceDisplayInfo, IActionInstanceDisplayInfo_Vtbl, 0xfcfdce21_678b_5602_b9dc_2f4533a6f4b2);
+windows_core::imp::define_interface!(IActionInstanceDisplayInfo, IActionInstanceDisplayInfo_Vtbl, 0x97240b79_7075_53bf_ae60_8521350de64d);
 impl windows_core::RuntimeType for IActionInstanceDisplayInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -496,7 +496,7 @@ pub struct IActionInstanceDisplayInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionOverload, IActionOverload_Vtbl, 0x5d184610_d09d_5375_9849_505c359dca01);
+windows_core::imp::define_interface!(IActionOverload, IActionOverload_Vtbl, 0x1b1caedf_7253_578d_a034_6e13ceabadcc);
 impl windows_core::RuntimeType for IActionOverload {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -508,7 +508,7 @@ pub struct IActionOverload_Vtbl {
     pub GetInputs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InvokeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IActionOverload2, IActionOverload2_Vtbl, 0x57ec9906_8231_5a9e_929f_bf39e952eb93);
+windows_core::imp::define_interface!(IActionOverload2, IActionOverload2_Vtbl, 0x32d51c93_e034_5b14_872c_d430a9dbbc64);
 impl windows_core::RuntimeType for IActionOverload2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

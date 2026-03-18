@@ -63,7 +63,7 @@ pub const MARK_PARITY: u32 = 3u32;
 pub const NO_PARITY: u32 = 0u32;
 pub const ODD_PARITY: u32 = 1u32;
 pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
-pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;
+pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *mut core::ffi::c_void, value: u8)>;
 pub type SERENUM_PORTION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]

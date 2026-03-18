@@ -319,7 +319,7 @@ pub const COR_PRF_USE_PROFILE_IMAGES: COR_PRF_MONITOR = COR_PRF_MONITOR(53687091
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorDebugIlToNativeMappingTypes(pub i32);
 pub const EPILOG: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-3i32);
-pub type EventPipeProviderCallback = Option<unsafe extern "system" fn(source_id: *const u8, is_enabled: u32, level: u8, match_any_keywords: u64, match_all_keywords: u64, filter_data: *mut COR_PRF_FILTER_DATA, callback_data: *mut core::ffi::c_void)>;
+pub type EventPipeProviderCallback = Option<unsafe extern "system" fn(source_id: *mut u8, is_enabled: u32, level: u8, match_any_keywords: u64, match_all_keywords: u64, filter_data: *mut COR_PRF_FILTER_DATA, callback_data: *mut core::ffi::c_void)>;
 pub type FunctionEnter = Option<unsafe extern "system" fn(funcid: usize)>;
 pub type FunctionEnter2 = Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize, argumentinfo: *mut COR_PRF_FUNCTION_ARGUMENT_INFO)>;
 pub type FunctionEnter3 = Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID)>;
@@ -383,7 +383,7 @@ impl ICorProfilerAssemblyReferenceProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerAssemblyReferenceProvider {}
-windows_core::imp::define_interface!(ICorProfilerCallback, ICorProfilerCallback_Vtbl, 0x176fbed1_a55c_4796_98ca_a9da0ef883e7);
+windows_core::imp::define_interface!(ICorProfilerCallback, ICorProfilerCallback_Vtbl, 0xd955a06f_1580_5490_80b6_3da239532d0c);
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback, windows_core::IUnknown);
 impl ICorProfilerCallback {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> windows_core::Result<()>
@@ -485,17 +485,17 @@ impl ICorProfilerCallback {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemotingClientInvocationStarted)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RemotingClientSendingMessage(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
+    pub unsafe fn RemotingClientSendingMessage(&self, pcookie: *mut windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemotingClientSendingMessage)(windows_core::Interface::as_raw(self), pcookie as _, fisasync.into()).ok() }
     }
-    pub unsafe fn RemotingClientReceivingReply(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
+    pub unsafe fn RemotingClientReceivingReply(&self, pcookie: *mut windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemotingClientReceivingReply)(windows_core::Interface::as_raw(self), pcookie as _, fisasync.into()).ok() }
     }
     pub unsafe fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemotingClientInvocationFinished)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RemotingServerReceivingMessage(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
+    pub unsafe fn RemotingServerReceivingMessage(&self, pcookie: *mut windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemotingServerReceivingMessage)(windows_core::Interface::as_raw(self), pcookie as _, fisasync.into()).ok() }
     }
     pub unsafe fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemotingServerInvocationStarted)(windows_core::Interface::as_raw(self)).ok() }
@@ -503,8 +503,8 @@ impl ICorProfilerCallback {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemotingServerInvocationReturned)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RemotingServerSendingReply(&self, pcookie: *const windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie, fisasync.into()).ok() }
+    pub unsafe fn RemotingServerSendingReply(&self, pcookie: *mut windows_core::GUID, fisasync: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemotingServerSendingReply)(windows_core::Interface::as_raw(self), pcookie as _, fisasync.into()).ok() }
     }
     pub unsafe fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnmanagedToManagedTransition)(windows_core::Interface::as_raw(self), functionid, reason).ok() }
@@ -533,19 +533,19 @@ impl ICorProfilerCallback {
     pub unsafe fn RuntimeThreadResumed(&self, threadid: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RuntimeThreadResumed)(windows_core::Interface::as_raw(self), threadid).ok() }
     }
-    pub unsafe fn MovedReferences(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MovedReferences)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart, newobjectidrangestart, cobjectidrangelength).ok() }
+    pub unsafe fn MovedReferences(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *mut usize, newobjectidrangestart: *mut usize, cobjectidrangelength: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).MovedReferences)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart as _, newobjectidrangestart as _, cobjectidrangelength as _).ok() }
     }
     pub unsafe fn ObjectAllocated(&self, objectid: usize, classid: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ObjectAllocated)(windows_core::Interface::as_raw(self), objectid, classid).ok() }
     }
-    pub unsafe fn ObjectsAllocatedByClass(&self, cclasscount: u32, classids: *const usize, cobjects: *const u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ObjectsAllocatedByClass)(windows_core::Interface::as_raw(self), cclasscount, classids, cobjects).ok() }
+    pub unsafe fn ObjectsAllocatedByClass(&self, cclasscount: u32, classids: *mut usize, cobjects: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ObjectsAllocatedByClass)(windows_core::Interface::as_raw(self), cclasscount, classids as _, cobjects as _).ok() }
     }
-    pub unsafe fn ObjectReferences(&self, objectid: usize, classid: usize, objectrefids: &[usize]) -> windows_core::Result<()> {
+    pub unsafe fn ObjectReferences(&self, objectid: usize, classid: usize, objectrefids: &mut [usize]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ObjectReferences)(windows_core::Interface::as_raw(self), objectid, classid, objectrefids.len().try_into().unwrap(), core::mem::transmute(objectrefids.as_ptr())).ok() }
     }
-    pub unsafe fn RootReferences(&self, rootrefids: &[usize]) -> windows_core::Result<()> {
+    pub unsafe fn RootReferences(&self, rootrefids: &mut [usize]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RootReferences)(windows_core::Interface::as_raw(self), rootrefids.len().try_into().unwrap(), core::mem::transmute(rootrefids.as_ptr())).ok() }
     }
     pub unsafe fn ExceptionThrown(&self, thrownobjectid: usize) -> windows_core::Result<()> {
@@ -590,11 +590,11 @@ impl ICorProfilerCallback {
     pub unsafe fn ExceptionCatcherLeave(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ExceptionCatcherLeave)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn COMClassicVTableCreated(&self, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void, cslots: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).COMClassicVTableCreated)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid, pvtable, cslots).ok() }
+    pub unsafe fn COMClassicVTableCreated(&self, wrappedclassid: usize, implementediid: *mut windows_core::GUID, pvtable: *mut core::ffi::c_void, cslots: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).COMClassicVTableCreated)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid as _, pvtable as _, cslots).ok() }
     }
-    pub unsafe fn COMClassicVTableDestroyed(&self, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).COMClassicVTableDestroyed)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid, pvtable).ok() }
+    pub unsafe fn COMClassicVTableDestroyed(&self, wrappedclassid: usize, implementediid: *mut windows_core::GUID, pvtable: *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).COMClassicVTableDestroyed)(windows_core::Interface::as_raw(self), wrappedclassid, implementediid as _, pvtable as _).ok() }
     }
     pub unsafe fn ExceptionCLRCatcherFound(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ExceptionCLRCatcherFound)(windows_core::Interface::as_raw(self)).ok() }
@@ -637,13 +637,13 @@ pub struct ICorProfilerCallback_Vtbl {
     pub ThreadDestroyed: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
     pub ThreadAssignedToOSThread: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32) -> windows_core::HRESULT,
     pub RemotingClientInvocationStarted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemotingClientSendingMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
-    pub RemotingClientReceivingReply: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
+    pub RemotingClientSendingMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
+    pub RemotingClientReceivingReply: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
     pub RemotingClientInvocationFinished: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemotingServerReceivingMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
+    pub RemotingServerReceivingMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
     pub RemotingServerInvocationStarted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemotingServerInvocationReturned: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemotingServerSendingReply: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
+    pub RemotingServerSendingReply: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, windows_core::BOOL) -> windows_core::HRESULT,
     pub UnmanagedToManagedTransition: unsafe extern "system" fn(*mut core::ffi::c_void, usize, COR_PRF_TRANSITION_REASON) -> windows_core::HRESULT,
     pub ManagedToUnmanagedTransition: unsafe extern "system" fn(*mut core::ffi::c_void, usize, COR_PRF_TRANSITION_REASON) -> windows_core::HRESULT,
     pub RuntimeSuspendStarted: unsafe extern "system" fn(*mut core::ffi::c_void, COR_PRF_SUSPEND_REASON) -> windows_core::HRESULT,
@@ -653,11 +653,11 @@ pub struct ICorProfilerCallback_Vtbl {
     pub RuntimeResumeFinished: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RuntimeThreadSuspended: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
     pub RuntimeThreadResumed: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
-    pub MovedReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize, *const u32) -> windows_core::HRESULT,
+    pub MovedReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut usize, *mut u32) -> windows_core::HRESULT,
     pub ObjectAllocated: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
-    pub ObjectsAllocatedByClass: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const u32) -> windows_core::HRESULT,
-    pub ObjectReferences: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, u32, *const usize) -> windows_core::HRESULT,
-    pub RootReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize) -> windows_core::HRESULT,
+    pub ObjectsAllocatedByClass: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
+    pub ObjectReferences: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, u32, *mut usize) -> windows_core::HRESULT,
+    pub RootReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize) -> windows_core::HRESULT,
     pub ExceptionThrown: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
     pub ExceptionSearchFunctionEnter: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
     pub ExceptionSearchFunctionLeave: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -672,8 +672,8 @@ pub struct ICorProfilerCallback_Vtbl {
     pub ExceptionUnwindFinallyLeave: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExceptionCatcherEnter: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
     pub ExceptionCatcherLeave: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub COMClassicVTableCreated: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *const windows_core::GUID, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub COMClassicVTableDestroyed: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *const windows_core::GUID, *const core::ffi::c_void) -> windows_core::HRESULT,
+    pub COMClassicVTableCreated: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut windows_core::GUID, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub COMClassicVTableDestroyed: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExceptionCLRCatcherFound: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExceptionCLRCatcherExecute: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -708,13 +708,13 @@ pub trait ICorProfilerCallback_Impl: windows_core::IUnknownImpl {
     fn ThreadDestroyed(&self, threadid: usize) -> windows_core::Result<()>;
     fn ThreadAssignedToOSThread(&self, managedthreadid: usize, osthreadid: u32) -> windows_core::Result<()>;
     fn RemotingClientInvocationStarted(&self) -> windows_core::Result<()>;
-    fn RemotingClientSendingMessage(&self, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
-    fn RemotingClientReceivingReply(&self, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
+    fn RemotingClientSendingMessage(&self, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
+    fn RemotingClientReceivingReply(&self, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
     fn RemotingClientInvocationFinished(&self) -> windows_core::Result<()>;
-    fn RemotingServerReceivingMessage(&self, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
+    fn RemotingServerReceivingMessage(&self, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
     fn RemotingServerInvocationStarted(&self) -> windows_core::Result<()>;
     fn RemotingServerInvocationReturned(&self) -> windows_core::Result<()>;
-    fn RemotingServerSendingReply(&self, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
+    fn RemotingServerSendingReply(&self, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::Result<()>;
     fn UnmanagedToManagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()>;
     fn ManagedToUnmanagedTransition(&self, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> windows_core::Result<()>;
     fn RuntimeSuspendStarted(&self, suspendreason: COR_PRF_SUSPEND_REASON) -> windows_core::Result<()>;
@@ -724,11 +724,11 @@ pub trait ICorProfilerCallback_Impl: windows_core::IUnknownImpl {
     fn RuntimeResumeFinished(&self) -> windows_core::Result<()>;
     fn RuntimeThreadSuspended(&self, threadid: usize) -> windows_core::Result<()>;
     fn RuntimeThreadResumed(&self, threadid: usize) -> windows_core::Result<()>;
-    fn MovedReferences(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::Result<()>;
+    fn MovedReferences(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *mut usize, newobjectidrangestart: *mut usize, cobjectidrangelength: *mut u32) -> windows_core::Result<()>;
     fn ObjectAllocated(&self, objectid: usize, classid: usize) -> windows_core::Result<()>;
-    fn ObjectsAllocatedByClass(&self, cclasscount: u32, classids: *const usize, cobjects: *const u32) -> windows_core::Result<()>;
-    fn ObjectReferences(&self, objectid: usize, classid: usize, cobjectrefs: u32, objectrefids: *const usize) -> windows_core::Result<()>;
-    fn RootReferences(&self, crootrefs: u32, rootrefids: *const usize) -> windows_core::Result<()>;
+    fn ObjectsAllocatedByClass(&self, cclasscount: u32, classids: *mut usize, cobjects: *mut u32) -> windows_core::Result<()>;
+    fn ObjectReferences(&self, objectid: usize, classid: usize, cobjectrefs: u32, objectrefids: *mut usize) -> windows_core::Result<()>;
+    fn RootReferences(&self, crootrefs: u32, rootrefids: *mut usize) -> windows_core::Result<()>;
     fn ExceptionThrown(&self, thrownobjectid: usize) -> windows_core::Result<()>;
     fn ExceptionSearchFunctionEnter(&self, functionid: usize) -> windows_core::Result<()>;
     fn ExceptionSearchFunctionLeave(&self) -> windows_core::Result<()>;
@@ -743,8 +743,8 @@ pub trait ICorProfilerCallback_Impl: windows_core::IUnknownImpl {
     fn ExceptionUnwindFinallyLeave(&self) -> windows_core::Result<()>;
     fn ExceptionCatcherEnter(&self, functionid: usize, objectid: usize) -> windows_core::Result<()>;
     fn ExceptionCatcherLeave(&self) -> windows_core::Result<()>;
-    fn COMClassicVTableCreated(&self, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void, cslots: u32) -> windows_core::Result<()>;
-    fn COMClassicVTableDestroyed(&self, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn COMClassicVTableCreated(&self, wrappedclassid: usize, implementediid: *mut windows_core::GUID, pvtable: *mut core::ffi::c_void, cslots: u32) -> windows_core::Result<()>;
+    fn COMClassicVTableDestroyed(&self, wrappedclassid: usize, implementediid: *mut windows_core::GUID, pvtable: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ExceptionCLRCatcherFound(&self) -> windows_core::Result<()>;
     fn ExceptionCLRCatcherExecute(&self) -> windows_core::Result<()>;
 }
@@ -942,13 +942,13 @@ impl ICorProfilerCallback_Vtbl {
                 ICorProfilerCallback_Impl::RemotingClientInvocationStarted(this).into()
             }
         }
-        unsafe extern "system" fn RemotingClientSendingMessage<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemotingClientSendingMessage<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::RemotingClientSendingMessage(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
             }
         }
-        unsafe extern "system" fn RemotingClientReceivingReply<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemotingClientReceivingReply<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::RemotingClientReceivingReply(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
@@ -960,7 +960,7 @@ impl ICorProfilerCallback_Vtbl {
                 ICorProfilerCallback_Impl::RemotingClientInvocationFinished(this).into()
             }
         }
-        unsafe extern "system" fn RemotingServerReceivingMessage<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemotingServerReceivingMessage<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::RemotingServerReceivingMessage(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
@@ -978,7 +978,7 @@ impl ICorProfilerCallback_Vtbl {
                 ICorProfilerCallback_Impl::RemotingServerInvocationReturned(this).into()
             }
         }
-        unsafe extern "system" fn RemotingServerSendingReply<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemotingServerSendingReply<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *mut windows_core::GUID, fisasync: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::RemotingServerSendingReply(this, core::mem::transmute_copy(&pcookie), core::mem::transmute_copy(&fisasync)).into()
@@ -1038,7 +1038,7 @@ impl ICorProfilerCallback_Vtbl {
                 ICorProfilerCallback_Impl::RuntimeThreadResumed(this, core::mem::transmute_copy(&threadid)).into()
             }
         }
-        unsafe extern "system" fn MovedReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovedReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *mut usize, newobjectidrangestart: *mut usize, cobjectidrangelength: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::MovedReferences(this, core::mem::transmute_copy(&cmovedobjectidranges), core::mem::transmute_copy(&oldobjectidrangestart), core::mem::transmute_copy(&newobjectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
@@ -1050,19 +1050,19 @@ impl ICorProfilerCallback_Vtbl {
                 ICorProfilerCallback_Impl::ObjectAllocated(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&classid)).into()
             }
         }
-        unsafe extern "system" fn ObjectsAllocatedByClass<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cclasscount: u32, classids: *const usize, cobjects: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ObjectsAllocatedByClass<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cclasscount: u32, classids: *mut usize, cobjects: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::ObjectsAllocatedByClass(this, core::mem::transmute_copy(&cclasscount), core::mem::transmute_copy(&classids), core::mem::transmute_copy(&cobjects)).into()
             }
         }
-        unsafe extern "system" fn ObjectReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, classid: usize, cobjectrefs: u32, objectrefids: *const usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn ObjectReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, classid: usize, cobjectrefs: u32, objectrefids: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::ObjectReferences(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&cobjectrefs), core::mem::transmute_copy(&objectrefids)).into()
             }
         }
-        unsafe extern "system" fn RootReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, rootrefids: *const usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn RootReferences<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, rootrefids: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::RootReferences(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&rootrefids)).into()
@@ -1152,13 +1152,13 @@ impl ICorProfilerCallback_Vtbl {
                 ICorProfilerCallback_Impl::ExceptionCatcherLeave(this).into()
             }
         }
-        unsafe extern "system" fn COMClassicVTableCreated<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void, cslots: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn COMClassicVTableCreated<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrappedclassid: usize, implementediid: *mut windows_core::GUID, pvtable: *mut core::ffi::c_void, cslots: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::COMClassicVTableCreated(this, core::mem::transmute_copy(&wrappedclassid), core::mem::transmute_copy(&implementediid), core::mem::transmute_copy(&pvtable), core::mem::transmute_copy(&cslots)).into()
             }
         }
-        unsafe extern "system" fn COMClassicVTableDestroyed<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrappedclassid: usize, implementediid: *const windows_core::GUID, pvtable: *const core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn COMClassicVTableDestroyed<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wrappedclassid: usize, implementediid: *mut windows_core::GUID, pvtable: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback_Impl::COMClassicVTableDestroyed(this, core::mem::transmute_copy(&wrappedclassid), core::mem::transmute_copy(&implementediid), core::mem::transmute_copy(&pvtable)).into()
@@ -1254,7 +1254,7 @@ impl ICorProfilerCallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback {}
-windows_core::imp::define_interface!(ICorProfilerCallback10, ICorProfilerCallback10_Vtbl, 0xcec5b60e_c69c_495f_87f6_84d28ee16ffb);
+windows_core::imp::define_interface!(ICorProfilerCallback10, ICorProfilerCallback10_Vtbl, 0x55fbdb82_8f37_551a_a5e0_533981f27b55);
 impl core::ops::Deref for ICorProfilerCallback10 {
     type Target = ICorProfilerCallback9;
     fn deref(&self) -> &Self::Target {
@@ -1263,8 +1263,8 @@ impl core::ops::Deref for ICorProfilerCallback10 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback10, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9);
 impl ICorProfilerCallback10 {
-    pub unsafe fn EventPipeEventDelivered(&self, provider: usize, eventid: u32, eventversion: u32, metadatablob: &[u8], eventdata: &[u8], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *const usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EventPipeEventDelivered)(windows_core::Interface::as_raw(self), provider, eventid, eventversion, metadatablob.len().try_into().unwrap(), core::mem::transmute(metadatablob.as_ptr()), eventdata.len().try_into().unwrap(), core::mem::transmute(eventdata.as_ptr()), pactivityid, prelatedactivityid, eventthread, numstackframes, stackframes).ok() }
+    pub unsafe fn EventPipeEventDelivered(&self, provider: usize, eventid: u32, eventversion: u32, metadatablob: &mut [u8], eventdata: &mut [u8], pactivityid: *mut windows_core::GUID, prelatedactivityid: *mut windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).EventPipeEventDelivered)(windows_core::Interface::as_raw(self), provider, eventid, eventversion, metadatablob.len().try_into().unwrap(), core::mem::transmute(metadatablob.as_ptr()), eventdata.len().try_into().unwrap(), core::mem::transmute(eventdata.as_ptr()), pactivityid as _, prelatedactivityid as _, eventthread, numstackframes, stackframes as _).ok() }
     }
     pub unsafe fn EventPipeProviderCreated(&self, provider: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EventPipeProviderCreated)(windows_core::Interface::as_raw(self), provider).ok() }
@@ -1274,16 +1274,16 @@ impl ICorProfilerCallback10 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback10_Vtbl {
     pub base__: ICorProfilerCallback9_Vtbl,
-    pub EventPipeEventDelivered: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, u32, u32, *const u8, u32, *const u8, *const windows_core::GUID, *const windows_core::GUID, usize, u32, *const usize) -> windows_core::HRESULT,
+    pub EventPipeEventDelivered: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, u32, u32, *mut u8, u32, *mut u8, *mut windows_core::GUID, *mut windows_core::GUID, usize, u32, *mut usize) -> windows_core::HRESULT,
     pub EventPipeProviderCreated: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback10_Impl: ICorProfilerCallback9_Impl {
-    fn EventPipeEventDelivered(&self, provider: usize, eventid: u32, eventversion: u32, cbmetadatablob: u32, metadatablob: *const u8, cbeventdata: u32, eventdata: *const u8, pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *const usize) -> windows_core::Result<()>;
+    fn EventPipeEventDelivered(&self, provider: usize, eventid: u32, eventversion: u32, cbmetadatablob: u32, metadatablob: *mut u8, cbeventdata: u32, eventdata: *mut u8, pactivityid: *mut windows_core::GUID, prelatedactivityid: *mut windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *mut usize) -> windows_core::Result<()>;
     fn EventPipeProviderCreated(&self, provider: usize) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback10_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback10_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventPipeEventDelivered<Identity: ICorProfilerCallback10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize, eventid: u32, eventversion: u32, cbmetadatablob: u32, metadatablob: *const u8, cbeventdata: u32, eventdata: *const u8, pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *const usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventPipeEventDelivered<Identity: ICorProfilerCallback10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize, eventid: u32, eventversion: u32, cbmetadatablob: u32, metadatablob: *mut u8, cbeventdata: u32, eventdata: *mut u8, pactivityid: *mut windows_core::GUID, prelatedactivityid: *mut windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback10_Impl::EventPipeEventDelivered(
@@ -1321,7 +1321,7 @@ impl ICorProfilerCallback10_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback10 {}
-windows_core::imp::define_interface!(ICorProfilerCallback11, ICorProfilerCallback11_Vtbl, 0x42350846_aaed_47f7_b128_fd0c98881cde);
+windows_core::imp::define_interface!(ICorProfilerCallback11, ICorProfilerCallback11_Vtbl, 0x422ded3f_946f_522e_b2fa_d5cd6f51659d);
 impl core::ops::Deref for ICorProfilerCallback11 {
     type Target = ICorProfilerCallback10;
     fn deref(&self) -> &Self::Target {
@@ -1330,8 +1330,11 @@ impl core::ops::Deref for ICorProfilerCallback11 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback11, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9, ICorProfilerCallback10);
 impl ICorProfilerCallback11 {
-    pub unsafe fn LoadAsNotificationOnly(&self, pbnotificationonly: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LoadAsNotificationOnly)(windows_core::Interface::as_raw(self), pbnotificationonly as _).ok() }
+    pub unsafe fn LoadAsNotificationOnly(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).LoadAsNotificationOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[repr(C)]
@@ -1341,14 +1344,20 @@ pub struct ICorProfilerCallback11_Vtbl {
     pub LoadAsNotificationOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback11_Impl: ICorProfilerCallback10_Impl {
-    fn LoadAsNotificationOnly(&self, pbnotificationonly: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn LoadAsNotificationOnly(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl ICorProfilerCallback11_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback11_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadAsNotificationOnly<Identity: ICorProfilerCallback11_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbnotificationonly: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerCallback11_Impl::LoadAsNotificationOnly(this, core::mem::transmute_copy(&pbnotificationonly)).into()
+                match ICorProfilerCallback11_Impl::LoadAsNotificationOnly(this) {
+                    Ok(ok__) => {
+                        pbnotificationonly.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self { base__: ICorProfilerCallback10_Vtbl::new::<Identity, OFFSET>(), LoadAsNotificationOnly: LoadAsNotificationOnly::<Identity, OFFSET> }
@@ -1358,7 +1367,7 @@ impl ICorProfilerCallback11_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback11 {}
-windows_core::imp::define_interface!(ICorProfilerCallback2, ICorProfilerCallback2_Vtbl, 0x8a8cc829_ccf2_49fe_bbae_0f022228071a);
+windows_core::imp::define_interface!(ICorProfilerCallback2, ICorProfilerCallback2_Vtbl, 0x343f5e7a_f0d9_58f8_a2a2_46f81c960227);
 impl core::ops::Deref for ICorProfilerCallback2 {
     type Target = ICorProfilerCallback;
     fn deref(&self) -> &Self::Target {
@@ -1367,14 +1376,14 @@ impl core::ops::Deref for ICorProfilerCallback2 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, windows_core::IUnknown, ICorProfilerCallback);
 impl ICorProfilerCallback2 {
-    pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: Option<&[u16]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: &[u16]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.len().try_into().unwrap(), core::mem::transmute(name.as_ptr())).ok() }
     }
-    pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[windows_core::BOOL], reason: COR_PRF_GC_REASON) -> windows_core::Result<()> {
+    pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &mut [windows_core::BOOL], reason: COR_PRF_GC_REASON) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GarbageCollectionStarted)(windows_core::Interface::as_raw(self), generationcollected.len().try_into().unwrap(), core::mem::transmute(generationcollected.as_ptr()), reason).ok() }
     }
-    pub unsafe fn SurvivingReferences(&self, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SurvivingReferences)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart, cobjectidrangelength).ok() }
+    pub unsafe fn SurvivingReferences(&self, csurvivingobjectidranges: u32, objectidrangestart: *mut usize, cobjectidrangelength: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SurvivingReferences)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart as _, cobjectidrangelength as _).ok() }
     }
     pub unsafe fn GarbageCollectionFinished(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GarbageCollectionFinished)(windows_core::Interface::as_raw(self)).ok() }
@@ -1382,8 +1391,8 @@ impl ICorProfilerCallback2 {
     pub unsafe fn FinalizeableObjectQueued(&self, finalizerflags: u32, objectid: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FinalizeableObjectQueued)(windows_core::Interface::as_raw(self), finalizerflags, objectid).ok() }
     }
-    pub unsafe fn RootReferences2(&self, crootrefs: u32, rootrefids: *const usize, rootkinds: *const COR_PRF_GC_ROOT_KIND, rootflags: *const COR_PRF_GC_ROOT_FLAGS, rootids: *const usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RootReferences2)(windows_core::Interface::as_raw(self), crootrefs, rootrefids, rootkinds, rootflags, rootids).ok() }
+    pub unsafe fn RootReferences2(&self, crootrefs: u32, rootrefids: *mut usize, rootkinds: *mut COR_PRF_GC_ROOT_KIND, rootflags: *mut COR_PRF_GC_ROOT_FLAGS, rootids: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RootReferences2)(windows_core::Interface::as_raw(self), crootrefs, rootrefids as _, rootkinds as _, rootflags as _, rootids as _).ok() }
     }
     pub unsafe fn HandleCreated(&self, handleid: usize, initialobjectid: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).HandleCreated)(windows_core::Interface::as_raw(self), handleid, initialobjectid).ok() }
@@ -1397,21 +1406,21 @@ impl ICorProfilerCallback2 {
 pub struct ICorProfilerCallback2_Vtbl {
     pub base__: ICorProfilerCallback_Vtbl,
     pub ThreadNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GarbageCollectionStarted: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const windows_core::BOOL, COR_PRF_GC_REASON) -> windows_core::HRESULT,
-    pub SurvivingReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const u32) -> windows_core::HRESULT,
+    pub GarbageCollectionStarted: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::BOOL, COR_PRF_GC_REASON) -> windows_core::HRESULT,
+    pub SurvivingReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
     pub GarbageCollectionFinished: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FinalizeableObjectQueued: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize) -> windows_core::HRESULT,
-    pub RootReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const COR_PRF_GC_ROOT_KIND, *const COR_PRF_GC_ROOT_FLAGS, *const usize) -> windows_core::HRESULT,
+    pub RootReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut COR_PRF_GC_ROOT_KIND, *mut COR_PRF_GC_ROOT_FLAGS, *mut usize) -> windows_core::HRESULT,
     pub HandleCreated: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize) -> windows_core::HRESULT,
     pub HandleDestroyed: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback2_Impl: ICorProfilerCallback_Impl {
     fn ThreadNameChanged(&self, threadid: usize, cchname: u32, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GarbageCollectionStarted(&self, cgenerations: i32, generationcollected: *const windows_core::BOOL, reason: COR_PRF_GC_REASON) -> windows_core::Result<()>;
-    fn SurvivingReferences(&self, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::Result<()>;
+    fn GarbageCollectionStarted(&self, cgenerations: i32, generationcollected: *mut windows_core::BOOL, reason: COR_PRF_GC_REASON) -> windows_core::Result<()>;
+    fn SurvivingReferences(&self, csurvivingobjectidranges: u32, objectidrangestart: *mut usize, cobjectidrangelength: *mut u32) -> windows_core::Result<()>;
     fn GarbageCollectionFinished(&self) -> windows_core::Result<()>;
     fn FinalizeableObjectQueued(&self, finalizerflags: u32, objectid: usize) -> windows_core::Result<()>;
-    fn RootReferences2(&self, crootrefs: u32, rootrefids: *const usize, rootkinds: *const COR_PRF_GC_ROOT_KIND, rootflags: *const COR_PRF_GC_ROOT_FLAGS, rootids: *const usize) -> windows_core::Result<()>;
+    fn RootReferences2(&self, crootrefs: u32, rootrefids: *mut usize, rootkinds: *mut COR_PRF_GC_ROOT_KIND, rootflags: *mut COR_PRF_GC_ROOT_FLAGS, rootids: *mut usize) -> windows_core::Result<()>;
     fn HandleCreated(&self, handleid: usize, initialobjectid: usize) -> windows_core::Result<()>;
     fn HandleDestroyed(&self, handleid: usize) -> windows_core::Result<()>;
 }
@@ -1423,13 +1432,13 @@ impl ICorProfilerCallback2_Vtbl {
                 ICorProfilerCallback2_Impl::ThreadNameChanged(this, core::mem::transmute_copy(&threadid), core::mem::transmute_copy(&cchname), core::mem::transmute(&name)).into()
             }
         }
-        unsafe extern "system" fn GarbageCollectionStarted<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cgenerations: i32, generationcollected: *const windows_core::BOOL, reason: COR_PRF_GC_REASON) -> windows_core::HRESULT {
+        unsafe extern "system" fn GarbageCollectionStarted<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cgenerations: i32, generationcollected: *mut windows_core::BOOL, reason: COR_PRF_GC_REASON) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback2_Impl::GarbageCollectionStarted(this, core::mem::transmute_copy(&cgenerations), core::mem::transmute_copy(&generationcollected), core::mem::transmute_copy(&reason)).into()
             }
         }
-        unsafe extern "system" fn SurvivingReferences<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SurvivingReferences<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *mut usize, cobjectidrangelength: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback2_Impl::SurvivingReferences(this, core::mem::transmute_copy(&csurvivingobjectidranges), core::mem::transmute_copy(&objectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
@@ -1447,7 +1456,7 @@ impl ICorProfilerCallback2_Vtbl {
                 ICorProfilerCallback2_Impl::FinalizeableObjectQueued(this, core::mem::transmute_copy(&finalizerflags), core::mem::transmute_copy(&objectid)).into()
             }
         }
-        unsafe extern "system" fn RootReferences2<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, rootrefids: *const usize, rootkinds: *const COR_PRF_GC_ROOT_KIND, rootflags: *const COR_PRF_GC_ROOT_FLAGS, rootids: *const usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn RootReferences2<Identity: ICorProfilerCallback2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, rootrefids: *mut usize, rootkinds: *mut COR_PRF_GC_ROOT_KIND, rootflags: *mut COR_PRF_GC_ROOT_FLAGS, rootids: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback2_Impl::RootReferences2(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&rootrefids), core::mem::transmute_copy(&rootkinds), core::mem::transmute_copy(&rootflags), core::mem::transmute_copy(&rootids)).into()
@@ -1482,7 +1491,7 @@ impl ICorProfilerCallback2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback2 {}
-windows_core::imp::define_interface!(ICorProfilerCallback3, ICorProfilerCallback3_Vtbl, 0x4fd2ed52_7731_4b8d_9469_03d2cc3086c5);
+windows_core::imp::define_interface!(ICorProfilerCallback3, ICorProfilerCallback3_Vtbl, 0x51ca974d_76a6_5129_a5ec_5747a2e5935a);
 impl core::ops::Deref for ICorProfilerCallback3 {
     type Target = ICorProfilerCallback2;
     fn deref(&self) -> &Self::Target {
@@ -1491,11 +1500,11 @@ impl core::ops::Deref for ICorProfilerCallback3 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback3, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2);
 impl ICorProfilerCallback3 {
-    pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
+    pub unsafe fn InitializeForAttach<P0>(&self, pcorprofilerinfounk: P0, pvclientdata: *mut core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata as _, cbclientdata).ok() }
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok() }
@@ -1508,18 +1517,18 @@ impl ICorProfilerCallback3 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback3_Vtbl {
     pub base__: ICorProfilerCallback2_Vtbl,
-    pub InitializeForAttach: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub InitializeForAttach: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ProfilerAttachComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProfilerDetachSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback3_Impl: ICorProfilerCallback2_Impl {
-    fn InitializeForAttach(&self, pcorprofilerinfounk: windows_core::Ref<windows_core::IUnknown>, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>;
+    fn InitializeForAttach(&self, pcorprofilerinfounk: windows_core::Ref<windows_core::IUnknown>, pvclientdata: *mut core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>;
     fn ProfilerAttachComplete(&self) -> windows_core::Result<()>;
     fn ProfilerDetachSucceeded(&self) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback3_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InitializeForAttach<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcorprofilerinfounk: *mut core::ffi::c_void, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeForAttach<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcorprofilerinfounk: *mut core::ffi::c_void, pvclientdata: *mut core::ffi::c_void, cbclientdata: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback3_Impl::InitializeForAttach(this, core::mem::transmute_copy(&pcorprofilerinfounk), core::mem::transmute_copy(&pvclientdata), core::mem::transmute_copy(&cbclientdata)).into()
@@ -1549,7 +1558,7 @@ impl ICorProfilerCallback3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback3 {}
-windows_core::imp::define_interface!(ICorProfilerCallback4, ICorProfilerCallback4_Vtbl, 0x7b63b2e3_107d_4d48_b2f6_f61e229470d2);
+windows_core::imp::define_interface!(ICorProfilerCallback4, ICorProfilerCallback4_Vtbl, 0xc13add62_9f75_52e1_a4ce_1634b6ead16e);
 impl core::ops::Deref for ICorProfilerCallback4 {
     type Target = ICorProfilerCallback3;
     fn deref(&self) -> &Self::Target {
@@ -1573,11 +1582,11 @@ impl ICorProfilerCallback4 {
     pub unsafe fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReJITError)(windows_core::Interface::as_raw(self), moduleid, methodid, functionid, hrstatus).ok() }
     }
-    pub unsafe fn MovedReferences2(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MovedReferences2)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart, newobjectidrangestart, cobjectidrangelength).ok() }
+    pub unsafe fn MovedReferences2(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *mut usize, newobjectidrangestart: *mut usize, cobjectidrangelength: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).MovedReferences2)(windows_core::Interface::as_raw(self), cmovedobjectidranges, oldobjectidrangestart as _, newobjectidrangestart as _, cobjectidrangelength as _).ok() }
     }
-    pub unsafe fn SurvivingReferences2(&self, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SurvivingReferences2)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart, cobjectidrangelength).ok() }
+    pub unsafe fn SurvivingReferences2(&self, csurvivingobjectidranges: u32, objectidrangestart: *mut usize, cobjectidrangelength: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SurvivingReferences2)(windows_core::Interface::as_raw(self), csurvivingobjectidranges, objectidrangestart as _, cobjectidrangelength as _).ok() }
     }
 }
 #[repr(C)]
@@ -1588,16 +1597,16 @@ pub struct ICorProfilerCallback4_Vtbl {
     pub GetReJITParameters: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReJITCompilationFinished: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, windows_core::HRESULT, windows_core::BOOL) -> windows_core::HRESULT,
     pub ReJITError: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, usize, windows_core::HRESULT) -> windows_core::HRESULT,
-    pub MovedReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> windows_core::HRESULT,
-    pub SurvivingReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize) -> windows_core::HRESULT,
+    pub MovedReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut usize, *mut usize) -> windows_core::HRESULT,
+    pub SurvivingReferences2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut usize) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback4_Impl: ICorProfilerCallback3_Impl {
     fn ReJITCompilationStarted(&self, functionid: usize, rejitid: usize, fissafetoblock: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetReJITParameters(&self, moduleid: usize, methodid: u32, pfunctioncontrol: windows_core::Ref<ICorProfilerFunctionControl>) -> windows_core::Result<()>;
     fn ReJITCompilationFinished(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn MovedReferences2(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()>;
-    fn SurvivingReferences2(&self, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()>;
+    fn MovedReferences2(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *mut usize, newobjectidrangestart: *mut usize, cobjectidrangelength: *mut usize) -> windows_core::Result<()>;
+    fn SurvivingReferences2(&self, csurvivingobjectidranges: u32, objectidrangestart: *mut usize, cobjectidrangelength: *mut usize) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback4_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>() -> Self {
@@ -1625,13 +1634,13 @@ impl ICorProfilerCallback4_Vtbl {
                 ICorProfilerCallback4_Impl::ReJITError(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&hrstatus)).into()
             }
         }
-        unsafe extern "system" fn MovedReferences2<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn MovedReferences2<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *mut usize, newobjectidrangestart: *mut usize, cobjectidrangelength: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback4_Impl::MovedReferences2(this, core::mem::transmute_copy(&cmovedobjectidranges), core::mem::transmute_copy(&oldobjectidrangestart), core::mem::transmute_copy(&newobjectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
             }
         }
-        unsafe extern "system" fn SurvivingReferences2<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn SurvivingReferences2<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *mut usize, cobjectidrangelength: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback4_Impl::SurvivingReferences2(this, core::mem::transmute_copy(&csurvivingobjectidranges), core::mem::transmute_copy(&objectidrangestart), core::mem::transmute_copy(&cobjectidrangelength)).into()
@@ -1652,7 +1661,7 @@ impl ICorProfilerCallback4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback4 {}
-windows_core::imp::define_interface!(ICorProfilerCallback5, ICorProfilerCallback5_Vtbl, 0x8dfba405_8c9f_45f8_bffa_83b14cef78b5);
+windows_core::imp::define_interface!(ICorProfilerCallback5, ICorProfilerCallback5_Vtbl, 0xbfa3faaa_4a2c_5eae_b6ba_f28eee55173d);
 impl core::ops::Deref for ICorProfilerCallback5 {
     type Target = ICorProfilerCallback4;
     fn deref(&self) -> &Self::Target {
@@ -1661,22 +1670,22 @@ impl core::ops::Deref for ICorProfilerCallback5 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback5, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4);
 impl ICorProfilerCallback5 {
-    pub unsafe fn ConditionalWeakTableElementReferences(&self, crootrefs: u32, keyrefids: *const usize, valuerefids: *const usize, rootids: *const usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ConditionalWeakTableElementReferences)(windows_core::Interface::as_raw(self), crootrefs, keyrefids, valuerefids, rootids).ok() }
+    pub unsafe fn ConditionalWeakTableElementReferences(&self, crootrefs: u32, keyrefids: *mut usize, valuerefids: *mut usize, rootids: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ConditionalWeakTableElementReferences)(windows_core::Interface::as_raw(self), crootrefs, keyrefids as _, valuerefids as _, rootids as _).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorProfilerCallback5_Vtbl {
     pub base__: ICorProfilerCallback4_Vtbl,
-    pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> windows_core::HRESULT,
+    pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut usize, *mut usize) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback5_Impl: ICorProfilerCallback4_Impl {
-    fn ConditionalWeakTableElementReferences(&self, crootrefs: u32, keyrefids: *const usize, valuerefids: *const usize, rootids: *const usize) -> windows_core::Result<()>;
+    fn ConditionalWeakTableElementReferences(&self, crootrefs: u32, keyrefids: *mut usize, valuerefids: *mut usize, rootids: *mut usize) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback5_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback5_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ConditionalWeakTableElementReferences<Identity: ICorProfilerCallback5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, keyrefids: *const usize, valuerefids: *const usize, rootids: *const usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConditionalWeakTableElementReferences<Identity: ICorProfilerCallback5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, crootrefs: u32, keyrefids: *mut usize, valuerefids: *mut usize, rootids: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback5_Impl::ConditionalWeakTableElementReferences(this, core::mem::transmute_copy(&crootrefs), core::mem::transmute_copy(&keyrefids), core::mem::transmute_copy(&valuerefids), core::mem::transmute_copy(&rootids)).into()
@@ -1692,7 +1701,7 @@ impl ICorProfilerCallback5_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback5 {}
-windows_core::imp::define_interface!(ICorProfilerCallback6, ICorProfilerCallback6_Vtbl, 0xfc13df4b_4448_4f4f_950c_ba8d19d00c36);
+windows_core::imp::define_interface!(ICorProfilerCallback6, ICorProfilerCallback6_Vtbl, 0xf393407e_f6d8_5c4b_bf36_04aaa0d39021);
 impl core::ops::Deref for ICorProfilerCallback6 {
     type Target = ICorProfilerCallback5;
     fn deref(&self) -> &Self::Target {
@@ -1733,7 +1742,7 @@ impl ICorProfilerCallback6_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback6 {}
-windows_core::imp::define_interface!(ICorProfilerCallback7, ICorProfilerCallback7_Vtbl, 0xf76a2dba_1d52_4539_866c_2aa518f9efc3);
+windows_core::imp::define_interface!(ICorProfilerCallback7, ICorProfilerCallback7_Vtbl, 0x2804821d_640b_5b93_be99_07c56ee6173d);
 impl core::ops::Deref for ICorProfilerCallback7 {
     type Target = ICorProfilerCallback6;
     fn deref(&self) -> &Self::Target {
@@ -1770,7 +1779,7 @@ impl ICorProfilerCallback7_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerCallback7 {}
-windows_core::imp::define_interface!(ICorProfilerCallback8, ICorProfilerCallback8_Vtbl, 0x5bed9b15_c079_4d47_bfe2_215a140c07e0);
+windows_core::imp::define_interface!(ICorProfilerCallback8, ICorProfilerCallback8_Vtbl, 0xef4c65c6_ab40_5b8d_9ded_295805d98e88);
 impl core::ops::Deref for ICorProfilerCallback8 {
     type Target = ICorProfilerCallback7;
     fn deref(&self) -> &Self::Target {
@@ -1779,8 +1788,8 @@ impl core::ops::Deref for ICorProfilerCallback8 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback8, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7);
 impl ICorProfilerCallback8 {
-    pub unsafe fn DynamicMethodJITCompilationStarted(&self, functionid: usize, fissafetoblock: bool, pilheader: *const u8, cbilheader: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into(), pilheader, cbilheader).ok() }
+    pub unsafe fn DynamicMethodJITCompilationStarted(&self, functionid: usize, fissafetoblock: bool, pilheader: *mut u8, cbilheader: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DynamicMethodJITCompilationStarted)(windows_core::Interface::as_raw(self), functionid, fissafetoblock.into(), pilheader as _, cbilheader).ok() }
     }
     pub unsafe fn DynamicMethodJITCompilationFinished(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DynamicMethodJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into()).ok() }
@@ -1790,16 +1799,16 @@ impl ICorProfilerCallback8 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback8_Vtbl {
     pub base__: ICorProfilerCallback7_Vtbl,
-    pub DynamicMethodJITCompilationStarted: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::BOOL, *const u8, u32) -> windows_core::HRESULT,
+    pub DynamicMethodJITCompilationStarted: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::BOOL, *mut u8, u32) -> windows_core::HRESULT,
     pub DynamicMethodJITCompilationFinished: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::HRESULT, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback8_Impl: ICorProfilerCallback7_Impl {
-    fn DynamicMethodJITCompilationStarted(&self, functionid: usize, fissafetoblock: windows_core::BOOL, pilheader: *const u8, cbilheader: u32) -> windows_core::Result<()>;
+    fn DynamicMethodJITCompilationStarted(&self, functionid: usize, fissafetoblock: windows_core::BOOL, pilheader: *mut u8, cbilheader: u32) -> windows_core::Result<()>;
     fn DynamicMethodJITCompilationFinished(&self, functionid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback8_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback8_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DynamicMethodJITCompilationStarted<Identity: ICorProfilerCallback8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, fissafetoblock: windows_core::BOOL, pilheader: *const u8, cbilheader: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DynamicMethodJITCompilationStarted<Identity: ICorProfilerCallback8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, fissafetoblock: windows_core::BOOL, pilheader: *mut u8, cbilheader: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerCallback8_Impl::DynamicMethodJITCompilationStarted(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fissafetoblock), core::mem::transmute_copy(&pilheader), core::mem::transmute_copy(&cbilheader)).into()
@@ -1917,7 +1926,7 @@ impl ICorProfilerFunctionControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerFunctionControl {}
-windows_core::imp::define_interface!(ICorProfilerFunctionEnum, ICorProfilerFunctionEnum_Vtbl, 0xff71301a_b994_429d_a10b_b345a65280ef);
+windows_core::imp::define_interface!(ICorProfilerFunctionEnum, ICorProfilerFunctionEnum_Vtbl, 0x1c268c5b_e9b8_5c9d_b023_269de832d1f0);
 windows_core::imp::interface_hierarchy!(ICorProfilerFunctionEnum, windows_core::IUnknown);
 impl ICorProfilerFunctionEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -2017,7 +2026,7 @@ impl ICorProfilerFunctionEnum_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerFunctionEnum {}
-windows_core::imp::define_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x28b5557d_3f3f_48b4_90b2_5f9eea2f6c48);
+windows_core::imp::define_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x3730c48e_4020_5bd9_ba4b_76e6c4bfe9b3);
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo, windows_core::IUnknown);
 impl ICorProfilerInfo {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> windows_core::Result<usize> {
@@ -2041,11 +2050,8 @@ impl ICorProfilerInfo {
             (windows_core::Interface::vtable(self).GetEventMask)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> windows_core::Result<usize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFunctionFromIP)(windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFunctionFromIP(&self, ip: *mut u8, pfunctionid: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionFromIP)(windows_core::Interface::as_raw(self), ip as _, pfunctionid as _).ok() }
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> windows_core::Result<usize> {
         unsafe {
@@ -2090,23 +2096,23 @@ impl ICorProfilerInfo {
     pub unsafe fn SetEventMask(&self, dwevents: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEventMask)(windows_core::Interface::as_raw(self), dwevents).ok() }
     }
-    pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks)(windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok() }
+    pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *mut FunctionEnter, pfuncleave: *mut FunctionLeave, pfunctailcall: *mut FunctionTailcall) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks)(windows_core::Interface::as_raw(self), pfuncenter as _, pfuncleave as _, pfunctailcall as _).ok() }
     }
-    pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetFunctionIDMapper)(windows_core::Interface::as_raw(self), pfunc).ok() }
+    pub unsafe fn SetFunctionIDMapper(&self) -> windows_core::Result<FunctionIDMapper> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SetFunctionIDMapper)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn GetTokenAndMetaDataFromFunction(&self, functionid: usize, riid: *const windows_core::GUID, ppimport: *mut Option<windows_core::IUnknown>, ptoken: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTokenAndMetaDataFromFunction)(windows_core::Interface::as_raw(self), functionid, riid, core::mem::transmute(ppimport), ptoken as _).ok() }
+    pub unsafe fn GetTokenAndMetaDataFromFunction(&self, functionid: usize, riid: *mut windows_core::GUID, ppimport: *mut Option<windows_core::IUnknown>, ptoken: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetTokenAndMetaDataFromFunction)(windows_core::Interface::as_raw(self), functionid, riid as _, core::mem::transmute(ppimport), ptoken as _).ok() }
     }
     pub unsafe fn GetModuleInfo(&self, moduleid: usize, ppbaseloadaddress: *mut *mut u8, pcchname: *mut u32, szname: &mut [u16], passemblyid: *mut usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetModuleInfo)(windows_core::Interface::as_raw(self), moduleid, ppbaseloadaddress as _, szname.len().try_into().unwrap(), pcchname as _, core::mem::transmute(szname.as_ptr()), passemblyid as _).ok() }
     }
-    pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetModuleMetaData)(windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
+    pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *mut windows_core::GUID, ppout: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetModuleMetaData)(windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid as _, core::mem::transmute(ppout)).ok() }
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetILFunctionBody)(windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader as _, pcbmethodsize as _).ok() }
@@ -2117,8 +2123,11 @@ impl ICorProfilerInfo {
             (windows_core::Interface::vtable(self).GetILFunctionBodyAllocator)(windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetILFunctionBody)(windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok() }
+    pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32) -> windows_core::Result<u8> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).SetILFunctionBody)(windows_core::Interface::as_raw(self), moduleid, methodid, &mut result__).map(|| result__)
+        }
     }
     pub unsafe fn GetAppDomainInfo(&self, appdomainid: usize, pcchname: *mut u32, szname: &mut [u16], pprocessid: *mut usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAppDomainInfo)(windows_core::Interface::as_raw(self), appdomainid, szname.len().try_into().unwrap(), pcchname as _, core::mem::transmute(szname.as_ptr()), pprocessid as _).ok() }
@@ -2132,7 +2141,7 @@ impl ICorProfilerInfo {
     pub unsafe fn ForceGC(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ForceGC)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetILInstrumentedCodeMap(&self, functionid: usize, fstartjit: bool, rgilmapentries: &[COR_IL_MAP]) -> windows_core::Result<()> {
+    pub unsafe fn SetILInstrumentedCodeMap(&self, functionid: usize, fstartjit: bool, rgilmapentries: &mut [COR_IL_MAP]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(windows_core::Interface::as_raw(self), functionid, fstartjit.into(), rgilmapentries.len().try_into().unwrap(), core::mem::transmute(rgilmapentries.as_ptr())).ok() }
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -2174,7 +2183,7 @@ pub struct ICorProfilerInfo_Vtbl {
     pub GetClassFromToken: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut usize) -> windows_core::HRESULT,
     pub GetCodeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetEventMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetFunctionFromIP: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut usize) -> windows_core::HRESULT,
+    pub GetFunctionFromIP: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut usize) -> windows_core::HRESULT,
     pub GetFunctionFromToken: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut usize) -> windows_core::HRESULT,
     pub GetHandleFromThread: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
     pub GetObjectSize: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut u32) -> windows_core::HRESULT,
@@ -2187,19 +2196,19 @@ pub struct ICorProfilerInfo_Vtbl {
     pub GetClassIDInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize, *mut u32) -> windows_core::HRESULT,
     pub GetFunctionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize, *mut usize, *mut u32) -> windows_core::HRESULT,
     pub SetEventMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetEnterLeaveFunctionHooks: unsafe extern "system" fn(*mut core::ffi::c_void, *const FunctionEnter, *const FunctionLeave, *const FunctionTailcall) -> windows_core::HRESULT,
-    pub SetFunctionIDMapper: unsafe extern "system" fn(*mut core::ffi::c_void, *const FunctionIDMapper) -> windows_core::HRESULT,
-    pub GetTokenAndMetaDataFromFunction: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetEnterLeaveFunctionHooks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FunctionEnter, *mut FunctionLeave, *mut FunctionTailcall) -> windows_core::HRESULT,
+    pub SetFunctionIDMapper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FunctionIDMapper) -> windows_core::HRESULT,
+    pub GetTokenAndMetaDataFromFunction: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetModuleInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut *mut u8, u32, *mut u32, windows_core::PWSTR, *mut usize) -> windows_core::HRESULT,
-    pub GetModuleMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetModuleMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetILFunctionBody: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetILFunctionBodyAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetILFunctionBody: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *const u8) -> windows_core::HRESULT,
+    pub SetILFunctionBody: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u8) -> windows_core::HRESULT,
     pub GetAppDomainInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, windows_core::PWSTR, *mut usize) -> windows_core::HRESULT,
     pub GetAssemblyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, windows_core::PWSTR, *mut usize, *mut usize) -> windows_core::HRESULT,
     pub SetFunctionReJIT: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
     pub ForceGC: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetILInstrumentedCodeMap: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::BOOL, u32, *const COR_IL_MAP) -> windows_core::HRESULT,
+    pub SetILInstrumentedCodeMap: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::BOOL, u32, *mut COR_IL_MAP) -> windows_core::HRESULT,
     pub GetInprocInspectionInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetInprocInspectionIThisThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize) -> windows_core::HRESULT,
@@ -2213,7 +2222,7 @@ pub trait ICorProfilerInfo_Impl: windows_core::IUnknownImpl {
     fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> windows_core::Result<usize>;
     fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> windows_core::Result<()>;
     fn GetEventMask(&self) -> windows_core::Result<u32>;
-    fn GetFunctionFromIP(&self, ip: *const u8) -> windows_core::Result<usize>;
+    fn GetFunctionFromIP(&self, ip: *mut u8, pfunctionid: *mut usize) -> windows_core::Result<()>;
     fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> windows_core::Result<usize>;
     fn GetHandleFromThread(&self, threadid: usize) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
     fn GetObjectSize(&self, objectid: usize) -> windows_core::Result<u32>;
@@ -2223,19 +2232,19 @@ pub trait ICorProfilerInfo_Impl: windows_core::IUnknownImpl {
     fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> windows_core::Result<()>;
     fn GetFunctionInfo(&self, functionid: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32) -> windows_core::Result<()>;
     fn SetEventMask(&self, dwevents: u32) -> windows_core::Result<()>;
-    fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> windows_core::Result<()>;
-    fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> windows_core::Result<()>;
-    fn GetTokenAndMetaDataFromFunction(&self, functionid: usize, riid: *const windows_core::GUID, ppimport: windows_core::OutRef<windows_core::IUnknown>, ptoken: *mut u32) -> windows_core::Result<()>;
+    fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *mut FunctionEnter, pfuncleave: *mut FunctionLeave, pfunctailcall: *mut FunctionTailcall) -> windows_core::Result<()>;
+    fn SetFunctionIDMapper(&self) -> windows_core::Result<FunctionIDMapper>;
+    fn GetTokenAndMetaDataFromFunction(&self, functionid: usize, riid: *mut windows_core::GUID, ppimport: windows_core::OutRef<windows_core::IUnknown>, ptoken: *mut u32) -> windows_core::Result<()>;
     fn GetModuleInfo(&self, moduleid: usize, ppbaseloadaddress: *mut *mut u8, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, passemblyid: *mut usize) -> windows_core::Result<()>;
-    fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *mut windows_core::GUID, ppout: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> windows_core::Result<()>;
     fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> windows_core::Result<IMethodMalloc>;
-    fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> windows_core::Result<()>;
+    fn SetILFunctionBody(&self, moduleid: usize, methodid: u32) -> windows_core::Result<u8>;
     fn GetAppDomainInfo(&self, appdomainid: usize, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, pprocessid: *mut usize) -> windows_core::Result<()>;
     fn GetAssemblyInfo(&self, assemblyid: usize, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, pappdomainid: *mut usize, pmoduleid: *mut usize) -> windows_core::Result<()>;
     fn SetFunctionReJIT(&self, functionid: usize) -> windows_core::Result<()>;
     fn ForceGC(&self) -> windows_core::Result<()>;
-    fn SetILInstrumentedCodeMap(&self, functionid: usize, fstartjit: windows_core::BOOL, cilmapentries: u32, rgilmapentries: *const COR_IL_MAP) -> windows_core::Result<()>;
+    fn SetILInstrumentedCodeMap(&self, functionid: usize, fstartjit: windows_core::BOOL, cilmapentries: u32, rgilmapentries: *mut COR_IL_MAP) -> windows_core::Result<()>;
     fn GetInprocInspectionInterface(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetInprocInspectionIThisThread(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetThreadContext(&self, threadid: usize) -> windows_core::Result<usize>;
@@ -2288,16 +2297,10 @@ impl ICorProfilerInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetFunctionFromIP<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ip: *const u8, pfunctionid: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFunctionFromIP<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ip: *mut u8, pfunctionid: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo_Impl::GetFunctionFromIP(this, core::mem::transmute_copy(&ip)) {
-                    Ok(ok__) => {
-                        pfunctionid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo_Impl::GetFunctionFromIP(this, core::mem::transmute_copy(&ip), core::mem::transmute_copy(&pfunctionid)).into()
             }
         }
         unsafe extern "system" fn GetFunctionFromToken<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, token: u32, pfunctionid: *mut usize) -> windows_core::HRESULT {
@@ -2384,19 +2387,25 @@ impl ICorProfilerInfo_Vtbl {
                 ICorProfilerInfo_Impl::SetEventMask(this, core::mem::transmute_copy(&dwevents)).into()
             }
         }
-        unsafe extern "system" fn SetEnterLeaveFunctionHooks<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnterLeaveFunctionHooks<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter: *mut FunctionEnter, pfuncleave: *mut FunctionLeave, pfunctailcall: *mut FunctionTailcall) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerInfo_Impl::SetEnterLeaveFunctionHooks(this, core::mem::transmute_copy(&pfuncenter), core::mem::transmute_copy(&pfuncleave), core::mem::transmute_copy(&pfunctailcall)).into()
             }
         }
-        unsafe extern "system" fn SetFunctionIDMapper<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfunc: *const FunctionIDMapper) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFunctionIDMapper<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfunc: *mut FunctionIDMapper) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerInfo_Impl::SetFunctionIDMapper(this, core::mem::transmute_copy(&pfunc)).into()
+                match ICorProfilerInfo_Impl::SetFunctionIDMapper(this) {
+                    Ok(ok__) => {
+                        pfunc.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn GetTokenAndMetaDataFromFunction<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, riid: *const windows_core::GUID, ppimport: *mut *mut core::ffi::c_void, ptoken: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTokenAndMetaDataFromFunction<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, riid: *mut windows_core::GUID, ppimport: *mut *mut core::ffi::c_void, ptoken: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerInfo_Impl::GetTokenAndMetaDataFromFunction(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppimport), core::mem::transmute_copy(&ptoken)).into()
@@ -2408,16 +2417,10 @@ impl ICorProfilerInfo_Vtbl {
                 ICorProfilerInfo_Impl::GetModuleInfo(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&ppbaseloadaddress), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&passemblyid)).into()
             }
         }
-        unsafe extern "system" fn GetModuleMetaData<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, dwopenflags: u32, riid: *const windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetModuleMetaData<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, dwopenflags: u32, riid: *mut windows_core::GUID, ppout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo_Impl::GetModuleMetaData(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppout.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo_Impl::GetModuleMetaData(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&dwopenflags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppout)).into()
             }
         }
         unsafe extern "system" fn GetILFunctionBody<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> windows_core::HRESULT {
@@ -2438,10 +2441,16 @@ impl ICorProfilerInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetILFunctionBody<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetILFunctionBody<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, pbnewilmethodheader: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerInfo_Impl::SetILFunctionBody(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&pbnewilmethodheader)).into()
+                match ICorProfilerInfo_Impl::SetILFunctionBody(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid)) {
+                    Ok(ok__) => {
+                        pbnewilmethodheader.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetAppDomainInfo<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appdomainid: usize, cchname: u32, pcchname: *mut u32, szname: windows_core::PWSTR, pprocessid: *mut usize) -> windows_core::HRESULT {
@@ -2468,7 +2477,7 @@ impl ICorProfilerInfo_Vtbl {
                 ICorProfilerInfo_Impl::ForceGC(this).into()
             }
         }
-        unsafe extern "system" fn SetILInstrumentedCodeMap<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, fstartjit: windows_core::BOOL, cilmapentries: u32, rgilmapentries: *const COR_IL_MAP) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetILInstrumentedCodeMap<Identity: ICorProfilerInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, fstartjit: windows_core::BOOL, cilmapentries: u32, rgilmapentries: *mut COR_IL_MAP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerInfo_Impl::SetILInstrumentedCodeMap(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&fstartjit), core::mem::transmute_copy(&cilmapentries), core::mem::transmute_copy(&rgilmapentries)).into()
@@ -2577,7 +2586,7 @@ impl ICorProfilerInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo {}
-windows_core::imp::define_interface!(ICorProfilerInfo10, ICorProfilerInfo10_Vtbl, 0x2f1b5152_c869_40c9_aa5f_3abe026bd720);
+windows_core::imp::define_interface!(ICorProfilerInfo10, ICorProfilerInfo10_Vtbl, 0xd76d07a2_8f2e_5a77_9e72_e2ec7f3f1627);
 impl core::ops::Deref for ICorProfilerInfo10 {
     type Target = ICorProfilerInfo9;
     fn deref(&self) -> &Self::Target {
@@ -2589,14 +2598,20 @@ impl ICorProfilerInfo10 {
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumerateObjectReferences)(windows_core::Interface::as_raw(self), objectid, callback, clientdata as _).ok() }
     }
-    pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).IsFrozenObject)(windows_core::Interface::as_raw(self), objectid, pbfrozen as _).ok() }
+    pub unsafe fn IsFrozenObject(&self, objectid: usize) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsFrozenObject)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn GetLOHObjectSizeThreshold(&self, pthreshold: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLOHObjectSizeThreshold)(windows_core::Interface::as_raw(self), pthreshold as _).ok() }
+    pub unsafe fn GetLOHObjectSizeThreshold(&self) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetLOHObjectSizeThreshold)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn RequestReJITWithInliners(&self, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RequestReJITWithInliners)(windows_core::Interface::as_raw(self), dwrejitflags, cfunctions, moduleids, methodids).ok() }
+    pub unsafe fn RequestReJITWithInliners(&self, dwrejitflags: u32, cfunctions: u32, moduleids: *mut usize, methodids: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RequestReJITWithInliners)(windows_core::Interface::as_raw(self), dwrejitflags, cfunctions, moduleids as _, methodids as _).ok() }
     }
     pub unsafe fn SuspendRuntime(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SuspendRuntime)(windows_core::Interface::as_raw(self)).ok() }
@@ -2612,16 +2627,16 @@ pub struct ICorProfilerInfo10_Vtbl {
     pub EnumerateObjectReferences: unsafe extern "system" fn(*mut core::ffi::c_void, usize, ObjectReferenceCallback, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsFrozenObject: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLOHObjectSizeThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub RequestReJITWithInliners: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const usize, *const u32) -> windows_core::HRESULT,
+    pub RequestReJITWithInliners: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
     pub SuspendRuntime: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResumeRuntime: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub trait ICorProfilerInfo10_Impl: ICorProfilerInfo9_Impl {
     fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetLOHObjectSizeThreshold(&self, pthreshold: *mut u32) -> windows_core::Result<()>;
-    fn RequestReJITWithInliners(&self, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::Result<()>;
+    fn IsFrozenObject(&self, objectid: usize) -> windows_core::Result<windows_core::BOOL>;
+    fn GetLOHObjectSizeThreshold(&self) -> windows_core::Result<u32>;
+    fn RequestReJITWithInliners(&self, dwrejitflags: u32, cfunctions: u32, moduleids: *mut usize, methodids: *mut u32) -> windows_core::Result<()>;
     fn SuspendRuntime(&self) -> windows_core::Result<()>;
     fn ResumeRuntime(&self) -> windows_core::Result<()>;
 }
@@ -2637,16 +2652,28 @@ impl ICorProfilerInfo10_Vtbl {
         unsafe extern "system" fn IsFrozenObject<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, pbfrozen: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerInfo10_Impl::IsFrozenObject(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&pbfrozen)).into()
+                match ICorProfilerInfo10_Impl::IsFrozenObject(this, core::mem::transmute_copy(&objectid)) {
+                    Ok(ok__) => {
+                        pbfrozen.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn GetLOHObjectSizeThreshold<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pthreshold: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerInfo10_Impl::GetLOHObjectSizeThreshold(this, core::mem::transmute_copy(&pthreshold)).into()
+                match ICorProfilerInfo10_Impl::GetLOHObjectSizeThreshold(this) {
+                    Ok(ok__) => {
+                        pthreshold.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
-        unsafe extern "system" fn RequestReJITWithInliners<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RequestReJITWithInliners<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrejitflags: u32, cfunctions: u32, moduleids: *mut usize, methodids: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerInfo10_Impl::RequestReJITWithInliners(this, core::mem::transmute_copy(&dwrejitflags), core::mem::transmute_copy(&cfunctions), core::mem::transmute_copy(&moduleids), core::mem::transmute_copy(&methodids)).into()
@@ -2680,7 +2707,7 @@ impl ICorProfilerInfo10_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo10 {}
-windows_core::imp::define_interface!(ICorProfilerInfo11, ICorProfilerInfo11_Vtbl, 0x06398876_8987_4154_b621_40a00d6e4d04);
+windows_core::imp::define_interface!(ICorProfilerInfo11, ICorProfilerInfo11_Vtbl, 0xdb238b32_02ab_534e_b0cc_8ee23cdc767a);
 impl core::ops::Deref for ICorProfilerInfo11 {
     type Target = ICorProfilerInfo10;
     fn deref(&self) -> &Self::Target {
@@ -2742,7 +2769,7 @@ impl ICorProfilerInfo11_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo11 {}
-windows_core::imp::define_interface!(ICorProfilerInfo12, ICorProfilerInfo12_Vtbl, 0x27b24ccd_1cb1_47c5_96ee_98190dc30959);
+windows_core::imp::define_interface!(ICorProfilerInfo12, ICorProfilerInfo12_Vtbl, 0xff2e7faf_758d_56bb_9937_adb31165ae99);
 impl core::ops::Deref for ICorProfilerInfo12 {
     type Target = ICorProfilerInfo11;
     fn deref(&self) -> &Self::Target {
@@ -2751,11 +2778,8 @@ impl core::ops::Deref for ICorProfilerInfo12 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo12, windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11);
 impl ICorProfilerInfo12 {
-    pub unsafe fn EventPipeStartSession(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: bool) -> windows_core::Result<u64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into(), &mut result__).map(|| result__)
-        }
+    pub unsafe fn EventPipeStartSession(&self, pproviderconfigs: &mut [COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: bool, psession: *mut u64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).EventPipeStartSession)(windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into(), psession as _).ok() }
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EventPipeAddProviderToSession)(windows_core::Interface::as_raw(self), session, core::mem::transmute(providerconfig)).ok() }
@@ -2775,54 +2799,45 @@ impl ICorProfilerInfo12 {
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EventPipeGetProviderInfo)(windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), pcchname as _, core::mem::transmute(providername.as_ptr())).ok() }
     }
-    pub unsafe fn EventPipeDefineEvent<P1>(&self, provider: usize, eventname: P1, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: bool, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> windows_core::Result<usize>
+    pub unsafe fn EventPipeDefineEvent<P1>(&self, provider: usize, eventname: P1, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: bool, pparamdescs: &mut [COR_PRF_EVENTPIPE_PARAM_DESC], pevent: *mut usize) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), pevent as _).ok() }
     }
-    pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).EventPipeWriteEvent)(windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok() }
+    pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &mut [COR_PRF_EVENT_DATA], pactivityid: *mut windows_core::GUID, prelatedactivityid: *mut windows_core::GUID) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).EventPipeWriteEvent)(windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), pactivityid as _, prelatedactivityid as _).ok() }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorProfilerInfo12_Vtbl {
     pub base__: ICorProfilerInfo11_Vtbl,
-    pub EventPipeStartSession: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, windows_core::BOOL, *mut u64) -> windows_core::HRESULT,
+    pub EventPipeStartSession: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut COR_PRF_EVENTPIPE_PROVIDER_CONFIG, windows_core::BOOL, *mut u64) -> windows_core::HRESULT,
     pub EventPipeAddProviderToSession: unsafe extern "system" fn(*mut core::ffi::c_void, u64, COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::HRESULT,
     pub EventPipeStopSession: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub EventPipeCreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut usize) -> windows_core::HRESULT,
     pub EventPipeGetProviderInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
-    pub EventPipeDefineEvent: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::PCWSTR, u32, u64, u32, u32, u8, windows_core::BOOL, u32, *const COR_PRF_EVENTPIPE_PARAM_DESC, *mut usize) -> windows_core::HRESULT,
-    pub EventPipeWriteEvent: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *const COR_PRF_EVENT_DATA, *const windows_core::GUID, *const windows_core::GUID) -> windows_core::HRESULT,
+    pub EventPipeDefineEvent: unsafe extern "system" fn(*mut core::ffi::c_void, usize, windows_core::PCWSTR, u32, u64, u32, u32, u8, windows_core::BOOL, u32, *mut COR_PRF_EVENTPIPE_PARAM_DESC, *mut usize) -> windows_core::HRESULT,
+    pub EventPipeWriteEvent: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut COR_PRF_EVENT_DATA, *mut windows_core::GUID, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub trait ICorProfilerInfo12_Impl: ICorProfilerInfo11_Impl {
-    fn EventPipeStartSession(&self, cproviderconfigs: u32, pproviderconfigs: *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, requestrundown: windows_core::BOOL) -> windows_core::Result<u64>;
+    fn EventPipeStartSession(&self, cproviderconfigs: u32, pproviderconfigs: *mut COR_PRF_EVENTPIPE_PROVIDER_CONFIG, requestrundown: windows_core::BOOL, psession: *mut u64) -> windows_core::Result<()>;
     fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: &COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::Result<()>;
     fn EventPipeStopSession(&self, session: u64) -> windows_core::Result<()>;
     fn EventPipeCreateProvider(&self, providername: &windows_core::PCWSTR) -> windows_core::Result<usize>;
     fn EventPipeGetProviderInfo(&self, provider: usize, cchname: u32, pcchname: *mut u32, providername: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn EventPipeDefineEvent(&self, provider: usize, eventname: &windows_core::PCWSTR, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: windows_core::BOOL, cparamdescs: u32, pparamdescs: *const COR_PRF_EVENTPIPE_PARAM_DESC) -> windows_core::Result<usize>;
-    fn EventPipeWriteEvent(&self, event: usize, cdata: u32, data: *const COR_PRF_EVENT_DATA, pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn EventPipeDefineEvent(&self, provider: usize, eventname: &windows_core::PCWSTR, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: windows_core::BOOL, cparamdescs: u32, pparamdescs: *mut COR_PRF_EVENTPIPE_PARAM_DESC, pevent: *mut usize) -> windows_core::Result<()>;
+    fn EventPipeWriteEvent(&self, event: usize, cdata: u32, data: *mut COR_PRF_EVENT_DATA, pactivityid: *mut windows_core::GUID, prelatedactivityid: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl ICorProfilerInfo12_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventPipeStartSession<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproviderconfigs: u32, pproviderconfigs: *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, requestrundown: windows_core::BOOL, psession: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventPipeStartSession<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproviderconfigs: u32, pproviderconfigs: *mut COR_PRF_EVENTPIPE_PROVIDER_CONFIG, requestrundown: windows_core::BOOL, psession: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo12_Impl::EventPipeStartSession(this, core::mem::transmute_copy(&cproviderconfigs), core::mem::transmute_copy(&pproviderconfigs), core::mem::transmute_copy(&requestrundown)) {
-                    Ok(ok__) => {
-                        psession.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo12_Impl::EventPipeStartSession(this, core::mem::transmute_copy(&cproviderconfigs), core::mem::transmute_copy(&pproviderconfigs), core::mem::transmute_copy(&requestrundown), core::mem::transmute_copy(&psession)).into()
             }
         }
         unsafe extern "system" fn EventPipeAddProviderToSession<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> windows_core::HRESULT {
@@ -2855,19 +2870,13 @@ impl ICorProfilerInfo12_Vtbl {
                 ICorProfilerInfo12_Impl::EventPipeGetProviderInfo(this, core::mem::transmute_copy(&provider), core::mem::transmute_copy(&cchname), core::mem::transmute_copy(&pcchname), core::mem::transmute_copy(&providername)).into()
             }
         }
-        unsafe extern "system" fn EventPipeDefineEvent<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize, eventname: windows_core::PCWSTR, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: windows_core::BOOL, cparamdescs: u32, pparamdescs: *const COR_PRF_EVENTPIPE_PARAM_DESC, pevent: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventPipeDefineEvent<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: usize, eventname: windows_core::PCWSTR, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: windows_core::BOOL, cparamdescs: u32, pparamdescs: *mut COR_PRF_EVENTPIPE_PARAM_DESC, pevent: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo12_Impl::EventPipeDefineEvent(this, core::mem::transmute_copy(&provider), core::mem::transmute(&eventname), core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&keywords), core::mem::transmute_copy(&eventversion), core::mem::transmute_copy(&level), core::mem::transmute_copy(&opcode), core::mem::transmute_copy(&needstack), core::mem::transmute_copy(&cparamdescs), core::mem::transmute_copy(&pparamdescs)) {
-                    Ok(ok__) => {
-                        pevent.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo12_Impl::EventPipeDefineEvent(this, core::mem::transmute_copy(&provider), core::mem::transmute(&eventname), core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&keywords), core::mem::transmute_copy(&eventversion), core::mem::transmute_copy(&level), core::mem::transmute_copy(&opcode), core::mem::transmute_copy(&needstack), core::mem::transmute_copy(&cparamdescs), core::mem::transmute_copy(&pparamdescs), core::mem::transmute_copy(&pevent)).into()
             }
         }
-        unsafe extern "system" fn EventPipeWriteEvent<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: usize, cdata: u32, data: *const COR_PRF_EVENT_DATA, pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventPipeWriteEvent<Identity: ICorProfilerInfo12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: usize, cdata: u32, data: *mut COR_PRF_EVENT_DATA, pactivityid: *mut windows_core::GUID, prelatedactivityid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerInfo12_Impl::EventPipeWriteEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&cdata), core::mem::transmute_copy(&data), core::mem::transmute_copy(&pactivityid), core::mem::transmute_copy(&prelatedactivityid)).into()
@@ -2978,7 +2987,7 @@ impl ICorProfilerInfo13_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo13 {}
-windows_core::imp::define_interface!(ICorProfilerInfo14, ICorProfilerInfo14_Vtbl, 0xf460e352_d76d_4fe9_835f_f6af9d6e862d);
+windows_core::imp::define_interface!(ICorProfilerInfo14, ICorProfilerInfo14_Vtbl, 0x6e1b7635_bc39_52e9_ace4_664b1a89941c);
 impl core::ops::Deref for ICorProfilerInfo14 {
     type Target = ICorProfilerInfo13;
     fn deref(&self) -> &Self::Target {
@@ -2996,14 +3005,11 @@ impl ICorProfilerInfo14 {
     pub unsafe fn GetNonGCHeapBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_NONGC_HEAP_RANGE]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetNonGCHeapBounds)(windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges as _, core::mem::transmute(ranges.as_ptr())).ok() }
     }
-    pub unsafe fn EventPipeCreateProvider2<P0>(&self, providername: P0, pcallback: *const EventPipeProviderCallback) -> windows_core::Result<usize>
+    pub unsafe fn EventPipeCreateProvider2<P0>(&self, providername: P0, pcallback: *mut EventPipeProviderCallback, pprovider: *mut usize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), providername.param().abi(), pcallback, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), providername.param().abi(), pcallback as _, pprovider as _).ok() }
     }
 }
 #[repr(C)]
@@ -3012,13 +3018,13 @@ pub struct ICorProfilerInfo14_Vtbl {
     pub base__: ICorProfilerInfo13_Vtbl,
     pub EnumerateNonGCObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNonGCHeapBounds: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut COR_PRF_NONGC_HEAP_RANGE) -> windows_core::HRESULT,
-    pub EventPipeCreateProvider2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const EventPipeProviderCallback, *mut usize) -> windows_core::HRESULT,
+    pub EventPipeCreateProvider2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut EventPipeProviderCallback, *mut usize) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub trait ICorProfilerInfo14_Impl: ICorProfilerInfo13_Impl {
     fn EnumerateNonGCObjects(&self) -> windows_core::Result<ICorProfilerObjectEnum>;
     fn GetNonGCHeapBounds(&self, cobjectranges: u32, pcobjectranges: *mut u32, ranges: *mut COR_PRF_NONGC_HEAP_RANGE) -> windows_core::Result<()>;
-    fn EventPipeCreateProvider2(&self, providername: &windows_core::PCWSTR, pcallback: *const EventPipeProviderCallback) -> windows_core::Result<usize>;
+    fn EventPipeCreateProvider2(&self, providername: &windows_core::PCWSTR, pcallback: *mut EventPipeProviderCallback, pprovider: *mut usize) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl ICorProfilerInfo14_Vtbl {
@@ -3041,16 +3047,10 @@ impl ICorProfilerInfo14_Vtbl {
                 ICorProfilerInfo14_Impl::GetNonGCHeapBounds(this, core::mem::transmute_copy(&cobjectranges), core::mem::transmute_copy(&pcobjectranges), core::mem::transmute_copy(&ranges)).into()
             }
         }
-        unsafe extern "system" fn EventPipeCreateProvider2<Identity: ICorProfilerInfo14_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providername: windows_core::PCWSTR, pcallback: *const EventPipeProviderCallback, pprovider: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventPipeCreateProvider2<Identity: ICorProfilerInfo14_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providername: windows_core::PCWSTR, pcallback: *mut EventPipeProviderCallback, pprovider: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo14_Impl::EventPipeCreateProvider2(this, core::mem::transmute(&providername), core::mem::transmute_copy(&pcallback)) {
-                    Ok(ok__) => {
-                        pprovider.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo14_Impl::EventPipeCreateProvider2(this, core::mem::transmute(&providername), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&pprovider)).into()
             }
         }
         Self {
@@ -3079,7 +3079,7 @@ impl ICorProfilerInfo14_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo14 {}
-windows_core::imp::define_interface!(ICorProfilerInfo2, ICorProfilerInfo2_Vtbl, 0xcc0935cd_a518_487d_b0bb_a93214e65478);
+windows_core::imp::define_interface!(ICorProfilerInfo2, ICorProfilerInfo2_Vtbl, 0x05b87c2d_473c_55b9_9dcf_3293a497d829);
 impl core::ops::Deref for ICorProfilerInfo2 {
     type Target = ICorProfilerInfo;
     fn deref(&self) -> &Self::Target {
@@ -3088,11 +3088,11 @@ impl core::ops::Deref for ICorProfilerInfo2 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerInfo2, windows_core::IUnknown, ICorProfilerInfo);
 impl ICorProfilerInfo2 {
-    pub unsafe fn DoStackSnapshot(&self, thread: usize, callback: *const StackSnapshotCallback, infoflags: u32, clientdata: *const core::ffi::c_void, context: &[u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DoStackSnapshot)(windows_core::Interface::as_raw(self), thread, callback, infoflags, clientdata, core::mem::transmute(context.as_ptr()), context.len().try_into().unwrap()).ok() }
+    pub unsafe fn DoStackSnapshot(&self, thread: usize, callback: *mut StackSnapshotCallback, infoflags: u32, clientdata: *mut core::ffi::c_void, context: &mut [u8]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DoStackSnapshot)(windows_core::Interface::as_raw(self), thread, callback as _, infoflags, clientdata as _, core::mem::transmute(context.as_ptr()), context.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn SetEnterLeaveFunctionHooks2(&self, pfuncenter: *const FunctionEnter2, pfuncleave: *const FunctionLeave2, pfunctailcall: *const FunctionTailcall2) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks2)(windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok() }
+    pub unsafe fn SetEnterLeaveFunctionHooks2(&self, pfuncenter: *mut FunctionEnter2, pfuncleave: *mut FunctionLeave2, pfunctailcall: *mut FunctionTailcall2) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks2)(windows_core::Interface::as_raw(self), pfuncenter as _, pfuncleave as _, pfunctailcall as _).ok() }
     }
     pub unsafe fn GetFunctionInfo2(&self, funcid: usize, frameinfo: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32, ctypeargs: u32, pctypeargs: *mut u32, typeargs: *mut usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFunctionInfo2)(windows_core::Interface::as_raw(self), funcid, frameinfo, pclassid as _, pmoduleid as _, ptoken as _, ctypeargs, pctypeargs as _, typeargs as _).ok() }
@@ -3110,17 +3110,11 @@ impl ICorProfilerInfo2 {
     pub unsafe fn GetCodeInfo2(&self, functionid: usize, pccodeinfos: *mut u32, codeinfos: &mut [COR_PRF_CODE_INFO]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCodeInfo2)(windows_core::Interface::as_raw(self), functionid, codeinfos.len().try_into().unwrap(), pccodeinfos as _, core::mem::transmute(codeinfos.as_ptr())).ok() }
     }
-    pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> windows_core::Result<usize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClassFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &mut [usize], pclassid: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetClassFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), pclassid as _).ok() }
     }
-    pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> windows_core::Result<usize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFunctionFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &mut [usize], pfunctionid: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionFromTokenAndTypeArgs)(windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), core::mem::transmute(typeargs.as_ptr()), pfunctionid as _).ok() }
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> windows_core::Result<ICorProfilerObjectEnum> {
         unsafe {
@@ -3181,8 +3175,8 @@ impl ICorProfilerInfo2 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo2_Vtbl {
     pub base__: ICorProfilerInfo_Vtbl,
-    pub DoStackSnapshot: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *const StackSnapshotCallback, u32, *const core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
-    pub SetEnterLeaveFunctionHooks2: unsafe extern "system" fn(*mut core::ffi::c_void, *const FunctionEnter2, *const FunctionLeave2, *const FunctionTailcall2) -> windows_core::HRESULT,
+    pub DoStackSnapshot: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut StackSnapshotCallback, u32, *mut core::ffi::c_void, *mut u8, u32) -> windows_core::HRESULT,
+    pub SetEnterLeaveFunctionHooks2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FunctionEnter2, *mut FunctionLeave2, *mut FunctionTailcall2) -> windows_core::HRESULT,
     pub GetFunctionInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, *mut usize, *mut usize, *mut u32, u32, *mut u32, *mut usize) -> windows_core::HRESULT,
     pub GetStringLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
@@ -3191,8 +3185,8 @@ pub struct ICorProfilerInfo2_Vtbl {
     GetClassLayout: usize,
     pub GetClassIDInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize, *mut u32, *mut usize, u32, *mut u32, *mut usize) -> windows_core::HRESULT,
     pub GetCodeInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut COR_PRF_CODE_INFO) -> windows_core::HRESULT,
-    pub GetClassFromTokenAndTypeArgs: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, u32, *const usize, *mut usize) -> windows_core::HRESULT,
-    pub GetFunctionFromTokenAndTypeArgs: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, usize, u32, *const usize, *mut usize) -> windows_core::HRESULT,
+    pub GetClassFromTokenAndTypeArgs: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, u32, *mut usize, *mut usize) -> windows_core::HRESULT,
+    pub GetFunctionFromTokenAndTypeArgs: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, usize, u32, *mut usize, *mut usize) -> windows_core::HRESULT,
     pub EnumModuleFrozenObjects: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetArrayObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, usize, u32, *mut u32, *mut i32, *mut *mut u8) -> windows_core::HRESULT,
     pub GetBoxClassLayout: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut u32) -> windows_core::HRESULT,
@@ -3208,15 +3202,15 @@ pub struct ICorProfilerInfo2_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub trait ICorProfilerInfo2_Impl: ICorProfilerInfo_Impl {
-    fn DoStackSnapshot(&self, thread: usize, callback: *const StackSnapshotCallback, infoflags: u32, clientdata: *const core::ffi::c_void, context: *const u8, contextsize: u32) -> windows_core::Result<()>;
-    fn SetEnterLeaveFunctionHooks2(&self, pfuncenter: *const FunctionEnter2, pfuncleave: *const FunctionLeave2, pfunctailcall: *const FunctionTailcall2) -> windows_core::Result<()>;
+    fn DoStackSnapshot(&self, thread: usize, callback: *mut StackSnapshotCallback, infoflags: u32, clientdata: *mut core::ffi::c_void, context: *mut u8, contextsize: u32) -> windows_core::Result<()>;
+    fn SetEnterLeaveFunctionHooks2(&self, pfuncenter: *mut FunctionEnter2, pfuncleave: *mut FunctionLeave2, pfunctailcall: *mut FunctionTailcall2) -> windows_core::Result<()>;
     fn GetFunctionInfo2(&self, funcid: usize, frameinfo: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32, ctypeargs: u32, pctypeargs: *mut u32, typeargs: *mut usize) -> windows_core::Result<()>;
     fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> windows_core::Result<()>;
     fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> windows_core::Result<()>;
     fn GetClassIDInfo2(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32, pparentclassid: *mut usize, cnumtypeargs: u32, pcnumtypeargs: *mut u32, typeargs: *mut usize) -> windows_core::Result<()>;
     fn GetCodeInfo2(&self, functionid: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> windows_core::Result<()>;
-    fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, ctypeargs: u32, typeargs: *const usize) -> windows_core::Result<usize>;
-    fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, ctypeargs: u32, typeargs: *const usize) -> windows_core::Result<usize>;
+    fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, ctypeargs: u32, typeargs: *mut usize, pclassid: *mut usize) -> windows_core::Result<()>;
+    fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, ctypeargs: u32, typeargs: *mut usize, pfunctionid: *mut usize) -> windows_core::Result<()>;
     fn EnumModuleFrozenObjects(&self, moduleid: usize) -> windows_core::Result<ICorProfilerObjectEnum>;
     fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> windows_core::Result<()>;
     fn GetBoxClassLayout(&self, classid: usize) -> windows_core::Result<u32>;
@@ -3233,13 +3227,13 @@ pub trait ICorProfilerInfo2_Impl: ICorProfilerInfo_Impl {
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl ICorProfilerInfo2_Vtbl {
     pub const fn new<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DoStackSnapshot<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thread: usize, callback: *const StackSnapshotCallback, infoflags: u32, clientdata: *const core::ffi::c_void, context: *const u8, contextsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DoStackSnapshot<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thread: usize, callback: *mut StackSnapshotCallback, infoflags: u32, clientdata: *mut core::ffi::c_void, context: *mut u8, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerInfo2_Impl::DoStackSnapshot(this, core::mem::transmute_copy(&thread), core::mem::transmute_copy(&callback), core::mem::transmute_copy(&infoflags), core::mem::transmute_copy(&clientdata), core::mem::transmute_copy(&context), core::mem::transmute_copy(&contextsize)).into()
             }
         }
-        unsafe extern "system" fn SetEnterLeaveFunctionHooks2<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter: *const FunctionEnter2, pfuncleave: *const FunctionLeave2, pfunctailcall: *const FunctionTailcall2) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnterLeaveFunctionHooks2<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncenter: *mut FunctionEnter2, pfuncleave: *mut FunctionLeave2, pfunctailcall: *mut FunctionTailcall2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICorProfilerInfo2_Impl::SetEnterLeaveFunctionHooks2(this, core::mem::transmute_copy(&pfuncenter), core::mem::transmute_copy(&pfuncleave), core::mem::transmute_copy(&pfunctailcall)).into()
@@ -3275,28 +3269,16 @@ impl ICorProfilerInfo2_Vtbl {
                 ICorProfilerInfo2_Impl::GetCodeInfo2(this, core::mem::transmute_copy(&functionid), core::mem::transmute_copy(&ccodeinfos), core::mem::transmute_copy(&pccodeinfos), core::mem::transmute_copy(&codeinfos)).into()
             }
         }
-        unsafe extern "system" fn GetClassFromTokenAndTypeArgs<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, typedef: u32, ctypeargs: u32, typeargs: *const usize, pclassid: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClassFromTokenAndTypeArgs<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, typedef: u32, ctypeargs: u32, typeargs: *mut usize, pclassid: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo2_Impl::GetClassFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
-                    Ok(ok__) => {
-                        pclassid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo2_Impl::GetClassFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&typedef), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs), core::mem::transmute_copy(&pclassid)).into()
             }
         }
-        unsafe extern "system" fn GetFunctionFromTokenAndTypeArgs<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, funcdef: u32, classid: usize, ctypeargs: u32, typeargs: *const usize, pfunctionid: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFunctionFromTokenAndTypeArgs<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, funcdef: u32, classid: usize, ctypeargs: u32, typeargs: *mut usize, pfunctionid: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo2_Impl::GetFunctionFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&funcdef), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs)) {
-                    Ok(ok__) => {
-                        pfunctionid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo2_Impl::GetFunctionFromTokenAndTypeArgs(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&funcdef), core::mem::transmute_copy(&classid), core::mem::transmute_copy(&ctypeargs), core::mem::transmute_copy(&typeargs), core::mem::transmute_copy(&pfunctionid)).into()
             }
         }
         unsafe extern "system" fn EnumModuleFrozenObjects<Identity: ICorProfilerInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3842,7 +3824,7 @@ impl ICorProfilerInfo4_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo4 {}
-windows_core::imp::define_interface!(ICorProfilerInfo5, ICorProfilerInfo5_Vtbl, 0x07602928_ce38_4b83_81e7_74adaf781214);
+windows_core::imp::define_interface!(ICorProfilerInfo5, ICorProfilerInfo5_Vtbl, 0xbc8b350b_c624_55d8_bf13_a02a76d57cf7);
 impl core::ops::Deref for ICorProfilerInfo5 {
     type Target = ICorProfilerInfo4;
     fn deref(&self) -> &Self::Target {
@@ -3897,7 +3879,7 @@ impl ICorProfilerInfo5_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo5 {}
-windows_core::imp::define_interface!(ICorProfilerInfo6, ICorProfilerInfo6_Vtbl, 0xf30a070d_bffb_46a7_b1d8_8781ef7b698a);
+windows_core::imp::define_interface!(ICorProfilerInfo6, ICorProfilerInfo6_Vtbl, 0xfa34d5f3_b756_5b15_bbfe_395929eb9609);
 impl core::ops::Deref for ICorProfilerInfo6 {
     type Target = ICorProfilerInfo5;
     fn deref(&self) -> &Self::Target {
@@ -3940,7 +3922,7 @@ impl ICorProfilerInfo6_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo6 {}
-windows_core::imp::define_interface!(ICorProfilerInfo7, ICorProfilerInfo7_Vtbl, 0x9aeecc0d_63e0_4187_8c00_e312f503f663);
+windows_core::imp::define_interface!(ICorProfilerInfo7, ICorProfilerInfo7_Vtbl, 0xd51ac704_732e_5eec_880f_1f00df577b4d);
 impl core::ops::Deref for ICorProfilerInfo7 {
     type Target = ICorProfilerInfo6;
     fn deref(&self) -> &Self::Target {
@@ -4092,7 +4074,7 @@ impl ICorProfilerInfo8_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo8 {}
-windows_core::imp::define_interface!(ICorProfilerInfo9, ICorProfilerInfo9_Vtbl, 0x008170db_f8cc_4796_9a51_dc8aa0b47012);
+windows_core::imp::define_interface!(ICorProfilerInfo9, ICorProfilerInfo9_Vtbl, 0xb6c1453a_2e59_567a_b921_cd7d079ae666);
 impl core::ops::Deref for ICorProfilerInfo9 {
     type Target = ICorProfilerInfo8;
     fn deref(&self) -> &Self::Target {
@@ -4159,7 +4141,7 @@ impl ICorProfilerInfo9_Vtbl {
 }
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 impl windows_core::RuntimeName for ICorProfilerInfo9 {}
-windows_core::imp::define_interface!(ICorProfilerMethodEnum, ICorProfilerMethodEnum_Vtbl, 0xfccee788_0088_454b_a811_c99f298d1942);
+windows_core::imp::define_interface!(ICorProfilerMethodEnum, ICorProfilerMethodEnum_Vtbl, 0xcb4f0371_a38a_5b5f_8e74_98ffcffb976c);
 windows_core::imp::interface_hierarchy!(ICorProfilerMethodEnum, windows_core::IUnknown);
 impl ICorProfilerMethodEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -4359,7 +4341,7 @@ impl ICorProfilerModuleEnum_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerModuleEnum {}
-windows_core::imp::define_interface!(ICorProfilerObjectEnum, ICorProfilerObjectEnum_Vtbl, 0x2c6269bd_2d13_4321_ae12_6686365fd6af);
+windows_core::imp::define_interface!(ICorProfilerObjectEnum, ICorProfilerObjectEnum_Vtbl, 0xf849cfc2_a705_5eb7_9de8_391caab04ddb);
 windows_core::imp::interface_hierarchy!(ICorProfilerObjectEnum, windows_core::IUnknown);
 impl ICorProfilerObjectEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -4459,7 +4441,7 @@ impl ICorProfilerObjectEnum_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerObjectEnum {}
-windows_core::imp::define_interface!(ICorProfilerThreadEnum, ICorProfilerThreadEnum_Vtbl, 0x571194f7_25ed_419f_aa8b_7016b3159701);
+windows_core::imp::define_interface!(ICorProfilerThreadEnum, ICorProfilerThreadEnum_Vtbl, 0x12d1b986_52c5_53ab_85e7_e98a8f922b15);
 windows_core::imp::interface_hierarchy!(ICorProfilerThreadEnum, windows_core::IUnknown);
 impl ICorProfilerThreadEnum {
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
@@ -4559,7 +4541,7 @@ impl ICorProfilerThreadEnum_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICorProfilerThreadEnum {}
-windows_core::imp::define_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0xa0efb28b_6ee2_4d7b_b983_a75ef7beedb8);
+windows_core::imp::define_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0x8e157a09_1520_5ed4_ac8f_f88a70db9525);
 windows_core::imp::interface_hierarchy!(IMethodMalloc, windows_core::IUnknown);
 impl IMethodMalloc {
     pub unsafe fn Alloc(&self, cb: u32) -> *mut core::ffi::c_void {

@@ -1,12 +1,12 @@
 #[inline]
-pub unsafe fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: Option<u32>, snapshothandle: *mut HPSS) -> u32 {
+pub unsafe fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn PssCaptureSnapshot(processhandle : super::super::super::Foundation:: HANDLE, captureflags : PSS_CAPTURE_FLAGS, threadcontextflags : u32, snapshothandle : *mut HPSS) -> u32);
-    unsafe { PssCaptureSnapshot(processhandle, captureflags, threadcontextflags.unwrap_or(core::mem::zeroed()) as _, snapshothandle as _) }
+    unsafe { PssCaptureSnapshot(processhandle, captureflags, threadcontextflags, snapshothandle as _) }
 }
 #[inline]
-pub unsafe fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: Option<PSS_DUPLICATE_FLAGS>) -> u32 {
+pub unsafe fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn PssDuplicateSnapshot(sourceprocesshandle : super::super::super::Foundation:: HANDLE, snapshothandle : HPSS, targetprocesshandle : super::super::super::Foundation:: HANDLE, targetsnapshothandle : *mut HPSS, flags : PSS_DUPLICATE_FLAGS) -> u32);
-    unsafe { PssDuplicateSnapshot(sourceprocesshandle, snapshothandle, targetprocesshandle, targetsnapshothandle as _, flags.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PssDuplicateSnapshot(sourceprocesshandle, snapshothandle, targetprocesshandle, targetsnapshothandle as _, flags) }
 }
 #[inline]
 pub unsafe fn PssFreeSnapshot(processhandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS) -> u32 {
@@ -19,9 +19,9 @@ pub unsafe fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY
     unsafe { PssQuerySnapshot(snapshothandle, informationclass, buffer as _, bufferlength) }
 }
 #[inline]
-pub unsafe fn PssWalkMarkerCreate(allocator: Option<*const PSS_ALLOCATOR>, walkmarkerhandle: *mut HPSSWALK) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn PssWalkMarkerCreate(allocator : *const PSS_ALLOCATOR, walkmarkerhandle : *mut HPSSWALK) -> u32);
-    unsafe { PssWalkMarkerCreate(allocator.unwrap_or(core::mem::zeroed()) as _, walkmarkerhandle as _) }
+pub unsafe fn PssWalkMarkerCreate(allocator: *mut PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn PssWalkMarkerCreate(allocator : *mut PSS_ALLOCATOR, walkmarkerhandle : *mut HPSSWALK) -> u32);
+    unsafe { PssWalkMarkerCreate(allocator as _, walkmarkerhandle as _) }
 }
 #[inline]
 pub unsafe fn PssWalkMarkerFree(walkmarkerhandle: HPSSWALK) -> u32 {
@@ -44,9 +44,9 @@ pub unsafe fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usi
     unsafe { PssWalkMarkerSetPosition(walkmarkerhandle, position) }
 }
 #[inline]
-pub unsafe fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: Option<&mut [u8]>) -> u32 {
+pub unsafe fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn PssWalkSnapshot(snapshothandle : HPSS, informationclass : PSS_WALK_INFORMATION_CLASS, walkmarkerhandle : HPSSWALK, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u32);
-    unsafe { PssWalkSnapshot(snapshothandle, informationclass, walkmarkerhandle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { PssWalkSnapshot(snapshothandle, informationclass, walkmarkerhandle, buffer as _, bufferlength) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -255,20 +255,6 @@ impl Default for PSS_HANDLE_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_3 {
-    pub ManualReset: windows_core::BOOL,
-    pub Signaled: windows_core::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_2 {
-    pub CurrentCount: i32,
-    pub Abandoned: windows_core::BOOL,
-    pub OwnerProcessId: u32,
-    pub OwnerThreadId: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ExitStatus: u32,
@@ -283,6 +269,37 @@ impl Default for PSS_HANDLE_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PSS_HANDLE_ENTRY_0_1 {
+    pub ExitStatus: u32,
+    pub TebBaseAddress: *mut core::ffi::c_void,
+    pub ProcessId: u32,
+    pub ThreadId: u32,
+    pub AffinityMask: usize,
+    pub Priority: i32,
+    pub BasePriority: i32,
+    pub Win32StartAddress: *mut core::ffi::c_void,
+}
+impl Default for PSS_HANDLE_ENTRY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PSS_HANDLE_ENTRY_0_2 {
+    pub CurrentCount: i32,
+    pub Abandoned: windows_core::BOOL,
+    pub OwnerProcessId: u32,
+    pub OwnerThreadId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PSS_HANDLE_ENTRY_0_3 {
+    pub ManualReset: windows_core::BOOL,
+    pub Signaled: windows_core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -301,23 +318,6 @@ impl Default for PSS_HANDLE_ENTRY_0_4 {
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_1 {
-    pub ExitStatus: u32,
-    pub TebBaseAddress: *mut core::ffi::c_void,
-    pub ProcessId: u32,
-    pub ThreadId: u32,
-    pub AffinityMask: usize,
-    pub Priority: i32,
-    pub BasePriority: i32,
-    pub Win32StartAddress: *mut core::ffi::c_void,
-}
-impl Default for PSS_HANDLE_ENTRY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -487,7 +487,7 @@ pub const PSS_QUERY_THREAD_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_
 pub const PSS_QUERY_VA_CLONE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(1i32);
 pub const PSS_QUERY_VA_SPACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(3i32);
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
@@ -510,7 +510,7 @@ pub struct PSS_THREAD_ENTRY {
     pub SizeOfContextRecord: u16,
     pub ContextRecord: *mut super::Debug::CONTEXT,
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for PSS_THREAD_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

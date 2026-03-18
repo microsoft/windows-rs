@@ -25,7 +25,7 @@ pub const E_POINTER: windows_core::HRESULT = windows_core::HRESULT(0x80004003_u3
 windows_core::imp::define_interface!(
     IAgileObject,
     IAgileObject_Vtbl,
-    0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90
+    0xe2226794_ed17_500a_ad48_ae16d461b86b
 );
 windows_core::imp::interface_hierarchy!(IAgileObject, windows_core::IUnknown);
 #[repr(C)]
@@ -182,7 +182,7 @@ impl windows_core::RuntimeName for IWeakReference {}
 windows_core::imp::define_interface!(
     IWeakReferenceSource,
     IWeakReferenceSource_Vtbl,
-    0x00000038_0000_0000_c000_000000000046
+    0x2e091a49_d812_5b67_a016_171db01800e9
 );
 windows_core::imp::interface_hierarchy!(IWeakReferenceSource, windows_core::IUnknown);
 impl IWeakReferenceSource {

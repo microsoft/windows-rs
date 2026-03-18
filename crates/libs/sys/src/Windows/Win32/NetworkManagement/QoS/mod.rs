@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_link::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *mut super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::super::Foundation:: HANDLE, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
 windows_link::link!("qwave.dll" "system" fn QOSCloseHandle(qoshandle : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("qwave.dll" "system" fn QOSCreateHandle(version : *const QOS_VERSION, qoshandle : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::super::Foundation:: HANDLE, size : *mut u32, buffer : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
@@ -12,12 +12,12 @@ windows_link::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::supe
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, flowid : u32, flags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_link::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *mut super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_link::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::super::Foundation:: HANDLE, pgenericfilter : *const TC_GEN_FILTER, pfilterhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *mut super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::super::Foundation:: HANDLE, pgenericfilter : *mut TC_GEN_FILTER, pfilterhandle : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::super::Foundation:: HANDLE, clflowctx : super::super::Foundation:: HANDLE, flags : u32, pgenericflow : *const TC_GEN_FLOW, pflowhandle : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("traffic.dll" "system" fn TcCloseInterface(ifchandle : super::super::Foundation:: HANDLE) -> u32);
@@ -28,19 +28,19 @@ windows_link::link!("traffic.dll" "system" fn TcDeregisterClient(clienthandle : 
 windows_link::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::super::Foundation:: HANDLE, penumhandle : *mut super::super::Foundation:: HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 windows_link::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::super::Foundation:: HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
-windows_link::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_sys::core::PSTR) -> u32);
-windows_link::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_sys::core::PWSTR) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_sys::core::PCSTR) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_link::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::super::Foundation:: HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::super::Foundation:: HANDLE, pgenericflow : *mut TC_GEN_FLOW) -> u32);
 windows_link::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_sys::core::PCSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_sys::core::PCWSTR, clienthandle : super::super::Foundation:: HANDLE, clifcctx : super::super::Foundation:: HANDLE, pifchandle : *mut super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : *const windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : *mut windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
 windows_link::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : *const windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
-windows_link::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_sys::core::GUID, notifychange : bool, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
-windows_link::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation:: HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *mut windows_sys::core::GUID, notifychange : bool, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation:: HANDLE, clienthandlerlist : *mut TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
-windows_link::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
-windows_link::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : *mut windows_sys::core::GUID, buffersize : u32, buffer : *mut core::ffi::c_void) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation:: HANDLE, pguidparam : *mut windows_sys::core::GUID, buffersize : u32, buffer : *mut core::ffi::c_void) -> u32);
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -169,6 +169,8 @@ impl Default for ERROR_SPEC {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const ERROR_SPECF_InPlace: u32 = 1u32;
+pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -181,8 +183,6 @@ impl Default for ERROR_SPEC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ERROR_SPECF_InPlace: u32 = 1u32;
-pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
 pub const ERROR_TC_NOT_SUPPORTED: u32 = 7514u32;
 pub const ERROR_TC_OBJECT_LENGTH_INVALID: u32 = 7515u32;
 pub const ERROR_TC_SUPPORTED_OBJECTS_EXIST: u32 = 7512u32;
@@ -268,13 +268,11 @@ impl Default for FLOW_DESC {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union FLOW_DESC_0 {
     pub stspec: *mut SENDER_TSPEC,
     pub isflow: *mut IS_FLOWSPEC,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for FLOW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -427,7 +425,7 @@ pub struct GuarRspec {
     pub Guar_S: u32,
 }
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HSP_UPGRADE_IMAGEDATA {
     pub hashAlgID: u16,
@@ -549,16 +547,16 @@ impl Default for IP_PATTERN_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct IP_PATTERN_0_0 {
+    pub s_srcport: u16,
+    pub s_dstport: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct IP_PATTERN_0_1 {
     pub s_type: u8,
     pub s_code: u8,
     pub filler: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IP_PATTERN_0_0 {
-    pub s_srcport: u16,
-    pub s_dstport: u16,
 }
 pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
@@ -1397,7 +1395,7 @@ pub const SIPAEVENT_IMAGESIZE: u32 = 458754u32;
 pub const SIPAEVENT_IMAGEVALIDATED: u32 = 458762u32;
 pub const SIPAEVENT_INFORMATION: u32 = 131073u32;
 pub const SIPAEVENT_KSR_SIGNATURE: u32 = 720897u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     pub SignAlgID: u32,
@@ -1420,7 +1418,7 @@ pub const SIPAEVENT_OSKERNELDEBUG: u32 = 327681u32;
 pub const SIPAEVENT_OS_REVOCATION_LIST: u32 = 327699u32;
 pub const SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED: u32 = 327714u32;
 pub const SIPAEVENT_PHYSICALADDRESSEXTENSION: u32 = 327687u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     pub CreationTime: i64,
@@ -1435,7 +1433,7 @@ impl Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
 }
 pub const SIPAEVENT_SAFEMODE: u32 = 327685u32;
 pub const SIPAEVENT_SBCP_INFO: u32 = 327721u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     pub PayloadVersion: u32,
@@ -1452,7 +1450,7 @@ impl Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     }
 }
 pub const SIPAEVENT_SI_POLICY: u32 = 327695u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
     pub PolicyVersion: u64,
@@ -1483,7 +1481,7 @@ pub const SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED: u32 = 655370u32;
 pub const SIPAEVENT_VBS_VSM_REQUIRED: u32 = 655361u32;
 pub const SIPAEVENT_VSM_IDKS_INFO: u32 = 327715u32;
 pub const SIPAEVENT_VSM_IDK_INFO: u32 = 327712u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     pub KeyAlgID: u32,
@@ -1504,7 +1502,7 @@ impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
     pub KeyBitLength: u32,
@@ -1619,7 +1617,7 @@ impl Default for Session_IPv4 {
     }
 }
 pub const TCBASE: u32 = 7500u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCG_PCClientPCREventStruct {
     pub pcrIndex: u32,
@@ -1633,7 +1631,7 @@ impl Default for TCG_PCClientPCREventStruct {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TCG_PCClientTaggedEventStruct {
     pub EventID: u32,
@@ -1656,7 +1654,7 @@ pub struct TCI_CLIENT_FUNC_LIST {
 }
 pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
 pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
-pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;
+pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TC_GEN_FILTER {
@@ -1742,7 +1740,7 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_384: u32 = 12u32;
 pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WBCL_Iterator {
     pub firstElementPtr: *mut core::ffi::c_void,
@@ -1761,7 +1759,7 @@ impl Default for WBCL_Iterator {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WBCL_LogHdr {
     pub signature: u32,

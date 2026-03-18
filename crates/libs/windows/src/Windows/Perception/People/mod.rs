@@ -308,7 +308,7 @@ impl windows_core::RuntimeName for HeadPose {
 }
 unsafe impl Send for HeadPose {}
 unsafe impl Sync for HeadPose {}
-windows_core::imp::define_interface!(IEyesPose, IEyesPose_Vtbl, 0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
+windows_core::imp::define_interface!(IEyesPose, IEyesPose_Vtbl, 0x488c5ac2_779d_563b_bc65_95bffd0f0bae);
 impl windows_core::RuntimeType for IEyesPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -323,7 +323,7 @@ pub struct IEyesPose_Vtbl {
     Gaze: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
+windows_core::imp::define_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x04da21e2_ae49_5b62_a9b2_9a6374e0ebc6);
 impl windows_core::RuntimeType for IEyesPoseStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -337,7 +337,7 @@ pub struct IEyesPoseStatics_Vtbl {
     #[cfg(not(feature = "UI_Input"))]
     RequestAccessAsync: usize,
 }
-windows_core::imp::define_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
+windows_core::imp::define_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x8160ba83_650e_5904_a417_6b57fbb68792);
 impl windows_core::RuntimeType for IHandMeshObserver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

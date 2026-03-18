@@ -15,7 +15,7 @@ pub struct IOcrEngine_Vtbl {
     #[cfg(not(feature = "Globalization"))]
     RecognizerLanguage: usize,
 }
-windows_core::imp::define_interface!(IOcrEngineStatics, IOcrEngineStatics_Vtbl, 0x5bffa85a_3384_3540_9940_699120d428a8);
+windows_core::imp::define_interface!(IOcrEngineStatics, IOcrEngineStatics_Vtbl, 0x45adc026_91e9_5fcf_8886_a3e05c85c8f9);
 impl windows_core::RuntimeType for IOcrEngineStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -38,7 +38,7 @@ pub struct IOcrEngineStatics_Vtbl {
     TryCreateFromLanguage: usize,
     pub TryCreateFromUserProfileLanguages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOcrLine, IOcrLine_Vtbl, 0x0043a16f_e31f_3a24_899c_d444bd088124);
+windows_core::imp::define_interface!(IOcrLine, IOcrLine_Vtbl, 0x4fa8bc57_e4fe_5219_8c04_6ef1da22521c);
 impl windows_core::RuntimeType for IOcrLine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -49,7 +49,7 @@ pub struct IOcrLine_Vtbl {
     pub Words: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOcrResult, IOcrResult_Vtbl, 0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
+windows_core::imp::define_interface!(IOcrResult, IOcrResult_Vtbl, 0x19589ae6_19a3_598d_a768_5065e2f3a03c);
 impl windows_core::RuntimeType for IOcrResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -61,7 +61,7 @@ pub struct IOcrResult_Vtbl {
     pub TextAngle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOcrWord, IOcrWord_Vtbl, 0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
+windows_core::imp::define_interface!(IOcrWord, IOcrWord_Vtbl, 0x04c3963a_2a44_5a63_9b8d_dbbf36f90ba5);
 impl windows_core::RuntimeType for IOcrWord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

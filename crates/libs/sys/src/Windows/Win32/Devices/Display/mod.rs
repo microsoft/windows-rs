@@ -5,17 +5,17 @@ windows_link::link!("gdi32.dll" "system" fn BRUSHOBJ_ulGetBrushColor(pbo : *mut 
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_bEnum(pco : *mut CLIPOBJ, cj : u32, pul : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_cEnumStart(pco : *mut CLIPOBJ, ball : windows_sys::core::BOOL, itype : u32, idirection : u32, climit : u32) -> u32);
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_ppoGetPath(pco : *mut CLIPOBJ) -> *mut PATHOBJ);
-windows_link::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : windows_sys::core::PSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
+windows_link::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation:: HANDLE, pszasciicapabilitiesstring : windows_sys::core::PCSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
 windows_link::link!("dxva2.dll" "system" fn DegaussMonitor(hmonitor : super::super::Foundation:: HANDLE) -> i32);
 windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitor(hmonitor : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *const PHYSICAL_MONITOR) -> windows_sys::core::BOOL);
+windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DisplayConfigGetDeviceInfo(requestpacket : *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
 windows_link::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
 windows_link::link!("gdi32.dll" "system" fn EngAcquireSemaphore(hsem : HSEMAPHORE));
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngAlphaBlend(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcldest : *mut super::super::Foundation:: RECTL, prclsrc : *mut super::super::Foundation:: RECTL, pblendobj : *mut BLENDOBJ) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngAssociateSurface(hsurf : HSURF, hdev : HDEV, flhooks : u32) -> windows_sys::core::BOOL);
-windows_link::link!("gdi32.dll" "system" fn EngBitBlt(psotrg : *const SURFOBJ, psosrc : *const SURFOBJ, psomask : *const SURFOBJ, pco : *const CLIPOBJ, pxlo : *const XLATEOBJ, prcltrg : *const super::super::Foundation:: RECTL, pptlsrc : *const super::super::Foundation:: POINTL, pptlmask : *const super::super::Foundation:: POINTL, pbo : *const BRUSHOBJ, pptlbrush : *const super::super::Foundation:: POINTL, rop4 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("gdi32.dll" "system" fn EngBitBlt(psotrg : *mut SURFOBJ, psosrc : *mut SURFOBJ, psomask : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcltrg : *mut super::super::Foundation:: RECTL, pptlsrc : *mut super::super::Foundation:: POINTL, pptlmask : *mut super::super::Foundation:: POINTL, pbo : *mut BRUSHOBJ, pptlbrush : *mut super::super::Foundation:: POINTL, rop4 : u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngCheckAbort(pso : *mut SURFOBJ) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngComputeGlyphSet(ncodepage : i32, nfirstchar : i32, cchars : i32) -> *mut FD_GLYPHSET);
 windows_link::link!("gdi32.dll" "system" fn EngCopyBits(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcldest : *mut super::super::Foundation:: RECTL, pptlsrc : *mut super::super::Foundation:: POINTL) -> windows_sys::core::BOOL);
@@ -28,7 +28,7 @@ windows_link::link!("gdi32.dll" "system" fn EngCreateDeviceSurface(dhsurf : DHSU
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngCreatePalette(imode : u32, ccolors : u32, pulcolors : *mut u32, flred : u32, flgreen : u32, flblue : u32) -> super::super::Graphics::Gdi:: HPALETTE);
 windows_link::link!("gdi32.dll" "system" fn EngCreateSemaphore() -> HSEMAPHORE);
-windows_link::link!("gdi32.dll" "system" fn EngDeleteClip(pco : *const CLIPOBJ));
+windows_link::link!("gdi32.dll" "system" fn EngDeleteClip(pco : *mut CLIPOBJ));
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngDeletePalette(hpal : super::super::Graphics::Gdi:: HPALETTE) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngDeletePath(ppo : *mut PATHOBJ));
@@ -66,7 +66,7 @@ windows_link::link!("gdi32.dll" "system" fn EngTextOut(pso : *mut SURFOBJ, pstro
 windows_link::link!("gdi32.dll" "system" fn EngTransparentBlt(psodst : *const SURFOBJ, psosrc : *const SURFOBJ, pco : *const CLIPOBJ, pxlo : *const XLATEOBJ, prcldst : *const super::super::Foundation:: RECTL, prclsrc : *const super::super::Foundation:: RECTL, transcolor : u32, bcalledfrombitblt : u32) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : windows_sys::core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : windows_sys::core::PCWSTR, bytesinunicodestring : u32));
 windows_link::link!("gdi32.dll" "system" fn EngUnlockSurface(pso : *mut SURFOBJ));
-windows_link::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : windows_sys::core::PCWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PSTR, bytesinmultibytestring : i32) -> i32);
+windows_link::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : windows_sys::core::PCWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PCSTR, bytesinmultibytestring : i32) -> i32);
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_cGetAllGlyphHandles(pfo : *mut FONTOBJ, phg : *mut u32) -> u32);
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_cGetGlyphs(pfo : *mut FONTOBJ, imode : u32, cglyph : u32, phg : *mut u32, ppvglyph : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_pQueryGlyphAttrs(pfo : *mut FONTOBJ, imode : u32) -> *mut FD_GLYPHATTR);
@@ -125,7 +125,7 @@ windows_link::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueDrive(hmonit
 windows_link::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueGain(hmonitor : super::super::Foundation:: HANDLE, gtgaintype : MC_GAIN_TYPE, dwnewgain : u32) -> i32);
 windows_link::link!("dxva2.dll" "system" fn SetVCPFeature(hmonitor : super::super::Foundation:: HANDLE, bvcpcode : u8, dwnewvalue : u32) -> i32);
 windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_bApplyXform(pxo : *mut XFORMOBJ, imode : u32, cpoints : u32, pvin : *mut core::ffi::c_void, pvout : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *const XFORMOBJ, pxform : *mut XFORML) -> u32);
+windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *mut XFORMOBJ, pxform : *mut XFORML) -> u32);
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_cGetPalette(pxlo : *mut XLATEOBJ, ipal : u32, cpal : u32, ppal : *mut u32) -> u32);
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_hGetColorTransform(pxlo : *mut XLATEOBJ) -> super::super::Foundation:: HANDLE);
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_iXlate(pxlo : *mut XLATEOBJ, icolor : u32) -> u32);
@@ -672,20 +672,17 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0,
     pub value: u32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
@@ -1414,15 +1411,6 @@ impl Default for FD_LIGATURE {
 }
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
-pub struct FD_XFORM {
-    pub eXX: u32,
-    pub eXY: u32,
-    pub eYX: u32,
-    pub eYY: u32,
-}
-#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
 pub struct FD_XFORM {
@@ -1441,17 +1429,6 @@ pub struct FLOATOBJ {
     pub ul2: u32,
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
-pub struct FLOATOBJ_XFORM {
-    pub eM11: FLOATOBJ,
-    pub eM12: FLOATOBJ,
-    pub eM21: FLOATOBJ,
-    pub eM22: FLOATOBJ,
-    pub eDx: FLOATOBJ,
-    pub eDy: FLOATOBJ,
-}
-#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
 pub struct FLOATOBJ_XFORM {
@@ -1461,19 +1438,6 @@ pub struct FLOATOBJ_XFORM {
     pub eM22: f32,
     pub eDx: f32,
     pub eDy: f32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union FLOAT_LONG {
-    pub e: u32,
-    pub l: i32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for FLOAT_LONG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1992,78 +1956,6 @@ impl Default for IFIEXTRA {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct IFIMETRICS {
-    pub cjThis: u32,
-    pub cjIfiExtra: u32,
-    pub dpwszFamilyName: i32,
-    pub dpwszStyleName: i32,
-    pub dpwszFaceName: i32,
-    pub dpwszUniqueName: i32,
-    pub dpFontSim: i32,
-    pub lEmbedId: i32,
-    pub lItalicAngle: i32,
-    pub lCharBias: i32,
-    pub dpCharSets: i32,
-    pub jWinCharSet: u8,
-    pub jWinPitchAndFamily: u8,
-    pub usWinWeight: u16,
-    pub flInfo: u32,
-    pub fsSelection: u16,
-    pub fsType: u16,
-    pub fwdUnitsPerEm: i16,
-    pub fwdLowestPPEm: i16,
-    pub fwdWinAscender: i16,
-    pub fwdWinDescender: i16,
-    pub fwdMacAscender: i16,
-    pub fwdMacDescender: i16,
-    pub fwdMacLineGap: i16,
-    pub fwdTypoAscender: i16,
-    pub fwdTypoDescender: i16,
-    pub fwdTypoLineGap: i16,
-    pub fwdAveCharWidth: i16,
-    pub fwdMaxCharInc: i16,
-    pub fwdCapHeight: i16,
-    pub fwdXHeight: i16,
-    pub fwdSubscriptXSize: i16,
-    pub fwdSubscriptYSize: i16,
-    pub fwdSubscriptXOffset: i16,
-    pub fwdSubscriptYOffset: i16,
-    pub fwdSuperscriptXSize: i16,
-    pub fwdSuperscriptYSize: i16,
-    pub fwdSuperscriptXOffset: i16,
-    pub fwdSuperscriptYOffset: i16,
-    pub fwdUnderscoreSize: i16,
-    pub fwdUnderscorePosition: i16,
-    pub fwdStrikeoutSize: i16,
-    pub fwdStrikeoutPosition: i16,
-    pub chFirstChar: u8,
-    pub chLastChar: u8,
-    pub chDefaultChar: u8,
-    pub chBreakChar: u8,
-    pub wcFirstChar: u16,
-    pub wcLastChar: u16,
-    pub wcDefaultChar: u16,
-    pub wcBreakChar: u16,
-    pub ptlBaseline: super::super::Foundation::POINTL,
-    pub ptlAspect: super::super::Foundation::POINTL,
-    pub ptlCaret: super::super::Foundation::POINTL,
-    pub rclFontBox: super::super::Foundation::RECTL,
-    pub achVendId: [u8; 4],
-    pub cKerningPairs: u32,
-    pub ulPanoseCulture: u32,
-    pub panose: super::super::Graphics::Gdi::PANOSE,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for IFIMETRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -2342,25 +2234,6 @@ impl Default for LIGATURE {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct LINEATTRS {
-    pub fl: u32,
-    pub iJoin: u32,
-    pub iEndCap: u32,
-    pub elWidth: FLOAT_LONG,
-    pub eMiterLimit: u32,
-    pub cstyle: u32,
-    pub pstyle: *mut FLOAT_LONG,
-    pub elStyleState: FLOAT_LONG,
-}
-#[cfg(target_arch = "x86")]
-impl Default for LINEATTRS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct LINEATTRS {
@@ -2437,7 +2310,7 @@ pub const MC_SUPPORTED_COLOR_TEMPERATURE_8200K: u32 = 16u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
 pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = 2i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MC_TIMING_REPORT {
     pub dwHorizontalFrequencyInHZ: u32,
@@ -2889,7 +2762,7 @@ pub type PFN_DrvQueryTrueTypeOutline = Option<unsafe extern "system" fn(param0: 
 pub type PFN_DrvQueryTrueTypeSection = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32>;
 pub type PFN_DrvQueryTrueTypeTable = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32>;
 pub type PFN_DrvRealizeBrush = Option<unsafe extern "system" fn(param0: *mut BRUSHOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut SURFOBJ, param4: *mut XLATEOBJ, param5: u32) -> windows_sys::core::BOOL>;
-pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const core::ffi::c_void) -> i32>;
+pub type PFN_DrvRenderHint = Option<unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *mut core::ffi::c_void) -> i32>;
 pub type PFN_DrvResetDevice = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut core::ffi::c_void) -> u32>;
 pub type PFN_DrvResetPDEV = Option<unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> windows_sys::core::BOOL>;
 pub type PFN_DrvSaveScreenBits = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize>;
@@ -2924,7 +2797,7 @@ pub type PFN_EngIntersectRgn = Option<unsafe extern "system" fn(hrgnresult: supe
 pub type PFN_EngSubtractRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 pub type PFN_EngUnionRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 pub type PFN_EngXorRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_MONITOR {
     pub hPhysicalMonitor: super::super::Foundation::HANDLE,
@@ -2937,13 +2810,6 @@ impl Default for PHYSICAL_MONITOR {
 }
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
-pub struct POINTE {
-    pub x: u32,
-    pub y: u32,
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
@@ -2982,7 +2848,7 @@ pub const PRIMARY_ORDER_BAC: u32 = 2u32;
 pub const PRIMARY_ORDER_BCA: u32 = 3u32;
 pub const PRIMARY_ORDER_CAB: u32 = 5u32;
 pub const PRIMARY_ORDER_CBA: u32 = 4u32;
-pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *const core::ffi::c_void)>;
+pub type PVIDEO_WIN32K_CALLOUT = Option<unsafe extern "system" fn(params: *mut core::ffi::c_void)>;
 pub const QAW_GETEASYWIDTHS: u32 = 1u32;
 pub const QAW_GETWIDTHS: u32 = 0u32;
 pub const QC_1BIT: u32 = 2u32;
@@ -3066,7 +2932,7 @@ impl Default for SET_ACTIVE_COLOR_PROFILE_NAME {
 }
 pub type SET_DISPLAY_CONFIG_FLAGS = u32;
 pub const SGI_EXTRASPACE: u32 = 0u32;
-pub type SORTCOMP = Option<unsafe extern "C" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
+pub type SORTCOMP = Option<unsafe extern "C" fn(pv1: *mut core::ffi::c_void, pv2: *mut core::ffi::c_void) -> i32>;
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
 pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
 pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;
@@ -3254,6 +3120,14 @@ impl Default for VIDEO_CLUT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct VIDEO_CLUTDATA {
+    pub Red: u8,
+    pub Green: u8,
+    pub Blue: u8,
+    pub Unused: u8,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIDEO_CLUT_0 {
     pub RgbArray: VIDEO_CLUTDATA,
@@ -3263,14 +3137,6 @@ impl Default for VIDEO_CLUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VIDEO_CLUTDATA {
-    pub Red: u8,
-    pub Green: u8,
-    pub Blue: u8,
-    pub Unused: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3763,17 +3629,6 @@ pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 pub const WVIDEO_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DISPLAY%d");
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Default)]
-pub struct XFORML {
-    pub eM11: u32,
-    pub eM12: u32,
-    pub eM21: u32,
-    pub eM22: u32,
-    pub eDx: u32,
-    pub eDy: u32,
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]

@@ -3,7 +3,7 @@ windows_link::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut 
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_sys::core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_sys::core::PCWSTR, dwflags : u32, riid : *const windows_sys::core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_sys::core::PCWSTR, dwflags : u32, riid : *mut windows_sys::core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type CHUNKSTATE = i32;
 pub type CHUNK_BREAKTYPE = i32;
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
@@ -67,46 +67,6 @@ pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 pub const CI_VERSION_WIN70: u32 = 1792u32;
 pub const CLSID_INDEX_SERVER_DSO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf9ae8980_7e52_11d0_8964_00c04fd611d7);
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DBID {
-    pub uGuid: DBID_0,
-    pub eKind: u32,
-    pub uName: DBID_1,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union DBID_0 {
-    pub guid: windows_sys::core::GUID,
-    pub pguid: *mut windows_sys::core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBID_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(2))]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub union DBID_1 {
-    pub pwszName: windows_sys::core::PWSTR,
-    pub ulPropid: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DBID_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -122,26 +82,22 @@ impl Default for DBID {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_sys::core::GUID,
     pub pguid: *mut windows_sys::core::GUID,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DBID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_sys::core::PWSTR,
     pub ulPropid: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DBID_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -53,7 +53,7 @@ impl windows_core::TypeKind for FindAllWebAccountsStatus {
 impl windows_core::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
 }
-windows_core::imp::define_interface!(IFindAllAccountsResult, IFindAllAccountsResult_Vtbl, 0xa5812b5d_b72e_420c_86ab_aac0d7b7261f);
+windows_core::imp::define_interface!(IFindAllAccountsResult, IFindAllAccountsResult_Vtbl, 0x4c3a9d76_6691_5971_8980_a25760ffd8eb);
 impl windows_core::RuntimeType for IFindAllAccountsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -68,7 +68,7 @@ pub struct IFindAllAccountsResult_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FindAllWebAccountsStatus) -> windows_core::HRESULT,
     pub ProviderError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountEventArgs, IWebAccountEventArgs_Vtbl, 0x6fb7037d_424e_44ec_977c_ef2415462a5a);
+windows_core::imp::define_interface!(IWebAccountEventArgs, IWebAccountEventArgs_Vtbl, 0x3b4d58f5_d8df_5e52_a734_d190bddd72d6);
 impl windows_core::RuntimeType for IWebAccountEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -81,7 +81,7 @@ pub struct IWebAccountEventArgs_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     Account: usize,
 }
-windows_core::imp::define_interface!(IWebAccountMonitor, IWebAccountMonitor_Vtbl, 0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5);
+windows_core::imp::define_interface!(IWebAccountMonitor, IWebAccountMonitor_Vtbl, 0x583e9d04_5e07_5f5b_96c9_74e0ed07dd8c);
 impl windows_core::RuntimeType for IWebAccountMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -96,7 +96,7 @@ pub struct IWebAccountMonitor_Vtbl {
     pub DefaultSignInAccountChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDefaultSignInAccountChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAccountMonitor2, IWebAccountMonitor2_Vtbl, 0xa7adc1f8_24b8_4f01_9ae5_24545e71233a);
+windows_core::imp::define_interface!(IWebAccountMonitor2, IWebAccountMonitor2_Vtbl, 0xe350f652_a58c_54ff_aad9_77e7cfc4daca);
 impl windows_core::RuntimeType for IWebAccountMonitor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -134,7 +134,7 @@ pub struct IWebAuthenticationAddAccountResponseFactory_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWithAccount: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationAddAccountResult, IWebAuthenticationAddAccountResult_Vtbl, 0x88fad03c_901d_5ffa_9259_701d3ca08ef2);
+windows_core::imp::define_interface!(IWebAuthenticationAddAccountResult, IWebAuthenticationAddAccountResult_Vtbl, 0xc302fa5b_7bf6_553d_b6bd_9cb855b2270f);
 impl windows_core::RuntimeType for IWebAuthenticationAddAccountResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -146,7 +146,7 @@ pub struct IWebAuthenticationAddAccountResult_Vtbl {
     pub ResponseStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAuthenticationAddAccountStatus) -> windows_core::HRESULT,
     pub ResponseError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics, IWebAuthenticationCoreManagerStatics_Vtbl, 0x6aca7c92_a581_4479_9c10_752eff44fd34);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics, IWebAuthenticationCoreManagerStatics_Vtbl, 0x03fd2f98_4a26_5c2f_bbf2_d406e5ba69a9);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -177,7 +177,7 @@ pub struct IWebAuthenticationCoreManagerStatics_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     FindAccountProviderWithAuthorityAsync: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics2, IWebAuthenticationCoreManagerStatics2_Vtbl, 0xf584184a_8b57_4820_b6a4_70a5b6fcf44a);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics2, IWebAuthenticationCoreManagerStatics2_Vtbl, 0xf721a114_7998_50b8_b12c_2db7d7b73c53);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -190,7 +190,7 @@ pub struct IWebAuthenticationCoreManagerStatics2_Vtbl {
     #[cfg(not(all(feature = "Security_Credentials", feature = "System")))]
     FindAccountProviderWithAuthorityForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics3, IWebAuthenticationCoreManagerStatics3_Vtbl, 0x2404eeb2_8924_4d93_ab3a_99688b419d56);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics3, IWebAuthenticationCoreManagerStatics3_Vtbl, 0xf7718171_d4b9_5485_9bc4_cd9177c9b7db);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -203,7 +203,7 @@ pub struct IWebAuthenticationCoreManagerStatics3_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWebAccountMonitor: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics4, IWebAuthenticationCoreManagerStatics4_Vtbl, 0x54e633fe_96e0_41e8_9832_1298897c2aaf);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics4, IWebAuthenticationCoreManagerStatics4_Vtbl, 0xa1e3f874_1a2b_52a3_ad9a_29c297442584);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -232,7 +232,7 @@ pub struct IWebAuthenticationCoreManagerStatics4_Vtbl {
     #[cfg(not(all(feature = "Security_Credentials", feature = "System")))]
     FindSystemAccountProviderWithAuthorityForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics5, IWebAuthenticationCoreManagerStatics5_Vtbl, 0xd07c1ded_270f_4554_9966_27b7df05b965);
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics5, IWebAuthenticationCoreManagerStatics5_Vtbl, 0x6ac90cb5_b0cc_58b6_9db2_59b5f6c321da);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -260,7 +260,7 @@ pub struct IWebAuthenticationTransferTokenRequest_Vtbl {
     pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequestFactory, IWebAuthenticationTransferTokenRequestFactory_Vtbl, 0x5f16b627_04c4_5f0b_8683_8bab58965656);
+windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequestFactory, IWebAuthenticationTransferTokenRequestFactory_Vtbl, 0x8a090bf3_7340_5185_8ef6_f0f021385a97);
 impl windows_core::RuntimeType for IWebAuthenticationTransferTokenRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -277,7 +277,7 @@ pub struct IWebAuthenticationTransferTokenRequestFactory_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWithCorrelationId: usize,
 }
-windows_core::imp::define_interface!(IWebProviderError, IWebProviderError_Vtbl, 0xdb191bb1_50c5_4809_8dca_09c99410245c);
+windows_core::imp::define_interface!(IWebProviderError, IWebProviderError_Vtbl, 0xeceacba5_5a28_5f6c_b16d_202a07dbaac1);
 impl windows_core::RuntimeType for IWebProviderError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -316,7 +316,7 @@ pub struct IWebTokenRequest_Vtbl {
     pub PromptType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebTokenRequestPromptType) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenRequest2, IWebTokenRequest2_Vtbl, 0xd700c079_30c8_4397_9654_961c3be8b855);
+windows_core::imp::define_interface!(IWebTokenRequest2, IWebTokenRequest2_Vtbl, 0x5fb1b9a7_f5b7_55d4_b138_537ba03f491f);
 impl windows_core::RuntimeType for IWebTokenRequest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -326,7 +326,7 @@ pub struct IWebTokenRequest2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenRequest3, IWebTokenRequest3_Vtbl, 0x5a755b51_3bb1_41a5_a63d_90bc32c7db9a);
+windows_core::imp::define_interface!(IWebTokenRequest3, IWebTokenRequest3_Vtbl, 0xe99f185e_f3f8_5d78_a83f_08f17d358c00);
 impl windows_core::RuntimeType for IWebTokenRequest3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -337,7 +337,7 @@ pub struct IWebTokenRequest3_Vtbl {
     pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenRequestFactory, IWebTokenRequestFactory_Vtbl, 0x6cf2141c_0ff0_4c67_b84f_99ddbe4a72c9);
+windows_core::imp::define_interface!(IWebTokenRequestFactory, IWebTokenRequestFactory_Vtbl, 0x6f0a8da8_da08_55c7_a185_4addb55aee78);
 impl windows_core::RuntimeType for IWebTokenRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -375,7 +375,7 @@ pub struct IWebTokenRequestResult_Vtbl {
     pub ResponseError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InvalidateCacheAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenResponse, IWebTokenResponse_Vtbl, 0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a);
+windows_core::imp::define_interface!(IWebTokenResponse, IWebTokenResponse_Vtbl, 0xec48298c_ee31_50af_8b49_5c9e10bb9c7f);
 impl windows_core::RuntimeType for IWebTokenResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -391,7 +391,7 @@ pub struct IWebTokenResponse_Vtbl {
     WebAccount: usize,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWebTokenResponseFactory, IWebTokenResponseFactory_Vtbl, 0xab6bf7f8_5450_4ef6_97f7_052b0431c0f0);
+windows_core::imp::define_interface!(IWebTokenResponseFactory, IWebTokenResponseFactory_Vtbl, 0x97f7571e_6af4_5ae7_9c57_f8cfac82beba);
 impl windows_core::RuntimeType for IWebTokenResponseFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

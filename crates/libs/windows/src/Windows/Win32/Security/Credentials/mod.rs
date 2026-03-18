@@ -1,76 +1,76 @@
 #[inline]
-pub unsafe fn CredDeleteA<P0>(targetname: P0, r#type: CRED_TYPE, flags: Option<u32>) -> windows_core::Result<()>
+pub unsafe fn CredDeleteA<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredDeleteA(targetname : windows_core::PCSTR, r#type : CRED_TYPE, flags : u32) -> windows_core::BOOL);
-    unsafe { CredDeleteA(targetname.param().abi(), r#type, flags.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CredDeleteA(targetname.param().abi(), r#type, flags) }
 }
 #[inline]
-pub unsafe fn CredDeleteW<P0>(targetname: P0, r#type: CRED_TYPE, flags: Option<u32>) -> windows_core::Result<()>
+pub unsafe fn CredDeleteW<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredDeleteW(targetname : windows_core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> windows_core::BOOL);
-    unsafe { CredDeleteW(targetname.param().abi(), r#type, flags.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CredDeleteW(targetname.param().abi(), r#type, flags) }
 }
 #[inline]
-pub unsafe fn CredEnumerateA<P0>(filter: P0, flags: Option<CRED_ENUMERATE_FLAGS>, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> windows_core::Result<()>
+pub unsafe fn CredEnumerateA<P0>(filter: P0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredEnumerateA(filter : windows_core::PCSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> windows_core::BOOL);
-    unsafe { CredEnumerateA(filter.param().abi(), flags.unwrap_or(core::mem::zeroed()) as _, count as _, credential as _).ok() }
+    unsafe { CredEnumerateA(filter.param().abi(), flags, count as _, credential as _) }
 }
 #[inline]
-pub unsafe fn CredEnumerateW<P0>(filter: P0, flags: Option<CRED_ENUMERATE_FLAGS>, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> windows_core::Result<()>
+pub unsafe fn CredEnumerateW<P0>(filter: P0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredEnumerateW(filter : windows_core::PCWSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> windows_core::BOOL);
-    unsafe { CredEnumerateW(filter.param().abi(), flags.unwrap_or(core::mem::zeroed()) as _, count as _, credential as _).ok() }
+    unsafe { CredEnumerateW(filter.param().abi(), flags, count as _, credential as _) }
 }
 #[inline]
-pub unsafe fn CredFindBestCredentialA<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> windows_core::Result<()>
+pub unsafe fn CredFindBestCredentialA<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredFindBestCredentialA(targetname : windows_core::PCSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALA) -> windows_core::BOOL);
-    unsafe { CredFindBestCredentialA(targetname.param().abi(), r#type, flags, credential as _).ok() }
+    unsafe { CredFindBestCredentialA(targetname.param().abi(), r#type, flags, credential as _) }
 }
 #[inline]
-pub unsafe fn CredFindBestCredentialW<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> windows_core::Result<()>
+pub unsafe fn CredFindBestCredentialW<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredFindBestCredentialW(targetname : windows_core::PCWSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALW) -> windows_core::BOOL);
-    unsafe { CredFindBestCredentialW(targetname.param().abi(), r#type, flags, credential as _).ok() }
+    unsafe { CredFindBestCredentialW(targetname.param().abi(), r#type, flags, credential as _) }
 }
 #[inline]
-pub unsafe fn CredFree(buffer: *const core::ffi::c_void) {
-    windows_core::link!("advapi32.dll" "system" fn CredFree(buffer : *const core::ffi::c_void));
-    unsafe { CredFree(buffer) }
+pub unsafe fn CredFree(buffer: *mut core::ffi::c_void) {
+    windows_core::link!("advapi32.dll" "system" fn CredFree(buffer : *mut core::ffi::c_void));
+    unsafe { CredFree(buffer as _) }
 }
 #[inline]
-pub unsafe fn CredGetSessionTypes(maximumpersist: &mut [u32]) -> windows_core::Result<()> {
+pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> windows_core::BOOL);
-    unsafe { CredGetSessionTypes(maximumpersist.len().try_into().unwrap(), core::mem::transmute(maximumpersist.as_ptr())).ok() }
+    unsafe { CredGetSessionTypes(maximumpersistcount, maximumpersist as _) }
 }
 #[inline]
-pub unsafe fn CredGetTargetInfoA<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> windows_core::Result<()>
+pub unsafe fn CredGetTargetInfoA<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredGetTargetInfoA(targetname : windows_core::PCSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> windows_core::BOOL);
-    unsafe { CredGetTargetInfoA(targetname.param().abi(), flags, targetinfo as _).ok() }
+    unsafe { CredGetTargetInfoA(targetname.param().abi(), flags, targetinfo as _) }
 }
 #[inline]
-pub unsafe fn CredGetTargetInfoW<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> windows_core::Result<()>
+pub unsafe fn CredGetTargetInfoW<P0>(targetname: P0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredGetTargetInfoW(targetname : windows_core::PCWSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> windows_core::BOOL);
-    unsafe { CredGetTargetInfoW(targetname.param().abi(), flags, targetinfo as _).ok() }
+    unsafe { CredGetTargetInfoW(targetname.param().abi(), flags, targetinfo as _) }
 }
 #[inline]
 pub unsafe fn CredIsMarshaledCredentialA<P0>(marshaledcredential: P0) -> windows_core::BOOL
@@ -89,118 +89,127 @@ where
     unsafe { CredIsMarshaledCredentialW(marshaledcredential.param().abi()) }
 }
 #[inline]
-pub unsafe fn CredIsProtectedA<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> windows_core::Result<()>
+pub unsafe fn CredIsProtectedA<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredIsProtectedA(pszprotectedcredentials : windows_core::PCSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredIsProtectedA(pszprotectedcredentials.param().abi(), pprotectiontype as _).ok() }
+    unsafe { CredIsProtectedA(pszprotectedcredentials.param().abi(), pprotectiontype as _) }
 }
 #[inline]
-pub unsafe fn CredIsProtectedW<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> windows_core::Result<()>
+pub unsafe fn CredIsProtectedW<P0>(pszprotectedcredentials: P0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredIsProtectedW(pszprotectedcredentials : windows_core::PCWSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredIsProtectedW(pszprotectedcredentials.param().abi(), pprotectiontype as _).ok() }
+    unsafe { CredIsProtectedW(pszprotectedcredentials.param().abi(), pprotectiontype as _) }
 }
 #[inline]
-pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const core::ffi::c_void, marshaledcredential: *mut windows_core::PSTR) -> windows_core::Result<()> {
+pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const core::ffi::c_void, marshaledcredential: *mut windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredMarshalCredentialA(credtype : CRED_MARSHAL_TYPE, credential : *const core::ffi::c_void, marshaledcredential : *mut windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { CredMarshalCredentialA(credtype, credential, marshaledcredential as _).ok() }
+    unsafe { CredMarshalCredentialA(credtype, credential, marshaledcredential as _) }
 }
 #[inline]
-pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const core::ffi::c_void, marshaledcredential: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : *const core::ffi::c_void, marshaledcredential : *mut windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { CredMarshalCredentialW(credtype, credential, marshaledcredential as _).ok() }
+pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *mut core::ffi::c_void, marshaledcredential: *mut windows_core::PWSTR) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : *mut core::ffi::c_void, marshaledcredential : *mut windows_core::PWSTR) -> windows_core::BOOL);
+    unsafe { CredMarshalCredentialW(credtype, credential as _, marshaledcredential as _) }
 }
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferA<P1, P2>(dwflags: CRED_PACK_FLAGS, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CredPackAuthenticationBufferA<P1, P2>(dwflags: CRED_PACK_FLAGS, pszusername: P1, pszpassword: P2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pszusername : windows_core::PCSTR, pszpassword : windows_core::PCSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> windows_core::BOOL);
-    unsafe { CredPackAuthenticationBufferA(dwflags, pszusername.param().abi(), pszpassword.param().abi(), ppackedcredentials.unwrap_or(core::mem::zeroed()) as _, pcbpackedcredentials as _).ok() }
+    unsafe { CredPackAuthenticationBufferA(dwflags, pszusername.param().abi(), pszpassword.param().abi(), ppackedcredentials as _, pcbpackedcredentials as _) }
 }
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferW<P1, P2>(dwflags: CRED_PACK_FLAGS, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CredPackAuthenticationBufferW<P1, P2>(dwflags: CRED_PACK_FLAGS, pszusername: P1, pszpassword: P2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pszusername : windows_core::PCWSTR, pszpassword : windows_core::PCWSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> windows_core::BOOL);
-    unsafe { CredPackAuthenticationBufferW(dwflags, pszusername.param().abi(), pszpassword.param().abi(), ppackedcredentials.unwrap_or(core::mem::zeroed()) as _, pcbpackedcredentials as _).ok() }
+    unsafe { CredPackAuthenticationBufferW(dwflags, pszusername.param().abi(), pszpassword.param().abi(), ppackedcredentials as _, pcbpackedcredentials as _) }
 }
 #[inline]
-pub unsafe fn CredProtectA(fasself: bool, pszcredentials: &[u8], pszprotectedcredentials: windows_core::PSTR, pcchmaxchars: *mut u32, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::Result<()> {
+pub unsafe fn CredProtectA<P1>(fasself: bool, pszcredentials: P1, cchcredentials: u32, pszprotectedcredentials: windows_core::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
     windows_core::link!("advapi32.dll" "system" fn CredProtectA(fasself : windows_core::BOOL, pszcredentials : windows_core::PCSTR, cchcredentials : u32, pszprotectedcredentials : windows_core::PSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredProtectA(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CredProtectA(fasself.into(), pszcredentials.param().abi(), cchcredentials, core::mem::transmute(pszprotectedcredentials), pcchmaxchars as _, protectiontype as _) }
 }
 #[inline]
-pub unsafe fn CredProtectW(fasself: bool, pszcredentials: &[u16], pszprotectedcredentials: windows_core::PWSTR, pcchmaxchars: *mut u32, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredProtectW(fasself : windows_core::BOOL, pszcredentials : windows_core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : windows_core::PWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredProtectW(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _).ok() }
+pub unsafe fn CredProtectW<P1, P3>(fasself: bool, pszcredentials: P1, cchcredentials: u32, pszprotectedcredentials: P3, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("advapi32.dll" "system" fn CredProtectW(fasself : windows_core::BOOL, pszcredentials : windows_core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : windows_core::PCWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
+    unsafe { CredProtectW(fasself.into(), pszcredentials.param().abi(), cchcredentials, pszprotectedcredentials.param().abi(), pcchmaxchars as _, protectiontype as _) }
 }
 #[inline]
-pub unsafe fn CredReadA<P0>(targetname: P0, r#type: CRED_TYPE, flags: Option<u32>, credential: *mut *mut CREDENTIALA) -> windows_core::Result<()>
+pub unsafe fn CredReadA<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32, credential: *mut *mut CREDENTIALA) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredReadA(targetname : windows_core::PCSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALA) -> windows_core::BOOL);
-    unsafe { CredReadA(targetname.param().abi(), r#type, flags.unwrap_or(core::mem::zeroed()) as _, credential as _).ok() }
+    unsafe { CredReadA(targetname.param().abi(), r#type, flags, credential as _) }
 }
 #[inline]
-pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> windows_core::Result<()> {
+pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredReadDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> windows_core::BOOL);
-    unsafe { CredReadDomainCredentialsA(targetinfo, flags, count as _, credential as _).ok() }
+    unsafe { CredReadDomainCredentialsA(targetinfo, flags, count as _, credential as _) }
 }
 #[inline]
-pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredReadDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> windows_core::BOOL);
-    unsafe { CredReadDomainCredentialsW(targetinfo, flags, count as _, credential as _).ok() }
+pub unsafe fn CredReadDomainCredentialsW(targetinfo: *mut CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredReadDomainCredentialsW(targetinfo : *mut CREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> windows_core::BOOL);
+    unsafe { CredReadDomainCredentialsW(targetinfo as _, flags, count as _, credential as _) }
 }
 #[inline]
-pub unsafe fn CredReadW<P0>(targetname: P0, r#type: CRED_TYPE, flags: Option<u32>, credential: *mut *mut CREDENTIALW) -> windows_core::Result<()>
+pub unsafe fn CredReadW<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32, credential: *mut *mut CREDENTIALW) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredReadW(targetname : windows_core::PCWSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALW) -> windows_core::BOOL);
-    unsafe { CredReadW(targetname.param().abi(), r#type, flags.unwrap_or(core::mem::zeroed()) as _, credential as _).ok() }
+    unsafe { CredReadW(targetname.param().abi(), r#type, flags, credential as _) }
 }
 #[inline]
-pub unsafe fn CredRenameA<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: CRED_TYPE, flags: Option<u32>) -> windows_core::Result<()>
+pub unsafe fn CredRenameA<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: CRED_TYPE, flags: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredRenameA(oldtargetname : windows_core::PCSTR, newtargetname : windows_core::PCSTR, r#type : CRED_TYPE, flags : u32) -> windows_core::BOOL);
-    unsafe { CredRenameA(oldtargetname.param().abi(), newtargetname.param().abi(), r#type, flags.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CredRenameA(oldtargetname.param().abi(), newtargetname.param().abi(), r#type, flags) }
 }
 #[inline]
-pub unsafe fn CredRenameW<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: CRED_TYPE, flags: Option<u32>) -> windows_core::Result<()>
+pub unsafe fn CredRenameW<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: CRED_TYPE, flags: u32) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredRenameW(oldtargetname : windows_core::PCWSTR, newtargetname : windows_core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> windows_core::BOOL);
-    unsafe { CredRenameW(oldtargetname.param().abi(), newtargetname.param().abi(), r#type, flags.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CredRenameW(oldtargetname.param().abi(), newtargetname.param().abi(), r#type, flags) }
 }
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsA<P0>(psztargetname: P0, pcontext: Option<*const SecHandle>, dwautherror: u32, username: &mut [u8], pszpassword: &mut [u8], pfsave: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> u32
+pub unsafe fn CredUICmdLinePromptForCredentialsA<P0, P3, P5>(psztargetname: P0, pcontext: *mut SecHandle, dwautherror: u32, username: P3, uluserbuffersize: u32, pszpassword: P5, ulpasswordbuffersize: u32, pfsave: *mut windows_core::BOOL, dwflags: CREDUI_FLAGS) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, username : windows_core::PSTR, uluserbuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> u32);
-    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : *mut SecHandle, dwautherror : u32, username : windows_core::PCSTR, uluserbuffersize : u32, pszpassword : windows_core::PCSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> u32);
+    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext as _, dwautherror, username.param().abi(), uluserbuffersize, pszpassword.param().abi(), ulpasswordbuffersize, pfsave as _, dwflags) }
 }
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsW<P0>(psztargetname: P0, pcontext: Option<*const SecHandle>, dwautherror: u32, username: &mut [u16], pszpassword: &mut [u16], pfsave: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> u32
+pub unsafe fn CredUICmdLinePromptForCredentialsW<P0>(psztargetname: P0, pcontext: *const SecHandle, dwautherror: u32, username: windows_core::PWSTR, uluserbuffersize: u32, pszpassword: windows_core::PWSTR, ulpasswordbuffersize: u32, pfsave: *mut windows_core::BOOL, dwflags: CREDUI_FLAGS) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, username : windows_core::PWSTR, uluserbuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> u32);
-    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext, dwautherror, core::mem::transmute(username), uluserbuffersize, core::mem::transmute(pszpassword), ulpasswordbuffersize, pfsave as _, dwflags) }
 }
 #[inline]
 pub unsafe fn CredUIConfirmCredentialsA<P0>(psztargetname: P0, bconfirm: bool) -> u32
@@ -219,50 +228,54 @@ where
     unsafe { CredUIConfirmCredentialsW(psztargetname.param().abi(), bconfirm.into()) }
 }
 #[inline]
-pub unsafe fn CredUIParseUserNameA<P0>(username: P0, user: &mut [u8], domain: &mut [u8]) -> windows_core::WIN32_ERROR
+pub unsafe fn CredUIParseUserNameA<P0>(username: P0, user: windows_core::PSTR, userbuffersize: u32, domain: windows_core::PSTR, domainbuffersize: u32) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : windows_core::PSTR, userbuffersize : u32, domain : windows_core::PSTR, domainbuffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { CredUIParseUserNameA(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
+    unsafe { CredUIParseUserNameA(username.param().abi(), core::mem::transmute(user), userbuffersize, core::mem::transmute(domain), domainbuffersize) }
 }
 #[inline]
-pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: &mut [u16], domain: &mut [u16]) -> windows_core::WIN32_ERROR
+pub unsafe fn CredUIParseUserNameW<P0, P1, P3>(username: P0, user: P1, userbuffersize: u32, domain: P3, domainbuffersize: u32) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : windows_core::PWSTR, userbuffersize : u32, domain : windows_core::PWSTR, domainbuffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { CredUIParseUserNameW(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
+    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : windows_core::PCWSTR, userbuffersize : u32, domain : windows_core::PCWSTR, domainbuffersize : u32) -> windows_core:: WIN32_ERROR);
+    unsafe { CredUIParseUserNameW(username.param().abi(), user.param().abi(), userbuffersize, domain.param().abi(), domainbuffersize) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<*const CREDUI_INFOA>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> windows_core::WIN32_ERROR
+pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: *const CREDUI_INFOA, psztargetname: P1, pcontext: *const SecHandle, dwautherror: u32, pszusername: windows_core::PSTR, ulusernamebuffersize: u32, pszpassword: windows_core::PSTR, ulpasswordbuffersize: u32, save: *mut windows_core::BOOL, dwflags: CREDUI_FLAGS) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core:: WIN32_ERROR);
-    unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUIPromptForCredentialsA(puiinfo, psztargetname.param().abi(), pcontext, dwautherror, core::mem::transmute(pszusername), ulusernamebuffersize, core::mem::transmute(pszpassword), ulpasswordbuffersize, save as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<*const CREDUI_INFOW>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> windows_core::WIN32_ERROR
+pub unsafe fn CredUIPromptForCredentialsW<P1, P4, P6>(puiinfo: *mut CREDUI_INFOW, psztargetname: P1, pcontext: *mut SecHandle, dwautherror: u32, pszusername: P4, ulusernamebuffersize: u32, pszpassword: P6, ulpasswordbuffersize: u32, save: *mut windows_core::BOOL, dwflags: CREDUI_FLAGS) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core:: WIN32_ERROR);
-    unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *mut CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *mut SecHandle, dwautherror : u32, pszusername : windows_core::PCWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PCWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core:: WIN32_ERROR);
+    unsafe { CredUIPromptForCredentialsW(puiinfo as _, psztargetname.param().abi(), pcontext as _, dwautherror, pszusername.param().abi(), ulusernamebuffersize, pszpassword.param().abi(), ulpasswordbuffersize, save as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: Option<*const CREDUI_INFOA>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<*const core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut windows_core::BOOL>, dwflags: CREDUIWIN_FLAGS) -> u32 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : *const CREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
-    unsafe { CredUIPromptForWindowsCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, dwautherror, pulauthpackage as _, pvinauthbuffer.unwrap_or(core::mem::zeroed()) as _, ulinauthbuffersize, ppvoutauthbuffer as _, puloutauthbuffersize as _, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: *mut CREDUI_INFOA, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *mut core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut windows_core::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : *mut CREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *mut core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
+    unsafe { CredUIPromptForWindowsCredentialsA(puiinfo as _, dwautherror, pulauthpackage as _, pvinauthbuffer as _, ulinauthbuffersize, ppvoutauthbuffer as _, puloutauthbuffersize as _, pfsave as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: Option<*const CREDUI_INFOW>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<*const core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut windows_core::BOOL>, dwflags: CREDUIWIN_FLAGS) -> u32 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsW(puiinfo : *const CREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
-    unsafe { CredUIPromptForWindowsCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, dwautherror, pulauthpackage as _, pvinauthbuffer.unwrap_or(core::mem::zeroed()) as _, ulinauthbuffersize, ppvoutauthbuffer as _, puloutauthbuffersize as _, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *mut CREDUI_INFOW, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *mut core::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut windows_core::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsW(puiinfo : *mut CREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *mut core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_core::BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
+    unsafe { CredUIPromptForWindowsCredentialsW(puiinfo as _, dwautherror, pulauthpackage as _, pvinauthbuffer as _, ulinauthbuffersize, ppvoutauthbuffer as _, puloutauthbuffersize as _, pfsave as _, dwflags) }
 }
 #[inline]
 pub unsafe fn CredUIReadSSOCredW<P0>(pszrealm: P0, ppszusername: *mut windows_core::PWSTR) -> u32
@@ -283,60 +296,78 @@ where
     unsafe { CredUIStoreSSOCredW(pszrealm.param().abi(), pszusername.param().abi(), pszpassword.param().abi(), bpersist.into()) }
 }
 #[inline]
-pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const core::ffi::c_void, cbauthbuffer: u32, pszusername: Option<windows_core::PSTR>, pcchlmaxusername: *mut u32, pszdomainname: Option<windows_core::PSTR>, pcchmaxdomainname: Option<*mut u32>, pszpassword: Option<windows_core::PSTR>, pcchmaxpassword: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_core::PSTR, pcchlmaxusername : *mut u32, pszdomainname : windows_core::PSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_core::PSTR, pcchmaxpassword : *mut u32) -> windows_core::BOOL);
-    unsafe { CredUnPackAuthenticationBufferA(dwflags, pauthbuffer, cbauthbuffer, pszusername.unwrap_or(core::mem::zeroed()) as _, pcchlmaxusername as _, pszdomainname.unwrap_or(core::mem::zeroed()) as _, pcchmaxdomainname.unwrap_or(core::mem::zeroed()) as _, pszpassword.unwrap_or(core::mem::zeroed()) as _, pcchmaxpassword as _).ok() }
+pub unsafe fn CredUnPackAuthenticationBufferA<P3, P5, P7>(dwflags: CRED_PACK_FLAGS, pauthbuffer: *mut core::ffi::c_void, cbauthbuffer: u32, pszusername: P3, pcchlmaxusername: *mut u32, pszdomainname: P5, pcchmaxdomainname: *mut u32, pszpassword: P7, pcchmaxpassword: *mut u32) -> windows_core::BOOL
+where
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P5: windows_core::Param<windows_core::PCSTR>,
+    P7: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pauthbuffer : *mut core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_core::PCSTR, pcchlmaxusername : *mut u32, pszdomainname : windows_core::PCSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_core::PCSTR, pcchmaxpassword : *mut u32) -> windows_core::BOOL);
+    unsafe { CredUnPackAuthenticationBufferA(dwflags, pauthbuffer as _, cbauthbuffer, pszusername.param().abi(), pcchlmaxusername as _, pszdomainname.param().abi(), pcchmaxdomainname as _, pszpassword.param().abi(), pcchmaxpassword as _) }
 }
 #[inline]
-pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const core::ffi::c_void, cbauthbuffer: u32, pszusername: Option<windows_core::PWSTR>, pcchmaxusername: *mut u32, pszdomainname: Option<windows_core::PWSTR>, pcchmaxdomainname: Option<*mut u32>, pszpassword: Option<windows_core::PWSTR>, pcchmaxpassword: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_core::PWSTR, pcchmaxusername : *mut u32, pszdomainname : windows_core::PWSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_core::PWSTR, pcchmaxpassword : *mut u32) -> windows_core::BOOL);
-    unsafe { CredUnPackAuthenticationBufferW(dwflags, pauthbuffer, cbauthbuffer, pszusername.unwrap_or(core::mem::zeroed()) as _, pcchmaxusername as _, pszdomainname.unwrap_or(core::mem::zeroed()) as _, pcchmaxdomainname.unwrap_or(core::mem::zeroed()) as _, pszpassword.unwrap_or(core::mem::zeroed()) as _, pcchmaxpassword as _).ok() }
+pub unsafe fn CredUnPackAuthenticationBufferW<P3, P5, P7>(dwflags: CRED_PACK_FLAGS, pauthbuffer: *mut core::ffi::c_void, cbauthbuffer: u32, pszusername: P3, pcchmaxusername: *mut u32, pszdomainname: P5, pcchmaxdomainname: *mut u32, pszpassword: P7, pcchmaxpassword: *mut u32) -> windows_core::BOOL
+where
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
+    P7: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pauthbuffer : *mut core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_core::PCWSTR, pcchmaxusername : *mut u32, pszdomainname : windows_core::PCWSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_core::PCWSTR, pcchmaxpassword : *mut u32) -> windows_core::BOOL);
+    unsafe { CredUnPackAuthenticationBufferW(dwflags, pauthbuffer as _, cbauthbuffer, pszusername.param().abi(), pcchmaxusername as _, pszdomainname.param().abi(), pcchmaxdomainname as _, pszpassword.param().abi(), pcchmaxpassword as _) }
 }
 #[inline]
-pub unsafe fn CredUnmarshalCredentialA<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CredUnmarshalCredentialA<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredUnmarshalCredentialA(marshaledcredential : windows_core::PCSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CredUnmarshalCredentialA(marshaledcredential.param().abi(), credtype as _, credential as _).ok() }
+    unsafe { CredUnmarshalCredentialA(marshaledcredential.param().abi(), credtype as _, credential as _) }
 }
 #[inline]
-pub unsafe fn CredUnmarshalCredentialW<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CredUnmarshalCredentialW<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CredUnmarshalCredentialW(marshaledcredential : windows_core::PCWSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CredUnmarshalCredentialW(marshaledcredential.param().abi(), credtype as _, credential as _).ok() }
+    unsafe { CredUnmarshalCredentialW(marshaledcredential.param().abi(), credtype as _, credential as _) }
 }
 #[inline]
-pub unsafe fn CredUnprotectA(fasself: bool, pszprotectedcredentials: &[u8], pszcredentials: Option<windows_core::PSTR>, pcchmaxchars: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredUnprotectA(fasself : windows_core::BOOL, pszprotectedcredentials : windows_core::PCSTR, cchprotectedcredentials : u32, pszcredentials : windows_core::PSTR, pcchmaxchars : *mut u32) -> windows_core::BOOL);
-    unsafe { CredUnprotectA(fasself.into(), core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len().try_into().unwrap(), pszcredentials.unwrap_or(core::mem::zeroed()) as _, pcchmaxchars as _).ok() }
+pub unsafe fn CredUnprotectA<P1, P3>(fasself: bool, pszprotectedcredentials: P1, cchprotectedcredentials: u32, pszcredentials: P3, pcchmaxchars: *mut u32) -> windows_core::BOOL
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("advapi32.dll" "system" fn CredUnprotectA(fasself : windows_core::BOOL, pszprotectedcredentials : windows_core::PCSTR, cchprotectedcredentials : u32, pszcredentials : windows_core::PCSTR, pcchmaxchars : *mut u32) -> windows_core::BOOL);
+    unsafe { CredUnprotectA(fasself.into(), pszprotectedcredentials.param().abi(), cchprotectedcredentials, pszcredentials.param().abi(), pcchmaxchars as _) }
 }
 #[inline]
-pub unsafe fn CredUnprotectW(fasself: bool, pszprotectedcredentials: &[u16], pszcredentials: Option<windows_core::PWSTR>, pcchmaxchars: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredUnprotectW(fasself : windows_core::BOOL, pszprotectedcredentials : windows_core::PCWSTR, cchprotectedcredentials : u32, pszcredentials : windows_core::PWSTR, pcchmaxchars : *mut u32) -> windows_core::BOOL);
-    unsafe { CredUnprotectW(fasself.into(), core::mem::transmute(pszprotectedcredentials.as_ptr()), pszprotectedcredentials.len().try_into().unwrap(), pszcredentials.unwrap_or(core::mem::zeroed()) as _, pcchmaxchars as _).ok() }
+pub unsafe fn CredUnprotectW<P1, P3>(fasself: bool, pszprotectedcredentials: P1, cchprotectedcredentials: u32, pszcredentials: P3, pcchmaxchars: *mut u32) -> windows_core::BOOL
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("advapi32.dll" "system" fn CredUnprotectW(fasself : windows_core::BOOL, pszprotectedcredentials : windows_core::PCWSTR, cchprotectedcredentials : u32, pszcredentials : windows_core::PCWSTR, pcchmaxchars : *mut u32) -> windows_core::BOOL);
+    unsafe { CredUnprotectW(fasself.into(), pszprotectedcredentials.param().abi(), cchprotectedcredentials, pszcredentials.param().abi(), pcchmaxchars as _) }
 }
 #[inline]
-pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteA(credential : *const CREDENTIALA, flags : u32) -> windows_core::BOOL);
-    unsafe { CredWriteA(credential, flags).ok() }
+pub unsafe fn CredWriteA(credential: *mut CREDENTIALA, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteA(credential : *mut CREDENTIALA, flags : u32) -> windows_core::BOOL);
+    unsafe { CredWriteA(credential as _, flags) }
 }
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, credential : *const CREDENTIALA, flags : u32) -> windows_core::BOOL);
-    unsafe { CredWriteDomainCredentialsA(targetinfo, credential, flags).ok() }
+pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *mut CREDENTIAL_TARGET_INFORMATIONA, credential: *mut CREDENTIALA, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsA(targetinfo : *mut CREDENTIAL_TARGET_INFORMATIONA, credential : *mut CREDENTIALA, flags : u32) -> windows_core::BOOL);
+    unsafe { CredWriteDomainCredentialsA(targetinfo as _, credential as _, flags) }
 }
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, credential : *const CREDENTIALW, flags : u32) -> windows_core::BOOL);
-    unsafe { CredWriteDomainCredentialsW(targetinfo, credential, flags).ok() }
+pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *mut CREDENTIAL_TARGET_INFORMATIONW, credential: *mut CREDENTIALW, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsW(targetinfo : *mut CREDENTIAL_TARGET_INFORMATIONW, credential : *mut CREDENTIALW, flags : u32) -> windows_core::BOOL);
+    unsafe { CredWriteDomainCredentialsW(targetinfo as _, credential as _, flags) }
 }
 #[inline]
-pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CredWriteW(credential : *const CREDENTIALW, flags : u32) -> windows_core::BOOL);
-    unsafe { CredWriteW(credential, flags).ok() }
+pub unsafe fn CredWriteW(credential: *mut CREDENTIALW, flags: u32) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn CredWriteW(credential : *mut CREDENTIALW, flags : u32) -> windows_core::BOOL);
+    unsafe { CredWriteW(credential as _, flags) }
 }
 #[inline]
 pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
@@ -349,9 +380,13 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     unsafe { GetOpenCardNameW(param0 as _) }
 }
 #[inline]
-pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo) {
-    windows_core::link!("keycredmgr.dll" "system" fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo : *const KeyCredentialManagerInfo));
-    unsafe { KeyCredentialManagerFreeInformation(keycredentialmanagerinfo) }
+pub unsafe fn KeyCredentialManagerFreeInformation() -> KeyCredentialManagerInfo {
+    windows_core::link!("keycredmgr.dll" "system" fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo : *mut KeyCredentialManagerInfo));
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        KeyCredentialManagerFreeInformation(&mut result__);
+        result__
+    }
 }
 #[inline]
 pub unsafe fn KeyCredentialManagerGetInformation() -> windows_core::Result<*mut KeyCredentialManagerInfo> {
@@ -372,10 +407,9 @@ pub unsafe fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Found
     unsafe { KeyCredentialManagerShowUIOperation(hwndowner, keycredentialmanageroperationtype).ok() }
 }
 #[inline]
-pub unsafe fn SCardAccessStartedEvent() -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
     windows_core::link!("winscard.dll" "system" fn SCardAccessStartedEvent() -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { SCardAccessStartedEvent() };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
+    unsafe { SCardAccessStartedEvent() }
 }
 #[inline]
 pub unsafe fn SCardAddReaderToGroupA<P1, P2>(hcontext: usize, szreadername: P1, szgroupname: P2) -> i32
@@ -427,9 +461,9 @@ where
     unsafe { SCardConnectW(hcontext, szreader.param().abi(), dwsharemode, dwpreferredprotocols, phcard as _, pdwactiveprotocol as _) }
 }
 #[inline]
-pub unsafe fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardControl(hcard : usize, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> i32);
-    unsafe { SCardControl(hcard, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer as _, cboutbuffersize, lpbytesreturned as _) }
+pub unsafe fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *mut core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32 {
+    windows_core::link!("winscard.dll" "system" fn SCardControl(hcard : usize, dwcontrolcode : u32, lpinbuffer : *mut core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32) -> i32);
+    unsafe { SCardControl(hcard, dwcontrolcode, lpinbuffer as _, cbinbuffersize, lpoutbuffer as _, cboutbuffersize, lpbytesreturned as _) }
 }
 #[inline]
 pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
@@ -447,9 +481,9 @@ pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
     unsafe { SCardEndTransaction(hcard, dwdisposition) }
 }
 #[inline]
-pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: Option<*const core::ffi::c_void>, pvreserved2: Option<*const core::ffi::c_void>, phcontext: *mut usize) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardEstablishContext(dwscope : SCARD_SCOPE, pvreserved1 : *const core::ffi::c_void, pvreserved2 : *const core::ffi::c_void, phcontext : *mut usize) -> i32);
-    unsafe { SCardEstablishContext(dwscope, pvreserved1.unwrap_or(core::mem::zeroed()) as _, pvreserved2.unwrap_or(core::mem::zeroed()) as _, phcontext as _) }
+pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *mut core::ffi::c_void, pvreserved2: *mut core::ffi::c_void, phcontext: *mut usize) -> i32 {
+    windows_core::link!("winscard.dll" "system" fn SCardEstablishContext(dwscope : SCARD_SCOPE, pvreserved1 : *mut core::ffi::c_void, pvreserved2 : *mut core::ffi::c_void, phcontext : *mut usize) -> i32);
+    unsafe { SCardEstablishContext(dwscope, pvreserved1 as _, pvreserved2 as _, phcontext as _) }
 }
 #[inline]
 pub unsafe fn SCardForgetCardTypeA<P1>(hcontext: usize, szcardname: P1) -> i32
@@ -505,25 +539,27 @@ pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const core::ffi::c_void) 
     unsafe { SCardFreeMemory(hcontext, pvmem) }
 }
 #[inline]
-pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: Option<*mut u8>, pcbattrlen: *mut u32) -> i32 {
+pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbattrlen: *mut u32) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardGetAttrib(hcard : usize, dwattrid : u32, pbattr : *mut u8, pcbattrlen : *mut u32) -> i32);
-    unsafe { SCardGetAttrib(hcard, dwattrid, pbattr.unwrap_or(core::mem::zeroed()) as _, pcbattrlen as _) }
+    unsafe { SCardGetAttrib(hcard, dwattrid, pbattr as _, pcbattrlen as _) }
 }
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameA<P1>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: windows_core::PSTR, pcchprovider: *mut u32) -> i32
+pub unsafe fn SCardGetCardTypeProviderNameA<P1, P3>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: P3, pcchprovider: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameA(hcontext : usize, szcardname : windows_core::PCSTR, dwproviderid : u32, szprovider : windows_core::PSTR, pcchprovider : *mut u32) -> i32);
-    unsafe { SCardGetCardTypeProviderNameA(hcontext, szcardname.param().abi(), dwproviderid, core::mem::transmute(szprovider), pcchprovider as _) }
+    windows_core::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameA(hcontext : usize, szcardname : windows_core::PCSTR, dwproviderid : u32, szprovider : windows_core::PCSTR, pcchprovider : *mut u32) -> i32);
+    unsafe { SCardGetCardTypeProviderNameA(hcontext, szcardname.param().abi(), dwproviderid, szprovider.param().abi(), pcchprovider as _) }
 }
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameW<P1>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: windows_core::PWSTR, pcchprovider: *mut u32) -> i32
+pub unsafe fn SCardGetCardTypeProviderNameW<P1, P3>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: P3, pcchprovider: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameW(hcontext : usize, szcardname : windows_core::PCWSTR, dwproviderid : u32, szprovider : windows_core::PWSTR, pcchprovider : *mut u32) -> i32);
-    unsafe { SCardGetCardTypeProviderNameW(hcontext, szcardname.param().abi(), dwproviderid, core::mem::transmute(szprovider), pcchprovider as _) }
+    windows_core::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameW(hcontext : usize, szcardname : windows_core::PCWSTR, dwproviderid : u32, szprovider : windows_core::PCWSTR, pcchprovider : *mut u32) -> i32);
+    unsafe { SCardGetCardTypeProviderNameW(hcontext, szcardname.param().abi(), dwproviderid, szprovider.param().abi(), pcchprovider as _) }
 }
 #[inline]
 pub unsafe fn SCardGetDeviceTypeIdA<P1>(hcontext: usize, szreadername: P1, pdwdevicetypeid: *mut u32) -> i32
@@ -558,20 +594,21 @@ where
     unsafe { SCardGetProviderIdW(hcontext, szcard.param().abi(), pguidproviderid as _) }
 }
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdA<P1>(hcontext: usize, szreadername: P1, szdeviceinstanceid: Option<windows_core::PSTR>, pcchdeviceinstanceid: *mut u32) -> i32
+pub unsafe fn SCardGetReaderDeviceInstanceIdA<P1, P2>(hcontext: usize, szreadername: P1, szdeviceinstanceid: P2, pcchdeviceinstanceid: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdA(hcontext : usize, szreadername : windows_core::PCSTR, szdeviceinstanceid : windows_core::PSTR, pcchdeviceinstanceid : *mut u32) -> i32);
-    unsafe { SCardGetReaderDeviceInstanceIdA(hcontext, szreadername.param().abi(), szdeviceinstanceid.unwrap_or(core::mem::zeroed()) as _, pcchdeviceinstanceid as _) }
+    windows_core::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdA(hcontext : usize, szreadername : windows_core::PCSTR, szdeviceinstanceid : windows_core::PCSTR, pcchdeviceinstanceid : *mut u32) -> i32);
+    unsafe { SCardGetReaderDeviceInstanceIdA(hcontext, szreadername.param().abi(), szdeviceinstanceid.param().abi(), pcchdeviceinstanceid as _) }
 }
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdW<P1>(hcontext: usize, szreadername: P1, szdeviceinstanceid: Option<windows_core::PWSTR>, pcchdeviceinstanceid: *mut u32) -> i32
+pub unsafe fn SCardGetReaderDeviceInstanceIdW<P1>(hcontext: usize, szreadername: P1, szdeviceinstanceid: windows_core::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdW(hcontext : usize, szreadername : windows_core::PCWSTR, szdeviceinstanceid : windows_core::PWSTR, pcchdeviceinstanceid : *mut u32) -> i32);
-    unsafe { SCardGetReaderDeviceInstanceIdW(hcontext, szreadername.param().abi(), szdeviceinstanceid.unwrap_or(core::mem::zeroed()) as _, pcchdeviceinstanceid as _) }
+    unsafe { SCardGetReaderDeviceInstanceIdW(hcontext, szreadername.param().abi(), core::mem::transmute(szdeviceinstanceid), pcchdeviceinstanceid as _) }
 }
 #[inline]
 pub unsafe fn SCardGetReaderIconA<P1>(hcontext: usize, szreadername: P1, pbicon: *mut u8, pcbicon: *mut u32) -> i32
@@ -605,20 +642,20 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
     unsafe { SCardGetTransmitCount(hcard, pctransmitcount as _) }
 }
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeA<P1>(hcontext: usize, szcardname: P1, pguidprimaryprovider: Option<*const windows_core::GUID>, rgguidinterfaces: Option<*const windows_core::GUID>, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32
+pub unsafe fn SCardIntroduceCardTypeA<P1>(hcontext: usize, szcardname: P1, pguidprimaryprovider: *mut windows_core::GUID, rgguidinterfaces: *mut windows_core::GUID, dwinterfacecount: u32, pbatr: *mut u8, pbatrmask: *mut u8, cbatrlen: u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardIntroduceCardTypeA(hcontext : usize, szcardname : windows_core::PCSTR, pguidprimaryprovider : *const windows_core::GUID, rgguidinterfaces : *const windows_core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
-    unsafe { SCardIntroduceCardTypeA(hcontext, szcardname.param().abi(), pguidprimaryprovider.unwrap_or(core::mem::zeroed()) as _, rgguidinterfaces.unwrap_or(core::mem::zeroed()) as _, dwinterfacecount, pbatr, pbatrmask, cbatrlen) }
+    windows_core::link!("winscard.dll" "system" fn SCardIntroduceCardTypeA(hcontext : usize, szcardname : windows_core::PCSTR, pguidprimaryprovider : *mut windows_core::GUID, rgguidinterfaces : *mut windows_core::GUID, dwinterfacecount : u32, pbatr : *mut u8, pbatrmask : *mut u8, cbatrlen : u32) -> i32);
+    unsafe { SCardIntroduceCardTypeA(hcontext, szcardname.param().abi(), pguidprimaryprovider as _, rgguidinterfaces as _, dwinterfacecount, pbatr as _, pbatrmask as _, cbatrlen) }
 }
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeW<P1>(hcontext: usize, szcardname: P1, pguidprimaryprovider: Option<*const windows_core::GUID>, rgguidinterfaces: Option<*const windows_core::GUID>, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32
+pub unsafe fn SCardIntroduceCardTypeW<P1>(hcontext: usize, szcardname: P1, pguidprimaryprovider: *mut windows_core::GUID, rgguidinterfaces: *mut windows_core::GUID, dwinterfacecount: u32, pbatr: *mut u8, pbatrmask: *mut u8, cbatrlen: u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardIntroduceCardTypeW(hcontext : usize, szcardname : windows_core::PCWSTR, pguidprimaryprovider : *const windows_core::GUID, rgguidinterfaces : *const windows_core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
-    unsafe { SCardIntroduceCardTypeW(hcontext, szcardname.param().abi(), pguidprimaryprovider.unwrap_or(core::mem::zeroed()) as _, rgguidinterfaces.unwrap_or(core::mem::zeroed()) as _, dwinterfacecount, pbatr, pbatrmask, cbatrlen) }
+    windows_core::link!("winscard.dll" "system" fn SCardIntroduceCardTypeW(hcontext : usize, szcardname : windows_core::PCWSTR, pguidprimaryprovider : *mut windows_core::GUID, rgguidinterfaces : *mut windows_core::GUID, dwinterfacecount : u32, pbatr : *mut u8, pbatrmask : *mut u8, cbatrlen : u32) -> i32);
+    unsafe { SCardIntroduceCardTypeW(hcontext, szcardname.param().abi(), pguidprimaryprovider as _, rgguidinterfaces as _, dwinterfacecount, pbatr as _, pbatrmask as _, cbatrlen) }
 }
 #[inline]
 pub unsafe fn SCardIntroduceReaderA<P1, P2>(hcontext: usize, szreadername: P1, szdevicename: P2) -> i32
@@ -660,14 +697,17 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
     unsafe { SCardIsValidContext(hcontext) }
 }
 #[inline]
-pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: Option<*const u8>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: Option<windows_core::PSTR>, pcchcards: *mut u32) -> i32 {
+pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const windows_core::GUID, cguidinterfacecount: u32, mszcards: windows_core::PSTR, pcchcards: *mut u32) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardListCardsA(hcontext : usize, pbatr : *const u8, rgquidinterfaces : *const windows_core::GUID, cguidinterfacecount : u32, mszcards : windows_core::PSTR, pcchcards : *mut u32) -> i32);
-    unsafe { SCardListCardsA(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgquidinterfaces.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), mszcards.unwrap_or(core::mem::zeroed()) as _, pcchcards as _) }
+    unsafe { SCardListCardsA(hcontext, pbatr, rgquidinterfaces, cguidinterfacecount, core::mem::transmute(mszcards), pcchcards as _) }
 }
 #[inline]
-pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: Option<*const u8>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: Option<windows_core::PWSTR>, pcchcards: *mut u32) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardListCardsW(hcontext : usize, pbatr : *const u8, rgquidinterfaces : *const windows_core::GUID, cguidinterfacecount : u32, mszcards : windows_core::PWSTR, pcchcards : *mut u32) -> i32);
-    unsafe { SCardListCardsW(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgquidinterfaces.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), mszcards.unwrap_or(core::mem::zeroed()) as _, pcchcards as _) }
+pub unsafe fn SCardListCardsW<P4>(hcontext: usize, pbatr: *mut u8, rgquidinterfaces: *mut windows_core::GUID, cguidinterfacecount: u32, mszcards: P4, pcchcards: *mut u32) -> i32
+where
+    P4: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("winscard.dll" "system" fn SCardListCardsW(hcontext : usize, pbatr : *mut u8, rgquidinterfaces : *mut windows_core::GUID, cguidinterfacecount : u32, mszcards : windows_core::PCWSTR, pcchcards : *mut u32) -> i32);
+    unsafe { SCardListCardsW(hcontext, pbatr as _, rgquidinterfaces as _, cguidinterfacecount, mszcards.param().abi(), pcchcards as _) }
 }
 #[inline]
 pub unsafe fn SCardListInterfacesA<P1>(hcontext: usize, szcard: P1, pguidinterfaces: *mut windows_core::GUID, pcguidinterfaces: *mut u32) -> i32
@@ -686,46 +726,54 @@ where
     unsafe { SCardListInterfacesW(hcontext, szcard.param().abi(), pguidinterfaces as _, pcguidinterfaces as _) }
 }
 #[inline]
-pub unsafe fn SCardListReaderGroupsA(hcontext: usize, mszgroups: Option<windows_core::PSTR>, pcchgroups: *mut u32) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardListReaderGroupsA(hcontext : usize, mszgroups : windows_core::PSTR, pcchgroups : *mut u32) -> i32);
-    unsafe { SCardListReaderGroupsA(hcontext, mszgroups.unwrap_or(core::mem::zeroed()) as _, pcchgroups as _) }
-}
-#[inline]
-pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: Option<windows_core::PWSTR>, pcchgroups: *mut u32) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardListReaderGroupsW(hcontext : usize, mszgroups : windows_core::PWSTR, pcchgroups : *mut u32) -> i32);
-    unsafe { SCardListReaderGroupsW(hcontext, mszgroups.unwrap_or(core::mem::zeroed()) as _, pcchgroups as _) }
-}
-#[inline]
-pub unsafe fn SCardListReadersA<P1>(hcontext: usize, mszgroups: P1, mszreaders: Option<windows_core::PSTR>, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReaderGroupsA<P1>(hcontext: usize, mszgroups: P1, pcchgroups: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardListReadersA(hcontext : usize, mszgroups : windows_core::PCSTR, mszreaders : windows_core::PSTR, pcchreaders : *mut u32) -> i32);
-    unsafe { SCardListReadersA(hcontext, mszgroups.param().abi(), mszreaders.unwrap_or(core::mem::zeroed()) as _, pcchreaders as _) }
+    windows_core::link!("winscard.dll" "system" fn SCardListReaderGroupsA(hcontext : usize, mszgroups : windows_core::PCSTR, pcchgroups : *mut u32) -> i32);
+    unsafe { SCardListReaderGroupsA(hcontext, mszgroups.param().abi(), pcchgroups as _) }
 }
 #[inline]
-pub unsafe fn SCardListReadersW<P1>(hcontext: usize, mszgroups: P1, mszreaders: Option<windows_core::PWSTR>, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReaderGroupsW<P1>(hcontext: usize, mszgroups: P1, pcchgroups: *mut u32) -> i32
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("winscard.dll" "system" fn SCardListReaderGroupsW(hcontext : usize, mszgroups : windows_core::PCWSTR, pcchgroups : *mut u32) -> i32);
+    unsafe { SCardListReaderGroupsW(hcontext, mszgroups.param().abi(), pcchgroups as _) }
+}
+#[inline]
+pub unsafe fn SCardListReadersA<P1, P2>(hcontext: usize, mszgroups: P1, mszreaders: P2, pcchreaders: *mut u32) -> i32
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("winscard.dll" "system" fn SCardListReadersA(hcontext : usize, mszgroups : windows_core::PCSTR, mszreaders : windows_core::PCSTR, pcchreaders : *mut u32) -> i32);
+    unsafe { SCardListReadersA(hcontext, mszgroups.param().abi(), mszreaders.param().abi(), pcchreaders as _) }
+}
+#[inline]
+pub unsafe fn SCardListReadersW<P1>(hcontext: usize, mszgroups: P1, mszreaders: windows_core::PWSTR, pcchreaders: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardListReadersW(hcontext : usize, mszgroups : windows_core::PCWSTR, mszreaders : windows_core::PWSTR, pcchreaders : *mut u32) -> i32);
-    unsafe { SCardListReadersW(hcontext, mszgroups.param().abi(), mszreaders.unwrap_or(core::mem::zeroed()) as _, pcchreaders as _) }
+    unsafe { SCardListReadersW(hcontext, mszgroups.param().abi(), core::mem::transmute(mszreaders), pcchreaders as _) }
 }
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdA<P1>(hcontext: usize, szdeviceinstanceid: P1, mszreaders: Option<windows_core::PSTR>, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReadersWithDeviceInstanceIdA<P1, P2>(hcontext: usize, szdeviceinstanceid: P1, mszreaders: P2, pcchreaders: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdA(hcontext : usize, szdeviceinstanceid : windows_core::PCSTR, mszreaders : windows_core::PSTR, pcchreaders : *mut u32) -> i32);
-    unsafe { SCardListReadersWithDeviceInstanceIdA(hcontext, szdeviceinstanceid.param().abi(), mszreaders.unwrap_or(core::mem::zeroed()) as _, pcchreaders as _) }
+    windows_core::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdA(hcontext : usize, szdeviceinstanceid : windows_core::PCSTR, mszreaders : windows_core::PCSTR, pcchreaders : *mut u32) -> i32);
+    unsafe { SCardListReadersWithDeviceInstanceIdA(hcontext, szdeviceinstanceid.param().abi(), mszreaders.param().abi(), pcchreaders as _) }
 }
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdW<P1>(hcontext: usize, szdeviceinstanceid: P1, mszreaders: Option<windows_core::PWSTR>, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReadersWithDeviceInstanceIdW<P1>(hcontext: usize, szdeviceinstanceid: P1, mszreaders: windows_core::PWSTR, pcchreaders: *mut u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdW(hcontext : usize, szdeviceinstanceid : windows_core::PCWSTR, mszreaders : windows_core::PWSTR, pcchreaders : *mut u32) -> i32);
-    unsafe { SCardListReadersWithDeviceInstanceIdW(hcontext, szdeviceinstanceid.param().abi(), mszreaders.unwrap_or(core::mem::zeroed()) as _, pcchreaders as _) }
+    unsafe { SCardListReadersWithDeviceInstanceIdW(hcontext, szdeviceinstanceid.param().abi(), core::mem::transmute(mszreaders), pcchreaders as _) }
 }
 #[inline]
 pub unsafe fn SCardLocateCardsA<P1>(hcontext: usize, mszcards: P1, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32
@@ -736,14 +784,14 @@ where
     unsafe { SCardLocateCardsA(hcontext, mszcards.param().abi(), rgreaderstates as _, creaders) }
 }
 #[inline]
-pub unsafe fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardLocateCardsByATRA(hcontext : usize, rgatrmasks : *const SCARD_ATRMASK, catrs : u32, rgreaderstates : *mut SCARD_READERSTATEA, creaders : u32) -> i32);
-    unsafe { SCardLocateCardsByATRA(hcontext, rgatrmasks, catrs, rgreaderstates as _, creaders) }
+pub unsafe fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *mut SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
+    windows_core::link!("winscard.dll" "system" fn SCardLocateCardsByATRA(hcontext : usize, rgatrmasks : *mut SCARD_ATRMASK, catrs : u32, rgreaderstates : *mut SCARD_READERSTATEA, creaders : u32) -> i32);
+    unsafe { SCardLocateCardsByATRA(hcontext, rgatrmasks as _, catrs, rgreaderstates as _, creaders) }
 }
 #[inline]
-pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardLocateCardsByATRW(hcontext : usize, rgatrmasks : *const SCARD_ATRMASK, catrs : u32, rgreaderstates : *mut SCARD_READERSTATEW, creaders : u32) -> i32);
-    unsafe { SCardLocateCardsByATRW(hcontext, rgatrmasks, catrs, rgreaderstates as _, creaders) }
+pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *mut SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
+    windows_core::link!("winscard.dll" "system" fn SCardLocateCardsByATRW(hcontext : usize, rgatrmasks : *mut SCARD_ATRMASK, catrs : u32, rgreaderstates : *mut SCARD_READERSTATEW, creaders : u32) -> i32);
+    unsafe { SCardLocateCardsByATRW(hcontext, rgatrmasks as _, catrs, rgreaderstates as _, creaders) }
 }
 #[inline]
 pub unsafe fn SCardLocateCardsW<P1>(hcontext: usize, mszcards: P1, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32
@@ -754,25 +802,25 @@ where
     unsafe { SCardLocateCardsW(hcontext, mszcards.param().abi(), rgreaderstates as _, creaders) }
 }
 #[inline]
-pub unsafe fn SCardReadCacheA<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *mut u8, datalen: *mut u32) -> i32
+pub unsafe fn SCardReadCacheA<P3>(hcontext: usize, cardidentifier: *mut windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *mut u8, datalen: *mut u32) -> i32
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardReadCacheA(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCSTR, data : *mut u8, datalen : *mut u32) -> i32);
-    unsafe { SCardReadCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data as _, datalen as _) }
+    windows_core::link!("winscard.dll" "system" fn SCardReadCacheA(hcontext : usize, cardidentifier : *mut windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCSTR, data : *mut u8, datalen : *mut u32) -> i32);
+    unsafe { SCardReadCacheA(hcontext, cardidentifier as _, freshnesscounter, lookupname.param().abi(), data as _, datalen as _) }
 }
 #[inline]
-pub unsafe fn SCardReadCacheW<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *mut u8, datalen: *mut u32) -> i32
+pub unsafe fn SCardReadCacheW<P3>(hcontext: usize, cardidentifier: *mut windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *mut u8, datalen: *mut u32) -> i32
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardReadCacheW(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *mut u8, datalen : *mut u32) -> i32);
-    unsafe { SCardReadCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data as _, datalen as _) }
+    windows_core::link!("winscard.dll" "system" fn SCardReadCacheW(hcontext : usize, cardidentifier : *mut windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *mut u8, datalen : *mut u32) -> i32);
+    unsafe { SCardReadCacheW(hcontext, cardidentifier as _, freshnesscounter, lookupname.param().abi(), data as _, datalen as _) }
 }
 #[inline]
-pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: Option<*mut u32>) -> i32 {
+pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: *mut u32) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardReconnect(hcard : usize, dwsharemode : u32, dwpreferredprotocols : u32, dwinitialization : u32, pdwactiveprotocol : *mut u32) -> i32);
-    unsafe { SCardReconnect(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, pdwactiveprotocol.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SCardReconnect(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, pdwactiveprotocol as _) }
 }
 #[inline]
 pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
@@ -803,9 +851,9 @@ where
     unsafe { SCardRemoveReaderFromGroupW(hcontext, szreadername.param().abi(), szgroupname.param().abi()) }
 }
 #[inline]
-pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: &[u8]) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardSetAttrib(hcard : usize, dwattrid : u32, pbattr : *const u8, cbattrlen : u32) -> i32);
-    unsafe { SCardSetAttrib(hcard, dwattrid, core::mem::transmute(pbattr.as_ptr()), pbattr.len().try_into().unwrap()) }
+pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, cbattrlen: u32) -> i32 {
+    windows_core::link!("winscard.dll" "system" fn SCardSetAttrib(hcard : usize, dwattrid : u32, pbattr : *mut u8, cbattrlen : u32) -> i32);
+    unsafe { SCardSetAttrib(hcard, dwattrid, pbattr as _, cbattrlen) }
 }
 #[inline]
 pub unsafe fn SCardSetCardTypeProviderNameA<P1, P3>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: P3) -> i32
@@ -831,19 +879,25 @@ pub unsafe fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32
     unsafe { SCardState(hcard, pdwstate as _, pdwprotocol as _, pbatr as _, pcbatrlen as _) }
 }
 #[inline]
-pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: Option<windows_core::PSTR>, pcchreaderlen: Option<*mut u32>, pdwstate: Option<*mut u32>, pdwprotocol: Option<*mut u32>, pbatr: Option<*mut u8>, pcbatrlen: Option<*mut u32>) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardStatusA(hcard : usize, mszreadernames : windows_core::PSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
-    unsafe { SCardStatusA(hcard, mszreadernames.unwrap_or(core::mem::zeroed()) as _, pcchreaderlen.unwrap_or(core::mem::zeroed()) as _, pdwstate.unwrap_or(core::mem::zeroed()) as _, pdwprotocol.unwrap_or(core::mem::zeroed()) as _, pbatr.unwrap_or(core::mem::zeroed()) as _, pcbatrlen.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SCardStatusA<P1>(hcard: usize, mszreadernames: P1, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("winscard.dll" "system" fn SCardStatusA(hcard : usize, mszreadernames : windows_core::PCSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
+    unsafe { SCardStatusA(hcard, mszreadernames.param().abi(), pcchreaderlen as _, pdwstate as _, pdwprotocol as _, pbatr as _, pcbatrlen as _) }
 }
 #[inline]
-pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: Option<windows_core::PWSTR>, pcchreaderlen: Option<*mut u32>, pdwstate: Option<*mut u32>, pdwprotocol: Option<*mut u32>, pbatr: Option<*mut u8>, pcbatrlen: Option<*mut u32>) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardStatusW(hcard : usize, mszreadernames : windows_core::PWSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
-    unsafe { SCardStatusW(hcard, mszreadernames.unwrap_or(core::mem::zeroed()) as _, pcchreaderlen.unwrap_or(core::mem::zeroed()) as _, pdwstate.unwrap_or(core::mem::zeroed()) as _, pdwprotocol.unwrap_or(core::mem::zeroed()) as _, pbatr.unwrap_or(core::mem::zeroed()) as _, pcbatrlen.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SCardStatusW<P1>(hcard: usize, mszreadernames: P1, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("winscard.dll" "system" fn SCardStatusW(hcard : usize, mszreadernames : windows_core::PCWSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
+    unsafe { SCardStatusW(hcard, mszreadernames.param().abi(), pcchreaderlen as _, pdwstate as _, pdwprotocol as _, pbatr as _, pcbatrlen as _) }
 }
 #[inline]
-pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: &[u8], piorecvpci: Option<*mut SCARD_IO_REQUEST>, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
-    windows_core::link!("winscard.dll" "system" fn SCardTransmit(hcard : usize, piosendpci : *const SCARD_IO_REQUEST, pbsendbuffer : *const u8, cbsendlength : u32, piorecvpci : *mut SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
-    unsafe { SCardTransmit(hcard, piosendpci, core::mem::transmute(pbsendbuffer.as_ptr()), pbsendbuffer.len().try_into().unwrap(), piorecvpci.unwrap_or(core::mem::zeroed()) as _, pbrecvbuffer as _, pcbrecvlength as _) }
+pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *mut SCARD_IO_REQUEST, pbsendbuffer: *mut u8, cbsendlength: u32, piorecvpci: *mut SCARD_IO_REQUEST, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
+    windows_core::link!("winscard.dll" "system" fn SCardTransmit(hcard : usize, piosendpci : *mut SCARD_IO_REQUEST, pbsendbuffer : *mut u8, cbsendlength : u32, piorecvpci : *mut SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
+    unsafe { SCardTransmit(hcard, piosendpci as _, pbsendbuffer as _, cbsendlength, piorecvpci as _, pbrecvbuffer as _, pcbrecvlength as _) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -858,20 +912,20 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     unsafe { SCardUIDlgSelectCardW(param0 as _) }
 }
 #[inline]
-pub unsafe fn SCardWriteCacheA<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: &[u8]) -> i32
+pub unsafe fn SCardWriteCacheA<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *const u8, datalen: u32) -> i32
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCSTR, data : *const u8, datalen : u32) -> i32);
-    unsafe { SCardWriteCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+    unsafe { SCardWriteCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data, datalen) }
 }
 #[inline]
-pub unsafe fn SCardWriteCacheW<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: &[u8]) -> i32
+pub unsafe fn SCardWriteCacheW<P3>(hcontext: usize, cardidentifier: *mut windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *mut u8, datalen: u32) -> i32
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *const u8, datalen : u32) -> i32);
-    unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+    windows_core::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *mut windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *mut u8, datalen : u32) -> i32);
+    unsafe { SCardWriteCacheW(hcontext, cardidentifier as _, freshnesscounter, lookupname.param().abi(), data as _, datalen) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1434,10 +1488,10 @@ pub struct KeyCredentialManagerOperationType(pub i32);
 pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
 pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
 pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
-pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void) -> windows_core::BOOL>;
-pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: usize, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *const core::ffi::c_void) -> usize>;
+pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: usize, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> usize>;
 pub type LPOCNCONNPROCW = Option<unsafe extern "system" fn(param0: usize, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *const core::ffi::c_void) -> usize>;
-pub type LPOCNDSCPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void)>;
+pub type LPOCNDSCPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *mut core::ffi::c_void)>;
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[repr(C)]

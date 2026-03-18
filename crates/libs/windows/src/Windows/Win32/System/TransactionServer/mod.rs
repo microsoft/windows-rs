@@ -3,7 +3,7 @@ pub const CatalogCollection: windows_core::GUID = windows_core::GUID::from_u128(
 pub const CatalogObject: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22882_8a19_11d0_81b6_00a0c9231c29);
 pub const ComponentUtil: windows_core::GUID = windows_core::GUID::from_u128(0x6eb22884_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(ICatalog, ICatalog_Vtbl, 0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
+windows_core::imp::define_interface!(ICatalog, ICatalog_Vtbl, 0x39883252_555a_50ef_b212_4f6eb14f2f11);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for ICatalog {
     type Target = super::Com::IDispatch;
@@ -27,11 +27,17 @@ impl ICatalog {
             (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnectstring), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MajorVersion(&self, retval: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), retval as _).ok() }
+    pub unsafe fn MajorVersion(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
-    pub unsafe fn MinorVersion(&self, retval: *mut i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), retval as _).ok() }
+    pub unsafe fn MinorVersion(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -48,8 +54,8 @@ pub struct ICatalog_Vtbl {
 pub trait ICatalog_Impl: super::Com::IDispatch_Impl {
     fn GetCollection(&self, bstrcollname: &windows_core::BSTR) -> windows_core::Result<super::Com::IDispatch>;
     fn Connect(&self, bstrconnectstring: &windows_core::BSTR) -> windows_core::Result<super::Com::IDispatch>;
-    fn MajorVersion(&self, retval: *mut i32) -> windows_core::Result<()>;
-    fn MinorVersion(&self, retval: *mut i32) -> windows_core::Result<()>;
+    fn MajorVersion(&self) -> windows_core::Result<i32>;
+    fn MinorVersion(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICatalog_Vtbl {
@@ -81,13 +87,25 @@ impl ICatalog_Vtbl {
         unsafe extern "system" fn MajorVersion<Identity: ICatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalog_Impl::MajorVersion(this, core::mem::transmute_copy(&retval)).into()
+                match ICatalog_Impl::MajorVersion(this) {
+                    Ok(ok__) => {
+                        retval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn MinorVersion<Identity: ICatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalog_Impl::MinorVersion(this, core::mem::transmute_copy(&retval)).into()
+                match ICatalog_Impl::MinorVersion(this) {
+                    Ok(ok__) => {
+                        retval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -105,7 +123,7 @@ impl ICatalog_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ICatalog {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IComponentUtil, IComponentUtil_Vtbl, 0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
+windows_core::imp::define_interface!(IComponentUtil, IComponentUtil_Vtbl, 0x0086abba_2aab_5ed8_b0fe_571655c663ea);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IComponentUtil {
     type Target = super::Com::IDispatch;
@@ -126,8 +144,11 @@ impl IComponentUtil {
     pub unsafe fn ImportComponentByName(&self, bstrprogid: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ImportComponentByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprogid)).ok() }
     }
-    pub unsafe fn GetCLSIDs(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), aclsids as _).ok() }
+    pub unsafe fn GetCLSIDs(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetCLSIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllfile), core::mem::transmute_copy(bstrtypelibfile), &mut result__).map(|| result__)
+        }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -145,7 +166,7 @@ pub trait IComponentUtil_Impl: super::Com::IDispatch_Impl {
     fn InstallComponent(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, bstrproxystubdllfile: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ImportComponent(&self, bstrclsid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ImportComponentByName(&self, bstrprogid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetCLSIDs(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn GetCLSIDs(&self, bstrdllfile: &windows_core::BSTR, bstrtypelibfile: &windows_core::BSTR) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IComponentUtil_Vtbl {
@@ -171,7 +192,13 @@ impl IComponentUtil_Vtbl {
         unsafe extern "system" fn GetCLSIDs<Identity: IComponentUtil_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdllfile: *mut core::ffi::c_void, bstrtypelibfile: *mut core::ffi::c_void, aclsids: *mut *mut super::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentUtil_Impl::GetCLSIDs(this, core::mem::transmute(&bstrdllfile), core::mem::transmute(&bstrtypelibfile), core::mem::transmute_copy(&aclsids)).into()
+                match IComponentUtil_Impl::GetCLSIDs(this, core::mem::transmute(&bstrdllfile), core::mem::transmute(&bstrtypelibfile)) {
+                    Ok(ok__) => {
+                        aclsids.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         Self {
@@ -189,7 +216,7 @@ impl IComponentUtil_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IComponentUtil {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IPackageUtil, IPackageUtil_Vtbl, 0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
+windows_core::imp::define_interface!(IPackageUtil, IPackageUtil_Vtbl, 0x45b1d80c_d489_5066_b09f_331a3cc0788c);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IPackageUtil {
     type Target = super::Com::IDispatch;
@@ -261,7 +288,7 @@ impl IPackageUtil_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPackageUtil {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRemoteComponentUtil, IRemoteComponentUtil_Vtbl, 0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
+windows_core::imp::define_interface!(IRemoteComponentUtil, IRemoteComponentUtil_Vtbl, 0xf7699c12_fa04_5628_9bcd_2552631909a8);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRemoteComponentUtil {
     type Target = super::Com::IDispatch;
@@ -321,7 +348,7 @@ impl IRemoteComponentUtil_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IRemoteComponentUtil {}
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IRoleAssociationUtil, IRoleAssociationUtil_Vtbl, 0x6eb22876_8a19_11d0_81b6_00a0c9231c29);
+windows_core::imp::define_interface!(IRoleAssociationUtil, IRoleAssociationUtil_Vtbl, 0x0cd87251_bd68_5998_b78e_9025bb007904);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IRoleAssociationUtil {
     type Target = super::Com::IDispatch;

@@ -358,7 +358,7 @@ pub type WMT_STREAM_SELECTION = i32;
 pub const WMT_STRIDING: WMT_STATUS = 14i32;
 pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = 0i32;
 pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = 1i32;
-#[repr(C, packed(2))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
@@ -594,7 +594,7 @@ pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = 10i32;
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = 5i32;
 pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = 0i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
@@ -620,7 +620,7 @@ impl Default for WM_MEDIA_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WM_PICTURE {
     pub pwszMIMEType: windows_sys::core::PWSTR,
@@ -679,19 +679,19 @@ pub const WM_SF_CLEANPOINT: WM_SF_TYPE = 1i32;
 pub const WM_SF_DATALOSS: WM_SF_TYPE = 4i32;
 pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = 2i32;
 pub type WM_SF_TYPE = i32;
-#[repr(C, packed(2))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
     pub fMandatory: windows_sys::core::BOOL,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: windows_sys::core::GUID,
     pub cbFormat: u32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
@@ -721,7 +721,7 @@ pub const WM_SampleExtension_ContentType_Size: u32 = 1u32;
 pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WM_USER_TEXT {
     pub pwszDescription: windows_sys::core::PWSTR,
@@ -732,7 +732,7 @@ impl Default for WM_USER_TEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: windows_sys::core::PWSTR,

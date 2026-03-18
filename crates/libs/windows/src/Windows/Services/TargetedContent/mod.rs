@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ITargetedContentAction, ITargetedContentAction_Vtbl, 0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
+windows_core::imp::define_interface!(ITargetedContentAction, ITargetedContentAction_Vtbl, 0x8d93a0db_4e4a_5857_aa8e_afab95117288);
 impl windows_core::RuntimeType for ITargetedContentAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -29,7 +29,7 @@ pub struct ITargetedContentChangedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HasPreviousContentExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentCollection, ITargetedContentCollection_Vtbl, 0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
+windows_core::imp::define_interface!(ITargetedContentCollection, ITargetedContentCollection_Vtbl, 0xccc49961_8c48_5f71_9311_05ab79fb1639);
 impl windows_core::RuntimeType for ITargetedContentCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -45,7 +45,7 @@ pub struct ITargetedContentCollection_Vtbl {
     pub Collections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Items: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentContainer, ITargetedContentContainer_Vtbl, 0xbc2494c9_8837_47c2_850f_d79d64595926);
+windows_core::imp::define_interface!(ITargetedContentContainer, ITargetedContentContainer_Vtbl, 0x0a207489_fb32_507c_a562_530d7652ccfd);
 impl windows_core::RuntimeType for ITargetedContentContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -59,7 +59,7 @@ pub struct ITargetedContentContainer_Vtbl {
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SelectSingleObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentContainerStatics, ITargetedContentContainerStatics_Vtbl, 0x5b47e7fb_2140_4c1f_a736_c59583f227d8);
+windows_core::imp::define_interface!(ITargetedContentContainerStatics, ITargetedContentContainerStatics_Vtbl, 0x399836bc_0c18_52b1_95db_fbdc82dbf34c);
 impl windows_core::RuntimeType for ITargetedContentContainerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -70,7 +70,7 @@ pub struct ITargetedContentContainerStatics_Vtbl {
     pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::define_interface!(ITargetedContentImage, ITargetedContentImage_Vtbl, 0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
+windows_core::imp::define_interface!(ITargetedContentImage, ITargetedContentImage_Vtbl, 0xf7740fcd_7ec4_538b_9d3e_cce43a89e549);
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for ITargetedContentImage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -83,7 +83,7 @@ pub struct ITargetedContentImage_Vtbl {
     pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentItem, ITargetedContentItem_Vtbl, 0x38168dc4_276c_4c32_96ba_565c6e406e74);
+windows_core::imp::define_interface!(ITargetedContentItem, ITargetedContentItem_Vtbl, 0x767bc067_e524_591c_9a3e_fc19c560c58b);
 impl windows_core::RuntimeType for ITargetedContentItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -122,7 +122,7 @@ pub struct ITargetedContentObject_Vtbl {
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentStateChangedEventArgs, ITargetedContentStateChangedEventArgs_Vtbl, 0x9a1cef3d_8073_4416_8df2_546835a6414f);
+windows_core::imp::define_interface!(ITargetedContentStateChangedEventArgs, ITargetedContentStateChangedEventArgs_Vtbl, 0xd1de787a_6873_592b_923c_447196accb2a);
 impl windows_core::RuntimeType for ITargetedContentStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -132,7 +132,7 @@ pub struct ITargetedContentStateChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentSubscription, ITargetedContentSubscription_Vtbl, 0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
+windows_core::imp::define_interface!(ITargetedContentSubscription, ITargetedContentSubscription_Vtbl, 0x8c699169_f714_5b6c_ac15_82e08afe9c7b);
 impl windows_core::RuntimeType for ITargetedContentSubscription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -149,7 +149,7 @@ pub struct ITargetedContentSubscription_Vtbl {
     pub StateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStateChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentSubscriptionOptions, ITargetedContentSubscriptionOptions_Vtbl, 0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
+windows_core::imp::define_interface!(ITargetedContentSubscriptionOptions, ITargetedContentSubscriptionOptions_Vtbl, 0x8fcc57e1_217b_57b2_9cef_3e88e8b7e604);
 impl windows_core::RuntimeType for ITargetedContentSubscriptionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -175,7 +175,7 @@ pub struct ITargetedContentSubscriptionStatics_Vtbl {
     pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITargetedContentValue, ITargetedContentValue_Vtbl, 0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
+windows_core::imp::define_interface!(ITargetedContentValue, ITargetedContentValue_Vtbl, 0xcd83bc14_5c8a_52a6_984d_ad6cf6539b4a);
 impl windows_core::RuntimeType for ITargetedContentValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -56,7 +56,7 @@ pub mod Usb;
 pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
-windows_core::imp::define_interface!(ILowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider_Vtbl, 0xa73e561c_aac1_4ec7_a852_479f7060d01f);
+windows_core::imp::define_interface!(ILowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider_Vtbl, 0x9a424a50_05be_5f7a_ad84_1b9822dd3756);
 impl windows_core::RuntimeType for ILowLevelDevicesAggregateProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -221,7 +221,7 @@ pub struct ILowLevelDevicesAggregateProvider_Vtbl {
     #[cfg(not(feature = "Devices_Spi_Provider"))]
     SpiControllerProvider: usize,
 }
-windows_core::imp::define_interface!(ILowLevelDevicesAggregateProviderFactory, ILowLevelDevicesAggregateProviderFactory_Vtbl, 0x9ac4aaf6_3473_465e_96d5_36281a2c57af);
+windows_core::imp::define_interface!(ILowLevelDevicesAggregateProviderFactory, ILowLevelDevicesAggregateProviderFactory_Vtbl, 0x463fece3_125d_5a13_8bef_058e0b68c8da);
 impl windows_core::RuntimeType for ILowLevelDevicesAggregateProviderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -234,7 +234,7 @@ pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
     #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider")))]
     Create: usize,
 }
-windows_core::imp::define_interface!(ILowLevelDevicesController, ILowLevelDevicesController_Vtbl, 0x2ec23dd4_179b_45de_9b39_3ae02527de52);
+windows_core::imp::define_interface!(ILowLevelDevicesController, ILowLevelDevicesController_Vtbl, 0xdbfd1f27_f7ec_596e_bcec_68606885146b);
 impl windows_core::RuntimeType for ILowLevelDevicesController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -243,7 +243,7 @@ impl windows_core::RuntimeType for ILowLevelDevicesController {
 pub struct ILowLevelDevicesController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(ILowLevelDevicesControllerStatics, ILowLevelDevicesControllerStatics_Vtbl, 0x093e926a_fccb_4394_a697_19de637c2db3);
+windows_core::imp::define_interface!(ILowLevelDevicesControllerStatics, ILowLevelDevicesControllerStatics_Vtbl, 0xe47c6507_671d_558b_a427_12e1532dadab);
 impl windows_core::RuntimeType for ILowLevelDevicesControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

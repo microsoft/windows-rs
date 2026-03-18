@@ -26,7 +26,7 @@ pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
     CreateCoordinateSystemForNodeWithPositionAndOrientation: usize,
     pub CreateLocatorForNode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialGraphInteropPreviewStatics2, ISpatialGraphInteropPreviewStatics2_Vtbl, 0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
+windows_core::imp::define_interface!(ISpatialGraphInteropPreviewStatics2, ISpatialGraphInteropPreviewStatics2_Vtbl, 0x2f59ed43_edd1_501e_8e7a_d38fa14af1c9);
 impl windows_core::RuntimeType for ISpatialGraphInteropPreviewStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

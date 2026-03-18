@@ -100,7 +100,7 @@ pub const MI_CHAR16: MI_Type = 11i32;
 pub const MI_CHAR16A: MI_Type = 27i32;
 pub const MI_CHAR_TYPE: u32 = 2u32;
 pub type MI_CallbackMode = i32;
-pub type MI_CancelCallback = Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const core::ffi::c_void)>;
+pub type MI_CancelCallback = Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *mut core::ffi::c_void)>;
 pub type MI_CancellationReason = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -682,17 +682,6 @@ impl Default for MI_Datetime {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union MI_Datetime_0 {
-    pub timestamp: MI_Timestamp,
-    pub interval: MI_Interval,
-}
-impl Default for MI_Datetime_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct MI_DatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
@@ -717,6 +706,17 @@ pub struct MI_DatetimeField {
     pub flags: u8,
 }
 impl Default for MI_DatetimeField {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union MI_Datetime_0 {
+    pub timestamp: MI_Timestamp,
+    pub interval: MI_Interval,
+}
+impl Default for MI_Datetime_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1009,7 +1009,7 @@ impl Default for MI_MethodDecl {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type MI_MethodDecl_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
+pub type MI_MethodDecl_Invoke = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *mut u16, classname: *mut u16, methodname: *mut u16, instancename: *mut MI_Instance, parameters: *mut MI_Instance)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_Module {
@@ -1027,7 +1027,7 @@ impl Default for MI_Module {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type MI_Module_Load = Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context)>;
+pub type MI_Module_Load = Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *mut MI_Context)>;
 pub type MI_Module_Self = isize;
 pub type MI_Module_Unload = Option<unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context)>;
 pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
@@ -1070,19 +1070,19 @@ impl Default for MI_Operation {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type MI_OperationCallback_Class = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
+pub type MI_OperationCallback_Class = Option<unsafe extern "system" fn(operation: *mut MI_Operation, callbackcontext: *mut core::ffi::c_void, classresult: *mut MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *mut u16, errordetails: *mut MI_Instance, resultacknowledgement: isize)>;
 pub type MI_OperationCallback_Indication = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-pub type MI_OperationCallback_Instance = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-pub type MI_OperationCallback_PromptUser = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize)>;
+pub type MI_OperationCallback_Instance = Option<unsafe extern "system" fn(operation: *mut MI_Operation, callbackcontext: *mut core::ffi::c_void, instance: *mut MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *mut u16, errordetails: *mut MI_Instance, resultacknowledgement: isize)>;
+pub type MI_OperationCallback_PromptUser = Option<unsafe extern "system" fn(operation: *mut MI_Operation, callbackcontext: *mut core::ffi::c_void, message: *mut u16, prompttype: MI_PromptType, promptuserresult: isize)>;
 pub type MI_OperationCallback_ResponseType = i32;
 pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = 0i32;
 pub const MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = 2i32;
 pub const MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = 1i32;
 pub const MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = 3i32;
-pub type MI_OperationCallback_StreamedParameter = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize)>;
-pub type MI_OperationCallback_WriteError = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize)>;
+pub type MI_OperationCallback_StreamedParameter = Option<unsafe extern "system" fn(operation: *mut MI_Operation, callbackcontext: *mut core::ffi::c_void, parametername: *mut u16, resulttype: MI_Type, result: *mut MI_Value, resultacknowledgement: isize)>;
+pub type MI_OperationCallback_WriteError = Option<unsafe extern "system" fn(operation: *mut MI_Operation, callbackcontext: *mut core::ffi::c_void, instance: *mut MI_Instance, writeerrorresult: isize)>;
 pub type MI_OperationCallback_WriteMessage = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, channel: u32, message: *const u16)>;
-pub type MI_OperationCallback_WriteProgress = Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const core::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32)>;
+pub type MI_OperationCallback_WriteProgress = Option<unsafe extern "system" fn(operation: *mut MI_Operation, callbackcontext: *mut core::ffi::c_void, activity: *mut u16, currentoperation: *mut u16, statusdescription: *mut u16, percentagecomplete: u32, secondsremaining: u32)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MI_OperationCallbacks {
@@ -1246,19 +1246,19 @@ pub struct MI_ProviderFT {
     pub Unsubscribe: MI_ProviderFT_Unsubscribe,
     pub Invoke: MI_ProviderFT_Invoke,
 }
-pub type MI_ProviderFT_AssociatorInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
-pub type MI_ProviderFT_CreateInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance)>;
-pub type MI_ProviderFT_DeleteInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance)>;
+pub type MI_ProviderFT_AssociatorInstances = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *mut u16, classname: *mut u16, instancename: *mut MI_Instance, resultclass: *mut u16, role: *mut u16, resultrole: *mut u16, propertyset: *mut MI_PropertySet, keysonly: u8, filter: *mut MI_Filter)>;
+pub type MI_ProviderFT_CreateInstance = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *mut u16, classname: *mut u16, newinstance: *mut MI_Instance)>;
+pub type MI_ProviderFT_DeleteInstance = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *mut u16, classname: *mut u16, instancename: *mut MI_Instance)>;
 pub type MI_ProviderFT_DisableIndications = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
 pub type MI_ProviderFT_EnableIndications = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
 pub type MI_ProviderFT_EnumerateInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
 pub type MI_ProviderFT_GetInstance = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, propertyset: *const MI_PropertySet)>;
-pub type MI_ProviderFT_Invoke = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, inputparameters: *const MI_Instance)>;
+pub type MI_ProviderFT_Invoke = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *mut u16, classname: *mut u16, methodname: *mut u16, instancename: *mut MI_Instance, inputparameters: *mut MI_Instance)>;
 pub type MI_ProviderFT_Load = Option<unsafe extern "system" fn(self_: *mut *mut core::ffi::c_void, selfmodule: *const MI_Module_Self, context: *const MI_Context)>;
-pub type MI_ProviderFT_ModifyInstance = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *const u16, classname: *const u16, modifiedinstance: *const MI_Instance, propertyset: *const MI_PropertySet)>;
-pub type MI_ProviderFT_ReferenceInstances = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, role: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
+pub type MI_ProviderFT_ModifyInstance = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *mut u16, classname: *mut u16, modifiedinstance: *mut MI_Instance, propertyset: *mut MI_PropertySet)>;
+pub type MI_ProviderFT_ReferenceInstances = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context, namespace: *mut u16, classname: *mut u16, instancename: *mut MI_Instance, role: *mut u16, propertyset: *mut MI_PropertySet, keysonly: u8, filter: *mut MI_Filter)>;
 pub type MI_ProviderFT_Subscribe = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, filter: *const MI_Filter, bookmark: *const u16, subscriptionid: u64, subscriptionself: *mut *mut core::ffi::c_void)>;
-pub type MI_ProviderFT_Unload = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context)>;
+pub type MI_ProviderFT_Unload = Option<unsafe extern "system" fn(self_: *mut core::ffi::c_void, context: *mut MI_Context)>;
 pub type MI_ProviderFT_Unsubscribe = Option<unsafe extern "system" fn(self_: *const core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Clone, Copy)]

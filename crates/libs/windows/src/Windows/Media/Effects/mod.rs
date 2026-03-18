@@ -363,7 +363,7 @@ pub struct IAcousticEchoCancellationConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetEchoCancellationRenderEndpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioCaptureEffectsManager, IAudioCaptureEffectsManager_Vtbl, 0x8f85c271_038d_4393_8298_540110608eef);
+windows_core::imp::define_interface!(IAudioCaptureEffectsManager, IAudioCaptureEffectsManager_Vtbl, 0xd65b969a_fb99_5cca_a988_9bf7e319ace9);
 impl windows_core::RuntimeType for IAudioCaptureEffectsManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -375,7 +375,7 @@ pub struct IAudioCaptureEffectsManager_Vtbl {
     pub RemoveAudioCaptureEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GetAudioCaptureEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioEffect, IAudioEffect_Vtbl, 0x34aafa51_9207_4055_be93_6e5734a86ae4);
+windows_core::imp::define_interface!(IAudioEffect, IAudioEffect_Vtbl, 0x30c40c95_bbb9_5cfd_94cb_660660d2f7bd);
 impl windows_core::RuntimeType for IAudioEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -385,7 +385,7 @@ pub struct IAudioEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AudioEffectType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AudioEffectType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioEffect2, IAudioEffect2_Vtbl, 0x06703cb0_757e_5757_8af0_6ba58a8b2990);
+windows_core::imp::define_interface!(IAudioEffect2, IAudioEffect2_Vtbl, 0xba24f58e_4570_5146_b9ae_2aabf386dc0e);
 impl windows_core::RuntimeType for IAudioEffect2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -529,7 +529,7 @@ pub struct IAudioRenderEffectsManager_Vtbl {
     pub RemoveAudioRenderEffectsChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GetAudioRenderEffects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioRenderEffectsManager2, IAudioRenderEffectsManager2_Vtbl, 0xa844cd09_5ecc_44b3_bb4e_1db07287139c);
+windows_core::imp::define_interface!(IAudioRenderEffectsManager2, IAudioRenderEffectsManager2_Vtbl, 0xd3fa3b78_3f77_5ffc_b9f7_5fd163f15fd3);
 impl windows_core::RuntimeType for IAudioRenderEffectsManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -889,7 +889,7 @@ pub struct IBasicVideoEffect_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
     pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ICompositeVideoFrameContext, ICompositeVideoFrameContext_Vtbl, 0x6c30024b_f514_4278_a5f7_b9188049d110);
+windows_core::imp::define_interface!(ICompositeVideoFrameContext, ICompositeVideoFrameContext_Vtbl, 0x783397fe_ccd7_5916_bb0f_50112ab8a645);
 impl windows_core::RuntimeType for ICompositeVideoFrameContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -919,7 +919,7 @@ pub struct IProcessAudioFrameContext_Vtbl {
     pub InputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OutputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IProcessVideoFrameContext, IProcessVideoFrameContext_Vtbl, 0x276f0e2b_6461_401e_ba78_0fdad6114eec);
+windows_core::imp::define_interface!(IProcessVideoFrameContext, IProcessVideoFrameContext_Vtbl, 0x65ce3b65_6ef6_518f_b173_ca8e8014cf81);
 impl windows_core::RuntimeType for IProcessVideoFrameContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -930,7 +930,7 @@ pub struct IProcessVideoFrameContext_Vtbl {
     pub InputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OutputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoCompositor, IVideoCompositor_Vtbl, 0x8510b43e_420c_420f_96c7_7c98bba1fc55);
+windows_core::imp::define_interface!(IVideoCompositor, IVideoCompositor_Vtbl, 0xb741da99_38e3_50fe_be0b_52b426baa49a);
 impl windows_core::RuntimeType for IVideoCompositor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1054,7 +1054,7 @@ pub struct IVideoCompositor_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, MediaEffectClosedReason) -> windows_core::HRESULT,
     pub DiscardQueuedFrames: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoCompositorDefinition, IVideoCompositorDefinition_Vtbl, 0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
+windows_core::imp::define_interface!(IVideoCompositorDefinition, IVideoCompositorDefinition_Vtbl, 0x77591333_ac4f_5214_86f1_7f60845d6d04);
 impl windows_core::RuntimeType for IVideoCompositorDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1134,7 +1134,7 @@ pub struct IVideoCompositorDefinition_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::define_interface!(IVideoCompositorDefinitionFactory, IVideoCompositorDefinitionFactory_Vtbl, 0x4366fd10_68b8_4d52_89b6_02a968cca899);
+windows_core::imp::define_interface!(IVideoCompositorDefinitionFactory, IVideoCompositorDefinitionFactory_Vtbl, 0xd8645924_b654_5e51_aa96_a3908bb4ac96);
 impl windows_core::RuntimeType for IVideoCompositorDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1148,7 +1148,7 @@ pub struct IVideoCompositorDefinitionFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithProperties: usize,
 }
-windows_core::imp::define_interface!(IVideoEffectDefinition, IVideoEffectDefinition_Vtbl, 0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
+windows_core::imp::define_interface!(IVideoEffectDefinition, IVideoEffectDefinition_Vtbl, 0xbad49383_59e8_54d8_aff5_b8aeb5af60da);
 impl windows_core::RuntimeType for IVideoEffectDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1228,7 +1228,7 @@ pub struct IVideoEffectDefinition_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-windows_core::imp::define_interface!(IVideoEffectDefinitionFactory, IVideoEffectDefinitionFactory_Vtbl, 0x81439b4e_6e33_428f_9d21_b5aafef7617c);
+windows_core::imp::define_interface!(IVideoEffectDefinitionFactory, IVideoEffectDefinitionFactory_Vtbl, 0xbd308c9f_b28a_5eeb_aa84_7f7a58f825fd);
 impl windows_core::RuntimeType for IVideoEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1287,7 +1287,7 @@ pub struct IVideoTransformEffectDefinition_Vtbl {
     #[cfg(not(feature = "Media_Transcoding"))]
     ProcessingAlgorithm: usize,
 }
-windows_core::imp::define_interface!(IVideoTransformEffectDefinition2, IVideoTransformEffectDefinition2_Vtbl, 0xf0a8089f_66c8_4694_9fd9_1136abf7444a);
+windows_core::imp::define_interface!(IVideoTransformEffectDefinition2, IVideoTransformEffectDefinition2_Vtbl, 0xfd4ee67a_e134_569d_8184_e36bb4f06534);
 impl windows_core::RuntimeType for IVideoTransformEffectDefinition2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1297,7 +1297,7 @@ pub struct IVideoTransformEffectDefinition2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SphericalProjection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoTransformSphericalProjection, IVideoTransformSphericalProjection_Vtbl, 0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
+windows_core::imp::define_interface!(IVideoTransformSphericalProjection, IVideoTransformSphericalProjection_Vtbl, 0xd578e841_801d_5e65_83ea_b4a2cca9eda3);
 impl windows_core::RuntimeType for IVideoTransformSphericalProjection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

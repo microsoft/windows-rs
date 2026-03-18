@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICompositionCapabilitiesInteropFactory_Vtbl, 0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
+windows_core::imp::define_interface!(ICompositionCapabilitiesInteropFactory, ICompositionCapabilitiesInteropFactory_Vtbl, 0x86d254ea_61f6_5705_99ae_a5caeadd38ba);
 windows_core::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl ICompositionCapabilitiesInteropFactory {
     #[cfg(feature = "UI_Composition")]
@@ -48,15 +48,11 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 impl windows_core::RuntimeName for ICompositionCapabilitiesInteropFactory {}
-windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop, ICompositionDrawingSurfaceInterop_Vtbl, 0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
+windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop, ICompositionDrawingSurfaceInterop_Vtbl, 0xe631a3f4_0178_51c3_b793_863d459ca53b);
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop, windows_core::IUnknown);
 impl ICompositionDrawingSurfaceInterop {
-    pub unsafe fn BeginDraw<T>(&self, updaterect: Option<*const super::super::super::Foundation::RECT>, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
+    pub unsafe fn BeginDraw(&self, updaterect: *mut super::super::super::Foundation::RECT, iid: *mut windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect as _, iid as _, updateobject as _, updateoffset as _).ok() }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok() }
@@ -64,8 +60,8 @@ impl ICompositionDrawingSurfaceInterop {
     pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(sizepixels)).ok() }
     }
-    pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect.unwrap_or(core::mem::zeroed()) as _, cliprect.unwrap_or(core::mem::zeroed()) as _, offsetx, offsety).ok() }
+    pub unsafe fn Scroll(&self, scrollrect: *mut super::super::super::Foundation::RECT, cliprect: *mut super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect as _, cliprect as _, offsetx, offsety).ok() }
     }
     pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok() }
@@ -78,24 +74,24 @@ impl ICompositionDrawingSurfaceInterop {
 #[doc(hidden)]
 pub struct ICompositionDrawingSurfaceInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::RECT, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::super::super::Foundation::POINT) -> windows_core::HRESULT,
+    pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::RECT, *mut windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::super::super::Foundation::POINT) -> windows_core::HRESULT,
     pub EndDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::SIZE) -> windows_core::HRESULT,
-    pub Scroll: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::RECT, *const super::super::super::Foundation::RECT, i32, i32) -> windows_core::HRESULT,
+    pub Scroll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::RECT, *mut super::super::super::Foundation::RECT, i32, i32) -> windows_core::HRESULT,
     pub ResumeDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SuspendDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICompositionDrawingSurfaceInterop_Impl: windows_core::IUnknownImpl {
-    fn BeginDraw(&self, updaterect: *const super::super::super::Foundation::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<()>;
+    fn BeginDraw(&self, updaterect: *mut super::super::super::Foundation::RECT, iid: *mut windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<()>;
     fn EndDraw(&self) -> windows_core::Result<()>;
     fn Resize(&self, sizepixels: &super::super::super::Foundation::SIZE) -> windows_core::Result<()>;
-    fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::Result<()>;
+    fn Scroll(&self, scrollrect: *mut super::super::super::Foundation::RECT, cliprect: *mut super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::Result<()>;
     fn ResumeDraw(&self) -> windows_core::Result<()>;
     fn SuspendDraw(&self) -> windows_core::Result<()>;
 }
 impl ICompositionDrawingSurfaceInterop_Vtbl {
     pub const fn new<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn BeginDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: *mut super::super::super::Foundation::RECT, iid: *mut windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICompositionDrawingSurfaceInterop_Impl::BeginDraw(this, core::mem::transmute_copy(&updaterect), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&updateobject), core::mem::transmute_copy(&updateoffset)).into()
@@ -113,7 +109,7 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
                 ICompositionDrawingSurfaceInterop_Impl::Resize(this, core::mem::transmute(&sizepixels)).into()
             }
         }
-        unsafe extern "system" fn Scroll<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Scroll<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollrect: *mut super::super::super::Foundation::RECT, cliprect: *mut super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICompositionDrawingSurfaceInterop_Impl::Scroll(this, core::mem::transmute_copy(&scrollrect), core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&offsetx), core::mem::transmute_copy(&offsety)).into()
@@ -155,11 +151,11 @@ impl core::ops::Deref for ICompositionDrawingSurfaceInterop2 {
 }
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, windows_core::IUnknown, ICompositionDrawingSurfaceInterop);
 impl ICompositionDrawingSurfaceInterop2 {
-    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: Option<*const super::super::super::Foundation::RECT>) -> windows_core::Result<()>
+    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, sourcerectangle.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, sourcerectangle).ok() }
     }
 }
 #[repr(C)]
@@ -186,7 +182,7 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICompositionDrawingSurfaceInterop2 {}
-windows_core::imp::define_interface!(ICompositionGraphicsDeviceInterop, ICompositionGraphicsDeviceInterop_Vtbl, 0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8);
+windows_core::imp::define_interface!(ICompositionGraphicsDeviceInterop, ICompositionGraphicsDeviceInterop_Vtbl, 0x5eaf5b3d_def6_55e6_81f7_ee2c9b5b089f);
 windows_core::imp::interface_hierarchy!(ICompositionGraphicsDeviceInterop, windows_core::IUnknown);
 impl ICompositionGraphicsDeviceInterop {
     pub unsafe fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown> {
@@ -443,7 +439,7 @@ impl ICompositorInterop_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 impl windows_core::RuntimeName for ICompositorInterop {}
-windows_core::imp::define_interface!(ICompositorInterop2, ICompositorInterop2_Vtbl, 0xd3eef34c_0667_4afc_8d13_867607b0fe91);
+windows_core::imp::define_interface!(ICompositorInterop2, ICompositorInterop2_Vtbl, 0x2e2e5807_3023_56ac_9bb3_27a00d794f68);
 windows_core::imp::interface_hierarchy!(ICompositorInterop2, windows_core::IUnknown);
 impl ICompositorInterop2 {
     pub unsafe fn CheckCompositionTextureSupport<P0>(&self, renderingdevice: P0) -> windows_core::Result<windows_core::BOOL>
@@ -560,12 +556,12 @@ impl IDesktopWindowTargetInterop_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDesktopWindowTargetInterop {}
-windows_core::imp::define_interface!(IVisualInteractionSourceInterop, IVisualInteractionSourceInterop_Vtbl, 0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e);
+windows_core::imp::define_interface!(IVisualInteractionSourceInterop, IVisualInteractionSourceInterop_Vtbl, 0x617ed106_ad02_52d5_a109_1cbc604a2f59);
 windows_core::imp::interface_hierarchy!(IVisualInteractionSourceInterop, windows_core::IUnknown);
 impl IVisualInteractionSourceInterop {
     #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).TryRedirectForManipulation)(windows_core::Interface::as_raw(self), pointerinfo).ok() }
+    pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *mut super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TryRedirectForManipulation)(windows_core::Interface::as_raw(self), pointerinfo as _).ok() }
     }
 }
 #[repr(C)]
@@ -573,18 +569,18 @@ impl IVisualInteractionSourceInterop {
 pub struct IVisualInteractionSourceInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub TryRedirectForManipulation: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT,
+    pub TryRedirectForManipulation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging")))]
     TryRedirectForManipulation: usize,
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVisualInteractionSourceInterop_Impl: windows_core::IUnknownImpl {
-    fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()>;
+    fn TryRedirectForManipulation(&self, pointerinfo: *mut super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVisualInteractionSourceInterop_Vtbl {
     pub const fn new<Identity: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TryRedirectForManipulation<Identity: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn TryRedirectForManipulation<Identity: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointerinfo: *mut super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVisualInteractionSourceInterop_Impl::TryRedirectForManipulation(this, core::mem::transmute_copy(&pointerinfo)).into()

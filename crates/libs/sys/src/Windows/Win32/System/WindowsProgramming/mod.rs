@@ -2,7 +2,7 @@ windows_link::link!("advpack.dll" "system" fn AddDelBackupEntryA(lpcszfilelist :
 windows_link::link!("advpack.dll" "system" fn AddDelBackupEntryW(lpcszfilelist : windows_sys::core::PCWSTR, lpcszbackupdir : windows_sys::core::PCWSTR, lpcszbasename : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn AdvInstallFileA(hwnd : super::super::Foundation:: HWND, lpszsourcedir : windows_sys::core::PCSTR, lpszsourcefile : windows_sys::core::PCSTR, lpszdestdir : windows_sys::core::PCSTR, lpszdestfile : windows_sys::core::PCSTR, dwflags : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn AdvInstallFileW(hwnd : super::super::Foundation:: HWND, lpszsourcedir : windows_sys::core::PCWSTR, lpszsourcefile : windows_sys::core::PCWSTR, lpszdestdir : windows_sys::core::PCWSTR, lpszdestfile : windows_sys::core::PCWSTR, dwflags : u32, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("apphelp.dll" "system" fn ApphelpCheckShellObject(objectclsid : *const windows_sys::core::GUID, bshimifnecessary : windows_sys::core::BOOL, pullflags : *mut u64) -> windows_sys::core::BOOL);
+windows_link::link!("apphelp.dll" "system" fn ApphelpCheckShellObject(objectclsid : *mut windows_sys::core::GUID, bshimifnecessary : windows_sys::core::BOOL, pullflags : *mut u64) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn CancelDeviceWakeupRequest(hdevice : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("advpack.dll" "system" fn CloseINFEngine(hinf : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue : u64, lpperformancecountervalue : *mut u64, lpconversionerror : *mut u64) -> windows_sys::core::HRESULT);
@@ -29,10 +29,10 @@ windows_link::link!("dciman32.dll" "system" fn DCISetDestination(pdci : *mut DCI
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("dciman32.dll" "system" fn DCISetSrcDestClip(pdci : *mut DCIOFFSCREEN, srcrc : *mut super::super::Foundation:: RECT, destrc : *mut super::super::Foundation:: RECT, prd : *mut super::super::Graphics::Gdi:: RGNDATA) -> i32);
 windows_link::link!("advpack.dll" "system" fn DelNodeA(pszfileordirname : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("advpack.dll" "system" fn DelNodeRunDLL32W(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : windows_sys::core::PWSTR, nshow : i32) -> windows_sys::core::HRESULT);
+windows_link::link!("advpack.dll" "system" fn DelNodeRunDLL32W(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : windows_sys::core::PCWSTR, nshow : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn DelNodeW(pszfileordirname : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameA(hostname : windows_sys::core::PCSTR, computername : windows_sys::core::PSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameW(hostname : windows_sys::core::PCWSTR, computername : windows_sys::core::PWSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameA(hostname : windows_sys::core::PCSTR, computername : windows_sys::core::PCSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn DnsHostnameToComputerNameW(hostname : windows_sys::core::PCWSTR, computername : windows_sys::core::PCWSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn DosDateTimeToFileTime(wfatdate : u16, wfattime : u16, lpfiletime : *mut super::super::Foundation:: FILETIME) -> windows_sys::core::BOOL);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 windows_link::link!("kernel32.dll" "system" fn EnableProcessOptionalXStateFeatures(features : u64) -> windows_sys::core::BOOL);
@@ -45,10 +45,10 @@ windows_link::link!("advpack.dll" "system" fn FileSaveMarkNotExistW(lpfilelist :
 windows_link::link!("advpack.dll" "system" fn FileSaveRestoreOnINFA(hwnd : super::super::Foundation:: HWND, psztitle : windows_sys::core::PCSTR, pszinf : windows_sys::core::PCSTR, pszsection : windows_sys::core::PCSTR, pszbackupdir : windows_sys::core::PCSTR, pszbasebackupfile : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn FileSaveRestoreOnINFW(hwnd : super::super::Foundation:: HWND, psztitle : windows_sys::core::PCWSTR, pszinf : windows_sys::core::PCWSTR, pszsection : windows_sys::core::PCWSTR, pszbackupdir : windows_sys::core::PCWSTR, pszbasebackupfile : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn FileSaveRestoreW(hdlg : super::super::Foundation:: HWND, lpfilelist : windows_sys::core::PCWSTR, lpdir : windows_sys::core::PCWSTR, lpbasename : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("kernel32.dll" "system" fn FileTimeToDosDateTime(lpfiletime : *const super::super::Foundation:: FILETIME, lpfatdate : *mut u16, lpfattime : *mut u16) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn FileTimeToDosDateTime(lpfiletime : *mut super::super::Foundation:: FILETIME, lpfatdate : *mut u16, lpfattime : *mut u16) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-dx-d3dkmt-l1-1-0.dll" "system" fn GdiEntry13() -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetComputerNameA(lpbuffer : windows_sys::core::PSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetComputerNameW(lpbuffer : windows_sys::core::PWSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetComputerNameA(lpbuffer : windows_sys::core::PCSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetComputerNameW(lpbuffer : windows_sys::core::PCWSTR, nsize : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn GetCurrentHwProfileA(lphwprofileinfo : *mut HW_PROFILE_INFOA) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn GetCurrentHwProfileW(lphwprofileinfo : *mut HW_PROFILE_INFOW) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -61,9 +61,9 @@ windows_link::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableExW
 windows_link::link!("kernel32.dll" "system" fn GetFirmwareEnvironmentVariableW(lpname : windows_sys::core::PCWSTR, lpguid : windows_sys::core::PCWSTR, pbuffer : *mut core::ffi::c_void, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileIntA(lpappname : windows_sys::core::PCSTR, lpkeyname : windows_sys::core::PCSTR, ndefault : i32, lpfilename : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileIntW(lpappname : windows_sys::core::PCWSTR, lpkeyname : windows_sys::core::PCWSTR, ndefault : i32, lpfilename : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileSectionA(lpappname : windows_sys::core::PCSTR, lpreturnedstring : windows_sys::core::PSTR, nsize : u32, lpfilename : windows_sys::core::PCSTR) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileSectionA(lpappname : windows_sys::core::PCSTR, lpreturnedstring : windows_sys::core::PCSTR, nsize : u32, lpfilename : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileSectionNamesA(lpszreturnbuffer : windows_sys::core::PSTR, nsize : u32, lpfilename : windows_sys::core::PCSTR) -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileSectionNamesW(lpszreturnbuffer : windows_sys::core::PWSTR, nsize : u32, lpfilename : windows_sys::core::PCWSTR) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileSectionNamesW(lpszreturnbuffer : windows_sys::core::PCWSTR, nsize : u32, lpfilename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileSectionW(lpappname : windows_sys::core::PCWSTR, lpreturnedstring : windows_sys::core::PWSTR, nsize : u32, lpfilename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileStringA(lpappname : windows_sys::core::PCSTR, lpkeyname : windows_sys::core::PCSTR, lpdefault : windows_sys::core::PCSTR, lpreturnedstring : windows_sys::core::PSTR, nsize : u32, lpfilename : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileStringW(lpappname : windows_sys::core::PCWSTR, lpkeyname : windows_sys::core::PCWSTR, lpdefault : windows_sys::core::PCWSTR, lpreturnedstring : windows_sys::core::PWSTR, nsize : u32, lpfilename : windows_sys::core::PCWSTR) -> u32);
@@ -72,14 +72,14 @@ windows_link::link!("kernel32.dll" "system" fn GetPrivateProfileStructW(lpszsect
 windows_link::link!("kernel32.dll" "system" fn GetProfileIntA(lpappname : windows_sys::core::PCSTR, lpkeyname : windows_sys::core::PCSTR, ndefault : i32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetProfileIntW(lpappname : windows_sys::core::PCWSTR, lpkeyname : windows_sys::core::PCWSTR, ndefault : i32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetProfileSectionA(lpappname : windows_sys::core::PCSTR, lpreturnedstring : windows_sys::core::PSTR, nsize : u32) -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetProfileSectionW(lpappname : windows_sys::core::PCWSTR, lpreturnedstring : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetProfileSectionW(lpappname : windows_sys::core::PCWSTR, lpreturnedstring : windows_sys::core::PCWSTR, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetProfileStringA(lpappname : windows_sys::core::PCSTR, lpkeyname : windows_sys::core::PCSTR, lpdefault : windows_sys::core::PCSTR, lpreturnedstring : windows_sys::core::PSTR, nsize : u32) -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetProfileStringW(lpappname : windows_sys::core::PCWSTR, lpkeyname : windows_sys::core::PCWSTR, lpdefault : windows_sys::core::PCWSTR, lpreturnedstring : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetProfileStringW(lpappname : windows_sys::core::PCWSTR, lpkeyname : windows_sys::core::PCWSTR, lpdefault : windows_sys::core::PCWSTR, lpreturnedstring : windows_sys::core::PCWSTR, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetSystemRegistryQuota(pdwquotaallowed : *mut u32, pdwquotaused : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 windows_link::link!("kernel32.dll" "system" fn GetThreadEnabledXStateFeatures() -> u64);
-windows_link::link!("advapi32.dll" "system" fn GetUserNameA(lpbuffer : windows_sys::core::PSTR, pcbbuffer : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn GetUserNameW(lpbuffer : windows_sys::core::PWSTR, pcbbuffer : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn GetUserNameA(lpbuffer : windows_sys::core::PCSTR, pcbbuffer : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn GetUserNameW(lpbuffer : windows_sys::core::PCWSTR, pcbbuffer : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("advpack.dll" "system" fn GetVersionFromFileA(lpszfilename : windows_sys::core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn GetVersionFromFileExA(lpszfilename : windows_sys::core::PCSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn GetVersionFromFileExW(lpszfilename : windows_sys::core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
@@ -99,7 +99,7 @@ windows_link::link!("user32.dll" "system" fn IMPSetIMEA(param0 : super::super::F
 windows_link::link!("user32.dll" "system" fn IMPSetIMEW(param0 : super::super::Foundation:: HWND, param1 : *mut IMEPROW) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-apiquery-l2-1-0.dll" "system" fn IsApiSetImplemented(contract : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn IsBadHugeReadPtr(lp : *const core::ffi::c_void, ucb : usize) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn IsBadHugeWritePtr(lp : *const core::ffi::c_void, ucb : usize) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn IsBadHugeWritePtr(lp : *mut core::ffi::c_void, ucb : usize) -> windows_sys::core::BOOL);
 windows_link::link!("advpack.dll" "system" fn IsNTAdmin(dwreserved : u32, lpdwreserved : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn IsNativeVhdBoot(nativevhdboot : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn IsTokenUntrusted(tokenhandle : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
@@ -126,9 +126,9 @@ windows_link::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbia
 windows_link::link!("api-ms-win-core-backgroundtask-l1-1-0.dll" "system" fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig : *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32);
 windows_link::link!("advpack.dll" "system" fn RebootCheckOnInstallA(hwnd : super::super::Foundation:: HWND, pszinf : windows_sys::core::PCSTR, pszsec : windows_sys::core::PCSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn RebootCheckOnInstallW(hwnd : super::super::Foundation:: HWND, pszinf : windows_sys::core::PCWSTR, pszsec : windows_sys::core::PCWSTR, dwreserved : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureError(featureid : u32, error : *const FEATURE_ERROR));
+windows_link::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureError(featureid : u32, error : *mut FEATURE_ERROR));
 windows_link::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn RecordFeatureUsage(featureid : u32, kind : u32, addend : u32, originname : windows_sys::core::PCSTR));
-windows_link::link!("advpack.dll" "system" fn RegInstallA(hmod : super::super::Foundation:: HMODULE, pszsection : windows_sys::core::PCSTR, psttable : *const STRTABLEA) -> windows_sys::core::HRESULT);
+windows_link::link!("advpack.dll" "system" fn RegInstallA(hmod : super::super::Foundation:: HMODULE, pszsection : windows_sys::core::PCSTR, psttable : *mut STRTABLEA) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn RegInstallW(hmod : super::super::Foundation:: HMODULE, pszsection : windows_sys::core::PCWSTR, psttable : *const STRTABLEW) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
 windows_link::link!("advpack.dll" "system" fn RegRestoreAllA(hwnd : super::super::Foundation:: HWND, psztitlestring : windows_sys::core::PCSTR, hkbckupkey : super::Registry:: HKEY) -> windows_sys::core::HRESULT);
@@ -165,7 +165,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstri
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *mut super::super::Foundation:: UNICODE_STRING, oemname : *mut super::Kernel:: STRING, namecontainsspaces : *mut bool) -> bool);
 windows_link::link!("ntdll.dll" "system" fn RtlLocalTimeToSystemTime(localtime : *mut i64, systemtime : *mut i64) -> super::super::Foundation:: NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlRaiseCustomSystemEventTrigger(triggerconfig : *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32);
+windows_link::link!("ntdll.dll" "system" fn RtlRaiseCustomSystemEventTrigger(triggerconfig : *mut CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1970(time : *mut i64, elapsedseconds : *mut u32) -> bool);
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut super::super::Foundation:: UNICODE_STRING, allocatedestinationstring : bool) -> super::super::Foundation:: NTSTATUS);
@@ -180,17 +180,17 @@ windows_link::link!("user32.dll" "system" fn SendIMEMessageExW(param0 : super::s
 windows_link::link!("kernel32.dll" "system" fn SetEnvironmentStringsA(newenvironment : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableA(lpname : windows_sys::core::PCSTR, lpguid : windows_sys::core::PCSTR, pvalue : *const core::ffi::c_void, nsize : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableExA(lpname : windows_sys::core::PCSTR, lpguid : windows_sys::core::PCSTR, pvalue : *const core::ffi::c_void, nsize : u32, dwattributes : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableExW(lpname : windows_sys::core::PCWSTR, lpguid : windows_sys::core::PCWSTR, pvalue : *const core::ffi::c_void, nsize : u32, dwattributes : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableExW(lpname : windows_sys::core::PCWSTR, lpguid : windows_sys::core::PCWSTR, pvalue : *mut core::ffi::c_void, nsize : u32, dwattributes : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetFirmwareEnvironmentVariableW(lpname : windows_sys::core::PCWSTR, lpguid : windows_sys::core::PCWSTR, pvalue : *const core::ffi::c_void, nsize : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetHandleCount(unumber : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn SetMessageWaitingIndicator(hmsgindicator : super::super::Foundation:: HANDLE, ulmsgcount : u32) -> windows_sys::core::BOOL);
 windows_link::link!("advpack.dll" "system" fn SetPerUserSecValuesA(pperuser : *mut PERUSERSECTIONA) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn SetPerUserSecValuesW(pperuser : *mut PERUSERSECTIONW) -> windows_sys::core::HRESULT);
-windows_link::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn SubscribeFeatureStateChangeNotification(subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback : PFEATURE_STATE_CHANGE_CALLBACK, context : *const core::ffi::c_void));
+windows_link::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn SubscribeFeatureStateChangeNotification(subscription : *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback : PFEATURE_STATE_CHANGE_CALLBACK, context : *mut core::ffi::c_void));
 windows_link::link!("advpack.dll" "system" fn TranslateInfStringA(pszinffilename : windows_sys::core::PCSTR, pszinstallsection : windows_sys::core::PCSTR, psztranslatesection : windows_sys::core::PCSTR, psztranslatekey : windows_sys::core::PCSTR, pszbuffer : windows_sys::core::PSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn TranslateInfStringExA(hinf : *mut core::ffi::c_void, pszinffilename : windows_sys::core::PCSTR, psztranslatesection : windows_sys::core::PCSTR, psztranslatekey : windows_sys::core::PCSTR, pszbuffer : windows_sys::core::PSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn TranslateInfStringExW(hinf : *mut core::ffi::c_void, pszinffilename : windows_sys::core::PCWSTR, psztranslatesection : windows_sys::core::PCWSTR, psztranslatekey : windows_sys::core::PCWSTR, pszbuffer : windows_sys::core::PWSTR, dwbuffersize : u32, pdwrequiredsize : *mut u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("advpack.dll" "system" fn TranslateInfStringW(pszinffilename : windows_sys::core::PCWSTR, pszinstallsection : windows_sys::core::PCWSTR, psztranslatesection : windows_sys::core::PCWSTR, psztranslatekey : windows_sys::core::PCWSTR, pszbuffer : windows_sys::core::PWSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("advpack.dll" "system" fn TranslateInfStringW(pszinffilename : windows_sys::core::PCWSTR, pszinstallsection : windows_sys::core::PCWSTR, psztranslatesection : windows_sys::core::PCWSTR, psztranslatekey : windows_sys::core::PCWSTR, pszbuffer : windows_sys::core::PCWSTR, cchbuffer : u32, pdwrequiredsize : *mut u32, pvreserved : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-featurestaging-l1-1-0.dll" "system" fn UnsubscribeFeatureStateChangeNotification(subscription : FEATURE_STATE_CHANGE_SUBSCRIPTION));
 windows_link::link!("advpack.dll" "system" fn UserInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : windows_sys::core::PCSTR, nshow : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("advpack.dll" "system" fn UserInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : windows_sys::core::PCWSTR, nshow : i32) -> windows_sys::core::HRESULT);
@@ -205,22 +205,22 @@ windows_link::link!("dciman32.dll" "system" fn WinWatchDidStatusChange(hww : HWI
 windows_link::link!("dciman32.dll" "system" fn WinWatchGetClipList(hww : HWINWATCH, prc : *mut super::super::Foundation:: RECT, size : u32, prd : *mut super::super::Graphics::Gdi:: RGNDATA) -> u32);
 windows_link::link!("dciman32.dll" "system" fn WinWatchNotify(hww : HWINWATCH, notifycallback : WINWATCHNOTIFYPROC, notifyparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
 windows_link::link!("dciman32.dll" "system" fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
-windows_link::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
-windows_link::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
+windows_link::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *mut windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *mut u8, buffersize : u32, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
+windows_link::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *mut windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut core::ffi::c_void, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
-windows_link::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *const windows_sys::core::GUID, hostinformation : *const WLDP_HOST_INFORMATION, isapproved : *mut windows_sys::core::BOOL, optionalflags : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *mut windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut core::ffi::c_void, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
+windows_link::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *mut WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *mut windows_sys::core::GUID, hostinformation : *mut WLDP_HOST_INFORMATION, isapproved : *mut windows_sys::core::BOOL, optionalflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("wldp.dll" "system" fn WldpIsDynamicCodePolicyEnabled(isenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("wldp.dll" "system" fn WldpQueryDeviceSecurityInformation(information : *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength : u32, returnlength : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("wldp.dll" "system" fn WldpQueryDynamicCodeTrust(filehandle : super::super::Foundation:: HANDLE, baseimage : *const core::ffi::c_void, imagesize : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("wldp.dll" "system" fn WldpQueryDynamicCodeTrust(filehandle : super::super::Foundation:: HANDLE, baseimage : *mut core::ffi::c_void, imagesize : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("wldp.dll" "system" fn WldpSetDynamicCodeTrust(filehandle : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileSectionA(lpappname : windows_sys::core::PCSTR, lpstring : windows_sys::core::PCSTR, lpfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileSectionW(lpappname : windows_sys::core::PCWSTR, lpstring : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileStringA(lpappname : windows_sys::core::PCSTR, lpkeyname : windows_sys::core::PCSTR, lpstring : windows_sys::core::PCSTR, lpfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileStringW(lpappname : windows_sys::core::PCWSTR, lpkeyname : windows_sys::core::PCWSTR, lpstring : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileStructA(lpszsection : windows_sys::core::PCSTR, lpszkey : windows_sys::core::PCSTR, lpstruct : *const core::ffi::c_void, usizestruct : u32, szfile : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileStructW(lpszsection : windows_sys::core::PCWSTR, lpszkey : windows_sys::core::PCWSTR, lpstruct : *const core::ffi::c_void, usizestruct : u32, szfile : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileStructA(lpszsection : windows_sys::core::PCSTR, lpszkey : windows_sys::core::PCSTR, lpstruct : *mut core::ffi::c_void, usizestruct : u32, szfile : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn WritePrivateProfileStructW(lpszsection : windows_sys::core::PCWSTR, lpszkey : windows_sys::core::PCWSTR, lpstruct : *mut core::ffi::c_void, usizestruct : u32, szfile : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteProfileSectionA(lpappname : windows_sys::core::PCSTR, lpstring : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteProfileSectionW(lpappname : windows_sys::core::PCWSTR, lpstring : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteProfileStringA(lpappname : windows_sys::core::PCSTR, lpkeyname : windows_sys::core::PCSTR, lpstring : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
@@ -234,19 +234,19 @@ windows_link::link!("kernel32.dll" "system" fn _lopen(lppathname : windows_sys::
 windows_link::link!("kernel32.dll" "system" fn _lread(hfile : i32, lpbuffer : *mut core::ffi::c_void, ubytes : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn _lwrite(hfile : i32, lpbuffer : windows_sys::core::PCSTR, ubytes : u32) -> u32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn uaw_lstrcmpW(string1 : *const u16, string2 : *const u16) -> i32);
+windows_link::link!("kernel32.dll" "system" fn uaw_lstrcmpW(string1 : *mut u16, string2 : *mut u16) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn uaw_lstrcmpiW(string1 : *const u16, string2 : *const u16) -> i32);
+windows_link::link!("kernel32.dll" "system" fn uaw_lstrcmpiW(string1 : *mut u16, string2 : *mut u16) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn uaw_lstrlenW(string : *const u16) -> i32);
+windows_link::link!("kernel32.dll" "system" fn uaw_lstrlenW(string : *mut u16) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn uaw_wcschr(string : *const u16, character : u16) -> *mut u16);
+windows_link::link!("kernel32.dll" "system" fn uaw_wcschr(string : *mut u16, character : u16) -> *mut u16);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn uaw_wcscpy(destination : *mut u16, source : *const u16) -> *mut u16);
+windows_link::link!("kernel32.dll" "system" fn uaw_wcscpy(destination : *mut u16, source : *mut u16) -> *mut u16);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn uaw_wcsicmp(string1 : *const u16, string2 : *const u16) -> i32);
+windows_link::link!("kernel32.dll" "system" fn uaw_wcsicmp(string1 : *mut u16, string2 : *mut u16) -> i32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn uaw_wcslen(string : *const u16) -> usize);
+windows_link::link!("kernel32.dll" "system" fn uaw_wcslen(string : *mut u16) -> usize);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("kernel32.dll" "system" fn uaw_wcsrchr(string : *const u16, character : u16) -> *mut u16);
 pub const AADBE_ADD_ENTRY: u32 = 1u32;
@@ -685,25 +685,6 @@ pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = 6i32;
 pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = 0i32;
 pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = 9i32;
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct DELAYLOAD_INFO {
-    pub Size: u32,
-    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
-    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
-    pub TargetDllName: windows_sys::core::PCSTR,
-    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
-    pub TargetModuleBase: *mut core::ffi::c_void,
-    pub Unused: *mut core::ffi::c_void,
-    pub LastError: u32,
-}
-#[cfg(target_arch = "x86")]
-impl Default for DELAYLOAD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1174,13 +1155,11 @@ impl Default for LDR_DATA_TABLE_ENTRY {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
     pub Reserved6: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for LDR_DATA_TABLE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1217,7 +1196,7 @@ pub const PCF_SETXCHAR: u32 = 32u32;
 pub const PCF_SPECIALCHARS: u32 = 256u32;
 pub const PCF_TOTALTIMEOUTS: u32 = 64u32;
 pub const PCF_XONXOFF: u32 = 16u32;
-pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut core::ffi::c_void>;
+pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *mut DELAYLOAD_INFO) -> *mut core::ffi::c_void>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PERUSERSECTIONA {
@@ -1252,9 +1231,9 @@ impl Default for PERUSERSECTIONW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type PFEATURE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
+pub type PFEATURE_STATE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub type PFIBER_CALLOUT_ROUTINE = Option<unsafe extern "system" fn(lpparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> windows_sys::core::BOOL>;
+pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *mut core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> windows_sys::core::BOOL>;
 pub const PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT: u32 = 1u32;
 pub const PROCESS_CREATION_CHILD_PROCESS_OVERRIDE: u32 = 2u32;
 pub const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED: u32 = 1u32;
@@ -1309,16 +1288,16 @@ impl Default for PUBLIC_OBJECT_TYPE_INFORMATION {
     }
 }
 pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> bool>;
-pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *mut windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *mut u8, buffersize: u32, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *mut windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_System_Com")]
-pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut core::ffi::c_void, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
+pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *mut windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut core::ffi::c_void, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
 pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = Option<unsafe extern "system" fn(packagefamilyname: windows_sys::core::PCWSTR, packageversion: u64) -> windows_sys::core::HRESULT>;
 pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = Option<unsafe extern "system" fn(pbenabled: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT>;
 pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT>;
 pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT>;
 pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> windows_sys::core::HRESULT>;
-pub type PWLDP_QUERYDYNAMICODETRUST_API = Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const core::ffi::c_void, imagesize: u32) -> windows_sys::core::HRESULT>;
+pub type PWLDP_QUERYDYNAMICODETRUST_API = Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *mut core::ffi::c_void, imagesize: u32) -> windows_sys::core::HRESULT>;
 pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = Option<unsafe extern "system" fn(setting: windows_sys::core::PCWSTR, enabled: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT>;
 pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT>;
 pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> windows_sys::core::HRESULT>;
@@ -1332,7 +1311,7 @@ pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_HMODULE: u32 = 8u32;
 pub const QUERY_ACTCTX_FLAG_NO_ADDREF: u32 = 2147483648u32;
 pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
 pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
-pub type REGINSTALLA = Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: windows_sys::core::PCSTR, psttable: *const STRTABLEA) -> windows_sys::core::HRESULT>;
+pub type REGINSTALLA = Option<unsafe extern "system" fn(hm: super::super::Foundation::HMODULE, pszsection: windows_sys::core::PCSTR, psttable: *mut STRTABLEA) -> windows_sys::core::HRESULT>;
 pub const REG_RESTORE_LOG_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("RegRestoreLogFile");
 pub const REG_SAVE_LOG_KEY: windows_sys::core::PCWSTR = windows_sys::core::w!("RegSaveLogFile");
 pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;

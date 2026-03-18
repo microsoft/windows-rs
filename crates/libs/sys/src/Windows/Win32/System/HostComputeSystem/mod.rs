@@ -6,14 +6,14 @@ windows_link::link!("computecore.dll" "system" fn HcsCloseOperation(operation : 
 windows_link::link!("computecore.dll" "system" fn HcsCloseProcess(process : HCS_PROCESS));
 windows_link::link!("computecore.dll" "system" fn HcsCrashComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-windows_link::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_sys::core::PCWSTR, configuration : windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_sys::core::HRESULT);
-windows_link::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : windows_sys::core::PCWSTR, id : windows_sys::core::PCWSTR, configuration : windows_sys::core::PCWSTR, operation : HCS_OPERATION, options : *const HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> windows_sys::core::HRESULT);
+windows_link::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_sys::core::PCWSTR, configuration : windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *mut super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_sys::core::HRESULT);
+windows_link::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : windows_sys::core::PCWSTR, id : windows_sys::core::PCWSTR, configuration : windows_sys::core::PCWSTR, operation : HCS_OPERATION, options : *mut HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsCreateEmptyGuestStateFile(gueststatefilepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("computecore.dll" "system" fn HcsCreateOperation(context : *const core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
-windows_link::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
+windows_link::link!("computecore.dll" "system" fn HcsCreateOperation(context : *mut core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
+windows_link::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *mut core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
 #[cfg(feature = "Win32_Security")]
-windows_link::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> windows_sys::core::HRESULT);
+windows_link::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *mut super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> windows_sys::core::HRESULT);
 windows_link::link!("computestorage.dll" "system" fn HcsDestroyLayer(layerpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computestorage.dll" "system" fn HcsDetachLayerStorageFilter(layerpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsEnumerateComputeSystems(query : windows_sys::core::PCWSTR, operation : HCS_OPERATION) -> windows_sys::core::HRESULT);
@@ -32,7 +32,7 @@ windows_link::link!("computecore.dll" "system" fn HcsGetOperationType(operation 
 windows_link::link!("computecore.dll" "system" fn HcsGetProcessFromOperation(operation : HCS_OPERATION) -> HCS_PROCESS);
 windows_link::link!("computecore.dll" "system" fn HcsGetProcessInfo(process : HCS_PROCESS, operation : HCS_OPERATION) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGetProcessProperties(process : HCS_PROCESS, operation : HCS_OPERATION, propertyquery : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("computecore.dll" "system" fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename : windows_sys::core::PCWSTR, processorfeaturesstring : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("computecore.dll" "system" fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename : windows_sys::core::PCWSTR, processorfeaturesstring : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGetServiceProperties(propertyquery : windows_sys::core::PCWSTR, result : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGrantVmAccess(vmid : windows_sys::core::PCWSTR, filepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGrantVmGroupAccess(filepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
@@ -50,8 +50,8 @@ windows_link::link!("computecore.dll" "system" fn HcsResumeComputeSystem(compute
 windows_link::link!("computecore.dll" "system" fn HcsRevokeVmAccess(vmid : windows_sys::core::PCWSTR, filepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsRevokeVmGroupAccess(filepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsSaveComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("computecore.dll" "system" fn HcsSetComputeSystemCallback(computesystem : HCS_SYSTEM, callbackoptions : HCS_EVENT_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_sys::core::HRESULT);
-windows_link::link!("computecore.dll" "system" fn HcsSetOperationCallback(operation : HCS_OPERATION, context : *const core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> windows_sys::core::HRESULT);
+windows_link::link!("computecore.dll" "system" fn HcsSetComputeSystemCallback(computesystem : HCS_SYSTEM, callbackoptions : HCS_EVENT_OPTIONS, context : *mut core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_sys::core::HRESULT);
+windows_link::link!("computecore.dll" "system" fn HcsSetOperationCallback(operation : HCS_OPERATION, context : *mut core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsSetOperationContext(operation : HCS_OPERATION, context : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsSetProcessCallback(process : HCS_PROCESS, callbackoptions : HCS_EVENT_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_sys::core::HRESULT);
 windows_link::link!("computestorage.dll" "system" fn HcsSetupBaseOSLayer(layerpath : windows_sys::core::PCWSTR, vhdhandle : super::super::Foundation:: HANDLE, options : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
@@ -96,11 +96,11 @@ impl Default for HCS_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
+pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *mut HCS_EVENT, context: *mut core::ffi::c_void)>;
 pub type HCS_EVENT_OPTIONS = i32;
 pub type HCS_EVENT_TYPE = i32;
 pub type HCS_NOTIFICATIONS = i32;
-pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;
+pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *mut core::ffi::c_void, notificationstatus: windows_sys::core::HRESULT, notificationdata: windows_sys::core::PCWSTR)>;
 pub type HCS_NOTIFICATION_FLAGS = i32;
 pub type HCS_OPERATION = *mut core::ffi::c_void;
 pub type HCS_OPERATION_COMPLETION = Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const core::ffi::c_void)>;

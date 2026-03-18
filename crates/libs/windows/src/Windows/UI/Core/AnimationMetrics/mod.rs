@@ -139,7 +139,7 @@ impl windows_core::TypeKind for AnimationEffectTarget {
 impl windows_core::RuntimeType for AnimationEffectTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
 }
-windows_core::imp::define_interface!(IAnimationDescription, IAnimationDescription_Vtbl, 0x7d11a549_be3d_41de_b081_05c149962f9b);
+windows_core::imp::define_interface!(IAnimationDescription, IAnimationDescription_Vtbl, 0x08297db3_700c_5fcd_9a79_b2ae22ec6354);
 impl windows_core::RuntimeType for IAnimationDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -153,7 +153,7 @@ pub struct IAnimationDescription_Vtbl {
     pub DelayLimit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub ZOrder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAnimationDescriptionFactory, IAnimationDescriptionFactory_Vtbl, 0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
+windows_core::imp::define_interface!(IAnimationDescriptionFactory, IAnimationDescriptionFactory_Vtbl, 0xbdaebed4_1cda_5342_8e03_ee9f0161b56b);
 impl windows_core::RuntimeType for IAnimationDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -163,7 +163,7 @@ pub struct IAnimationDescriptionFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, AnimationEffect, AnimationEffectTarget, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IOpacityAnimation, IOpacityAnimation_Vtbl, 0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
+windows_core::imp::define_interface!(IOpacityAnimation, IOpacityAnimation_Vtbl, 0xcaaa0c98_c373_5400_b1c0_367a5a3873c0);
 impl windows_core::RuntimeType for IOpacityAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -174,7 +174,7 @@ pub struct IOpacityAnimation_Vtbl {
     pub InitialOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FinalOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0x3a01b4da_4d8c_411e_b615_1ade683a9903);
+windows_core::imp::define_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0xb1d73004_679d_567f_b552_f0290a31d187);
 impl windows_core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -311,7 +311,7 @@ pub struct IPropertyAnimation_Vtbl {
     pub Control1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
     pub Control2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::Point) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0x023552c7_71ab_428c_9c9f_d31780964995);
+windows_core::imp::define_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0xd048080f_0ccd_5bf2_9f2d_03c284ce937b);
 impl windows_core::RuntimeType for IScaleAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

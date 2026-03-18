@@ -608,7 +608,7 @@ impl windows_core::TypeKind for ApplicationDataLocality {
 impl windows_core::RuntimeType for ApplicationDataLocality {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
 }
-windows_core::imp::define_interface!(ApplicationDataSetVersionHandler, ApplicationDataSetVersionHandler_Vtbl, 0xa05791e6_cc9f_4687_acab_a364fd785463);
+windows_core::imp::define_interface!(ApplicationDataSetVersionHandler, ApplicationDataSetVersionHandler_Vtbl, 0x0e2a9be5_5602_5885_b964_b23f00b221f1);
 impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1068,7 +1068,7 @@ pub struct IAppDataPathsStatics_Vtbl {
     GetForUser: usize,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationData, IApplicationData_Vtbl, 0xc3da6fb7_b744_4b45_b0b8_223a0938d0dc);
+windows_core::imp::define_interface!(IApplicationData, IApplicationData_Vtbl, 0xeddd10ec_2c4f_52a2_be0c_5908d880c4bb);
 impl windows_core::RuntimeType for IApplicationData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1099,7 +1099,7 @@ pub struct IApplicationData_Vtbl {
     pub SignalDataChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RoamingStorageQuota: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationData2, IApplicationData2_Vtbl, 0x9e65cd69_0ba3_4e32_be29_b02de6607638);
+windows_core::imp::define_interface!(IApplicationData2, IApplicationData2_Vtbl, 0x54af937d_f1f0_5f98_b287_d8fe311375c9);
 impl windows_core::RuntimeType for IApplicationData2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1112,7 +1112,7 @@ pub struct IApplicationData2_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     LocalCacheFolder: usize,
 }
-windows_core::imp::define_interface!(IApplicationData3, IApplicationData3_Vtbl, 0xdc222cf4_2772_4c1d_aa2c_c9f743ade8d1);
+windows_core::imp::define_interface!(IApplicationData3, IApplicationData3_Vtbl, 0x572b5596_601a_5a1d_bb8d_8ce8750c4602);
 impl windows_core::RuntimeType for IApplicationData3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1130,7 +1130,7 @@ pub struct IApplicationData3_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     SharedLocalFolder: usize,
 }
-windows_core::imp::define_interface!(IApplicationDataContainer, IApplicationDataContainer_Vtbl, 0xc5aefd1e_f467_40ba_8566_ab640a441e1d);
+windows_core::imp::define_interface!(IApplicationDataContainer, IApplicationDataContainer_Vtbl, 0x913d5607_b351_524e_aaac_8536174a4da2);
 impl windows_core::RuntimeType for IApplicationDataContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1158,7 +1158,7 @@ pub struct IApplicationDataStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IApplicationDataStatics2, IApplicationDataStatics2_Vtbl, 0xcd606211_cf49_40a4_a47c_c7f0dbba8107);
+windows_core::imp::define_interface!(IApplicationDataStatics2, IApplicationDataStatics2_Vtbl, 0x7562b76e_ca96_5216_aac2_d7c69b01b428);
 impl windows_core::RuntimeType for IApplicationDataStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1188,7 +1188,7 @@ pub struct ICachedFileManagerStatics_Vtbl {
     #[cfg(not(all(feature = "Storage_Provider", feature = "Storage_Streams")))]
     CompleteUpdatesAsync: usize,
 }
-windows_core::imp::define_interface!(IDownloadsFolderStatics, IDownloadsFolderStatics_Vtbl, 0x27862ed0_404e_47df_a1e2_e37308be7b37);
+windows_core::imp::define_interface!(IDownloadsFolderStatics, IDownloadsFolderStatics_Vtbl, 0x669a36c3_b2e0_50e4_ab0f_c818d3ad22f3);
 impl windows_core::RuntimeType for IDownloadsFolderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1213,7 +1213,7 @@ pub struct IDownloadsFolderStatics_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     CreateFolderWithCollisionOptionAsync: usize,
 }
-windows_core::imp::define_interface!(IDownloadsFolderStatics2, IDownloadsFolderStatics2_Vtbl, 0xe93045bd_8ef8_4f8e_8d15_ac0e265f390d);
+windows_core::imp::define_interface!(IDownloadsFolderStatics2, IDownloadsFolderStatics2_Vtbl, 0x26e6f522_eccc_5c92_af2d_1e4d117b47d5);
 impl windows_core::RuntimeType for IDownloadsFolderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1307,7 +1307,7 @@ pub struct IFileIOStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     WriteBytesAsync: usize,
 }
-windows_core::imp::define_interface!(IKnownFoldersCameraRollStatics, IKnownFoldersCameraRollStatics_Vtbl, 0x5d115e66_27e8_492f_b8e5_2f90896cd4cd);
+windows_core::imp::define_interface!(IKnownFoldersCameraRollStatics, IKnownFoldersCameraRollStatics_Vtbl, 0x179f7eb3_c94e_57c6_9091_a3e698aa93ba);
 impl windows_core::RuntimeType for IKnownFoldersCameraRollStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1320,7 +1320,7 @@ pub struct IKnownFoldersCameraRollStatics_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     CameraRoll: usize,
 }
-windows_core::imp::define_interface!(IKnownFoldersPlaylistsStatics, IKnownFoldersPlaylistsStatics_Vtbl, 0xdad5ecd6_306f_4d6a_b496_46ba8eb106ce);
+windows_core::imp::define_interface!(IKnownFoldersPlaylistsStatics, IKnownFoldersPlaylistsStatics_Vtbl, 0x650f8486_dcfa_5e57_a900_c25b9f9dfdf2);
 impl windows_core::RuntimeType for IKnownFoldersPlaylistsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1333,7 +1333,7 @@ pub struct IKnownFoldersPlaylistsStatics_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     Playlists: usize,
 }
-windows_core::imp::define_interface!(IKnownFoldersSavedPicturesStatics, IKnownFoldersSavedPicturesStatics_Vtbl, 0x055c93ea_253d_467c_b6ca_a97da1e9a18d);
+windows_core::imp::define_interface!(IKnownFoldersSavedPicturesStatics, IKnownFoldersSavedPicturesStatics_Vtbl, 0x1abc1ba1_b941_5d6e_98bc_57a8e7eb594c);
 impl windows_core::RuntimeType for IKnownFoldersSavedPicturesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1417,7 +1417,7 @@ pub struct IKnownFoldersStatics3_Vtbl {
     #[cfg(not(all(feature = "Storage_Search", feature = "System")))]
     GetFolderForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IKnownFoldersStatics4, IKnownFoldersStatics4_Vtbl, 0x1722e6bf_9ff9_4b21_bed5_90ecb13a192e);
+windows_core::imp::define_interface!(IKnownFoldersStatics4, IKnownFoldersStatics4_Vtbl, 0x13c987a4_ea9d_5c35_b152_4096d40ef6e7);
 impl windows_core::RuntimeType for IKnownFoldersStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1483,7 +1483,7 @@ pub struct IPathIOStatics_Vtbl {
     WriteBufferAsync: usize,
     pub WriteBytesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISetVersionDeferral, ISetVersionDeferral_Vtbl, 0x033508a2_781a_437a_b078_3f32badcfe47);
+windows_core::imp::define_interface!(ISetVersionDeferral, ISetVersionDeferral_Vtbl, 0x908740d8_7cbe_5079_b521_52806861f890);
 impl windows_core::RuntimeType for ISetVersionDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1493,7 +1493,7 @@ pub struct ISetVersionDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISetVersionRequest, ISetVersionRequest_Vtbl, 0xb9c76b9b_1056_4e69_8330_162619956f9b);
+windows_core::imp::define_interface!(ISetVersionRequest, ISetVersionRequest_Vtbl, 0x2e7d24e0_3457_5528_8b52_318b55af7b15);
 impl windows_core::RuntimeType for ISetVersionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1506,7 +1506,7 @@ pub struct ISetVersionRequest_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::define_interface!(IStorageFile, IStorageFile_Vtbl, 0xfa3f6186_4214_428c_a64c_14c9ac7315ea);
+windows_core::imp::define_interface!(IStorageFile, IStorageFile_Vtbl, 0x5893cf07_24d8_524d_9e72_3aa726c46bd9);
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for IStorageFile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2007,7 +2007,7 @@ pub struct IStorageFile2_Vtbl {
     OpenWithOptionsAsync: usize,
     pub OpenTransactedWriteWithOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, StorageOpenOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageFilePropertiesWithAvailability, IStorageFilePropertiesWithAvailability_Vtbl, 0xafcbbe9b_582b_4133_9648_e44ca46ee491);
+windows_core::imp::define_interface!(IStorageFilePropertiesWithAvailability, IStorageFilePropertiesWithAvailability_Vtbl, 0x703e46f5_451b_53b3_895b_d1388d76eccc);
 impl windows_core::RuntimeType for IStorageFilePropertiesWithAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2089,7 +2089,7 @@ pub struct IStorageFileStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ReplaceWithStreamedFileFromUriAsync: usize,
 }
-windows_core::imp::define_interface!(IStorageFileStatics2, IStorageFileStatics2_Vtbl, 0x5c76a781_212e_4af9_8f04_740cae108974);
+windows_core::imp::define_interface!(IStorageFileStatics2, IStorageFileStatics2_Vtbl, 0xe1415a87_2fdf_5bcb_8df9_97e999181310);
 impl windows_core::RuntimeType for IStorageFileStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2102,7 +2102,7 @@ pub struct IStorageFileStatics2_Vtbl {
     #[cfg(not(all(feature = "Storage_Streams", feature = "System")))]
     GetFileFromPathForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IStorageFolder, IStorageFolder_Vtbl, 0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b);
+windows_core::imp::define_interface!(IStorageFolder, IStorageFolder_Vtbl, 0x820b09aa_d820_559a_bf35_e8c71c2b9e3f);
 impl windows_core::RuntimeType for IStorageFolder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2466,7 +2466,7 @@ pub struct IStorageFolder_Vtbl {
     GetFoldersAsyncOverloadDefaultOptionsStartAndCount: usize,
     pub GetItemsAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageFolder2, IStorageFolder2_Vtbl, 0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3);
+windows_core::imp::define_interface!(IStorageFolder2, IStorageFolder2_Vtbl, 0x47386fbf_7fe2_5a04_8ce5_dcfa509d0e4b);
 impl windows_core::RuntimeType for IStorageFolder2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2513,7 +2513,7 @@ pub struct IStorageFolder2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryGetItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageFolder3, IStorageFolder3_Vtbl, 0x9f617899_bde1_4124_aeb3_b06ad96f98d4);
+windows_core::imp::define_interface!(IStorageFolder3, IStorageFolder3_Vtbl, 0x4ca9e511_e74b_5b81_af8e_83e742c77103);
 impl windows_core::RuntimeType for IStorageFolder3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2536,7 +2536,7 @@ pub struct IStorageFolderStatics_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     GetFolderFromPathAsync: usize,
 }
-windows_core::imp::define_interface!(IStorageFolderStatics2, IStorageFolderStatics2_Vtbl, 0xb4656dc3_71d2_467d_8b29_371f0f62bf6f);
+windows_core::imp::define_interface!(IStorageFolderStatics2, IStorageFolderStatics2_Vtbl, 0x1d19882a_3cd5_5367_890c_f5b1880da27a);
 impl windows_core::RuntimeType for IStorageFolderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2549,7 +2549,7 @@ pub struct IStorageFolderStatics2_Vtbl {
     #[cfg(not(all(feature = "Storage_Search", feature = "System")))]
     GetFolderFromPathForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IStorageItem, IStorageItem_Vtbl, 0x4207a996_ca2f_42f7_bde8_8b10457a7f30);
+windows_core::imp::define_interface!(IStorageItem, IStorageItem_Vtbl, 0xfc639fd0_da4d_593f_ad84_ed1018d18a12);
 impl windows_core::RuntimeType for IStorageItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2964,7 +2964,7 @@ pub struct IStorageItem2_Vtbl {
     GetParentAsync: usize,
     pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageItemProperties, IStorageItemProperties_Vtbl, 0x86664478_8029_46fe_a789_1c2f3e2ffb5c);
+windows_core::imp::define_interface!(IStorageItemProperties, IStorageItemProperties_Vtbl, 0x207e9107_0bed_56b1_8547_fb855b530fc3);
 impl windows_core::RuntimeType for IStorageItemProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3336,7 +3336,7 @@ pub struct IStorageItemProperties2_Vtbl {
     #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
     GetScaledImageAsThumbnailAsync: usize,
 }
-windows_core::imp::define_interface!(IStorageItemPropertiesWithProvider, IStorageItemPropertiesWithProvider_Vtbl, 0x861bf39b_6368_4dee_b40e_74684a5ce714);
+windows_core::imp::define_interface!(IStorageItemPropertiesWithProvider, IStorageItemPropertiesWithProvider_Vtbl, 0x2655c180_e128_5de7_b253_316e5cf254d5);
 impl windows_core::RuntimeType for IStorageItemPropertiesWithProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3440,7 +3440,7 @@ pub struct IStorageItemPropertiesWithProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Provider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibrary, IStorageLibrary_Vtbl, 0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03);
+windows_core::imp::define_interface!(IStorageLibrary, IStorageLibrary_Vtbl, 0xda91614b_53f2_548f_837c_d5c4d6cb8914);
 impl windows_core::RuntimeType for IStorageLibrary {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3467,7 +3467,7 @@ pub struct IStorageLibrary_Vtbl {
     pub DefinitionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDefinitionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibrary2, IStorageLibrary2_Vtbl, 0x5b0ce348_fcb3_4031_afb0_a68d7bd44534);
+windows_core::imp::define_interface!(IStorageLibrary2, IStorageLibrary2_Vtbl, 0xadeb9ccc_42c9_5f26_ba76_5fa74022addb);
 impl windows_core::RuntimeType for IStorageLibrary2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3477,7 +3477,7 @@ pub struct IStorageLibrary2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ChangeTracker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibrary3, IStorageLibrary3_Vtbl, 0x8a281291_2154_4201_8113_d2c05ce1ad23);
+windows_core::imp::define_interface!(IStorageLibrary3, IStorageLibrary3_Vtbl, 0x6b458106_1437_5746_8438_0a3cfd3ae4dc);
 impl windows_core::RuntimeType for IStorageLibrary3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3487,7 +3487,7 @@ pub struct IStorageLibrary3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AreFolderSuggestionsAvailableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryChange, IStorageLibraryChange_Vtbl, 0x00980b23_2be2_4909_aa48_159f5203a51e);
+windows_core::imp::define_interface!(IStorageLibraryChange, IStorageLibraryChange_Vtbl, 0x4a15c9fc_b11c_5819_a9f1_01d7dc96a57e);
 impl windows_core::RuntimeType for IStorageLibraryChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3501,7 +3501,7 @@ pub struct IStorageLibraryChange_Vtbl {
     pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, StorageItemTypes, *mut bool) -> windows_core::HRESULT,
     pub GetStorageItemAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryChangeReader, IStorageLibraryChangeReader_Vtbl, 0xf205bc83_fca2_41f9_8954_ee2e991eb96f);
+windows_core::imp::define_interface!(IStorageLibraryChangeReader, IStorageLibraryChangeReader_Vtbl, 0xfb4da2ed_0cd2_55cd_91fb_62ffdd3e3e71);
 impl windows_core::RuntimeType for IStorageLibraryChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3512,7 +3512,7 @@ pub struct IStorageLibraryChangeReader_Vtbl {
     pub ReadBatchAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AcceptChangesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryChangeReader2, IStorageLibraryChangeReader2_Vtbl, 0xabf4868b_fbcc_4a4f_999e_e7ab7c646dbe);
+windows_core::imp::define_interface!(IStorageLibraryChangeReader2, IStorageLibraryChangeReader2_Vtbl, 0x2a6e4ec4_e829_5dcd_bb26_e1416ee03cfe);
 impl windows_core::RuntimeType for IStorageLibraryChangeReader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3522,7 +3522,7 @@ pub struct IStorageLibraryChangeReader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetLastChangeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryChangeTracker, IStorageLibraryChangeTracker_Vtbl, 0x9e157316_6073_44f6_9681_7492d1286c90);
+windows_core::imp::define_interface!(IStorageLibraryChangeTracker, IStorageLibraryChangeTracker_Vtbl, 0x259e56c1_8011_51b1_9f4e_7899293f7866);
 impl windows_core::RuntimeType for IStorageLibraryChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3534,7 +3534,7 @@ pub struct IStorageLibraryChangeTracker_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryChangeTracker2, IStorageLibraryChangeTracker2_Vtbl, 0xcd051c3b_0f9f_42f9_8fb3_158d82e13821);
+windows_core::imp::define_interface!(IStorageLibraryChangeTracker2, IStorageLibraryChangeTracker2_Vtbl, 0x601a74c9_32fd_59a9_873c_3ed89b3a7f2f);
 impl windows_core::RuntimeType for IStorageLibraryChangeTracker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3545,7 +3545,7 @@ pub struct IStorageLibraryChangeTracker2_Vtbl {
     pub EnableWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Disable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryChangeTrackerOptions, IStorageLibraryChangeTrackerOptions_Vtbl, 0xbb52bcd4_1a6d_59c0_ad2a_823a20532483);
+windows_core::imp::define_interface!(IStorageLibraryChangeTrackerOptions, IStorageLibraryChangeTrackerOptions_Vtbl, 0xe406dda1_18f1_52ea_9704_249e52d6c91f);
 impl windows_core::RuntimeType for IStorageLibraryChangeTrackerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3565,7 +3565,7 @@ impl windows_core::RuntimeType for IStorageLibraryLastChangeId {
 pub struct IStorageLibraryLastChangeId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IStorageLibraryLastChangeIdStatics, IStorageLibraryLastChangeIdStatics_Vtbl, 0x81a49128_2ca3_5309_b0d1_cf0788e40762);
+windows_core::imp::define_interface!(IStorageLibraryLastChangeIdStatics, IStorageLibraryLastChangeIdStatics_Vtbl, 0x972a4d0a_32be_51e6_bda0_54995cd740ba);
 impl windows_core::RuntimeType for IStorageLibraryLastChangeIdStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3585,7 +3585,7 @@ pub struct IStorageLibraryStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetLibraryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, KnownLibraryId, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageLibraryStatics2, IStorageLibraryStatics2_Vtbl, 0xffb08ddc_fa75_4695_b9d1_7f81f97832e3);
+windows_core::imp::define_interface!(IStorageLibraryStatics2, IStorageLibraryStatics2_Vtbl, 0x15b23b4a_2f2a_5174_b6ae_8bb20f981266);
 impl windows_core::RuntimeType for IStorageLibraryStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3598,7 +3598,7 @@ pub struct IStorageLibraryStatics2_Vtbl {
     #[cfg(not(feature = "System"))]
     GetLibraryForUserAsync: usize,
 }
-windows_core::imp::define_interface!(IStorageProvider, IStorageProvider_Vtbl, 0xe705eed4_d478_47d6_ba46_1a8ebe114a20);
+windows_core::imp::define_interface!(IStorageProvider, IStorageProvider_Vtbl, 0xb8a32596_632b_5288_8ef4_422a75e747f8);
 impl windows_core::RuntimeType for IStorageProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3619,7 +3619,7 @@ pub struct IStorageProvider2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPropertySupportedForPartialFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStorageStreamTransaction, IStorageStreamTransaction_Vtbl, 0xf67cf363_a53d_4d94_ae2c_67232d93acdd);
+windows_core::imp::define_interface!(IStorageStreamTransaction, IStorageStreamTransaction_Vtbl, 0xf67d0e87_59b1_5046_8d05_e2d7f5d689a9);
 impl windows_core::RuntimeType for IStorageStreamTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3633,7 +3633,7 @@ pub struct IStorageStreamTransaction_Vtbl {
     Stream: usize,
     pub CommitAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStreamedFileDataRequest, IStreamedFileDataRequest_Vtbl, 0x1673fcce_dabd_4d50_beee_180b8a8191b6);
+windows_core::imp::define_interface!(IStreamedFileDataRequest, IStreamedFileDataRequest_Vtbl, 0xcd4626bd_8dbc_563c_9547_b85ab4304f84);
 impl windows_core::RuntimeType for IStreamedFileDataRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3670,7 +3670,7 @@ pub struct IStreamedFileDataRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FailAndClose: unsafe extern "system" fn(*mut core::ffi::c_void, StreamedFileFailureMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemAudioProperties, ISystemAudioProperties_Vtbl, 0x3f8f38b7_308c_47e1_924d_8645348e5db7);
+windows_core::imp::define_interface!(ISystemAudioProperties, ISystemAudioProperties_Vtbl, 0x041b92c2_3428_5545_b5cd_6d6e51d89f32);
 impl windows_core::RuntimeType for ISystemAudioProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3715,7 +3715,7 @@ pub struct ISystemDataPathsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemGPSProperties, ISystemGPSProperties_Vtbl, 0xc0f46eb4_c174_481a_bc25_921986f6a6f3);
+windows_core::imp::define_interface!(ISystemGPSProperties, ISystemGPSProperties_Vtbl, 0xe731d215_752a_544e_906b_548ef3206d6d);
 impl windows_core::RuntimeType for ISystemGPSProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3726,7 +3726,7 @@ pub struct ISystemGPSProperties_Vtbl {
     pub LatitudeDecimal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LongitudeDecimal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemImageProperties, ISystemImageProperties_Vtbl, 0x011b2e30_8b39_4308_bea1_e8aa61e47826);
+windows_core::imp::define_interface!(ISystemImageProperties, ISystemImageProperties_Vtbl, 0x88d67ae1_3651_5236_9e7f_1c3f7d8742ee);
 impl windows_core::RuntimeType for ISystemImageProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3752,7 +3752,7 @@ pub struct ISystemMediaProperties_Vtbl {
     pub Writer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Year: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemMusicProperties, ISystemMusicProperties_Vtbl, 0xb47988d5_67af_4bc3_8d39_5b89022026a1);
+windows_core::imp::define_interface!(ISystemMusicProperties, ISystemMusicProperties_Vtbl, 0xfb789242_ee51_5b6e_9f08_8aa9820a3554);
 impl windows_core::RuntimeType for ISystemMusicProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3769,7 +3769,7 @@ pub struct ISystemMusicProperties_Vtbl {
     pub Genre: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrackNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemPhotoProperties, ISystemPhotoProperties_Vtbl, 0x4734fc3d_ab21_4424_b735_f4353a56c8fc);
+windows_core::imp::define_interface!(ISystemPhotoProperties, ISystemPhotoProperties_Vtbl, 0xf20e38ba_da74_5c58_8f1a_cc657a17b6c9);
 impl windows_core::RuntimeType for ISystemPhotoProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3783,7 +3783,7 @@ pub struct ISystemPhotoProperties_Vtbl {
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PeopleNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemProperties, ISystemProperties_Vtbl, 0x917a71c1_85f3_4dd1_b001_a50bfd21c8d2);
+windows_core::imp::define_interface!(ISystemProperties, ISystemProperties_Vtbl, 0xd404d2fd_6f56_5002_b06c_be23ccbaa1c0);
 impl windows_core::RuntimeType for ISystemProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -3819,7 +3819,7 @@ pub struct ISystemVideoProperties_Vtbl {
     pub Orientation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TotalBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUserDataPaths, IUserDataPaths_Vtbl, 0xf9c53912_abc4_46ff_8a2b_dc9d7fa6e52f);
+windows_core::imp::define_interface!(IUserDataPaths, IUserDataPaths_Vtbl, 0xe82eccb5_16dd_57e9_b8e9_cd390b2da9db);
 impl windows_core::RuntimeType for IUserDataPaths {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -5687,7 +5687,7 @@ impl windows_core::RuntimeName for StreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.StreamedFileDataRequest";
 }
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::define_interface!(StreamedFileDataRequestedHandler, StreamedFileDataRequestedHandler_Vtbl, 0xfef6a824_2fe1_4d07_a35b_b77c50b5f4cc);
+windows_core::imp::define_interface!(StreamedFileDataRequestedHandler, StreamedFileDataRequestedHandler_Vtbl, 0xe5fed789_bb7d_5ffd_8f6a_0578dd2bb96f);
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for StreamedFileDataRequestedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

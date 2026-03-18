@@ -313,7 +313,7 @@ impl windows_core::RuntimeName for GeofenceStateChangeReport {
 }
 unsafe impl Send for GeofenceStateChangeReport {}
 unsafe impl Sync for GeofenceStateChangeReport {}
-windows_core::imp::define_interface!(IGeofence, IGeofence_Vtbl, 0x9c090823_edb8_47e0_8245_5bf61d321f2d);
+windows_core::imp::define_interface!(IGeofence, IGeofence_Vtbl, 0xf265cbed_b462_55f9_b4e7_fd3b555b8f4c);
 impl windows_core::RuntimeType for IGeofence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -329,7 +329,7 @@ pub struct IGeofence_Vtbl {
     pub Geoshape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SingleUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeofenceFactory, IGeofenceFactory_Vtbl, 0x841f624b_325f_4b90_bca7_2b8022a93796);
+windows_core::imp::define_interface!(IGeofenceFactory, IGeofenceFactory_Vtbl, 0xd034cc39_f66a_591f_bbad_bbfe31352dfb);
 impl windows_core::RuntimeType for IGeofenceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -359,7 +359,7 @@ pub struct IGeofenceMonitor_Vtbl {
     pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeofenceMonitorStatics, IGeofenceMonitorStatics_Vtbl, 0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
+windows_core::imp::define_interface!(IGeofenceMonitorStatics, IGeofenceMonitorStatics_Vtbl, 0x5a9219ce_069c_5202_94a8_b802a6dac182);
 impl windows_core::RuntimeType for IGeofenceMonitorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -369,7 +369,7 @@ pub struct IGeofenceMonitorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IGeofenceStateChangeReport, IGeofenceStateChangeReport_Vtbl, 0x9a243c18_2464_4c89_be05_b3ffff5babc5);
+windows_core::imp::define_interface!(IGeofenceStateChangeReport, IGeofenceStateChangeReport_Vtbl, 0x86a7cd10_d3c9_516f_a02e_f1a8e4fdc327);
 impl windows_core::RuntimeType for IGeofenceStateChangeReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

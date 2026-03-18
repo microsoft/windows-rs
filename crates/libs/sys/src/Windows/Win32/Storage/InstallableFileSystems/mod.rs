@@ -1,14 +1,14 @@
-windows_link::link!("fltlib.dll" "system" fn FilterAttach(lpfiltername : windows_sys::core::PCWSTR, lpvolumename : windows_sys::core::PCWSTR, lpinstancename : windows_sys::core::PCWSTR, dwcreatedinstancenamelength : u32, lpcreatedinstancename : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("fltlib.dll" "system" fn FilterAttach(lpfiltername : windows_sys::core::PCWSTR, lpvolumename : windows_sys::core::PCWSTR, lpinstancename : windows_sys::core::PCWSTR, dwcreatedinstancenamelength : u32, lpcreatedinstancename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterAttachAtAltitude(lpfiltername : windows_sys::core::PCWSTR, lpvolumename : windows_sys::core::PCWSTR, lpaltitude : windows_sys::core::PCWSTR, lpinstancename : windows_sys::core::PCWSTR, dwcreatedinstancenamelength : u32, lpcreatedinstancename : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterClose(hfilter : HFILTER) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-windows_link::link!("fltlib.dll" "system" fn FilterConnectCommunicationPort(lpportname : windows_sys::core::PCWSTR, dwoptions : u32, lpcontext : *const core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("fltlib.dll" "system" fn FilterConnectCommunicationPort(lpportname : windows_sys::core::PCWSTR, dwoptions : u32, lpcontext : *mut core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterCreate(lpfiltername : windows_sys::core::PCWSTR, hfilter : *mut HFILTER) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterDetach(lpfiltername : windows_sys::core::PCWSTR, lpvolumename : windows_sys::core::PCWSTR, lpinstancename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterFindClose(hfilterfind : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterFindNext(hfilterfind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("fltlib.dll" "system" fn FilterGetDosName(lpvolumename : windows_sys::core::PCWSTR, lpdosname : windows_sys::core::PWSTR, dwdosnamebuffersize : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("fltlib.dll" "system" fn FilterGetDosName(lpvolumename : windows_sys::core::PCWSTR, lpdosname : windows_sys::core::PCWSTR, dwdosnamebuffersize : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterGetInformation(hfilter : HFILTER, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("fltlib.dll" "system" fn FilterGetMessage(hport : super::super::Foundation:: HANDLE, lpmessagebuffer : *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_sys::core::HRESULT);
@@ -19,7 +19,7 @@ windows_link::link!("fltlib.dll" "system" fn FilterInstanceFindFirst(lpfilternam
 windows_link::link!("fltlib.dll" "system" fn FilterInstanceFindNext(hfilterinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterInstanceGetInformation(hinstance : HFILTER_INSTANCE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterLoad(lpfiltername : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("fltlib.dll" "system" fn FilterReplyMessage(hport : super::super::Foundation:: HANDLE, lpreplybuffer : *const FILTER_REPLY_HEADER, dwreplybuffersize : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("fltlib.dll" "system" fn FilterReplyMessage(hport : super::super::Foundation:: HANDLE, lpreplybuffer : *mut FILTER_REPLY_HEADER, dwreplybuffersize : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterSendMessage(hport : super::super::Foundation:: HANDLE, lpinbuffer : *const core::ffi::c_void, dwinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, dwoutbuffersize : u32, lpbytesreturned : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterUnload(lpfiltername : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterVolumeFindClose(hvolumefind : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
@@ -53,12 +53,6 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FrameID: u32,
     pub NumberOfInstances: u32,
@@ -66,6 +60,12 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FilterNameBufferOffset: u16,
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -92,8 +92,10 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
+    pub FrameID: u32,
+    pub NumberOfInstances: u32,
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
     pub FilterAltitudeLength: u16,
@@ -101,10 +103,8 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
-    pub FrameID: u32,
-    pub NumberOfInstances: u32,
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
     pub FilterAltitudeLength: u16,
@@ -239,8 +239,12 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
+    pub FrameID: u32,
+    pub VolumeFileSystemType: FLT_FILESYSTEM_TYPE,
+    pub InstanceNameLength: u16,
+    pub InstanceNameBufferOffset: u16,
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
     pub VolumeNameLength: u16,
@@ -251,12 +255,8 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
-    pub FrameID: u32,
-    pub VolumeFileSystemType: FLT_FILESYSTEM_TYPE,
-    pub InstanceNameLength: u16,
-    pub InstanceNameBufferOffset: u16,
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
     pub VolumeNameLength: u16,

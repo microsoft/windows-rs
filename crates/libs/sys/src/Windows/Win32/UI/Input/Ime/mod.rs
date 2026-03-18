@@ -45,8 +45,8 @@ windows_link::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_sys::core::PSTR, ubuflen : u32) -> u32);
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_sys::core::PWSTR, ubuflen : u32) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_sys::core::PSTR, dwbuflen : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_sys::core::PCWSTR, ubuflen : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_sys::core::PCSTR, dwbuflen : u32) -> u32);
 windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_sys::core::PWSTR, dwbuflen : u32) -> u32);
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 windows_link::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::KeyboardAndMouse:: HKL) -> windows_sys::core::BOOL);
@@ -54,9 +54,9 @@ windows_link::link!("imm32.dll" "system" fn ImmGetIMCCLockCount(param0 : HIMCC) 
 windows_link::link!("imm32.dll" "system" fn ImmGetIMCCSize(param0 : HIMCC) -> u32);
 windows_link::link!("imm32.dll" "system" fn ImmGetIMCLockCount(param0 : HIMC) -> u32);
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_sys::core::PSTR, ubuflen : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_sys::core::PCSTR, ubuflen : u32) -> u32);
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_sys::core::PWSTR, ubuflen : u32) -> u32);
+windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_sys::core::PCWSTR, ubuflen : u32) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -90,19 +90,19 @@ windows_link::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::Key
 windows_link::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::super::super::Foundation:: HWND, param1 : HIMC) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmRequestMessageA(param0 : HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
 windows_link::link!("imm32.dll" "system" fn ImmRequestMessageW(param0 : HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
-windows_link::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *mut CANDIDATEFORM) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *mut core::ffi::c_void, dwcomplen : u32, lpread : *mut core::ffi::c_void, dwreadlen : u32) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 windows_link::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::KeyboardAndMouse:: HKL) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> windows_sys::core::BOOL);
+windows_link::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmUnlockIMC(param0 : HIMC) -> windows_sys::core::BOOL);
@@ -569,7 +569,7 @@ pub struct IMECOMPOSITIONSTRINGINFO {
     pub iTargetStart: i32,
     pub iTargetLen: i32,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
@@ -582,7 +582,7 @@ impl Default for IMEDLG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
@@ -650,7 +650,7 @@ pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
 pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 pub const IMEKEYCTRL_UP: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEKMS {
     pub cbSize: i32,
@@ -663,7 +663,7 @@ impl Default for IMEKMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
@@ -676,7 +676,7 @@ impl Default for IMEKMSFUNCDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
@@ -687,7 +687,7 @@ impl Default for IMEKMSINIT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
@@ -699,7 +699,7 @@ impl Default for IMEKMSINVK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
@@ -713,7 +713,7 @@ impl Default for IMEKMSKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
@@ -724,7 +724,7 @@ impl Default for IMEKMSKEY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
@@ -735,7 +735,7 @@ impl Default for IMEKMSKEY_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
@@ -751,7 +751,7 @@ impl Default for IMEKMSKMP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
@@ -889,7 +889,7 @@ pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
 pub type IMEREG = i32;
 pub type IMEREL = i32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMESHF {
     pub cbShf: u16,
@@ -943,7 +943,7 @@ impl Default for IMESTRINGINFO {
 pub type IMEUCT = i32;
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IMEWRD {
     pub pwchReading: windows_sys::core::PWSTR,
@@ -959,7 +959,7 @@ impl Default for IMEWRD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
@@ -970,7 +970,7 @@ impl Default for IMEWRD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
@@ -1357,7 +1357,7 @@ pub const MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
 pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 pub const MOD_RIGHT: u32 = 16384u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MORRSLT {
     pub dwSize: u32,
@@ -1379,7 +1379,7 @@ impl Default for MORRSLT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_sys::core::PWSTR,
@@ -1390,7 +1390,7 @@ impl Default for MORRSLT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MORRSLT_1 {
     pub cchRead: u16,
@@ -1401,7 +1401,7 @@ impl Default for MORRSLT_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
@@ -1425,7 +1425,7 @@ pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = 22u32;
 pub type NOTIFY_IME_ACTION = u32;
 pub type NOTIFY_IME_INDEX = u32;
 pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_sys::core::HRESULT) -> windows_sys::core::BOOL>;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct POSTBL {
     pub nPos: u16,
@@ -1569,7 +1569,7 @@ pub const VERSION_MODEBIAS: u32 = 1u32;
 pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WDD {
     pub wDispPos: u16,
@@ -1586,7 +1586,7 @@ impl Default for WDD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
@@ -1597,7 +1597,7 @@ impl Default for WDD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,
@@ -1611,7 +1611,7 @@ impl Default for WDD_1 {
 pub const cbCommentMax: u32 = 256u32;
 pub type fpCreateIFECommonInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type fpCreateIFEDictionaryInstanceType = Option<unsafe extern "system" fn(ppvobj: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-pub type fpCreateIFELanguageInstanceType = Option<unsafe extern "system" fn(clsid: *const windows_sys::core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
+pub type fpCreateIFELanguageInstanceType = Option<unsafe extern "system" fn(clsid: *mut windows_sys::core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const szImeChina: windows_sys::core::PCWSTR = windows_sys::core::w!("MSIME.China");
 pub const szImeJapan: windows_sys::core::PCWSTR = windows_sys::core::w!("MSIME.Japan");
 pub const szImeKorea: windows_sys::core::PCWSTR = windows_sys::core::w!("MSIME.Korea");

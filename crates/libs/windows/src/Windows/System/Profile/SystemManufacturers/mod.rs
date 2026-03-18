@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x8d2eae55_87ef_4266_86d0_c4afbeb29bb9);
+windows_core::imp::define_interface!(IOemSupportInfo, IOemSupportInfo_Vtbl, 0x355bf5c9_9a9b_5093_b866_d2e361bd6221);
 impl windows_core::RuntimeType for IOemSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -20,7 +20,7 @@ pub struct ISmbiosInformationStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SerialNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x05880b99_8247_441b_a996_a1784bab79a8);
+windows_core::imp::define_interface!(ISystemSupportDeviceInfo, ISystemSupportDeviceInfo_Vtbl, 0x8455ae78_d9e7_5927_9842_9ca1725898e1);
 impl windows_core::RuntimeType for ISystemSupportDeviceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -36,7 +36,7 @@ pub struct ISystemSupportDeviceInfo_Vtbl {
     pub SystemHardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SystemFirmwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0xef750974_c422_45d7_a44d_5c1c0043a2b3);
+windows_core::imp::define_interface!(ISystemSupportInfoStatics, ISystemSupportInfoStatics_Vtbl, 0x3a352a05_cbb5_53e5_88e1_1075a83dcf6e);
 impl windows_core::RuntimeType for ISystemSupportInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

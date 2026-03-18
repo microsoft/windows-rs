@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPrintTicketCapabilities, IPrintTicketCapabilities_Vtbl, 0x8c45508b_bbdc_4256_a142_2fd615ecb416);
+windows_core::imp::define_interface!(IPrintTicketCapabilities, IPrintTicketCapabilities_Vtbl, 0xff705bb6_784e_56f9_bb12_d52d32d582c4);
 impl windows_core::RuntimeType for IPrintTicketCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -51,7 +51,7 @@ pub struct IPrintTicketFeature_Vtbl {
     pub SetSelectedOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SelectionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintTicketFeatureSelectionType) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintTicketOption, IPrintTicketOption_Vtbl, 0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
+windows_core::imp::define_interface!(IPrintTicketOption, IPrintTicketOption_Vtbl, 0x098b1034_0f73_53c7_9a11_1e6e203922b9);
 impl windows_core::RuntimeType for IPrintTicketOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -77,7 +77,7 @@ pub struct IPrintTicketOption_Vtbl {
     pub GetPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetScoredPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintTicketParameterDefinition, IPrintTicketParameterDefinition_Vtbl, 0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
+windows_core::imp::define_interface!(IPrintTicketParameterDefinition, IPrintTicketParameterDefinition_Vtbl, 0x78673643_f7d8_5de2_952d_44094bc48109);
 impl windows_core::RuntimeType for IPrintTicketParameterDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -125,7 +125,7 @@ pub struct IPrintTicketValue_Vtbl {
     pub GetValueAsInteger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub GetValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IWorkflowPrintTicket, IWorkflowPrintTicket_Vtbl, 0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
+windows_core::imp::define_interface!(IWorkflowPrintTicket, IWorkflowPrintTicket_Vtbl, 0xe98db4a8_e8a2_5f21_9c5f_d11c3860a846);
 impl windows_core::RuntimeType for IWorkflowPrintTicket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -176,7 +176,7 @@ pub struct IWorkflowPrintTicketFactory_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateInstance: usize,
 }
-windows_core::imp::define_interface!(IWorkflowPrintTicketValidationResult, IWorkflowPrintTicketValidationResult_Vtbl, 0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
+windows_core::imp::define_interface!(IWorkflowPrintTicketValidationResult, IWorkflowPrintTicketValidationResult_Vtbl, 0x14596ce9_2524_55f0_a93a_334ebe820d66);
 impl windows_core::RuntimeType for IWorkflowPrintTicketValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

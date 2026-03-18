@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IScreenReaderPositionChangedEventArgs, IScreenReaderPositionChangedEventArgs_Vtbl, 0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f);
+windows_core::imp::define_interface!(IScreenReaderPositionChangedEventArgs, IScreenReaderPositionChangedEventArgs_Vtbl, 0x520d5682_d64b_5fb1_bc8a_1e362eb42c61);
 impl windows_core::RuntimeType for IScreenReaderPositionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

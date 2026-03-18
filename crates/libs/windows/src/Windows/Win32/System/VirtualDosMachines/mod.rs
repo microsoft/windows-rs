@@ -38,8 +38,8 @@ pub const GD_NAMETABLE: u32 = 15u32;
 pub const GD_RCDATA: u32 = 10u32;
 pub const GD_STRING: u32 = 6u32;
 pub const GD_USERDEFINED: u32 = 0u32;
-#[repr(C, packed(4))]
-#[derive(Clone, Copy, Default)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GLOBALENTRY {
     pub dwSize: u32,
     pub dwAddress: u32,
@@ -84,8 +84,8 @@ impl Default for IMAGE_NOTE {
 }
 pub const MAX_MODULE_NAME: u32 = 9u32;
 pub const MAX_PATH16: u32 = 255u32;
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULEENTRY {
     pub dwSize: u32,
     pub szModule: [i8; 10],
@@ -236,9 +236,6 @@ pub const VDMEVENT_PM16: u32 = 2u32;
 pub const VDMEVENT_V86: u32 = 1u32;
 pub const VDMEVENT_VERBOSE: u32 = 16384u32;
 pub type VDMGETADDREXPRESSIONPROC = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> windows_core::BOOL>;
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type VDMGETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> windows_core::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type VDMGETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> windows_core::BOOL>;
@@ -248,9 +245,6 @@ pub type VDMGETPOINTERPROC = Option<unsafe extern "system" fn(param0: super::sup
 pub type VDMGETSEGMENTINFOPROC = Option<unsafe extern "system" fn(param0: u16, param1: u32, param2: windows_core::BOOL, param3: VDM_SEGINFO) -> windows_core::BOOL>;
 pub type VDMGETSELECTORMODULEPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: windows_core::PCSTR, param5: u32, param6: windows_core::PCSTR, param7: u32) -> windows_core::BOOL>;
 pub type VDMGETSYMBOLPROC = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: u16, param2: u32, param3: windows_core::BOOL, param4: windows_core::BOOL, param5: windows_core::PSTR, param6: *mut u32) -> windows_core::BOOL>;
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-pub type VDMGETTHREADSELECTORENTRYPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> windows_core::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
@@ -274,26 +268,17 @@ impl Default for VDMLDT_ENTRY {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_0,
     pub Bits: VDMLDT_ENTRY_0_1,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct VDMLDT_ENTRY_0_1 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDMLDT_ENTRY_0_0 {
     pub BaseMid: u8,
@@ -301,15 +286,17 @@ pub struct VDMLDT_ENTRY_0_0 {
     pub Flags2: u8,
     pub BaseHi: u8,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct VDMLDT_ENTRY_0_1 {
+    pub _bitfield: u32,
+}
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULEFIRSTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULENEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMPROCESSEXCEPTIONPROC = Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> windows_core::BOOL>;
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-pub type VDMSETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> windows_core::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type VDMSETCONTEXTPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> windows_core::BOOL>;

@@ -279,7 +279,7 @@ pub struct IAudioBuffer_Vtbl {
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioFrame, IAudioFrame_Vtbl, 0xe36ac304_aab2_4277_9ed0_43cedf8e29c6);
+windows_core::imp::define_interface!(IAudioFrame, IAudioFrame_Vtbl, 0x8b56cfc9_c99b_595b_ab4a_cd8d6c0b7a62);
 impl windows_core::RuntimeType for IAudioFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -289,7 +289,7 @@ pub struct IAudioFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LockBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, AudioBufferAccessMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAudioFrameFactory, IAudioFrameFactory_Vtbl, 0x91a90ade_2422_40a6_b9ad_30d02404317d);
+windows_core::imp::define_interface!(IAudioFrameFactory, IAudioFrameFactory_Vtbl, 0x542578bb_21be_5e96_8b92_99b57c97a465);
 impl windows_core::RuntimeType for IAudioFrameFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -299,7 +299,7 @@ pub struct IAudioFrameFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAutoRepeatModeChangeRequestedEventArgs, IAutoRepeatModeChangeRequestedEventArgs_Vtbl, 0xea137efa_d852_438e_882b_c990109a78f4);
+windows_core::imp::define_interface!(IAutoRepeatModeChangeRequestedEventArgs, IAutoRepeatModeChangeRequestedEventArgs_Vtbl, 0xe489af47_fadf_560f_9b6a_ceac631417bd);
 impl windows_core::RuntimeType for IAutoRepeatModeChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -309,7 +309,7 @@ pub struct IAutoRepeatModeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestedAutoRepeatMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MediaPlaybackAutoRepeatMode) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IImageDisplayProperties, IImageDisplayProperties_Vtbl, 0xcd0bc7ef_54e7_411f_9933_f0e98b0a96d2);
+windows_core::imp::define_interface!(IImageDisplayProperties, IImageDisplayProperties_Vtbl, 0xf60895db_f832_5946_8f6f_622669e12bd6);
 impl windows_core::RuntimeType for IImageDisplayProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -322,7 +322,7 @@ pub struct IImageDisplayProperties_Vtbl {
     pub Subtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSubtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaControl, IMediaControl_Vtbl, 0x98f1fbe1_7a8d_42cb_b6fe_8fe698264f13);
+windows_core::imp::define_interface!(IMediaControl, IMediaControl_Vtbl, 0xae1fec60_7d06_5fd9_bb4f_f50b0f866cbf);
 impl windows_core::RuntimeType for IMediaControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -411,7 +411,7 @@ pub struct IMediaExtension_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetProperties: usize,
 }
-windows_core::imp::define_interface!(IMediaExtensionManager, IMediaExtensionManager_Vtbl, 0x4a25eaf5_242d_4dfb_97f4_69b7c42576ff);
+windows_core::imp::define_interface!(IMediaExtensionManager, IMediaExtensionManager_Vtbl, 0xc52cb092_d5ad_546d_bc57_9ae9c96edf82);
 impl windows_core::RuntimeType for IMediaExtensionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -463,7 +463,7 @@ pub struct IMediaExtensionManager2_Vtbl {
     #[cfg(not(feature = "ApplicationModel_AppService"))]
     RegisterMediaExtensionForAppService: usize,
 }
-windows_core::imp::define_interface!(IMediaFrame, IMediaFrame_Vtbl, 0xbfb52f8c_5943_47d8_8e10_05308aa5fbd0);
+windows_core::imp::define_interface!(IMediaFrame, IMediaFrame_Vtbl, 0xeb99e600_bb73_5b19_8134_9888e4650e4e);
 impl windows_core::RuntimeType for IMediaFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -722,7 +722,7 @@ pub struct IMediaFrame_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ExtendedProperties: usize,
 }
-windows_core::imp::define_interface!(IMediaMarker, IMediaMarker_Vtbl, 0x1803def8_dca5_4b6f_9c20_e3d3c0643625);
+windows_core::imp::define_interface!(IMediaMarker, IMediaMarker_Vtbl, 0xbbf04d31_049e_56e1_894e_e8226ae76c39);
 impl windows_core::RuntimeType for IMediaMarker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -817,7 +817,7 @@ pub struct IMediaMarker_Vtbl {
     pub MediaMarkerType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaMarkerTypesStatics, IMediaMarkerTypesStatics_Vtbl, 0xbb198040_482f_4743_8832_45853821ece0);
+windows_core::imp::define_interface!(IMediaMarkerTypesStatics, IMediaMarkerTypesStatics_Vtbl, 0x3595a36d_aad6_5940_b28c_203455f03f3c);
 impl windows_core::RuntimeType for IMediaMarkerTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -887,7 +887,7 @@ pub struct IMediaProcessingTriggerDetails_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Arguments: usize,
 }
-windows_core::imp::define_interface!(IMediaTimelineController, IMediaTimelineController_Vtbl, 0x8ed361f3_0b78_4360_bf71_0c841999ea1b);
+windows_core::imp::define_interface!(IMediaTimelineController, IMediaTimelineController_Vtbl, 0x38ceb036_9924_57ad_89d8_79aeed3d58f0);
 impl windows_core::RuntimeType for IMediaTimelineController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -935,7 +935,7 @@ pub struct IMediaTimelineControllerFailedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMusicDisplayProperties, IMusicDisplayProperties_Vtbl, 0x6bbf0c59_d0a0_4d26_92a0_f978e1d18e7b);
+windows_core::imp::define_interface!(IMusicDisplayProperties, IMusicDisplayProperties_Vtbl, 0x10326c33_33e8_5591_b13f_26a6cfd290ae);
 impl windows_core::RuntimeType for IMusicDisplayProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -975,7 +975,7 @@ pub struct IMusicDisplayProperties3_Vtbl {
     pub AlbumTrackCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetAlbumTrackCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPlaybackPositionChangeRequestedEventArgs, IPlaybackPositionChangeRequestedEventArgs_Vtbl, 0xb4493f88_eb28_4961_9c14_335e44f3e125);
+windows_core::imp::define_interface!(IPlaybackPositionChangeRequestedEventArgs, IPlaybackPositionChangeRequestedEventArgs_Vtbl, 0xca94be10_986d_51d7_b4b4_ed259f995a46);
 impl windows_core::RuntimeType for IPlaybackPositionChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -985,7 +985,7 @@ pub struct IPlaybackPositionChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestedPlaybackPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x2ce2c41f_3cd6_4f77_9ba7_eb27c26a2140);
+windows_core::imp::define_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0xcd6fec5d_bdf8_5bb7_8ae8_67501467b7ff);
 impl windows_core::RuntimeType for IPlaybackRateChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1005,7 +1005,7 @@ pub struct IShuffleEnabledChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestedShuffleEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemMediaTransportControls, ISystemMediaTransportControls_Vtbl, 0x99fa3ff4_1742_42a6_902e_087d41f965ec);
+windows_core::imp::define_interface!(ISystemMediaTransportControls, ISystemMediaTransportControls_Vtbl, 0xb216d049_0df4_52b0_8194_e64b79ef0027);
 impl windows_core::RuntimeType for ISystemMediaTransportControls {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1068,7 +1068,7 @@ pub struct ISystemMediaTransportControls2_Vtbl {
     pub AutoRepeatModeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAutoRepeatModeChangeRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemMediaTransportControlsButtonPressedEventArgs, ISystemMediaTransportControlsButtonPressedEventArgs_Vtbl, 0xb7f47116_a56f_4dc8_9e11_92031f4a87c2);
+windows_core::imp::define_interface!(ISystemMediaTransportControlsButtonPressedEventArgs, ISystemMediaTransportControlsButtonPressedEventArgs_Vtbl, 0x2eb1dad7_ce2d_559b_b210_9712baff9ef6);
 impl windows_core::RuntimeType for ISystemMediaTransportControlsButtonPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1108,7 +1108,7 @@ pub struct ISystemMediaTransportControlsDisplayUpdater_Vtbl {
     pub ClearAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISystemMediaTransportControlsPropertyChangedEventArgs, ISystemMediaTransportControlsPropertyChangedEventArgs_Vtbl, 0xd0ca0936_339b_4cb3_8eeb_737607f56e08);
+windows_core::imp::define_interface!(ISystemMediaTransportControlsPropertyChangedEventArgs, ISystemMediaTransportControlsPropertyChangedEventArgs_Vtbl, 0x5e328ac0_eeb9_5e26_b268_0553880f388f);
 impl windows_core::RuntimeType for ISystemMediaTransportControlsPropertyChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1160,7 +1160,7 @@ pub struct IVideoDisplayProperties_Vtbl {
     pub Subtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSubtitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoDisplayProperties2, IVideoDisplayProperties2_Vtbl, 0xb410e1ce_ab52_41ab_a486_cc10fab152f9);
+windows_core::imp::define_interface!(IVideoDisplayProperties2, IVideoDisplayProperties2_Vtbl, 0x594c02ae_eb62_59d5_ade5_021ed3435c7e);
 impl windows_core::RuntimeType for IVideoDisplayProperties2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1180,7 +1180,7 @@ pub struct IVideoEffectsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VideoStabilization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVideoFrame, IVideoFrame_Vtbl, 0x0cc06625_90fc_4c92_bd95_7ded21819d1c);
+windows_core::imp::define_interface!(IVideoFrame, IVideoFrame_Vtbl, 0xed1e21c7_15a7_5d8b_830a_04b3f8352ee5);
 impl windows_core::RuntimeType for IVideoFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1211,7 +1211,7 @@ pub struct IVideoFrame2_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     CopyToWithBoundsAsync: usize,
 }
-windows_core::imp::define_interface!(IVideoFrameFactory, IVideoFrameFactory_Vtbl, 0x014b6d69_2228_4c92_92ff_50c380d3e776);
+windows_core::imp::define_interface!(IVideoFrameFactory, IVideoFrameFactory_Vtbl, 0x70c981e2_11e3_555c_8d0d_12bc1795e863);
 impl windows_core::RuntimeType for IVideoFrameFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

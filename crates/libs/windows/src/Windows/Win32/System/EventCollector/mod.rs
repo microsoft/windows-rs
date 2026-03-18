@@ -12,9 +12,12 @@ where
     unsafe { EcDeleteSubscription(subscriptionname.param().abi(), flags) }
 }
 #[inline]
-pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebuffer: Option<&mut [u16]>, subscriptionnamebufferused: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("wecapi.dll" "system" fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : windows_core::PWSTR, subscriptionnamebufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(subscriptionnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), subscriptionnamebufferused as _) }
+pub unsafe fn EcEnumNextSubscription<P2>(subscriptionenum: isize, subscriptionnamebuffersize: u32, subscriptionnamebuffer: P2, subscriptionnamebufferused: *mut u32) -> windows_core::BOOL
+where
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("wecapi.dll" "system" fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : windows_core::PCWSTR, subscriptionnamebufferused : *mut u32) -> windows_core::BOOL);
+    unsafe { EcEnumNextSubscription(subscriptionenum, subscriptionnamebuffersize, subscriptionnamebuffer.param().abi(), subscriptionnamebufferused as _) }
 }
 #[inline]
 pub unsafe fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> windows_core::BOOL {

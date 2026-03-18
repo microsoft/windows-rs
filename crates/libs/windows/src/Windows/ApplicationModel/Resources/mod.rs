@@ -2,7 +2,7 @@
 pub mod Core;
 #[cfg(feature = "ApplicationModel_Resources_Management")]
 pub mod Management;
-windows_core::imp::define_interface!(IResourceLoader, IResourceLoader_Vtbl, 0x08524908_16ef_45ad_a602_293637d7e61a);
+windows_core::imp::define_interface!(IResourceLoader, IResourceLoader_Vtbl, 0x3faef808_3b6a_512b_ab69_8635e70bbe74);
 impl windows_core::RuntimeType for IResourceLoader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -12,7 +12,7 @@ pub struct IResourceLoader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceLoader2, IResourceLoader2_Vtbl, 0x10eb6ec6_8138_48c1_bc65_e1f14207367c);
+windows_core::imp::define_interface!(IResourceLoader2, IResourceLoader2_Vtbl, 0x99b9a80f_daed_5785_ae11_fd1684a8f191);
 impl windows_core::RuntimeType for IResourceLoader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -22,7 +22,7 @@ pub struct IResourceLoader2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetStringForUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceLoaderFactory, IResourceLoaderFactory_Vtbl, 0xc33a3603_69dc_4285_a077_d5c0e47ccbe8);
+windows_core::imp::define_interface!(IResourceLoaderFactory, IResourceLoaderFactory_Vtbl, 0xe0a9c7f3_ecbf_5379_a7ee_7a19045e6de2);
 impl windows_core::RuntimeType for IResourceLoaderFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -55,7 +55,7 @@ pub struct IResourceLoaderStatics2_Vtbl {
     pub GetForViewIndependentUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetForViewIndependentUseWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IResourceLoaderStatics3, IResourceLoaderStatics3_Vtbl, 0x64609dfb_64ac_491b_8100_0e558d61c1d0);
+windows_core::imp::define_interface!(IResourceLoaderStatics3, IResourceLoaderStatics3_Vtbl, 0x0d9fbbf1_6dc9_5882_b0c5_bb453ab88cc1);
 impl windows_core::RuntimeType for IResourceLoaderStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -68,7 +68,7 @@ pub struct IResourceLoaderStatics3_Vtbl {
     #[cfg(not(feature = "UI"))]
     GetForUIContext: usize,
 }
-windows_core::imp::define_interface!(IResourceLoaderStatics4, IResourceLoaderStatics4_Vtbl, 0x9fb36c32_6c8c_4316_962e_909539b5c259);
+windows_core::imp::define_interface!(IResourceLoaderStatics4, IResourceLoaderStatics4_Vtbl, 0x7ced09ef_4a43_505d_a03c_f00e25897289);
 impl windows_core::RuntimeType for IResourceLoaderStatics4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

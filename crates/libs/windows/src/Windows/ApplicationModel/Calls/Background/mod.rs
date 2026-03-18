@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IPhoneCallBlockedTriggerDetails, IPhoneCallBlockedTriggerDetails_Vtbl, 0xa4a690a2_e4c1_427f_864e_e470477ddb67);
+windows_core::imp::define_interface!(IPhoneCallBlockedTriggerDetails, IPhoneCallBlockedTriggerDetails_Vtbl, 0x53947399_7f9e_5062_aa98_84c939925dfd);
 impl windows_core::RuntimeType for IPhoneCallBlockedTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -10,7 +10,7 @@ pub struct IPhoneCallBlockedTriggerDetails_Vtbl {
     pub LineId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CallBlockedReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhoneCallBlockedReason) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhoneCallOriginDataRequestTriggerDetails, IPhoneCallOriginDataRequestTriggerDetails_Vtbl, 0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
+windows_core::imp::define_interface!(IPhoneCallOriginDataRequestTriggerDetails, IPhoneCallOriginDataRequestTriggerDetails_Vtbl, 0xcc970404_8be6_5f96_b397_6aa6f8a85d54);
 impl windows_core::RuntimeType for IPhoneCallOriginDataRequestTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -21,7 +21,7 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_Vtbl {
     pub RequestId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub PhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhoneIncomingCallDismissedTriggerDetails, IPhoneIncomingCallDismissedTriggerDetails_Vtbl, 0xbad30276_83b6_5732_9c38_0c206546196a);
+windows_core::imp::define_interface!(IPhoneIncomingCallDismissedTriggerDetails, IPhoneIncomingCallDismissedTriggerDetails_Vtbl, 0x098b27f3_7a0b_5f1e_94d5_da8ce252c913);
 impl windows_core::RuntimeType for IPhoneIncomingCallDismissedTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -59,7 +59,7 @@ pub struct IPhoneLineChangedTriggerDetails_Vtbl {
     pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PhoneLineChangeKind) -> windows_core::HRESULT,
     pub HasLinePropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, PhoneLineProperties, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhoneNewVoicemailMessageTriggerDetails, IPhoneNewVoicemailMessageTriggerDetails_Vtbl, 0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
+windows_core::imp::define_interface!(IPhoneNewVoicemailMessageTriggerDetails, IPhoneNewVoicemailMessageTriggerDetails_Vtbl, 0x555918d4_0ed1_531f_9f63_e01257b7c25f);
 impl windows_core::RuntimeType for IPhoneNewVoicemailMessageTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

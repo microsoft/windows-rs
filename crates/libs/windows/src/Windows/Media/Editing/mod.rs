@@ -153,7 +153,7 @@ impl windows_core::RuntimeName for EmbeddedAudioTrack {
 }
 unsafe impl Send for EmbeddedAudioTrack {}
 unsafe impl Sync for EmbeddedAudioTrack {}
-windows_core::imp::define_interface!(IBackgroundAudioTrack, IBackgroundAudioTrack_Vtbl, 0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
+windows_core::imp::define_interface!(IBackgroundAudioTrack, IBackgroundAudioTrack_Vtbl, 0x1de0ff4c_9c24_5565_8c82_41649b667227);
 impl windows_core::RuntimeType for IBackgroundAudioTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -182,7 +182,7 @@ pub struct IBackgroundAudioTrack_Vtbl {
     #[cfg(not(feature = "Media_Effects"))]
     AudioEffectDefinitions: usize,
 }
-windows_core::imp::define_interface!(IBackgroundAudioTrackStatics, IBackgroundAudioTrackStatics_Vtbl, 0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664);
+windows_core::imp::define_interface!(IBackgroundAudioTrackStatics, IBackgroundAudioTrackStatics_Vtbl, 0x97017553_5eba_58f2_b2b6_cd95c6967642);
 impl windows_core::RuntimeType for IBackgroundAudioTrackStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -245,7 +245,7 @@ pub struct IMediaClip_Vtbl {
     #[cfg(not(feature = "Media_Effects"))]
     VideoEffectDefinitions: usize,
 }
-windows_core::imp::define_interface!(IMediaClipStatics, IMediaClipStatics_Vtbl, 0xfa402b68_928f_43c4_bc6e_783a1a359656);
+windows_core::imp::define_interface!(IMediaClipStatics, IMediaClipStatics_Vtbl, 0x2a1a5494_b74d_53da_b63e_ec754e75eef0);
 impl windows_core::RuntimeType for IMediaClipStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -266,7 +266,7 @@ pub struct IMediaClipStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromImageFileAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaClipStatics2, IMediaClipStatics2_Vtbl, 0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
+windows_core::imp::define_interface!(IMediaClipStatics2, IMediaClipStatics2_Vtbl, 0x91ed9e53_b4d8_5b0f_8ced_21938d5e29fe);
 impl windows_core::RuntimeType for IMediaClipStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -279,7 +279,7 @@ pub struct IMediaClipStatics2_Vtbl {
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateFromSurface: usize,
 }
-windows_core::imp::define_interface!(IMediaComposition, IMediaComposition_Vtbl, 0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
+windows_core::imp::define_interface!(IMediaComposition, IMediaComposition_Vtbl, 0x4d6c4e68_8400_5468_9150_921341c92431);
 impl windows_core::RuntimeType for IMediaComposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -343,7 +343,7 @@ pub struct IMediaComposition2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OverlayLayers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaCompositionStatics, IMediaCompositionStatics_Vtbl, 0x87a08f04_e32a_45ce_8f66_a30df0766224);
+windows_core::imp::define_interface!(IMediaCompositionStatics, IMediaCompositionStatics_Vtbl, 0x4473deb6_f555_59b0_99a6_9bfe9b634755);
 impl windows_core::RuntimeType for IMediaCompositionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -356,7 +356,7 @@ pub struct IMediaCompositionStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     LoadAsync: usize,
 }
-windows_core::imp::define_interface!(IMediaOverlay, IMediaOverlay_Vtbl, 0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
+windows_core::imp::define_interface!(IMediaOverlay, IMediaOverlay_Vtbl, 0x196c804b_ae81_50e2_bc0f_8159f80b24a9);
 impl windows_core::RuntimeType for IMediaOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -375,7 +375,7 @@ pub struct IMediaOverlay_Vtbl {
     pub AudioEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAudioEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaOverlayFactory, IMediaOverlayFactory_Vtbl, 0xb584828a_6188_4f8f_a2e0_aa552d598e18);
+windows_core::imp::define_interface!(IMediaOverlayFactory, IMediaOverlayFactory_Vtbl, 0x0deaacd0_809e_56db_a4f2_c5aaa8c25b6a);
 impl windows_core::RuntimeType for IMediaOverlayFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -386,7 +386,7 @@ pub struct IMediaOverlayFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWithPositionAndOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::Rect, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IMediaOverlayLayer, IMediaOverlayLayer_Vtbl, 0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
+windows_core::imp::define_interface!(IMediaOverlayLayer, IMediaOverlayLayer_Vtbl, 0xc224cc5a_0a4a_50b5_8edc_7f33e4eda19e);
 impl windows_core::RuntimeType for IMediaOverlayLayer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

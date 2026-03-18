@@ -8,7 +8,7 @@ pub struct IPreallocatedWorkItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RunAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPreallocatedWorkItemFactory, IPreallocatedWorkItemFactory_Vtbl, 0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
+windows_core::imp::define_interface!(IPreallocatedWorkItemFactory, IPreallocatedWorkItemFactory_Vtbl, 0x3f2d0144_0b61_55a9_aa7c_ce97c2888722);
 impl windows_core::RuntimeType for IPreallocatedWorkItemFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -20,7 +20,7 @@ pub struct IPreallocatedWorkItemFactory_Vtbl {
     pub CreateWorkItemWithPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::WorkItemPriority, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateWorkItemWithPriorityAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::WorkItemPriority, super::WorkItemOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISignalNotifier, ISignalNotifier_Vtbl, 0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
+windows_core::imp::define_interface!(ISignalNotifier, ISignalNotifier_Vtbl, 0x5152bd78_7660_504c_9279_dab94771dca5);
 impl windows_core::RuntimeType for ISignalNotifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -31,7 +31,7 @@ pub struct ISignalNotifier_Vtbl {
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISignalNotifierStatics, ISignalNotifierStatics_Vtbl, 0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
+windows_core::imp::define_interface!(ISignalNotifierStatics, ISignalNotifierStatics_Vtbl, 0xbf3b95eb_e91b_5d5f_8bd3_01d977da0ca2);
 impl windows_core::RuntimeType for ISignalNotifierStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -100,7 +100,7 @@ impl windows_core::RuntimeName for PreallocatedWorkItem {
 }
 unsafe impl Send for PreallocatedWorkItem {}
 unsafe impl Sync for PreallocatedWorkItem {}
-windows_core::imp::define_interface!(SignalHandler, SignalHandler_Vtbl, 0x923c402e_4721_440e_9dda_55b6f2e07710);
+windows_core::imp::define_interface!(SignalHandler, SignalHandler_Vtbl, 0x992cab88_c66e_5229_8288_0f4da6d25838);
 impl windows_core::RuntimeType for SignalHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

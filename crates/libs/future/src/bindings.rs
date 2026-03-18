@@ -1,7 +1,7 @@
 windows_core::imp::define_interface!(
     AsyncActionCompletedHandler,
     AsyncActionCompletedHandler_Vtbl,
-    0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7
+    0x783e111b_2fec_5288_90e2_1ce5cf98d1fa
 );
 impl windows_core::RuntimeType for AsyncActionCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -147,7 +147,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType
     for AsyncActionProgressHandler<TProgress>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({6d844858-0cff-4590-ae89-95a5a5c8b4b8}")
+        .push_slice(b"pinterface({a5be4450-e4b0-57ee-8ab6-162e008d657e}")
         .push_slice(b";")
         .push_other(TProgress::SIGNATURE)
         .push_slice(b")");
@@ -474,7 +474,7 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
     for AsyncOperationCompletedHandler<TResult>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({fcdcf02c-e5d8-4478-915a-4d90b74b83a5}")
+        .push_slice(b"pinterface({0fda5f5a-c8a8-5598-9193-32ea477a7dd3}")
         .push_slice(b";")
         .push_other(TResult::SIGNATURE)
         .push_slice(b")");
@@ -638,7 +638,7 @@ impl<
     > windows_core::RuntimeType for AsyncOperationProgressHandler<TResult, TProgress>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({55690902-0aab-421a-8778-f8ce5026d758}")
+        .push_slice(b"pinterface({6fe6eda1-b7e1-56c1-90e8-7aafa30af996}")
         .push_slice(b";")
         .push_other(TResult::SIGNATURE)
         .push_slice(b";")
@@ -979,7 +979,7 @@ impl windows_core::RuntimeType for AsyncStatus {
 windows_core::imp::define_interface!(
     IAsyncAction,
     IAsyncAction_Vtbl,
-    0x5a648006_843a_4da9_865b_9d26e5dfad7b
+    0x73c86a3d_5a41_5ee0_b723_3343295e7d4c
 );
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1176,7 +1176,7 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType
     for IAsyncActionWithProgress<TProgress>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({1f6db258-e803-48a1-9546-eb7353398884}")
+        .push_slice(b"pinterface({b70ffa59-ca4b-5663-9b97-a1976088f935}")
         .push_slice(b";")
         .push_other(TProgress::SIGNATURE)
         .push_slice(b")");
@@ -1465,7 +1465,7 @@ where
 windows_core::imp::define_interface!(
     IAsyncInfo,
     IAsyncInfo_Vtbl,
-    0x00000036_0000_0000_c000_000000000046
+    0x3d93af9d_17d0_51ad_9ced_b704cbe669b9
 );
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1902,7 +1902,7 @@ impl<
     > windows_core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress>
 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({b5d036d7-e297-498f-ba60-0289e76e23dd}")
+        .push_slice(b"pinterface({64bbc038-f263-52b7-96d5-80e0571f6f8e}")
         .push_slice(b";")
         .push_other(TResult::SIGNATURE)
         .push_slice(b";")

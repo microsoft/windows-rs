@@ -105,7 +105,7 @@ pub struct IAddAppointmentOperation_Vtbl {
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAppointmentsProviderLaunchActionVerbsStatics, IAppointmentsProviderLaunchActionVerbsStatics_Vtbl, 0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
+windows_core::imp::define_interface!(IAppointmentsProviderLaunchActionVerbsStatics, IAppointmentsProviderLaunchActionVerbsStatics_Vtbl, 0x8ca85d97_bfda_5927_9ef9_612dda8c2328);
 impl windows_core::RuntimeType for IAppointmentsProviderLaunchActionVerbsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -128,7 +128,7 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ShowAppointmentDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IRemoveAppointmentOperation, IRemoveAppointmentOperation_Vtbl, 0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
+windows_core::imp::define_interface!(IRemoveAppointmentOperation, IRemoveAppointmentOperation_Vtbl, 0xca8fd35d_8793_525e_82eb_f324500d37b5);
 impl windows_core::RuntimeType for IRemoveAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -144,7 +144,7 @@ pub struct IRemoveAppointmentOperation_Vtbl {
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IReplaceAppointmentOperation, IReplaceAppointmentOperation_Vtbl, 0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
+windows_core::imp::define_interface!(IReplaceAppointmentOperation, IReplaceAppointmentOperation_Vtbl, 0xfb9232a8_2b21_59c3_b37d_bac2c6af76c4);
 impl windows_core::RuntimeType for IReplaceAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

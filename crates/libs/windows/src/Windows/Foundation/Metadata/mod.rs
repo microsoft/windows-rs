@@ -180,7 +180,7 @@ impl windows_core::TypeKind for GCPressureAmount {
 impl windows_core::RuntimeType for GCPressureAmount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
-windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
+windows_core::imp::define_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x11860702_2223_5b62_8290_cbda20bc179e);
 impl windows_core::RuntimeType for IApiInformationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

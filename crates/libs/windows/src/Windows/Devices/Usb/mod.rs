@@ -10,7 +10,7 @@ pub struct IUsbBulkInEndpointDescriptor_Vtbl {
     pub EndpointNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub Pipe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbBulkInPipe, IUsbBulkInPipe_Vtbl, 0xf01d2d3b_4548_4d50_b326_d82cdabe1220);
+windows_core::imp::define_interface!(IUsbBulkInPipe, IUsbBulkInPipe_Vtbl, 0x6baad6a9_cc2d_50db_b0a3_482641afd739);
 impl windows_core::RuntimeType for IUsbBulkInPipe {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -29,7 +29,7 @@ pub struct IUsbBulkInPipe_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     InputStream: usize,
 }
-windows_core::imp::define_interface!(IUsbBulkOutEndpointDescriptor, IUsbBulkOutEndpointDescriptor_Vtbl, 0x2820847a_ffee_4f60_9be1_956cac3ecb65);
+windows_core::imp::define_interface!(IUsbBulkOutEndpointDescriptor, IUsbBulkOutEndpointDescriptor_Vtbl, 0x00317df6_43eb_559a_a4cc_8ca4f4c575ab);
 impl windows_core::RuntimeType for IUsbBulkOutEndpointDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -70,7 +70,7 @@ pub struct IUsbConfiguration_Vtbl {
     pub ConfigurationDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Descriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbConfigurationDescriptor, IUsbConfigurationDescriptor_Vtbl, 0xf2176d92_b442_407a_8207_7d646c0385f3);
+windows_core::imp::define_interface!(IUsbConfigurationDescriptor, IUsbConfigurationDescriptor_Vtbl, 0x0731f2b8_795d_569e_b134_b1a812ad5d1a);
 impl windows_core::RuntimeType for IUsbConfigurationDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -83,7 +83,7 @@ pub struct IUsbConfigurationDescriptor_Vtbl {
     pub SelfPowered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub RemoteWakeup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbConfigurationDescriptorStatics, IUsbConfigurationDescriptorStatics_Vtbl, 0x424ced93_e740_40a1_92bd_da120ea04914);
+windows_core::imp::define_interface!(IUsbConfigurationDescriptorStatics, IUsbConfigurationDescriptorStatics_Vtbl, 0xf5edbaf7_9467_5835_9904_f777bc2028a1);
 impl windows_core::RuntimeType for IUsbConfigurationDescriptorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -94,7 +94,7 @@ pub struct IUsbConfigurationDescriptorStatics_Vtbl {
     pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbControlRequestType, IUsbControlRequestType_Vtbl, 0x8e9465a6_d73d_46de_94be_aae7f07c0f5c);
+windows_core::imp::define_interface!(IUsbControlRequestType, IUsbControlRequestType_Vtbl, 0xcf996e49_542a_57e2_b552_88993198961a);
 impl windows_core::RuntimeType for IUsbControlRequestType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -111,7 +111,7 @@ pub struct IUsbControlRequestType_Vtbl {
     pub AsByte: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub SetAsByte: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbDescriptor, IUsbDescriptor_Vtbl, 0x0a89f216_5f9d_4874_8904_da9ad3f5528f);
+windows_core::imp::define_interface!(IUsbDescriptor, IUsbDescriptor_Vtbl, 0xe224f759_ecf2_575c_84cc_5d6b1ceb2fa0);
 impl windows_core::RuntimeType for IUsbDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -126,7 +126,7 @@ pub struct IUsbDescriptor_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ReadDescriptorBuffer: usize,
 }
-windows_core::imp::define_interface!(IUsbDevice, IUsbDevice_Vtbl, 0x5249b992_c456_44d5_ad5e_24f5a089f63b);
+windows_core::imp::define_interface!(IUsbDevice, IUsbDevice_Vtbl, 0x9df8db89_829a_5bb1_ba1a_407db52b8bf7);
 impl windows_core::RuntimeType for IUsbDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -151,7 +151,7 @@ pub struct IUsbDevice_Vtbl {
     pub DeviceDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbDeviceClass, IUsbDeviceClass_Vtbl, 0x051942f9_845e_47eb_b12a_38f2f617afe7);
+windows_core::imp::define_interface!(IUsbDeviceClass, IUsbDeviceClass_Vtbl, 0x23e6bf50_1241_547e_ad27_a67763b3e089);
 impl windows_core::RuntimeType for IUsbDeviceClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -166,7 +166,7 @@ pub struct IUsbDeviceClass_Vtbl {
     pub ProtocolCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetProtocolCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbDeviceClasses, IUsbDeviceClasses_Vtbl, 0x686f955d_9b92_4b30_9781_c22c55ac35cb);
+windows_core::imp::define_interface!(IUsbDeviceClasses, IUsbDeviceClasses_Vtbl, 0xf29b3945_53ea_5473_88ec_a63e0b7dc609);
 impl windows_core::RuntimeType for IUsbDeviceClasses {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -175,7 +175,7 @@ impl windows_core::RuntimeType for IUsbDeviceClasses {
 pub struct IUsbDeviceClasses_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IUsbDeviceClassesStatics, IUsbDeviceClassesStatics_Vtbl, 0xb20b0527_c580_4599_a165_981b4fd03230);
+windows_core::imp::define_interface!(IUsbDeviceClassesStatics, IUsbDeviceClassesStatics_Vtbl, 0x9d5e683d_5792_5df0_bfe4_2575d5ffcf49);
 impl windows_core::RuntimeType for IUsbDeviceClassesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -208,7 +208,7 @@ pub struct IUsbDeviceDescriptor_Vtbl {
     pub BcdDeviceRevision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub NumberOfConfigurations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbDeviceStatics, IUsbDeviceStatics_Vtbl, 0x066b85a2_09b7_4446_8502_6fe6dcaa7309);
+windows_core::imp::define_interface!(IUsbDeviceStatics, IUsbDeviceStatics_Vtbl, 0x9f740d99_cda9_54f3_a920_f00086a9f730);
 impl windows_core::RuntimeType for IUsbDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -222,7 +222,7 @@ pub struct IUsbDeviceStatics_Vtbl {
     pub GetDeviceClassSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbEndpointDescriptor, IUsbEndpointDescriptor_Vtbl, 0x6b4862d9_8df7_4b40_ac83_578f139f0575);
+windows_core::imp::define_interface!(IUsbEndpointDescriptor, IUsbEndpointDescriptor_Vtbl, 0xfc547588_0518_59b7_ad04_15dfecfa0ea6);
 impl windows_core::RuntimeType for IUsbEndpointDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -238,7 +238,7 @@ pub struct IUsbEndpointDescriptor_Vtbl {
     pub AsBulkOutEndpointDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AsInterruptOutEndpointDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbEndpointDescriptorStatics, IUsbEndpointDescriptorStatics_Vtbl, 0xc890b201_9a6a_495e_a82c_295b9e708106);
+windows_core::imp::define_interface!(IUsbEndpointDescriptorStatics, IUsbEndpointDescriptorStatics_Vtbl, 0x02c72151_3ba8_5187_abcb_f5468645357b);
 impl windows_core::RuntimeType for IUsbEndpointDescriptorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -249,7 +249,7 @@ pub struct IUsbEndpointDescriptorStatics_Vtbl {
     pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbInterface, IUsbInterface_Vtbl, 0xa0322b95_7f47_48ab_a727_678c25be2112);
+windows_core::imp::define_interface!(IUsbInterface, IUsbInterface_Vtbl, 0x03550e08_78ca_5b75_8fe5_8154723d6e67);
 impl windows_core::RuntimeType for IUsbInterface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -290,7 +290,7 @@ pub struct IUsbInterfaceDescriptorStatics_Vtbl {
     pub TryParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Parse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbInterfaceSetting, IUsbInterfaceSetting_Vtbl, 0x1827bba7_8da7_4af7_8f4c_7f3032e781f5);
+windows_core::imp::define_interface!(IUsbInterfaceSetting, IUsbInterfaceSetting_Vtbl, 0x9df63903_bbf4_5653_9c59_e0bb83d2c9d8);
 impl windows_core::RuntimeType for IUsbInterfaceSetting {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -320,7 +320,7 @@ pub struct IUsbInterruptInEndpointDescriptor_Vtbl {
     pub Interval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub Pipe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbInterruptInEventArgs, IUsbInterruptInEventArgs_Vtbl, 0xb7b04092_1418_4936_8209_299cf5605583);
+windows_core::imp::define_interface!(IUsbInterruptInEventArgs, IUsbInterruptInEventArgs_Vtbl, 0xed157a8d_2045_575d_b98d_022866423031);
 impl windows_core::RuntimeType for IUsbInterruptInEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -333,7 +333,7 @@ pub struct IUsbInterruptInEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     InterruptData: usize,
 }
-windows_core::imp::define_interface!(IUsbInterruptInPipe, IUsbInterruptInPipe_Vtbl, 0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6);
+windows_core::imp::define_interface!(IUsbInterruptInPipe, IUsbInterruptInPipe_Vtbl, 0xb1bb95d2_06e9_565d_988b_5501af0888d7);
 impl windows_core::RuntimeType for IUsbInterruptInPipe {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -359,7 +359,7 @@ pub struct IUsbInterruptOutEndpointDescriptor_Vtbl {
     pub Interval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub Pipe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbInterruptOutPipe, IUsbInterruptOutPipe_Vtbl, 0xe984c8a9_aaf9_49d0_b96c_f661ab4a7f95);
+windows_core::imp::define_interface!(IUsbInterruptOutPipe, IUsbInterruptOutPipe_Vtbl, 0x8e7207f0_26f2_5716_a150_2fbf16fd2b54);
 impl windows_core::RuntimeType for IUsbInterruptOutPipe {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -376,7 +376,7 @@ pub struct IUsbInterruptOutPipe_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     OutputStream: usize,
 }
-windows_core::imp::define_interface!(IUsbSetupPacket, IUsbSetupPacket_Vtbl, 0x104ba132_c78f_4c51_b654_e49d02f2cb03);
+windows_core::imp::define_interface!(IUsbSetupPacket, IUsbSetupPacket_Vtbl, 0xc4d1150d_41dc_5ba6_9da8_5d61aa9ab5e1);
 impl windows_core::RuntimeType for IUsbSetupPacket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -395,7 +395,7 @@ pub struct IUsbSetupPacket_Vtbl {
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IUsbSetupPacketFactory, IUsbSetupPacketFactory_Vtbl, 0xc9257d50_1b2e_4a41_a2a7_338f0cef3c14);
+windows_core::imp::define_interface!(IUsbSetupPacketFactory, IUsbSetupPacketFactory_Vtbl, 0x1ae34936_1830_5413_856f_5cd449918b5f);
 impl windows_core::RuntimeType for IUsbSetupPacketFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

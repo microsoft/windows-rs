@@ -847,7 +847,7 @@ impl windows_core::TypeKind for HidReportType {
 impl windows_core::RuntimeType for HidReportType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
 }
-windows_core::imp::define_interface!(IHidBooleanControl, IHidBooleanControl_Vtbl, 0x524df48a_3695_408c_bba2_e2eb5abfbc20);
+windows_core::imp::define_interface!(IHidBooleanControl, IHidBooleanControl_Vtbl, 0xe5921bb8_70be_516c_89a3_592889eb013f);
 impl windows_core::RuntimeType for IHidBooleanControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -862,7 +862,7 @@ pub struct IHidBooleanControl_Vtbl {
     pub SetIsActive: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub ControlDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidBooleanControlDescription, IHidBooleanControlDescription_Vtbl, 0x6196e543_29d8_4a2a_8683_849e207bbe31);
+windows_core::imp::define_interface!(IHidBooleanControlDescription, IHidBooleanControlDescription_Vtbl, 0xc470446a_8fba_5525_80b7_9af489c1d3ff);
 impl windows_core::RuntimeType for IHidBooleanControlDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -877,7 +877,7 @@ pub struct IHidBooleanControlDescription_Vtbl {
     pub UsageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub ParentCollections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidBooleanControlDescription2, IHidBooleanControlDescription2_Vtbl, 0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
+windows_core::imp::define_interface!(IHidBooleanControlDescription2, IHidBooleanControlDescription2_Vtbl, 0x6e6f1433_3964_57f1_9d38_3877665750a0);
 impl windows_core::RuntimeType for IHidBooleanControlDescription2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -887,7 +887,7 @@ pub struct IHidBooleanControlDescription2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAbsolute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidCollection, IHidCollection_Vtbl, 0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
+windows_core::imp::define_interface!(IHidCollection, IHidCollection_Vtbl, 0xc50497af_8727_5eeb_be9d_cc4a6eb82df3);
 impl windows_core::RuntimeType for IHidCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -900,7 +900,7 @@ pub struct IHidCollection_Vtbl {
     pub UsagePage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub UsageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidDevice, IHidDevice_Vtbl, 0x5f8a14e7_2200_432e_95da_d09b87d574a8);
+windows_core::imp::define_interface!(IHidDevice, IHidDevice_Vtbl, 0x0b1520e3_d793_5535_bb09_488b71593c13);
 impl windows_core::RuntimeType for IHidDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -928,7 +928,7 @@ pub struct IHidDevice_Vtbl {
     pub InputReportReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveInputReportReceived: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidDeviceStatics, IHidDeviceStatics_Vtbl, 0x9e5981e4_9856_418c_9f73_77de0cd85754);
+windows_core::imp::define_interface!(IHidDeviceStatics, IHidDeviceStatics_Vtbl, 0xacd74346_ad8b_563b_a029_c879f0cb5bfb);
 impl windows_core::RuntimeType for IHidDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -943,7 +943,7 @@ pub struct IHidDeviceStatics_Vtbl {
     #[cfg(not(feature = "Storage"))]
     FromIdAsync: usize,
 }
-windows_core::imp::define_interface!(IHidFeatureReport, IHidFeatureReport_Vtbl, 0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
+windows_core::imp::define_interface!(IHidFeatureReport, IHidFeatureReport_Vtbl, 0xa7861667_92d8_5757_8295_dde922965ac8);
 impl windows_core::RuntimeType for IHidFeatureReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -965,7 +965,7 @@ pub struct IHidFeatureReport_Vtbl {
     pub GetNumericControl: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumericControlByDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidInputReport, IHidInputReport_Vtbl, 0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
+windows_core::imp::define_interface!(IHidInputReport, IHidInputReport_Vtbl, 0x1dcb442b_4acb_51bc_bc75_ae4a78537fb0);
 impl windows_core::RuntimeType for IHidInputReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -985,7 +985,7 @@ pub struct IHidInputReport_Vtbl {
     pub GetNumericControl: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumericControlByDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidInputReportReceivedEventArgs, IHidInputReportReceivedEventArgs_Vtbl, 0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
+windows_core::imp::define_interface!(IHidInputReportReceivedEventArgs, IHidInputReportReceivedEventArgs_Vtbl, 0x2c01b2d6_e58b_56e9_a867_ebf77fcd3750);
 impl windows_core::RuntimeType for IHidInputReportReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -995,7 +995,7 @@ pub struct IHidInputReportReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Report: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidNumericControl, IHidNumericControl_Vtbl, 0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
+windows_core::imp::define_interface!(IHidNumericControl, IHidNumericControl_Vtbl, 0x2ccde915_373e_57f2_89e9_a372b0b7fbd6);
 impl windows_core::RuntimeType for IHidNumericControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1038,7 +1038,7 @@ pub struct IHidNumericControlDescription_Vtbl {
     pub HasNull: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ParentCollections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IHidOutputReport, IHidOutputReport_Vtbl, 0x62cb2544_c896_4463_93c1_df9db053c450);
+windows_core::imp::define_interface!(IHidOutputReport, IHidOutputReport_Vtbl, 0x87cc567d_d3ff_51ad_bcbd_101282855d5f);
 impl windows_core::RuntimeType for IHidOutputReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

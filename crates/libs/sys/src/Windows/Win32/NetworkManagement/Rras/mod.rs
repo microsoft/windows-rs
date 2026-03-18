@@ -18,9 +18,9 @@ windows_link::link!("rtm.dll" "system" fn MgmGroupEnumerationStart(hprotocol : s
 windows_link::link!("rtm.dll" "system" fn MgmRegisterMProtocol(prpiinfo : *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid : u32, dwcomponentid : u32, phprotocol : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("rtm.dll" "system" fn MgmReleaseInterfaceOwnership(hprotocol : super::super::Foundation:: HANDLE, dwifindex : u32, dwifnexthopaddr : u32) -> u32);
 windows_link::link!("rtm.dll" "system" fn MgmTakeInterfaceOwnership(hprotocol : super::super::Foundation:: HANDLE, dwifindex : u32, dwifnexthopaddr : u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminBufferFree(pbuffer : *const core::ffi::c_void) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminBufferFree(pbuffer : *mut core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminConnectionClearStats(hrasserver : isize, hrasconnection : super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminConnectionEnum(hrasserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *const u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminConnectionEnum(hrasserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminConnectionEnumEx(hrasserver : isize, pobjectheader : *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, pprasconn : *mut *mut RAS_CONNECTION_EX, lpdwresumehandle : *const u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminConnectionGetInfo(hrasserver : isize, dwlevel : u32, hrasconnection : super::super::Foundation:: HANDLE, lplpbbuffer : *mut *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminConnectionGetInfoEx(hrasserver : isize, hrasconnection : super::super::Foundation:: HANDLE, prasconnection : *mut RAS_CONNECTION_EX) -> u32);
@@ -29,30 +29,30 @@ windows_link::link!("mprapi.dll" "system" fn MprAdminDeregisterConnectionNotific
 windows_link::link!("mprapi.dll" "system" fn MprAdminDeviceEnum(hmprserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8, lpdwtotalentries : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminEstablishDomainRasServer(pszdomain : windows_sys::core::PCWSTR, pszmachine : windows_sys::core::PCWSTR, benable : windows_sys::core::BOOL) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminGetErrorString(dwerror : u32, lplpwserrorstring : *mut windows_sys::core::PWSTR) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminGetPDCServer(lpszdomain : windows_sys::core::PCWSTR, lpszserver : windows_sys::core::PCWSTR, lpszpdcserver : windows_sys::core::PWSTR) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminGetPDCServer(lpszdomain : windows_sys::core::PCWSTR, lpszserver : windows_sys::core::PCWSTR, lpszpdcserver : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceConnect(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, hevent : super::super::Foundation:: HANDLE, fsynchronous : windows_sys::core::BOOL) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceCreate(hmprserver : isize, dwlevel : u32, lpbbuffer : *const u8, phinterface : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceDelete(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceDeviceGetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwindex : u32, dwlevel : u32, lplpbuffer : *mut *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceDeviceSetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwindex : u32, dwlevel : u32, lpbbuffer : *const u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceDisconnect(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceEnum(hmprserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *const u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceEnum(hmprserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCredentials(lpwsserver : windows_sys::core::PCWSTR, lpwsinterfacename : windows_sys::core::PCWSTR, lpwsusername : windows_sys::core::PWSTR, lpwspassword : windows_sys::core::PWSTR, lpwsdomainname : windows_sys::core::PWSTR) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCredentialsEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCustomInfoEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, pcustominfo : *mut MPR_IF_CUSTOMINFOEX2) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceGetHandle(hmprserver : isize, lpwsinterfacename : windows_sys::core::PCWSTR, phinterface : *mut super::super::Foundation:: HANDLE, fincludeclientinterfaces : windows_sys::core::BOOL) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceGetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *const *const u8) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceGetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceQueryUpdateResult(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwprotocolid : u32, lpdwupdateresult : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentials(lpwsserver : windows_sys::core::PCWSTR, lpwsinterfacename : windows_sys::core::PCWSTR, lpwsusername : windows_sys::core::PCWSTR, lpwsdomainname : windows_sys::core::PCWSTR, lpwspassword : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentialsEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentialsEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCustomInfoEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, pcustominfo : *const MPR_IF_CUSTOMINFOEX2) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceSetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportAdd(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportAdd(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, pinterfaceinfo : *mut u8, dwinterfaceinfosize : u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportGetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, ppinterfaceinfo : *mut *mut u8, lpdwinterfaceinfosize : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportRemove(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportSetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceTransportSetInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, pinterfaceinfo : *mut u8, dwinterfaceinfosize : u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminInterfaceUpdateRoutes(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwprotocolid : u32, hevent : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminIsDomainRasServer(pszdomain : windows_sys::core::PCWSTR, pszmachine : windows_sys::core::PCWSTR, pbisrasserver : *mut windows_sys::core::BOOL) -> u32);
@@ -60,42 +60,42 @@ windows_link::link!("mprapi.dll" "system" fn MprAdminIsServiceInitialized(lpwsse
 windows_link::link!("mprapi.dll" "system" fn MprAdminIsServiceRunning(lpwsservername : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("mprapi.dll" "system" fn MprAdminMIBBufferFree(pbuffer : *const core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryCreate(hmibserver : isize, dwpid : u32, dwroutingpid : u32, lpentry : *const core::ffi::c_void, dwentrysize : u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryDelete(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpentry : *const core::ffi::c_void, dwentrysize : u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryGet(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryDelete(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpentry : *mut core::ffi::c_void, dwentrysize : u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryGet(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *mut core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryGetFirst(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryGetNext(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *const core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntryGetNext(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpinentry : *mut core::ffi::c_void, dwinentrysize : u32, lplpoutentry : *mut *mut core::ffi::c_void, lpoutentrysize : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminMIBEntrySet(hmibserver : isize, dwprotocolid : u32, dwroutingpid : u32, lpentry : *const core::ffi::c_void, dwentrysize : u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminMIBServerConnect(lpwsservername : windows_sys::core::PCWSTR, phmibserver : *mut isize) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminMIBServerDisconnect(hmibserver : isize));
 windows_link::link!("mprapi.dll" "system" fn MprAdminPortClearStats(hrasserver : isize, hport : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminPortDisconnect(hrasserver : isize, hport : super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminPortEnum(hrasserver : isize, dwlevel : u32, hrasconnection : super::super::Foundation:: HANDLE, lplpbbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *const u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminPortEnum(hrasserver : isize, dwlevel : u32, hrasconnection : super::super::Foundation:: HANDLE, lplpbbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminPortGetInfo(hrasserver : isize, dwlevel : u32, hport : super::super::Foundation:: HANDLE, lplpbbuffer : *mut *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminPortReset(hrasserver : isize, hport : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminRegisterConnectionNotification(hmprserver : isize, heventnotification : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminSendUserMessage(hmprserver : isize, hconnection : super::super::Foundation:: HANDLE, lpwszmessage : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminServerConnect(lpwsservername : windows_sys::core::PCWSTR, phmprserver : *mut isize) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminServerDisconnect(hmprserver : isize));
-windows_link::link!("mprapi.dll" "system" fn MprAdminServerGetCredentials(hmprserver : isize, dwlevel : u32, lplpbbuffer : *const *const u8) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminServerGetCredentials(hmprserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminServerGetInfo(hmprserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_link::link!("mprapi.dll" "system" fn MprAdminServerGetInfoEx(hmprserver : isize, pserverinfo : *mut MPR_SERVER_EX1) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminServerSetCredentials(hmprserver : isize, dwlevel : u32, lpbbuffer : *const u8) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminServerSetInfo(hmprserver : isize, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminServerSetInfo(hmprserver : isize, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_link::link!("mprapi.dll" "system" fn MprAdminServerSetInfoEx(hmprserver : isize, pserverinfo : *const MPR_SERVER_SET_CONFIG_EX1) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminTransportCreate(hmprserver : isize, dwtransportid : u32, lpwstransportname : windows_sys::core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_sys::core::PCWSTR) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminTransportCreate(hmprserver : isize, dwtransportid : u32, lpwstransportname : windows_sys::core::PCWSTR, pglobalinfo : *mut u8, dwglobalinfosize : u32, pclientinterfaceinfo : *mut u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminTransportGetInfo(hmprserver : isize, dwtransportid : u32, ppglobalinfo : *mut *mut u8, lpdwglobalinfosize : *mut u32, ppclientinterfaceinfo : *mut *mut u8, lpdwclientinterfaceinfosize : *mut u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprAdminTransportSetInfo(hmprserver : isize, dwtransportid : u32, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprAdminTransportSetInfo(hmprserver : isize, dwtransportid : u32, pglobalinfo : *mut u8, dwglobalinfosize : u32, pclientinterfaceinfo : *mut u8, dwclientinterfaceinfosize : u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminUpdateConnection(hrasserver : isize, hrasconnection : super::super::Foundation:: HANDLE, prasupdateconnection : *const RAS_UPDATE_CONNECTION) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminUserGetInfo(lpszserver : windows_sys::core::PCWSTR, lpszuser : windows_sys::core::PCWSTR, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprAdminUserSetInfo(lpszserver : windows_sys::core::PCWSTR, lpszuser : windows_sys::core::PCWSTR, dwlevel : u32, lpbbuffer : *const u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigBufferFree(pbuffer : *const core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigFilterGetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : *mut u8) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprConfigFilterSetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : *const u8) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigFilterSetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, dwtransportid : u32, lpbuffer : *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigGetFriendlyName(hmprconfig : super::super::Foundation:: HANDLE, pszguidname : windows_sys::core::PCWSTR, pszbuffer : windows_sys::core::PWSTR, dwbuffersize : u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprConfigGetGuidName(hmprconfig : super::super::Foundation:: HANDLE, pszfriendlyname : windows_sys::core::PCWSTR, pszbuffer : windows_sys::core::PWSTR, dwbuffersize : u32) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceCreate(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8, phrouterinterface : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigGetGuidName(hmprconfig : super::super::Foundation:: HANDLE, pszfriendlyname : windows_sys::core::PCWSTR, pszbuffer : windows_sys::core::PCWSTR, dwbuffersize : u32) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceCreate(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *mut u8, phrouterinterface : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceDelete(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceEnum(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
@@ -103,9 +103,9 @@ windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceGetCustomInfoEx(h
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceGetHandle(hmprconfig : super::super::Foundation:: HANDLE, lpwsinterfacename : windows_sys::core::PCWSTR, phrouterinterface : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, lpdwbuffersize : *mut u32) -> u32);
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceSetCustomInfoEx(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, pcustominfo : *const MPR_IF_CUSTOMINFOEX2) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceSetCustomInfoEx(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, pcustominfo : *mut MPR_IF_CUSTOMINFOEX2) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : windows_sys::core::PCWSTR, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : windows_sys::core::PCWSTR, pinterfaceinfo : *mut u8, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportEnum(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportGetHandle(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, hrouteriftransport : super::super::Foundation:: HANDLE, ppinterfaceinfo : *mut *mut u8, lpdwinterfaceinfosize : *mut u32) -> u32);
@@ -117,26 +117,26 @@ windows_link::link!("mprapi.dll" "system" fn MprConfigServerDisconnect(hmprconfi
 windows_link::link!("mprapi.dll" "system" fn MprConfigServerGetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
 #[cfg(feature = "Win32_Security_Cryptography")]
 windows_link::link!("mprapi.dll" "system" fn MprConfigServerGetInfoEx(hmprconfig : super::super::Foundation:: HANDLE, pserverinfo : *mut MPR_SERVER_EX1) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprConfigServerInstall(dwlevel : u32, pbuffer : *const core::ffi::c_void) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigServerInstall(dwlevel : u32, pbuffer : *mut core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigServerRefresh(hmprconfig : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigServerRestore(hmprconfig : super::super::Foundation:: HANDLE, lpwspath : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprConfigServerSetInfo(hmprserver : isize, dwlevel : u32, lpbbuffer : *const u8) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigServerSetInfo(hmprserver : isize, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
 #[cfg(feature = "Win32_Security_Cryptography")]
-windows_link::link!("mprapi.dll" "system" fn MprConfigServerSetInfoEx(hmprconfig : super::super::Foundation:: HANDLE, psetserverconfig : *const MPR_SERVER_SET_CONFIG_EX1) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigServerSetInfoEx(hmprconfig : super::super::Foundation:: HANDLE, psetserverconfig : *mut MPR_SERVER_SET_CONFIG_EX1) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : windows_sys::core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_sys::core::PCWSTR, phroutertransport : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigTransportDelete(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigTransportEnum(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigTransportGetHandle(hmprconfig : super::super::Foundation:: HANDLE, dwtransportid : u32, phroutertransport : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprConfigTransportGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, ppglobalinfo : *mut *mut u8, lpdwglobalinfosize : *mut u32, ppclientinterfaceinfo : *mut *mut u8, lpdwclientinterfaceinfosize : *mut u32, lplpwsdllpath : *mut windows_sys::core::PWSTR) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprInfoBlockAdd(lpheader : *const core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : *const u8, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, pglobalinfo : *mut u8, dwglobalinfosize : u32, pclientinterfaceinfo : *mut u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_sys::core::PCWSTR) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprInfoBlockAdd(lpheader : *mut core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : *mut u8, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprInfoBlockFind(lpheader : *const core::ffi::c_void, dwinfotype : u32, lpdwitemsize : *mut u32, lpdwitemcount : *mut u32, lplpitemdata : *mut *mut u8) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprInfoBlockQuerySize(lpheader : *const core::ffi::c_void) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprInfoBlockRemove(lpheader : *const core::ffi::c_void, dwinfotype : u32, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprInfoBlockSet(lpheader : *const core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : *const u8, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprInfoBlockRemove(lpheader : *mut core::ffi::c_void, dwinfotype : u32, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprInfoBlockSet(lpheader : *mut core::ffi::c_void, dwinfotype : u32, dwitemsize : u32, dwitemcount : u32, lpitemdata : *mut u8, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprInfoCreate(dwversion : u32, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprInfoDelete(lpheader : *const core::ffi::c_void) -> u32);
-windows_link::link!("mprapi.dll" "system" fn MprInfoDuplicate(lpheader : *const core::ffi::c_void, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprInfoDelete(lpheader : *mut core::ffi::c_void) -> u32);
+windows_link::link!("mprapi.dll" "system" fn MprInfoDuplicate(lpheader : *mut core::ffi::c_void, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("mprapi.dll" "system" fn MprInfoRemoveAll(lpheader : *const core::ffi::c_void, lplpnewheader : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasClearConnectionStatistics(hrasconn : HRASCONN) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasClearLinkStatistics(hrasconn : HRASCONN, dwsubentry : u32) -> u32);
@@ -148,10 +148,10 @@ windows_link::link!("rasapi32.dll" "system" fn RasDeleteEntryA(param0 : windows_
 windows_link::link!("rasapi32.dll" "system" fn RasDeleteEntryW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasDeleteSubEntryA(pszphonebook : windows_sys::core::PCSTR, pszentry : windows_sys::core::PCSTR, dwsubentryid : u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasDeleteSubEntryW(pszphonebook : windows_sys::core::PCWSTR, pszentry : windows_sys::core::PCWSTR, dwsubentryid : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasDialA(param0 : *const RASDIALEXTENSIONS, param1 : windows_sys::core::PCSTR, param2 : *const RASDIALPARAMSA, param3 : u32, param4 : *const core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasDialA(param0 : *mut RASDIALEXTENSIONS, param1 : windows_sys::core::PCSTR, param2 : *mut RASDIALPARAMSA, param3 : u32, param4 : *mut core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
 windows_link::link!("rasdlg.dll" "system" fn RasDialDlgA(lpszphonebook : windows_sys::core::PCSTR, lpszentry : windows_sys::core::PCSTR, lpszphonenumber : windows_sys::core::PCSTR, lpinfo : *mut RASDIALDLG) -> windows_sys::core::BOOL);
 windows_link::link!("rasdlg.dll" "system" fn RasDialDlgW(lpszphonebook : windows_sys::core::PCWSTR, lpszentry : windows_sys::core::PCWSTR, lpszphonenumber : windows_sys::core::PCWSTR, lpinfo : *mut RASDIALDLG) -> windows_sys::core::BOOL);
-windows_link::link!("rasapi32.dll" "system" fn RasDialW(param0 : *const RASDIALEXTENSIONS, param1 : windows_sys::core::PCWSTR, param2 : *const RASDIALPARAMSW, param3 : u32, param4 : *const core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasDialW(param0 : *mut RASDIALEXTENSIONS, param1 : windows_sys::core::PCWSTR, param2 : *mut RASDIALPARAMSW, param3 : u32, param4 : *mut core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryA(param0 : super::super::Foundation:: HWND, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryW(param0 : super::super::Foundation:: HWND, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("rasdlg.dll" "system" fn RasEntryDlgA(lpszphonebook : windows_sys::core::PCSTR, lpszentry : windows_sys::core::PCSTR, lpinfo : *mut RASENTRYDLGA) -> windows_sys::core::BOOL);
@@ -164,10 +164,10 @@ windows_link::link!("rasapi32.dll" "system" fn RasEnumDevicesA(param0 : *mut RAS
 windows_link::link!("rasapi32.dll" "system" fn RasEnumDevicesW(param0 : *mut RASDEVINFOW, param1 : *mut u32, param2 : *mut u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasEnumEntriesA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : *mut RASENTRYNAMEA, param3 : *mut u32, param4 : *mut u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasEnumEntriesW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : *mut RASENTRYNAMEW, param3 : *mut u32, param4 : *mut u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasFreeEapUserIdentityA(praseapuseridentity : *const RASEAPUSERIDENTITYA));
-windows_link::link!("rasapi32.dll" "system" fn RasFreeEapUserIdentityW(praseapuseridentity : *const RASEAPUSERIDENTITYW));
+windows_link::link!("rasapi32.dll" "system" fn RasFreeEapUserIdentityA(praseapuseridentity : *mut RASEAPUSERIDENTITYA));
+windows_link::link!("rasapi32.dll" "system" fn RasFreeEapUserIdentityW(praseapuseridentity : *mut RASEAPUSERIDENTITYW));
 windows_link::link!("rasapi32.dll" "system" fn RasGetAutodialAddressA(param0 : windows_sys::core::PCSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYA, param3 : *mut u32, param4 : *mut u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : windows_sys::core::PCWSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : windows_sys::core::PCWSTR, param1 : *mut u32, param2 : *mut RASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasGetAutodialEnableA(param0 : u32, param1 : *mut windows_sys::core::BOOL) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasGetAutodialEnableW(param0 : u32, param1 : *mut windows_sys::core::BOOL) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasGetAutodialParamA(param0 : u32, param1 : *mut core::ffi::c_void, param2 : *mut u32) -> u32);
@@ -193,8 +193,8 @@ windows_link::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : w
 windows_link::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : *mut RASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : *mut RASENTRYW, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasGetErrorStringA(resourceid : u32, lpszstring : windows_sys::core::PSTR, inbufsize : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasGetErrorStringW(resourceid : u32, lpszstring : windows_sys::core::PWSTR, inbufsize : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasGetErrorStringA(resourceid : u32, lpszstring : windows_sys::core::PCSTR, inbufsize : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasGetErrorStringW(resourceid : u32, lpszstring : windows_sys::core::PCWSTR, inbufsize : u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasGetLinkStatistics(hrasconn : HRASCONN, dwsubentry : u32, lpstatistics : *mut RAS_STATS) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasGetPCscf(lpszpcscf : windows_sys::core::PWSTR) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasGetProjectionInfoA(param0 : HRASCONN, param1 : RASPROJECTION, param2 : *mut core::ffi::c_void, param3 : *mut u32) -> u32);
@@ -212,28 +212,28 @@ windows_link::link!("rasdlg.dll" "system" fn RasPhonebookDlgA(lpszphonebook : wi
 windows_link::link!("rasdlg.dll" "system" fn RasPhonebookDlgW(lpszphonebook : windows_sys::core::PCWSTR, lpszentry : windows_sys::core::PCWSTR, lpinfo : *mut RASPBDLGW) -> windows_sys::core::BOOL);
 windows_link::link!("rasapi32.dll" "system" fn RasRenameEntryA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasRenameEntryW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialAddressA(param0 : windows_sys::core::PCSTR, param1 : u32, param2 : *const RASAUTODIALENTRYA, param3 : u32, param4 : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialAddressW(param0 : windows_sys::core::PCWSTR, param1 : u32, param2 : *const RASAUTODIALENTRYW, param3 : u32, param4 : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialAddressA(param0 : windows_sys::core::PCSTR, param1 : u32, param2 : *mut RASAUTODIALENTRYA, param3 : u32, param4 : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialAddressW(param0 : windows_sys::core::PCWSTR, param1 : u32, param2 : *mut RASAUTODIALENTRYW, param3 : u32, param4 : u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialEnableA(param0 : u32, param1 : windows_sys::core::BOOL) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialEnableW(param0 : u32, param1 : windows_sys::core::BOOL) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialParamA(param0 : u32, param1 : *const core::ffi::c_void, param2 : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialParamW(param0 : u32, param1 : *const core::ffi::c_void, param2 : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetCredentialsA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : *const RASCREDENTIALSA, param3 : windows_sys::core::BOOL) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetCredentialsW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : *const RASCREDENTIALSW, param3 : windows_sys::core::BOOL) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialParamA(param0 : u32, param1 : *mut core::ffi::c_void, param2 : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetAutodialParamW(param0 : u32, param1 : *mut core::ffi::c_void, param2 : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetCredentialsA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : *mut RASCREDENTIALSA, param3 : windows_sys::core::BOOL) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetCredentialsW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : *mut RASCREDENTIALSW, param3 : windows_sys::core::BOOL) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataA(pszphonebook : windows_sys::core::PCSTR, pszentry : windows_sys::core::PCSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : windows_sys::core::PCWSTR, pszentry : windows_sys::core::PCWSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_sys::core::PCSTR, pszentry : windows_sys::core::PCSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_sys::core::PCWSTR, pszentry : windows_sys::core::PCWSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsA(param0 : windows_sys::core::PCSTR, param1 : *const RASDIALPARAMSA, param2 : windows_sys::core::BOOL) -> u32);
-windows_link::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : windows_sys::core::PCWSTR, param1 : *const RASDIALPARAMSW, param2 : windows_sys::core::BOOL) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : windows_sys::core::PCWSTR, pszentry : windows_sys::core::PCWSTR, pbcustomauthdata : *mut u8, dwsizeofcustomauthdata : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_sys::core::PCSTR, pszentry : windows_sys::core::PCSTR, pbeapdata : *mut u8, dwsizeofeapdata : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_sys::core::PCWSTR, pszentry : windows_sys::core::PCWSTR, pbeapdata : *mut u8, dwsizeofeapdata : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsA(param0 : windows_sys::core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : windows_sys::core::BOOL) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : windows_sys::core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : windows_sys::core::BOOL) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_link::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : *const RASENTRYA, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : *mut RASENTRYA, param3 : u32, param4 : *mut u8, param5 : u32) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_link::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : *const RASENTRYW, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : *mut RASENTRYW, param3 : u32, param4 : *mut u8, param5 : u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR, param2 : u32, param3 : *const RASSUBENTRYA, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR, param2 : u32, param3 : *const RASSUBENTRYW, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-windows_link::link!("rasapi32.dll" "system" fn RasUpdateConnection(hrasconn : HRASCONN, lprasupdateconn : *const RASUPDATECONN) -> u32);
+windows_link::link!("rasapi32.dll" "system" fn RasUpdateConnection(hrasconn : HRASCONN, lprasupdateconn : *mut RASUPDATECONN) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasValidateEntryNameA(param0 : windows_sys::core::PCSTR, param1 : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("rasapi32.dll" "system" fn RasValidateEntryNameW(param0 : windows_sys::core::PCWSTR, param1 : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("rtm.dll" "system" fn RtmAddNextHop(rtmreghandle : isize, nexthopinfo : *mut RTM_NEXTHOP_INFO, nexthophandle : *mut isize, changeflags : *mut u32) -> u32);
@@ -1626,17 +1626,6 @@ impl Default for PROJECTION_INFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PROJECTION_INFO_0 {
-    pub PppProjectionInfo: PPP_PROJECTION_INFO,
-    pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
-}
-impl Default for PROJECTION_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
@@ -1657,12 +1646,23 @@ impl Default for PROJECTION_INFO2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PROJECTION_INFO_0 {
+    pub PppProjectionInfo: PPP_PROJECTION_INFO,
+    pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
+}
+impl Default for PROJECTION_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2i32;
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1i32;
 pub const RASADFLG_PositionDlg: u32 = 1u32;
 pub type RASADFUNCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: windows_sys::core::PCSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> windows_sys::core::BOOL>;
 pub type RASADFUNCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: windows_sys::core::PCWSTR, param2: *mut RASADPARAMS, param3: *mut u32) -> windows_sys::core::BOOL>;
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASADPARAMS {
     pub dwSize: u32,
@@ -1775,28 +1775,6 @@ pub struct RASCOMMSETTINGS {
     pub bAlign: u8,
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASCONNA {
-    pub dwSize: u32,
-    pub hrasconn: HRASCONN,
-    pub szEntryName: [i8; 257],
-    pub szDeviceType: [i8; 17],
-    pub szDeviceName: [i8; 129],
-    pub szPhonebook: [i8; 260],
-    pub dwSubEntry: u32,
-    pub guidEntry: windows_sys::core::GUID,
-    pub dwFlags: u32,
-    pub luid: super::super::Foundation::LUID,
-    pub guidCorrelationId: windows_sys::core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASCONNA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASCONNA {
@@ -1861,28 +1839,6 @@ impl Default for RASCONNSTATUSW {
 }
 pub type RASCONNSUBSTATE = i32;
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASCONNW {
-    pub dwSize: u32,
-    pub hrasconn: HRASCONN,
-    pub szEntryName: [u16; 257],
-    pub szDeviceType: [u16; 17],
-    pub szDeviceName: [u16; 129],
-    pub szPhonebook: [u16; 260],
-    pub dwSubEntry: u32,
-    pub guidEntry: windows_sys::core::GUID,
-    pub dwFlags: u32,
-    pub luid: super::super::Foundation::LUID,
-    pub guidCorrelationId: windows_sys::core::GUID,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASCONNW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASCONNW {
@@ -1980,7 +1936,7 @@ pub struct RASCTRYINFO {
     pub dwCountryCode: u32,
     pub dwCountryNameOffset: u32,
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
@@ -2015,19 +1971,6 @@ impl Default for RASDEVINFOW {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASDEVSPECIFICINFO {
-    pub dwSize: u32,
-    pub pbDevSpecificInfo: *mut u8,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASDEVSPECIFICINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
@@ -2040,7 +1983,7 @@ impl Default for RASDEVSPECIFICINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASDIALDLG {
     pub dwSize: u32,
@@ -2059,7 +2002,7 @@ impl Default for RASDIALDLG {
     }
 }
 pub const RASDIALEVENT: windows_sys::core::PCSTR = windows_sys::core::s!("RasDialEvent");
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASDIALEXTENSIONS {
     pub dwSize: u32,
@@ -2080,28 +2023,6 @@ pub type RASDIALFUNC = Option<unsafe extern "system" fn(param0: u32, param1: RAS
 pub type RASDIALFUNC1 = Option<unsafe extern "system" fn(param0: HRASCONN, param1: u32, param2: RASCONNSTATE, param3: u32, param4: u32)>;
 pub type RASDIALFUNC2 = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: HRASCONN, param3: u32, param4: RASCONNSTATE, param5: u32, param6: u32) -> u32>;
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASDIALPARAMSA {
-    pub dwSize: u32,
-    pub szEntryName: [i8; 257],
-    pub szPhoneNumber: [i8; 129],
-    pub szCallbackNumber: [i8; 129],
-    pub szUserName: [i8; 257],
-    pub szPassword: [i8; 257],
-    pub szDomain: [i8; 16],
-    pub dwSubEntry: u32,
-    pub dwCallbackId: usize,
-    pub dwIfIndex: u32,
-    pub szEncPassword: windows_sys::core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASDIALPARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASDIALPARAMSA {
@@ -2124,28 +2045,6 @@ impl Default for RASDIALPARAMSA {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASDIALPARAMSW {
-    pub dwSize: u32,
-    pub szEntryName: [u16; 257],
-    pub szPhoneNumber: [u16; 129],
-    pub szCallbackNumber: [u16; 129],
-    pub szUserName: [u16; 257],
-    pub szPassword: [u16; 257],
-    pub szDomain: [u16; 16],
-    pub dwSubEntry: u32,
-    pub dwCallbackId: usize,
-    pub dwIfIndex: u32,
-    pub szEncPassword: windows_sys::core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASDIALPARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASDIALPARAMSW {
@@ -2184,7 +2083,7 @@ pub const RASDT_X25: windows_sys::core::PCWSTR = windows_sys::core::w!("x25");
 pub const RASEAPF_Logon: u32 = 4u32;
 pub const RASEAPF_NonInteractive: u32 = 2u32;
 pub const RASEAPF_Preview: u32 = 8u32;
-#[repr(C, packed(4))]
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
@@ -2306,26 +2205,6 @@ impl Default for RASENTRYA {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASENTRYDLGA {
-    pub dwSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub szEntry: [i8; 257],
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASENTRYDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASENTRYDLGA {
@@ -2346,26 +2225,6 @@ impl Default for RASENTRYDLGA {
     }
 }
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASENTRYDLGW {
-    pub dwSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub szEntry: [u16; 257],
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASENTRYDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASENTRYDLGW {
@@ -2558,34 +2417,6 @@ pub const RASFP_Slip: u32 = 2u32;
 pub const RASIDS_Disabled: u32 = 4294967295u32;
 pub const RASIDS_UseGlobalValue: u32 = 0u32;
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RASIKEV2_PROJECTION_INFO {
-    pub dwIPv4NegotiationError: u32,
-    pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
-    pub ipv4ServerAddress: super::super::Networking::WinSock::IN_ADDR,
-    pub dwIPv6NegotiationError: u32,
-    pub ipv6Address: super::super::Networking::WinSock::IN6_ADDR,
-    pub ipv6ServerAddress: super::super::Networking::WinSock::IN6_ADDR,
-    pub dwPrefixLength: u32,
-    pub dwAuthenticationProtocol: u32,
-    pub dwEapTypeId: u32,
-    pub dwFlags: RASIKEV_PROJECTION_INFO_FLAGS,
-    pub dwEncryptionMethod: u32,
-    pub numIPv4ServerAddresses: u32,
-    pub ipv4ServerAddresses: *mut super::super::Networking::WinSock::IN_ADDR,
-    pub numIPv6ServerAddresses: u32,
-    pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RASIKEV2_PROJECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -2707,27 +2538,6 @@ pub const RASPBDFLAG_NoUser: u32 = 16u32;
 pub const RASPBDFLAG_PositionDlg: u32 = 1u32;
 pub const RASPBDFLAG_UpdateDefaults: u32 = 2147483648u32;
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASPBDLGA {
-    pub dwSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwCallbackId: usize,
-    pub pCallback: RASPBDLGFUNCA,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASPBDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASPBDLGA {
@@ -2751,27 +2561,6 @@ impl Default for RASPBDLGA {
 pub type RASPBDLGFUNCA = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void)>;
 pub type RASPBDLGFUNCW = Option<unsafe extern "system" fn(param0: usize, param1: u32, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct RASPBDLGW {
-    pub dwSize: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub dwFlags: u32,
-    pub xDlg: i32,
-    pub yDlg: i32,
-    pub dwCallbackId: usize,
-    pub pCallback: RASPBDLGFUNCW,
-    pub dwError: u32,
-    pub reserved: usize,
-    pub reserved2: usize,
-}
-#[cfg(target_arch = "x86")]
-impl Default for RASPBDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct RASPBDLGW {

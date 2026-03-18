@@ -7,7 +7,7 @@ impl windows_core::RuntimeType for IWindowManagementPreview {
 pub struct IWindowManagementPreview_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IWindowManagementPreviewStatics, IWindowManagementPreviewStatics_Vtbl, 0x0f9725c6_c004_5a23_8fd2_8d092ce2704a);
+windows_core::imp::define_interface!(IWindowManagementPreviewStatics, IWindowManagementPreviewStatics_Vtbl, 0x3b49ee55_ef01_569f_8580_7b404657826d);
 impl windows_core::RuntimeType for IWindowManagementPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

@@ -13,7 +13,7 @@ pub struct IPrintWorkflowBackgroundSession_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintWorkflowSessionStatus) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowBackgroundSetupRequestedEventArgs, IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl, 0x43e97342_1750_59c9_61fb_383748a20362);
+windows_core::imp::define_interface!(IPrintWorkflowBackgroundSetupRequestedEventArgs, IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl, 0xfb64577b_f706_5f28_b21c_e94cf0173b5d);
 impl windows_core::RuntimeType for IPrintWorkflowBackgroundSetupRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -29,7 +29,7 @@ pub struct IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl {
     pub SetRequiresUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowConfiguration, IPrintWorkflowConfiguration_Vtbl, 0xd0aac4ed_fd4b_5df5_4bb6_8d0d159ebe3f);
+windows_core::imp::define_interface!(IPrintWorkflowConfiguration, IPrintWorkflowConfiguration_Vtbl, 0x083de3d7_e826_5398_bb1a_7bb54cbbea54);
 impl windows_core::RuntimeType for IPrintWorkflowConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -66,7 +66,7 @@ pub struct IPrintWorkflowForegroundSession_Vtbl {
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintWorkflowSessionStatus) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowForegroundSetupRequestedEventArgs, IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl, 0xbbe38247_9c1b_4dd3_9b2b_c80468d941b3);
+windows_core::imp::define_interface!(IPrintWorkflowForegroundSetupRequestedEventArgs, IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl, 0x84a654d0_c875_5362_bb7e_b875a81b7d13);
 impl windows_core::RuntimeType for IPrintWorkflowForegroundSetupRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -91,7 +91,7 @@ pub struct IPrintWorkflowJobActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowJobBackgroundSession, IPrintWorkflowJobBackgroundSession_Vtbl, 0xc5ec6ad8_20c9_5d51_8507_2734b46f96c5);
+windows_core::imp::define_interface!(IPrintWorkflowJobBackgroundSession, IPrintWorkflowJobBackgroundSession_Vtbl, 0xf62c1ca1_ba64_5242_a184_2592f26a872c);
 impl windows_core::RuntimeType for IPrintWorkflowJobBackgroundSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -106,7 +106,7 @@ pub struct IPrintWorkflowJobBackgroundSession_Vtbl {
     pub RemovePdlModificationRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowJobBackgroundSession2, IPrintWorkflowJobBackgroundSession2_Vtbl, 0x592aadaf_ef26_5a55_ad21_5f63ffcf8366);
+windows_core::imp::define_interface!(IPrintWorkflowJobBackgroundSession2, IPrintWorkflowJobBackgroundSession2_Vtbl, 0x7e6f418b_26e9_5558_ad68_81cc73160b5c);
 impl windows_core::RuntimeType for IPrintWorkflowJobBackgroundSession2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -117,7 +117,7 @@ pub struct IPrintWorkflowJobBackgroundSession2_Vtbl {
     pub JobIssueDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveJobIssueDetected: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowJobBackgroundSession3, IPrintWorkflowJobBackgroundSession3_Vtbl, 0x5757086c_edcc_5a94_90ec_a0a87c1115e7);
+windows_core::imp::define_interface!(IPrintWorkflowJobBackgroundSession3, IPrintWorkflowJobBackgroundSession3_Vtbl, 0xbbf46919_caa7_56d2_8117_ee6d051e2636);
 impl windows_core::RuntimeType for IPrintWorkflowJobBackgroundSession3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -222,7 +222,7 @@ pub struct IPrintWorkflowJobUISession2_Vtbl {
     pub VirtualPrinterUIDataAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveVirtualPrinterUIDataAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowObjectModelProvider, IPrintWorkflowObjectModelProvider_Vtbl, 0xe3a9f883_6a2d_489b_bc1f_7aab44249622);
+windows_core::imp::define_interface!(IPrintWorkflowObjectModelProvider, IPrintWorkflowObjectModelProvider_Vtbl, 0xe717e03d_2bf8_5542_a694_3f5dfacfed7f);
 impl windows_core::RuntimeType for IPrintWorkflowObjectModelProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -244,7 +244,7 @@ impl IPrintWorkflowObjectModelProvider_Vtbl {
 pub struct IPrintWorkflowObjectModelProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
-windows_core::imp::define_interface!(IPrintWorkflowObjectModelSourceFileContent, IPrintWorkflowObjectModelSourceFileContent_Vtbl, 0xc36c8a6a_8a2a_419a_b3c3_2090e6bfab2f);
+windows_core::imp::define_interface!(IPrintWorkflowObjectModelSourceFileContent, IPrintWorkflowObjectModelSourceFileContent_Vtbl, 0x05fa5cf5_c6a8_560c_bc21_9bb99bcbb53e);
 impl windows_core::RuntimeType for IPrintWorkflowObjectModelSourceFileContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -266,7 +266,7 @@ pub struct IPrintWorkflowObjectModelSourceFileContentFactory_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateInstance: usize,
 }
-windows_core::imp::define_interface!(IPrintWorkflowObjectModelTargetPackage, IPrintWorkflowObjectModelTargetPackage_Vtbl, 0x7d96bc74_9b54_4ca1_ad3a_979c3d44ddac);
+windows_core::imp::define_interface!(IPrintWorkflowObjectModelTargetPackage, IPrintWorkflowObjectModelTargetPackage_Vtbl, 0xa34ecdc4_5605_56ca_8491_7c50ee85a57b);
 impl windows_core::RuntimeType for IPrintWorkflowObjectModelTargetPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -301,7 +301,7 @@ pub struct IPrintWorkflowPdlConverter2_Vtbl {
     #[cfg(not(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams")))]
     ConvertPdlAsync: usize,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPdlConverter3, IPrintWorkflowPdlConverter3_Vtbl, 0x6b556b4f_3756_5da6_b1f7_8f9e89f629fb);
+windows_core::imp::define_interface!(IPrintWorkflowPdlConverter3, IPrintWorkflowPdlConverter3_Vtbl, 0x5cc747a6_fe7d_5ec8_a080_a26f6a2db6fe);
 impl windows_core::RuntimeType for IPrintWorkflowPdlConverter3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -327,7 +327,7 @@ pub struct IPrintWorkflowPdlDataAvailableEventArgs_Vtbl {
     pub SourceContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPdlModificationRequestedEventArgs, IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl, 0x1a339a61_2e13_5edd_a707_ceec61d7333b);
+windows_core::imp::define_interface!(IPrintWorkflowPdlModificationRequestedEventArgs, IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl, 0xbb899f83_35c9_5e96_a350_74328e76b769);
 impl windows_core::RuntimeType for IPrintWorkflowPdlModificationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -351,7 +351,7 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl {
     pub GetPdlConverter: unsafe extern "system" fn(*mut core::ffi::c_void, PrintWorkflowPdlConversionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPdlModificationRequestedEventArgs2, IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl, 0x8d692147_6c62_5e31_a0e7_d49f92c111c0);
+windows_core::imp::define_interface!(IPrintWorkflowPdlModificationRequestedEventArgs2, IPrintWorkflowPdlModificationRequestedEventArgs2_Vtbl, 0x8ad850a1_cc9f_57c8_bd55_a57b6aabeca6);
 impl windows_core::RuntimeType for IPrintWorkflowPdlModificationRequestedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -378,7 +378,7 @@ pub struct IPrintWorkflowPdlModificationRequestedEventArgs3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DisableIppCompressionForJob: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPdlSourceContent, IPrintWorkflowPdlSourceContent_Vtbl, 0x92f7fc41_32b8_56ab_845e_b1e68b3aedd5);
+windows_core::imp::define_interface!(IPrintWorkflowPdlSourceContent, IPrintWorkflowPdlSourceContent_Vtbl, 0xa20cb4e5_aa9a_5345_bce3_6a5ddb3b68f3);
 impl windows_core::RuntimeType for IPrintWorkflowPdlSourceContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -396,7 +396,7 @@ pub struct IPrintWorkflowPdlSourceContent_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetContentFileAsync: usize,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPdlTargetStream, IPrintWorkflowPdlTargetStream_Vtbl, 0xa742dfe5_1ee3_52a9_9f9f_2e2043180fd1);
+windows_core::imp::define_interface!(IPrintWorkflowPdlTargetStream, IPrintWorkflowPdlTargetStream_Vtbl, 0xcfca170f_b897_5d7f_afdd_ea443768dda1);
 impl windows_core::RuntimeType for IPrintWorkflowPdlTargetStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -410,7 +410,7 @@ pub struct IPrintWorkflowPdlTargetStream_Vtbl {
     GetOutputStream: usize,
     pub CompleteStreamSubmission: unsafe extern "system" fn(*mut core::ffi::c_void, PrintWorkflowSubmittedStatus) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPrinterJob, IPrintWorkflowPrinterJob_Vtbl, 0x12009f94_0d14_5443_bc09_250311ce570b);
+windows_core::imp::define_interface!(IPrintWorkflowPrinterJob, IPrintWorkflowPrinterJob_Vtbl, 0xf3ea3bb7_f9b8_5023_bc99_4436ecc20032);
 impl windows_core::RuntimeType for IPrintWorkflowPrinterJob {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -445,7 +445,7 @@ pub struct IPrintWorkflowPrinterJob_Vtbl {
     #[cfg(not(feature = "Devices_Printers"))]
     SetJobAttributes: usize,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPrinterJob2, IPrintWorkflowPrinterJob2_Vtbl, 0x747e21d7_69a9_5229_b8f0_874ca1a8871b);
+windows_core::imp::define_interface!(IPrintWorkflowPrinterJob2, IPrintWorkflowPrinterJob2_Vtbl, 0xc5031e4e_1a05_5ebb_b8a5_e83c583933c0);
 impl windows_core::RuntimeType for IPrintWorkflowPrinterJob2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -458,7 +458,7 @@ pub struct IPrintWorkflowPrinterJob2_Vtbl {
     #[cfg(not(all(feature = "Devices_Printers", feature = "Graphics_Printing_PrintTicket")))]
     ConvertPrintTicketToJobAttributes: usize,
 }
-windows_core::imp::define_interface!(IPrintWorkflowPrinterJobStatusChangedEventArgs, IPrintWorkflowPrinterJobStatusChangedEventArgs_Vtbl, 0x4a6275b9_be67_5718_921a_348c56f9d25f);
+windows_core::imp::define_interface!(IPrintWorkflowPrinterJobStatusChangedEventArgs, IPrintWorkflowPrinterJobStatusChangedEventArgs_Vtbl, 0x5d3eb9d4_2309_5138_b984_330d289b2d35);
 impl windows_core::RuntimeType for IPrintWorkflowPrinterJobStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -485,7 +485,7 @@ pub struct IPrintWorkflowSourceContent_Vtbl {
     pub GetSourceSpoolDataAsStreamContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSourceSpoolDataAsXpsObjectModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowSpoolStreamContent, IPrintWorkflowSpoolStreamContent_Vtbl, 0x72e55ece_e406_4b74_84e1_3ff3fdcdaf70);
+windows_core::imp::define_interface!(IPrintWorkflowSpoolStreamContent, IPrintWorkflowSpoolStreamContent_Vtbl, 0x37626a15_aee3_5518_b675_8e8411017e36);
 impl windows_core::RuntimeType for IPrintWorkflowSpoolStreamContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -498,7 +498,7 @@ pub struct IPrintWorkflowSpoolStreamContent_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetInputStream: usize,
 }
-windows_core::imp::define_interface!(IPrintWorkflowStreamTarget, IPrintWorkflowStreamTarget_Vtbl, 0xb23bba84_8565_488b_9839_1c9e7c7aa916);
+windows_core::imp::define_interface!(IPrintWorkflowStreamTarget, IPrintWorkflowStreamTarget_Vtbl, 0xabf4391c_0b18_50dc_a90a_c01abf3fc7fa);
 impl windows_core::RuntimeType for IPrintWorkflowStreamTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -526,7 +526,7 @@ pub struct IPrintWorkflowSubmittedEventArgs_Vtbl {
     GetTarget: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowSubmittedOperation, IPrintWorkflowSubmittedOperation_Vtbl, 0x2e4e6216_3be1_5f0f_5c81_a5a2bd4eab0e);
+windows_core::imp::define_interface!(IPrintWorkflowSubmittedOperation, IPrintWorkflowSubmittedOperation_Vtbl, 0xd6de8254_b47c_5988_9742_269c98861d7f);
 impl windows_core::RuntimeType for IPrintWorkflowSubmittedOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -538,7 +538,7 @@ pub struct IPrintWorkflowSubmittedOperation_Vtbl {
     pub Configuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub XpsContent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowTarget, IPrintWorkflowTarget_Vtbl, 0x29da276c_0a73_5aed_4f3d_970d3251f057);
+windows_core::imp::define_interface!(IPrintWorkflowTarget, IPrintWorkflowTarget_Vtbl, 0x8ff5db6e_a846_577d_9292_3502820ef4d7);
 impl windows_core::RuntimeType for IPrintWorkflowTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -549,7 +549,7 @@ pub struct IPrintWorkflowTarget_Vtbl {
     pub TargetAsStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TargetAsXpsObjectModelPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowTriggerDetails, IPrintWorkflowTriggerDetails_Vtbl, 0x5739d868_9d86_4052_b0cb_f310becd59bb);
+windows_core::imp::define_interface!(IPrintWorkflowTriggerDetails, IPrintWorkflowTriggerDetails_Vtbl, 0x3a7b26e4_3d74_587a_84ab_b7a73e563739);
 impl windows_core::RuntimeType for IPrintWorkflowTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -560,7 +560,7 @@ pub struct IPrintWorkflowTriggerDetails_Vtbl {
     pub PrintWorkflowSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::define_interface!(IPrintWorkflowUIActivatedEventArgs, IPrintWorkflowUIActivatedEventArgs_Vtbl, 0xbc8a844d_09eb_5746_72a6_8dc8b5edbe9b);
+windows_core::imp::define_interface!(IPrintWorkflowUIActivatedEventArgs, IPrintWorkflowUIActivatedEventArgs_Vtbl, 0xfe50f947_1a49_5bfd_abff_2dde6f515168);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for IPrintWorkflowUIActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -572,7 +572,7 @@ pub struct IPrintWorkflowUIActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowUILauncher, IPrintWorkflowUILauncher_Vtbl, 0x64e9e22f_14cc_5828_96fb_39163fb6c378);
+windows_core::imp::define_interface!(IPrintWorkflowUILauncher, IPrintWorkflowUILauncher_Vtbl, 0x633fb857_e3b8_5480_8d65_7081170b6d2b);
 impl windows_core::RuntimeType for IPrintWorkflowUILauncher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -583,7 +583,7 @@ pub struct IPrintWorkflowUILauncher_Vtbl {
     pub IsUILaunchEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub LaunchAndCompleteUIAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowVirtualPrinterDataAvailableEventArgs, IPrintWorkflowVirtualPrinterDataAvailableEventArgs_Vtbl, 0x6b7d5003_14a8_5d52_a428_07330fbab11f);
+windows_core::imp::define_interface!(IPrintWorkflowVirtualPrinterDataAvailableEventArgs, IPrintWorkflowVirtualPrinterDataAvailableEventArgs_Vtbl, 0xdbce49f9_6117_5b37_9e22_068d195984bc);
 impl windows_core::RuntimeType for IPrintWorkflowVirtualPrinterDataAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -622,7 +622,7 @@ pub struct IPrintWorkflowVirtualPrinterSession_Vtbl {
     pub RemoveVirtualPrinterDataAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowVirtualPrinterTriggerDetails, IPrintWorkflowVirtualPrinterTriggerDetails_Vtbl, 0xff8f2297_727b_53ec_b9e0_f393f72d4e50);
+windows_core::imp::define_interface!(IPrintWorkflowVirtualPrinterTriggerDetails, IPrintWorkflowVirtualPrinterTriggerDetails_Vtbl, 0xaac6acd7_0b13_561e_8cf3_2c4e7b6edc4b);
 impl windows_core::RuntimeType for IPrintWorkflowVirtualPrinterTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -632,7 +632,7 @@ pub struct IPrintWorkflowVirtualPrinterTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub VirtualPrinterSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowVirtualPrinterUIEventArgs, IPrintWorkflowVirtualPrinterUIEventArgs_Vtbl, 0x334dbbca_bf10_585f_b7e0_58c4aa43a03f);
+windows_core::imp::define_interface!(IPrintWorkflowVirtualPrinterUIEventArgs, IPrintWorkflowVirtualPrinterUIEventArgs_Vtbl, 0x35c40439_4189_5da8_adc2_c31c5ebcd5a8);
 impl windows_core::RuntimeType for IPrintWorkflowVirtualPrinterUIEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -652,7 +652,7 @@ pub struct IPrintWorkflowVirtualPrinterUIEventArgs_Vtbl {
     GetJobPrintTicket: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPrintWorkflowXpsDataAvailableEventArgs, IPrintWorkflowXpsDataAvailableEventArgs_Vtbl, 0x4d11c331_54d1_434e_be0e_82c5fa58e5b2);
+windows_core::imp::define_interface!(IPrintWorkflowXpsDataAvailableEventArgs, IPrintWorkflowXpsDataAvailableEventArgs_Vtbl, 0x5a5655df_9614_591a_a2f2_f1f5e973bc15);
 impl windows_core::RuntimeType for IPrintWorkflowXpsDataAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

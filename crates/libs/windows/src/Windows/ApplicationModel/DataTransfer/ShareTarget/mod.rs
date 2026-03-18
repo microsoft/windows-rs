@@ -1,4 +1,4 @@
-windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
+windows_core::imp::define_interface!(IQuickLink, IQuickLink_Vtbl, 0xafb5ae35_2e7b_5d05_942a_4c2b61ad0f54);
 impl windows_core::RuntimeType for IQuickLink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -21,7 +21,7 @@ pub struct IQuickLink_Vtbl {
     pub SupportedDataFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SupportedFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
+windows_core::imp::define_interface!(IShareOperation, IShareOperation_Vtbl, 0x31ce8f5c_b2ef_5ceb_8e7a_dd0cc7118a27);
 impl windows_core::RuntimeType for IShareOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -39,7 +39,7 @@ pub struct IShareOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReportError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
+windows_core::imp::define_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x9fc870de_aacf_51d2_9f1d_36e86dfb577e);
 impl windows_core::RuntimeType for IShareOperation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }

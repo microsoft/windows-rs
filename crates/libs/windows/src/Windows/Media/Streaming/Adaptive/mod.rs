@@ -1227,7 +1227,7 @@ pub struct IAdaptiveMediaSource_Vtbl {
     pub DownloadFailed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDownloadFailed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSource2, IAdaptiveMediaSource2_Vtbl, 0x17890342_6760_4bb9_a58a_f7aa98b08c0e);
+windows_core::imp::define_interface!(IAdaptiveMediaSource2, IAdaptiveMediaSource2_Vtbl, 0x1c677db5_b086_55ea_8253_1174e89c5fe8);
 impl windows_core::RuntimeType for IAdaptiveMediaSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1237,7 +1237,7 @@ pub struct IAdaptiveMediaSource2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AdvancedSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSource3, IAdaptiveMediaSource3_Vtbl, 0xba7023fd_c334_461b_a36e_c99f54f7174a);
+windows_core::imp::define_interface!(IAdaptiveMediaSource3, IAdaptiveMediaSource3_Vtbl, 0x3e33b9a3_001b_5445_9dcf_da5c98d1c50b);
 impl windows_core::RuntimeType for IAdaptiveMediaSource3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1252,7 +1252,7 @@ pub struct IAdaptiveMediaSource3_Vtbl {
     pub Diagnostics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCorrelatedTimes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceAdvancedSettings, IAdaptiveMediaSourceAdvancedSettings_Vtbl, 0x55db1680_1aeb_47dc_aa08_9a11610ba45a);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceAdvancedSettings, IAdaptiveMediaSourceAdvancedSettings_Vtbl, 0xf6652e1d_7741_549a_bdf9_704747b34e5a);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceAdvancedSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1267,7 +1267,7 @@ pub struct IAdaptiveMediaSourceAdvancedSettings_Vtbl {
     pub BitrateDowngradeTriggerRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetBitrateDowngradeTriggerRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceCorrelatedTimes, IAdaptiveMediaSourceCorrelatedTimes_Vtbl, 0x05108787_e032_48e1_ab8d_002b0b3051df);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceCorrelatedTimes, IAdaptiveMediaSourceCorrelatedTimes_Vtbl, 0xcfabd6fb_261d_5a0e_8d27_565d142751ff);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceCorrelatedTimes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1297,7 +1297,7 @@ pub struct IAdaptiveMediaSourceCreationResult_Vtbl {
     #[cfg(not(feature = "Web_Http"))]
     HttpResponseMessage: usize,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceCreationResult2, IAdaptiveMediaSourceCreationResult2_Vtbl, 0x1c3243bf_1c44_404b_a201_df45ac7898e8);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceCreationResult2, IAdaptiveMediaSourceCreationResult2_Vtbl, 0x669e7f40_6c5e_5208_b473_22728b027a8f);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceCreationResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1307,7 +1307,7 @@ pub struct IAdaptiveMediaSourceCreationResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs, IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl, 0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs, IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl, 0xe1c156fb_d1f6_5d60_b13c_63d2f9480e0c);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1335,7 +1335,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs3, IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl, 0xc3650cd5_daeb_4103_84da_68769ad513ff);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnosticAvailableEventArgs3, IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl, 0x157dffc5_5004_5f4e_b584_376a9c67c100);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1346,7 +1346,7 @@ pub struct IAdaptiveMediaSourceDiagnosticAvailableEventArgs3_Vtbl {
     pub ResourceDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResourceContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnostics, IAdaptiveMediaSourceDiagnostics_Vtbl, 0x9b24ee68_962e_448c_aebf_b29b56098e23);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDiagnostics, IAdaptiveMediaSourceDiagnostics_Vtbl, 0xcfe73676_7c16_539e_9fef_23ab4d9934a9);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDiagnostics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1357,7 +1357,7 @@ pub struct IAdaptiveMediaSourceDiagnostics_Vtbl {
     pub DiagnosticAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveDiagnosticAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl, 0x670c0a44_e04e_4eff_816a_17399f78f4ba);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl, 0x7650a8b5_84a9_5116_9582_b93da35152b0);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1368,7 +1368,7 @@ pub struct IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl {
     pub OldValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub NewValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl, 0xf3f1f444_96ae_4de0_b540_2b3246e6968c);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2, IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2_Vtbl, 0x26acfe83_05de_5b4a_8df3_b0f3443fa46b);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1407,7 +1407,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs2_Vtbl {
     pub Statistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Position: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs3, IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl, 0x0f8a8bd1_93b2_47c6_badc_8be2c8f7f6e8);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadCompletedEventArgs3, IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl, 0xda78dd00_27dc_503e_8785_153a5a123cb0);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1418,7 +1418,7 @@ pub struct IAdaptiveMediaSourceDownloadCompletedEventArgs3_Vtbl {
     pub ResourceDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResourceContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs, IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl, 0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs, IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl, 0x0d0f2168_4bce_5a59_a771_3958e737d0b5);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1435,7 +1435,7 @@ pub struct IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl {
     #[cfg(not(feature = "Web_Http"))]
     HttpResponseMessage: usize,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs2, IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl, 0x70919568_967c_4986_90c5_c6fc4b31e2d8);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadFailedEventArgs2, IAdaptiveMediaSourceDownloadFailedEventArgs2_Vtbl, 0xfb3100d7_a08c_5971_a17a_f8642db653ee);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadFailedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1469,7 +1469,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs, IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl, 0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs, IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl, 0x38697f57_6efb_5362_b8f4_19d4eb216875);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1484,7 +1484,7 @@ pub struct IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl {
     pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs2, IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl, 0xb37d8bfe_aa44_4d82_825b_611de3bcfecb);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadRequestedEventArgs2, IAdaptiveMediaSourceDownloadRequestedEventArgs2_Vtbl, 0xd285b1cb_4cec_5b25_bd0c_fa7b57554251);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1537,7 +1537,7 @@ pub struct IAdaptiveMediaSourceDownloadResult_Vtbl {
     pub ExtendedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetExtendedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadResult2, IAdaptiveMediaSourceDownloadResult2_Vtbl, 0x15552cb7_7b80_4ac4_8660_a4b97f7c70f0);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceDownloadResult2, IAdaptiveMediaSourceDownloadResult2_Vtbl, 0x5bc378ae_8f3e_5df6_a113_93bfe130d75f);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceDownloadResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1575,7 +1575,7 @@ pub struct IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl {
     pub NewValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AudioOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IAdaptiveMediaSourceStatics, IAdaptiveMediaSourceStatics_Vtbl, 0x50a6bd5d_66ef_4cd3_9579_9e660507dc3f);
+windows_core::imp::define_interface!(IAdaptiveMediaSourceStatics, IAdaptiveMediaSourceStatics_Vtbl, 0x4ea95786_3887_5fdb_8a44_d4bb2ab06af0);
 impl windows_core::RuntimeType for IAdaptiveMediaSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
