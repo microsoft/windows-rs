@@ -28,4 +28,12 @@ pub fn parse() {
         .filter("Test.C")
         .write()
         .unwrap();
+
+    writer()
+        .input("tests/mod-recursive.winmd")
+        .output("tests/mod-recursive-exclude.rdl")
+        .filter("Test")
+        .filter("!Test.C")
+        .write()
+        .unwrap();
 }
