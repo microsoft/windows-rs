@@ -12,6 +12,8 @@ fn roundtrip(winmd: &str, rdl: &str, filter: &[&str]) {
 }
 
 fn main() {
+    let time = std::time::Instant::now();
+
     roundtrip(
         "crates/libs/bindgen/default/Windows.winmd",
         "target/rdl/Windows",
@@ -29,4 +31,6 @@ fn main() {
         "target/rdl/Windows.Wdk",
         &["Windows.Wdk"],
     );
+
+    println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
