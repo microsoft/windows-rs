@@ -12846,7 +12846,7 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Unicode]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/debugapi/nf-debugapi-outputdebugstringw")]
                     #[library("KERNEL32.dll")]
-                    extern fn OutputDebugStringW(lpOutputString: super::super::super::Foundation::PWSTR);
+                    extern fn OutputDebugStringW(#[Windows::Win32::Foundation::Metadata::Const] lpOutputString: super::super::super::Foundation::PWSTR);
                     #[repr(i32)]
                     enum PAGE_OFFLINE_ERROR_TYPES {
                         BitErrorDdr4 = 0,
