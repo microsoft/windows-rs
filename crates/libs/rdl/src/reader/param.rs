@@ -27,6 +27,11 @@ pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error
                 return encoder.err(attr, "`out` attribute does not accept arguments");
             }
             attributes = metadata::ParamAttributes::Out;
+        } else if attr.path().is_ident("input") {
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return encoder.err(attr, "`input` attribute does not accept arguments");
+            }
+            attributes = metadata::ParamAttributes::In;
         } else if attr.path().is_ident("opt") {
             if !matches!(attr.meta, syn::Meta::Path(_)) {
                 return encoder.err(attr, "`opt` attribute does not accept arguments");

@@ -214,7 +214,7 @@ impl Interface {
                     encoder,
                     metadata::writer::HasAttribute::Param(param_id),
                     &param.attrs,
-                    &["out", "opt"],
+                    &["input", "out", "opt"],
                 )?;
             }
         }

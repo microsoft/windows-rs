@@ -188,8 +188,6 @@ jobs:
         run:  cargo clippy -p test_core --tests
       - name: Check test_deprecated
         run:  cargo clippy -p test_deprecated --tests
-      - name: Check test_enums
-        run:  cargo clippy -p test_enums --tests
       - name: Check test_error
         run:  cargo clippy -p test_error --tests
       - name: Check test_event_core
@@ -292,8 +290,6 @@ jobs:
         run:  cargo clippy -p test_string_param --tests
       - name: Check test_strings
         run:  cargo clippy -p test_strings --tests
-      - name: Check test_struct_size
-        run:  cargo clippy -p test_struct_size --tests
       - name: Check test_structs
         run:  cargo clippy -p test_structs --tests
       - name: Check test_sys
