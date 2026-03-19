@@ -214,7 +214,7 @@ impl Interface {
                     encoder,
                     metadata::writer::HasAttribute::Param(param_id),
                     &param.attrs,
-                    &["out"],
+                    &["out", "opt"],
                 )?;
             }
         }
@@ -326,6 +326,25 @@ fn out_with_args() {
 mod Test {
     interface IFoo {
         fn Method(&self, #[out(42)] output: i32);
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: `opt` attribute does not accept arguments\n --> .rdl:5:26")]
+fn opt_with_args() {
+    reader()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        fn Method(&self, #[opt(42)] value: i32);
     }
 }
         "#,
