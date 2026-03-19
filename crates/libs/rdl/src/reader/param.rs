@@ -42,6 +42,8 @@ pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error
         && matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
     {
         attributes |= metadata::ParamAttributes::Out;
+    } else {
+        attributes |= metadata::ParamAttributes::In;
     }
 
     Ok(Param {
