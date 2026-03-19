@@ -320,11 +320,16 @@ fn write_params(
             } else {
                 quote! {}
             };
+            let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
+                quote! { #[opt] }
+            } else {
+                quote! {}
+            };
             let name = write_ident(param.name());
             let param_attrs =
                 write_custom_attributes(param.attributes(), namespace, method.index());
             let ty = write_type(namespace, &ty);
-            quote! { #(#param_attrs)* #out_attr #name: #ty }
+            quote! { #(#param_attrs)* #out_attr #opt_attr #name: #ty }
         })
         .collect()
 }
