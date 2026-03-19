@@ -215,8 +215,6 @@ jobs:
         run:  cargo test -p test_core --target ${{ matrix.target }}
       - name: Test test_deprecated
         run:  cargo test -p test_deprecated --target ${{ matrix.target }}
-      - name: Test test_enums
-        run:  cargo test -p test_enums --target ${{ matrix.target }}
       - name: Test test_error
         run:  cargo test -p test_error --target ${{ matrix.target }}
       - name: Test test_event_core
@@ -265,10 +263,10 @@ jobs:
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_numerics
         run:  cargo test -p test_numerics --target ${{ matrix.target }}
       - name: Test test_overloads
@@ -321,8 +319,6 @@ jobs:
         run:  cargo test -p test_string_param --target ${{ matrix.target }}
       - name: Test test_strings
         run:  cargo test -p test_strings --target ${{ matrix.target }}
-      - name: Test test_struct_size
-        run:  cargo test -p test_struct_size --target ${{ matrix.target }}
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }}
       - name: Test test_sys
@@ -367,12 +363,12 @@ jobs:
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
       - name: Test tool_yml
         run:  cargo test -p tool_yml --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }}
       - name: Test windows-bindgen
