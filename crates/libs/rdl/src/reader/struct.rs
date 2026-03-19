@@ -56,29 +56,6 @@ impl Struct {
     }
 }
 
-/// Parse an optional `#[packed(N)]` attribute from `attrs`.  Returns `Some(N)` if
-/// the attribute is present and well-formed, `None` if absent, or an error if the
-/// attribute is malformed.
-fn read_packed(encoder: &Encoder, attrs: &[syn::Attribute]) -> Result<Option<u16>, Error> {
-    for attr in attrs {
-        if !attr.path().is_ident("packed") {
-            continue;
-        }
-
-        let Ok(size_literal) = attr.parse_args::<syn::LitInt>() else {
-            return encoder.err(attr, "`packed` attribute requires an integer argument");
-        };
-
-        let Ok(size) = size_literal.base10_parse::<u16>() else {
-            return encoder.err(attr, "`packed` size must be a valid u16");
-        };
-
-        return Ok(Some(size));
-    }
-
-    Ok(None)
-}
-
 /// Encode a flat struct or union type definition into the metadata output.
 pub fn encode_struct_or_union(
     encoder: &mut Encoder,

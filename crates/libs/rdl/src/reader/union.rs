@@ -33,11 +33,16 @@ impl Union {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
         let type_def =
             encode_struct_or_union(encoder, &self.name.to_string(), false, true, &self.fields)?;
+
+        if let Some(packing_size) = read_packed(encoder, &self.attrs)? {
+            encoder.output.ClassLayout(type_def, packing_size, 0);
+        }
+
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(type_def),
             &self.attrs,
-            &[],
+            &["packed"],
         )
     }
 }
