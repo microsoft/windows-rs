@@ -6,7 +6,7 @@ mod Windows {
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-clearvariantarray")]
                 #[library("PROPSYS.dll")]
-                extern fn ClearVariantArray(pvars: *mut VARIANT, cvars: u32);
+                extern fn ClearVariantArray(#[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pvars: *mut VARIANT, cvars: u32);
                 #[repr(i32)]
                 #[flags]
                 enum DRAWPROGRESSFLAGS {
@@ -23,39 +23,39 @@ mod Windows {
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfrombooleanarray")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromBooleanArray(prgf: *mut super::super::Foundation::BOOL, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromBooleanArray(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgf: *mut super::super::Foundation::BOOL, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfrombuffer")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromBuffer(pv: *mut void, cb: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromBuffer(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] pv: *mut void, cb: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromdoublearray")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromDoubleArray(prgn: *mut f64, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromDoubleArray(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgn: *mut f64, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromfiletime")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromFileTime(pft: *mut super::super::Foundation::FILETIME, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromFileTime(#[Windows::Win32::Foundation::Metadata::Const] pft: *mut super::super::Foundation::FILETIME, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromfiletimearray")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromFileTimeArray(prgft: *mut super::super::Foundation::FILETIME, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromFileTimeArray(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgft: *mut super::super::Foundation::FILETIME, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromguidasstring")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromGUIDAsString(guid: *mut GUID, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromGUIDAsString(#[Windows::Win32::Foundation::Metadata::Const] guid: *mut GUID, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromint16array")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromInt16Array(prgn: *mut i16, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromInt16Array(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgn: *mut i16, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromint32array")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromInt32Array(prgn: *mut i32, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromInt32Array(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgn: *mut i32, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromint64array")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromInt64Array(prgn: *mut i64, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromInt64Array(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgn: *mut i64, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromresource")]
                 #[library("PROPSYS.dll")]
@@ -63,23 +63,23 @@ mod Windows {
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromstringarray")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromStringArray(prgsz: *mut super::super::Foundation::PWSTR, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromStringArray(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgsz: *mut super::super::Foundation::PWSTR, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromuint16array")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromUInt16Array(prgn: *mut u16, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromUInt16Array(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgn: *mut u16, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromuint32array")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromUInt32Array(prgn: *mut u32, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromUInt32Array(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgn: *mut u32, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromuint64array")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromUInt64Array(prgn: *mut u64, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromUInt64Array(#[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgn: *mut u64, cElems: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initvariantfromvariantarrayelem")]
                 #[library("PROPSYS.dll")]
-                extern fn InitVariantFromVariantArrayElem(varIn: *mut VARIANT, iElem: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn InitVariantFromVariantArrayElem(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, iElem: u32, pvar: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[repr(i32)]
                 #[flags]
                 enum PSTIME_FLAGS {
@@ -255,63 +255,63 @@ mod Windows {
                 }
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oleauto/nf-oleauto-variantchangetype")]
                 #[library("OLEAUT32.dll")]
-                extern fn VariantChangeType(pvargDest: *mut VARIANT, pvarSrc: *mut VARIANT, wFlags: VAR_CHANGE_FLAGS, vt: VARENUM) -> super::super::Foundation::HRESULT;
+                extern fn VariantChangeType(pvargDest: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarSrc: *mut VARIANT, wFlags: VAR_CHANGE_FLAGS, vt: VARENUM) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oleauto/nf-oleauto-variantchangetypeex")]
                 #[library("OLEAUT32.dll")]
-                extern fn VariantChangeTypeEx(pvargDest: *mut VARIANT, pvarSrc: *mut VARIANT, lcid: u32, wFlags: VAR_CHANGE_FLAGS, vt: VARENUM) -> super::super::Foundation::HRESULT;
+                extern fn VariantChangeTypeEx(pvargDest: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarSrc: *mut VARIANT, lcid: u32, wFlags: VAR_CHANGE_FLAGS, vt: VARENUM) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oleauto/nf-oleauto-variantclear")]
                 #[library("OLEAUT32.dll")]
                 extern fn VariantClear(pvarg: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantcompare")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantCompare(var1: *mut VARIANT, var2: *mut VARIANT) -> i32;
+                extern fn VariantCompare(#[Windows::Win32::Foundation::Metadata::Const] var1: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::Const] var2: *mut VARIANT) -> i32;
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oleauto/nf-oleauto-variantcopy")]
                 #[library("OLEAUT32.dll")]
-                extern fn VariantCopy(pvargDest: *mut VARIANT, pvargSrc: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn VariantCopy(pvargDest: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvargSrc: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oleauto/nf-oleauto-variantcopyind")]
                 #[library("OLEAUT32.dll")]
-                extern fn VariantCopyInd(pvarDest: *mut VARIANT, pvargSrc: *mut VARIANT) -> super::super::Foundation::HRESULT;
+                extern fn VariantCopyInd(pvarDest: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvargSrc: *mut VARIANT) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetbooleanelem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetBooleanElem(var: *mut VARIANT, iElem: u32, pfVal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetBooleanElem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pfVal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetdoubleelem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetDoubleElem(var: *mut VARIANT, iElem: u32, pnVal: *mut f64) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetDoubleElem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pnVal: *mut f64) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetelementcount")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetElementCount(varIn: *mut VARIANT) -> u32;
+                extern fn VariantGetElementCount(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT) -> u32;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetint16elem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetInt16Elem(var: *mut VARIANT, iElem: u32, pnVal: *mut i16) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetInt16Elem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pnVal: *mut i16) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetint32elem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetInt32Elem(var: *mut VARIANT, iElem: u32, pnVal: *mut i32) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetInt32Elem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pnVal: *mut i32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetint64elem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetInt64Elem(var: *mut VARIANT, iElem: u32, pnVal: *mut i64) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetInt64Elem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pnVal: *mut i64) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetstringelem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetStringElem(var: *mut VARIANT, iElem: u32, ppszVal: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetStringElem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, ppszVal: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetuint16elem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetUInt16Elem(var: *mut VARIANT, iElem: u32, pnVal: *mut u16) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetUInt16Elem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pnVal: *mut u16) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetuint32elem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetUInt32Elem(var: *mut VARIANT, iElem: u32, pnVal: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetUInt32Elem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pnVal: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-variantgetuint64elem")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantGetUInt64Elem(var: *mut VARIANT, iElem: u32, pnVal: *mut u64) -> super::super::Foundation::HRESULT;
+                extern fn VariantGetUInt64Elem(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, iElem: u32, pnVal: *mut u64) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oleauto/nf-oleauto-variantinit")]
                 #[library("OLEAUT32.dll")]
                 extern fn VariantInit(pvarg: *mut VARIANT);
@@ -324,167 +324,167 @@ mod Windows {
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoboolean")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToBoolean(varIn: *mut VARIANT, pfRet: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                extern fn VariantToBoolean(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, pfRet: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttobooleanarray")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToBooleanArray(var: *mut VARIANT, prgf: *mut super::super::Foundation::BOOL, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToBooleanArray(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgf: *mut super::super::Foundation::BOOL, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttobooleanarrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToBooleanArrayAlloc(var: *mut VARIANT, pprgf: *mut *mut super::super::Foundation::BOOL, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToBooleanArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgf: *mut *mut super::super::Foundation::BOOL, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttobooleanwithdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToBooleanWithDefault(varIn: *mut VARIANT, fDefault: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                extern fn VariantToBooleanWithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, fDefault: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttobuffer")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToBuffer(varIn: *mut VARIANT, pv: *mut void, cb: u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToBuffer(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 2)] pv: *mut void, cb: u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttodosdatetime")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToDosDateTime(varIn: *mut VARIANT, pwDate: *mut u16, pwTime: *mut u16) -> super::super::Foundation::HRESULT;
+                extern fn VariantToDosDateTime(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, pwDate: *mut u16, pwTime: *mut u16) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttodouble")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToDouble(varIn: *mut VARIANT, pdblRet: *mut f64) -> super::super::Foundation::HRESULT;
+                extern fn VariantToDouble(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, pdblRet: *mut f64) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttodoublearray")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToDoubleArray(var: *mut VARIANT, prgn: *mut f64, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToDoubleArray(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgn: *mut f64, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttodoublearrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToDoubleArrayAlloc(var: *mut VARIANT, pprgn: *mut *mut f64, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToDoubleArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgn: *mut *mut f64, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttodoublewithdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToDoubleWithDefault(varIn: *mut VARIANT, dblDefault: f64) -> f64;
+                extern fn VariantToDoubleWithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, dblDefault: f64) -> f64;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttofiletime")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToFileTime(varIn: *mut VARIANT, stfOut: PSTIME_FLAGS, pftOut: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                extern fn VariantToFileTime(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, stfOut: PSTIME_FLAGS, pftOut: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoguid")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToGUID(varIn: *mut VARIANT, pguid: *mut GUID) -> super::super::Foundation::HRESULT;
+                extern fn VariantToGUID(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, pguid: *mut GUID) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint16")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt16(varIn: *mut VARIANT, piRet: *mut i16) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt16(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, piRet: *mut i16) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint16array")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt16Array(var: *mut VARIANT, prgn: *mut i16, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt16Array(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgn: *mut i16, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint16arrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt16ArrayAlloc(var: *mut VARIANT, pprgn: *mut *mut i16, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt16ArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgn: *mut *mut i16, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint16withdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt16WithDefault(varIn: *mut VARIANT, iDefault: i16) -> i16;
+                extern fn VariantToInt16WithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, iDefault: i16) -> i16;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint32")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt32(varIn: *mut VARIANT, plRet: *mut i32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt32(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, plRet: *mut i32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint32array")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt32Array(var: *mut VARIANT, prgn: *mut i32, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt32Array(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgn: *mut i32, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint32arrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt32ArrayAlloc(var: *mut VARIANT, pprgn: *mut *mut i32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt32ArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgn: *mut *mut i32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint32withdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt32WithDefault(varIn: *mut VARIANT, lDefault: i32) -> i32;
+                extern fn VariantToInt32WithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, lDefault: i32) -> i32;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint64")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt64(varIn: *mut VARIANT, pllRet: *mut i64) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt64(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, pllRet: *mut i64) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint64array")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt64Array(var: *mut VARIANT, prgn: *mut i64, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt64Array(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgn: *mut i64, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint64arrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt64ArrayAlloc(var: *mut VARIANT, pprgn: *mut *mut i64, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToInt64ArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgn: *mut *mut i64, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttoint64withdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToInt64WithDefault(varIn: *mut VARIANT, llDefault: i64) -> i64;
+                extern fn VariantToInt64WithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, llDefault: i64) -> i64;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttostring")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToString(varIn: *mut VARIANT, pszBuf: super::super::Foundation::PWSTR, cchBuf: u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToString(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] pszBuf: super::super::Foundation::PWSTR, cchBuf: u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttostringalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToStringAlloc(varIn: *mut VARIANT, ppszBuf: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                extern fn VariantToStringAlloc(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, ppszBuf: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttostringarray")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToStringArray(var: *mut VARIANT, prgsz: *mut super::super::Foundation::PWSTR, crgsz: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToStringArray(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgsz: *mut super::super::Foundation::PWSTR, crgsz: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttostringarrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToStringArrayAlloc(var: *mut VARIANT, pprgsz: *mut *mut super::super::Foundation::PWSTR, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToStringArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgsz: *mut *mut super::super::Foundation::PWSTR, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttostringwithdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToStringWithDefault(varIn: *mut VARIANT, pszDefault: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+                extern fn VariantToStringWithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::Const] pszDefault: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint16")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt16(varIn: *mut VARIANT, puiRet: *mut u16) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt16(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, puiRet: *mut u16) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint16array")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt16Array(var: *mut VARIANT, prgn: *mut u16, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt16Array(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgn: *mut u16, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint16arrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt16ArrayAlloc(var: *mut VARIANT, pprgn: *mut *mut u16, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt16ArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgn: *mut *mut u16, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint16withdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt16WithDefault(varIn: *mut VARIANT, uiDefault: u16) -> u16;
+                extern fn VariantToUInt16WithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, uiDefault: u16) -> u16;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint32")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt32(varIn: *mut VARIANT, pulRet: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt32(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, pulRet: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint32array")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt32Array(var: *mut VARIANT, prgn: *mut u32, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt32Array(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgn: *mut u32, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint32arrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt32ArrayAlloc(var: *mut VARIANT, pprgn: *mut *mut u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt32ArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgn: *mut *mut u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint32withdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt32WithDefault(varIn: *mut VARIANT, ulDefault: u32) -> u32;
+                extern fn VariantToUInt32WithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, ulDefault: u32) -> u32;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint64")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt64(varIn: *mut VARIANT, pullRet: *mut u64) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt64(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, pullRet: *mut u64) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint64array")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt64Array(var: *mut VARIANT, prgn: *mut u64, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt64Array(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgn: *mut u64, crgn: u32, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint64arrayalloc")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt64ArrayAlloc(var: *mut VARIANT, pprgn: *mut *mut u64, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn VariantToUInt64ArrayAlloc(#[Windows::Win32::Foundation::Metadata::Const] var: *mut VARIANT, pprgn: *mut *mut u64, pcElem: *mut u32) -> super::super::Foundation::HRESULT;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttouint64withdefault")]
                 #[library("PROPSYS.dll")]
-                extern fn VariantToUInt64WithDefault(varIn: *mut VARIANT, ullDefault: u64) -> u64;
+                extern fn VariantToUInt64WithDefault(#[Windows::Win32::Foundation::Metadata::Const] varIn: *mut VARIANT, ullDefault: u64) -> u64;
             }
         }
     }

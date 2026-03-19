@@ -303,6 +303,32 @@ fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenSt
     quote! { const #name: GUID = #literal; }
 }
 
+fn write_params(
+    namespace: &str,
+    method: &metadata::reader::MethodDef,
+    signature_types: Vec<metadata::Type>,
+) -> Vec<TokenStream> {
+    method
+        .params()
+        .filter(|param| param.sequence() != 0)
+        .zip(signature_types)
+        .map(|(param, ty)| {
+            let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
+                && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+            {
+                quote! { #[out] }
+            } else {
+                quote! {}
+            };
+            let name = write_ident(param.name());
+            let param_attrs =
+                write_custom_attributes(param.attributes(), namespace, method.index());
+            let ty = write_type(namespace, &ty);
+            quote! { #(#param_attrs)* #out_attr #name: #ty }
+        })
+        .collect()
+}
+
 fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenStream {
     match &signature.return_type {
         metadata::Type::Void => quote! {},
