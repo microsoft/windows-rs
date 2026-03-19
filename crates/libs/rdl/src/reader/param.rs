@@ -16,28 +16,34 @@ pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error
 
     let ty = encode_type(encoder, &param.ty)?;
 
-    let mut attributes = match ty {
-        metadata::Type::RefMut(..) | metadata::Type::PtrMut(..) => metadata::ParamAttributes::Out,
-        _ => metadata::ParamAttributes::In,
-    };
+    let mut attributes = metadata::ParamAttributes::default();
 
     for attr in &param.attrs {
         if attr.path().is_ident("out") {
             if !matches!(attr.meta, syn::Meta::Path(_)) {
                 return encoder.err(attr, "`out` attribute does not accept arguments");
             }
-            attributes = metadata::ParamAttributes::Out;
+            attributes |= metadata::ParamAttributes::Out;
         } else if attr.path().is_ident("input") {
             if !matches!(attr.meta, syn::Meta::Path(_)) {
                 return encoder.err(attr, "`input` attribute does not accept arguments");
             }
-            attributes = metadata::ParamAttributes::In;
+            attributes |= metadata::ParamAttributes::In;
         } else if attr.path().is_ident("opt") {
             if !matches!(attr.meta, syn::Meta::Path(_)) {
                 return encoder.err(attr, "`opt` attribute does not accept arguments");
             }
             attributes |= metadata::ParamAttributes::Optional;
         }
+    }
+
+    if !attributes.contains(metadata::ParamAttributes::Out)
+        && !attributes.contains(metadata::ParamAttributes::In)
+        && matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+    {
+        attributes |= metadata::ParamAttributes::Out;
+    } else {
+        attributes |= metadata::ParamAttributes::In;
     }
 
     Ok(Param {
