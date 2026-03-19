@@ -106,13 +106,7 @@ impl Writer {
 
                 for (_, item) in index.namespace_items(namespace) {
                     for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(
-                            namespace,
-                            &name,
-                            item_arches(item),
-                            item_winrt(item),
-                            tokens.to_string(),
-                        );
+                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
 
@@ -138,13 +132,7 @@ impl Writer {
 
                 for (_, item) in index.namespace_items(namespace) {
                     for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(
-                            namespace,
-                            &name,
-                            item_arches(item),
-                            item_winrt(item),
-                            tokens.to_string(),
-                        );
+                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
             }
@@ -200,14 +188,6 @@ fn namespace_included(namespace: &str, filter: &[String]) -> bool {
     }
 
     included
-}
-
-fn item_arches(item: &metadata::reader::Item) -> i32 {
-    match item {
-        metadata::reader::Item::Type(ty) => ty.arches(),
-        metadata::reader::Item::Fn(ty) => ty.arches(),
-        metadata::reader::Item::Const(ty) => ty.arches(),
-    }
 }
 
 fn item_winrt(item: &metadata::reader::Item) -> bool {
