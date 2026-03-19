@@ -36,9 +36,11 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
         .collect();
 
     let keyword = struct_keyword(item);
+    let packed_attr = write_packed_attr(item);
     let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
     let main_tokens = quote! {
+        #packed_attr
         #(#custom_attrs)*
         #keyword #name_ident {
             #(#fields)*
@@ -140,4 +142,17 @@ fn struct_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
     } else {
         quote! { struct }
     }
+}
+
+/// Emits a `#[packed(N)]` token stream if the type has a `ClassLayout` with a
+/// non-zero packing size, otherwise returns an empty token stream.
+fn write_packed_attr(item: &metadata::reader::TypeDef) -> TokenStream {
+    if let Some(layout) = item.class_layout() {
+        let size = layout.packing_size();
+        if size > 0 {
+            let size_literal = proc_macro2::Literal::u16_unsuffixed(size);
+            return quote! { #[packed(#size_literal)] };
+        }
+    }
+    quote! {}
 }
