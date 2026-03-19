@@ -21,6 +21,7 @@ pub struct File {
 
     // Indexes for fast lookup of preexisting rows.
     TypeRef: HashMap<String, HashMap<String, id::TypeRef>>,
+    TypeSpec: HashMap<id::BlobId, id::TypeSpec>,
     AssemblyRef: HashMap<String, id::AssemblyRef>,
     ModuleRef: HashMap<String, id::ModuleRef>,
     MemberRef: HashMap<rec::MemberRef, id::MemberRef>,
@@ -183,7 +184,7 @@ impl File {
 
     pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> id::TypeSpec {
         debug_assert!(!generics.is_empty());
-        // TODO: confirm this decoration is needed for InterfaceImpl
+        // Generic type references use the backtick-suffix convention per ECMA-335 §II.10.7.2.
         let name = format!("{name}`{}", generics.len());
         let type_ref = self.TypeRef(namespace, &name);
 
@@ -197,10 +198,17 @@ impl File {
             self.Type(ty, &mut buffer);
         }
 
-        // tODO: need to reuse here as well
-        id::TypeSpec(self.records.TypeSpec.push_pos(rec::TypeSpec {
-            Signature: self.blobs.insert(&buffer),
-        }))
+        let signature = self.blobs.insert(&buffer);
+
+        if let Some(pos) = self.TypeSpec.get(&signature) {
+            return *pos;
+        }
+
+        let pos = id::TypeSpec(self.records.TypeSpec.push_pos(rec::TypeSpec {
+            Signature: signature,
+        }));
+        self.TypeSpec.insert(signature, pos);
+        pos
     }
 
     /// Adds a `Field` row to the file, returning the row offset.
@@ -450,7 +458,6 @@ impl File {
         };
 
         // Technically this should be ELEMENT_TYPE_CLASS if the type is not a value type but that requires more contextual information.
-        // TODO: we could replace Type::Name with Type::Value and Type::Class to provide this context if needed.
         let is_value_type = namespace == "System" && name == "Guid";
         buffer.push(if is_value_type {
             ELEMENT_TYPE_VALUETYPE

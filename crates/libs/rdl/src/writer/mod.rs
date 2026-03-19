@@ -24,7 +24,7 @@ use r#fn::*;
 use r#struct::*;
 use windows_metadata as metadata;
 
-// TODO: the writer is primarily an internal tool as most developers will write their own
+// The writer is primarily an internal tool as most developers will write their own
 // definitions or just accept whatever a component author provides. This is thus mostly for
 // generating rdl for backfilling definitions and for testing.
 
@@ -313,6 +313,13 @@ fn write_params(
         .filter(|param| param.sequence() != 0)
         .zip(signature_types)
         .map(|(param, ty)| {
+            let in_attr = if !param.flags().contains(metadata::ParamAttributes::Out)
+                && matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+            {
+                quote! { #[input] }
+            } else {
+                quote! {}
+            };
             let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
                 && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
             {
@@ -329,7 +336,7 @@ fn write_params(
             let param_attrs =
                 write_custom_attributes(param.attributes(), namespace, method.index());
             let ty = write_type(namespace, &ty);
-            quote! { #(#param_attrs)* #out_attr #opt_attr #name: #ty }
+            quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty }
         })
         .collect()
 }

@@ -44,4 +44,10 @@ fn test() {
     flags &= Options::Read;
     assert!(flags.contains(Options::Read));
     assert!(!flags.contains(Options::Write));
+
+    // Validates that flag enum constants can be used as match patterns.
+    match Options::Read {
+        Options::Read => {}
+        _ => unreachable!(),
+    }
 }

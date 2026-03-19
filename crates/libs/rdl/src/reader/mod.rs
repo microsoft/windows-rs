@@ -62,7 +62,8 @@ impl Reader {
         self
     }
 
-    // TODO: is this really necessary or can we assume that missing types will be resolved "later"?
+    /// Adds a reference winmd file that will be used to resolve types used by the RDL input
+    /// but defined outside of it (for example, custom attributes from external assemblies).
     pub fn reference(&mut self, reference: &str) -> &mut Self {
         self.reference.push(reference.to_string());
         self
