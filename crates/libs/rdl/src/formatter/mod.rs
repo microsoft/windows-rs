@@ -35,6 +35,9 @@ enum Token<'a> {
     #[token(".")]
     Dot,
 
+    #[token("...", priority = 2)]
+    DotDotDot,
+
     #[token("enum")]
     Enum,
 
@@ -178,6 +181,9 @@ pub fn format(input: &str) -> String {
             Token::Dot => {
                 output.trim_space();
                 output.push('.');
+            }
+            Token::DotDotDot => {
+                output.push_str("...");
             }
             Token::Enum => {
                 output.push_str("enum ");

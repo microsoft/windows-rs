@@ -50,8 +50,14 @@ impl Fn {
 
         let types = params.iter().map(|param| param.ty.clone()).collect();
 
+        let mut call_flags = metadata::MethodCallAttributes::default();
+
+        if self.sig.variadic.is_some() {
+            call_flags |= metadata::MethodCallAttributes::VARARG;
+        }
+
         let signature = metadata::Signature {
-            flags: Default::default(),
+            flags: call_flags,
             return_type: encode_return_type(encoder, &self.sig.output)?,
             types,
         };

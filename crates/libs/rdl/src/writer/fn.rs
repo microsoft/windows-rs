@@ -5,7 +5,14 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
     let signature = item.signature(&[]);
 
     let return_type = write_return_type(namespace, &signature);
-    let params = write_params(namespace, item, signature.types);
+    let vararg = signature
+        .flags
+        .contains(metadata::MethodCallAttributes::VARARG);
+    let mut params = write_params(namespace, item, signature.types);
+
+    if vararg {
+        params.push(quote! { ... });
+    }
 
     let Some(impl_map) = item.impl_map() else {
         unreachable!("fn item must have an ImplMap to be written as an `fn` item")
