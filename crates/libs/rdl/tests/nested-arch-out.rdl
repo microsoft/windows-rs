@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+    union SLIST_HEADER {
+        Alignment: u64,
+        Anonymous: SLIST_HEADER_0,
+    }
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+    struct SLIST_HEADER_0 {
+        Depth: u16,
+        CpuId: u16,
+    }
+}
