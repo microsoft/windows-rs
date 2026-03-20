@@ -26,27 +26,7 @@ impl Fn {
             | metadata::MethodAttributes::Static
             | metadata::MethodAttributes::PInvokeImpl;
 
-        let mut params = vec![];
-        let mut param_names = HashSet::new();
-
-        for arg in &self.sig.inputs {
-            match arg {
-                syn::FnArg::Receiver(receiver) => {
-                    return encoder.err(receiver, "unexpected `self` parameter");
-                }
-                syn::FnArg::Typed(pt) => {
-                    let syn::Pat::Ident(ref name) = *pt.pat else {
-                        return encoder.err(pt, "param name not found");
-                    };
-
-                    if !param_names.insert(name.ident.to_string()) {
-                        return encoder.err(&name.ident, "param names must be unique");
-                    }
-
-                    params.push(param(encoder, pt)?);
-                }
-            }
-        }
+        let params = collect_params(encoder, &self.sig)?;
 
         let types = params.iter().map(|param| param.ty.clone()).collect();
 
@@ -69,11 +49,18 @@ impl Fn {
             .MethodDef(&name, &signature, flags, Default::default());
 
         for (sequence, param) in params.iter().enumerate() {
-            encoder.output.Param(
+            let param_id = encoder.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
+
+            encode_attrs(
+                encoder,
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &["input", "out", "opt"],
+            )?;
         }
 
         let Some(attribute) = self
@@ -145,6 +132,42 @@ fn param_name_unique() {
 mod Test {
     #[library("lib")]
     extern fn F(a: i32, a: i32);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:5:17")]
+fn out_with_args() {
+    reader()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    #[library("lib")]
+    extern fn F(#[out(42)] output: i32);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: `opt` attribute does not accept arguments\n --> .rdl:5:17")]
+fn opt_with_args() {
+    reader()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    #[library("lib")]
+    extern fn F(#[opt(42)] value: i32);
 }
         "#,
         )
