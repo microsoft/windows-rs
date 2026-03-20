@@ -17,12 +17,14 @@ use windows_rdl::*;
 pub fn parse() {
     reader()
         .input("tests/nested-arch.rdl")
+        .reference("../bindgen/default/Windows.Win32.winmd")
         .output("tests/nested-arch.winmd")
         .write()
         .unwrap();
 
     writer()
         .input("tests/nested-arch.winmd")
+        .input("../bindgen/default/Windows.Win32.winmd")
         .output("tests/nested-arch-out.rdl")
         .filter("Test")
         .write()

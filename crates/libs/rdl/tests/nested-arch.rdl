@@ -1,21 +1,3 @@
-mod Windows {
-    mod Win32 {
-        mod Foundation {
-            #[win32]
-            mod Metadata {
-                #[repr(i32)]
-                enum Architecture {
-                    X86 = 1,
-                    X64 = 2,
-                    Arm64 = 4,
-                }
-                attribute SupportedArchitectureAttribute {
-                    fn(value: Architecture);
-                }
-            }
-        }
-    }
-}
 #[win32]
 mod Test {
     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
