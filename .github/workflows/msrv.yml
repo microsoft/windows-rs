@@ -25,6 +25,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Disable Windows Defender
+        if: runner.os == 'Windows'
+        run: |
+          Add-MpPreference -ExclusionPath "$env:GITHUB_WORKSPACE"
+          Add-MpPreference -ExclusionPath "$env:USERPROFILE\.cargo"
 # generated - run `cargo run -p tool_yml` to update
       - name: Rust version
         run: rustup update --no-self-update 1.74 && rustup default 1.74

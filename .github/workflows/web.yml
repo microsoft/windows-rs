@@ -24,6 +24,12 @@ jobs:
       - name: Get sources
         uses: actions/checkout@v6
 
+      - name: Disable Windows Defender
+        if: runner.os == 'Windows'
+        run: |
+          Add-MpPreference -ExclusionPath "$env:GITHUB_WORKSPACE"
+          Add-MpPreference -ExclusionPath "$env:USERPROFILE\.cargo"
+
       - name: Setup node
         uses: actions/setup-node@v6
         with:

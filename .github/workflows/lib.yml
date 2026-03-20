@@ -26,6 +26,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Disable Windows Defender
+        if: runner.os == 'Windows'
+        run: |
+          Add-MpPreference -ExclusionPath "$env:GITHUB_WORKSPACE"
+          Add-MpPreference -ExclusionPath "$env:USERPROFILE\.cargo"
+
       - name: Fix environment
         uses: ./.github/actions/fix-environment
 
