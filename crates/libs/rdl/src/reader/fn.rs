@@ -84,17 +84,29 @@ impl Fn {
             return encoder.err(&self.sig, "`library` attribute not found");
         };
 
-        let library: syn::LitStr = attribute
-            .parse_args()
+        let (library, last_error) = attribute
+            .parse_args_with(
+                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, bool)> {
+                    let library: syn::LitStr = input.parse()?;
+                    let mut last_error = false;
+                    if input.peek(syn::Token![,]) {
+                        input.parse::<syn::Token![,]>()?;
+                        let ident: syn::Ident = input.parse()?;
+                        if ident != "last_error" {
+                            return Err(syn::Error::new(ident.span(), "unknown library option"));
+                        }
+                        input.parse::<syn::Token![=]>()?;
+                        let value: syn::LitBool = input.parse()?;
+                        last_error = value.value();
+                    }
+                    Ok((library, last_error))
+                },
+            )
             .or_else(|_| encoder.err(attribute.span(), "`library` name missing"))?;
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;
 
-        if self
-            .attrs
-            .iter()
-            .any(|attr| attr.path().is_ident("last_error"))
-        {
+        if last_error {
             flags |= metadata::PInvokeAttributes::SupportsLastError;
         }
 
@@ -118,7 +130,7 @@ impl Fn {
             encoder,
             metadata::writer::HasAttribute::MethodDef(method_def),
             &self.attrs,
-            &["library", "last_error"],
+            &["library"],
         )?;
 
         Ok(())
