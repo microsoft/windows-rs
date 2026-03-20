@@ -4,7 +4,6 @@ use windows_rdl::*;
 pub fn parse() {
     reader()
         .input("tests/arches.rdl")
-        .reference("../bindgen/default/Windows.Win32.winmd")
         .output("tests/arches.winmd")
         .write()
         .unwrap();
