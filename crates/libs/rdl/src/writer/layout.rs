@@ -64,6 +64,7 @@ impl Layout {
             for items in self.winrt.values() {
                 let mut items = items.clone();
                 items.sort();
+                items.dedup();
                 for tokens in &items {
                     output.push_str(tokens);
                 }
@@ -80,6 +81,7 @@ impl Layout {
             for items in self.win32.values() {
                 let mut items = items.clone();
                 items.sort();
+                items.dedup();
                 for tokens in &items {
                     output.push_str(tokens);
                 }
@@ -99,5 +101,63 @@ impl std::fmt::Display for Layout {
         }
 
         Ok(())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// When multiple arch variants of the same type produce identical flat nested-type
+    /// definitions (e.g. `SLIST_HEADER_0` for x64 and arm64), the layout must emit
+    /// only one copy rather than a separate copy per variant.
+    #[test]
+    fn dedup_identical_items() {
+        let mut layout = Layout::new();
+
+        // Simulate two arch variants both contributing an identical "Outer_0" flat type.
+        let tokens = "struct Outer_0{value:u32,}";
+        layout.insert("Test", "Outer_0", false, tokens.to_string());
+        layout.insert("Test", "Outer_0", false, tokens.to_string());
+
+        let output = layout.to_string();
+
+        let count = output.matches("struct Outer_0{value:u32,}").count();
+        assert_eq!(
+            count, 1,
+            "identical flat-type definitions must be deduplicated"
+        );
+    }
+
+    /// When two arch variants contribute *different* definitions for the same flat
+    /// name (e.g. x86 vs x64 `SLIST_HEADER_0`), both definitions are kept so that
+    /// the multi-arch metadata remains intact.
+    #[test]
+    fn keep_distinct_items() {
+        let mut layout = Layout::new();
+
+        layout.insert(
+            "Test",
+            "Outer_0",
+            false,
+            "struct Outer_0{a:u32,}".to_string(),
+        );
+        layout.insert(
+            "Test",
+            "Outer_0",
+            false,
+            "struct Outer_0{b:u16,c:u16,}".to_string(),
+        );
+
+        let output = layout.to_string();
+
+        assert!(
+            output.contains("struct Outer_0{a:u32,}"),
+            "first definition must be kept"
+        );
+        assert!(
+            output.contains("struct Outer_0{b:u16,c:u16,}"),
+            "second distinct definition must also be kept"
+        );
     }
 }
