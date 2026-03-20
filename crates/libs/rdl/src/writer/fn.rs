@@ -37,7 +37,14 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
 
     let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
+    let last_error = if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
+        Some(quote! { #[last_error] })
+    } else {
+        None
+    };
+
     quote! {
+        #last_error
         #(#custom_attrs)*
         #[library(#library)]
         extern #abi fn #name(#(#params),*) #return_type;

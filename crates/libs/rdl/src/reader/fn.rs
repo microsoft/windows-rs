@@ -90,6 +90,14 @@ impl Fn {
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;
 
+        if self
+            .attrs
+            .iter()
+            .any(|attr| attr.path().is_ident("last_error"))
+        {
+            flags |= metadata::PInvokeAttributes::SupportsLastError;
+        }
+
         if let Some(abi) = &self.abi {
             match abi.value().as_str() {
                 "system" => flags |= metadata::PInvokeAttributes::CallConvPlatformapi,
@@ -110,7 +118,7 @@ impl Fn {
             encoder,
             metadata::writer::HasAttribute::MethodDef(method_def),
             &self.attrs,
-            &["library"],
+            &["library", "last_error"],
         )?;
 
         Ok(())
