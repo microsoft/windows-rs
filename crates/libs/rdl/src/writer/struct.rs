@@ -12,6 +12,10 @@ use windows_metadata::AsRow;
 /// using the same numeric-suffix scheme as `windows-bindgen`: `OUTER_0`,
 /// `OUTER_1`, `OUTER_0_0`, etc., where the index is the position of the nested
 /// type in the parent's nested-class list.
+///
+/// If the outer type carries a `SupportedArchitectureAttribute`, the same
+/// attribute is applied to every synthesised flat nested type so that the
+/// architecture constraint is preserved through the round-trip.
 pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, TokenStream)> {
     // Nested types are only emitted as part of their enclosing type.
     if item
@@ -24,9 +28,13 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
     let namespace = item.namespace();
     let outer_name = item.name();
 
+    // Propagate the outer type's architecture constraint (if any) to all
+    // synthesised flat nested types.
+    let outer_arch_attr = write_arch_attr(item);
+
     // Collect all un-nested helper types (depth-first so leaves come first).
     let mut unnested: Vec<(String, TokenStream)> = vec![];
-    let flat_names = collect_nested(namespace, item, outer_name, &mut unnested);
+    let flat_names = collect_nested(namespace, item, outer_name, &outer_arch_attr, &mut unnested);
 
     // Write the main type using flat name references for any nested fields.
     let name_ident = write_ident(outer_name);
@@ -58,10 +66,17 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
 /// The naming scheme matches `windows-bindgen`: each nested type is named
 /// `{outer_flat_name}_{index}` where `index` is the 0-based position of the
 /// nested type in the parent's nested-class list.
+///
+/// `outer_arch_attr` is the (possibly empty) `#[SupportedArchitecture(..)]`
+/// token stream computed from the top-level outer type.  It is threaded through
+/// all recursive calls so that every synthesised flat type receives the same
+/// architecture constraint as the enclosing struct/union that originally
+/// contained the nested types.
 fn collect_nested(
     namespace: &str,
     parent: &metadata::reader::TypeDef,
     outer_flat_name: &str,
+    outer_arch_attr: &TokenStream,
     output: &mut Vec<(String, TokenStream)>,
 ) -> HashMap<String, String> {
     let mut flat_names: HashMap<String, String> = HashMap::new();
@@ -72,7 +87,8 @@ fn collect_nested(
         flat_names.insert(nested_leaf.to_string(), flat_name.clone());
 
         // Recurse before emitting so that leaves appear before their parents.
-        let child_flat_names = collect_nested(namespace, &nested, &flat_name, output);
+        let child_flat_names =
+            collect_nested(namespace, &nested, &flat_name, outer_arch_attr, output);
 
         let name_ident = write_ident(&flat_name);
         let fields: Vec<_> = nested
@@ -81,7 +97,10 @@ fn collect_nested(
             .collect();
         let keyword = struct_keyword(&nested);
 
-        output.push((flat_name, quote! { #keyword #name_ident { #(#fields)* } }));
+        output.push((
+            flat_name,
+            quote! { #outer_arch_attr #keyword #name_ident { #(#fields)* } },
+        ));
     }
 
     flat_names
@@ -142,6 +161,21 @@ fn struct_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
     } else {
         quote! { struct }
     }
+}
+
+/// Emits a `#[Windows::Win32::Foundation::Metadata::SupportedArchitecture(..)]`
+/// token stream if `item` carries a `SupportedArchitectureAttribute`, otherwise
+/// returns an empty token stream.  The attribute value is resolved to the named
+/// variant of the `Architecture` enum (e.g. `Arm64`, `X64`, `X86`) using
+/// `write_enum_value` so that it round-trips correctly through the RDL reader.
+fn write_arch_attr(item: &metadata::reader::TypeDef) -> TokenStream {
+    let arches = item.arches();
+    if arches == 0 {
+        return quote! {};
+    }
+    let tn = metadata::TypeName::named("Windows.Win32.Foundation.Metadata", "Architecture");
+    let value_ts = write_enum_value("", &tn, &metadata::Value::I32(arches), item.index());
+    quote! { #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(#value_ts)] }
 }
 
 /// Emits a `#[packed(N)]` token stream if the type has a `ClassLayout` with a
