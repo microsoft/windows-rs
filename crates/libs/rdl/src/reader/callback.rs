@@ -72,6 +72,13 @@ impl Callback {
         let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
         let return_type = encode_return_type(encoder, &self.sig.output)?;
 
+        if let Some(variadic) = &self.sig.variadic {
+            return encoder.err(
+                variadic,
+                "variadic parameters are not supported for callbacks",
+            );
+        }
+
         let mut abi = 1; // "system"
 
         if let Some(value) = &self.abi {

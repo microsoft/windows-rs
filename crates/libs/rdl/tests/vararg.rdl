@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[library("libc.dll")]
+    extern "C" fn printf(format: *const u8, ...) -> i32;
+    #[library("libc.dll")]
+    extern "C" fn snprintf(buffer: *mut u8, count: usize, format: *const u8, ...) -> i32;
+}
