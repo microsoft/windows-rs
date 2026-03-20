@@ -3,14 +3,14 @@ use windows_rdl::*;
 #[test]
 pub fn parse() {
     reader()
-        .input("tests/arches.rdl")
-        .output("tests/arches.winmd")
+        .input("tests/overloads.rdl")
+        .output("tests/overloads.winmd")
         .write()
         .unwrap();
 
     writer()
-        .input("tests/arches.winmd")
-        .output("tests/arches.rdl")
+        .input("tests/overloads.winmd")
+        .output("tests/overloads.rdl")
         .filter("Test")
         .write()
         .unwrap();
