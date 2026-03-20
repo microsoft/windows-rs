@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+    struct A {
+        x86: u8,
+    }
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+    struct B {
+        arm64: u16,
+        x64: u32,
+    }
+}

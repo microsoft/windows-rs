@@ -31,6 +31,7 @@ use windows_metadata as metadata;
 #[derive(Default)]
 pub struct Writer {
     input: Vec<String>,
+    reference: Vec<String>,
     filter: Vec<String>,
     output: String,
     split: bool,
@@ -45,6 +46,14 @@ impl Writer {
 
     pub fn input(&mut self, input: &str) -> &mut Self {
         self.input.push(input.to_string());
+        self
+    }
+
+    /// Adds a reference winmd file that will be included in the type index used
+    /// for resolving enum variant names in custom attributes.  Types from reference
+    /// files are available for name lookup but are not written to the output.
+    pub fn reference(&mut self, reference: &str) -> &mut Self {
+        self.reference.push(reference.to_string());
         self
     }
 
@@ -77,6 +86,13 @@ impl Writer {
             files.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+            );
+        }
+
+        for file_name in &expand_files(&self.reference, "winmd")? {
+            files.push(
+                metadata::reader::File::read(file_name)
+                    .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,
             );
         }
 
