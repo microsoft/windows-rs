@@ -11,7 +11,7 @@ pub fn parse() {
 
     writer()
         .input("tests/arches.winmd")
-        .reference("../bindgen/default/Windows.Win32.winmd")
+        .input("../bindgen/default/Windows.Win32.winmd")
         .output("tests/arches.rdl")
         .filter("Test")
         .write()
