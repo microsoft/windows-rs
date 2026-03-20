@@ -266,8 +266,11 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
     let mut output = metadata::writer::File::new("");
 
     for (namespace, members) in &index.namespaces {
-        for (name, (file, item)) in &members.types {
-            item.encode(&mut output, &index, reference, file, namespace, name)?;
+        for variants in members.types.values() {
+            for (file, item) in variants {
+                let name = item.to_string();
+                item.encode(&mut output, &index, reference, file, namespace, &name)?;
+            }
         }
 
         if !members.functions.is_empty() || !members.constants.is_empty() {
@@ -280,12 +283,16 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
                 metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
             );
 
-            for (name, (file, item)) in &members.functions {
-                item.encode(&mut output, &index, reference, file, namespace, name)?;
+            for (name, variants) in &members.functions {
+                for (file, item) in variants {
+                    item.encode(&mut output, &index, reference, file, namespace, name)?;
+                }
             }
 
-            for (name, (file, item)) in &members.constants {
-                item.encode(&mut output, &index, reference, file, namespace, name)?;
+            for (name, variants) in &members.constants {
+                for (file, item) in variants {
+                    item.encode(&mut output, &index, reference, file, namespace, name)?;
+                }
             }
         }
     }

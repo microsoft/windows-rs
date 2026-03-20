@@ -1,0 +1,51 @@
+#[win32]
+mod Test {
+    #[repr(u32)]
+    #[flags]
+    enum Architecture {
+        None = 0,
+        X86 = 1,
+        X64 = 2,
+        Arm64 = 4,
+        All = 7,
+    }
+    attribute ArchitectureAttribute {
+        fn(value: Architecture);
+    }
+    #[Architecture(Arm64)]
+    struct B {
+        arm64: u16,
+    }
+    #[Architecture(X64)]
+    struct B {
+        x64: u32,
+    }
+    #[Architecture(X86)]
+    struct B {
+        x86: u8,
+    }
+    #[Architecture(Arm64 | X64)]
+    struct C {
+        arm64: u16,
+        x64: u32,
+    }
+    #[Architecture(X86)]
+    struct C {
+        x86: u8,
+    }
+    #[Architecture(Arm64)]
+    const D: u16 = 2;
+    #[Architecture(X64)]
+    const D: u32 = 3;
+    #[Architecture(X86)]
+    const D: u8 = 1;
+    #[Architecture(Arm64)]
+    #[library("test.dll")]
+    extern "C" fn E() -> u16;
+    #[Architecture(X64)]
+    #[library("test.dll")]
+    extern "C" fn E() -> u32;
+    #[Architecture(X86)]
+    #[library("test.dll")]
+    extern "C" fn E() -> u8;
+}
