@@ -208,6 +208,10 @@ fn write_arch_attr(arches: i32) -> TokenStream {
         parts.push(quote! { Arm64 });
     }
 
+    if parts.is_empty() {
+        return quote! {};
+    }
+
     let value = parts
         .iter()
         .skip(1)
