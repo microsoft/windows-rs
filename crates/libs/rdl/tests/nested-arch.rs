@@ -1,25 +1,21 @@
 use windows_rdl::*;
 
-/// Verifies that `SupportedArchitecture` attributes on arch-specific
-/// struct/union pairs survive a full RDL reader → writer roundtrip.
+/// Verifies that multiple arch-specific definitions of the same type name
+/// survive a full RDL reader → winmd writer roundtrip.
 ///
-/// Two separate scenarios are tested:
+/// `nested-arch.rdl` defines X86 and X64 variants of `SLIST_HEADER` and its
+/// flat helper `SLIST_HEADER_0`.  Before the reader fix the `Index` used a
+/// plain `BTreeMap<name, item>` so only one variant (the last) survived
+/// encoding; both must now appear in the output.
 ///
-/// 1. **Reader roundtrip** (`nested-arch.rdl` → `nested-arch.winmd` →
-///    `nested-arch-out.rdl`): a simplified, manually-defined `SLIST_HEADER`
-///    pair with `SupportedArchitecture(X86)` roundtrips correctly.
-///
-/// 2. **Writer with real nested multi-arch types** (Windows.Win32.winmd):
-///    `SLIST_HEADER` in the Windows metadata has anonymous nested TypeDefs
-///    (one per architecture).  The writer un-nests them into flat helper
-///    types (`SLIST_HEADER_0`, etc.) and must propagate the outer type's
-///    `SupportedArchitecture` attribute to each synthesised type.  Before
-///    the fix those synthesised types had no arch attribute, so identical
-///    definitions across arm64, x64 and x86 were incorrectly deduplicated
-///    into a single entry.
+/// A second scenario exercises the writer's un-nesting of real nested
+/// TypeDefs from `Windows.Win32.winmd`: `SLIST_HEADER` has three arch
+/// variants (Arm64, X64, X86) each with an anonymous nested struct.  The
+/// writer must propagate `SupportedArchitecture` to every synthesised flat
+/// helper so all three appear distinctly in the output.
 #[test]
 pub fn parse() {
-    // Scenario 1: single-arch RDL roundtrip.
+    // Scenario 1: multi-arch RDL roundtrip (exercises the reader fix).
     reader()
         .input("tests/nested-arch.rdl")
         .reference("../bindgen/default/Windows.Win32.winmd")
@@ -35,12 +31,25 @@ pub fn parse() {
         .write()
         .unwrap();
 
-    // Scenario 2: multi-arch nested-type propagation via real Windows metadata.
-    // Windows.Win32.System.Kernel.SLIST_HEADER has three arch-specific variants
-    // (Arm64, X64, X86), each containing an anonymous nested struct.  The
-    // writer synthesises a flat helper type named SLIST_HEADER_0 for every
-    // variant; each must carry the corresponding SupportedArchitecture
-    // attribute so they are not merged.
+    let rdl_out = std::fs::read_to_string("tests/nested-arch-out.rdl").unwrap();
+    // Both arch-specific variants of each type must survive the roundtrip.
+    assert_eq!(
+        rdl_out.matches("union SLIST_HEADER").count(),
+        2,
+        "expected 2 arch-specific SLIST_HEADER definitions (X64, X86)"
+    );
+    assert_eq!(
+        rdl_out.matches("struct SLIST_HEADER_0").count(),
+        2,
+        "expected 2 arch-specific SLIST_HEADER_0 definitions (X64, X86)"
+    );
+    assert!(rdl_out.contains("SupportedArchitecture(X64)"));
+    assert!(rdl_out.contains("SupportedArchitecture(X86)"));
+
+    // Scenario 2: multi-arch nested-type propagation via real Windows metadata
+    // (exercises the writer fix).  SLIST_HEADER has three arch variants each
+    // with an anonymous nested struct; the writer synthesises a flat
+    // SLIST_HEADER_0 per variant and must propagate SupportedArchitecture.
     let out = std::env::temp_dir().join("windows_rdl_nested_arch_kernel.rdl");
     writer()
         .input("../bindgen/default/Windows.Win32.winmd")
@@ -52,15 +61,11 @@ pub fn parse() {
     let content = std::fs::read_to_string(&out).unwrap();
     let _ = std::fs::remove_file(&out);
 
-    // All three arch-specific SLIST_HEADER_0 definitions must be present.
-    // Without the fix the synthesised flat types had no SupportedArchitecture
-    // attribute and were deduplicated down to one definition.
     assert_eq!(
         content.matches("struct SLIST_HEADER_0").count(),
         3,
         "expected 3 arch-specific SLIST_HEADER_0 definitions (Arm64, X64, X86)"
     );
-    // Each definition must carry the correct arch attribute.
     assert!(content.contains("SupportedArchitecture(Arm64)"));
     assert!(content.contains("SupportedArchitecture(X64)"));
     assert!(content.contains("SupportedArchitecture(X86)"));

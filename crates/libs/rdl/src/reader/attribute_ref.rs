@@ -115,7 +115,8 @@ fn find_in_index(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<
         .namespaces
         .get(namespace)?
         .types
-        .get(attr_name)?;
+        .get(attr_name)?
+        .first()?;
     let Item::Attribute(attr_item) = item else {
         return None;
     };
@@ -386,9 +387,11 @@ fn enum_is_flags(encoder: &Encoder, tn: &metadata::TypeName) -> bool {
     }
     // Check in the RDL index (types defined in current input files).
     if let Some(ns) = encoder.index.namespaces.get(&tn.namespace) {
-        if let Some((_, Item::Enum(enum_item))) = ns.types.get(&tn.name) {
-            if enum_item.attrs.iter().any(|a| a.path().is_ident("flags")) {
-                return true;
+        if let Some(variants) = ns.types.get(&tn.name) {
+            if let Some((_, Item::Enum(enum_item))) = variants.first() {
+                if enum_item.attrs.iter().any(|a| a.path().is_ident("flags")) {
+                    return true;
+                }
             }
         }
     }
@@ -431,25 +434,29 @@ fn find_enum_variant_value(
 
     // Search in the RDL index (types defined in current input files).
     if let Some(ns) = encoder.index.namespaces.get(&tn.namespace) {
-        if let Some((_, Item::Enum(enum_item))) = ns.types.get(&tn.name) {
-            for variant in &enum_item.variants {
-                if variant.ident == variant_name {
-                    if let Some((_, discriminant)) = &variant.discriminant {
-                        // Attribute blobs encode enum values as I32.  Try I32 first,
-                        // then fall back to U32 for repr(u32) enums whose values
-                        // exceed i32::MAX (e.g. `All = 0xFFFF_FFFF`), converting to
-                        // I32 via a bit-reinterpret cast — mirroring the metadata
-                        // reference path above.
-                        let result = encode_value(encoder, &metadata::Type::I32, discriminant)
-                            .or_else(|_| {
-                                encode_value(encoder, &metadata::Type::U32, discriminant).map(|v| {
-                                    match v {
-                                        metadata::Value::U32(n) => metadata::Value::I32(n as i32),
-                                        other => other,
-                                    }
-                                })
-                            });
-                        return result;
+        if let Some(variants) = ns.types.get(&tn.name) {
+            if let Some((_, Item::Enum(enum_item))) = variants.first() {
+                for variant in &enum_item.variants {
+                    if variant.ident == variant_name {
+                        if let Some((_, discriminant)) = &variant.discriminant {
+                            // Attribute blobs encode enum values as I32.  Try I32 first,
+                            // then fall back to U32 for repr(u32) enums whose values
+                            // exceed i32::MAX (e.g. `All = 0xFFFF_FFFF`), converting to
+                            // I32 via a bit-reinterpret cast — mirroring the metadata
+                            // reference path above.
+                            let result = encode_value(encoder, &metadata::Type::I32, discriminant)
+                                .or_else(|_| {
+                                    encode_value(encoder, &metadata::Type::U32, discriminant).map(
+                                        |v| match v {
+                                            metadata::Value::U32(n) => {
+                                                metadata::Value::I32(n as i32)
+                                            }
+                                            other => other,
+                                        },
+                                    )
+                                });
+                            return result;
+                        }
                     }
                 }
             }

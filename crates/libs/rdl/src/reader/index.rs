@@ -7,7 +7,11 @@ pub struct Index<'a> {
 
 #[derive(Default)]
 pub struct Namespace<'a> {
-    pub types: BTreeMap<String, (&'a File, &'a Item)>,
+    /// Multiple items may share the same name when they carry different
+    /// `SupportedArchitecture` attributes (e.g. three arch-specific variants
+    /// of `SLIST_HEADER`).  All variants are kept so that every one of them
+    /// is encoded into the output winmd.
+    pub types: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
     pub functions: BTreeMap<String, (&'a File, &'a Item)>,
     pub constants: BTreeMap<String, (&'a File, &'a Item)>,
 }
@@ -41,7 +45,11 @@ impl<'a> Index<'a> {
                     namespace.constants.insert(item.to_string(), (file, item));
                 }
                 _ => {
-                    namespace.types.insert(item.to_string(), (file, item));
+                    namespace
+                        .types
+                        .entry(item.to_string())
+                        .or_default()
+                        .push((file, item));
                 }
             }
         }
@@ -51,13 +59,19 @@ impl<'a> Index<'a> {
         self.namespaces
             .get(namespace)
             .and_then(|namespace| namespace.types.get(name))
-            .is_some()
+            .is_some_and(|v| !v.is_empty())
     }
 
+    /// Returns the first definition of a type with the given name.
+    ///
+    /// When multiple arch-specific variants exist they all share the same
+    /// underlying structure (e.g. the same field layout for enum underlying
+    /// types), so the first entry is sufficient for type-resolution purposes.
     pub fn get(&self, namespace: &str, name: &str) -> Option<&Item> {
         self.namespaces
             .get(namespace)
             .and_then(|namespace| namespace.types.get(name))
+            .and_then(|v| v.first())
             .map(|(_, item)| *item)
     }
 }
