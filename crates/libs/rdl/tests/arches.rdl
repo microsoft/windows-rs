@@ -1,0 +1,42 @@
+#[win32]
+mod Test {
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+    struct A {
+        x86: u8,
+    }
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
+    struct A {
+        arm64: u16,
+    }
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
+    struct A {
+        x64: u32,
+    }
+
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+    struct B {
+        x86: u8,
+    }
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+    struct B {
+        arm64: u16,
+        x64: u32,
+    }
+
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+    const C: u8 = 1;
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
+    const C: u16 = 2;
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
+    const C: u32 = 3;
+
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+    #[library("test.dll")]
+    extern "C" fn D() -> u8;
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
+    #[library("test.dll")]
+    extern "C" fn D() -> u16;
+    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
+    #[library("test.dll")]
+    extern "C" fn D() -> u32;
+}
