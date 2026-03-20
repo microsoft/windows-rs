@@ -1,13 +1,16 @@
 #[winrt]
 mod Test {
-    delegate fn Delegate(#[out] result: u32, #[opt] hint: u32, #[input] ptr: *mut u32);
+    delegate fn Delegate(#[Test("delegate")] result: u32, #[out] #[opt] other: u32, #[input] ptr: *mut u32);
     interface ITest {
-        fn Method(&self, #[out] result: u32, #[opt] hint: u32, #[input] ptr: *mut u32);
+        fn Method(&self, #[Test("method")] result: u32, #[out] #[opt] other: u32, #[input] ptr: *mut u32);
     }
 }
 #[win32]
 mod Test {
-    extern fn Callback(#[out] result: u32, #[opt] hint: u32, #[input] ptr: *mut u32);
+    extern fn Callback(#[Test("callback")] result: u32, #[out] #[opt] other: u32, #[input] ptr: *mut u32);
     #[library("test.dll")]
-    extern fn Function(#[out] result: u32, #[opt] hint: u32, #[input] ptr: *mut u32);
+    extern fn Function(#[Test("function")] result: u32, #[out] #[opt] other: u32, #[input] ptr: *mut u32);
+    attribute TestAttribute {
+        fn(s: String);
+    }
 }
