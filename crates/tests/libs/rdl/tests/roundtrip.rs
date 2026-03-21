@@ -5,7 +5,7 @@ fn roundtrip() {
     let mut paths: Vec<_> = std::fs::read_dir("tests/roundtrip")
         .unwrap()
         .map(|e| e.unwrap().path())
-        .filter(|p| p.is_dir() || (p.extension().and_then(|e| e.to_str()) == Some("rdl") && !p.with_extension("").is_dir()))
+        .filter(|p| p.extension().and_then(|e| e.to_str()) == Some("rdl"))
         .collect();
     paths.sort();
 
@@ -20,7 +20,7 @@ fn roundtrip() {
 
         writer()
             .input(winmd.to_str().unwrap())
-            .output(path.with_extension("rdl").to_str().unwrap())
+            .output(path.to_str().unwrap())
             .filter("Test")
             .write()
             .unwrap();
