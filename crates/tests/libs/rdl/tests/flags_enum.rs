@@ -1,4 +1,4 @@
-use test_rdl_bindgen::flags_enum::Test::*;
+use test_rdl::flags_enum::Test::*;
 
 #[test]
 fn test() {

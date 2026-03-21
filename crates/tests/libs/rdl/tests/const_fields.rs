@@ -1,4 +1,4 @@
-use test_rdl_bindgen::const_fields::Test::*;
+use test_rdl::const_fields::Test::*;
 
 #[test]
 fn test() {

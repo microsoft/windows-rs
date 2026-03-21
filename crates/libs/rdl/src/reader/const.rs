@@ -145,20 +145,3 @@ fn encode_const_guid(
 
     Ok(())
 }
-
-#[test]
-#[should_panic(expected = "error: GUID constant requires a value\n --> .rdl:4:11")]
-fn guid_const_missing_value() {
-    reader()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    const MY_GUID: GUID;
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}

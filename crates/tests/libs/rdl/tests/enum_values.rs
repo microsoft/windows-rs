@@ -1,4 +1,4 @@
-use test_rdl_bindgen::enum_values::Test::*;
+use test_rdl::enum_values::Test::*;
 
 #[test]
 fn test() {

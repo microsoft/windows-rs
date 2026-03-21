@@ -1,4 +1,4 @@
-use test_rdl_bindgen::struct_values::Test::*;
+use test_rdl::struct_values::Test::*;
 
 #[test]
 fn test() {

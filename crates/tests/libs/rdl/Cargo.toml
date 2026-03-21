@@ -1,5 +1,5 @@
 [package]
-name = "test_rdl_bindgen"
+name = "test_rdl"
 version = "0.0.0"
 edition = "2021"
 publish = false

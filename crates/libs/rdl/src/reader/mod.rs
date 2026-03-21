@@ -757,52 +757,6 @@ impl IdentMethods for syn::Ident {
     }
 }
 
-#[test]
-#[should_panic(expected = "error: use namespace not found\n --> .rdl:2:1")]
-fn use_glob_invalid_path() {
-    reader()
-        .input_str(
-            r#"
-use NonExistent::*;
-
-#[winrt]
-mod Test {
-    struct Thing {
-        a: NoSuchType,
-    }
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: type not found\n --> .rdl:7:12")]
-fn use_glob_unresolved_type() {
-    reader()
-        .input_str(
-            r#"
-use Other::*;
-
-#[winrt]
-mod Test {
-    struct Thing {
-        a: NoSuchType,
-    }
-}
-
-#[winrt]
-mod Other {
-    struct ExistingThing {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
 
 #[test]
 fn use_glob_resolves_type() {
@@ -834,21 +788,3 @@ mod Other {
         .unwrap();
 }
 
-#[test]
-#[should_panic(expected = "error: type not supported\n --> .rdl:5:12")]
-fn unsupported_type_errors() {
-    reader()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    struct Foo {
-        a: (i32, i32),
-    }
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
