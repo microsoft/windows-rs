@@ -5110,15 +5110,6 @@ impl Default for TOKEN_SID_INFORMATION {
     }
 }
 pub const TOKEN_SOURCE_LENGTH: u32 = 8u32;
-pub type TP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
-#[cfg(feature = "Win32_System_Threading")]
-pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: super::Threading::PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
-#[cfg(feature = "Win32_System_Threading")]
-pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: super::Threading::PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: super::Threading::PTP_TIMER)>;
-#[cfg(feature = "Win32_System_Threading")]
-pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: super::Threading::PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: super::Threading::PTP_WAIT, waitresult: u32)>;
-#[cfg(feature = "Win32_System_Threading")]
-pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: super::Threading::PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: super::Threading::PTP_WORK)>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
