@@ -47,19 +47,19 @@ impl Layout {
         if !self.modules.is_empty() {
             output.push_str("mod ");
             output.push_str(name);
-            output.push_str(" {\n");
+            output.push('{');
 
             for (name, module) in &self.modules {
                 output.push_str(&module.to_module(name));
             }
 
-            output.push_str("}\n");
+            output.push('}')
         }
 
         if !self.winrt.is_empty() {
-            output.push_str("#[winrt]\nmod ");
+            output.push_str("#[winrt] mod ");
             output.push_str(name);
-            output.push_str(" {\n");
+            output.push('{');
 
             for items in self.winrt.values() {
                 let mut items = items.clone();
@@ -69,13 +69,13 @@ impl Layout {
                 }
             }
 
-            output.push_str("}\n");
+            output.push('}')
         }
 
         if !self.win32.is_empty() {
-            output.push_str("#[win32]\nmod ");
+            output.push_str("#[win32] mod ");
             output.push_str(name);
-            output.push_str(" {\n");
+            output.push('{');
 
             for items in self.win32.values() {
                 let mut items = items.clone();
@@ -85,55 +85,19 @@ impl Layout {
                 }
             }
 
-            output.push_str("}\n");
+            output.push('}')
         }
 
         output
     }
 }
 
-/// Re-indent a flat RDL string.
-///
-/// The writer functions emit items without any leading whitespace.  This
-/// function scans the assembled output line-by-line and adds the correct
-/// amount of indentation based on `{` / `}` nesting depth.
-pub fn reindent(s: &str) -> String {
-    let mut output = String::new();
-    let mut indent: usize = 0;
-
-    for line in s.lines() {
-        let trimmed = line.trim();
-        if trimmed.is_empty() {
-            continue;
-        }
-
-        // A line whose first non-whitespace character is `}` closes a block —
-        // decrease indent before emitting it.
-        if trimmed.starts_with('}') {
-            indent = indent.saturating_sub(1);
-        }
-
-        for _ in 0..indent {
-            output.push_str("    ");
-        }
-        output.push_str(trimmed);
-        output.push('\n');
-
-        // A line ending with `{` (but not `{}`) opens a new block.
-        if trimmed.ends_with('{') && !trimmed.ends_with("{}") {
-            indent += 1;
-        }
-    }
-
-    output
-}
-
 impl std::fmt::Display for Layout {
     fn fmt(&self, fmt: &mut std::fmt::Formatter) -> std::fmt::Result {
-        let mut raw = String::new();
         for (name, module) in &self.modules {
-            raw.push_str(&module.to_module(name));
+            write!(fmt, "{}", &module.to_module(name))?;
         }
-        write!(fmt, "{}", reindent(&raw))
+
+        Ok(())
     }
 }

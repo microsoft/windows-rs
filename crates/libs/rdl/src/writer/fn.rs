@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> String {
+pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
     let name = write_ident(item.name());
     let signature = item.signature(&[]);
 
@@ -11,7 +11,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> String {
     let mut params = write_params(namespace, item, signature.types);
 
     if vararg {
-        params.push("...".to_string());
+        params.push(quote! { ... });
     }
 
     let Some(impl_map) = item.impl_map() else {
@@ -35,26 +35,17 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> String {
         )
     };
 
-    let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
     let library_attr = if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
-        format!("#[library(\"{library}\", last_error = true)]\n")
+        quote! { #[library(#library, last_error = true)] }
     } else {
-        format!("#[library(\"{library}\")]\n")
+        quote! { #[library(#library)] }
     };
 
-    let abi_str = match abi {
-        Some(abi) => format!(" \"{abi}\""),
-        None => String::new(),
-    };
-    let ret_str = if return_type.is_empty() {
-        String::new()
-    } else {
-        format!(" {return_type}")
-    };
-
-    format!(
-        "{attrs}{library_attr}extern{abi_str} fn {name}({}){ret_str};\n",
-        params.join(", ")
-    )
+    quote! {
+        #(#custom_attrs)*
+        #library_attr
+        extern #abi fn #name(#(#params),*) #return_type;
+    }
 }

@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_interface(item: &metadata::reader::TypeDef) -> String {
+pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -9,31 +9,26 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> String {
         .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
         .collect();
 
-    let methods: String = item
+    let methods = item
         .methods()
-        .map(|method| write_method(namespace, &method, &generics))
-        .collect();
+        .map(|method| write_method(namespace, &method, &generics));
 
     let requires: Vec<_> = item.interface_impls().collect();
 
-    let requires_str = if requires.is_empty() {
-        String::new()
+    let requires_tokens = if requires.is_empty() {
+        quote! {}
     } else {
-        let ifaces: Vec<String> = requires
+        let ifaces = requires
             .iter()
-            .map(|imp| write_type(namespace, &imp.interface(&generics)))
-            .collect();
-        format!(": {}", ifaces.join(" + "))
+            .map(|imp| write_type(namespace, &imp.interface(&generics)));
+        quote! { : #(#ifaces)+* }
     };
 
-    let generics_str = if generics.is_empty() {
-        String::new()
+    let generics = if generics.is_empty() {
+        quote! {}
     } else {
-        let names: Vec<String> = item
-            .generic_params()
-            .map(|param| write_ident(param.name()))
-            .collect();
-        format!("<{}>", names.join(", "))
+        let generics = item.generic_params().map(|param| write_ident(param.name()));
+        quote! { <#(#generics),*> }
     };
 
     let guid_exclude: &[&str] = if interface_guid_is_derived(item) {
@@ -41,25 +36,28 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> String {
     } else {
         &[]
     };
-    let attrs =
+    let custom_attrs =
         write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
 
-    let header = format!("{attrs}interface {name}{generics_str}{requires_str} ");
-    write_block(header, methods)
+    quote! {
+        #(#custom_attrs)*
+        interface #name #generics #requires_tokens {
+            #(#methods)*
+        }
+    }
 }
 
 fn write_method(
     namespace: &str,
     item: &metadata::reader::MethodDef,
     generics: &[metadata::Type],
-) -> String {
+) -> TokenStream {
     let name = write_ident(item.name());
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, &signature);
-    let params = std::iter::once("&self".to_string())
-        .chain(write_params(namespace, item, signature.types))
-        .collect::<Vec<_>>();
+    let params =
+        std::iter::once(quote! { &self }).chain(write_params(namespace, item, signature.types));
 
     let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
@@ -69,19 +67,14 @@ fn write_method(
         .flags()
         .contains(metadata::MethodAttributes::SpecialName)
     {
-        "#[special]\n".to_string()
+        quote! { #[special] }
     } else {
-        String::new()
+        quote! {}
     };
 
-    let ret_str = if return_type.is_empty() {
-        String::new()
-    } else {
-        format!(" {return_type}")
-    };
-
-    format!(
-        "{special_attr}{method_attrs}fn {name}({}){ret_str};\n",
-        params.join(", ")
-    )
+    quote! {
+        #special_attr
+        #(#method_attrs)*
+        fn #name(#(#params),*) #return_type;
+    }
 }

@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_callback(item: &metadata::reader::TypeDef) -> String {
+pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -13,7 +13,7 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> String {
     let return_type = write_return_type(namespace, &signature);
     let params = write_params(namespace, &method, signature.types);
 
-    let attrs = write_custom_attributes_except(
+    let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
@@ -33,18 +33,8 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> String {
         }
     }
 
-    let abi_str = match abi {
-        Some(abi) => format!(" \"{abi}\""),
-        None => String::new(),
-    };
-    let ret_str = if return_type.is_empty() {
-        String::new()
-    } else {
-        format!(" {return_type}")
-    };
-
-    format!(
-        "{attrs}extern{abi_str} fn {name}({}){ret_str};\n",
-        params.join(", ")
-    )
+    quote! {
+        #(#custom_attrs)*
+        extern #abi fn #name (#(#params),*) #return_type;
+    }
 }

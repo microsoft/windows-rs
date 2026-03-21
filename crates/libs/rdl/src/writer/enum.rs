@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_enum(item: &metadata::reader::TypeDef) -> String {
+pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -13,16 +13,13 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> String {
 
     let repr = write_type(namespace, &repr);
 
-    let fields: String = item
-        .fields()
-        .filter_map(|field| {
-            field.constant().map(|constant| {
-                let name = write_ident(field.name());
-                let value = write_value(namespace, &constant.value());
-                format!("{name} = {value},\n")
-            })
+    let fields = item.fields().filter_map(|field| {
+        field.constant().map(|constant| {
+            let name = write_ident(field.name());
+            let value = write_value(namespace, &constant.value());
+            quote! { #name = #value, }
         })
-        .collect();
+    });
 
     let is_flags_attr = |attr: metadata::reader::Attribute| {
         attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
@@ -30,13 +27,28 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> String {
 
     let has_flags = item.attributes().any(is_flags_attr);
 
-    let attrs = write_custom_attributes(
+    let custom_attrs = write_custom_attributes(
         item.attributes().filter(|attr| !is_flags_attr(*attr)),
         namespace,
         item.index(),
     );
 
-    let flags_line = if has_flags { "#[flags]\n" } else { "" };
-    let header = format!("#[repr({repr})]\n{flags_line}{attrs}enum {name} ");
-    write_block(header, fields)
+    if has_flags {
+        quote! {
+            #[repr(#repr)]
+            #[flags]
+            #(#custom_attrs)*
+            enum #name {
+                #(#fields)*
+            }
+        }
+    } else {
+        quote! {
+            #[repr(#repr)]
+            #(#custom_attrs)*
+            enum #name {
+                #(#fields)*
+            }
+        }
+    }
 }
