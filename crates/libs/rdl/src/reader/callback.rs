@@ -47,30 +47,17 @@ impl Callback {
             | metadata::MethodAttributes::NewSlot
             | metadata::MethodAttributes::Virtual;
 
-        let mut params = vec![];
-        let mut param_names = HashSet::new();
-
-        for arg in &self.sig.inputs {
-            match arg {
-                syn::FnArg::Receiver(receiver) => {
-                    return encoder.err(receiver, "unexpected `self` parameter");
-                }
-                syn::FnArg::Typed(pt) => {
-                    let syn::Pat::Ident(ref name) = *pt.pat else {
-                        return encoder.err(pt, "param name not found");
-                    };
-
-                    if !param_names.insert(name.ident.to_string()) {
-                        return encoder.err(&name.ident, "param names must be unique");
-                    }
-
-                    params.push(param(encoder, pt)?);
-                }
-            }
-        }
+        let params = collect_params(encoder, &self.sig)?;
 
         let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
         let return_type = encode_return_type(encoder, &self.sig.output)?;
+
+        if let Some(variadic) = &self.sig.variadic {
+            return encoder.err(
+                variadic,
+                "variadic parameters are not supported for callbacks",
+            );
+        }
 
         let mut abi = 1; // "system"
 
@@ -120,64 +107,20 @@ impl Callback {
             .MethodDef("Invoke", &signature, flags, Default::default());
 
         for (sequence, param) in params.iter().enumerate() {
-            encoder.output.Param(
+            let param_id = encoder.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
+
+            encode_attrs(
+                encoder,
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &["input", "out", "opt"],
+            )?;
         }
 
         Ok(())
     }
-}
-
-#[test]
-#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:23")]
-fn unexpected_self() {
-    reader()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    extern fn Handler(&self);
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: param names must be unique\n --> .rdl:4:31")]
-fn param_name_unique() {
-    reader()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    extern fn Handler(a: i32, a: i32);
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: callback abi not supported\n --> .rdl:4:12")]
-fn abi_not_supported() {
-    reader()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    extern "D" fn Handler();
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
 }

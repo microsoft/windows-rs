@@ -11,13 +11,7 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let signature = method.signature(&[]);
     let return_type = write_return_type(namespace, &signature);
-    let params = method.params().filter(|param| param.sequence() != 0);
-
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = write_ident(param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
-    });
+    let params = write_params(namespace, &method, signature.types);
 
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),

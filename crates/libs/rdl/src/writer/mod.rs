@@ -24,17 +24,15 @@ use r#fn::*;
 use r#struct::*;
 use windows_metadata as metadata;
 
-// TODO: the writer is primarily an internal tool as most developers will write their own
+// The writer is primarily an internal tool as most developers will write their own
 // definitions or just accept whatever a component author provides. This is thus mostly for
 // generating rdl for backfilling definitions and for testing.
 
 #[derive(Default)]
 pub struct Writer {
     input: Vec<String>,
-    reference: Vec<String>,
+    filter: Vec<String>,
     output: String,
-    namespace: String,
-    recursive: bool,
     split: bool,
 }
 
@@ -50,23 +48,20 @@ impl Writer {
         self
     }
 
-    pub fn reference(&mut self, reference: &str) -> &mut Self {
-        self.reference.push(reference.to_string());
-        self
-    }
-
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
     }
 
-    pub fn namespace(&mut self, namespace: &str) -> &mut Self {
-        self.namespace = namespace.to_string();
-        self
-    }
-
-    pub fn recursive(&mut self) -> &mut Self {
-        self.recursive = true;
+    /// Filter namespaces to include in the output.  Each call appends one rule:
+    /// * `"Windows.Win32"` — include all namespaces whose prefix matches `Windows.Win32`
+    /// * `"!Windows.Win32"` — exclude all namespaces whose prefix matches `Windows.Win32`
+    ///
+    /// Exclusions take priority: if a namespace matches both an include rule and an
+    /// exclude rule, it is excluded.  If no filter rules are provided all namespaces
+    /// from the input are written.
+    pub fn filter(&mut self, filter: &str) -> &mut Self {
+        self.filter.push(filter.to_string());
         self
     }
 
@@ -76,28 +71,34 @@ impl Writer {
     }
 
     pub fn write(&self) -> Result<(), Error> {
-        let mut input = vec![];
+        let mut files = vec![];
 
         for file_name in &expand_files(&self.input, "winmd")? {
-            input.push(
+            files.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
             );
         }
 
-        for file_name in &expand_files(&self.reference, "winmd")? {
-            input.push(
-                metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,
-            );
-        }
-
-        let index = metadata::reader::TypeIndex::new(input);
+        let index = metadata::reader::TypeIndex::new(files);
         let index = metadata::reader::ItemIndex::new(&index);
 
         if self.split {
+            // Remove any stale rdl files from a previous run before writing.
+            if let Ok(entries) = std::fs::read_dir(&self.output) {
+                for entry in entries.flatten() {
+                    let path = entry.path();
+                    if path
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("rdl"))
+                    {
+                        let _ = std::fs::remove_file(path);
+                    }
+                }
+            }
+
             for namespace in index.keys() {
-                if !namespace.is_empty() && !namespace_starts_with(namespace, &self.namespace) {
+                if namespace.is_empty() || !namespace_included(namespace, &self.filter) {
                     continue;
                 }
 
@@ -105,17 +106,15 @@ impl Writer {
 
                 for (_, item) in index.namespace_items(namespace) {
                     for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(
-                            namespace,
-                            &name,
-                            item_arches(item),
-                            item_winrt(item),
-                            tokens.to_string(),
-                        );
+                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
 
                 let output = layout.to_string();
+
+                if output.is_empty() {
+                    continue;
+                }
 
                 let mut path = std::path::PathBuf::new();
                 path.push(&self.output);
@@ -127,25 +126,13 @@ impl Writer {
             let mut layout = Layout::new();
 
             for namespace in index.keys() {
-                if !self.namespace.is_empty() {
-                    if self.recursive {
-                        if !namespace_starts_with(namespace, &self.namespace) {
-                            continue;
-                        }
-                    } else if *namespace != self.namespace {
-                        continue;
-                    }
+                if !namespace_included(namespace, &self.filter) {
+                    continue;
                 }
 
                 for (_, item) in index.namespace_items(namespace) {
                     for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(
-                            namespace,
-                            &name,
-                            item_arches(item),
-                            item_winrt(item),
-                            tokens.to_string(),
-                        );
+                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
             }
@@ -177,12 +164,30 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-fn item_arches(item: &metadata::reader::Item) -> i32 {
-    match item {
-        metadata::reader::Item::Type(ty) => ty.arches(),
-        metadata::reader::Item::Fn(ty) => ty.arches(),
-        metadata::reader::Item::Const(ty) => ty.arches(),
+/// Returns `true` if `namespace` should be written given the `filter` rules.
+///
+/// Each rule is either a plain namespace prefix (include) or a `!`-prefixed
+/// namespace prefix (exclude).  Exclusions take priority: the first exclude
+/// rule whose prefix matches causes the function to return `false` immediately.
+/// If no filter rules are provided, every non-empty namespace is included.
+fn namespace_included(namespace: &str, filter: &[String]) -> bool {
+    if filter.is_empty() {
+        return true;
     }
+
+    let mut included = false;
+
+    for rule in filter {
+        if let Some(prefix) = rule.strip_prefix('!') {
+            if namespace_starts_with(namespace, prefix) {
+                return false;
+            }
+        } else if namespace_starts_with(namespace, rule) {
+            included = true;
+        }
+    }
+
+    included
 }
 
 fn item_winrt(item: &metadata::reader::Item) -> bool {
@@ -276,6 +281,44 @@ fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenSt
 
     let literal = syn::LitInt::new(&value, Span::call_site());
     quote! { const #name: GUID = #literal; }
+}
+
+fn write_params(
+    namespace: &str,
+    method: &metadata::reader::MethodDef,
+    signature_types: Vec<metadata::Type>,
+) -> Vec<TokenStream> {
+    method
+        .params()
+        .filter(|param| param.sequence() != 0)
+        .zip(signature_types)
+        .map(|(param, ty)| {
+            let in_attr = if !param.flags().contains(metadata::ParamAttributes::Out)
+                && matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+            {
+                quote! { #[input] }
+            } else {
+                quote! {}
+            };
+            let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
+                && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+            {
+                quote! { #[out] }
+            } else {
+                quote! {}
+            };
+            let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
+                quote! { #[opt] }
+            } else {
+                quote! {}
+            };
+            let name = write_ident(param.name());
+            let param_attrs =
+                write_custom_attributes(param.attributes(), namespace, method.index());
+            let ty = write_type(namespace, &ty);
+            quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty }
+        })
+        .collect()
 }
 
 fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenStream {

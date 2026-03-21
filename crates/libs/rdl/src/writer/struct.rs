@@ -26,7 +26,7 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
 
     // Collect all un-nested helper types (depth-first so leaves come first).
     let mut unnested: Vec<(String, TokenStream)> = vec![];
-    let flat_names = collect_nested(namespace, item, outer_name, &mut unnested);
+    let flat_names = collect_nested(namespace, item, outer_name, item.arches(), &mut unnested);
 
     // Write the main type using flat name references for any nested fields.
     let name_ident = write_ident(outer_name);
@@ -36,9 +36,11 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
         .collect();
 
     let keyword = struct_keyword(item);
+    let packed_attr = write_packed_attr(item);
     let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
     let main_tokens = quote! {
+        #packed_attr
         #(#custom_attrs)*
         #keyword #name_ident {
             #(#fields)*
@@ -56,10 +58,15 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
 /// The naming scheme matches `windows-bindgen`: each nested type is named
 /// `{outer_flat_name}_{index}` where `index` is the 0-based position of the
 /// nested type in the parent's nested-class list.
+///
+/// `parent_arches` carries the effective `SupportedArchitecture` bits from all
+/// enclosing types so that every un-nested helper type gets the correct
+/// architecture constraint even when the nested type itself has none.
 fn collect_nested(
     namespace: &str,
     parent: &metadata::reader::TypeDef,
     outer_flat_name: &str,
+    parent_arches: i32,
     output: &mut Vec<(String, TokenStream)>,
 ) -> HashMap<String, String> {
     let mut flat_names: HashMap<String, String> = HashMap::new();
@@ -69,8 +76,16 @@ fn collect_nested(
         let flat_name = format!("{outer_flat_name}_{index}");
         flat_names.insert(nested_leaf.to_string(), flat_name.clone());
 
+        // Combine the parent's arch constraint with any constraint on the
+        // nested type itself.  Using OR means that whichever bits are set by
+        // either level are preserved, so a completely unrestricted nested type
+        // correctly inherits the parent's restriction.
+        let nested_arches = nested.arches();
+        let effective_arches = parent_arches | nested_arches;
+
         // Recurse before emitting so that leaves appear before their parents.
-        let child_flat_names = collect_nested(namespace, &nested, &flat_name, output);
+        let child_flat_names =
+            collect_nested(namespace, &nested, &flat_name, effective_arches, output);
 
         let name_ident = write_ident(&flat_name);
         let fields: Vec<_> = nested
@@ -79,7 +94,21 @@ fn collect_nested(
             .collect();
         let keyword = struct_keyword(&nested);
 
-        output.push((flat_name, quote! { #keyword #name_ident { #(#fields)* } }));
+        // Write a SupportedArchitecture attribute when needed, and all other
+        // custom attributes on the nested type (excluding SupportedArchitecture
+        // so we don't emit it twice when the nested type already has one).
+        let arch_attr = write_arch_attr(effective_arches);
+        let custom_attrs = write_custom_attributes_except(
+            nested.attributes(),
+            namespace,
+            nested.index(),
+            &["SupportedArchitectureAttribute"],
+        );
+
+        output.push((
+            flat_name,
+            quote! { #arch_attr #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
+        ));
     }
 
     flat_names
@@ -140,4 +169,53 @@ fn struct_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
     } else {
         quote! { struct }
     }
+}
+
+/// Emits a `#[packed(N)]` token stream if the type has a `ClassLayout` with a
+/// non-zero packing size, otherwise returns an empty token stream.
+fn write_packed_attr(item: &metadata::reader::TypeDef) -> TokenStream {
+    if let Some(layout) = item.class_layout() {
+        let size = layout.packing_size();
+        if size > 0 {
+            let size_literal = proc_macro2::Literal::u16_unsuffixed(size);
+            return quote! { #[packed(#size_literal)] };
+        }
+    }
+    quote! {}
+}
+
+/// Emits a `#[Windows::Win32::Foundation::Metadata::SupportedArchitecture(...)]`
+/// token stream for the given `arches` bitmask, or an empty token stream when
+/// `arches` is zero (meaning "all architectures").
+///
+/// Bit layout (matching the Windows metadata):
+///   bit 0 (1) → X86
+///   bit 1 (2) → X64
+///   bit 2 (4) → Arm64
+fn write_arch_attr(arches: i32) -> TokenStream {
+    if arches == 0 {
+        return quote! {};
+    }
+
+    let mut parts: Vec<TokenStream> = vec![];
+    if arches & 1 != 0 {
+        parts.push(quote! { X86 });
+    }
+    if arches & 2 != 0 {
+        parts.push(quote! { X64 });
+    }
+    if arches & 4 != 0 {
+        parts.push(quote! { Arm64 });
+    }
+
+    if parts.is_empty() {
+        return quote! {};
+    }
+
+    let value = parts
+        .iter()
+        .skip(1)
+        .fold(parts[0].clone(), |acc, p| quote! { #acc | #p });
+
+    quote! { #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(#value)] }
 }

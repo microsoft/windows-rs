@@ -56,22 +56,8 @@ fn write_method(
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, &signature);
-    let params = item.params().filter(|param| param.sequence() != 0);
-
     let params =
-        std::iter::once(quote! { &self }).chain(params.zip(signature.types).map(|(param, ty)| {
-            let name = write_ident(param.name());
-            let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
-                && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
-            {
-                quote! { #[out] }
-            } else {
-                quote! {}
-            };
-            let ty = write_type(namespace, &ty);
-            let param_attrs = write_custom_attributes(param.attributes(), namespace, item.index());
-            quote! { #(#param_attrs)* #out_attr #name: #ty }
-        }));
+        std::iter::once(quote! { &self }).chain(write_params(namespace, item, signature.types));
 
     let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 

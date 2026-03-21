@@ -3,8 +3,8 @@ use super::*;
 #[derive(Default)]
 pub struct Layout {
     modules: BTreeMap<String, Layout>,
-    winrt: BTreeMap<String, Vec<String>>, // key is type name
-    win32: BTreeMap<(String, i32), Vec<String>>, // key is type name + arches
+    winrt: BTreeMap<String, Vec<String>>,
+    win32: BTreeMap<String, Vec<String>>,
 }
 
 impl Layout {
@@ -16,19 +16,12 @@ impl Layout {
         }
     }
 
-    pub fn insert(
-        &mut self,
-        namespace: &str,
-        name: &str,
-        arches: i32,
-        winrt: bool,
-        tokens: String,
-    ) {
+    pub fn insert(&mut self, namespace: &str, name: &str, winrt: bool, tokens: String) {
         if let Some((first, rest)) = namespace.split_once('.') {
             self.modules
                 .entry(first.to_string())
                 .or_default()
-                .insert(rest, name, arches, winrt, tokens)
+                .insert(rest, name, winrt, tokens)
         } else if winrt {
             self.modules
                 .entry(namespace.to_string())
@@ -42,7 +35,7 @@ impl Layout {
                 .entry(namespace.to_string())
                 .or_default()
                 .win32
-                .entry((name.to_string(), arches))
+                .entry(name.to_string())
                 .or_default()
                 .push(tokens);
         }

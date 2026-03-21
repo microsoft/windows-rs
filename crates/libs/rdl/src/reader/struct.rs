@@ -42,11 +42,16 @@ impl Struct {
             false,
             &self.fields,
         )?;
+
+        if let Some(packing_size) = read_packed(encoder, &self.attrs)? {
+            encoder.output.ClassLayout(type_def, packing_size, 0);
+        }
+
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(type_def),
             &self.attrs,
-            &[],
+            &["packed"],
         )
     }
 }

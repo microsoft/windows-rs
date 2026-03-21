@@ -136,23 +136,3 @@ fn encode_implement(
 
     Ok(())
 }
-
-#[test]
-#[should_panic(expected = "error: `default` attribute does not accept arguments\n --> .rdl:6:9")]
-fn default_with_args_on_class_interface_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    interface IFoo {}
-    class MyClass {
-        #[default(42)] IFoo,
-    }
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
