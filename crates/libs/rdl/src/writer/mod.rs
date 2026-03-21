@@ -303,12 +303,12 @@ fn write_params(
             let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
                 && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
             {
-                quote! { #[out] }
+                quote! { #[output] }
             } else {
                 quote! {}
             };
             let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
-                quote! { #[opt] }
+                quote! { #[optional] }
             } else {
                 quote! {}
             };

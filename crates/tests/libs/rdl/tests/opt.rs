@@ -1,7 +1,7 @@
 use windows_rdl::*;
 
-// Regression test: `#[opt]` must be preserved when followed by `#[out]`.
-// The order of `#[opt]` and `#[out]` attributes should not matter.
+// Regression test: `#[optional]` must be preserved when followed by `#[output]`.
+// The order of `#[optional]` and `#[output]` attributes should not matter.
 #[test]
 pub fn opt_before_out() {
     let winmd = std::env::temp_dir().join("windows_rdl_opt_before_out.winmd");
@@ -13,7 +13,7 @@ pub fn opt_before_out() {
 #[winrt]
 mod Test {
     interface ITest {
-        fn OutOptional(&self, #[opt] #[out] value: u32);
+        fn OutOptional(&self, #[optional] #[output] value: u32);
     }
 }
         "#,
@@ -31,7 +31,7 @@ mod Test {
 
     let contents = std::fs::read_to_string(&rdl).unwrap();
     assert!(
-        contents.contains("#[opt]"),
-        "Expected `#[opt]` in output but got:\n{contents}"
+        contents.contains("#[optional]"),
+        "Expected `#[optional]` in output but got:\n{contents}"
     );
 }
