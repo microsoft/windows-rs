@@ -4,14 +4,14 @@ use windows_rdl::*;
 pub fn parse() {
     reader()
         .input("tests/metadata-enum-attribute.rdl")
-        .reference("../bindgen/default/Windows.winmd")
+        .reference("../../../libs/bindgen/default/Windows.winmd")
         .output("tests/metadata-enum-attribute.winmd")
         .write()
         .unwrap();
 
     writer()
         .input("tests/metadata-enum-attribute.winmd")
-        .input("../bindgen/default/Windows.winmd")
+        .input("../../../libs/bindgen/default/Windows.winmd")
         .output("tests/metadata-enum-attribute.rdl")
         .filter("Test")
         .write()

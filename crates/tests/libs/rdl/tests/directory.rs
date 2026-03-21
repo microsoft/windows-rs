@@ -5,7 +5,7 @@ pub fn parse() {
     // Reader::reference with a directory of .winmd files
     reader()
         .input("tests/path.rdl")
-        .reference("../bindgen/default")
+        .reference("../../../libs/bindgen/default")
         .output("tests/directory.winmd")
         .write()
         .unwrap();

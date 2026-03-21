@@ -4,7 +4,7 @@ use windows_rdl::*;
 pub fn parse() {
     reader()
         .input("tests/path.rdl")
-        .reference("../bindgen/default/Windows.winmd")
+        .reference("../../../libs/bindgen/default/Windows.winmd")
         .output("tests/path.winmd")
         .write()
         .unwrap();

@@ -5,7 +5,7 @@ use windows_rdl::*;
 #[test]
 pub fn write() {
     writer()
-        .input("../bindgen/default/Windows.Win32.winmd")
+        .input("../../../libs/bindgen/default/Windows.Win32.winmd")
         .output("tests/nested-arches-out.rdl")
         .filter("Windows.Win32.System.Kernel")
         .write()
