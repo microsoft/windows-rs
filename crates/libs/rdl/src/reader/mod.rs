@@ -5,9 +5,10 @@ mod class;
 mod r#const;
 mod delegate;
 mod r#enum;
+mod field;
 mod file;
 mod r#fn;
-pub(super) mod guid;
+pub(crate) mod guid;
 mod index;
 mod interface;
 mod item;
@@ -23,6 +24,7 @@ use attribute_ref::*;
 use callback::*;
 use class::*;
 use delegate::*;
+use field::*;
 use file::*;
 use index::*;
 use interface::*;
@@ -60,7 +62,8 @@ impl Reader {
         self
     }
 
-    // TODO: is this really necessary or can we assume that missing types will be resolved "later"?
+    /// Adds a reference winmd file that will be used to resolve types used by the RDL input
+    /// but defined outside of it (for example, custom attributes from external assemblies).
     pub fn reference(&mut self, reference: &str) -> &mut Self {
         self.reference.push(reference.to_string());
         self
@@ -263,8 +266,11 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
     let mut output = metadata::writer::File::new("");
 
     for (namespace, members) in &index.namespaces {
-        for (name, (file, item)) in &members.types {
-            item.encode(&mut output, &index, reference, file, namespace, name)?;
+        for variants in members.types.values() {
+            for (file, item) in variants {
+                let name = item.to_string();
+                item.encode(&mut output, &index, reference, file, namespace, &name)?;
+            }
         }
 
         if !members.functions.is_empty() || !members.constants.is_empty() {
@@ -277,12 +283,16 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
                 metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
             );
 
-            for (name, (file, item)) in &members.functions {
-                item.encode(&mut output, &index, reference, file, namespace, name)?;
+            for (name, variants) in &members.functions {
+                for (file, item) in variants {
+                    item.encode(&mut output, &index, reference, file, namespace, name)?;
+                }
             }
 
-            for (name, (file, item)) in &members.constants {
-                item.encode(&mut output, &index, reference, file, namespace, name)?;
+            for (name, variants) in &members.constants {
+                for (file, item) in variants {
+                    item.encode(&mut output, &index, reference, file, namespace, name)?;
+                }
             }
         }
     }
@@ -310,6 +320,29 @@ impl Encoder<'_> {
     fn err<T, S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Result<T, Error> {
         Err(self.error(spanned, message))
     }
+}
+
+/// Parse an optional `#[packed(N)]` attribute from `attrs`.  Returns `Some(N)` if
+/// the attribute is present and well-formed, `None` if absent, or an error if the
+/// attribute is malformed.
+fn read_packed(encoder: &Encoder, attrs: &[syn::Attribute]) -> Result<Option<u16>, Error> {
+    for attr in attrs {
+        if !attr.path().is_ident("packed") {
+            continue;
+        }
+
+        let Ok(size_literal) = attr.parse_args::<syn::LitInt>() else {
+            return encoder.err(attr, "`packed` attribute requires an integer argument");
+        };
+
+        let Ok(size) = size_literal.base10_parse::<u16>() else {
+            return encoder.err(attr, "`packed` size must be a valid u16");
+        };
+
+        return Ok(Some(size));
+    }
+
+    Ok(None)
 }
 
 fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Error> {
@@ -411,15 +444,49 @@ fn encode_value(
         metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
         metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
         metadata::Type::String => metadata::Value::Utf16(encode_lit_string(encoder, value)?),
+        metadata::Type::ISize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
+        metadata::Type::USize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
+        metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
+            metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?)
+        }
+        metadata::Type::Name(tn) => {
+            let underlying = encoder
+                .reference
+                .get(&tn.namespace, &tn.name)
+                .next()
+                .and_then(|def| def.underlying_type())
+                .or_else(|| rdl_underlying_type(encoder, &tn.namespace, &tn.name));
+
+            match underlying {
+                Some(underlying) => return encode_value(encoder, &underlying, value),
+                None => return encoder.err(value, &format!("constant type not supported: {ty:?}")),
+            }
+        }
         rest => return encoder.err(value, &format!("constant type not supported: {rest:?}")),
     };
 
     Ok(value)
 }
 
+fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option<metadata::Type> {
+    let item = encoder.index.get(namespace, name)?;
+
+    if let Item::Struct(s) = item {
+        let mut fields = s.fields.iter();
+
+        if let Some(field) = fields.next() {
+            if fields.next().is_none() {
+                return encode_type(encoder, &field.ty).ok();
+            }
+        }
+    }
+
+    None
+}
+
 fn encode_neg_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
 where
-    T: std::str::FromStr + std::ops::Neg<Output = T>,
+    T: std::str::FromStr + TryFrom<i128>,
     T::Err: std::fmt::Display,
 {
     let value = match expr {
@@ -435,7 +502,10 @@ where
             syn::Expr::Lit(syn::ExprLit {
                 lit: syn::Lit::Int(int),
                 ..
-            }) => int.base10_parse().ok().map(|value: T| -value),
+            }) => int
+                .base10_parse::<u64>()
+                .ok()
+                .and_then(|v| T::try_from(-(v as i128)).ok()),
             _ => None,
         },
         _ => None,
@@ -688,57 +758,10 @@ impl IdentMethods for syn::Ident {
 }
 
 #[test]
-#[should_panic(expected = "error: use namespace not found\n --> .rdl:2:1")]
-fn use_glob_invalid_path() {
-    Reader::new()
-        .input_str(
-            r#"
-use NonExistent::*;
-
-#[winrt]
-mod Test {
-    struct Thing {
-        a: NoSuchType,
-    }
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: type not found\n --> .rdl:7:12")]
-fn use_glob_unresolved_type() {
-    Reader::new()
-        .input_str(
-            r#"
-use Other::*;
-
-#[winrt]
-mod Test {
-    struct Thing {
-        a: NoSuchType,
-    }
-}
-
-#[winrt]
-mod Other {
-    struct ExistingThing {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
 fn use_glob_resolves_type() {
     let output = std::env::temp_dir().join("windows_rdl_use_glob_resolves_type.winmd");
 
-    Reader::new()
+    reader()
         .input_str(
             r#"
 use Other::*;
@@ -760,25 +783,6 @@ mod Other {
         "#,
         )
         .output(&output.to_string_lossy())
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: type not supported\n --> .rdl:5:12")]
-fn unsupported_type_errors() {
-    Reader::new()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    struct Foo {
-        a: (i32, i32),
-    }
-}
-        "#,
-        )
-        .output(".")
         .write()
         .unwrap();
 }

@@ -35,7 +35,10 @@ impl CppEnum {
         }
 
         let name = to_ident(tn.name());
-        let underlying_type = self.def.underlying_type(config.reader).write_name(config);
+        let underlying_type = self
+            .def
+            .underlying_type_ext(config.reader)
+            .write_name(config);
 
         let mut derive = DeriveWriter::new(config, tn);
         derive.extend(["Copy", "Clone"]);
@@ -118,11 +121,11 @@ impl CppEnum {
     }
 
     pub fn size(&self, reader: &Reader) -> usize {
-        self.def.underlying_type(reader).size(reader)
+        self.def.underlying_type_ext(reader).size(reader)
     }
 
     pub fn align(&self, reader: &Reader) -> usize {
-        self.def.underlying_type(reader).align(reader)
+        self.def.underlying_type_ext(reader).align(reader)
     }
 }
 

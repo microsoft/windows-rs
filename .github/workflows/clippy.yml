@@ -176,8 +176,6 @@ jobs:
         run:  cargo clippy -p test_composable --tests
       - name: Check test_composable_client
         run:  cargo clippy -p test_composable_client --tests
-      - name: Check test_const_fields
-        run:  cargo clippy -p test_const_fields --tests
       - name: Check test_const_params
         run:  cargo clippy -p test_const_params --tests
       - name: Check test_const_ptrs
@@ -188,16 +186,8 @@ jobs:
         run:  cargo clippy -p test_constructors_client --tests
       - name: Check test_core
         run:  cargo clippy -p test_core --tests
-      - name: Check test_debug
-        run:  cargo clippy -p test_debug --tests
       - name: Check test_deprecated
         run:  cargo clippy -p test_deprecated --tests
-      - name: Check test_dispatch
-        run:  cargo clippy -p test_dispatch --tests
-      - name: Check test_does_not_return
-        run:  cargo clippy -p test_does_not_return --tests
-      - name: Check test_enums
-        run:  cargo clippy -p test_enums --tests
       - name: Check test_error
         run:  cargo clippy -p test_error --tests
       - name: Check test_event_core
@@ -234,8 +224,6 @@ jobs:
         run:  cargo clippy -p test_literals --tests
       - name: Check test_marshal
         run:  cargo clippy -p test_marshal --tests
-      - name: Check test_match
-        run:  cargo clippy -p test_match --tests
       - name: Check test_metadata
         run:  cargo clippy -p test_metadata --tests
       - name: Check test_msrv
@@ -260,8 +248,8 @@ jobs:
         run:  cargo clippy -p test_package --tests
       - name: Check test_query_signature
         run:  cargo clippy -p test_query_signature --tests
-      - name: Check test_rdl_bindgen
-        run:  cargo clippy -p test_rdl_bindgen --tests
+      - name: Check test_rdl
+        run:  cargo clippy -p test_rdl --tests
       - name: Check test_readme
         run:  cargo clippy -p test_readme --tests
       - name: Check test_ref_params
@@ -302,8 +290,6 @@ jobs:
         run:  cargo clippy -p test_string_param --tests
       - name: Check test_strings
         run:  cargo clippy -p test_strings --tests
-      - name: Check test_struct_size
-        run:  cargo clippy -p test_struct_size --tests
       - name: Check test_structs
         run:  cargo clippy -p test_structs --tests
       - name: Check test_sys
@@ -326,8 +312,6 @@ jobs:
         run:  cargo clippy -p test_win32 --tests
       - name: Check test_win32_arrays
         run:  cargo clippy -p test_win32_arrays --tests
-      - name: Check test_window_long
-        run:  cargo clippy -p test_window_long --tests
       - name: Check test_windows_std
         run:  cargo clippy -p test_windows_std --tests
       - name: Check test_winrt
@@ -344,6 +328,8 @@ jobs:
         run:  cargo clippy -p tool_merge --tests
       - name: Check tool_msvc
         run:  cargo clippy -p tool_msvc --tests
+      - name: Check tool_rdl_roundtrip
+        run:  cargo clippy -p tool_rdl_roundtrip --tests
       - name: Check tool_standalone
         run:  cargo clippy -p tool_standalone --tests
       - name: Check tool_test_all

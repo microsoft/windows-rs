@@ -156,6 +156,12 @@ impl<'a, R: AsRow<'a>> Iterator for RowIterator<'a, R> {
     }
 }
 
+impl<'a, R: AsRow<'a>> ExactSizeIterator for RowIterator<'a, R> {
+    fn len(&self) -> usize {
+        self.rows.len()
+    }
+}
+
 pub trait HasAttributes<'a> {
     fn attributes(&self) -> RowIterator<'a, Attribute<'a>>;
     fn find_attribute(&self, name: &str) -> Option<Attribute<'a>>;

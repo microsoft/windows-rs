@@ -1,0 +1,11 @@
+[package]
+name = "tool_rdl_roundtrip"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+windows-rdl = { workspace = true }
+
+[lints]
+workspace = true

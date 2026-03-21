@@ -713,7 +713,7 @@ impl CppMethod {
                         if self.def.name() == "LocalFree" {
                             return false;
                         }
-                        if ty.def.underlying_type(reader).is_pointer() {
+                        if ty.def.underlying_type_ext(reader).is_pointer() {
                             return true;
                         }
                         if !ty.def.invalid_values().is_empty() {

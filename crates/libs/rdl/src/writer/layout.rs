@@ -3,8 +3,8 @@ use super::*;
 #[derive(Default)]
 pub struct Layout {
     modules: BTreeMap<String, Layout>,
-    winrt: BTreeMap<String, String>,        // key is type name
-    win32: BTreeMap<(String, i32), String>, // key is type name + arches
+    winrt: BTreeMap<String, Vec<String>>,
+    win32: BTreeMap<String, Vec<String>>,
 }
 
 impl Layout {
@@ -16,31 +16,28 @@ impl Layout {
         }
     }
 
-    pub fn insert(
-        &mut self,
-        namespace: &str,
-        name: &str,
-        arches: i32,
-        winrt: bool,
-        tokens: String,
-    ) {
+    pub fn insert(&mut self, namespace: &str, name: &str, winrt: bool, tokens: String) {
         if let Some((first, rest)) = namespace.split_once('.') {
             self.modules
                 .entry(first.to_string())
                 .or_default()
-                .insert(rest, name, arches, winrt, tokens)
+                .insert(rest, name, winrt, tokens)
         } else if winrt {
             self.modules
                 .entry(namespace.to_string())
                 .or_default()
                 .winrt
-                .insert(name.to_string(), tokens);
+                .entry(name.to_string())
+                .or_default()
+                .push(tokens);
         } else {
             self.modules
                 .entry(namespace.to_string())
                 .or_default()
                 .win32
-                .insert((name.to_string(), arches), tokens);
+                .entry(name.to_string())
+                .or_default()
+                .push(tokens);
         }
     }
 
@@ -64,8 +61,12 @@ impl Layout {
             output.push_str(name);
             output.push_str(" {\n");
 
-            for tokens in self.winrt.values() {
-                output.push_str(tokens);
+            for items in self.winrt.values() {
+                let mut items = items.clone();
+                items.sort();
+                for tokens in &items {
+                    output.push_str(tokens);
+                }
             }
 
             output.push_str("}\n");
@@ -76,8 +77,12 @@ impl Layout {
             output.push_str(name);
             output.push_str(" {\n");
 
-            for tokens in self.win32.values() {
-                output.push_str(tokens);
+            for items in self.win32.values() {
+                let mut items = items.clone();
+                items.sort();
+                for tokens in &items {
+                    output.push_str(tokens);
+                }
             }
 
             output.push_str("}\n");

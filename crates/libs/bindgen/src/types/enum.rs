@@ -16,7 +16,7 @@ impl Enum {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.def.name());
-        let underlying_type = self.def.underlying_type(config.reader);
+        let underlying_type = self.def.underlying_type_ext(config.reader);
 
         let mut derive = DeriveWriter::new(config, self.type_name());
         derive.extend(["Copy", "Clone"]);
@@ -112,7 +112,9 @@ impl Enum {
         format!(
             "enum({};{})",
             self.def.type_name(),
-            self.def.underlying_type(reader).runtime_signature(reader)
+            self.def
+                .underlying_type_ext(reader)
+                .runtime_signature(reader)
         )
     }
 }

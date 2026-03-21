@@ -36,13 +36,13 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> String {
         format!("<{}>", names.join(", "))
     };
 
-    let attrs = write_custom_attributes_except(
-        item.attributes(),
-        namespace,
-        item.index(),
-        // GuidAttribute is derived from the interface shape; skip it so round-trips stay clean
-        &["GuidAttribute"],
-    );
+    let guid_exclude: &[&str] = if interface_guid_is_derived(item) {
+        &["GuidAttribute"]
+    } else {
+        &[]
+    };
+    let attrs =
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
 
     let header = format!("{attrs}interface {name}{generics_str}{requires_str} ");
     write_block(header, methods)
@@ -57,22 +57,9 @@ fn write_method(
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, &signature);
-    let params = item.params().filter(|param| param.sequence() != 0);
-
-    let mut param_strs: Vec<String> = vec!["&self".to_string()];
-    for (param, ty) in params.zip(signature.types) {
-        let param_name = write_ident(param.name());
-        let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
-            && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
-        {
-            "#[out] ".to_string()
-        } else {
-            String::new()
-        };
-        let ty_str = write_type(namespace, &ty);
-        let param_attrs = write_param_attributes(param.attributes(), namespace, item.index());
-        param_strs.push(format!("{param_attrs}{out_attr}{param_name}: {ty_str}"));
-    }
+    let params = std::iter::once("&self".to_string())
+        .chain(write_params(namespace, item, signature.types))
+        .collect::<Vec<_>>();
 
     let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
@@ -95,6 +82,6 @@ fn write_method(
 
     format!(
         "{special_attr}{method_attrs}fn {name}({}){ret_str};\n",
-        param_strs.join(", ")
+        params.join(", ")
     )
 }

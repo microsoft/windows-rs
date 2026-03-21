@@ -120,10 +120,15 @@ impl<'a> Blob<'a> {
         let ty = self.read_type_code(generics);
 
         if pointers > 0 {
-            if is_const {
+            let ptr = if is_const {
                 Type::PtrConst(Box::new(ty), pointers)
             } else {
                 Type::PtrMut(Box::new(ty), pointers)
+            };
+            if is_array {
+                Type::Array(Box::new(ptr))
+            } else {
+                ptr
             }
         } else if is_const {
             Type::RefConst(Box::new(ty))

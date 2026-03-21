@@ -16,16 +16,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> String {
 
     let signature = method.signature(&generics);
     let return_type = write_return_type(namespace, &signature);
-    let params = method.params().filter(|param| param.sequence() != 0);
-
-    let params: Vec<String> = params
-        .zip(signature.types)
-        .map(|(param, ty)| {
-            let name = write_ident(param.name());
-            let ty = write_type(namespace, &ty);
-            format!("{name}: {ty}")
-        })
-        .collect();
+    let params = write_params(namespace, &method, signature.types);
 
     let generics_str = if generics.is_empty() {
         String::new()
@@ -37,13 +28,13 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> String {
         format!("<{}>", names.join(", "))
     };
 
-    let attrs = write_custom_attributes_except(
-        item.attributes(),
-        namespace,
-        item.index(),
-        // GuidAttribute is derived from the delegate shape; skip it so round-trips stay clean
-        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
-    );
+    let guid_exclude: &[&str] = if delegate_guid_is_derived(item) {
+        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"]
+    } else {
+        &["UnmanagedFunctionPointerAttribute"]
+    };
+    let attrs =
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
 
     let mut abi = None;
 

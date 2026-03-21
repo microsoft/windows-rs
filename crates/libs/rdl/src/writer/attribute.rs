@@ -36,16 +36,6 @@ pub fn write_attribute(item: &metadata::reader::TypeDef) -> String {
 
 fn write_method(namespace: &str, item: &metadata::reader::MethodDef) -> String {
     let signature = item.signature(&[]);
-    let params = item.params().filter(|param| param.sequence() != 0);
-
-    let params: Vec<String> = params
-        .zip(signature.types)
-        .map(|(param, ty)| {
-            let name = write_ident(param.name());
-            let ty = write_type(namespace, &ty);
-            format!("{name}: {ty}")
-        })
-        .collect();
-
+    let params = write_params(namespace, item, signature.types);
     format!("fn({});\n", params.join(", "))
 }

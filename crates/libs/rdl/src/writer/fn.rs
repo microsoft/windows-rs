@@ -5,16 +5,14 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> String {
     let signature = item.signature(&[]);
 
     let return_type = write_return_type(namespace, &signature);
-    let params = item.params().filter(|param| param.sequence() != 0);
+    let vararg = signature
+        .flags
+        .contains(metadata::MethodCallAttributes::VARARG);
+    let mut params = write_params(namespace, item, signature.types);
 
-    let params: Vec<String> = params
-        .zip(signature.types)
-        .map(|(param, ty)| {
-            let name = write_ident(param.name());
-            let ty = write_type(namespace, &ty);
-            format!("{name}: {ty}")
-        })
-        .collect();
+    if vararg {
+        params.push("...".to_string());
+    }
 
     let Some(impl_map) = item.impl_map() else {
         unreachable!("fn item must have an ImplMap to be written as an `fn` item")
@@ -39,6 +37,12 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> String {
 
     let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
+    let library_attr = if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
+        format!("#[library(\"{library}\", last_error = true)]\n")
+    } else {
+        format!("#[library(\"{library}\")]\n")
+    };
+
     let abi_str = match abi {
         Some(abi) => format!(" \"{abi}\""),
         None => String::new(),
@@ -50,7 +54,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> String {
     };
 
     format!(
-        "{attrs}#[library(\"{library}\")]\nextern{abi_str} fn {name}({}){ret_str};\n",
+        "{attrs}{library_attr}extern{abi_str} fn {name}({}){ret_str};\n",
         params.join(", ")
     )
 }

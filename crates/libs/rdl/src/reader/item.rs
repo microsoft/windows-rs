@@ -83,11 +83,7 @@ impl std::fmt::Display for Item {
             Self::Fn(item) => item.sig.ident.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
             Self::Module(item) => item.name.fmt(f),
-            Self::Struct(item) => item
-                .name
-                .as_ref()
-                .expect("top-level structs must be named")
-                .fmt(f),
+            Self::Struct(item) => item.name.fmt(f),
             Self::Union(item) => item.name.fmt(f),
         }
     }

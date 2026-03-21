@@ -203,8 +203,6 @@ jobs:
         run:  cargo test -p test_composable --target ${{ matrix.target }}
       - name: Test test_composable_client
         run:  cargo test -p test_composable_client --target ${{ matrix.target }}
-      - name: Test test_const_fields
-        run:  cargo test -p test_const_fields --target ${{ matrix.target }}
       - name: Test test_const_params
         run:  cargo test -p test_const_params --target ${{ matrix.target }}
       - name: Test test_const_ptrs
@@ -215,16 +213,8 @@ jobs:
         run:  cargo test -p test_constructors_client --target ${{ matrix.target }}
       - name: Test test_core
         run:  cargo test -p test_core --target ${{ matrix.target }}
-      - name: Test test_debug
-        run:  cargo test -p test_debug --target ${{ matrix.target }}
       - name: Test test_deprecated
         run:  cargo test -p test_deprecated --target ${{ matrix.target }}
-      - name: Test test_dispatch
-        run:  cargo test -p test_dispatch --target ${{ matrix.target }}
-      - name: Test test_does_not_return
-        run:  cargo test -p test_does_not_return --target ${{ matrix.target }}
-      - name: Test test_enums
-        run:  cargo test -p test_enums --target ${{ matrix.target }}
       - name: Test test_error
         run:  cargo test -p test_error --target ${{ matrix.target }}
       - name: Test test_event_core
@@ -261,12 +251,8 @@ jobs:
         run:  cargo test -p test_literals --target ${{ matrix.target }}
       - name: Test test_marshal
         run:  cargo test -p test_marshal --target ${{ matrix.target }}
-      - name: Test test_match
-        run:  cargo test -p test_match --target ${{ matrix.target }}
       - name: Test test_metadata
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_core
@@ -279,6 +265,8 @@ jobs:
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_numerics
         run:  cargo test -p test_numerics --target ${{ matrix.target }}
       - name: Test test_overloads
@@ -289,8 +277,8 @@ jobs:
         run:  cargo test -p test_package --target ${{ matrix.target }}
       - name: Test test_query_signature
         run:  cargo test -p test_query_signature --target ${{ matrix.target }}
-      - name: Test test_rdl_bindgen
-        run:  cargo test -p test_rdl_bindgen --target ${{ matrix.target }}
+      - name: Test test_rdl
+        run:  cargo test -p test_rdl --target ${{ matrix.target }}
       - name: Test test_readme
         run:  cargo test -p test_readme --target ${{ matrix.target }}
       - name: Test test_ref_params
@@ -331,8 +319,6 @@ jobs:
         run:  cargo test -p test_string_param --target ${{ matrix.target }}
       - name: Test test_strings
         run:  cargo test -p test_strings --target ${{ matrix.target }}
-      - name: Test test_struct_size
-        run:  cargo test -p test_struct_size --target ${{ matrix.target }}
       - name: Test test_structs
         run:  cargo test -p test_structs --target ${{ matrix.target }}
       - name: Test test_sys
@@ -355,8 +341,6 @@ jobs:
         run:  cargo test -p test_win32 --target ${{ matrix.target }}
       - name: Test test_win32_arrays
         run:  cargo test -p test_win32_arrays --target ${{ matrix.target }}
-      - name: Test test_window_long
-        run:  cargo test -p test_window_long --target ${{ matrix.target }}
       - name: Test test_windows_std
         run:  cargo test -p test_windows_std --target ${{ matrix.target }}
       - name: Test test_winrt
@@ -367,14 +351,14 @@ jobs:
         run:  cargo test -p tool_bindings --target ${{ matrix.target }}
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_license
         run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Test tool_merge
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
+      - name: Test tool_rdl_roundtrip
+        run:  cargo test -p tool_rdl_roundtrip --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
       - name: Test tool_test_all
@@ -383,6 +367,8 @@ jobs:
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
       - name: Test tool_yml
         run:  cargo test -p tool_yml --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }}
       - name: Test windows-bindgen

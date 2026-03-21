@@ -47,6 +47,21 @@ impl<'a> TypeDef<'a> {
         self.equal_range(2, self.pos() + 1).next()
     }
 
+    pub fn underlying_type(&self) -> Option<Type> {
+        let mut fields = self.fields();
+
+        if fields.len() == 1 {
+            let field = fields.next().unwrap();
+            if let Some(constant) = field.constant() {
+                Some(constant.ty())
+            } else {
+                Some(field.ty())
+            }
+        } else {
+            None
+        }
+    }
+
     pub fn category(&self) -> TypeCategory {
         if let Some(extends) = self.extends() {
             if extends.namespace() == "System" {

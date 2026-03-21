@@ -805,10 +805,10 @@ impl Type {
 
     pub fn underlying_type(&self, reader: &Reader) -> Self {
         match self {
-            Self::Struct(ty) => ty.def.underlying_type(reader),
-            Self::CppEnum(ty) => ty.def.underlying_type(reader),
-            Self::Enum(ty) => ty.def.underlying_type(reader),
-            Self::CppStruct(ty) => ty.def.underlying_type(reader),
+            Self::Struct(ty) => ty.def.underlying_type_ext(reader),
+            Self::CppEnum(ty) => ty.def.underlying_type_ext(reader),
+            Self::Enum(ty) => ty.def.underlying_type_ext(reader),
+            Self::CppStruct(ty) => ty.def.underlying_type_ext(reader),
             Self::HRESULT => Self::I32,
             Self::BOOL => Self::I32,
             _ => self.clone(),

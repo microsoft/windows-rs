@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows-numerics]
 workspace = true
+features = ["std"]
 
 [lints]
 workspace = true

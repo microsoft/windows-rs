@@ -16,12 +16,17 @@ fn primitive() -> Result<()> {
     assert_eq!(v.Size()?, 3);
     let mut index = 0;
     assert!(!(v.IndexOf(0, &mut index)?));
+    assert_eq!(index, 0);
     assert!(v.IndexOf(1, &mut index)?);
     assert_eq!(index, 0);
     assert!(v.IndexOf(2, &mut index)?);
     assert_eq!(index, 1);
     assert!(v.IndexOf(3, &mut index)?);
     assert_eq!(index, 2);
+    // IndexOf resets *result to 0 when the value is not found
+    index = 99;
+    assert!(!(v.IndexOf(0, &mut index)?));
+    assert_eq!(index, 0);
 
     let mut values = [0; 5];
     assert_eq!(v.GetMany(0, &mut values)?, 3);
@@ -99,6 +104,14 @@ fn primitive_iterator() -> Result<()> {
     let mut values = [0; 2];
     assert_eq!(iter.GetMany(&mut values)?, 2);
     assert_eq!(values, [2, 3]);
+    assert_eq!(iter.GetMany(&mut values)?, 0);
+
+    // MoveNext followed by GetMany reads from the advanced position
+    let iter = able.First()?;
+    assert!(iter.MoveNext()?);
+    let mut values = [0; 5];
+    assert_eq!(iter.GetMany(&mut values)?, 2);
+    assert_eq!(values[..2], [2, 3]);
     assert_eq!(iter.GetMany(&mut values)?, 0);
 
     Ok(())
