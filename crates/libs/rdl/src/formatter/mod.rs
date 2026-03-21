@@ -107,10 +107,14 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
                             output.push('\n');
                         }
                     }
-                    ('.', _) => {
+                    // Single member-access dot: trim trailing space (`foo.bar`).
+                    // Joint dots are part of `...` (variadic) and must NOT trim
+                    // the preceding space so that `, ...` formats correctly.
+                    ('.', Spacing::Alone) => {
                         trim_space(output);
                         output.push('.');
                     }
+                    ('.', _) => output.push('.'),
                     // `->` return-type arrow
                     ('-', Spacing::Joint) => {
                         output.push_str("-> ");
