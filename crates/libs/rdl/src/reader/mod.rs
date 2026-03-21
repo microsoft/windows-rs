@@ -757,7 +757,6 @@ impl IdentMethods for syn::Ident {
     }
 }
 
-
 #[test]
 fn use_glob_resolves_type() {
     let output = std::env::temp_dir().join("windows_rdl_use_glob_resolves_type.winmd");
@@ -787,4 +786,3 @@ mod Other {
         .write()
         .unwrap();
 }
-
