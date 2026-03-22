@@ -6,6 +6,10 @@ publish = false
 
 [dependencies]
 windows-rdl = { workspace = true }
+windows-core = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true
