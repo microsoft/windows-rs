@@ -242,10 +242,16 @@ impl File {
             buffer.append(&mut blobs);
 
             let unpadded_size = buffer.len();
-            buffer.resize(optional.FileAlignment as usize + section.SizeOfRawData as usize, 0);
-            
+            buffer.resize(
+                optional.FileAlignment as usize + section.SizeOfRawData as usize,
+                0,
+            );
+
             assert_eq!(clr.MetaData.Size as usize, unpadded_size - metadata_offset);
-            assert_eq!(optional.FileAlignment as usize + section.SizeOfRawData as usize, buffer.len());
+            assert_eq!(
+                optional.FileAlignment as usize + section.SizeOfRawData as usize,
+                buffer.len()
+            );
 
             buffer
         }
