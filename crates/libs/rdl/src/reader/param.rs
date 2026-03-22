@@ -15,9 +15,9 @@ fn parse_param_attributes(
     let mut attributes = metadata::ParamAttributes::default();
 
     for attr in attrs {
-        if attr.path().is_ident("out") {
+        if attr.path().is_ident("output") {
             if !matches!(attr.meta, syn::Meta::Path(_)) {
-                return encoder.err(attr, "`out` attribute does not accept arguments");
+                return encoder.err(attr, "`output` attribute does not accept arguments");
             }
             attributes |= metadata::ParamAttributes::Out;
         } else if attr.path().is_ident("input") {
@@ -25,9 +25,9 @@ fn parse_param_attributes(
                 return encoder.err(attr, "`input` attribute does not accept arguments");
             }
             attributes |= metadata::ParamAttributes::In;
-        } else if attr.path().is_ident("opt") {
+        } else if attr.path().is_ident("optional") {
             if !matches!(attr.meta, syn::Meta::Path(_)) {
-                return encoder.err(attr, "`opt` attribute does not accept arguments");
+                return encoder.err(attr, "`optional` attribute does not accept arguments");
             }
             attributes |= metadata::ParamAttributes::Optional;
         }
