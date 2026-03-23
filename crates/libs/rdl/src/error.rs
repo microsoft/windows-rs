@@ -26,13 +26,17 @@ impl std::fmt::Debug for Error {
 
 impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(
-            f,
-            "\nerror: {}\n --> {}:{}:{}",
-            &self.message,
-            &self.file_name,
-            self.line,
-            self.column + 1
-        )
+        if self.line != 0 || self.column != 0 {
+            write!(
+                f,
+                "\nerror: {}\n --> {}:{}:{}",
+                &self.message,
+                &self.file_name,
+                self.line,
+                self.column + 1
+            )
+        } else {
+            write!(f, "\nerror: {}\n --> {}", &self.message, &self.file_name,)
+        }
     }
 }
