@@ -3,7 +3,8 @@ use windows_rdl::*;
 #[test]
 pub fn parse() {
     reader()
-        .input("tests/string")
+        .input("tests/string.rdl")
+        .reference("../../../libs/bindgen/default/Windows.Win32.winmd")
         .output("tests/string.winmd")
         .write()
         .unwrap();
