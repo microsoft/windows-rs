@@ -5,7 +5,7 @@ like [ILSpy](https://github.com/icsharpcode/ILSpy).
 ## `Windows.Win32.winmd`
 
 - Source: <https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/>
-- Version: `TBD`
+- Version: `70.0.11`
 
 ## `Windows.Wdk.winmd`
 
