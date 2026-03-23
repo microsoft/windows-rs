@@ -50,6 +50,11 @@ impl Default for ALLOCATOR_PROPERTIES_EX {
 }
 pub const APO_CLASS_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
 pub const AUDIOENDPOINT_CLASS_UUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
+pub const AUDIOLOOPBACK_TAPPOINT_CAPS_POSTVOLUMEMUTE: u32 = 2u32;
+pub const AUDIOLOOPBACK_TAPPOINT_CAPS_PREVOLUMEMUTE: u32 = 1u32;
+pub const AUDIOLOOPBACK_TAPPOINT_POSTVOLUMEMUTE: AUDIOLOOPBACK_TAPPOINT_TYPE = 1i32;
+pub const AUDIOLOOPBACK_TAPPOINT_PREVOLUMEMUTE: AUDIOLOOPBACK_TAPPOINT_TYPE = 0i32;
+pub type AUDIOLOOPBACK_TAPPOINT_TYPE = i32;
 pub const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000u32;
 pub const AUDIOMODULE_MAX_NAME_CCH_SIZE: u32 = 128u32;
 pub type AUDIOPOSTURE_ORIENTATION = i32;
@@ -388,7 +393,15 @@ pub struct KSATTRIBUTE {
     pub Flags: u32,
     pub Attribute: windows_sys::core::GUID,
 }
+pub const KSATTRIBUTEID_AUDIOLOOPBACK_TAPPOINT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2795a0f7_1688_44fe_bc14_bf8273992141);
 pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
+pub const KSATTRIBUTEID_VIDEOFORMAT_DX12: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc9d87b5_0b02_438e_89b0_e241fce889ad);
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT {
+    pub AttributeHeader: KSATTRIBUTE,
+    pub TapPoint: AUDIOLOOPBACK_TAPPOINT_TYPE,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
@@ -814,6 +827,19 @@ pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     pub Flag: u32,
     pub Reserved: u32,
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
+    pub DefaultDiagonalFieldOfViewInDegrees: u16,
+    pub DiscreteFoVStopsCount: u16,
+    pub DiscreteFoVStops: [u16; 360],
+    pub Reserved: u32,
+}
+impl Default for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const KSCAMERA_EXTENDEDPROP_FILTERSCOPE: u32 = 4294967295u32;
 pub const KSCAMERA_EXTENDEDPROP_FLAG_CANCELOPERATION: u64 = 9223372036854775808u64;
 pub const KSCAMERA_EXTENDEDPROP_FLAG_MASK: u64 = 18374686479671623680u64;
@@ -849,6 +875,8 @@ pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_MACRO: u64 = 65536u64;
 pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_NORMAL: u64 = 131072u64;
 pub const KSCAMERA_EXTENDEDPROP_FOCUS_REGIONBASED: u64 = 4096u64;
 pub const KSCAMERA_EXTENDEDPROP_FOCUS_UNLOCK: u64 = 1024u64;
+pub const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_OFF: u64 = 0u64;
+pub const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_ON: u64 = 1u64;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_EXTENDEDPROP_HEADER {
@@ -1427,6 +1455,7 @@ pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: windows_sys::core::G
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21_PROFILE4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000070c_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
@@ -1436,6 +1465,16 @@ pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: windows_sys::core::GUID = window
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_BL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000210bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_LC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000110bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_BL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000220bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_LC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000120bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_BL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000230bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_LC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000130bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_BL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000240bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_LC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000140bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_BL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000250bf_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_LC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000150bf_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
 pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
@@ -1478,6 +1517,7 @@ pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: windows_sys::core::GUID = w
 pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
 pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
 pub const KSDATAFORMAT_SUBTYPE_TELETEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_UNIVERSALMIDIPACKET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbffd49e_ce26_464a_9dfc_fee42456c81c);
 pub const KSDATAFORMAT_SUBTYPE_VPVBI: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
 pub const KSDATAFORMAT_SUBTYPE_VPVideo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
 pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
@@ -1853,6 +1893,7 @@ pub const KSEVENT_LOOPEDSTREAMING_POSITION: KSEVENT_LOOPEDSTREAMING = 0i32;
 pub const KSEVENT_PHOTO_SAMPLE_SCANNED: KSEVENT_CAMERAEVENT = 0i32;
 pub type KSEVENT_PINCAPS_CHANGENOTIFICATIONS = i32;
 pub const KSEVENT_PINCAPS_FORMATCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = 0i32;
+pub const KSEVENT_PINCAPS_INVALIDATECLIENTS: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = 2i32;
 pub const KSEVENT_PINCAPS_JACKINFOCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = 1i32;
 pub type KSEVENT_SOUNDDETECTOR = i32;
 pub const KSEVENT_SOUNDDETECTOR_MATCHDETECTED: KSEVENT_SOUNDDETECTOR = 1i32;
@@ -2118,6 +2159,60 @@ pub const KSMICARRAY_MICTYPE_OMNIDIRECTIONAL: KSMICARRAY_MICTYPE = 0i32;
 pub const KSMICARRAY_MICTYPE_SUBCARDIOID: KSMICARRAY_MICTYPE = 1i32;
 pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = 3i32;
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = 15i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSMIDILOOPED_BUFFER {
+    pub BufferAddress: *mut core::ffi::c_void,
+    pub ActualBufferSize: u32,
+}
+impl Default for KSMIDILOOPED_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSMIDILOOPED_BUFFER_PROPERTY {
+    pub Property: KSIDENTIFIER,
+    pub RequestedBufferSize: u32,
+}
+impl Default for KSMIDILOOPED_BUFFER_PROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSMIDILOOPED_EVENT {
+    pub WriteEvent: super::super::Foundation::HANDLE,
+}
+impl Default for KSMIDILOOPED_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSMIDILOOPED_EVENT2 {
+    pub WriteEvent: super::super::Foundation::HANDLE,
+    pub ReadEvent: super::super::Foundation::HANDLE,
+}
+impl Default for KSMIDILOOPED_EVENT2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSMIDILOOPED_REGISTERS {
+    pub WritePosition: *mut core::ffi::c_void,
+    pub ReadPosition: *mut core::ffi::c_void,
+}
+impl Default for KSMIDILOOPED_REGISTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const KSMPEGVIDMODE_LTRBOX: u32 = 2u32;
 pub const KSMPEGVIDMODE_PANSCAN: u32 = 1u32;
 pub const KSMPEGVIDMODE_SCALE: u32 = 4u32;
@@ -2489,6 +2584,7 @@ pub const KSPROBE_SYSTEMADDRESS: u32 = 64u32;
 pub const KSPROPERTYSETID_ExtendedCameraControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
 pub const KSPROPERTYSETID_NetworkCameraControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
 pub const KSPROPERTYSETID_PerFrameSettingControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
+pub const KSPROPERTYSETID_WindowsCameraEffect: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1666d655_21a6_4982_9728_52c39e869f90);
 pub type KSPROPERTY_AC3 = i32;
 pub const KSPROPERTY_AC3_ALTERNATE_AUDIO: KSPROPERTY_AC3 = 2i32;
 pub const KSPROPERTY_AC3_BIT_STREAM_MODE: KSPROPERTY_AC3 = 4i32;
@@ -2535,6 +2631,8 @@ pub const KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION: KSPROPERTY_AUDIOENGINE = 8
 pub const KSPROPERTY_AUDIOENGINE_MIXFORMAT: KSPROPERTY_AUDIOENGINE = 2i32;
 pub const KSPROPERTY_AUDIOENGINE_SUPPORTEDDEVICEFORMATS: KSPROPERTY_AUDIOENGINE = 5i32;
 pub const KSPROPERTY_AUDIOENGINE_VOLUMELEVEL: KSPROPERTY_AUDIOENGINE = 9i32;
+pub type KSPROPERTY_AUDIOLOOPBACK = i32;
+pub const KSPROPERTY_AUDIOLOOPBACK_TAPPOINT_CAPS: KSPROPERTY_AUDIOLOOPBACK = 0i32;
 pub type KSPROPERTY_AUDIOMODULE = i32;
 pub const KSPROPERTY_AUDIOMODULE_COMMAND: KSPROPERTY_AUDIOMODULE = 2i32;
 pub const KSPROPERTY_AUDIOMODULE_DESCRIPTORS: KSPROPERTY_AUDIOMODULE = 1i32;
@@ -2698,18 +2796,21 @@ pub const KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION: KSPROPERTY_C
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_CAMERAANGLEOFFSET: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 17i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 43i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW_CONFIGCAPS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 42i32;
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 44i32;
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END2: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 44i32;
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 47i32;
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END2: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 47i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EVCOMPENSATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 16i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EXPOSUREMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 12i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EYEGAZECORRECTION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 40i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FACEAUTH_MODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 35i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FACEDETECTION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 29i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 15i32;
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW2: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 46i32;
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW2_CONFIGCAPS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 45i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FLASHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 9i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 13i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSPRIORITY: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 19i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSSTATE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 20i32;
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FRAMERATE_THROTTLE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 44i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_HISTOGRAM: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 31i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_IRTORCHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 38i32;
 pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ISO: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = 14i32;
@@ -3272,6 +3373,10 @@ pub const KSPROPERTY_MEMBER_RANGES: u32 = 1u32;
 pub const KSPROPERTY_MEMBER_STEPPEDRANGES: u32 = 2u32;
 pub const KSPROPERTY_MEMBER_VALUES: u32 = 3u32;
 pub const KSPROPERTY_MEMORY_TRANSPORT: i32 = 1i32;
+pub type KSPROPERTY_MIDILOOPEDSTREAMING = i32;
+pub const KSPROPERTY_MIDILOOPEDSTREAMING_BUFFER: KSPROPERTY_MIDILOOPEDSTREAMING = 0i32;
+pub const KSPROPERTY_MIDILOOPEDSTREAMING_NOTIFICATION_EVENT: KSPROPERTY_MIDILOOPEDSTREAMING = 2i32;
+pub const KSPROPERTY_MIDILOOPEDSTREAMING_REGISTERS: KSPROPERTY_MIDILOOPEDSTREAMING = 1i32;
 pub type KSPROPERTY_MPEG2VID = i32;
 pub const KSPROPERTY_MPEG2VID_16_9_PANSCAN: KSPROPERTY_MPEG2VID = 4i32;
 pub const KSPROPERTY_MPEG2VID_16_9_RECT: KSPROPERTY_MPEG2VID = 3i32;
@@ -4147,6 +4252,7 @@ pub const KSPROPSETID_Audio: windows_sys::core::GUID = windows_sys::core::GUID::
 pub const KSPROPSETID_AudioBufferDuration: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
 pub const KSPROPSETID_AudioDecoderOut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
 pub const KSPROPSETID_AudioEngine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
+pub const KSPROPSETID_AudioLoopback: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3648bc8_5b91_468a_b94d_f4641250917c);
 pub const KSPROPSETID_AudioModule: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
 pub const KSPROPSETID_AudioPosture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
 pub const KSPROPSETID_AudioResourceManagement: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
@@ -4171,6 +4277,7 @@ pub const KSPROPSETID_Jack: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const KSPROPSETID_MPEG4_MediaType_Attributes: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
 pub const KSPROPSETID_MediaSeeking: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
 pub const KSPROPSETID_MemoryTransport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
+pub const KSPROPSETID_MidiLoopedStreaming: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1f306ba6_fd9b_427a_bcb3_27cbcf0e0f19);
 pub const KSPROPSETID_Mpeg2Vid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
 pub const KSPROPSETID_OverlayUpdate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
 pub const KSPROPSETID_Pin: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
@@ -6204,6 +6311,12 @@ pub const Tuner_LockType_Locked: TunerLockType = 2i32;
 pub const Tuner_LockType_None: TunerLockType = 0i32;
 pub const Tuner_LockType_Within_Scan_Sensing_Range: TunerLockType = 1i32;
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct UMPDATAFORMAT {
+    pub Position: i64,
+    pub ByteCount: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct VBICAP_PROPERTIES_PROTECTION_S {
     pub Property: KSIDENTIFIER,
@@ -6306,6 +6419,14 @@ pub struct VBICODECFILTERING_STATISTICS_TELETEXT {
 #[derive(Clone, Copy, Default)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct VIDEOFORMAT_DX12 {
+    pub Header: KSATTRIBUTE,
+    pub resourceLayout: u32,
+    pub resourceFlags: u32,
+    pub customLayout: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

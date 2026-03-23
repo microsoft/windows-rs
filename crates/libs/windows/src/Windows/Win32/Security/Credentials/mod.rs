@@ -873,6 +873,7 @@ where
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *const u8, datalen : u32) -> i32);
     unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
 }
+pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
@@ -1081,6 +1082,7 @@ pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(32u32);
 pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(268435456u32);
 pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(8192u32);
 pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(4096u32);
+pub const CREDUIWIN_USE_V2: u32 = 64u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUI_FLAGS(pub u32);
@@ -1134,6 +1136,7 @@ pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384u32);
 pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64u32);
 pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288u32);
 pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024u32);
+pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1159,6 +1162,7 @@ pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
 pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
 pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513u32;
+pub const CREDUI_PICKERSCREEN_AUTHPACKAGE_ID: u32 = 212664323u32;
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
 pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);

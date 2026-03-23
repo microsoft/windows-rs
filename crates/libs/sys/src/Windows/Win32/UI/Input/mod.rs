@@ -1,3 +1,5 @@
+#[cfg(feature = "Win32_UI_Input_GameInput")]
+pub mod GameInput;
 #[cfg(feature = "Win32_UI_Input_Ime")]
 pub mod Ime;
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]

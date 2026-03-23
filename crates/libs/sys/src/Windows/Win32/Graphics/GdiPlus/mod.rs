@@ -1416,6 +1416,9 @@ pub struct GdiplusStartupOutput {
     pub NotificationUnhook: isize,
 }
 pub type GdiplusStartupParams = i32;
+pub const GdiplusStartupReserved0: GdiplusStartupParams = 4i32;
+pub const GdiplusStartupReserved1: GdiplusStartupParams = 8i32;
+pub const GdiplusStartupReserved2: GdiplusStartupParams = 16i32;
 pub const GdiplusStartupSetPSValue: GdiplusStartupParams = 2i32;
 pub const GdiplusStartupTransparencyMask: GdiplusStartupParams = -16777216i32;
 pub const GenericError: Status = 1i32;
@@ -2279,6 +2282,7 @@ pub const UnitWorld: Unit = 0i32;
 pub const UnknownImageFormat: Status = 13i32;
 pub const UnsupportedGdiplusVersion: Status = 17i32;
 pub const ValueOverflow: Status = 11i32;
+pub type Version = u32;
 pub type WarpMode = i32;
 pub const WarpModeBilinear: WarpMode = 1i32;
 pub const WarpModePerspective: WarpMode = 0i32;

@@ -54,6 +54,7 @@ pub const AUTO_SUSPEND: WINUSB_POWER_POLICY = 129u32;
 pub const AcquireBusInfo: USB_NOTIFICATION_TYPE = 5i32;
 pub const AcquireControllerName: USB_NOTIFICATION_TYPE = 7i32;
 pub const AcquireHubName: USB_NOTIFICATION_TYPE = 6i32;
+pub const AsymLink: USB4_STATUS = 39i32;
 pub const BMREQUEST_CLASS: u32 = 1u32;
 pub const BMREQUEST_DEVICE_TO_HOST: u32 = 1u32;
 pub const BMREQUEST_HOST_TO_DEVICE: u32 = 0u32;
@@ -114,14 +115,37 @@ pub const DeviceInLegacyHub: USB_CONNECTION_STATUS = 8i32;
 pub const DeviceNotEnoughBandwidth: USB_CONNECTION_STATUS = 6i32;
 pub const DeviceNotEnoughPower: USB_CONNECTION_STATUS = 5i32;
 pub const DeviceReset: USB_CONNECTION_STATUS = 10i32;
+pub const DpBw: USB4_STATUS = 32i32;
+pub const DpConChange: USB4_STATUS = 36i32;
+pub const DpTxDiscovery: USB4_STATUS = 37i32;
 pub const EHCI_Generic: USB_CONTROLLER_FLAVOR = 1000i32;
 pub const EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = 5001i32;
 pub const EHCI_Lucent: USB_CONTROLLER_FLAVOR = 3000i32;
 pub const EHCI_NEC: USB_CONTROLLER_FLAVOR = 2000i32;
 pub const EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = 4000i32;
 pub const EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = 4001i32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+    pub bLength: u8,
+    pub bDescriptorType: u8,
+    pub wMaxPacketSize: u16,
+    pub dwBytesPerInterval: u32,
+}
+pub const EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 18u32;
 pub const EVENT_PIPE: PIPE_TYPE = 0i32;
 pub const EnumerationFailure: USB_NOTIFICATION_TYPE = 0i32;
+pub const ErrAddr: USB4_STATUS = 2i32;
+pub const ErrAdp: USB4_STATUS = 4i32;
+pub const ErrConn: USB4_STATUS = 0i32;
+pub const ErrEnum: USB4_STATUS = 8i32;
+pub const ErrFc: USB4_STATUS = 13i32;
+pub const ErrHec: USB4_STATUS = 12i32;
+pub const ErrLen: USB4_STATUS = 11i32;
+pub const ErrLink: USB4_STATUS = 1i32;
+pub const ErrLock: USB4_STATUS = 15i32;
+pub const ErrNua: USB4_STATUS = 9i32;
+pub const ErrPlug: USB4_STATUS = 14i32;
 pub const FILE_DEVICE_USB: u32 = 34u32;
 pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
 pub const FullSpeed: u32 = 2u32;
@@ -230,6 +254,7 @@ impl Default for HUB_DEVICE_CONFIG_INFO {
     }
 }
 pub const HighSpeed: u32 = 3u32;
+pub const HpAck: USB4_STATUS = 7i32;
 pub const HubDevice: USB_WMI_DEVICE_NODE_TYPE = 1i32;
 pub const HubNestedTooDeeply: USB_NOTIFICATION_TYPE = 10i32;
 pub const HubOvercurrent: USB_NOTIFICATION_TYPE = 8i32;
@@ -288,6 +313,7 @@ pub const IOCTL_READ_REGISTERS: u32 = 2147491852u32;
 pub const IOCTL_RESET_PIPE: u32 = 2147491868u32;
 pub const IOCTL_SEND_USB_REQUEST: u32 = 2147491876u32;
 pub const IOCTL_SET_TIMEOUT: u32 = 2147491884u32;
+pub const IOCTL_USB4_HRD_DEBUG_READ_CONFIGURATION_SPACE: u32 = 6295980u32;
 pub const IOCTL_USB_DIAGNOSTIC_MODE_OFF: u32 = 2229252u32;
 pub const IOCTL_USB_DIAGNOSTIC_MODE_ON: u32 = 2229248u32;
 pub const IOCTL_USB_DIAG_IGNORE_HUBS_OFF: u32 = 2229276u32;
@@ -304,6 +330,7 @@ pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION: u32 = 2229260u32;
 pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 2229320u32;
 pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 2229340u32;
 pub const IOCTL_USB_GET_NODE_CONNECTION_NAME: u32 = 2229268u32;
+pub const IOCTL_USB_GET_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION: u32 = 2229380u32;
 pub const IOCTL_USB_GET_NODE_INFORMATION: u32 = 2229256u32;
 pub const IOCTL_USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 2229336u32;
 pub const IOCTL_USB_GET_ROOT_HUB_NAME: u32 = 2229256u32;
@@ -354,6 +381,7 @@ pub const InsufficentBandwidth: USB_NOTIFICATION_TYPE = 1i32;
 pub const InsufficentPower: USB_NOTIFICATION_TYPE = 2i32;
 pub const KREGMANUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
 pub const KREGUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
+pub const LinkRecovery: USB4_STATUS = 38i32;
 pub const LowSpeed: u32 = 1u32;
 pub const MAXIMUM_TRANSFER_SIZE: WINUSB_PIPE_POLICY = 8u32;
 pub const MAXIMUM_USB_STRING_LENGTH: u32 = 255u32;
@@ -437,6 +465,10 @@ pub const PORT_LINK_STATE_U0: u32 = 0u32;
 pub const PORT_LINK_STATE_U1: u32 = 1u32;
 pub const PORT_LINK_STATE_U2: u32 = 2u32;
 pub const PORT_LINK_STATE_U3: u32 = 3u32;
+pub const PcieWake: USB4_STATUS = 35i32;
+pub const PollingSkipped: USB4_STATUS = 252i32;
+pub const PollingTimeout: USB4_STATUS = 253i32;
+pub const PopCmplt: USB4_STATUS = 34i32;
 pub const RAW_IO: WINUSB_PIPE_POLICY = 7u32;
 pub type RAW_PIPE_TYPE = i32;
 #[repr(C, packed(1))]
@@ -461,8 +493,11 @@ pub struct RAW_ROOTPORT_PARAMETERS {
 pub const READ_DATA_PIPE: PIPE_TYPE = 1i32;
 pub const RESET_PIPE_ON_RESUME: WINUSB_PIPE_POLICY = 9u32;
 pub const ResetOvercurrent: USB_NOTIFICATION_TYPE = 4i32;
+pub const RopCmplt: USB4_STATUS = 33i32;
 pub const SHORT_PACKET_TERMINATE: WINUSB_PIPE_POLICY = 1u32;
 pub const SUSPEND_DELAY: WINUSB_POWER_POLICY = 131u32;
+pub const StatusSuccess: USB4_STATUS = 254i32;
+pub const StatusUnknown: USB4_STATUS = 255i32;
 pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = 200i32;
 pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = 205i32;
 pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = 203i32;
@@ -582,6 +617,48 @@ pub const URB_FUNCTION_VENDOR_OTHER: u32 = 32u32;
 pub const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256u32;
 pub const UREGMANUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
 pub const UREGUSBFNENUMPATH: windows_sys::core::PCWSTR = windows_sys::core::w!("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
+pub const USB4AdapterConfigurationSpace: USB4_CONFIG_SPACE_TYPE = 1i32;
+pub const USB4CounterConfigurationSpace: USB4_CONFIG_SPACE_TYPE = 3i32;
+pub const USB4PathConfigurationSpace: USB4_CONFIG_SPACE_TYPE = 0i32;
+pub const USB4RouterConfigurationSpace: USB4_CONFIG_SPACE_TYPE = 2i32;
+pub const USB4_CONFIGURATION_REGISTERS_DW_LENGTH: u32 = 60u32;
+pub type USB4_CONFIG_SPACE_TYPE = i32;
+pub const USB4_HRD_DEBUG_FUNCTION_READ_CONFIGURATION_SPACE: u32 = 1131u32;
+pub const USB4_HRD_DEBUG_INTERFACE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x981fca05_60d3_4bb3_898e_497c580c4fb3);
+pub const USB4_HRD_DEBUG_INTERFACE_REFERENCE_STRING: windows_sys::core::PCWSTR = windows_sys::core::w!("\\DEBUGINTERFACE");
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct USB4_HRD_DEBUG_READ_CONFIGURATION_SPACE_INPUT {
+    pub Route: USB4_HRD_DEBUG_ROUTE_STRING,
+    pub AdapterNumber: u8,
+    pub ConfigurationSpaceType: USB4_CONFIG_SPACE_TYPE,
+    pub DwOffset: u32,
+    pub DwLength: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct USB4_HRD_DEBUG_READ_CONFIGURATION_SPACE_OUTPUT {
+    pub Usb4Status: USB4_STATUS,
+    pub Data: [u32; 60],
+}
+impl Default for USB4_HRD_DEBUG_READ_CONFIGURATION_SPACE_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct USB4_HRD_DEBUG_ROUTE_STRING {
+    pub Depth: u8,
+    pub Route: [u8; 7],
+}
+impl Default for USB4_HRD_DEBUG_ROUTE_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const USB4_MAX_DEPTH: u32 = 6u32;
+pub type USB4_STATUS = i32;
 pub const USBDI_VERSION: u32 = 1536u32;
 pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295u32;
 pub const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8u32;
@@ -615,8 +692,38 @@ pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub EventRingSegmentVA: *mut core::ffi::c_void,
     pub EventRingSize: usize,
     pub EventRingInitialCycleBit: u32,
+    pub ClientTransferRingSegmentPAIn: i64,
+    pub ClientTransferRingSizeIn: usize,
+    pub ClientDataBufferPAIn: i64,
+    pub ClientDataBufferSizeIn: usize,
+    pub ClientDataBufferLAOut: i64,
+    pub ClientDataBufferVAOut: *mut core::ffi::c_void,
 }
 impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
+    pub Size: u32,
+    pub EndpointAddress: u16,
+    pub ResourceId: u32,
+    pub Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+    pub _bitfield1: u32,
+    pub _bitfield2: u32,
+    pub TransferSegmentLA: i64,
+    pub TransferSegmentVA: *mut core::ffi::c_void,
+    pub TransferRingSize: usize,
+    pub TransferRingInitialCycleBit: u32,
+    pub MessageNumber: u32,
+    pub EventRingSegmentLA: i64,
+    pub EventRingSegmentVA: *mut core::ffi::c_void,
+    pub EventRingSize: usize,
+    pub EventRingInitialCycleBit: u32,
+}
+impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1980,6 +2087,7 @@ pub const USB_GET_NODE_CONNECTION_INFORMATION: u32 = 259u32;
 pub const USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 274u32;
 pub const USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 279u32;
 pub const USB_GET_NODE_CONNECTION_NAME: u32 = 261u32;
+pub const USB_GET_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION: u32 = 289u32;
 pub const USB_GET_NODE_INFORMATION: u32 = 258u32;
 pub const USB_GET_PARENT_HUB_INFO: u32 = 267u32;
 pub const USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 278u32;
@@ -2003,6 +2111,8 @@ pub const USB_HC_FEATURE_FLAG_PORT_POWER_SWITCHING: u32 = 1u32;
 pub const USB_HC_FEATURE_FLAG_SEL_SUSPEND: u32 = 2u32;
 pub const USB_HC_FEATURE_LEGACY_BIOS: u32 = 4u32;
 pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
+pub const USB_HIGHSPEED_EUSB2_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 6144u32;
+pub const USB_HIGHSPEED_EUSB2_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 3073u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HIGH_SPEED_MAXPACKET {
@@ -2405,6 +2515,21 @@ pub struct USB_NODE_CONNECTION_NAME {
     pub NodeName: [u16; 1],
 }
 impl Default for USB_NODE_CONNECTION_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
+    pub ConnectionIndex: u32,
+    pub Length: u32,
+    pub RxSuperSpeedPlus: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED,
+    pub RxLaneCount: u32,
+    pub TxSuperSpeedPlus: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED,
+    pub TxLaneCount: u32,
+}
+impl Default for USB_NODE_CONNECTION_SUPERSPEEDPLUS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

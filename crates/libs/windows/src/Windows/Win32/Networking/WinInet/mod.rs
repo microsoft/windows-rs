@@ -4350,6 +4350,98 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
+windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager3, IProofOfPossessionCookieInfoManager3_Vtbl, 0xc8891744_32bd_4a77_b92c_0e79a2823b96);
+windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager3, windows_core::IUnknown);
+impl IProofOfPossessionCookieInfoManager3 {
+    pub unsafe fn GetCookieInfoForUriWithOptions<P0>(&self, uri: P0, options: u32, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUriWithOptions)(windows_core::Interface::as_raw(self), uri.param().abi(), options, cookieinfocount as _, cookieinfo as _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IProofOfPossessionCookieInfoManager3_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetCookieInfoForUriWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
+}
+pub trait IProofOfPossessionCookieInfoManager3_Impl: windows_core::IUnknownImpl {
+    fn GetCookieInfoForUriWithOptions(&self, uri: &windows_core::PCWSTR, options: u32, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
+}
+impl IProofOfPossessionCookieInfoManager3_Vtbl {
+    pub const fn new<Identity: IProofOfPossessionCookieInfoManager3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetCookieInfoForUriWithOptions<Identity: IProofOfPossessionCookieInfoManager3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, options: u32, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IProofOfPossessionCookieInfoManager3_Impl::GetCookieInfoForUriWithOptions(this, core::mem::transmute(&uri), core::mem::transmute_copy(&options), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetCookieInfoForUriWithOptions: GetCookieInfoForUriWithOptions::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IProofOfPossessionCookieInfoManager3 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager3 {}
+windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager4, IProofOfPossessionCookieInfoManager4_Vtbl, 0x3b74c75b_6e3f_494e_95ec_13174e12a89f);
+windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager4, windows_core::IUnknown);
+impl IProofOfPossessionCookieInfoManager4 {
+    pub unsafe fn GetCookieInfoForUriWithUserAgentId<P0, P1>(&self, uri: P0, uaclientid: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoForUriWithUserAgentId)(windows_core::Interface::as_raw(self), uri.param().abi(), uaclientid.param().abi(), cookieinfocount as _, cookieinfo as _).ok() }
+    }
+    pub unsafe fn GetCookieInfoWithUriAndUserAgentIdForAccount<P0, P1, P2>(&self, webaccount: P0, uri: P1, uaclientid: P2, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetCookieInfoWithUriAndUserAgentIdForAccount)(windows_core::Interface::as_raw(self), webaccount.param().abi(), uri.param().abi(), uaclientid.param().abi(), cookieinfocount as _, cookieinfo as _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IProofOfPossessionCookieInfoManager4_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetCookieInfoForUriWithUserAgentId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
+    pub GetCookieInfoWithUriAndUserAgentIdForAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
+}
+pub trait IProofOfPossessionCookieInfoManager4_Impl: windows_core::IUnknownImpl {
+    fn GetCookieInfoForUriWithUserAgentId(&self, uri: &windows_core::PCWSTR, uaclientid: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
+    fn GetCookieInfoWithUriAndUserAgentIdForAccount(&self, webaccount: windows_core::Ref<windows_core::IInspectable>, uri: &windows_core::PCWSTR, uaclientid: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
+}
+impl IProofOfPossessionCookieInfoManager4_Vtbl {
+    pub const fn new<Identity: IProofOfPossessionCookieInfoManager4_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetCookieInfoForUriWithUserAgentId<Identity: IProofOfPossessionCookieInfoManager4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, uaclientid: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IProofOfPossessionCookieInfoManager4_Impl::GetCookieInfoForUriWithUserAgentId(this, core::mem::transmute(&uri), core::mem::transmute(&uaclientid), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
+            }
+        }
+        unsafe extern "system" fn GetCookieInfoWithUriAndUserAgentIdForAccount<Identity: IProofOfPossessionCookieInfoManager4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, uri: windows_core::PCWSTR, uaclientid: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IProofOfPossessionCookieInfoManager4_Impl::GetCookieInfoWithUriAndUserAgentIdForAccount(this, core::mem::transmute_copy(&webaccount), core::mem::transmute(&uri), core::mem::transmute(&uaclientid), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetCookieInfoForUriWithUserAgentId: GetCookieInfoForUriWithUserAgentId::<Identity, OFFSET>,
+            GetCookieInfoWithUriAndUserAgentIdForAccount: GetCookieInfoWithUriAndUserAgentIdForAccount::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IProofOfPossessionCookieInfoManager4 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager4 {}
 pub const IRF_ASYNC: u32 = 1u32;
 pub const IRF_NO_WAIT: u32 = 8u32;
 pub const IRF_SYNC: u32 = 4u32;
@@ -4425,6 +4517,11 @@ pub const PRIVACY_TEMPLATE_MEDIUM_LOW: u32 = 4u32;
 pub const PRIVACY_TEMPLATE_NO_COOKIES: u32 = 0u32;
 pub const PRIVACY_TYPE_FIRST_PARTY: u32 = 0u32;
 pub const PRIVACY_TYPE_THIRD_PARTY: u32 = 1u32;
+pub const PROOF_OF_POSSESSION_ALLOW_SILENT_REQUESTS: PROOF_OF_POSSESSION_FLAGS = PROOF_OF_POSSESSION_FLAGS(1u32);
+pub const PROOF_OF_POSSESSION_DEFAULT: PROOF_OF_POSSESSION_FLAGS = PROOF_OF_POSSESSION_FLAGS(0u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PROOF_OF_POSSESSION_FLAGS(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);

@@ -1477,6 +1477,7 @@ pub const AUDCLNT_E_NOT_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0
 pub const AUDCLNT_E_OFFLOAD_MODE_ONLY: windows_core::HRESULT = windows_core::HRESULT(0x88890024_u32 as _);
 pub const AUDCLNT_E_OUT_OF_OFFLOAD_RESOURCES: windows_core::HRESULT = windows_core::HRESULT(0x88890023_u32 as _);
 pub const AUDCLNT_E_OUT_OF_ORDER: windows_core::HRESULT = windows_core::HRESULT(0x88890007_u32 as _);
+pub const AUDCLNT_E_POST_VOLUME_LOOPBACK_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88890043_u32 as _);
 pub const AUDCLNT_E_RAW_MODE_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x88890027_u32 as _);
 pub const AUDCLNT_E_RESOURCES_INVALIDATED: windows_core::HRESULT = windows_core::HRESULT(0x88890026_u32 as _);
 pub const AUDCLNT_E_SERVICE_NOT_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x88890010_u32 as _);
@@ -1537,6 +1538,7 @@ impl core::ops::Not for AUDCLNT_STREAMOPTIONS {
 pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(4i32);
 pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(2i32);
 pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(0i32);
+pub const AUDCLNT_STREAMOPTIONS_POST_VOLUME_LOOPBACK: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(8i32);
 pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(1i32);
 pub const AUDCLNT_S_BUFFER_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0x8890001_u32 as _);
 pub const AUDCLNT_S_POSITION_STALLED: windows_core::HRESULT = windows_core::HRESULT(0x8890003_u32 as _);
@@ -1808,6 +1810,8 @@ pub const AudioObjectType_LowFrequency: AudioObjectType = AudioObjectType(16i32)
 pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0i32);
 pub const AudioObjectType_SideLeft: AudioObjectType = AudioObjectType(32i32);
 pub const AudioObjectType_SideRight: AudioObjectType = AudioObjectType(64i32);
+pub const AudioObjectType_StereoLeft: AudioObjectType = AudioObjectType(262144i32);
+pub const AudioObjectType_StereoRight: AudioObjectType = AudioObjectType(524288i32);
 pub const AudioObjectType_TopBackLeft: AudioObjectType = AudioObjectType(2048i32);
 pub const AudioObjectType_TopBackRight: AudioObjectType = AudioObjectType(4096i32);
 pub const AudioObjectType_TopFrontLeft: AudioObjectType = AudioObjectType(512i32);
@@ -5841,13 +5845,13 @@ windows_core::imp::define_interface!(IMessageFilter, IMessageFilter_Vtbl, 0x0000
 windows_core::imp::interface_hierarchy!(IMessageFilter, windows_core::IUnknown);
 impl IMessageFilter {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn HandleInComingCall(&self, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: Option<*const super::super::System::Com::INTERFACEINFO>) -> u32 {
+    pub unsafe fn HandleInComingCall(&self, dwcalltype: u32, htaskcaller: super::super::Foundation::HTASK, dwtickcount: u32, lpinterfaceinfo: Option<*const super::super::System::Com::INTERFACEINFO>) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).HandleInComingCall)(windows_core::Interface::as_raw(self), dwcalltype, htaskcaller, dwtickcount, lpinterfaceinfo.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn RetryRejectedCall(&self, htaskcallee: super::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32 {
+    pub unsafe fn RetryRejectedCall(&self, htaskcallee: super::super::Foundation::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).RetryRejectedCall)(windows_core::Interface::as_raw(self), htaskcallee, dwtickcount, dwrejecttype) }
     }
-    pub unsafe fn MessagePending(&self, htaskcallee: super::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32 {
+    pub unsafe fn MessagePending(&self, htaskcallee: super::super::Foundation::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).MessagePending)(windows_core::Interface::as_raw(self), htaskcallee, dwtickcount, dwpendingtype) }
     }
 }
@@ -5856,34 +5860,34 @@ impl IMessageFilter {
 pub struct IMessageFilter_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub HandleInComingCall: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::HTASK, u32, *const super::super::System::Com::INTERFACEINFO) -> u32,
+    pub HandleInComingCall: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HTASK, u32, *const super::super::System::Com::INTERFACEINFO) -> u32,
     #[cfg(not(feature = "Win32_System_Com"))]
     HandleInComingCall: usize,
-    pub RetryRejectedCall: unsafe extern "system" fn(*mut core::ffi::c_void, super::HTASK, u32, u32) -> u32,
-    pub MessagePending: unsafe extern "system" fn(*mut core::ffi::c_void, super::HTASK, u32, u32) -> u32,
+    pub RetryRejectedCall: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HTASK, u32, u32) -> u32,
+    pub MessagePending: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HTASK, u32, u32) -> u32,
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMessageFilter_Impl: windows_core::IUnknownImpl {
-    fn HandleInComingCall(&self, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32;
-    fn RetryRejectedCall(&self, htaskcallee: super::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32;
-    fn MessagePending(&self, htaskcallee: super::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32;
+    fn HandleInComingCall(&self, dwcalltype: u32, htaskcaller: super::super::Foundation::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32;
+    fn RetryRejectedCall(&self, htaskcallee: super::super::Foundation::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32;
+    fn MessagePending(&self, htaskcallee: super::super::Foundation::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMessageFilter_Vtbl {
     pub const fn new<Identity: IMessageFilter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn HandleInComingCall<Identity: IMessageFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32 {
+        unsafe extern "system" fn HandleInComingCall<Identity: IMessageFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcalltype: u32, htaskcaller: super::super::Foundation::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMessageFilter_Impl::HandleInComingCall(this, core::mem::transmute_copy(&dwcalltype), core::mem::transmute_copy(&htaskcaller), core::mem::transmute_copy(&dwtickcount), core::mem::transmute_copy(&lpinterfaceinfo))
             }
         }
-        unsafe extern "system" fn RetryRejectedCall<Identity: IMessageFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, htaskcallee: super::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32 {
+        unsafe extern "system" fn RetryRejectedCall<Identity: IMessageFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, htaskcallee: super::super::Foundation::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMessageFilter_Impl::RetryRejectedCall(this, core::mem::transmute_copy(&htaskcallee), core::mem::transmute_copy(&dwtickcount), core::mem::transmute_copy(&dwrejecttype))
             }
         }
-        unsafe extern "system" fn MessagePending<Identity: IMessageFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, htaskcallee: super::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32 {
+        unsafe extern "system" fn MessagePending<Identity: IMessageFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, htaskcallee: super::super::Foundation::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMessageFilter_Impl::MessagePending(this, core::mem::transmute_copy(&htaskcallee), core::mem::transmute_copy(&dwtickcount), core::mem::transmute_copy(&dwpendingtype))
@@ -8655,6 +8659,8 @@ pub const PKEY_AudioEndpoint_FormFactor: super::super::Foundation::PROPERTYKEY =
 pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 6 };
 pub const PKEY_AudioEndpoint_GUID: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 4 };
 pub const PKEY_AudioEndpoint_JackSubType: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 8 };
+pub const PKEY_AudioEndpoint_Max_VolumeInDb: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 10 };
+pub const PKEY_AudioEndpoint_Min_VolumeInDb: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 11 };
 pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 3 };
 pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1da5d803_d492_4edd_8c23_e0c0ffee7f0e), pid: 7 };
 pub const PKEY_AudioEngine_DeviceFormat: super::super::Foundation::PROPERTYKEY = super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf19f064d_082c_4e27_bc73_6882a1bb8e4c), pid: 0 };

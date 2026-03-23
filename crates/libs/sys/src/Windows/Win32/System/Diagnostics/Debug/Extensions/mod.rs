@@ -4,6 +4,7 @@ windows_link::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : wi
 windows_link::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
+pub type AddressSpaceRelation = i32;
 pub const Ambiguous: SignatureComparison = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -108,6 +109,11 @@ pub const CallingConventionStdCall: CallingConventionKind = 3i32;
 pub const CallingConventionSysCall: CallingConventionKind = 4i32;
 pub const CallingConventionThisCall: CallingConventionKind = 5i32;
 pub const CallingConventionUnknown: CallingConventionKind = 0i32;
+pub const CompilerClang: KnownCompiler = 3i32;
+pub const CompilerGCC: KnownCompiler = 2i32;
+pub const CompilerMSVC: KnownCompiler = 1i32;
+pub const CompilerRustC: KnownCompiler = 4i32;
+pub const CompilerUnknown: KnownCompiler = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Default)]
@@ -1571,6 +1577,7 @@ pub const DEBUG_FORMAT_USER_SMALL_INDIRECT_MEMORY: u32 = 8u32;
 pub const DEBUG_FORMAT_USER_SMALL_IPT_TRACE: u32 = 262144u32;
 pub const DEBUG_FORMAT_USER_SMALL_MODULE_HEADERS: u32 = 32768u32;
 pub const DEBUG_FORMAT_USER_SMALL_NO_AUXILIARY_STATE: u32 = 8192u32;
+pub const DEBUG_FORMAT_USER_SMALL_NO_IGNORE_INACCESSIBLE_MEM: u32 = 67108864u32;
 pub const DEBUG_FORMAT_USER_SMALL_NO_OPTIONAL_DATA: u32 = 512u32;
 pub const DEBUG_FORMAT_USER_SMALL_PRIVATE_READ_WRITE_MEMORY: u32 = 256u32;
 pub const DEBUG_FORMAT_USER_SMALL_PROCESS_THREAD_DATA: u32 = 128u32;
@@ -2109,6 +2116,7 @@ pub const DEBUG_REQUEST_RESUME_THREAD: u32 = 34u32;
 pub const DEBUG_REQUEST_SET_ADDITIONAL_CREATE_OPTIONS: u32 = 5u32;
 pub const DEBUG_REQUEST_SET_DUMP_HEADER: u32 = 22u32;
 pub const DEBUG_REQUEST_SET_LOCAL_IMPLICIT_COMMAND_LINE: u32 = 9u32;
+pub const DEBUG_REQUEST_SET_PARENT_HWND: u32 = 40u32;
 pub const DEBUG_REQUEST_SOURCE_PATH_HAS_SOURCE_SERVER: u32 = 0u32;
 pub const DEBUG_REQUEST_TARGET_CAN_DETACH: u32 = 8u32;
 pub const DEBUG_REQUEST_TARGET_EXCEPTION_CONTEXT: u32 = 1u32;
@@ -2494,6 +2502,12 @@ pub const DbgPoolRegionPaged: DEBUG_POOL_REGION = 2i32;
 pub const DbgPoolRegionSessionPaged: DEBUG_POOL_REGION = 5i32;
 pub const DbgPoolRegionSpecial: DEBUG_POOL_REGION = 1i32;
 pub const DbgPoolRegionUnknown: DEBUG_POOL_REGION = 0i32;
+pub const DbgkdBlockSize: POOL_HEADER_FIELD_NAME = 2i32;
+pub const DbgkdPoolIndex: POOL_HEADER_FIELD_NAME = 1i32;
+pub const DbgkdPoolType: POOL_HEADER_FIELD_NAME = 3i32;
+pub const DbgkdPreviousSize: POOL_HEADER_FIELD_NAME = 0i32;
+pub const DbgkdUlong1: POOL_HEADER_FIELD_NAME = 4i32;
+pub const Disjoint: AddressSpaceRelation = 0i32;
 pub type ENTRY_CALLBACK = Option<unsafe extern "system" fn(entryaddress: u64, context: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const ERROR_DBG_CANCELLED: u32 = 3221226695u32;
 pub const ERROR_DBG_TIMEOUT: u32 = 3221226932u32;
@@ -2690,9 +2704,31 @@ impl Default for EXT_TYPED_DATA {
     }
 }
 pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_sys::core::HRESULT>;
+pub const Equal: AddressSpaceRelation = 1i32;
 pub type ErrorClass = i32;
 pub const ErrorClassError: ErrorClass = 1i32;
 pub const ErrorClassWarning: ErrorClass = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct ExtendedArrayDimension {
+    pub DimensionFlags: u64,
+    pub LowerBound: i64,
+    pub Length: u64,
+    pub Stride: u64,
+}
+pub type ExtendedArrayDimensionFlags = i32;
+pub const ExtendedArrayLengthIsOffset: ExtendedArrayDimensionFlags = 3i32;
+pub const ExtendedArrayLengthIsOffset32: ExtendedArrayDimensionFlags = 1i32;
+pub const ExtendedArrayLengthIsOffset64: ExtendedArrayDimensionFlags = 2i32;
+pub const ExtendedArrayLowerBoundIsOffset: ExtendedArrayDimensionFlags = 12i32;
+pub const ExtendedArrayLowerBoundIsOffset32: ExtendedArrayDimensionFlags = 4i32;
+pub const ExtendedArrayLowerBoundIsOffset64: ExtendedArrayDimensionFlags = 8i32;
+pub const ExtendedArrayStrideIsComputed: ExtendedArrayDimensionFlags = 192i32;
+pub const ExtendedArrayStrideIsComputedByNextRank: ExtendedArrayDimensionFlags = 64i32;
+pub const ExtendedArrayStrideIsComputedByPreviousRank: ExtendedArrayDimensionFlags = 128i32;
+pub const ExtendedArrayStrideIsOffset: ExtendedArrayDimensionFlags = 48i32;
+pub const ExtendedArrayStrideIsOffset32: ExtendedArrayDimensionFlags = 16i32;
+pub const ExtendedArrayStrideIsOffset64: ExtendedArrayDimensionFlags = 32i32;
 pub const FAILURE_ANALYSIS_ASSUME_HANG: u32 = 4u32;
 pub const FAILURE_ANALYSIS_AUTOBUG_PROCESSING: u32 = 64u32;
 pub const FAILURE_ANALYSIS_AUTOSET_SYMPATH: u32 = 16384u32;
@@ -2862,6 +2898,7 @@ impl Default for GET_SET_SYMPATH {
 pub struct GET_TEB_ADDRESS {
     pub Address: u64,
 }
+pub type IDebugServiceManager = isize;
 pub const IG_DISASSEMBLE_BUFFER: u32 = 44u32;
 pub const IG_DUMP_SYMBOL_INFO: u32 = 22u32;
 pub const IG_FIND_FILE: u32 = 40u32;
@@ -2983,6 +3020,11 @@ pub struct IOSPACE_EX64 {
     pub BusNumber: u32,
     pub AddressSpace: u32,
 }
+pub type ISvcExecutionUnit = isize;
+pub type ISvcModule = isize;
+pub type ISvcProcess = isize;
+pub type ISvcSymbolType = isize;
+pub type ISvcThread = isize;
 pub const Identical: SignatureComparison = 4i32;
 pub const IntrinsicBool: IntrinsicKind = 1i32;
 pub const IntrinsicChar: IntrinsicKind = 2i32;
@@ -3322,12 +3364,17 @@ pub const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1u32;
 pub const KD_SECONDARY_VERSION_DEFAULT: u32 = 0u32;
+pub type KnownCompiler = i32;
 pub const LanguageAssembly: LanguageKind = 3i32;
 pub const LanguageC: LanguageKind = 1i32;
 pub const LanguageCPP: LanguageKind = 2i32;
 pub type LanguageKind = i32;
+pub const LanguageRust: LanguageKind = 4i32;
 pub const LanguageUnknown: LanguageKind = 0i32;
 pub const LessSpecific: SignatureComparison = 2i32;
+pub const LocalArgument: LocalKind = 0i32;
+pub type LocalKind = i32;
+pub const LocalVariable: LocalKind = 1i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct Location {
@@ -3432,6 +3479,7 @@ pub const ObjectPropertyAccessor: ModelObjectKind = 0i32;
 pub const ObjectSynthetic: ModelObjectKind = 4i32;
 pub const ObjectTargetObject: ModelObjectKind = 2i32;
 pub const ObjectTargetObjectReference: ModelObjectKind = 3i32;
+pub const Overlapping: AddressSpaceRelation = 2i32;
 pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, args: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_sys::core::HRESULT>;
 pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_sys::core::HRESULT>;
@@ -3518,6 +3566,26 @@ impl Default for POINTER_SEARCH_PHYSICAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+pub type POOL_HEADER_FIELD_NAME = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union POOL_HEADER_SIZE_64 {
+    pub Anonymous: POOL_HEADER_SIZE_64_0,
+    pub Ulong1: u32,
+}
+impl Default for POOL_HEADER_SIZE_64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct POOL_HEADER_SIZE_64_0 {
+    pub UnsafePrevSize: u8,
+    pub Unused1: u8,
+    pub UnsafeSize: u8,
+    pub UnsafePoolType: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3806,6 +3874,13 @@ pub const ScriptExecutionStepOut: ScriptExecutionKind = 2i32;
 pub const ScriptExecutionStepOver: ScriptExecutionKind = 3i32;
 pub const ScriptRename: ScriptChangeKind = 0i32;
 pub type SignatureComparison = i32;
+pub type StorageKind = i32;
+pub const StorageRegister: StorageKind = 1i32;
+pub const StorageRegisterRelative: StorageKind = 2i32;
+pub const StorageRegisterRelativeIndirect: StorageKind = 3i32;
+pub const StorageUnknown: StorageKind = 0i32;
+pub const Subset: AddressSpaceRelation = 3i32;
+pub const Superset: AddressSpaceRelation = 4i32;
 pub const Symbol: SymbolKind = 0i32;
 pub const SymbolBaseClass: SymbolKind = 6i32;
 pub const SymbolConstant: SymbolKind = 4i32;
@@ -3899,6 +3974,12 @@ pub const TypeMemberPointer: TypeKind = 2i32;
 pub const TypePointer: TypeKind = 1i32;
 pub const TypeTypedef: TypeKind = 5i32;
 pub const TypeUDT: TypeKind = 0i32;
+pub const UDTClass: UDTKind = 1i32;
+pub const UDTInterface: UDTKind = 3i32;
+pub type UDTKind = i32;
+pub const UDTStruct: UDTKind = 0i32;
+pub const UDTTaggedUnion: UDTKind = 4i32;
+pub const UDTUnion: UDTKind = 2i32;
 pub const UNAVAILABLE_ERROR: u32 = 12u32;
 pub const Unrelated: SignatureComparison = 0i32;
 #[repr(C)]
@@ -4064,6 +4145,9 @@ pub const WIN_NT5_2: OS_TYPE = 6i32;
 pub const WIN_NT6_0: OS_TYPE = 7i32;
 pub const WIN_NT6_1: OS_TYPE = 8i32;
 pub const WIN_UNDEFINED: OS_TYPE = 255i32;
+pub const WrappedObjectGeneralProxy: WrappedObjectPreference = 1i32;
+pub const WrappedObjectNameResolution: WrappedObjectPreference = 0i32;
+pub type WrappedObjectPreference = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct XML_DRIVER_NODE_INFO {

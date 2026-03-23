@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
 #[inline]
-pub unsafe fn D3D11CreateDevice<P0>(padapter: P0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HMODULE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: Option<&[super::Direct3D::D3D_FEATURE_LEVEL]>, sdkversion: u32, ppdevice: Option<*mut Option<ID3D11Device>>, pfeaturelevel: Option<*mut super::Direct3D::D3D_FEATURE_LEVEL>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>) -> windows_core::Result<()>
+pub unsafe fn D3D11CreateDevice<P0>(padapter: P0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: Option<super::super::Foundation::HMODULE>, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: Option<&[super::Direct3D::D3D_FEATURE_LEVEL]>, sdkversion: u32, ppdevice: Option<*mut Option<ID3D11Device>>, pfeaturelevel: Option<*mut super::Direct3D::D3D_FEATURE_LEVEL>, ppimmediatecontext: Option<*mut Option<ID3D11DeviceContext>>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Dxgi::IDXGIAdapter>,
 {
     windows_core::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : * mut core::ffi::c_void, drivertype : super::Direct3D:: D3D_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : D3D11_CREATE_DEVICE_FLAG, pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, ppdevice : *mut * mut core::ffi::c_void, pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL, ppimmediatecontext : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D11CreateDevice(padapter.param().abi(), drivertype, software, flags, core::mem::transmute(pfeaturelevels.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfeaturelevels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _, pfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D11CreateDevice(padapter.param().abi(), drivertype, software.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(pfeaturelevels.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfeaturelevels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _, pfeaturelevel.unwrap_or(core::mem::zeroed()) as _, ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 #[inline]
@@ -1030,6 +1030,23 @@ pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: windows_core:
 pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: windows_core::GUID = windows_core::GUID::from_u128(0xd5f04ff9_3418_45d8_9561_32a76aae2ddd);
 pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN: windows_core::GUID = windows_core::GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0);
 pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10: windows_core::GUID = windows_core::GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10_422: windows_core::GUID = windows_core::GUID::from_u128(0x0bac4fe5_1532_4429_a854_f84de04953db);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10_444: windows_core::GUID = windows_core::GUID::from_u128(0x0dabeffa_4458_4602_bc03_0795659d617c);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10_EXT: windows_core::GUID = windows_core::GUID::from_u128(0x9cc55490_e37c_4932_8684_4920f9f6409c);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN12: windows_core::GUID = windows_core::GUID::from_u128(0x1a72925f_0c2c_4f15_96fb_b17d1473603f);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN12_422: windows_core::GUID = windows_core::GUID::from_u128(0x55bcac81_f311_4093_a7d0_1cbc0b849bee);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN12_444: windows_core::GUID = windows_core::GUID::from_u128(0x9798634d_fe9d_48e5_b4da_dbec45b3df01);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN16: windows_core::GUID = windows_core::GUID::from_u128(0xa4fbdbb0_a113_482b_a232_635cc0697f6d);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN_444: windows_core::GUID = windows_core::GUID::from_u128(0x4008018f_f537_4b36_98cf_61af8a2c1a33);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MONOCHROME: windows_core::GUID = windows_core::GUID::from_u128(0x0685b993_3d8c_43a0_8b28_d74c2d6899a4);
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MONOCHROME10: windows_core::GUID = windows_core::GUID::from_u128(0x142a1d0f_69dd_4ec9_8591_b12ffcb91a29);
+pub const D3D11_DECODER_PROFILE_JPEG_VLD_420: windows_core::GUID = windows_core::GUID::from_u128(0xcf782c83_bef5_4a2c_87cb_6019e7b175ac);
+pub const D3D11_DECODER_PROFILE_JPEG_VLD_422: windows_core::GUID = windows_core::GUID::from_u128(0xf04df417_eee2_4067_a778_f35c15ab9721);
+pub const D3D11_DECODER_PROFILE_JPEG_VLD_444: windows_core::GUID = windows_core::GUID::from_u128(0x4cd00e17_89ba_48ef_b9f9_edcb82713f65);
+pub const D3D11_DECODER_PROFILE_MJPEG_VLD_420: windows_core::GUID = windows_core::GUID::from_u128(0x725cb506_0c29_43c4_9440_8e9397903a04);
+pub const D3D11_DECODER_PROFILE_MJPEG_VLD_422: windows_core::GUID = windows_core::GUID::from_u128(0x5b77b9cd_1a35_4c30_9fd8_ef4b60c035dd);
+pub const D3D11_DECODER_PROFILE_MJPEG_VLD_444: windows_core::GUID = windows_core::GUID::from_u128(0xd95161f9_0d44_47e6_bcf5_1bfbfb268f97);
+pub const D3D11_DECODER_PROFILE_MJPEG_VLD_4444: windows_core::GUID = windows_core::GUID::from_u128(0xc91748d5_fd18_4aca_9db3_3a6634ab547d);
 pub const D3D11_DECODER_PROFILE_MPEG1_VLD: windows_core::GUID = windows_core::GUID::from_u128(0x6f3ec719_3735_42cc_8063_65cc3cb36616);
 pub const D3D11_DECODER_PROFILE_MPEG2_IDCT: windows_core::GUID = windows_core::GUID::from_u128(0xbf22ad00_03ea_4690_8077_473346209b7e);
 pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: windows_core::GUID = windows_core::GUID::from_u128(0xe6a9f44b_61b0_4563_9ea4_63d2a3c6fe66);
@@ -1220,6 +1237,7 @@ pub const D3D11_FEATURE_D3D11_OPTIONS2: D3D11_FEATURE = D3D11_FEATURE(14i32);
 pub const D3D11_FEATURE_D3D11_OPTIONS3: D3D11_FEATURE = D3D11_FEATURE(15i32);
 pub const D3D11_FEATURE_D3D11_OPTIONS4: D3D11_FEATURE = D3D11_FEATURE(17i32);
 pub const D3D11_FEATURE_D3D11_OPTIONS5: D3D11_FEATURE = D3D11_FEATURE(19i32);
+pub const D3D11_FEATURE_D3D11_OPTIONS6: D3D11_FEATURE = D3D11_FEATURE(21i32);
 pub const D3D11_FEATURE_D3D9_OPTIONS: D3D11_FEATURE = D3D11_FEATURE(7i32);
 pub const D3D11_FEATURE_D3D9_OPTIONS1: D3D11_FEATURE = D3D11_FEATURE(13i32);
 pub const D3D11_FEATURE_D3D9_SHADOW_SUPPORT: D3D11_FEATURE = D3D11_FEATURE(9i32);
@@ -1286,6 +1304,11 @@ pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
     pub SharedResourceTier: D3D11_SHARED_RESOURCE_TIER,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS6 {
+    pub ShaderAccessRestrictedResourceTier: D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2342,7 +2365,7 @@ pub const D3D11_MESSAGE_ID_D3D11_2_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAG
 pub const D3D11_MESSAGE_ID_D3D11_2_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146119i32);
 pub const D3D11_MESSAGE_ID_D3D11_3_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146257i32);
 pub const D3D11_MESSAGE_ID_D3D11_3_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146154i32);
-pub const D3D11_MESSAGE_ID_D3D11_5_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146284i32);
+pub const D3D11_MESSAGE_ID_D3D11_5_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146285i32);
 pub const D3D11_MESSAGE_ID_D3D11_5_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146258i32);
 pub const D3D11_MESSAGE_ID_D3D11_MESSAGES_END: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(2097424i32);
 pub const D3D11_MESSAGE_ID_D3D11_MESSAGES_START: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(2097152i32);
@@ -2508,6 +2531,7 @@ pub const D3D11_MESSAGE_ID_DEVICE_DRAW_PS_OUTPUT_TYPE_MISMATCH: D3D11_MESSAGE_ID
 pub const D3D11_MESSAGE_ID_DEVICE_DRAW_RASTERIZING_CONTROL_POINTS: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(2097219i32);
 pub const D3D11_MESSAGE_ID_DEVICE_DRAW_RENDERTARGETVIEW_NOT_SET: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146081i32);
 pub const D3D11_MESSAGE_ID_DEVICE_DRAW_RENDERTARGETVIEW_NOT_SET_DUE_TO_FLIP_PRESENT: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146082i32);
+pub const D3D11_MESSAGE_ID_DEVICE_DRAW_RESOURCE_FORMAT_AND_WRITE_MASK_MISMATCH: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(3146284i32);
 pub const D3D11_MESSAGE_ID_DEVICE_DRAW_RESOURCE_FORMAT_GATHER_UNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(416i32);
 pub const D3D11_MESSAGE_ID_DEVICE_DRAW_RESOURCE_FORMAT_LD_UNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(370i32);
 pub const D3D11_MESSAGE_ID_DEVICE_DRAW_RESOURCE_FORMAT_SAMPLE_C_UNSUPPORTED: D3D11_MESSAGE_ID = D3D11_MESSAGE_ID(372i32);
@@ -3564,6 +3588,7 @@ pub const D3D11_RESOURCE_MISC_GDI_COMPATIBLE: D3D11_RESOURCE_MISC_FLAG = D3D11_R
 pub const D3D11_RESOURCE_MISC_GENERATE_MIPS: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(1i32);
 pub const D3D11_RESOURCE_MISC_GUARDED: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(32768i32);
 pub const D3D11_RESOURCE_MISC_HW_PROTECTED: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(524288i32);
+pub const D3D11_RESOURCE_MISC_NO_SHADER_ACCESS: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(4194304i32);
 pub const D3D11_RESOURCE_MISC_RESOURCE_CLAMP: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(128i32);
 pub const D3D11_RESOURCE_MISC_RESTRICTED_CONTENT: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(4096i32);
 pub const D3D11_RESOURCE_MISC_RESTRICT_SHARED_RESOURCE: D3D11_RESOURCE_MISC_FLAG = D3D11_RESOURCE_MISC_FLAG(8192i32);
@@ -3648,6 +3673,11 @@ impl Default for D3D11_SAMPLER_DESC {
 }
 pub const D3D11_SDK_LAYERS_VERSION: u32 = 1u32;
 pub const D3D11_SDK_VERSION: u32 = 7u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER(pub i32);
+pub const D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER_0: D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER = D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER(0i32);
+pub const D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER_1: D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER = D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER(1i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -4737,6 +4767,7 @@ impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     }
 }
 pub const D3D11_VIDEO_DECODER_BUFFER_FILM_GRAIN: D3D11_VIDEO_DECODER_BUFFER_TYPE = D3D11_VIDEO_DECODER_BUFFER_TYPE(8i32);
+pub const D3D11_VIDEO_DECODER_BUFFER_HUFFMAN_TABLE: D3D11_VIDEO_DECODER_BUFFER_TYPE = D3D11_VIDEO_DECODER_BUFFER_TYPE(9i32);
 pub const D3D11_VIDEO_DECODER_BUFFER_INVERSE_QUANTIZATION_MATRIX: D3D11_VIDEO_DECODER_BUFFER_TYPE = D3D11_VIDEO_DECODER_BUFFER_TYPE(4i32);
 pub const D3D11_VIDEO_DECODER_BUFFER_MACROBLOCK_CONTROL: D3D11_VIDEO_DECODER_BUFFER_TYPE = D3D11_VIDEO_DECODER_BUFFER_TYPE(1i32);
 pub const D3D11_VIDEO_DECODER_BUFFER_MOTION_VECTOR: D3D11_VIDEO_DECODER_BUFFER_TYPE = D3D11_VIDEO_DECODER_BUFFER_TYPE(7i32);

@@ -131,6 +131,7 @@ windows_link::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardA(param0 : *m
 windows_link::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardW(param0 : *mut OPENCARDNAME_EXW) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : usize, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCSTR, data : *const u8, datalen : u32) -> i32);
 windows_link::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *const windows_sys::core::GUID, freshnesscounter : u32, lookupname : windows_sys::core::PCWSTR, data : *const u8, datalen : u32) -> i32);
+pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
@@ -302,6 +303,7 @@ pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = 32u32;
 pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = 268435456u32;
 pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = 8192u32;
 pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = 4096u32;
+pub const CREDUIWIN_USE_V2: u32 = 64u32;
 pub type CREDUI_FLAGS = u32;
 pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = 128u32;
 pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = 2048u32;
@@ -320,6 +322,7 @@ pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = 16384u32;
 pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = 64u32;
 pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = 524288u32;
 pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = 1024u32;
+pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -357,6 +360,7 @@ pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
 pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
 pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513u32;
+pub const CREDUI_PICKERSCREEN_AUTHPACKAGE_ID: u32 = 212664323u32;
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
 pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = 1u32;

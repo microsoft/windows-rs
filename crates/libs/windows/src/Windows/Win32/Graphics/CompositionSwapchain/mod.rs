@@ -458,6 +458,23 @@ impl IPresentationFactory_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPresentationFactory {}
+windows_core::imp::define_interface!(IPresentationFactory_SupportHdrAware, IPresentationFactory_SupportHdrAware_Vtbl, 0x2bd0b885_a16f_4bd9_a59a_d073e069d416);
+windows_core::imp::interface_hierarchy!(IPresentationFactory_SupportHdrAware, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPresentationFactory_SupportHdrAware_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait IPresentationFactory_SupportHdrAware_Impl: windows_core::IUnknownImpl {}
+impl IPresentationFactory_SupportHdrAware_Vtbl {
+    pub const fn new<Identity: IPresentationFactory_SupportHdrAware_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPresentationFactory_SupportHdrAware as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IPresentationFactory_SupportHdrAware {}
 windows_core::imp::define_interface!(IPresentationManager, IPresentationManager_Vtbl, 0xfb562f82_6292_470a_88b1_843661e7f20c);
 windows_core::imp::interface_hierarchy!(IPresentationManager, windows_core::IUnknown);
 impl IPresentationManager {
@@ -829,6 +846,46 @@ impl IPresentationSurface_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IPresentationSurface {}
+windows_core::imp::define_interface!(IPresentationSurface2, IPresentationSurface2_Vtbl, 0x95609569_c5f0_47f9_8804_5345f2e2767e);
+impl core::ops::Deref for IPresentationSurface2 {
+    type Target = IPresentationSurface;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IPresentationSurface2, windows_core::IUnknown, IPresentationContent, IPresentationSurface);
+impl IPresentationSurface2 {
+    pub unsafe fn SetIsHdrContent(&self, ishdrcontent: u8) {
+        unsafe { (windows_core::Interface::vtable(self).SetIsHdrContent)(windows_core::Interface::as_raw(self), ishdrcontent) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPresentationSurface2_Vtbl {
+    pub base__: IPresentationSurface_Vtbl,
+    pub SetIsHdrContent: unsafe extern "system" fn(*mut core::ffi::c_void, u8),
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub trait IPresentationSurface2_Impl: IPresentationSurface_Impl {
+    fn SetIsHdrContent(&self, ishdrcontent: u8);
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl IPresentationSurface2_Vtbl {
+    pub const fn new<Identity: IPresentationSurface2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetIsHdrContent<Identity: IPresentationSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishdrcontent: u8) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPresentationSurface2_Impl::SetIsHdrContent(this, core::mem::transmute_copy(&ishdrcontent))
+            }
+        }
+        Self { base__: IPresentationSurface_Vtbl::new::<Identity, OFFSET>(), SetIsHdrContent: SetIsHdrContent::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPresentationSurface2 as windows_core::Interface>::IID || iid == &<IPresentationContent as windows_core::Interface>::IID || iid == &<IPresentationSurface as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl windows_core::RuntimeName for IPresentationSurface2 {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatisticsKind(pub i32);

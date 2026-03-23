@@ -1446,6 +1446,8 @@ pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
     pub const Undefined: Self = Self(0u32);
     pub const Tensor: Self = Self(1u32);
+    pub const SequenceTensor: Self = Self(2u32);
+    pub const Primitive: Self = Self(3u32);
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

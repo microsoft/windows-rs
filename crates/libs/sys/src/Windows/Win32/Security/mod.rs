@@ -474,7 +474,7 @@ pub const MandatoryLevelMedium: MANDATORY_LEVEL = 2i32;
 pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = 5i32;
 pub const MandatoryLevelSystem: MANDATORY_LEVEL = 4i32;
 pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = 0i32;
-pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 49i32;
+pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 51i32;
 pub type NCRYPT_DESCRIPTOR_HANDLE = *mut core::ffi::c_void;
 pub type NCRYPT_STREAM_HANDLE = *mut core::ffi::c_void;
 pub const NO_INHERITANCE: ACE_FLAGS = 0u32;
@@ -955,7 +955,7 @@ pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TOKEN_AUDIT_POLICY {
-    pub PerUserPolicy: [u8; 30],
+    pub PerUserPolicy: [u8; 31],
 }
 impl Default for TOKEN_AUDIT_POLICY {
     fn default() -> Self {
@@ -1168,7 +1168,9 @@ pub const TokenIsAppSilo: TOKEN_INFORMATION_CLASS = 48i32;
 pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = 46i32;
 pub const TokenIsRestricted: TOKEN_INFORMATION_CLASS = 40i32;
 pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = 47i32;
+pub const TokenLearningMode: TOKEN_INFORMATION_CLASS = 50i32;
 pub const TokenLinkedToken: TOKEN_INFORMATION_CLASS = 19i32;
+pub const TokenLoggingInformation: TOKEN_INFORMATION_CLASS = 49i32;
 pub const TokenLogonSid: TOKEN_INFORMATION_CLASS = 28i32;
 pub const TokenMandatoryPolicy: TOKEN_INFORMATION_CLASS = 27i32;
 pub const TokenOrigin: TOKEN_INFORMATION_CLASS = 17i32;
@@ -1246,6 +1248,7 @@ pub const WinBuiltinHyperVAdminsSid: WELL_KNOWN_SID_TYPE = 99i32;
 pub const WinBuiltinIUsersSid: WELL_KNOWN_SID_TYPE = 62i32;
 pub const WinBuiltinIncomingForestTrustBuildersSid: WELL_KNOWN_SID_TYPE = 56i32;
 pub const WinBuiltinNetworkConfigurationOperatorsSid: WELL_KNOWN_SID_TYPE = 37i32;
+pub const WinBuiltinOpenSSHUsersSid: WELL_KNOWN_SID_TYPE = 121i32;
 pub const WinBuiltinPerfLoggingUsersSid: WELL_KNOWN_SID_TYPE = 58i32;
 pub const WinBuiltinPerfMonitoringUsersSid: WELL_KNOWN_SID_TYPE = 57i32;
 pub const WinBuiltinPowerUsersSid: WELL_KNOWN_SID_TYPE = 29i32;
@@ -1260,6 +1263,7 @@ pub const WinBuiltinReplicatorSid: WELL_KNOWN_SID_TYPE = 34i32;
 pub const WinBuiltinStorageReplicaAdminsSid: WELL_KNOWN_SID_TYPE = 112i32;
 pub const WinBuiltinSystemOperatorsSid: WELL_KNOWN_SID_TYPE = 31i32;
 pub const WinBuiltinTerminalServerLicenseServersSid: WELL_KNOWN_SID_TYPE = 60i32;
+pub const WinBuiltinUserModeHardwareOperatorsSid: WELL_KNOWN_SID_TYPE = 120i32;
 pub const WinBuiltinUsersSid: WELL_KNOWN_SID_TYPE = 27i32;
 pub const WinCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = 72i32;
 pub const WinCapabilityAppointmentsSid: WELL_KNOWN_SID_TYPE = 108i32;

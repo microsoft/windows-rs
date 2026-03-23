@@ -4,9 +4,47 @@ pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> wi
     unsafe { ProcessIdToSessionId(dwprocessid, psessionid as _).ok() }
 }
 #[inline]
+pub unsafe fn WTSActiveSessionExists(pbactivesessionexists: *mut windows_core::BOOL) -> windows_core::BOOL {
+    windows_core::link!("wtsapi32.dll" "system" fn WTSActiveSessionExists(pbactivesessionexists : *mut windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { WTSActiveSessionExists(pbactivesessionexists as _) }
+}
+#[inline]
 pub unsafe fn WTSCloseServer(hserver: super::super::Foundation::HANDLE) {
     windows_core::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE));
     unsafe { WTSCloseServer(hserver) }
+}
+#[inline]
+pub unsafe fn WTSCloudAuthClose(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE) {
+    windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthClose(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE));
+    unsafe { WTSCloudAuthClose(cloudauthhandle) }
+}
+#[inline]
+pub unsafe fn WTSCloudAuthConvertAssertionToSerializedUserCredential<P3>(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, assertion: &[u8], resourceid: P3, usercredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::BOOL
+where
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, assertion : windows_core::PCSTR, assertionlength : u32, resourceid : windows_core::PCWSTR, usercredential : *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::BOOL);
+    unsafe { WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudauthhandle, core::mem::transmute(assertion.as_ptr()), assertion.len().try_into().unwrap(), resourceid.param().abi(), usercredential as _) }
+}
+#[inline]
+pub unsafe fn WTSCloudAuthDuplicateSerializedUserCredential(usercredential: *const WTS_SERIALIZED_USER_CREDENTIAL, duplicatedusercredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::BOOL {
+    windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthDuplicateSerializedUserCredential(usercredential : *const WTS_SERIALIZED_USER_CREDENTIAL, duplicatedusercredential : *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::BOOL);
+    unsafe { WTSCloudAuthDuplicateSerializedUserCredential(usercredential, duplicatedusercredential as _) }
+}
+#[inline]
+pub unsafe fn WTSCloudAuthGetServerNonce(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, servernonce: *mut windows_core::PWSTR) -> windows_core::BOOL {
+    windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthGetServerNonce(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, servernonce : *mut windows_core::PWSTR) -> windows_core::BOOL);
+    unsafe { WTSCloudAuthGetServerNonce(cloudauthhandle, servernonce as _) }
+}
+#[inline]
+pub unsafe fn WTSCloudAuthNetworkLogonWithSerializedCredential(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, usercredential: *const WTS_SERIALIZED_USER_CREDENTIAL, token: *mut super::super::Foundation::HANDLE) -> windows_core::BOOL {
+    windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthNetworkLogonWithSerializedCredential(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, usercredential : *const WTS_SERIALIZED_USER_CREDENTIAL, token : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    unsafe { WTSCloudAuthNetworkLogonWithSerializedCredential(cloudauthhandle, usercredential, token as _) }
+}
+#[inline]
+pub unsafe fn WTSCloudAuthOpen(activityid: *const windows_core::GUID) -> WTS_CLOUD_AUTH_HANDLE {
+    windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthOpen(activityid : *const windows_core::GUID) -> WTS_CLOUD_AUTH_HANDLE);
+    unsafe { WTSCloudAuthOpen(activityid) }
 }
 #[inline]
 pub unsafe fn WTSConnectSessionA<P2>(logonid: u32, targetlogonid: u32, ppassword: P2, bwait: bool) -> windows_core::Result<()>
@@ -6579,6 +6617,52 @@ impl IWRdsProtocolConnection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWRdsProtocolConnection {}
+windows_core::imp::define_interface!(IWRdsProtocolConnection2, IWRdsProtocolConnection2_Vtbl, 0xc2bd9b66_4a76_4701_b6a3_bfafc1482169);
+impl core::ops::Deref for IWRdsProtocolConnection2 {
+    type Target = IWRdsProtocolConnection;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IWRdsProtocolConnection2, windows_core::IUnknown, IWRdsProtocolConnection);
+impl IWRdsProtocolConnection2 {
+    pub unsafe fn GetSerializedUserCredential(&self) -> windows_core::Result<*mut WTS_SERIALIZED_USER_CREDENTIAL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSerializedUserCredential)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWRdsProtocolConnection2_Vtbl {
+    pub base__: IWRdsProtocolConnection_Vtbl,
+    pub GetSerializedUserCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::HRESULT,
+}
+pub trait IWRdsProtocolConnection2_Impl: IWRdsProtocolConnection_Impl {
+    fn GetSerializedUserCredential(&self) -> windows_core::Result<*mut WTS_SERIALIZED_USER_CREDENTIAL>;
+}
+impl IWRdsProtocolConnection2_Vtbl {
+    pub const fn new<Identity: IWRdsProtocolConnection2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetSerializedUserCredential<Identity: IWRdsProtocolConnection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usercredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWRdsProtocolConnection2_Impl::GetSerializedUserCredential(this) {
+                    Ok(ok__) => {
+                        usercredential.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: IWRdsProtocolConnection_Vtbl::new::<Identity, OFFSET>(), GetSerializedUserCredential: GetSerializedUserCredential::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWRdsProtocolConnection2 as windows_core::Interface>::IID || iid == &<IWRdsProtocolConnection as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IWRdsProtocolConnection2 {}
 windows_core::imp::define_interface!(IWRdsProtocolConnectionCallback, IWRdsProtocolConnectionCallback_Vtbl, 0xf1d70332_d070_4ef1_a088_78313536c2d6);
 windows_core::imp::interface_hierarchy!(IWRdsProtocolConnectionCallback, windows_core::IUnknown);
 impl IWRdsProtocolConnectionCallback {
@@ -10729,6 +10813,7 @@ impl Default for WTSCONFIGINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const WTSCapabilityCheck: WTS_INFO_CLASS = WTS_INFO_CLASS(31i32);
 pub const WTSClientAddress: WTS_INFO_CLASS = WTS_INFO_CLASS(14i32);
 pub const WTSClientBuildNumber: WTS_INFO_CLASS = WTS_INFO_CLASS(9i32);
 pub const WTSClientDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(11i32);
@@ -11086,13 +11171,16 @@ pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
 }
+pub const WTSSessionActivityId: WTS_INFO_CLASS = WTS_INFO_CLASS(30i32);
 pub const WTSSessionAddressV4: WTS_INFO_CLASS = WTS_INFO_CLASS(28i32);
 pub const WTSSessionId: WTS_INFO_CLASS = WTS_INFO_CLASS(4i32);
 pub const WTSSessionInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(24i32);
 pub const WTSSessionInfoEx: WTS_INFO_CLASS = WTS_INFO_CLASS(25i32);
 pub const WTSShadow: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(3i32);
+pub const WTSTypeCloudAuthServerNonce: WTS_TYPE_CLASS = WTS_TYPE_CLASS(3i32);
 pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = WTS_TYPE_CLASS(0i32);
 pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(1i32);
+pub const WTSTypeSerializedUserCredential: WTS_TYPE_CLASS = WTS_TYPE_CLASS(4i32);
 pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(2i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -11297,6 +11385,30 @@ pub struct WTS_CLIENT_DISPLAY {
     pub ColorDepth: u32,
 }
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct WTS_CLOUD_AUTH_HANDLE(pub *mut core::ffi::c_void);
+impl WTS_CLOUD_AUTH_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for WTS_CLOUD_AUTH_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("wtsapi32.dll" "system" fn WTSCloudAuthClose(cloudauthhandle : *mut core::ffi::c_void));
+            unsafe {
+                WTSCloudAuthClose(self.0);
+            }
+        }
+    }
+}
+impl Default for WTS_CLOUD_AUTH_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11611,6 +11723,17 @@ pub const WTS_SECURITY_RESET: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(4u32);
 pub const WTS_SECURITY_SET_INFORMATION: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(2u32);
 pub const WTS_SECURITY_USER_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(329u32);
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(8u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WTS_SERIALIZED_USER_CREDENTIAL {
+    pub SerializationLength: u32,
+    pub Serialization: *mut u8,
+}
+impl Default for WTS_SERIALIZED_USER_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_SERVER_INFOA {

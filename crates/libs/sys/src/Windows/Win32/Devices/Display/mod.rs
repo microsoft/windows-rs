@@ -315,9 +315,6 @@ impl Default for CHAR_IMAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const CHAR_TYPE_LEADING: u32 = 2u32;
-pub const CHAR_TYPE_SBCS: u32 = 0u32;
-pub const CHAR_TYPE_TRAILING: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CHROMATICITY_COORDINATE {
@@ -374,6 +371,13 @@ pub struct COLORINFO {
     pub YellowInMagentaDye: i32,
     pub CyanInYellowDye: i32,
     pub MagentaInYellowDye: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct COLORSPACE_SCALAR_MULTIPLIER_CAPS {
+    pub Valid: bool,
+    pub NumericRangeMin: f32,
+    pub NumericRangeMax: f32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -607,6 +611,11 @@ impl Default for DEVINFO {
 pub const DEVPKEY_Device_ActivityId: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
 pub const DEVPKEY_Device_AdapterLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
 pub const DEVPKEY_Device_TerminalLuid: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2 };
+pub const DEVPKEY_DisplayMux_CurrentTarget: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xfefa7434_e0fd_4b2a_905a_7d0127a9f01c), pid: 5 };
+pub const DEVPKEY_DisplayMux_InitStatus: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xfefa7434_e0fd_4b2a_905a_7d0127a9f01c), pid: 1 };
+pub const DEVPKEY_DisplayMux_MuxTarget1: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xfefa7434_e0fd_4b2a_905a_7d0127a9f01c), pid: 3 };
+pub const DEVPKEY_DisplayMux_MuxTarget2: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xfefa7434_e0fd_4b2a_905a_7d0127a9f01c), pid: 4 };
+pub const DEVPKEY_DisplayMux_SupportLevel: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xfefa7434_e0fd_4b2a_905a_7d0127a9f01c), pid: 2 };
 pub const DEVPKEY_IndirectDisplay: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
 pub type DHPDEV = *mut core::ffi::c_void;
 pub type DHSURF = *mut core::ffi::c_void;
@@ -636,6 +645,7 @@ pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
 }
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 4i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = 9i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO_2: DISPLAYCONFIG_DEVICE_INFO_TYPE = 15i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 12i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = 11i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 1i32;
@@ -652,9 +662,12 @@ pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub id: u32,
 }
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 10i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_HDR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 16i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 13i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_RESERVED1: DISPLAYCONFIG_DEVICE_INFO_TYPE = 14i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 8i32;
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 5i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_WCG_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 17i32;
 pub type DISPLAYCONFIG_DEVICE_INFO_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -688,6 +701,41 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2 {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0,
+    pub colorEncoding: super::super::Graphics::Gdi::DISPLAYCONFIG_COLOR_ENCODING,
+    pub bitsPerColorChannel: u32,
+    pub activeColorMode: super::super::Graphics::Gdi::DISPLAYCONFIG_ADVANCED_COLOR_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0 {
+    pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0_0,
+    pub value: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Default)]
+pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -907,6 +955,33 @@ pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct DISPLAYCONFIG_SET_HDR_STATE {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SET_HDR_STATE_0,
+}
+impl Default for DISPLAYCONFIG_SET_HDR_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DISPLAYCONFIG_SET_HDR_STATE_0 {
+    pub Anonymous: DISPLAYCONFIG_SET_HDR_STATE_0_0,
+    pub value: u32,
+}
+impl Default for DISPLAYCONFIG_SET_HDR_STATE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DISPLAYCONFIG_SET_HDR_STATE_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0,
@@ -960,6 +1035,33 @@ impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DISPLAYCONFIG_SET_WCG_STATE {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SET_WCG_STATE_0,
+}
+impl Default for DISPLAYCONFIG_SET_WCG_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DISPLAYCONFIG_SET_WCG_STATE_0 {
+    pub Anonymous: DISPLAYCONFIG_SET_WCG_STATE_0_0,
+    pub value: u32,
+}
+impl Default for DISPLAYCONFIG_SET_WCG_STATE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DISPLAYCONFIG_SET_WCG_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -1534,6 +1636,7 @@ pub const FM_SEL_OUTLINED: u32 = 8u32;
 pub const FM_SEL_REGULAR: u32 = 64u32;
 pub const FM_SEL_STRIKEOUT: u32 = 16u32;
 pub const FM_SEL_UNDERSCORE: u32 = 2u32;
+pub const FM_SEL_USE_TYPO_METRICS: u32 = 128u32;
 pub const FM_TYPE_LICENSED: u32 = 2u32;
 pub const FM_VERSION_NUMBER: u32 = 0u32;
 #[repr(C)]
@@ -1881,11 +1984,13 @@ impl Default for GLYPHPOS {
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
+pub const GUID_DEVINTERFACE_DISPLAYMUX: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x93c33929_3180_46d3_8aab_008c84ad1e6e);
 pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5b45201d_f2f2_4f3b_85bb_30ff1f953599);
 pub const GUID_DEVINTERFACE_MONITOR: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6f07b5f_ee97_4a90_b076_33f57bf4eaa7);
 pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ad9e4f0_f88d_4360_bab9_4c2d55e564cd);
 pub const GUID_DISPLAY_DEVICE_ARRIVAL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1ca05180_a699_450a_9a0c_de4fbe3ddd89);
 pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf196c02f_f86f_4f9a_aa15_e9cebdfe3b96);
+pub const GUID_MONITOR_OVERRIDE_TEST_SPECIALIZED: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0457e531_3cb9_4a07_83c1_a79146c64db3);
 pub const GX_GENERAL: i32 = 3i32;
 pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
@@ -2245,8 +2350,11 @@ pub struct INDIRECT_DISPLAY_INFO {
     pub Flags: u32,
     pub NumMonitors: u32,
     pub DisplayAdapterTargetBase: u32,
+    pub DriverVersionMajor: u32,
+    pub DriverVersionMinor: u32,
 }
 pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
+pub const INDIRECT_DISPLAY_INFO_FLAGS_SUPPORT_FP16: u32 = 2u32;
 pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
 pub const IOCTL_COLORSPACE_TRANSFORM_SET: u32 = 2297860u32;
 pub const IOCTL_FSVIDEO_COPY_FRAME_BUFFER: u32 = 3409920u32;
@@ -2255,6 +2363,7 @@ pub const IOCTL_FSVIDEO_SET_CURRENT_MODE: u32 = 3409932u32;
 pub const IOCTL_FSVIDEO_SET_CURSOR_POSITION: u32 = 3409940u32;
 pub const IOCTL_FSVIDEO_SET_SCREEN_INFORMATION: u32 = 3409936u32;
 pub const IOCTL_FSVIDEO_WRITE_TO_FRAME_BUFFER: u32 = 3409924u32;
+pub const IOCTL_GET_SCALAR_MULTIPLIER_CAPS: u32 = 2297868u32;
 pub const IOCTL_MIPI_DSI_QUERY_CAPS: u32 = 2298880u32;
 pub const IOCTL_MIPI_DSI_RESET: u32 = 2298888u32;
 pub const IOCTL_MIPI_DSI_TRANSMISSION: u32 = 2298884u32;
@@ -2267,6 +2376,7 @@ pub const IOCTL_PANEL_SET_BACKLIGHT_OPTIMIZATION: u32 = 2296852u32;
 pub const IOCTL_PANEL_SET_BRIGHTNESS: u32 = 2296844u32;
 pub const IOCTL_PANEL_SET_BRIGHTNESS_STATE: u32 = 2296848u32;
 pub const IOCTL_SET_ACTIVE_COLOR_PROFILE_NAME: u32 = 2297864u32;
+pub const IOCTL_SET_SCALAR_MULTIPLIER: u32 = 2297872u32;
 pub const IOCTL_VIDEO_DISABLE_CURSOR: u32 = 2294820u32;
 pub const IOCTL_VIDEO_DISABLE_POINTER: u32 = 2294844u32;
 pub const IOCTL_VIDEO_DISABLE_VDM: u32 = 2293764u32;
@@ -2916,14 +3026,6 @@ pub type PFN_DrvTextOut = Option<unsafe extern "system" fn(param0: *mut SURFOBJ,
 pub type PFN_DrvTransparentBlt = Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut CLIPOBJ, param3: *mut XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> windows_sys::core::BOOL>;
 pub type PFN_DrvUnloadFontFile = Option<unsafe extern "system" fn(param0: usize) -> windows_sys::core::BOOL>;
 pub type PFN_DrvUnlockDisplayArea = Option<unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL)>;
-pub type PFN_EngCombineRgn = Option<unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32>;
-pub type PFN_EngCopyRgn = Option<unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngCreateRectRgn = Option<unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE>;
-pub type PFN_EngDeleteRgn = Option<unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE)>;
-pub type PFN_EngIntersectRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngSubtractRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngUnionRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-pub type PFN_EngXorRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_MONITOR {
@@ -3699,6 +3801,7 @@ pub const VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 1
 pub const VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 11i32;
 pub const VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 3i32;
 pub const VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 4i32;
+pub const VideoForceCompositionRender: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 17i32;
 pub const VideoNotBanked: VIDEO_BANK_TYPE = 0i32;
 pub const VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 7i32;
 pub const VideoPowerHibernate: VIDEO_POWER_STATE = 5i32;

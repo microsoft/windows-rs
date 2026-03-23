@@ -29,6 +29,9 @@ pub struct DownloadPhase(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DownloadPriority(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DownloadType(pub i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAutomaticUpdates, IAutomaticUpdates_Vtbl, 0x673425bf_c082_4c7c_bdfd_569464b8e0ce);
 #[cfg(feature = "Win32_System_Com")]
@@ -5152,6 +5155,178 @@ impl IUpdateDownloader_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUpdateDownloader {}
 #[cfg(feature = "Win32_System_Com")]
+windows_core::imp::define_interface!(IUpdateDownloaderEx, IUpdateDownloaderEx_Vtbl, 0x94726306_f12a_482a_a774_fb4f870d98c0);
+#[cfg(feature = "Win32_System_Com")]
+impl core::ops::Deref for IUpdateDownloaderEx {
+    type Target = IUpdateDownloader;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(IUpdateDownloaderEx, windows_core::IUnknown, super::Com::IDispatch, IUpdateDownloader);
+#[cfg(feature = "Win32_System_Com")]
+impl IUpdateDownloaderEx {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn BeginDownload2<P1, P2>(&self, downloadtype: DownloadType, onprogresschanged: P1, oncompleted: P2, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>
+    where
+        P1: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).BeginDownload2)(windows_core::Interface::as_raw(self), downloadtype, onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub unsafe fn Download2(&self, downloadtype: DownloadType) -> windows_core::Result<IDownloadResult> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Download2)(windows_core::Interface::as_raw(self), downloadtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUpdateDownloaderEx_Vtbl {
+    pub base__: IUpdateDownloader_Vtbl,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub BeginDownload2: unsafe extern "system" fn(*mut core::ffi::c_void, DownloadType, *mut core::ffi::c_void, *mut core::ffi::c_void, super::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    BeginDownload2: usize,
+    pub Download2: unsafe extern "system" fn(*mut core::ffi::c_void, DownloadType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IUpdateDownloaderEx_Impl: IUpdateDownloader_Impl {
+    fn BeginDownload2(&self, downloadtype: DownloadType, onprogresschanged: windows_core::Ref<windows_core::IUnknown>, oncompleted: windows_core::Ref<windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>;
+    fn Download2(&self, downloadtype: DownloadType) -> windows_core::Result<IDownloadResult>;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IUpdateDownloaderEx_Vtbl {
+    pub const fn new<Identity: IUpdateDownloaderEx_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn BeginDownload2<Identity: IUpdateDownloaderEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadtype: DownloadType, onprogresschanged: *mut core::ffi::c_void, oncompleted: *mut core::ffi::c_void, state: super::Variant::VARIANT, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUpdateDownloaderEx_Impl::BeginDownload2(this, core::mem::transmute_copy(&downloadtype), core::mem::transmute_copy(&onprogresschanged), core::mem::transmute_copy(&oncompleted), core::mem::transmute(&state)) {
+                    Ok(ok__) => {
+                        retval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn Download2<Identity: IUpdateDownloaderEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, downloadtype: DownloadType, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUpdateDownloaderEx_Impl::Download2(this, core::mem::transmute_copy(&downloadtype)) {
+                    Ok(ok__) => {
+                        retval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: IUpdateDownloader_Vtbl::new::<Identity, OFFSET>(),
+            BeginDownload2: BeginDownload2::<Identity, OFFSET>,
+            Download2: Download2::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IUpdateDownloaderEx as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdateDownloader as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IUpdateDownloaderEx {}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::define_interface!(IUpdateEx, IUpdateEx_Vtbl, 0x769355a3_c5a0_497c_a606_560a36d2121c);
+#[cfg(feature = "Win32_System_Com")]
+impl core::ops::Deref for IUpdateEx {
+    type Target = IUpdate5;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(IUpdateEx, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3, IUpdate4, IUpdate5);
+#[cfg(feature = "Win32_System_Com")]
+impl IUpdateEx {
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_ExtendedStaticProperty(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_ExtendedStaticProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn EvaluateExtendedDynamicProperty(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).EvaluateExtendedDynamicProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUpdateEx_Vtbl {
+    pub base__: IUpdate5_Vtbl,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_ExtendedStaticProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    get_ExtendedStaticProperty: usize,
+    #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub EvaluateExtendedDynamicProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    EvaluateExtendedDynamicProperty: usize,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IUpdateEx_Impl: IUpdate5_Impl {
+    fn get_ExtendedStaticProperty(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
+    fn EvaluateExtendedDynamicProperty(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IUpdateEx_Vtbl {
+    pub const fn new<Identity: IUpdateEx_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn get_ExtendedStaticProperty<Identity: IUpdateEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, retval: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUpdateEx_Impl::get_ExtendedStaticProperty(this, core::mem::transmute(&propertyname)) {
+                    Ok(ok__) => {
+                        retval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn EvaluateExtendedDynamicProperty<Identity: IUpdateEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::ffi::c_void, retval: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUpdateEx_Impl::EvaluateExtendedDynamicProperty(this, core::mem::transmute(&propertyname)) {
+                    Ok(ok__) => {
+                        retval.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: IUpdate5_Vtbl::new::<Identity, OFFSET>(),
+            get_ExtendedStaticProperty: get_ExtendedStaticProperty::<Identity, OFFSET>,
+            EvaluateExtendedDynamicProperty: EvaluateExtendedDynamicProperty::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IUpdateEx as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IUpdate as windows_core::Interface>::IID || iid == &<IUpdate2 as windows_core::Interface>::IID || iid == &<IUpdate3 as windows_core::Interface>::IID || iid == &<IUpdate4 as windows_core::Interface>::IID || iid == &<IUpdate5 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IUpdateEx {}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IUpdateException, IUpdateException_Vtbl, 0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IUpdateException {
@@ -9563,6 +9738,7 @@ pub const UpdateSession: windows_core::GUID = windows_core::GUID::from_u128(0x4c
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UpdateType(pub i32);
+pub const WU_E_ACCESS_DENIED_CALLER_IDENTITY: windows_core::HRESULT = windows_core::HRESULT(0x8024006A_u32 as _);
 pub const WU_E_ALL_UPDATES_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80240022_u32 as _);
 pub const WU_E_AUCLIENT_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x80243FFF_u32 as _);
 pub const WU_E_AU_CALL_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80240055_u32 as _);
@@ -9584,6 +9760,7 @@ pub const WU_E_CALL_CANCELLED_BY_INTERACTIVE_SEARCH: windows_core::HRESULT = win
 pub const WU_E_CALL_CANCELLED_BY_INVALID: windows_core::HRESULT = windows_core::HRESULT(0x8024005B_u32 as _);
 pub const WU_E_CALL_CANCELLED_BY_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x8024002F_u32 as _);
 pub const WU_E_COULDNOTCANCEL: windows_core::HRESULT = windows_core::HRESULT(0x8024000A_u32 as _);
+pub const WU_E_COULD_NOT_EVALUATE_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0x80240068_u32 as _);
 pub const WU_E_CYCLE_DETECTED: windows_core::HRESULT = windows_core::HRESULT(0x8024000F_u32 as _);
 pub const WU_E_DM_BG_ERROR_TOKEN_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8024600F_u32 as _);
 pub const WU_E_DM_BITSTRANSFERERROR: windows_core::HRESULT = windows_core::HRESULT(0x80246009_u32 as _);
@@ -9594,6 +9771,7 @@ pub const WU_E_DM_DOWNLOADFILEPATHUNKNOWN: windows_core::HRESULT = windows_core:
 pub const WU_E_DM_DOWNLOADLIMITEDBYUPDATESIZE: windows_core::HRESULT = windows_core::HRESULT(0x8024600C_u32 as _);
 pub const WU_E_DM_DOWNLOADLOCATIONCHANGED: windows_core::HRESULT = windows_core::HRESULT(0x8024600A_u32 as _);
 pub const WU_E_DM_DOWNLOADSANDBOXNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80246010_u32 as _);
+pub const WU_E_DM_DOWNLOADTYPE_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x8024601F_u32 as _);
 pub const WU_E_DM_DOWNLOAD_VOLUME_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0x8024601B_u32 as _);
 pub const WU_E_DM_FAILTOCONNECTTOBITS: windows_core::HRESULT = windows_core::HRESULT(0x80246008_u32 as _);
 pub const WU_E_DM_FALLINGBACKTOBITS: windows_core::HRESULT = windows_core::HRESULT(0x8024601A_u32 as _);
@@ -9794,6 +9972,7 @@ pub const WU_E_POLICY_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0x8
 pub const WU_E_PT_ADDRESS_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0x80240448_u32 as _);
 pub const WU_E_PT_ADDRESS_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80240449_u32 as _);
 pub const WU_E_PT_CATALOG_SYNC_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x80240436_u32 as _);
+pub const WU_E_PT_CLIENT_ENFORCED_LOAD_SHEDDING: windows_core::HRESULT = windows_core::HRESULT(0x8024402E_u32 as _);
 pub const WU_E_PT_CONFIG_PROP_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x8024402A_u32 as _);
 pub const WU_E_PT_DATA_BOUNDARY_RESTRICTED: windows_core::HRESULT = windows_core::HRESULT(0x80244100_u32 as _);
 pub const WU_E_PT_DOUBLE_INITIALIZATION: windows_core::HRESULT = windows_core::HRESULT(0x80244012_u32 as _);
@@ -9896,7 +10075,9 @@ pub const WU_E_SELFUPDATE_SKIP_ON_FAILURE: windows_core::HRESULT = windows_core:
 pub const WU_E_SERVER_BUSY: windows_core::HRESULT = windows_core::HRESULT(0x8024F004_u32 as _);
 pub const WU_E_SERVICEPROP_NOTAVAIL: windows_core::HRESULT = windows_core::HRESULT(0x8024043D_u32 as _);
 pub const WU_E_SERVICE_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0x80247005_u32 as _);
+pub const WU_E_SERVICE_REENABLE_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0x8024006B_u32 as _);
 pub const WU_E_SERVICE_STOP: windows_core::HRESULT = windows_core::HRESULT(0x8024001E_u32 as _);
+pub const WU_E_SERVICE_UNEXPECTED_EXIT: windows_core::HRESULT = windows_core::HRESULT(0x80240069_u32 as _);
 pub const WU_E_SETUP_ALREADYRUNNING: windows_core::HRESULT = windows_core::HRESULT(0x8024D00D_u32 as _);
 pub const WU_E_SETUP_ALREADY_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x8024D003_u32 as _);
 pub const WU_E_SETUP_BLOCKED_CONFIGURATION: windows_core::HRESULT = windows_core::HRESULT(0x8024D00B_u32 as _);
@@ -9942,6 +10123,7 @@ pub const WU_E_SIH_VERIFY_STAGE_PAYLOAD: windows_core::HRESULT = windows_core::H
 pub const WU_E_SKIPPED_UPDATE_INSTALLATION: windows_core::HRESULT = windows_core::HRESULT(0x8024B105_u32 as _);
 pub const WU_E_SLS_INVALID_REVISION: windows_core::HRESULT = windows_core::HRESULT(0x8024B201_u32 as _);
 pub const WU_E_SOURCE_ABSENT: windows_core::HRESULT = windows_core::HRESULT(0x8024002D_u32 as _);
+pub const WU_E_STANDBY_ACTIVITY_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0x80240067_u32 as _);
 pub const WU_E_SYSPREP_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80240041_u32 as _);
 pub const WU_E_SYSTEM_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80240056_u32 as _);
 pub const WU_E_TIME_OUT: windows_core::HRESULT = windows_core::HRESULT(0x80240021_u32 as _);
@@ -9983,7 +10165,9 @@ pub const WU_E_UH_POSTREBOOTSTILLPENDING: windows_core::HRESULT = windows_core::
 pub const WU_E_UH_POSTREBOOTUNEXPECTEDSTATE: windows_core::HRESULT = windows_core::HRESULT(0x80242016_u32 as _);
 pub const WU_E_UH_REMOTEALREADYACTIVE: windows_core::HRESULT = windows_core::HRESULT(0x80242003_u32 as _);
 pub const WU_E_UH_REMOTEUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0x80242000_u32 as _);
+pub const WU_E_UH_RESERVICING_REQUIRED_BASELINE: windows_core::HRESULT = windows_core::HRESULT(0x80242026_u32 as _);
 pub const WU_E_UH_TOOMANYDOWNLOADREQUESTS: windows_core::HRESULT = windows_core::HRESULT(0x80242011_u32 as _);
+pub const WU_E_UH_UA_SESSION_INFO_VERSION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x80242025_u32 as _);
 pub const WU_E_UH_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0x80242FFF_u32 as _);
 pub const WU_E_UH_UNEXPECTEDCBSRESPONSE: windows_core::HRESULT = windows_core::HRESULT(0x80242012_u32 as _);
 pub const WU_E_UH_UNKNOWNHANDLER: windows_core::HRESULT = windows_core::HRESULT(0x80242002_u32 as _);
@@ -10063,11 +10247,15 @@ pub const ausidEveryTuesday: AutomaticUpdatesScheduledInstallationDay = Automati
 pub const ausidEveryWednesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(4i32);
 pub const auutCurrentUser: AutomaticUpdatesUserType = AutomaticUpdatesUserType(1i32);
 pub const auutLocalAdministrator: AutomaticUpdatesUserType = AutomaticUpdatesUserType(2i32);
+pub const c_szUpdatePropertyName_ContainsUpdateBootstrapper: windows_core::PCWSTR = windows_core::w!("ContainsUpdateBootstrapper");
+pub const c_szUpdatePropertyName_DoesUpdateRequireReboot: windows_core::PCWSTR = windows_core::w!("DoesUpdateRequireReboot");
 pub const daDetection: DeploymentAction = DeploymentAction(3i32);
 pub const daInstallation: DeploymentAction = DeploymentAction(1i32);
 pub const daNone: DeploymentAction = DeploymentAction(0i32);
 pub const daOptionalInstallation: DeploymentAction = DeploymentAction(4i32);
 pub const daUninstallation: DeploymentAction = DeploymentAction(2i32);
+pub const downloadTypeFull: DownloadType = DownloadType(0i32);
+pub const downloadTypeUpdateBootstrapper: DownloadType = DownloadType(1i32);
 pub const dpExtraHigh: DownloadPriority = DownloadPriority(4i32);
 pub const dpHigh: DownloadPriority = DownloadPriority(3i32);
 pub const dpLow: DownloadPriority = DownloadPriority(1i32);
