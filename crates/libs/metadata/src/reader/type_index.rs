@@ -100,8 +100,8 @@ impl TypeIndex {
         self.types
             .get(namespace)
             .and_then(|types| types.get(name))
-            .and_then(|types| types.get(0))
-            .and_then(|(file, _)| Some(self.files(*file)))
+            .and_then(|types| types.first())
+            .map(|(file, _)| self.files(*file))
             .and_then(|file| file.assembly_name())
     }
 
