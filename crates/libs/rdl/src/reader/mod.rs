@@ -101,10 +101,58 @@ impl Reader {
 
         let reference = metadata::reader::TypeIndex::new(reference);
         validate_use_declarations(&input, &index, &reference)?;
-        let output = encode(index, &reference)?;
+        let output = self.encode(index, &reference)?;
 
         std::fs::write(&self.output, output)
             .map_err(|error| Error::new(&error.to_string(), &self.output, 0, 0))
+    }
+
+    fn encode(
+        &self,
+        index: Index,
+        reference: &metadata::reader::TypeIndex,
+    ) -> Result<Vec<u8>, Error> {
+        let assembly_name = std::path::Path::new(&self.output)
+            .file_name()
+            .and_then(|file_name| file_name.to_str())
+            .ok_or_else(|| Error::new("invalid output", &self.output, 0, 0))?;
+
+        let mut output = metadata::writer::File::new(assembly_name);
+
+        for (namespace, members) in &index.namespaces {
+            for variants in members.types.values() {
+                for (file, item) in variants {
+                    let name = item.to_string();
+                    item.encode(&mut output, &index, reference, file, namespace, &name)?;
+                }
+            }
+
+            if !members.functions.is_empty() || !members.constants.is_empty() {
+                let class =
+                    metadata::writer::TypeDefOrRef::TypeRef(output.TypeRef("System", "Object"));
+
+                output.TypeDef(
+                    namespace,
+                    "Apis",
+                    class,
+                    metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
+                );
+
+                for (name, variants) in &members.functions {
+                    for (file, item) in variants {
+                        item.encode(&mut output, &index, reference, file, namespace, name)?;
+                    }
+                }
+
+                for (name, variants) in &members.constants {
+                    for (file, item) in variants {
+                        item.encode(&mut output, &index, reference, file, namespace, name)?;
+                    }
+                }
+            }
+        }
+
+        Ok(output.into_stream())
     }
 }
 
@@ -260,44 +308,6 @@ fn validate_use_declarations(
         }
     }
     Ok(())
-}
-
-fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u8>, Error> {
-    let mut output = metadata::writer::File::new("");
-
-    for (namespace, members) in &index.namespaces {
-        for variants in members.types.values() {
-            for (file, item) in variants {
-                let name = item.to_string();
-                item.encode(&mut output, &index, reference, file, namespace, &name)?;
-            }
-        }
-
-        if !members.functions.is_empty() || !members.constants.is_empty() {
-            let class = metadata::writer::TypeDefOrRef::TypeRef(output.TypeRef("System", "Object"));
-
-            output.TypeDef(
-                namespace,
-                "Apis",
-                class,
-                metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
-            );
-
-            for (name, variants) in &members.functions {
-                for (file, item) in variants {
-                    item.encode(&mut output, &index, reference, file, namespace, name)?;
-                }
-            }
-
-            for (name, variants) in &members.constants {
-                for (file, item) in variants {
-                    item.encode(&mut output, &index, reference, file, namespace, name)?;
-                }
-            }
-        }
-    }
-
-    Ok(output.into_stream())
 }
 
 struct Encoder<'a> {

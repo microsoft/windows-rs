@@ -1,7 +1,7 @@
 fn should_panic(rdl: &str) {
     windows_rdl::reader()
         .input_str(rdl)
-        .output(".")
+        .output(".winmd")
         .write()
         .unwrap();
 }
