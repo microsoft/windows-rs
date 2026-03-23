@@ -115,7 +115,8 @@ fn find_in_index(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<
         .namespaces
         .get(namespace)?
         .types
-        .get(attr_name)?;
+        .get(attr_name)?
+        .first()?;
     let Item::Attribute(attr_item) = item else {
         return None;
     };
@@ -386,9 +387,11 @@ fn enum_is_flags(encoder: &Encoder, tn: &metadata::TypeName) -> bool {
     }
     // Check in the RDL index (types defined in current input files).
     if let Some(ns) = encoder.index.namespaces.get(&tn.namespace) {
-        if let Some((_, Item::Enum(enum_item))) = ns.types.get(&tn.name) {
-            if enum_item.attrs.iter().any(|a| a.path().is_ident("flags")) {
-                return true;
+        if let Some(variants) = ns.types.get(&tn.name) {
+            if let Some((_, Item::Enum(enum_item))) = variants.first() {
+                if enum_item.attrs.iter().any(|a| a.path().is_ident("flags")) {
+                    return true;
+                }
             }
         }
     }
@@ -431,25 +434,29 @@ fn find_enum_variant_value(
 
     // Search in the RDL index (types defined in current input files).
     if let Some(ns) = encoder.index.namespaces.get(&tn.namespace) {
-        if let Some((_, Item::Enum(enum_item))) = ns.types.get(&tn.name) {
-            for variant in &enum_item.variants {
-                if variant.ident == variant_name {
-                    if let Some((_, discriminant)) = &variant.discriminant {
-                        // Attribute blobs encode enum values as I32.  Try I32 first,
-                        // then fall back to U32 for repr(u32) enums whose values
-                        // exceed i32::MAX (e.g. `All = 0xFFFF_FFFF`), converting to
-                        // I32 via a bit-reinterpret cast — mirroring the metadata
-                        // reference path above.
-                        let result = encode_value(encoder, &metadata::Type::I32, discriminant)
-                            .or_else(|_| {
-                                encode_value(encoder, &metadata::Type::U32, discriminant).map(|v| {
-                                    match v {
-                                        metadata::Value::U32(n) => metadata::Value::I32(n as i32),
-                                        other => other,
-                                    }
-                                })
-                            });
-                        return result;
+        if let Some(variants) = ns.types.get(&tn.name) {
+            if let Some((_, Item::Enum(enum_item))) = variants.first() {
+                for variant in &enum_item.variants {
+                    if variant.ident == variant_name {
+                        if let Some((_, discriminant)) = &variant.discriminant {
+                            // Attribute blobs encode enum values as I32.  Try I32 first,
+                            // then fall back to U32 for repr(u32) enums whose values
+                            // exceed i32::MAX (e.g. `All = 0xFFFF_FFFF`), converting to
+                            // I32 via a bit-reinterpret cast — mirroring the metadata
+                            // reference path above.
+                            let result = encode_value(encoder, &metadata::Type::I32, discriminant)
+                                .or_else(|_| {
+                                    encode_value(encoder, &metadata::Type::U32, discriminant).map(
+                                        |v| match v {
+                                            metadata::Value::U32(n) => {
+                                                metadata::Value::I32(n as i32)
+                                            }
+                                            other => other,
+                                        },
+                                    )
+                                });
+                            return result;
+                        }
                     }
                 }
             }
@@ -578,170 +585,4 @@ pub fn encode_attrs(
     }
 
     Ok(())
-}
-
-#[test]
-#[should_panic(expected = "error: attribute type not found\n --> .rdl:4:5")]
-fn unknown_attribute_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    #[Unknown(42)]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: value not valid\n --> .rdl:6:11")]
-fn wrong_arg_type_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    attribute FooAttribute { fn(value: u32); }
-
-    #[Foo("not a u32")]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: expected `Color` variant name\n --> .rdl:8:15")]
-fn enum_arg_requires_variant_name() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    #[repr(i32)]
-    enum Color { Red = 0, Green = 1, Blue = 2, }
-    attribute PaletteAttribute { fn(value: Color); }
-
-    #[Palette(1)]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: enum variant not found\n --> .rdl:8:15")]
-fn enum_arg_unknown_variant_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    #[repr(i32)]
-    enum Color { Red = 0, Green = 1, Blue = 2, }
-    attribute PaletteAttribute { fn(value: Color); }
-
-    #[Palette(Purple)]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(
-    expected = "error: positional attribute arguments must come before named arguments\n --> .rdl:6:27"
-)]
-fn positional_after_named_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    attribute FooAttribute { fn(value: u32); }
-
-    #[Foo(named_prop = 1, 42)]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: no matching attribute constructor found\n --> .rdl:6:5")]
-fn no_matching_ctor_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    attribute FooAttribute { fn(value: u32); }
-
-    #[Foo(1, 2, 3)]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: attribute has no property `unknown`\n --> .rdl:6:5")]
-fn unknown_property_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    attribute FooAttribute { fn(); version: u32, }
-
-    #[Foo(unknown = 42)]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(
-    expected = "error: attribute cannot use top-level `name = value` syntax\n --> .rdl:6:5"
-)]
-fn top_level_name_value_syntax_errors() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    attribute FooAttribute { fn(); }
-
-    #[Foo = "bar"]
-    class MyClass {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
 }

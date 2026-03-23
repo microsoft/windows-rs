@@ -24,7 +24,7 @@ use r#fn::*;
 use r#struct::*;
 use windows_metadata as metadata;
 
-// TODO: the writer is primarily an internal tool as most developers will write their own
+// The writer is primarily an internal tool as most developers will write their own
 // definitions or just accept whatever a component author provides. This is thus mostly for
 // generating rdl for backfilling definitions and for testing.
 
@@ -106,13 +106,7 @@ impl Writer {
 
                 for (_, item) in index.namespace_items(namespace) {
                     for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(
-                            namespace,
-                            &name,
-                            item_arches(item),
-                            item_winrt(item),
-                            tokens.to_string(),
-                        );
+                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
 
@@ -138,13 +132,7 @@ impl Writer {
 
                 for (_, item) in index.namespace_items(namespace) {
                     for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(
-                            namespace,
-                            &name,
-                            item_arches(item),
-                            item_winrt(item),
-                            tokens.to_string(),
-                        );
+                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
             }
@@ -200,14 +188,6 @@ fn namespace_included(namespace: &str, filter: &[String]) -> bool {
     }
 
     included
-}
-
-fn item_arches(item: &metadata::reader::Item) -> i32 {
-    match item {
-        metadata::reader::Item::Type(ty) => ty.arches(),
-        metadata::reader::Item::Fn(ty) => ty.arches(),
-        metadata::reader::Item::Const(ty) => ty.arches(),
-    }
 }
 
 fn item_winrt(item: &metadata::reader::Item) -> bool {
@@ -313,10 +293,22 @@ fn write_params(
         .filter(|param| param.sequence() != 0)
         .zip(signature_types)
         .map(|(param, ty)| {
+            let in_attr = if !param.flags().contains(metadata::ParamAttributes::Out)
+                && matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+            {
+                quote! { #[input] }
+            } else {
+                quote! {}
+            };
             let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
                 && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
             {
-                quote! { #[out] }
+                quote! { #[output] }
+            } else {
+                quote! {}
+            };
+            let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
+                quote! { #[optional] }
             } else {
                 quote! {}
             };
@@ -324,7 +316,7 @@ fn write_params(
             let param_attrs =
                 write_custom_attributes(param.attributes(), namespace, method.index());
             let ty = write_type(namespace, &ty);
-            quote! { #(#param_attrs)* #out_attr #name: #ty }
+            quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty }
         })
         .collect()
 }

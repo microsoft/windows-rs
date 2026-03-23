@@ -7,9 +7,9 @@ pub struct Index<'a> {
 
 #[derive(Default)]
 pub struct Namespace<'a> {
-    pub types: BTreeMap<String, (&'a File, &'a Item)>,
-    pub functions: BTreeMap<String, (&'a File, &'a Item)>,
-    pub constants: BTreeMap<String, (&'a File, &'a Item)>,
+    pub types: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
+    pub functions: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
+    pub constants: BTreeMap<String, Vec<(&'a File, &'a Item)>>,
 }
 
 impl<'a> Index<'a> {
@@ -35,13 +35,25 @@ impl<'a> Index<'a> {
 
             match item {
                 Item::Fn(..) => {
-                    namespace.functions.insert(item.to_string(), (file, item));
+                    namespace
+                        .functions
+                        .entry(item.to_string())
+                        .or_default()
+                        .push((file, item));
                 }
                 Item::Const(..) => {
-                    namespace.constants.insert(item.to_string(), (file, item));
+                    namespace
+                        .constants
+                        .entry(item.to_string())
+                        .or_default()
+                        .push((file, item));
                 }
                 _ => {
-                    namespace.types.insert(item.to_string(), (file, item));
+                    namespace
+                        .types
+                        .entry(item.to_string())
+                        .or_default()
+                        .push((file, item));
                 }
             }
         }
@@ -51,13 +63,14 @@ impl<'a> Index<'a> {
         self.namespaces
             .get(namespace)
             .and_then(|namespace| namespace.types.get(name))
-            .is_some()
+            .is_some_and(|v| !v.is_empty())
     }
 
     pub fn get(&self, namespace: &str, name: &str) -> Option<&Item> {
         self.namespaces
             .get(namespace)
             .and_then(|namespace| namespace.types.get(name))
+            .and_then(|v| v.first()) // TODO: should probably return an iterator instead
             .map(|(_, item)| *item)
     }
 }

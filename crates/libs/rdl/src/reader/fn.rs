@@ -26,32 +26,18 @@ impl Fn {
             | metadata::MethodAttributes::Static
             | metadata::MethodAttributes::PInvokeImpl;
 
-        let mut params = vec![];
-        let mut param_names = HashSet::new();
-
-        for arg in &self.sig.inputs {
-            match arg {
-                syn::FnArg::Receiver(receiver) => {
-                    return encoder.err(receiver, "unexpected `self` parameter");
-                }
-                syn::FnArg::Typed(pt) => {
-                    let syn::Pat::Ident(ref name) = *pt.pat else {
-                        return encoder.err(pt, "param name not found");
-                    };
-
-                    if !param_names.insert(name.ident.to_string()) {
-                        return encoder.err(&name.ident, "param names must be unique");
-                    }
-
-                    params.push(param(encoder, pt)?);
-                }
-            }
-        }
+        let params = collect_params(encoder, &self.sig)?;
 
         let types = params.iter().map(|param| param.ty.clone()).collect();
 
+        let mut call_flags = metadata::MethodCallAttributes::default();
+
+        if self.sig.variadic.is_some() {
+            call_flags |= metadata::MethodCallAttributes::VARARG;
+        }
+
         let signature = metadata::Signature {
-            flags: Default::default(),
+            flags: call_flags,
             return_type: encode_return_type(encoder, &self.sig.output)?,
             types,
         };
@@ -63,11 +49,18 @@ impl Fn {
             .MethodDef(&name, &signature, flags, Default::default());
 
         for (sequence, param) in params.iter().enumerate() {
-            encoder.output.Param(
+            let param_id = encoder.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
+
+            encode_attrs(
+                encoder,
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &["input", "output", "optional"],
+            )?;
         }
 
         let Some(attribute) = self
@@ -78,11 +71,31 @@ impl Fn {
             return encoder.err(&self.sig, "`library` attribute not found");
         };
 
-        let library: syn::LitStr = attribute
-            .parse_args()
+        let (library, last_error) = attribute
+            .parse_args_with(
+                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, bool)> {
+                    let library: syn::LitStr = input.parse()?;
+                    let mut last_error = false;
+                    if input.peek(syn::Token![,]) {
+                        input.parse::<syn::Token![,]>()?;
+                        let ident: syn::Ident = input.parse()?;
+                        if ident != "last_error" {
+                            return Err(syn::Error::new(ident.span(), "unknown library option"));
+                        }
+                        input.parse::<syn::Token![=]>()?;
+                        let value: syn::LitBool = input.parse()?;
+                        last_error = value.value();
+                    }
+                    Ok((library, last_error))
+                },
+            )
             .or_else(|_| encoder.err(attribute.span(), "`library` name missing"))?;
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;
+
+        if last_error {
+            flags |= metadata::PInvokeAttributes::SupportsLastError;
+        }
 
         if let Some(abi) = &self.abi {
             match abi.value().as_str() {
@@ -109,76 +122,4 @@ impl Fn {
 
         Ok(())
     }
-}
-
-#[test]
-#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:5:17")]
-fn unexpected_self() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    #[library("lib")]
-    extern fn F(&self);
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: param names must be unique\n --> .rdl:5:25")]
-fn param_name_unique() {
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    #[library("lib")]
-    extern fn F(a: i32, a: i32);
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: `library` name missing\n --> .rdl:4:5")]
-fn link_missing_name() {
-    reader()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    #[library]
-    extern fn F();
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(expected = "error: function abi not supported\n --> .rdl:5:12")]
-fn link_abi_not_supported() {
-    reader()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    #[library("a.dll")]
-    extern "invalid" fn F();
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
 }

@@ -11,7 +11,7 @@
 windows_core::imp::define_interface!(
     IJsonValidator,
     IJsonValidator_Vtbl,
-    0xe09cb12b_b13c_5139_8c99_6140bf80deb9
+    0x2c3fc22a_51d2_5084_adce_6bb35b092734
 );
 impl windows_core::RuntimeType for IJsonValidator {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -68,7 +68,7 @@ pub struct IJsonValidator_Vtbl {
 windows_core::imp::define_interface!(
     IJsonValidatorFactory,
     IJsonValidatorFactory_Vtbl,
-    0x1cf4464e_ae9e_55d5_9539_0af4d8fc35aa
+    0x3652c46e_e818_5135_abc5_83291bdbaef0
 );
 impl windows_core::RuntimeType for IJsonValidatorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
