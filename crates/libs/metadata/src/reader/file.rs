@@ -4,7 +4,7 @@ pub struct File {
     bytes: Vec<u8>,
     strings: usize,
     blobs: usize,
-    tables: [Table; 17],
+    tables: [Table; 18],
 }
 
 impl File {
@@ -117,7 +117,6 @@ impl File {
 
         // These tables are unused by the reader, but needed temporarily to calculate sizes and offsets for subsequent tables.
         let unused_empty = Table::default();
-        let mut unused_assembly = Table::default();
         let mut unused_assembly_os = Table::default();
         let mut unused_assembly_processor = Table::default();
         let mut unused_assembly_ref_os = Table::default();
@@ -175,7 +174,7 @@ impl File {
                 0x1b => result.tables[TypeSpec::TABLE].len = len,
                 0x1c => result.tables[ImplMap::TABLE].len = len,
                 0x1d => unused_field_rva.len = len,
-                0x20 => unused_assembly.len = len,
+                0x20 => result.tables[Assembly::TABLE].len = len,
                 0x21 => unused_assembly_processor.len = len,
                 0x22 => unused_assembly_os.len = len,
                 0x23 => unused_assembly_ref.len = len,
@@ -208,7 +207,7 @@ impl File {
         let has_decl_security = coded_index_size(&[
             tables[TypeDef::TABLE].len,
             tables[MethodDef::TABLE].len,
-            unused_assembly.len,
+            tables[Assembly::TABLE].len,
         ]);
         let member_ref_parent = coded_index_size(&[
             tables[TypeDef::TABLE].len,
@@ -257,7 +256,7 @@ impl File {
             unused_standalone_sig.len,
             tables[ModuleRef::TABLE].len,
             tables[TypeSpec::TABLE].len,
-            unused_assembly.len,
+            tables[Assembly::TABLE].len,
             unused_assembly_ref.len,
             unused_file.len,
             unused_exported_type.len,
@@ -267,7 +266,7 @@ impl File {
             unused_method_spec.len,
         ]);
 
-        unused_assembly.set_columns(
+        result.tables[Assembly::TABLE].set_columns(
             4,
             8,
             4,
@@ -464,7 +463,7 @@ impl File {
         result.tables[TypeSpec::TABLE].set_data(&mut view);
         result.tables[ImplMap::TABLE].set_data(&mut view);
         unused_field_rva.set_data(&mut view);
-        unused_assembly.set_data(&mut view);
+        result.tables[Assembly::TABLE].set_data(&mut view);
         unused_assembly_processor.set_data(&mut view);
         unused_assembly_os.set_data(&mut view);
         unused_assembly_ref.set_data(&mut view);
@@ -624,6 +623,14 @@ impl File {
             }
         }
         first
+    }
+
+    pub fn assembly_name(&self) -> Option<&str> {
+        match self.tables[Assembly::TABLE].len {
+            0 => None,
+            1 => Some(self.str(0, Assembly::TABLE, 4)),
+            rest => panic!("{rest:?}"),
+        }
     }
 
     pub(crate) fn TypeDef(&self) -> std::ops::Range<usize> {
