@@ -9,6 +9,7 @@ windows_link::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log_Ex(logtype : u32, pbo
 windows_link::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> windows_sys::core::BOOL);
 windows_link::link!("tbs.dll" "system" fn Tbsi_Physical_Presence_Command(hcontext : *const core::ffi::c_void, pabinput : *const u8, cbinput : u32, paboutput : *mut u8, pcboutput : *mut u32) -> u32);
 windows_link::link!("tbs.dll" "system" fn Tbsi_Revoke_Attestation() -> u32);
+windows_link::link!("tbs.dll" "system" fn Tbsi_Tpm_Vendor_Maintenance_Mode(pcontextparams : *const TBS_CONTEXT_PARAMS, phcontext : *mut *mut core::ffi::c_void) -> u32);
 windows_link::link!("tbs.dll" "system" fn Tbsip_Cancel_Commands(hcontext : *const core::ffi::c_void) -> u32);
 windows_link::link!("tbs.dll" "system" fn Tbsip_Context_Close(hcontext : *const core::ffi::c_void) -> u32);
 windows_link::link!("tbs.dll" "system" fn Tbsip_Submit_Command(hcontext : *const core::ffi::c_void, locality : TBS_COMMAND_LOCALITY, priority : TBS_COMMAND_PRIORITY, pabcommand : *const u8, cbcommand : u32, pabresult : *mut u8, pcbresult : *mut u32) -> u32);

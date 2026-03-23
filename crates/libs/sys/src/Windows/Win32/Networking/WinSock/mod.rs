@@ -464,6 +464,35 @@ impl Default for ADDRINFOEX6 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct ADDRINFOEX7 {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: windows_sys::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut windows_sys::core::GUID,
+    pub ai_next: *mut ADDRINFOEX7,
+    pub ai_version: i32,
+    pub ai_fqdn: windows_sys::core::PWSTR,
+    pub ai_interfaceindex: i32,
+    pub ai_resolutionhandle: super::super::Foundation::HANDLE,
+    pub ai_ttl: u32,
+    pub ai_numservers: u32,
+    pub ai_servers: *mut ADDRINFO_DNS_SERVER,
+    pub ai_responseflags: u64,
+    pub ai_extraflags: u64,
+}
+impl Default for ADDRINFOEX7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -507,6 +536,7 @@ pub const ADDRINFOEX_VERSION_3: u32 = 3u32;
 pub const ADDRINFOEX_VERSION_4: u32 = 4u32;
 pub const ADDRINFOEX_VERSION_5: u32 = 5u32;
 pub const ADDRINFOEX_VERSION_6: u32 = 6u32;
+pub const ADDRINFOEX_VERSION_7: u32 = 7u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ADDRINFOW {
@@ -542,6 +572,7 @@ impl Default for ADDRINFO_DNS_SERVER {
 #[derive(Clone, Copy)]
 pub union ADDRINFO_DNS_SERVER_0 {
     pub ai_template: windows_sys::core::PWSTR,
+    pub ai_hostname: windows_sys::core::PWSTR,
 }
 impl Default for ADDRINFO_DNS_SERVER_0 {
     fn default() -> Self {
@@ -600,10 +631,12 @@ pub const AI_DNS_ONLY: u32 = 16u32;
 pub const AI_DNS_RESPONSE_HOSTFILE: u32 = 2u32;
 pub const AI_DNS_RESPONSE_SECURE: u32 = 1u32;
 pub const AI_DNS_SERVER_TYPE_DOH: u32 = 2u32;
+pub const AI_DNS_SERVER_TYPE_DOT: u32 = 3u32;
 pub const AI_DNS_SERVER_TYPE_UDP: u32 = 1u32;
 pub const AI_DNS_SERVER_UDP_FALLBACK: u32 = 1u32;
 pub const AI_EXCLUSIVE_CUSTOM_SERVERS: u32 = 2097152u32;
 pub const AI_EXTENDED: u32 = 2147483648u32;
+pub const AI_EXTRA_DNSSEC_REQUIRED: u64 = 1u64;
 pub const AI_FILESERVER: u32 = 262144u32;
 pub const AI_FORCE_CLEAR_TEXT: u32 = 32u32;
 pub const AI_FQDN: u32 = 131072u32;
@@ -2593,6 +2626,7 @@ pub const LUP_NEAREST: u32 = 8u32;
 pub const LUP_NOCONTAINERS: u32 = 4u32;
 pub const LUP_NON_AUTHORITATIVE: u32 = 16384u32;
 pub const LUP_REQUIRE_SECURE: u32 = 268435456u32;
+pub const LUP_RESERVED_UNUSED: u32 = 524288u32;
 pub const LUP_RESOLUTION_HANDLE: u32 = 2147483648u32;
 pub const LUP_RES_SERVICE: u32 = 32768u32;
 pub const LUP_RETURN_ADDR: u32 = 256u32;
@@ -2829,6 +2863,35 @@ pub struct ND_OPTION_MTU {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct ND_OPTION_PREF64 {
+    pub nd_opt_p64_type: u8,
+    pub nd_opt_p64_len: u8,
+    pub Anonymous: ND_OPTION_PREF64_0,
+    pub nd_opt_p64_prefix: [u8; 12],
+}
+impl Default for ND_OPTION_PREF64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union ND_OPTION_PREF64_0 {
+    pub nd_opt_p64_lifetime_plc: u16,
+    pub Anonymous: ND_OPTION_PREF64_0_0,
+}
+impl Default for ND_OPTION_PREF64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct ND_OPTION_PREF64_0_0 {
+    pub _bitfield: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct ND_OPTION_PREFIX_INFO {
     pub nd_opt_pi_type: u8,
     pub nd_opt_pi_len: u8,
@@ -2941,6 +3004,14 @@ pub const ND_OPT_PI_FLAG_ONLINK: u32 = 128u32;
 pub const ND_OPT_PI_FLAG_ROUTE: u32 = 1u32;
 pub const ND_OPT_PI_FLAG_ROUTER_ADDR: u32 = 32u32;
 pub const ND_OPT_PI_FLAG_SITE_PREFIX: u32 = 16u32;
+pub const ND_OPT_PREF64: ND_OPTION_TYPE = 38i32;
+pub const ND_OPT_PREF64_PREFIX_LENGTH_32: ND_OPT_PREF64_PREFIX_LENGTH_CODE = 5i32;
+pub const ND_OPT_PREF64_PREFIX_LENGTH_40: ND_OPT_PREF64_PREFIX_LENGTH_CODE = 4i32;
+pub const ND_OPT_PREF64_PREFIX_LENGTH_48: ND_OPT_PREF64_PREFIX_LENGTH_CODE = 3i32;
+pub const ND_OPT_PREF64_PREFIX_LENGTH_56: ND_OPT_PREF64_PREFIX_LENGTH_CODE = 2i32;
+pub const ND_OPT_PREF64_PREFIX_LENGTH_64: ND_OPT_PREF64_PREFIX_LENGTH_CODE = 1i32;
+pub const ND_OPT_PREF64_PREFIX_LENGTH_96: ND_OPT_PREF64_PREFIX_LENGTH_CODE = 0i32;
+pub type ND_OPT_PREF64_PREFIX_LENGTH_CODE = i32;
 pub const ND_OPT_PREFIX_INFORMATION: ND_OPTION_TYPE = 3i32;
 pub const ND_OPT_RDNSS: ND_OPTION_TYPE = 25i32;
 pub const ND_OPT_RDNSS_MIN_LEN: u32 = 24u32;
@@ -3181,6 +3252,7 @@ pub type NL_ROUTER_DISCOVERY_BEHAVIOR = i32;
 pub type NL_ROUTE_ORIGIN = i32;
 pub type NL_ROUTE_PROTOCOL = i32;
 pub type NL_SUFFIX_ORIGIN = i32;
+pub const NMR_REG_KEY_PATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NMR\\providers");
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NPI_MODULEID {
@@ -4557,6 +4629,8 @@ pub const SO_RANDOMIZE_PORT: i32 = 12293i32;
 pub const SO_RCVBUF: i32 = 4098i32;
 pub const SO_RCVLOWAT: i32 = 4100i32;
 pub const SO_RCVTIMEO: i32 = 4102i32;
+pub const SO_RECEIVED_HOPLIMIT: u32 = 12304u32;
+pub const SO_RECEIVED_PROCESSOR: u32 = 12305u32;
 pub const SO_REUSEADDR: i32 = 4i32;
 pub const SO_REUSE_MULTICASTPORT: i32 = 12296i32;
 pub const SO_REUSE_UNICASTPORT: i32 = 12295i32;
@@ -4691,6 +4765,42 @@ pub struct TCP_INFO_v1 {
     pub SndLimTimeSnd: u32,
     pub SndLimBytesSnd: u64,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct TCP_INFO_v2 {
+    pub State: TCPSTATE,
+    pub Mss: u32,
+    pub ConnectionTimeMs: u64,
+    pub TimestampsEnabled: bool,
+    pub RttUs: u32,
+    pub MinRttUs: u32,
+    pub BytesInFlight: u32,
+    pub Cwnd: u32,
+    pub SndWnd: u32,
+    pub RcvWnd: u32,
+    pub RcvBuf: u32,
+    pub BytesOut: u64,
+    pub BytesIn: u64,
+    pub BytesReordered: u32,
+    pub BytesRetrans: u32,
+    pub FastRetrans: u32,
+    pub DupAcksIn: u32,
+    pub TimeoutEpisodes: u32,
+    pub SynRetrans: u8,
+    pub SndLimTransRwin: u32,
+    pub SndLimTimeRwin: u32,
+    pub SndLimBytesRwin: u64,
+    pub SndLimTransCwnd: u32,
+    pub SndLimTimeCwnd: u32,
+    pub SndLimBytesCwnd: u64,
+    pub SndLimTransSnd: u32,
+    pub SndLimTimeSnd: u32,
+    pub SndLimBytesSnd: u64,
+    pub OutOfOrderPktsIn: u32,
+    pub EcnNegotiated: bool,
+    pub EceAcksIn: u32,
+    pub PtoEpisodes: u32,
+}
 pub const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0u32;
 pub const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0u32;
 pub const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u16 = 65534u16;
@@ -4791,6 +4901,7 @@ pub const TH_ACK: u32 = 16u32;
 pub const TH_CWR: u32 = 128u32;
 pub const TH_ECE: u32 = 64u32;
 pub const TH_FIN: u32 = 1u32;
+pub const TH_MAX_LEN: u32 = 60u32;
 pub const TH_NETDEV: u32 = 1u32;
 pub const TH_OPT_EOL: u32 = 0u32;
 pub const TH_OPT_FASTOPEN: u32 = 34u32;

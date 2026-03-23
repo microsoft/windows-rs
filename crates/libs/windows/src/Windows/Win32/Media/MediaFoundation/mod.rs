@@ -514,6 +514,18 @@ where
     unsafe { MFCreateD3D12SynchronizationObject(pdevice.param().abi(), riid, ppvsyncobject as _).ok() }
 }
 #[inline]
+pub unsafe fn MFCreateDXGICrossAdapterBuffer<P1, P2>(riid: *const windows_core::GUID, punkdevice: P1, pmediatype: P2, usubresource: u32) -> windows_core::Result<IMFMediaBuffer>
+where
+    P1: windows_core::Param<windows_core::IUnknown>,
+    P2: windows_core::Param<IMFMediaType>,
+{
+    windows_core::link!("mfplat.dll" "system" fn MFCreateDXGICrossAdapterBuffer(riid : *const windows_core::GUID, punkdevice : * mut core::ffi::c_void, pmediatype : * mut core::ffi::c_void, usubresource : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFCreateDXGICrossAdapterBuffer(riid, punkdevice.param().abi(), pmediatype.param().abi(), usubresource, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+}
+#[inline]
 pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut Option<IMFDXGIDeviceManager>) -> windows_core::Result<()> {
     windows_core::link!("mfplat.dll" "system" fn MFCreateDXGIDeviceManager(resettoken : *mut u32, ppdevicemanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateDXGIDeviceManager(resettoken as _, core::mem::transmute(ppdevicemanager)).ok() }
@@ -1498,6 +1510,17 @@ pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const w
     }
 }
 #[inline]
+pub unsafe fn MFGetDXGIDeviceManageMode<P0>(pdevicemanager: P0) -> windows_core::Result<MF_DXGI_DEVICE_MANAGER_MODE>
+where
+    P0: windows_core::Param<windows_core::IUnknown>,
+{
+    windows_core::link!("mfplat.dll" "system" fn MFGetDXGIDeviceManageMode(pdevicemanager : * mut core::ffi::c_void, mode : *mut MF_DXGI_DEVICE_MANAGER_MODE) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        MFGetDXGIDeviceManageMode(pdevicemanager.param().abi(), &mut result__).map(|| result__)
+    }
+}
+#[inline]
 pub unsafe fn MFGetLocalId(verifier: &[u8]) -> windows_core::Result<windows_core::PWSTR> {
     windows_core::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const u8, size : u32, id : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
@@ -2355,6 +2378,7 @@ pub const CLSID_EVRPlaybackPipelineOptimizer: windows_core::GUID = windows_core:
 pub const CLSID_EVRTearlessWindowPresenter9: windows_core::GUID = windows_core::GUID::from_u128(0xa0a7a57b_59b2_4919_a694_add0a526c373);
 pub const CLSID_EnhancedVideoRenderer: windows_core::GUID = windows_core::GUID::from_u128(0xfa10746c_9b63_4b6c_bc49_fc300ea5f256);
 pub const CLSID_FGControl: windows_core::GUID = windows_core::GUID::from_u128(0xe436ebb4_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_FaceDetectionMFT: windows_core::GUID = windows_core::GUID::from_u128(0xc1e565e2_f2de_4537_9612_2f30a160eb5c);
 pub const CLSID_FileSource: windows_core::GUID = windows_core::GUID::from_u128(0x701722e0_8ae3_11ce_a85c_00aa002feab5);
 pub const CLSID_FileWriter: windows_core::GUID = windows_core::GUID::from_u128(0x8596e5f0_0da5_11d0_bd21_00a0c911ce86);
 pub const CLSID_FilterGraph: windows_core::GUID = windows_core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
@@ -2362,6 +2386,7 @@ pub const CLSID_FilterGraphNoThread: windows_core::GUID = windows_core::GUID::fr
 pub const CLSID_FilterGraphPrivateThread: windows_core::GUID = windows_core::GUID::from_u128(0xa3ecbc41_581a_4476_b693_a63340462d8b);
 pub const CLSID_FilterMapper: windows_core::GUID = windows_core::GUID::from_u128(0xe436ebb2_524f_11ce_9f53_0020af0ba770);
 pub const CLSID_FilterMapper2: windows_core::GUID = windows_core::GUID::from_u128(0xcda42200_bd88_11d0_bd4e_00a0c911ce86);
+pub const CLSID_FrameServerClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x9a93092c_9cdc_49b8_8349_cbcf3145fe0a);
 pub const CLSID_FrameServerNetworkCameraSource: windows_core::GUID = windows_core::GUID::from_u128(0x7a213aa7_866f_414a_8c1a_275c7283a395);
 pub const CLSID_HttpSchemePlugin: windows_core::GUID = windows_core::GUID::from_u128(0x44cb442b_9da9_49df_b3fd_023777b16e50);
 pub const CLSID_ICodecAPIProxy: windows_core::GUID = windows_core::GUID::from_u128(0x7ff0997a_1999_4286_a73c_622b8814e7eb);
@@ -2712,6 +2737,8 @@ pub const CODECAPI_AVEncVideoContentType: windows_core::GUID = windows_core::GUI
 pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: windows_core::GUID = windows_core::GUID::from_u128(0x810167c4_0bc1_47ca_8fc2_57055a1474a5);
 pub const CODECAPI_AVEncVideoDirtyRectEnabled: windows_core::GUID = windows_core::GUID::from_u128(0x8acb8fdd_5e0c_4c66_8729_b8f629ab04fb);
 pub const CODECAPI_AVEncVideoDisplayDimension: windows_core::GUID = windows_core::GUID::from_u128(0xde053668_f4ec_47a9_86d0_836770f0c1d5);
+pub const CODECAPI_AVEncVideoEnableFramePsnrYuv: windows_core::GUID = windows_core::GUID::from_u128(0x2bbcdd1d_bc47_430e_b2e8_64801b47f5f0);
+pub const CODECAPI_AVEncVideoEnableSpatialAdaptiveQuantization: windows_core::GUID = windows_core::GUID::from_u128(0x659cb943_15ca_448d_b99a_875619db4de4);
 pub const CODECAPI_AVEncVideoEncodeDimension: windows_core::GUID = windows_core::GUID::from_u128(0x1074df28_7e0f_47a4_a453_cdd73870f5ce);
 pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: windows_core::GUID = windows_core::GUID::from_u128(0xaa70b610_e03f_450c_ad07_07314e639ce7);
 pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: windows_core::GUID = windows_core::GUID::from_u128(0x6bc098fe_a71a_4454_852e_4d2ddeb2cd24);
@@ -2725,6 +2752,7 @@ pub const CODECAPI_AVEncVideoHeaderFrames: windows_core::GUID = windows_core::GU
 pub const CODECAPI_AVEncVideoHeaderHours: windows_core::GUID = windows_core::GUID::from_u128(0x2acc7702_e2da_4158_bf9b_88880129d740);
 pub const CODECAPI_AVEncVideoHeaderMinutes: windows_core::GUID = windows_core::GUID::from_u128(0xdc1a99ce_0307_408b_880b_b8348ee8ca7f);
 pub const CODECAPI_AVEncVideoHeaderSeconds: windows_core::GUID = windows_core::GUID::from_u128(0x4a2e1a05_a780_4f58_8120_9a449d69656b);
+pub const CODECAPI_AVEncVideoInputAbsoluteQPBlockSettings: windows_core::GUID = windows_core::GUID::from_u128(0xef95a145_4f91_4dea_8173_acff11434210);
 pub const CODECAPI_AVEncVideoInputChromaResolution: windows_core::GUID = windows_core::GUID::from_u128(0xbb0cec33_16f1_47b0_8a88_37815bee1739);
 pub const CODECAPI_AVEncVideoInputChromaSubsampling: windows_core::GUID = windows_core::GUID::from_u128(0xa8e73a39_4435_4ec3_a6ea_98300f4b36f7);
 pub const CODECAPI_AVEncVideoInputColorLighting: windows_core::GUID = windows_core::GUID::from_u128(0x46a99549_0015_4a45_9c30_1d5cfa258316);
@@ -2732,6 +2760,7 @@ pub const CODECAPI_AVEncVideoInputColorNominalRange: windows_core::GUID = window
 pub const CODECAPI_AVEncVideoInputColorPrimaries: windows_core::GUID = windows_core::GUID::from_u128(0xc24d783f_7ce6_4278_90ab_28a4f1e5f86c);
 pub const CODECAPI_AVEncVideoInputColorTransferFunction: windows_core::GUID = windows_core::GUID::from_u128(0x8c056111_a9c3_4b08_a0a0_ce13f8a27c75);
 pub const CODECAPI_AVEncVideoInputColorTransferMatrix: windows_core::GUID = windows_core::GUID::from_u128(0x52ed68b9_72d5_4089_958d_f5405d55081c);
+pub const CODECAPI_AVEncVideoInputDeltaQPBlockSettings: windows_core::GUID = windows_core::GUID::from_u128(0x5a4787dc_0648_47aa_b945_552bfad2a6d8);
 pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: windows_core::GUID = windows_core::GUID::from_u128(0xa3308307_0d96_4ba4_b1f0_b91a5e49df10);
 pub const CODECAPI_AVEncVideoIntraLayerPrediction: windows_core::GUID = windows_core::GUID::from_u128(0xd3af46b8_bf47_44bb_a283_69f0b0228ff9);
 pub const CODECAPI_AVEncVideoInverseTelecineEnable: windows_core::GUID = windows_core::GUID::from_u128(0x2ea9098b_e76d_4ccd_a030_d3b889c1b64c);
@@ -2749,6 +2778,7 @@ pub const CODECAPI_AVEncVideoMinQP: windows_core::GUID = windows_core::GUID::fro
 pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: windows_core::GUID = windows_core::GUID::from_u128(0x61e4bbe2_4ee0_40e7_80ab_51ddeebe6291);
 pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: windows_core::GUID = windows_core::GUID::from_u128(0xa97e1240_1427_4c16_a7f7_3dcfd8ba4cc5);
 pub const CODECAPI_AVEncVideoNumGOPsPerIDR: windows_core::GUID = windows_core::GUID::from_u128(0x83bc5bdb_5b89_4521_8f66_33151c373176);
+pub const CODECAPI_AVEncVideoOutputBitsUsedMapBlockSize: windows_core::GUID = windows_core::GUID::from_u128(0x6c2cd11a_ca3b_44bd_9a9e_93b03634c36e);
 pub const CODECAPI_AVEncVideoOutputChromaResolution: windows_core::GUID = windows_core::GUID::from_u128(0x6097b4c9_7c1d_4e64_bfcc_9e9765318ae7);
 pub const CODECAPI_AVEncVideoOutputChromaSubsampling: windows_core::GUID = windows_core::GUID::from_u128(0xfa561c6c_7d17_44f0_83c9_32ed12e96343);
 pub const CODECAPI_AVEncVideoOutputColorLighting: windows_core::GUID = windows_core::GUID::from_u128(0x0e5aaac6_ace6_4c5c_998e_1a8c9c6c0f89);
@@ -2758,10 +2788,12 @@ pub const CODECAPI_AVEncVideoOutputColorTransferFunction: windows_core::GUID = w
 pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: windows_core::GUID = windows_core::GUID::from_u128(0xa9b90444_af40_4310_8fbe_ed6d933f892b);
 pub const CODECAPI_AVEncVideoOutputFrameRate: windows_core::GUID = windows_core::GUID::from_u128(0xea85e7c3_9567_4d99_87c4_02c1c278ca7c);
 pub const CODECAPI_AVEncVideoOutputFrameRateConversion: windows_core::GUID = windows_core::GUID::from_u128(0x8c068bf4_369a_4ba3_82fd_b2518fb3396e);
+pub const CODECAPI_AVEncVideoOutputQPMapBlockSize: windows_core::GUID = windows_core::GUID::from_u128(0x97038743_4ae3_44c3_a0f2_5bd58a4634ef);
 pub const CODECAPI_AVEncVideoOutputScanType: windows_core::GUID = windows_core::GUID::from_u128(0x460b5576_842e_49ab_a62d_b36f7312c9db);
 pub const CODECAPI_AVEncVideoPixelAspectRatio: windows_core::GUID = windows_core::GUID::from_u128(0x3cdc718f_b3e9_4eb6_a57f_cf1f1b321b87);
 pub const CODECAPI_AVEncVideoROIEnabled: windows_core::GUID = windows_core::GUID::from_u128(0xd74f7f18_44dd_4b85_aba3_05d9f42a8280);
 pub const CODECAPI_AVEncVideoRateControlParams: windows_core::GUID = windows_core::GUID::from_u128(0x87d43767_7645_44ec_b438_d3322fbca29f);
+pub const CODECAPI_AVEncVideoSatdMapBlockSize: windows_core::GUID = windows_core::GUID::from_u128(0x596f1106_8ce0_4302_af79_c4ec67aadc6d);
 pub const CODECAPI_AVEncVideoSelectLayer: windows_core::GUID = windows_core::GUID::from_u128(0xeb1084f5_6aaa_4914_bb2f_6147227f12e7);
 pub const CODECAPI_AVEncVideoSourceFilmContent: windows_core::GUID = windows_core::GUID::from_u128(0x1791c64b_ccfc_4827_a0ed_2557793b2b1c);
 pub const CODECAPI_AVEncVideoSourceIsBW: windows_core::GUID = windows_core::GUID::from_u128(0x42ffc49b_1812_4fdc_8d24_7054c521e6eb);
@@ -2780,6 +2812,7 @@ pub const CODECAPI_AVRealtimeControl: windows_core::GUID = windows_core::GUID::f
 pub const CODECAPI_AVScenarioInfo: windows_core::GUID = windows_core::GUID::from_u128(0xb28a6e64_3ff9_446a_8a4b_0d7a53413236);
 pub const CODECAPI_CHANGELISTS: windows_core::GUID = windows_core::GUID::from_u128(0x62b12acf_f6b0_47d9_9456_96f22c4e0b9d);
 pub const CODECAPI_CURRENTCHANGELIST: windows_core::GUID = windows_core::GUID::from_u128(0x1cb14e83_7d72_4657_83fd_47a2c5b9d13d);
+pub const CODECAPI_FeatureMapFlagsUsed: windows_core::GUID = windows_core::GUID::from_u128(0x8bfda3b8_7387_4c07_924f_fe63006cf22b);
 pub const CODECAPI_GUID_AVDecAudioInputAAC: windows_core::GUID = windows_core::GUID::from_u128(0x97df7828_b94a_47e2_a4bc_51194db22a4d);
 pub const CODECAPI_GUID_AVDecAudioInputDTS: windows_core::GUID = windows_core::GUID::from_u128(0x600bc0ca_6a1f_4e91_b241_1bbeb1cb19e0);
 pub const CODECAPI_GUID_AVDecAudioInputDolby: windows_core::GUID = windows_core::GUID::from_u128(0x8e4228a0_f000_4e0b_8f54_ab8d24ad61a2);
@@ -2831,6 +2864,12 @@ pub const CODECAPI_SUPPORTSEVENTS: windows_core::GUID = windows_core::GUID::from
 pub const CODECAPI_SetHDCPManagerContext: windows_core::GUID = windows_core::GUID::from_u128(0x6d2d1fc8_3dc9_47eb_a1a2_471c80cd60d0);
 pub const CODECAPI_VIDEO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0x7112e8e1_3d03_47ef_8e60_03f1cf537301);
 pub const CODECAPI_VideoEncoderDisplayContentType: windows_core::GUID = windows_core::GUID::from_u128(0x79b90b27_f4b1_42dc_9dd7_cdaf8135c400);
+pub const CODEC_API_QP_MAP_INT16: eAVEncVideoQPMapElementDataType = eAVEncVideoQPMapElementDataType(1i32);
+pub const CODEC_API_QP_MAP_INT32: eAVEncVideoQPMapElementDataType = eAVEncVideoQPMapElementDataType(2i32);
+pub const CODEC_API_QP_MAP_INT8: eAVEncVideoQPMapElementDataType = eAVEncVideoQPMapElementDataType(0i32);
+pub const CODEC_API_QP_MAP_UINT16: eAVEncVideoQPMapElementDataType = eAVEncVideoQPMapElementDataType(-2147483647i32);
+pub const CODEC_API_QP_MAP_UINT32: eAVEncVideoQPMapElementDataType = eAVEncVideoQPMapElementDataType(-2147483646i32);
+pub const CODEC_API_QP_MAP_UINT8: eAVEncVideoQPMapElementDataType = eAVEncVideoQPMapElementDataType(-2147483648i32);
 pub const COPP_ProtectionType_ACP: i32 = 2i32;
 pub const COPP_ProtectionType_CGMSA: i32 = 4i32;
 pub const COPP_ProtectionType_HDCP: i32 = 1i32;
@@ -3033,6 +3072,23 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT 
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_DIRTY_REGIONS {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
+    pub MapSourcePreferenceRanking: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_DIRTY_REGIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
     pub NodeIndex: u32,
@@ -3078,6 +3134,19 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE1 {
+    pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC1,
+    pub IsSupported: windows_core::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
@@ -3104,6 +3173,28 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     pub IsSupported: windows_core::BOOL,
 }
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_MOTION_SEARCH {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub BidirectionalRefFrameEnabled: windows_core::BOOL,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
+    pub MaxMotionHints: u32,
+    pub MinDeviation: u32,
+    pub MaxDeviation: u32,
+    pub MapSourcePreferenceRanking: u32,
+    pub MotionUnitPrecisionSupport: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_MOTION_SEARCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3149,6 +3240,48 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_QPMAP_INPUT {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub IsSupported: windows_core::BOOL,
+    pub MapSourcePreferenceRanking: u32,
+    pub BlockSize: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_QPMAP_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub InputResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+    pub QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
+    pub DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
+    pub MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
+    pub Pow2DownscaleFactor: u32,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub NodeIndex: u32,
@@ -3158,11 +3291,65 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS {
+    pub DirtyRegionsSupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
+    pub MapSourcePreferenceRanking: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS {
+    pub SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     pub MaxSubregionsNumber: u32,
     pub MaxIntraRefreshFrameDuration: u32,
     pub SubregionBlockPixelsSize: u32,
     pub QPMapRegionPixelsSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1 {
+    pub MaxSubregionsNumber: u32,
+    pub MaxIntraRefreshFrameDuration: u32,
+    pub SubregionBlockPixelsSize: u32,
+    pub QPMapRegionPixelsSize: u32,
+    pub QPMap: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP,
+    pub DirtyRegions: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS,
+    pub MotionSearch: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH,
+    pub FrameAnalysis: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH {
+    pub MaxMotionHints: u32,
+    pub MinDeviation: u32,
+    pub MaxDeviation: u32,
+    pub MapSourcePreferenceRanking: u32,
+    pub MotionUnitPrecisionSupportFlags: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP {
+    pub MapSourcePreferenceRanking: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MapType: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE,
+    pub IsSupported: windows_core::BOOL,
+    pub MaxResolvedBufferAllocationSize: u64,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3180,6 +3367,34 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1 {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub IsSupported: windows_core::BOOL,
+    pub CompressedBitstreamBufferAccessAlignment: u32,
+    pub EncoderMetadataBufferAccessAlignment: u32,
+    pub MaxEncoderOutputMetadataBufferSize: u32,
+    pub OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub EncoderOutputMetadataQPMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub EncoderOutputMetadataSATDMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub EncoderOutputMetadataBitAllocationMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub EncoderOutputMetadataFramePSNRComponentsNumber: u32,
+    pub EncoderOutputMetadataSubregionsPSNRComponentsNumber: u32,
+    pub EncoderOutputMetadataSubregionsPSNRResolvedMetadataBufferSize: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3236,6 +3451,39 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT2 {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+    pub RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+    pub IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub MaxReferenceFramesInDPB: u32,
+    pub ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+    pub SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1,
+    pub SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+    pub MaxQualityVsSpeed: u32,
+    pub QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
+    pub DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
+    pub MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
+    pub FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3454,18 +3702,26 @@ pub const D3D12_FEATURE_VIDEO_DECODE_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATUR
 pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(33i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(42i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(44i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_DIRTY_REGIONS: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(51i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(46i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(40i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_HEAP_SIZE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(41i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_HEAP_SIZE1: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(56i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_INPUT_FORMAT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(37i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_INTRA_REFRESH_MODE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(39i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_MOTION_SEARCH: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(52i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(36i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(35i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_PROFILE_LEVEL: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(34i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_QPMAP_INPUT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(50i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(57i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_MODE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(38i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(49i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_RESOURCE_REQUIREMENTS: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(45i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(48i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(43i32);
 pub const D3D12_FEATURE_VIDEO_ENCODER_SUPPORT1: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(47i32);
+pub const D3D12_FEATURE_VIDEO_ENCODER_SUPPORT2: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(55i32);
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMANDS: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(23i32);
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_COUNT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(22i32);
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_PARAMETERS: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(25i32);
@@ -5175,6 +5431,47 @@ pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     pub FrameStartOffset: u64,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
+    pub NotificationMode: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub union D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0 {
+    pub FrameOutputBuffer: core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM>,
+    pub SubregionOutputBuffers: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE(pub i32);
+pub const D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE_FULL_FRAME: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE = D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE(0i32);
+pub const D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE_SUBREGIONS: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE = D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE(1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_DESC {
@@ -5192,6 +5489,108 @@ impl Default for D3D12_VIDEO_ENCODER_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO {
+    pub FullFrameIdentical: windows_core::BOOL,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+    pub NumDirtyRects: u32,
+    pub pDirtyRects: *mut super::super::Foundation::RECT,
+    pub SourceDPBFrameReference: u32,
+}
+impl Default for D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub union D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0 {
+    pub pOpaqueLayoutBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub pCPUBuffer: *mut D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE(pub i32);
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_DIRTY: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE = D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE(0i32);
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_SKIP: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE = D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS(pub i32);
+impl D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_DIRTY_REGIONS: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS(2i32);
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_DIRTY_REGIONS_REQUIRE_FULL_ROW: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS(4i32);
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS(0i32);
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_REPEAT_FRAME: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS(1i32);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
@@ -5214,12 +5613,54 @@ impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
+    pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
+    pub PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1,
+    pub pInputFrame: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub InputFrameSubresource: u32,
+    pub CurrentFrameBitstreamMetadataSize: u32,
+    pub OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
     pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
     pub EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1 {
+    pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1,
+    pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+    pub EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub FrameAnalysisReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5308,6 +5749,114 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_FLAGS {
 }
 pub const D3D12_VIDEO_ENCODER_FLAG_NONE: D3D12_VIDEO_ENCODER_FLAGS = D3D12_VIDEO_ENCODER_FLAGS(0i32);
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS {
+    pub pDownscaledFrame: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub Subresource: u64,
+    pub DownscaledReferences: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub Pow2DownscaleFactor: u32,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION(pub i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_FULL_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION = D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION(0i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_HALF_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION = D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION(1i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION = D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS(pub i32);
+impl D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_FULL_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS(1i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_HALF_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS(2i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS(0i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS(4i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG {
+    pub MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+    pub SearchDeviationLimit: u32,
+}
+pub const D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_FULL_SEARCH: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE(0i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_START_HINT: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE(1i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_START_HINT_LIMITED_DISTANCE: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE(2i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub union D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0 {
+    pub pOpaqueLayoutBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub pCPUBuffer: *mut D3D12_VIDEO_ENCODER_MOVEREGION_INFO,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub DataSize: u32,
@@ -5331,6 +5880,7 @@ impl Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(pub i32);
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_AUTO: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(7i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_BYTES_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(1i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_CONFIGURABLE_GRID_PARTITION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(6i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_FULL_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(0i32);
@@ -5375,6 +5925,23 @@ impl Default for D3D12_VIDEO_ENCODER_HEAP_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_HEAP_DESC1 {
+    pub NodeMask: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
+    pub EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub Pow2DownscaleFactor: u32,
+}
+impl Default for D3D12_VIDEO_ENCODER_HEAP_DESC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_FLAGS(pub i32);
@@ -5411,7 +5978,112 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
         Self(self.0.not())
     }
 }
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_DIRTY_REGIONS: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(4i32);
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_RATE_CONTROL_FRAME_ANALYSIS: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(8i32);
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_SUBREGION_NOTIFICATION_ARRAY_OF_BUFFERS: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(1i32);
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_SUBREGION_NOTIFICATION_SINGLE_BUFFER: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(2i32);
 pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(0i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA {
+    pub MapType: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub union D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0 {
+    pub Quantization: core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_QUANTIZATION_MATRIX>,
+    pub DirtyRegions: core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_DIRTY_REGIONS>,
+    pub MotionVectors: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_DIRTY_REGIONS {
+    pub FullFrameIdentical: windows_core::BOOL,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+    pub pDirtyRegionsMap: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub SourceDPBFrameReference: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
+    pub MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
+    pub NumHintsPerPixel: u32,
+    pub ppMotionVectorMaps: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pMotionVectorMapsSubresources: *mut u32,
+    pub ppMotionVectorMapsMetadata: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pMotionVectorMapsMetadataSubresources: *mut u32,
+    pub MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
+    pub PictureControlConfiguration: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_QUANTIZATION_MATRIX {
+    pub pQuantizationMap: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO {
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub InputResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE(pub i32);
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE_CPU_BUFFER: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE = D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE(0i32);
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE_GPU_TEXTURE: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE = D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE(pub i32);
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_DIRTY_REGIONS: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE(1i32);
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_MOTION_VECTORS: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE(2i32);
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_QUANTIZATION_MATRIX: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE(0i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
@@ -5501,6 +6173,122 @@ pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM: D3D12_VI
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(3i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+    pub BidirectionalRefFrameEnabled: windows_core::BOOL,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS(pub i32);
+impl D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_GPU_TEXTURE_MULTIPLE_REFERENCES: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS(4i32);
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_MULTIPLE_HINTS: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS(2i32);
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS(0i32);
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS(1i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
+    pub NumMoveRegions: u32,
+    pub pMoveRegions: *mut D3D12_VIDEO_ENCODER_MOVE_RECT,
+    pub MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
+    pub SourceDPBFrameReference: u32,
+    pub MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
+    pub Flags: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS,
+}
+impl Default for D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS(pub i32);
+pub const D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_MULTIPLE_HINTS: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS = D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS(1i32);
+pub const D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_NONE: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS = D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS(0i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOVE_RECT {
+    pub SourcePoint: super::super::Foundation::POINT,
+    pub DestRect: super::super::Foundation::RECT,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS(pub i32);
+impl D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_FRAME_PSNR: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS(8i32);
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_NONE: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS(0i32);
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_QP_MAP: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS(1i32);
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_RC_BIT_ALLOCATION_MAP: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS(4i32);
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SATD_MAP: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS(2i32);
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SUBREGIONS_PSNR: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS(16i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     pub EncodeErrorFlags: u64,
     pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
@@ -5537,6 +6325,29 @@ pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     pub pAV1PicData: *mut D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA,
 }
 impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1 {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1_0 {
+    pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
+    pub pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2,
+    pub pAV1PicData: *mut D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5686,6 +6497,41 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2 {
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+    pub slice_pic_parameter_set_id: u32,
+    pub PictureOrderCountNumber: u32,
+    pub TemporalLayerIndex: u32,
+    pub List0ReferenceFramesCount: u32,
+    pub pList0ReferenceFrames: *mut u32,
+    pub List1ReferenceFramesCount: u32,
+    pub pList1ReferenceFrames: *mut u32,
+    pub ReferenceFramesReconPictureDescriptorsCount: u32,
+    pub pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+    pub List0RefPicModificationsCount: u32,
+    pub pList0RefPicModifications: *mut u32,
+    pub List1RefPicModificationsCount: u32,
+    pub pList1RefPicModifications: *mut u32,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i8,
+    pub diff_cu_chroma_qp_offset_depth: u8,
+    pub log2_sao_offset_scale_luma: u8,
+    pub log2_sao_offset_scale_chroma: u8,
+    pub log2_max_transform_skip_block_size_minus2: u8,
+    pub chroma_qp_offset_list_len_minus1: u8,
+    pub cb_qp_offset_list: [i8; 6],
+    pub cr_qp_offset_list: [i8; 6],
+    pub num_ref_idx_l0_active_minus1: u32,
+    pub num_ref_idx_l1_active_minus1: u32,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(pub i32);
@@ -5742,6 +6588,30 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
+    pub IntraRefreshFrameIndex: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
+    pub PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
+    pub ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+    pub MotionVectors: D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS,
+    pub DirtyRects: D3D12_VIDEO_ENCODER_DIRTY_REGIONS,
+    pub QuantizationTextureMap: D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP,
+    pub FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(pub i32);
@@ -5778,6 +6648,9 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
         Self(self.0.not())
     }
 }
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_DIRTY_REGIONS_INPUT: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(4i32);
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_MOTION_VECTORS_INPUT: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(8i32);
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_QUANTIZATION_MATRIX_INPUT: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(2i32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(0i32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_USED_AS_REFERENCE_PICTURE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(1i32);
 #[repr(C)]
@@ -5879,6 +6752,18 @@ pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12_422: D3D12_VIDEO_ENCODER_PROFI
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = D3D12_VIDEO_ENCODER_PROFILE_HEVC(7i32);
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN16_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = D3D12_VIDEO_ENCODER_PROFILE_HEVC(8i32);
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = D3D12_VIDEO_ENCODER_PROFILE_HEVC(5i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP {
+    pub pOpaqueQuantizationMap: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[derive(Clone, Copy)]
@@ -6009,8 +6894,53 @@ pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_INITIAL_QP: D3D12_VIDEO_E
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_MAX_FRAME_SIZE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(16i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QP_RANGE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(4i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QUALITY_VS_SPEED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(128i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_SPATIAL_ADAPTIVE_QP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(256i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_VBV_SIZES: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(32i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(pub i32);
+impl D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_BIDIR_INTER_FRAME_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(4i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_DYNAMIC_1ST_PASS_SKIP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(16i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_DYNAMIC_DOWNSCALE_FACTOR_CHANGE_KEY_FRAME: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(32i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_EXTERNAL_DPB_DOWNSCALING: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(8i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_INTRACODED_FRAME_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(1i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(0i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(7i32);
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_UNIDIR_INTER_FRAME_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(pub i32);
@@ -6097,6 +7027,30 @@ pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub InputData: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Clone for D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Default for D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS {
+    pub pOpaqueLayoutBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
     pub EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
@@ -6117,10 +7071,51 @@ impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
+    pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncoderInputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub EncodedPictureEffectiveResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub HWLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1 {
+    pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub pOutputQPMap: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub pOutputSATDMap: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub pOutputBitAllocationMap: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    pub ResolvedFramePSNRData: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub ResolvedSubregionsPSNRData: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_PSNR_RESOLVED_LAYOUT {
+    pub PSNRY: f32,
+    pub PSNRU: f32,
+    pub PSNRV: f32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6221,6 +7216,30 @@ pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     pub PPicturePeriod: u32,
     pub log2_max_pic_order_cnt_lsb_minus4: u8,
 }
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM {
+    pub BufferMode: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE,
+    pub ExpectedSubregionCount: u32,
+    pub pSubregionBitstreamsBaseOffsets: *mut u64,
+    pub ppSubregionBitstreams: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ppSubregionSizes: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ppSubregionOffsets: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ppSubregionFences: *mut Option<super::super::Graphics::Direct3D12::ID3D12Fence>,
+    pub pSubregionFenceValues: *mut u64,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Default for D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE(pub i32);
+pub const D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_ARRAY_OF_BUFFERS: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE = D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE(0i32);
+pub const D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_SINGLE_BUFFER: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE = D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(pub i32);
@@ -6257,9 +7276,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
         Self(self.0.not())
     }
 }
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_FRAME_PSNR_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(2097152i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_GENERAL_SUPPORT_OK: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(1i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_MOTION_ESTIMATION_PRECISION_MODE_LIMIT_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(4096i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(0i32);
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_QP_MAP_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(65536i32);
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_RC_BIT_ALLOCATION_MAP_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(262144i32);
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_SATD_MAP_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(131072i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_ADJUSTABLE_QP_RANGE_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(256i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_DELTA_QP_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(64i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_EXTENSION1_SUPPORT: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(8192i32);
@@ -6268,12 +7291,16 @@ pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_INITIAL_QP_AVAILABLE: D3
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_MAX_FRAME_SIZE_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(1024i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_QUALITY_VS_SPEED_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(16384i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(2i32);
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_SPATIAL_ADAPTIVE_QP_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(8388608i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_VBV_SIZE_CONFIG_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(8i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_READABLE_RECONSTRUCTED_PICTURE_LAYOUT_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(32768i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RECONSTRUCTED_FRAMES_REQUIRE_TEXTURE_ARRAYS: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(32i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RESOLUTION_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(4i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SEQUENCE_GOP_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(2048i32);
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGIONS_PSNR_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(4194304i32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_LAYOUT_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(128i32);
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_NOTIFICATION_ARRAY_OF_BUFFERS_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(524288i32);
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_NOTIFICATION_SINGLE_BUFFER_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(1048576i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_TIER_HEVC(pub i32);
@@ -6317,10 +7344,14 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
 }
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(16i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(1i32);
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_DIRTY_REGIONS_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(16384i32);
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_FRAME_ANALYSIS_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(65536i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_GOP_STRUCTURE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(2048i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INPUT_FORMAT_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(8i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INTRA_REFRESH_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(128i32);
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_MOTION_SEARCH_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(32768i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_NONE: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(0i32);
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_QPMAP_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(8192i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(64i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(32i32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RESOLUTION_NOT_SUPPORTED_IN_LIST: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(512i32);
@@ -7094,6 +8125,7 @@ impl core::ops::Not for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
         Self(self.0.not())
     }
 }
+pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_DPB_ENCODER_RESOURCES: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(4i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(2i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(0i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(1i32);
@@ -8707,6 +9739,17 @@ pub const DXVAp_DeinterlaceContainerDevice: windows_core::GUID = windows_core::G
 pub const DXVAp_ModeMPEG2_A: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be0a_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVAp_ModeMPEG2_C: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be0c_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVAp_NoEncrypt: windows_core::GUID = windows_core::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DetectedFaceBound {
+    pub sizeInBytes: u32,
+    pub normalizedXPosition: f32,
+    pub normalizedYPosition: f32,
+    pub normalizedWidth: f32,
+    pub normalizedHeight: f32,
+    pub confidenceValue: i32,
+    pub flags: u64,
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceStreamState(pub i32);
@@ -10248,6 +11291,52 @@ impl ID3D12VideoDevice3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDevice3 {}
+windows_core::imp::define_interface!(ID3D12VideoDevice4, ID3D12VideoDevice4_Vtbl, 0xe59ad09e_f1ae_42bb_8983_9f6e5586c4eb);
+impl core::ops::Deref for ID3D12VideoDevice4 {
+    type Target = ID3D12VideoDevice3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDevice4, windows_core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1, ID3D12VideoDevice2, ID3D12VideoDevice3);
+impl ID3D12VideoDevice4 {
+    pub unsafe fn CreateVideoEncoderHeap1<T>(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoEncoderHeap1)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDevice4_Vtbl {
+    pub base__: ID3D12VideoDevice3_Vtbl,
+    pub CreateVideoEncoderHeap1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_HEAP_DESC1, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+unsafe impl Send for ID3D12VideoDevice4 {}
+unsafe impl Sync for ID3D12VideoDevice4 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12VideoDevice4_Impl: ID3D12VideoDevice3_Impl {
+    fn CreateVideoEncoderHeap1(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1, riid: *const windows_core::GUID, ppvideoencoderheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12VideoDevice4_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDevice4_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateVideoEncoderHeap1<Identity: ID3D12VideoDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1, riid: *const windows_core::GUID, ppvideoencoderheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice4_Impl::CreateVideoEncoderHeap1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideoencoderheap)).into()
+            }
+        }
+        Self { base__: ID3D12VideoDevice3_Vtbl::new::<Identity, OFFSET>(), CreateVideoEncoderHeap1: CreateVideoEncoderHeap1::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice4 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice1 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice2 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice3 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::RuntimeName for ID3D12VideoDevice4 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList_Vtbl, 0x8455293a_0cbd_4831_9b39_fbdbab724723);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -10701,6 +11790,98 @@ impl ID3D12VideoEncodeCommandList3_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList3 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList4, ID3D12VideoEncodeCommandList4_Vtbl, 0x69aeb5b7_55f2_4012_8b73_3a88d65a204c);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl core::ops::Deref for ID3D12VideoEncodeCommandList4 {
+    type Target = ID3D12VideoEncodeCommandList3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList4, windows_core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList2, ID3D12VideoEncodeCommandList3);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ID3D12VideoEncodeCommandList4 {
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn EncodeFrame1<P0, P1>(&self, pencoder: P0, pheap: P1, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1)
+    where
+        P0: windows_core::Param<ID3D12VideoEncoder>,
+        P1: windows_core::Param<ID3D12VideoEncoderHeap1>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+    }
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResolveEncoderOutputMetadata1(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
+        unsafe { (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+    }
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResolveInputParamLayout(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
+        unsafe { (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncodeCommandList4_Vtbl {
+    pub base__: ID3D12VideoEncodeCommandList3_Vtbl,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub EncodeFrame1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
+    EncodeFrame1: usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub ResolveEncoderOutputMetadata1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
+    ResolveEncoderOutputMetadata1: usize,
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub ResolveInputParamLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS),
+    #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
+    ResolveInputParamLayout: usize,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncodeCommandList4 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncodeCommandList4 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12VideoEncodeCommandList4_Impl: ID3D12VideoEncodeCommandList3_Impl {
+    fn EncodeFrame1(&self, pencoder: windows_core::Ref<ID3D12VideoEncoder>, pheap: windows_core::Ref<ID3D12VideoEncoderHeap1>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1);
+    fn ResolveEncoderOutputMetadata1(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1);
+    fn ResolveInputParamLayout(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS);
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12VideoEncodeCommandList4_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn EncodeFrame1<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pencoder: *mut core::ffi::c_void, pheap: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList4_Impl::EncodeFrame1(this, core::mem::transmute_copy(&pencoder), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+            }
+        }
+        unsafe extern "system" fn ResolveEncoderOutputMetadata1<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList4_Impl::ResolveEncoderOutputMetadata1(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+            }
+        }
+        unsafe extern "system" fn ResolveInputParamLayout<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList4_Impl::ResolveInputParamLayout(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+            }
+        }
+        Self {
+            base__: ID3D12VideoEncodeCommandList3_Vtbl::new::<Identity, OFFSET>(),
+            EncodeFrame1: EncodeFrame1::<Identity, OFFSET>,
+            ResolveEncoderOutputMetadata1: ResolveEncoderOutputMetadata1::<Identity, OFFSET>,
+            ResolveInputParamLayout: ResolveInputParamLayout::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList4 as windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList3 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList4 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncoder, ID3D12VideoEncoder_Vtbl, 0x2e0d212d_8df9_44a6_a770_bb289b182737);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl core::ops::Deref for ID3D12VideoEncoder {
@@ -10952,6 +12133,55 @@ impl ID3D12VideoEncoderHeap_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+windows_core::imp::define_interface!(ID3D12VideoEncoderHeap1, ID3D12VideoEncoderHeap1_Vtbl, 0xea8f1968_4aa0_43a4_9d30_ba86ec84d4f9);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl core::ops::Deref for ID3D12VideoEncoderHeap1 {
+    type Target = ID3D12VideoEncoderHeap;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncoderHeap1, windows_core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12Pageable, ID3D12VideoEncoderHeap);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ID3D12VideoEncoderHeap1 {
+    pub unsafe fn GetPow2DownscaleFactor(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetPow2DownscaleFactor)(windows_core::Interface::as_raw(self)) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncoderHeap1_Vtbl {
+    pub base__: ID3D12VideoEncoderHeap_Vtbl,
+    pub GetPow2DownscaleFactor: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncoderHeap1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncoderHeap1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub trait ID3D12VideoEncoderHeap1_Impl: ID3D12VideoEncoderHeap_Impl {
+    fn GetPow2DownscaleFactor(&self) -> u32;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ID3D12VideoEncoderHeap1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncoderHeap1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetPow2DownscaleFactor<Identity: ID3D12VideoEncoderHeap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap1_Impl::GetPow2DownscaleFactor(this)
+            }
+        }
+        Self { base__: ID3D12VideoEncoderHeap_Vtbl::new::<Identity, OFFSET>(), GetPow2DownscaleFactor: GetPow2DownscaleFactor::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncoderHeap1 as windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12VideoEncoderHeap as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl windows_core::RuntimeName for ID3D12VideoEncoderHeap1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoExtensionCommand, ID3D12VideoExtensionCommand_Vtbl, 0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -20432,6 +21662,102 @@ impl IMFDXGIBuffer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMFDXGIBuffer {}
+windows_core::imp::define_interface!(IMFDXGICrossAdapterBuffer, IMFDXGICrossAdapterBuffer_Vtbl, 0xb25d03fb_d148_45ef_bfed_f778b7566c07);
+windows_core::imp::interface_hierarchy!(IMFDXGICrossAdapterBuffer, windows_core::IUnknown);
+impl IMFDXGICrossAdapterBuffer {
+    pub unsafe fn GetResourceForDevice<P0, T>(&self, punkdevice: P0) -> windows_core::Result<T>
+    where
+        P0: windows_core::Param<windows_core::IUnknown>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetResourceForDevice)(windows_core::Interface::as_raw(self), punkdevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    pub unsafe fn GetSubresourceIndexForDevice<P0>(&self, punkdevice: P0) -> windows_core::Result<u32>
+    where
+        P0: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSubresourceIndexForDevice)(windows_core::Interface::as_raw(self), punkdevice.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub unsafe fn GetUnknownForDevice<P0, T>(&self, punkdevice: P0, guid: *const windows_core::GUID) -> windows_core::Result<T>
+    where
+        P0: windows_core::Param<windows_core::IUnknown>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetUnknownForDevice)(windows_core::Interface::as_raw(self), punkdevice.param().abi(), guid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    pub unsafe fn SetUnknownForDevice<P0, P2>(&self, punkdevice: P0, guid: *const windows_core::GUID, punkdata: P2) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetUnknownForDevice)(windows_core::Interface::as_raw(self), punkdevice.param().abi(), guid, punkdata.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFDXGICrossAdapterBuffer_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetResourceForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSubresourceIndexForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetUnknownForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetUnknownForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IMFDXGICrossAdapterBuffer_Impl: windows_core::IUnknownImpl {
+    fn GetResourceForDevice(&self, punkdevice: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetSubresourceIndexForDevice(&self, punkdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn GetUnknownForDevice(&self, punkdevice: windows_core::Ref<windows_core::IUnknown>, guid: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn SetUnknownForDevice(&self, punkdevice: windows_core::Ref<windows_core::IUnknown>, guid: *const windows_core::GUID, punkdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+}
+impl IMFDXGICrossAdapterBuffer_Vtbl {
+    pub const fn new<Identity: IMFDXGICrossAdapterBuffer_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetResourceForDevice<Identity: IMFDXGICrossAdapterBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkdevice: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMFDXGICrossAdapterBuffer_Impl::GetResourceForDevice(this, core::mem::transmute_copy(&punkdevice), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
+            }
+        }
+        unsafe extern "system" fn GetSubresourceIndexForDevice<Identity: IMFDXGICrossAdapterBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkdevice: *mut core::ffi::c_void, pusubresource: *mut u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IMFDXGICrossAdapterBuffer_Impl::GetSubresourceIndexForDevice(this, core::mem::transmute_copy(&punkdevice)) {
+                    Ok(ok__) => {
+                        pusubresource.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetUnknownForDevice<Identity: IMFDXGICrossAdapterBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkdevice: *mut core::ffi::c_void, guid: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMFDXGICrossAdapterBuffer_Impl::GetUnknownForDevice(this, core::mem::transmute_copy(&punkdevice), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
+            }
+        }
+        unsafe extern "system" fn SetUnknownForDevice<Identity: IMFDXGICrossAdapterBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkdevice: *mut core::ffi::c_void, guid: *const windows_core::GUID, punkdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMFDXGICrossAdapterBuffer_Impl::SetUnknownForDevice(this, core::mem::transmute_copy(&punkdevice), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&punkdata)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetResourceForDevice: GetResourceForDevice::<Identity, OFFSET>,
+            GetSubresourceIndexForDevice: GetSubresourceIndexForDevice::<Identity, OFFSET>,
+            GetUnknownForDevice: GetUnknownForDevice::<Identity, OFFSET>,
+            SetUnknownForDevice: SetUnknownForDevice::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMFDXGICrossAdapterBuffer as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IMFDXGICrossAdapterBuffer {}
 windows_core::imp::define_interface!(IMFDXGIDeviceManager, IMFDXGIDeviceManager_Vtbl, 0xeb533d5d_2db6_40f8_97a9_494692014f07);
 windows_core::imp::interface_hierarchy!(IMFDXGIDeviceManager, windows_core::IUnknown);
 impl IMFDXGIDeviceManager {
@@ -20997,6 +22323,52 @@ impl IMFDeviceTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMFDeviceTransform {}
+windows_core::imp::define_interface!(IMFDeviceTransform2, IMFDeviceTransform2_Vtbl, 0xf5980fed_b521_488f_909f_1a5fcecedb14);
+impl core::ops::Deref for IMFDeviceTransform2 {
+    type Target = IMFDeviceTransform;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IMFDeviceTransform2, windows_core::IUnknown, IMFDeviceTransform);
+impl IMFDeviceTransform2 {
+    pub unsafe fn GetTransformAttributes(&self) -> windows_core::Result<IMFAttributes> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTransformAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFDeviceTransform2_Vtbl {
+    pub base__: IMFDeviceTransform_Vtbl,
+    pub GetTransformAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IMFDeviceTransform2_Impl: IMFDeviceTransform_Impl {
+    fn GetTransformAttributes(&self) -> windows_core::Result<IMFAttributes>;
+}
+impl IMFDeviceTransform2_Vtbl {
+    pub const fn new<Identity: IMFDeviceTransform2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetTransformAttributes<Identity: IMFDeviceTransform2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IMFDeviceTransform2_Impl::GetTransformAttributes(this) {
+                    Ok(ok__) => {
+                        ppattributes.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: IMFDeviceTransform_Vtbl::new::<Identity, OFFSET>(), GetTransformAttributes: GetTransformAttributes::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMFDeviceTransform2 as windows_core::Interface>::IID || iid == &<IMFDeviceTransform as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IMFDeviceTransform2 {}
 windows_core::imp::define_interface!(IMFDeviceTransformCallback, IMFDeviceTransformCallback_Vtbl, 0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
 windows_core::imp::interface_hierarchy!(IMFDeviceTransformCallback, windows_core::IUnknown);
 impl IMFDeviceTransformCallback {
@@ -21488,6 +22860,86 @@ impl IMFExtendedDRMTypeSupport_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMFExtendedDRMTypeSupport {}
+windows_core::imp::define_interface!(IMFFaceDetectionTransform, IMFFaceDetectionTransform_Vtbl, 0xddd59578_d0e7_46e2_be8c_1ce76ad147c0);
+windows_core::imp::interface_hierarchy!(IMFFaceDetectionTransform, windows_core::IUnknown);
+impl IMFFaceDetectionTransform {
+    pub unsafe fn SetDetectionCallback<P0>(&self, callback: P0, callbacktoken: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IMFFaceDetectionTransformCallback>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetDetectionCallback)(windows_core::Interface::as_raw(self), callback.param().abi(), callbacktoken as _).ok() }
+    }
+    pub unsafe fn ClearDetectionCallback(&self, callbacktoken: *const core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ClearDetectionCallback)(windows_core::Interface::as_raw(self), callbacktoken).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFFaceDetectionTransform_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetDetectionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ClearDetectionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IMFFaceDetectionTransform_Impl: windows_core::IUnknownImpl {
+    fn SetDetectionCallback(&self, callback: windows_core::Ref<IMFFaceDetectionTransformCallback>, callbacktoken: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ClearDetectionCallback(&self, callbacktoken: *const core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl IMFFaceDetectionTransform_Vtbl {
+    pub const fn new<Identity: IMFFaceDetectionTransform_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetDetectionCallback<Identity: IMFFaceDetectionTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void, callbacktoken: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMFFaceDetectionTransform_Impl::SetDetectionCallback(this, core::mem::transmute_copy(&callback), core::mem::transmute_copy(&callbacktoken)).into()
+            }
+        }
+        unsafe extern "system" fn ClearDetectionCallback<Identity: IMFFaceDetectionTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbacktoken: *const core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMFFaceDetectionTransform_Impl::ClearDetectionCallback(this, core::mem::transmute_copy(&callbacktoken)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetDetectionCallback: SetDetectionCallback::<Identity, OFFSET>,
+            ClearDetectionCallback: ClearDetectionCallback::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMFFaceDetectionTransform as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IMFFaceDetectionTransform {}
+windows_core::imp::define_interface!(IMFFaceDetectionTransformCallback, IMFFaceDetectionTransformCallback_Vtbl, 0x0bfd1ade_0421_4909_acb7_7a7125416881);
+windows_core::imp::interface_hierarchy!(IMFFaceDetectionTransformCallback, windows_core::IUnknown);
+impl IMFFaceDetectionTransformCallback {
+    pub unsafe fn OnFaceDetectionResult(&self, detectedfacebounds: &[DetectedFaceBound]) {
+        unsafe { (windows_core::Interface::vtable(self).OnFaceDetectionResult)(windows_core::Interface::as_raw(self), detectedfacebounds.len().try_into().unwrap(), core::mem::transmute(detectedfacebounds.as_ptr())) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFFaceDetectionTransformCallback_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnFaceDetectionResult: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DetectedFaceBound),
+}
+pub trait IMFFaceDetectionTransformCallback_Impl: windows_core::IUnknownImpl {
+    fn OnFaceDetectionResult(&self, countofbounds: u32, detectedfacebounds: *const DetectedFaceBound);
+}
+impl IMFFaceDetectionTransformCallback_Vtbl {
+    pub const fn new<Identity: IMFFaceDetectionTransformCallback_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn OnFaceDetectionResult<Identity: IMFFaceDetectionTransformCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, countofbounds: u32, detectedfacebounds: *const DetectedFaceBound) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMFFaceDetectionTransformCallback_Impl::OnFaceDetectionResult(this, core::mem::transmute_copy(&countofbounds), core::mem::transmute_copy(&detectedfacebounds))
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnFaceDetectionResult: OnFaceDetectionResult::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMFFaceDetectionTransformCallback as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IMFFaceDetectionTransformCallback {}
 windows_core::imp::define_interface!(IMFFieldOfUseMFTUnlock, IMFFieldOfUseMFTUnlock_Vtbl, 0x508e71d3_ec66_4fc3_8775_b4b9ed6ba847);
 windows_core::imp::interface_hierarchy!(IMFFieldOfUseMFTUnlock, windows_core::IUnknown);
 impl IMFFieldOfUseMFTUnlock {
@@ -43138,6 +44590,17 @@ impl IWMVideoForceKeyFrame_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWMVideoForceKeyFrame {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct InputQPSettings {
+    pub minBlockSize: u32,
+    pub maxBlockSize: u32,
+    pub stepsBlockSize: u32,
+    pub dataType: eAVEncVideoQPMapElementDataType,
+    pub minValue: i16,
+    pub maxValue: i16,
+    pub step: u16,
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
@@ -43164,28 +44627,28 @@ pub const MACROBLOCK_FLAG_MOTION: u32 = 4u32;
 pub const MACROBLOCK_FLAG_SKIP: u32 = 1u32;
 pub const MACROBLOCK_FLAG_VIDEO: u32 = 8u32;
 pub const MAX_SUBSTREAMS: u32 = 15u32;
-pub const MEAudioSessionDeviceRemoved: MF_EVENT_TYPE = MF_EVENT_TYPE(315i32);
-pub const MEAudioSessionDisconnected: MF_EVENT_TYPE = MF_EVENT_TYPE(320i32);
-pub const MEAudioSessionExclusiveModeOverride: MF_EVENT_TYPE = MF_EVENT_TYPE(321i32);
-pub const MEAudioSessionFormatChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(319i32);
-pub const MEAudioSessionGroupingParamChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(317i32);
-pub const MEAudioSessionIconChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(318i32);
-pub const MEAudioSessionNameChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(313i32);
-pub const MEAudioSessionServerShutdown: MF_EVENT_TYPE = MF_EVENT_TYPE(316i32);
-pub const MEAudioSessionVolumeChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(314i32);
-pub const MEBufferingStarted: MF_EVENT_TYPE = MF_EVENT_TYPE(122i32);
-pub const MEBufferingStopped: MF_EVENT_TYPE = MF_EVENT_TYPE(123i32);
-pub const MEByteStreamCharacteristicsChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(700i32);
-pub const MECaptureAudioSessionDeviceRemoved: MF_EVENT_TYPE = MF_EVENT_TYPE(323i32);
-pub const MECaptureAudioSessionDisconnected: MF_EVENT_TYPE = MF_EVENT_TYPE(325i32);
-pub const MECaptureAudioSessionExclusiveModeOverride: MF_EVENT_TYPE = MF_EVENT_TYPE(326i32);
-pub const MECaptureAudioSessionFormatChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(324i32);
-pub const MECaptureAudioSessionServerShutdown: MF_EVENT_TYPE = MF_EVENT_TYPE(327i32);
-pub const MECaptureAudioSessionVolumeChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(322i32);
-pub const MEConnectEnd: MF_EVENT_TYPE = MF_EVENT_TYPE(125i32);
-pub const MEConnectStart: MF_EVENT_TYPE = MF_EVENT_TYPE(124i32);
-pub const MEContentProtectionMessage: MF_EVENT_TYPE = MF_EVENT_TYPE(402i32);
-pub const MEContentProtectionMetadata: MF_EVENT_TYPE = MF_EVENT_TYPE(900i32);
+pub const MEAudioSessionDeviceRemoved: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(315i32);
+pub const MEAudioSessionDisconnected: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(320i32);
+pub const MEAudioSessionExclusiveModeOverride: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(321i32);
+pub const MEAudioSessionFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(319i32);
+pub const MEAudioSessionGroupingParamChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(317i32);
+pub const MEAudioSessionIconChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(318i32);
+pub const MEAudioSessionNameChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(313i32);
+pub const MEAudioSessionServerShutdown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(316i32);
+pub const MEAudioSessionVolumeChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(314i32);
+pub const MEBufferingStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(122i32);
+pub const MEBufferingStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(123i32);
+pub const MEByteStreamCharacteristicsChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(700i32);
+pub const MECaptureAudioSessionDeviceRemoved: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(323i32);
+pub const MECaptureAudioSessionDisconnected: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(325i32);
+pub const MECaptureAudioSessionExclusiveModeOverride: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(326i32);
+pub const MECaptureAudioSessionFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(324i32);
+pub const MECaptureAudioSessionServerShutdown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(327i32);
+pub const MECaptureAudioSessionVolumeChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(322i32);
+pub const MEConnectEnd: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(125i32);
+pub const MEConnectStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(124i32);
+pub const MEContentProtectionMessage: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(402i32);
+pub const MEContentProtectionMetadata: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(900i32);
 pub const MEDIASINK_CANNOT_MATCH_CLOCK: u32 = 2u32;
 pub const MEDIASINK_CAN_PREROLL: u32 = 16u32;
 pub const MEDIASINK_CLOCK_REQUIRED: u32 = 8u32;
@@ -43393,104 +44856,104 @@ pub const MEDIATYPE_Video: windows_core::GUID = windows_core::GUID::from_u128(0x
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(pub u32);
 pub const MEDeviceStreamCreated: windows_core::GUID = windows_core::GUID::from_u128(0x0252a1cf_3540_43b4_9164_d72eb405fa40);
-pub const MEDeviceThermalStateChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(950i32);
-pub const MEEnablerCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(119i32);
-pub const MEEnablerProgress: MF_EVENT_TYPE = MF_EVENT_TYPE(118i32);
-pub const MEEncodingParameters: MF_EVENT_TYPE = MF_EVENT_TYPE(803i32);
-pub const MEEndOfPresentation: MF_EVENT_TYPE = MF_EVENT_TYPE(211i32);
-pub const MEEndOfPresentationSegment: MF_EVENT_TYPE = MF_EVENT_TYPE(218i32);
-pub const MEEndOfStream: MF_EVENT_TYPE = MF_EVENT_TYPE(212i32);
-pub const MEError: MF_EVENT_TYPE = MF_EVENT_TYPE(1i32);
-pub const MEExtendedType: MF_EVENT_TYPE = MF_EVENT_TYPE(2i32);
-pub const MEGenericV1Anchor: MF_EVENT_TYPE = MF_EVENT_TYPE(3i32);
-pub const MEIndividualizationCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(117i32);
-pub const MEIndividualizationStart: MF_EVENT_TYPE = MF_EVENT_TYPE(116i32);
-pub const MELicenseAcquisitionCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(115i32);
-pub const MELicenseAcquisitionStart: MF_EVENT_TYPE = MF_EVENT_TYPE(114i32);
-pub const MEMediaSample: MF_EVENT_TYPE = MF_EVENT_TYPE(213i32);
-pub const MENewPresentation: MF_EVENT_TYPE = MF_EVENT_TYPE(113i32);
-pub const MENewStream: MF_EVENT_TYPE = MF_EVENT_TYPE(205i32);
-pub const MENonFatalError: MF_EVENT_TYPE = MF_EVENT_TYPE(3i32);
-pub const MEPolicyChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(401i32);
-pub const MEPolicyError: MF_EVENT_TYPE = MF_EVENT_TYPE(120i32);
-pub const MEPolicyReport: MF_EVENT_TYPE = MF_EVENT_TYPE(121i32);
-pub const MEPolicySet: MF_EVENT_TYPE = MF_EVENT_TYPE(403i32);
-pub const MEQualityNotify: MF_EVENT_TYPE = MF_EVENT_TYPE(311i32);
-pub const MEReconnectEnd: MF_EVENT_TYPE = MF_EVENT_TYPE(127i32);
-pub const MEReconnectStart: MF_EVENT_TYPE = MF_EVENT_TYPE(126i32);
-pub const MERendererEvent: MF_EVENT_TYPE = MF_EVENT_TYPE(128i32);
-pub const MEReservedMax: MF_EVENT_TYPE = MF_EVENT_TYPE(10000i32);
-pub const MESequencerSourceTopologyUpdated: MF_EVENT_TYPE = MF_EVENT_TYPE(222i32);
-pub const MESessionCapabilitiesChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(110i32);
-pub const MESessionClosed: MF_EVENT_TYPE = MF_EVENT_TYPE(106i32);
-pub const MESessionEnded: MF_EVENT_TYPE = MF_EVENT_TYPE(107i32);
-pub const MESessionNotifyPresentationTime: MF_EVENT_TYPE = MF_EVENT_TYPE(112i32);
-pub const MESessionPaused: MF_EVENT_TYPE = MF_EVENT_TYPE(104i32);
-pub const MESessionRateChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(108i32);
-pub const MESessionScrubSampleComplete: MF_EVENT_TYPE = MF_EVENT_TYPE(109i32);
-pub const MESessionStarted: MF_EVENT_TYPE = MF_EVENT_TYPE(103i32);
-pub const MESessionStopped: MF_EVENT_TYPE = MF_EVENT_TYPE(105i32);
-pub const MESessionStreamSinkFormatChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(129i32);
-pub const MESessionTopologiesCleared: MF_EVENT_TYPE = MF_EVENT_TYPE(102i32);
-pub const MESessionTopologySet: MF_EVENT_TYPE = MF_EVENT_TYPE(101i32);
-pub const MESessionTopologyStatus: MF_EVENT_TYPE = MF_EVENT_TYPE(111i32);
-pub const MESessionUnknown: MF_EVENT_TYPE = MF_EVENT_TYPE(100i32);
-pub const MESessionV1Anchor: MF_EVENT_TYPE = MF_EVENT_TYPE(129i32);
-pub const MESinkInvalidated: MF_EVENT_TYPE = MF_EVENT_TYPE(312i32);
-pub const MESinkUnknown: MF_EVENT_TYPE = MF_EVENT_TYPE(300i32);
-pub const MESinkV1Anchor: MF_EVENT_TYPE = MF_EVENT_TYPE(321i32);
-pub const MESinkV2Anchor: MF_EVENT_TYPE = MF_EVENT_TYPE(327i32);
-pub const MESourceCharacteristicsChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(219i32);
-pub const MESourceMetadataChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(221i32);
-pub const MESourcePaused: MF_EVENT_TYPE = MF_EVENT_TYPE(209i32);
-pub const MESourceRateChangeRequested: MF_EVENT_TYPE = MF_EVENT_TYPE(220i32);
-pub const MESourceRateChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(217i32);
-pub const MESourceSeeked: MF_EVENT_TYPE = MF_EVENT_TYPE(203i32);
-pub const MESourceStarted: MF_EVENT_TYPE = MF_EVENT_TYPE(201i32);
-pub const MESourceStopped: MF_EVENT_TYPE = MF_EVENT_TYPE(207i32);
-pub const MESourceUnknown: MF_EVENT_TYPE = MF_EVENT_TYPE(200i32);
-pub const MESourceV1Anchor: MF_EVENT_TYPE = MF_EVENT_TYPE(222i32);
-pub const MEStreamFormatChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(216i32);
-pub const MEStreamPaused: MF_EVENT_TYPE = MF_EVENT_TYPE(210i32);
-pub const MEStreamSeeked: MF_EVENT_TYPE = MF_EVENT_TYPE(204i32);
-pub const MEStreamSinkDeviceChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(310i32);
-pub const MEStreamSinkFormatChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(309i32);
-pub const MEStreamSinkFormatInvalidated: MF_EVENT_TYPE = MF_EVENT_TYPE(802i32);
-pub const MEStreamSinkMarker: MF_EVENT_TYPE = MF_EVENT_TYPE(306i32);
-pub const MEStreamSinkPaused: MF_EVENT_TYPE = MF_EVENT_TYPE(303i32);
-pub const MEStreamSinkPrerolled: MF_EVENT_TYPE = MF_EVENT_TYPE(307i32);
-pub const MEStreamSinkRateChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(304i32);
-pub const MEStreamSinkRequestSample: MF_EVENT_TYPE = MF_EVENT_TYPE(305i32);
-pub const MEStreamSinkScrubSampleComplete: MF_EVENT_TYPE = MF_EVENT_TYPE(308i32);
-pub const MEStreamSinkStarted: MF_EVENT_TYPE = MF_EVENT_TYPE(301i32);
-pub const MEStreamSinkStopped: MF_EVENT_TYPE = MF_EVENT_TYPE(302i32);
-pub const MEStreamStarted: MF_EVENT_TYPE = MF_EVENT_TYPE(202i32);
-pub const MEStreamStopped: MF_EVENT_TYPE = MF_EVENT_TYPE(208i32);
-pub const MEStreamThinMode: MF_EVENT_TYPE = MF_EVENT_TYPE(215i32);
-pub const MEStreamTick: MF_EVENT_TYPE = MF_EVENT_TYPE(214i32);
-pub const METransformDrainComplete: MF_EVENT_TYPE = MF_EVENT_TYPE(603i32);
-pub const METransformHaveOutput: MF_EVENT_TYPE = MF_EVENT_TYPE(602i32);
-pub const METransformInputStreamStateChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(605i32);
-pub const METransformMarker: MF_EVENT_TYPE = MF_EVENT_TYPE(604i32);
-pub const METransformNeedInput: MF_EVENT_TYPE = MF_EVENT_TYPE(601i32);
-pub const METransformUnknown: MF_EVENT_TYPE = MF_EVENT_TYPE(600i32);
-pub const METrustUnknown: MF_EVENT_TYPE = MF_EVENT_TYPE(400i32);
-pub const METrustV1Anchor: MF_EVENT_TYPE = MF_EVENT_TYPE(403i32);
-pub const MEUnknown: MF_EVENT_TYPE = MF_EVENT_TYPE(0i32);
-pub const MEUpdatedStream: MF_EVENT_TYPE = MF_EVENT_TYPE(206i32);
-pub const MEVideoCaptureDevicePreempted: MF_EVENT_TYPE = MF_EVENT_TYPE(801i32);
-pub const MEVideoCaptureDeviceRemoved: MF_EVENT_TYPE = MF_EVENT_TYPE(800i32);
-pub const MEWMDRMIndividualizationCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(508i32);
-pub const MEWMDRMIndividualizationProgress: MF_EVENT_TYPE = MF_EVENT_TYPE(513i32);
-pub const MEWMDRMLicenseAcquisitionCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(506i32);
-pub const MEWMDRMLicenseBackupCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(500i32);
-pub const MEWMDRMLicenseBackupProgress: MF_EVENT_TYPE = MF_EVENT_TYPE(501i32);
-pub const MEWMDRMLicenseRestoreCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(502i32);
-pub const MEWMDRMLicenseRestoreProgress: MF_EVENT_TYPE = MF_EVENT_TYPE(503i32);
-pub const MEWMDRMLicenseStoreCleaned: MF_EVENT_TYPE = MF_EVENT_TYPE(515i32);
-pub const MEWMDRMProximityCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(514i32);
-pub const MEWMDRMRevocationDownloadCompleted: MF_EVENT_TYPE = MF_EVENT_TYPE(516i32);
-pub const MEWMDRMV1Anchor: MF_EVENT_TYPE = MF_EVENT_TYPE(516i32);
+pub const MEDeviceThermalStateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(950i32);
+pub const MEEnablerCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(119i32);
+pub const MEEnablerProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(118i32);
+pub const MEEncodingParameters: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(803i32);
+pub const MEEndOfPresentation: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(211i32);
+pub const MEEndOfPresentationSegment: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(218i32);
+pub const MEEndOfStream: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(212i32);
+pub const MEError: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(1i32);
+pub const MEExtendedType: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(2i32);
+pub const MEGenericV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(3i32);
+pub const MEIndividualizationCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(117i32);
+pub const MEIndividualizationStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(116i32);
+pub const MELicenseAcquisitionCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(115i32);
+pub const MELicenseAcquisitionStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(114i32);
+pub const MEMediaSample: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(213i32);
+pub const MENewPresentation: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(113i32);
+pub const MENewStream: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(205i32);
+pub const MENonFatalError: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(3i32);
+pub const MEPolicyChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(401i32);
+pub const MEPolicyError: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(120i32);
+pub const MEPolicyReport: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(121i32);
+pub const MEPolicySet: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(403i32);
+pub const MEQualityNotify: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(311i32);
+pub const MEReconnectEnd: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(127i32);
+pub const MEReconnectStart: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(126i32);
+pub const MERendererEvent: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(128i32);
+pub const MEReservedMax: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(10000i32);
+pub const MESequencerSourceTopologyUpdated: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(222i32);
+pub const MESessionCapabilitiesChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(110i32);
+pub const MESessionClosed: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(106i32);
+pub const MESessionEnded: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(107i32);
+pub const MESessionNotifyPresentationTime: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(112i32);
+pub const MESessionPaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(104i32);
+pub const MESessionRateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(108i32);
+pub const MESessionScrubSampleComplete: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(109i32);
+pub const MESessionStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(103i32);
+pub const MESessionStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(105i32);
+pub const MESessionStreamSinkFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(129i32);
+pub const MESessionTopologiesCleared: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(102i32);
+pub const MESessionTopologySet: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(101i32);
+pub const MESessionTopologyStatus: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(111i32);
+pub const MESessionUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(100i32);
+pub const MESessionV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(129i32);
+pub const MESinkInvalidated: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(312i32);
+pub const MESinkUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(300i32);
+pub const MESinkV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(321i32);
+pub const MESinkV2Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(327i32);
+pub const MESourceCharacteristicsChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(219i32);
+pub const MESourceMetadataChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(221i32);
+pub const MESourcePaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(209i32);
+pub const MESourceRateChangeRequested: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(220i32);
+pub const MESourceRateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(217i32);
+pub const MESourceSeeked: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(203i32);
+pub const MESourceStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(201i32);
+pub const MESourceStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(207i32);
+pub const MESourceUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(200i32);
+pub const MESourceV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(222i32);
+pub const MEStreamFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(216i32);
+pub const MEStreamPaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(210i32);
+pub const MEStreamSeeked: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(204i32);
+pub const MEStreamSinkDeviceChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(310i32);
+pub const MEStreamSinkFormatChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(309i32);
+pub const MEStreamSinkFormatInvalidated: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(802i32);
+pub const MEStreamSinkMarker: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(306i32);
+pub const MEStreamSinkPaused: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(303i32);
+pub const MEStreamSinkPrerolled: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(307i32);
+pub const MEStreamSinkRateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(304i32);
+pub const MEStreamSinkRequestSample: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(305i32);
+pub const MEStreamSinkScrubSampleComplete: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(308i32);
+pub const MEStreamSinkStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(301i32);
+pub const MEStreamSinkStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(302i32);
+pub const MEStreamStarted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(202i32);
+pub const MEStreamStopped: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(208i32);
+pub const MEStreamThinMode: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(215i32);
+pub const MEStreamTick: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(214i32);
+pub const METransformDrainComplete: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(603i32);
+pub const METransformHaveOutput: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(602i32);
+pub const METransformInputStreamStateChanged: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(605i32);
+pub const METransformMarker: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(604i32);
+pub const METransformNeedInput: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(601i32);
+pub const METransformUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(600i32);
+pub const METrustUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(400i32);
+pub const METrustV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(403i32);
+pub const MEUnknown: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(0i32);
+pub const MEUpdatedStream: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(206i32);
+pub const MEVideoCaptureDevicePreempted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(801i32);
+pub const MEVideoCaptureDeviceRemoved: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(800i32);
+pub const MEWMDRMIndividualizationCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(508i32);
+pub const MEWMDRMIndividualizationProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(513i32);
+pub const MEWMDRMLicenseAcquisitionCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(506i32);
+pub const MEWMDRMLicenseBackupCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(500i32);
+pub const MEWMDRMLicenseBackupProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(501i32);
+pub const MEWMDRMLicenseRestoreCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(502i32);
+pub const MEWMDRMLicenseRestoreProgress: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(503i32);
+pub const MEWMDRMLicenseStoreCleaned: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(515i32);
+pub const MEWMDRMProximityCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(514i32);
+pub const MEWMDRMRevocationDownloadCompleted: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(516i32);
+pub const MEWMDRMV1Anchor: __MIDL___MIDL_itf_mfobjects_0000_0013_0001 = __MIDL___MIDL_itf_mfobjects_0000_0013_0001(516i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF2DBuffer_LockFlags(pub i32);
@@ -43644,9 +45107,12 @@ pub const MFAudioFormat_Dolby_DDPlus: windows_core::GUID = windows_core::GUID::f
 pub const MFAudioFormat_FLAC: windows_core::GUID = windows_core::GUID::from_u128(0x0000f1ac_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_Float: windows_core::GUID = windows_core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_Float_SpatialObjects: windows_core::GUID = windows_core::GUID::from_u128(0xfa39cd94_bc64_4ab1_9b71_dcd09d5a7e7a);
+pub const MFAudioFormat_IAMF: windows_core::GUID = windows_core::GUID::from_u128(0x78a8eba0_f446_4851_a55d_5372280e6b0b);
 pub const MFAudioFormat_LPCM: windows_core::GUID = windows_core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
 pub const MFAudioFormat_MP3: windows_core::GUID = windows_core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_MPEG: windows_core::GUID = windows_core::GUID::from_u128(0x00000050_0000_0010_8000_00aa00389b71);
+pub const MFAudioFormat_MPEGH: windows_core::GUID = windows_core::GUID::from_u128(0x7c13c441_ebf8_4931_b678_800b19242236);
+pub const MFAudioFormat_MPEGH_ES: windows_core::GUID = windows_core::GUID::from_u128(0x19ee97fe_1be0_4255_a876_e99f53a42ae3);
 pub const MFAudioFormat_MSP1: windows_core::GUID = windows_core::GUID::from_u128(0x0000000a_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_Opus: windows_core::GUID = windows_core::GUID::from_u128(0x0000704f_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_PCM: windows_core::GUID = windows_core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
@@ -44480,6 +45946,13 @@ pub const MFSampleAllocatorUsage_UsesProvidedAllocator: MFSampleAllocatorUsage =
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSampleEncryptionProtectionScheme(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MFSampleExtensionPsnrYuv {
+    pub psnrY: f32,
+    pub psnrU: f32,
+    pub psnrV: f32,
+}
 pub const MFSampleExtension_3DVideo: windows_core::GUID = windows_core::GUID::from_u128(0xf86f97a4_dd54_4e2e_9a5e_55fc2d74a005);
 pub const MFSampleExtension_3DVideo_MultiView: MFVideo3DSampleFormat = MFVideo3DSampleFormat(1i32);
 pub const MFSampleExtension_3DVideo_Packed: MFVideo3DSampleFormat = MFVideo3DSampleFormat(0i32);
@@ -44524,6 +45997,7 @@ pub const MFSampleExtension_FeatureMap: windows_core::GUID = windows_core::GUID:
 pub const MFSampleExtension_ForwardedDecodeUnitType: windows_core::GUID = windows_core::GUID::from_u128(0x089e57c7_47d3_4a26_bf9c_4b64fafb5d1e);
 pub const MFSampleExtension_ForwardedDecodeUnits: windows_core::GUID = windows_core::GUID::from_u128(0x424c754c_97c8_48d6_8777_fc41f7b60879);
 pub const MFSampleExtension_FrameCorruption: windows_core::GUID = windows_core::GUID::from_u128(0xb4dd4a8c_0beb_44c4_8b75_b02b913b04f0);
+pub const MFSampleExtension_FramePsnrYuv: windows_core::GUID = windows_core::GUID::from_u128(0x1c633a3d_566f_4752_833b_2907df5415e1);
 pub const MFSampleExtension_GenKeyCtx: windows_core::GUID = windows_core::GUID::from_u128(0x188120cb_d7da_4b59_9b3e_9252fd37301c);
 pub const MFSampleExtension_GenKeyFunc: windows_core::GUID = windows_core::GUID::from_u128(0x441ca1ee_6b1f_4501_903a_de87df42f6ed);
 pub const MFSampleExtension_HDCP_FrameCounter: windows_core::GUID = windows_core::GUID::from_u128(0x9d389c60_f507_4aa6_a40a_71027a02f3de);
@@ -44547,15 +46021,22 @@ pub const MFSampleExtension_RepeatFirstField: windows_core::GUID = windows_core:
 pub const MFSampleExtension_RepeatFrame: windows_core::GUID = windows_core::GUID::from_u128(0x88be738f_0711_4f42_b458_344aed42ec2f);
 pub const MFSampleExtension_SampleKeyID: windows_core::GUID = windows_core::GUID::from_u128(0x9ed713c8_9b87_4b26_8297_a93b0c5a8acc);
 pub const MFSampleExtension_SingleField: windows_core::GUID = windows_core::GUID::from_u128(0x9d85f816_658b_455a_bde0_9fa7e15ab8f9);
+pub const MFSampleExtension_SpatialLayerId: windows_core::GUID = windows_core::GUID::from_u128(0xb7aabc7b_2396_457a_879e_623bfab6e0ac);
 pub const MFSampleExtension_Spatial_CameraCoordinateSystem: windows_core::GUID = windows_core::GUID::from_u128(0x9d13c82f_2199_4e67_91cd_d1a4181f2534);
 pub const MFSampleExtension_Spatial_CameraProjectionTransform: windows_core::GUID = windows_core::GUID::from_u128(0x47f9fcb5_2a02_4f26_a477_792fdf95886a);
 pub const MFSampleExtension_Spatial_CameraViewTransform: windows_core::GUID = windows_core::GUID::from_u128(0x4e251fa4_830f_4770_859a_4b8d99aa809b);
 pub const MFSampleExtension_TargetGlobalLuminance: windows_core::GUID = windows_core::GUID::from_u128(0x3f60ef36_31ef_4daf_8360_940397e41ef3);
+pub const MFSampleExtension_TemporalLayerId: windows_core::GUID = windows_core::GUID::from_u128(0xb3c1fcd2_b331_4376_b974_ad647769b2b0);
 pub const MFSampleExtension_Timestamp: windows_core::GUID = windows_core::GUID::from_u128(0x1e436999_69be_4c7a_9369_70068c0260cb);
 pub const MFSampleExtension_Token: windows_core::GUID = windows_core::GUID::from_u128(0x8294da66_f328_4805_b551_00deb4c57a61);
 pub const MFSampleExtension_VideoDSPMode: windows_core::GUID = windows_core::GUID::from_u128(0xc12d55cb_d7d9_476d_81f3_69117f163ea0);
+pub const MFSampleExtension_VideoEncodeBitsUsedMap: windows_core::GUID = windows_core::GUID::from_u128(0x6894263d_e6e2_4bcc_849d_8570365f5114);
+pub const MFSampleExtension_VideoEncodeInputAbsoluteQPMap: windows_core::GUID = windows_core::GUID::from_u128(0x432a6e9a_f1ed_456e_8dc3_6f8985649eb9);
+pub const MFSampleExtension_VideoEncodeInputDeltaQPMap: windows_core::GUID = windows_core::GUID::from_u128(0xdab419c3_bf21_4b46_8692_9a7bf0a71769);
 pub const MFSampleExtension_VideoEncodePictureType: windows_core::GUID = windows_core::GUID::from_u128(0x973704e6_cd14_483c_8f20_c9fc0928bad5);
 pub const MFSampleExtension_VideoEncodeQP: windows_core::GUID = windows_core::GUID::from_u128(0xb2efe478_f979_4c66_b95e_ee2b82c82f36);
+pub const MFSampleExtension_VideoEncodeQPMap: windows_core::GUID = windows_core::GUID::from_u128(0x2c68a331_b712_49ca_860a_3a1d58237d88);
+pub const MFSampleExtension_VideoEncodeSatdMap: windows_core::GUID = windows_core::GUID::from_u128(0xadf61d96_c2d3_4b57_a138_dde4d351eaa9);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSensorDeviceMode(pub i32);
@@ -44646,7 +46127,9 @@ impl Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_FORMFACTOR: windows_core::GUID = windows_core::GUID::from_u128(0x8d574310_909a_433a_ace7_eee74719f901);
 pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: windows_core::GUID = windows_core::GUID::from_u128(0xc7ccdd6e_5398_4695_8be7_51b3e95111bd);
+pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_IS_DIGITAL_STEREO_ONLY: windows_core::GUID = windows_core::GUID::from_u128(0x26e5a90d_4ad1_4f8c_b8af_adf14d2178f1);
 pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: windows_core::GUID = windows_core::GUID::from_u128(0x6c3386ad_ec20_430d_b2a5_505c7178d9c4);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -44676,8 +46159,10 @@ pub const MFT_CATEGORY_VIDEO_RENDERER_EFFECT: windows_core::GUID = windows_core:
 pub const MFT_CODEC_MERIT_Attribute: windows_core::GUID = windows_core::GUID::from_u128(0x88a7cb15_7b07_4a34_9128_e64c6703c4d3);
 pub const MFT_CONNECTED_STREAM_ATTRIBUTE: windows_core::GUID = windows_core::GUID::from_u128(0x71eeb820_a59f_4de2_bcec_38db1dd611a4);
 pub const MFT_CONNECTED_TO_HW_STREAM: windows_core::GUID = windows_core::GUID::from_u128(0x34e6e728_06d6_4491_a553_4795650db912);
+pub const MFT_DECODER_AUTOMATIC_SOFTWARE_FALLBACK: windows_core::GUID = windows_core::GUID::from_u128(0x41f34f53_1bf6_49ed_b95d_02d2a1d7115a);
 pub const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: windows_core::GUID = windows_core::GUID::from_u128(0xef80833f_f8fa_44d9_80d8_41ed6232670c);
 pub const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: windows_core::GUID = windows_core::GUID::from_u128(0xdc2f8496_15c4_407a_b6f0_1b66ab5fbf53);
+pub const MFT_DECODER_OPERATING_POINT: windows_core::GUID = windows_core::GUID::from_u128(0xa1230334_55d4_4d97_82a7_26d3e6456725);
 pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: windows_core::GUID = windows_core::GUID::from_u128(0xa24e30d7_de25_4558_bbfb_71070a2d332e);
 pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: windows_core::GUID = windows_core::GUID::from_u128(0xd8980deb_0a48_425f_8623_611db41d3810);
 pub const MFT_DRAIN_NO_TAILS: MFT_DRAIN_TYPE = MFT_DRAIN_TYPE(1i32);
@@ -45056,6 +46541,8 @@ pub const MFVideoFormat_HEVC: windows_core::GUID = windows_core::GUID::from_u128
 pub const MFVideoFormat_HEVC_ES: windows_core::GUID = windows_core::GUID::from_u128(0x53564548_0000_0010_8000_00aa00389b71);
 pub const MFVideoFormat_HEVC_HDCP: windows_core::GUID = windows_core::GUID::from_u128(0x3cfe0fe6_05c4_47dc_9d70_4bdb2959720f);
 pub const MFVideoFormat_I420: windows_core::GUID = windows_core::GUID::from_u128(0x30323449_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_I422: windows_core::GUID = windows_core::GUID::from_u128(0x32323449_0000_0010_8000_00aa00389b71);
+pub const MFVideoFormat_I444: windows_core::GUID = windows_core::GUID::from_u128(0x34343449_0000_0010_8000_00aa00389b71);
 pub const MFVideoFormat_IYUV: windows_core::GUID = windows_core::GUID::from_u128(0x56555949_0000_0010_8000_00aa00389b71);
 pub const MFVideoFormat_L16: windows_core::GUID = windows_core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
 pub const MFVideoFormat_L8: windows_core::GUID = windows_core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
@@ -45177,9 +46664,10 @@ pub const MFVideoPrimaries_BT470_2_SysBG: MFVideoPrimaries = MFVideoPrimaries(4i
 pub const MFVideoPrimaries_BT470_2_SysM: MFVideoPrimaries = MFVideoPrimaries(3i32);
 pub const MFVideoPrimaries_BT709: MFVideoPrimaries = MFVideoPrimaries(2i32);
 pub const MFVideoPrimaries_DCI_P3: MFVideoPrimaries = MFVideoPrimaries(11i32);
+pub const MFVideoPrimaries_Display_P3: MFVideoPrimaries = MFVideoPrimaries(13i32);
 pub const MFVideoPrimaries_EBU3213: MFVideoPrimaries = MFVideoPrimaries(7i32);
 pub const MFVideoPrimaries_ForceDWORD: MFVideoPrimaries = MFVideoPrimaries(2147483647i32);
-pub const MFVideoPrimaries_Last: MFVideoPrimaries = MFVideoPrimaries(13i32);
+pub const MFVideoPrimaries_Last: MFVideoPrimaries = MFVideoPrimaries(14i32);
 pub const MFVideoPrimaries_SMPTE170M: MFVideoPrimaries = MFVideoPrimaries(5i32);
 pub const MFVideoPrimaries_SMPTE240M: MFVideoPrimaries = MFVideoPrimaries(6i32);
 pub const MFVideoPrimaries_SMPTE_C: MFVideoPrimaries = MFVideoPrimaries(8i32);
@@ -45249,11 +46737,13 @@ pub const MFVideoTransFunc_26: MFVideoTransferFunction = MFVideoTransferFunction
 pub const MFVideoTransFunc_28: MFVideoTransferFunction = MFVideoTransferFunction(8i32);
 pub const MFVideoTransFunc_709: MFVideoTransferFunction = MFVideoTransferFunction(5i32);
 pub const MFVideoTransFunc_709_sym: MFVideoTransferFunction = MFVideoTransferFunction(11i32);
+pub const MFVideoTransFunc_BT1361_ECG: MFVideoTransferFunction = MFVideoTransferFunction(18i32);
 pub const MFVideoTransFunc_ForceDWORD: MFVideoTransferFunction = MFVideoTransferFunction(2147483647i32);
 pub const MFVideoTransFunc_HLG: MFVideoTransferFunction = MFVideoTransferFunction(16i32);
-pub const MFVideoTransFunc_Last: MFVideoTransferFunction = MFVideoTransferFunction(18i32);
+pub const MFVideoTransFunc_Last: MFVideoTransferFunction = MFVideoTransferFunction(20i32);
 pub const MFVideoTransFunc_Log_100: MFVideoTransferFunction = MFVideoTransferFunction(9i32);
 pub const MFVideoTransFunc_Log_316: MFVideoTransferFunction = MFVideoTransferFunction(10i32);
+pub const MFVideoTransFunc_SMPTE428: MFVideoTransferFunction = MFVideoTransferFunction(19i32);
 pub const MFVideoTransFunc_Unknown: MFVideoTransferFunction = MFVideoTransferFunction(0i32);
 pub const MFVideoTransFunc_sRGB: MFVideoTransferFunction = MFVideoTransferFunction(7i32);
 #[repr(transparent)]
@@ -45266,10 +46756,17 @@ pub const MFVideoTransferMatrix_BT2020_10: MFVideoTransferMatrix = MFVideoTransf
 pub const MFVideoTransferMatrix_BT2020_12: MFVideoTransferMatrix = MFVideoTransferMatrix(5i32);
 pub const MFVideoTransferMatrix_BT601: MFVideoTransferMatrix = MFVideoTransferMatrix(2i32);
 pub const MFVideoTransferMatrix_BT709: MFVideoTransferMatrix = MFVideoTransferMatrix(1i32);
+pub const MFVideoTransferMatrix_Chroma: MFVideoTransferMatrix = MFVideoTransferMatrix(10i32);
+pub const MFVideoTransferMatrix_Chroma_const: MFVideoTransferMatrix = MFVideoTransferMatrix(11i32);
+pub const MFVideoTransferMatrix_FCC47: MFVideoTransferMatrix = MFVideoTransferMatrix(7i32);
 pub const MFVideoTransferMatrix_ForceDWORD: MFVideoTransferMatrix = MFVideoTransferMatrix(2147483647i32);
-pub const MFVideoTransferMatrix_Last: MFVideoTransferMatrix = MFVideoTransferMatrix(6i32);
+pub const MFVideoTransferMatrix_ICtCp: MFVideoTransferMatrix = MFVideoTransferMatrix(12i32);
+pub const MFVideoTransferMatrix_Identity: MFVideoTransferMatrix = MFVideoTransferMatrix(6i32);
+pub const MFVideoTransferMatrix_Last: MFVideoTransferMatrix = MFVideoTransferMatrix(13i32);
+pub const MFVideoTransferMatrix_SMPTE2085: MFVideoTransferMatrix = MFVideoTransferMatrix(9i32);
 pub const MFVideoTransferMatrix_SMPTE240M: MFVideoTransferMatrix = MFVideoTransferMatrix(3i32);
 pub const MFVideoTransferMatrix_Unknown: MFVideoTransferMatrix = MFVideoTransferMatrix(0i32);
+pub const MFVideoTransferMatrix_YCgCo: MFVideoTransferMatrix = MFVideoTransferMatrix(8i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVirtualCameraAccess(pub i32);
@@ -45307,6 +46804,7 @@ pub const MF_ACCESSMODE_READ: MF_FILE_ACCESSMODE = MF_FILE_ACCESSMODE(1i32);
 pub const MF_ACCESSMODE_READWRITE: MF_FILE_ACCESSMODE = MF_FILE_ACCESSMODE(3i32);
 pub const MF_ACCESSMODE_WRITE: MF_FILE_ACCESSMODE = MF_FILE_ACCESSMODE(2i32);
 pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0x014a5031_2f05_4c6a_9f9c_7d0dc4eda5f4);
+pub const MF_ACOUSTIC_ECHO_CANCELLATION_CONTROL_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0x7f6c3b29_2d12_4f6f_ac05_c1a89b8d5288);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_ACTIVATE_CUSTOM_MIXER(pub i32);
@@ -45350,6 +46848,7 @@ pub const MF_ATTRIBUTE_STRING: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(31i32);
 pub struct MF_ATTRIBUTE_TYPE(pub i32);
 pub const MF_ATTRIBUTE_UINT32: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(19i32);
 pub const MF_ATTRIBUTE_UINT64: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(21i32);
+pub const MF_AUDIO_EFFECTS_MANAGER_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0x1f541943_d5df_455e_a2e5_7d64d3bbbdb5);
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: windows_core::GUID = windows_core::GUID::from_u128(0xb10aaec3_ef71_4cc3_b873_05a9a08b9f8e);
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE: windows_core::GUID = windows_core::GUID::from_u128(0x6ba644ff_27c5_4d02_9887_c28619fdb91b);
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS: windows_core::GUID = windows_core::GUID::from_u128(0xede4b5e0_f805_4d6c_99b3_db01bf95dfab);
@@ -45379,6 +46878,7 @@ pub struct MF_BYTE_STREAM_CACHE_RANGE {
     pub qwStartOffset: u64,
     pub qwEndOffset: u64,
 }
+pub const MF_CAMERASOURCE_PROVIDE_SELECTED_PROFILE_ON_START: windows_core::GUID = windows_core::GUID::from_u128(0xa9b46058_82f2_4e5c_bf6e_25b4b09f22ed);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAMERA_CONTROL_CONFIGURATION_TYPE(pub i32);
@@ -45561,6 +47061,7 @@ pub const MF_DEVICESTREAM_TAKEPHOTO_TRIGGER: windows_core::GUID = windows_core::
 pub const MF_DEVICESTREAM_TRANSFORM_STREAM_ID: windows_core::GUID = windows_core::GUID::from_u128(0xe63937b7_daaf_4d49_815f_d826f8ad31e7);
 pub const MF_DEVICE_THERMAL_STATE_CHANGED: windows_core::GUID = windows_core::GUID::from_u128(0x70ccd0af_fc9f_4deb_a875_9fecd16c5bd4);
 pub const MF_DEVSOURCE_ATTRIBUTE_ENABLE_MS_CAMERA_EFFECTS: windows_core::GUID = windows_core::GUID::from_u128(0x28a5531a_57dd_4fd5_aaa7_385abf57d785);
+pub const MF_DEVSOURCE_ATTRIBUTE_FRAMESERVER_SHARE_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x44d1a9bc_2999_4238_ae43_0730ceb2ab1b);
 pub const MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME: windows_core::GUID = windows_core::GUID::from_u128(0x60d0e559_52f8_4fa2_bbce_acdb34a8ec01);
 pub const MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x56a819ca_0c78_4de4_a0a7_3ddaba0f24d4);
 pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_PASSWORD: windows_core::GUID = windows_core::GUID::from_u128(0xa0fd7e16_42d9_49df_84c0_e82c5eab8874);
@@ -45587,7 +47088,16 @@ pub const MF_DROP_MODE_3: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(3i32);
 pub const MF_DROP_MODE_4: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(4i32);
 pub const MF_DROP_MODE_5: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(5i32);
 pub const MF_DROP_MODE_NONE: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MF_DXGI_DEVICE_MANAGER_MODE(pub i32);
+pub const MF_DXGI_DEVICE_MANAGER_MODE_D3D11: MF_DXGI_DEVICE_MANAGER_MODE = MF_DXGI_DEVICE_MANAGER_MODE(1i32);
+pub const MF_DXGI_DEVICE_MANAGER_MODE_D3D12: MF_DXGI_DEVICE_MANAGER_MODE = MF_DXGI_DEVICE_MANAGER_MODE(2i32);
+pub const MF_DXGI_DEVICE_MANAGER_MODE_INVALID: MF_DXGI_DEVICE_MANAGER_MODE = MF_DXGI_DEVICE_MANAGER_MODE(0i32);
 pub const MF_ENABLE_3DVIDEO_OUTPUT: windows_core::GUID = windows_core::GUID::from_u128(0xbdad7bca_0e5f_4b10_ab16_26de381b6293);
+pub const MF_ENCRYPTEDMEDIAEXTENSIONS_ACTIVATABLE_CLASS_ID: windows_core::GUID = windows_core::GUID::from_u128(0x77631a31_e5e7_4785_bf17_20f57b224802);
+pub const MF_ENCRYPTEDMEDIAEXTENSIONS_ACTIVATE: windows_core::GUID = windows_core::GUID::from_u128(0x2df7b51e_797b_4d06_be71_d14a52cf8421);
+pub const MF_ENCRYPTEDMEDIAEXTENSIONS_INITIALIZATION_DATA: windows_core::GUID = windows_core::GUID::from_u128(0x3e73735c_e6c0_481d_8260_ee5db1343b5f);
 pub const MF_EVENT_DO_THINNING: windows_core::GUID = windows_core::GUID::from_u128(0x321ea6fb_dad9_46e4_b31d_d2eae7090e30);
 pub const MF_EVENT_FLAG_NONE: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(0u32);
 pub const MF_EVENT_FLAG_NO_WAIT: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(1u32);
@@ -45610,9 +47120,6 @@ pub const MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS: windows_core::GUID = windows_
 pub const MF_EVENT_STREAM_METADATA_KEYDATA: windows_core::GUID = windows_core::GUID::from_u128(0xcd59a4a1_4a3b_4bbd_8665_72a40fbea776);
 pub const MF_EVENT_STREAM_METADATA_SYSTEMID: windows_core::GUID = windows_core::GUID::from_u128(0x1ea2ef64_ba16_4a36_8719_fe7560ba32ad);
 pub const MF_EVENT_TOPOLOGY_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x30c5018d_9a53_454b_ad9e_6d5f8fa7c43b);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MF_EVENT_TYPE(pub i32);
 pub const MF_E_ALLOCATOR_ALREADY_COMMITED: windows_core::HRESULT = windows_core::HRESULT(0xC00DA7FA_u32 as _);
 pub const MF_E_ALLOCATOR_NOT_COMMITED: windows_core::HRESULT = windows_core::HRESULT(0xC00DA7F9_u32 as _);
 pub const MF_E_ALLOCATOR_NOT_INITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0xC00DA7F8_u32 as _);
@@ -45644,6 +47151,8 @@ pub const MF_E_BANDWIDTH_OVERRUN: windows_core::HRESULT = windows_core::HRESULT(
 pub const MF_E_BUFFERTOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D36B1_u32 as _);
 pub const MF_E_BYTESTREAM_NOT_SEEKABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D36EE_u32 as _);
 pub const MF_E_BYTESTREAM_UNKNOWN_LENGTH: windows_core::HRESULT = windows_core::HRESULT(0xC00D36FB_u32 as _);
+pub const MF_E_CAMERA_FSPROFILE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00DB79A_u32 as _);
+pub const MF_E_CAMERA_PRIVACY_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00DB798_u32 as _);
 pub const MF_E_CANNOT_CREATE_SINK: windows_core::HRESULT = windows_core::HRESULT(0xC00D36FA_u32 as _);
 pub const MF_E_CANNOT_FIND_KEYFRAME_SAMPLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D3E9D_u32 as _);
 pub const MF_E_CANNOT_INDEX_IN_PLACE: windows_core::HRESULT = windows_core::HRESULT(0xC00D4657_u32 as _);
@@ -45733,6 +47242,7 @@ pub const MF_E_LICENSE_RESTORE_NO_RIGHTS: windows_core::HRESULT = windows_core::
 pub const MF_E_MEDIAPROC_WRONGSTATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D36F2_u32 as _);
 pub const MF_E_MEDIA_EXTENSION_APPSERVICE_CONNECTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00DB3B0_u32 as _);
 pub const MF_E_MEDIA_EXTENSION_APPSERVICE_REQUEST_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00DB3B1_u32 as _);
+pub const MF_E_MEDIA_EXTENSION_PACKAGE_BAD_STATUS: windows_core::HRESULT = windows_core::HRESULT(0xC00DB3B4_u32 as _);
 pub const MF_E_MEDIA_EXTENSION_PACKAGE_INTEGRITY_CHECK_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00DB3B2_u32 as _);
 pub const MF_E_MEDIA_EXTENSION_PACKAGE_LICENSE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00DB3B3_u32 as _);
 pub const MF_E_MEDIA_SOURCE_NOT_STARTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D3E91_u32 as _);
@@ -46327,6 +47837,7 @@ pub const MF_MT_COMPRESSED: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const MF_MT_CONTAINER_RATE_SCALING: windows_core::GUID = windows_core::GUID::from_u128(0x83877f5e_0444_4e28_8479_6db0989b8c09);
 pub const MF_MT_CUSTOM_VIDEO_PRIMARIES: windows_core::GUID = windows_core::GUID::from_u128(0x47537213_8cfb_4722_aa34_fbc9e24d77b8);
 pub const MF_MT_D3D12_CPU_READBACK: windows_core::GUID = windows_core::GUID::from_u128(0x28ee9fe3_d481_46a6_b98a_7f69d5280e82);
+pub const MF_MT_D3D12_RESOURCE_DIMENSION: windows_core::GUID = windows_core::GUID::from_u128(0x5f772624_16ca_4b89_9651_5ddf769f8ab8);
 pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: windows_core::GUID = windows_core::GUID::from_u128(0xa6a1e439_2f96_4ab5_98dc_adf74973505d);
 pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: windows_core::GUID = windows_core::GUID::from_u128(0xb1138dc3_01d5_4c14_9bdc_cdc9336f55b9);
 pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: windows_core::GUID = windows_core::GUID::from_u128(0xeeac2585_3430_498c_84a2_77b1bba570f6);
@@ -46392,6 +47903,7 @@ pub const MF_MT_MPEG2_TIMECODE: windows_core::GUID = windows_core::GUID::from_u1
 pub const MF_MT_MPEG4_CURRENT_SAMPLE_ENTRY: windows_core::GUID = windows_core::GUID::from_u128(0x9aa7e155_b64a_4c1d_a500_455d600b6560);
 pub const MF_MT_MPEG4_SAMPLE_DESCRIPTION: windows_core::GUID = windows_core::GUID::from_u128(0x261e9d83_9529_4b8f_a111_8b9c950a81a9);
 pub const MF_MT_MPEG4_TRACK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x54f486dd_9327_4f6d_80ab_6f709ebb4cce);
+pub const MF_MT_MPEGH_AUDIO_PROFILE_LEVEL_INDICATION: windows_core::GUID = windows_core::GUID::from_u128(0x51267a39_dd0c_4bb9_a7bd_9173ad4b131c);
 pub const MF_MT_MPEG_SEQUENCE_HEADER: windows_core::GUID = windows_core::GUID::from_u128(0x3c036de7_3ad0_4c9e_9216_ee6d6ac21cb3);
 pub const MF_MT_MPEG_START_TIME_CODE: windows_core::GUID = windows_core::GUID::from_u128(0x91f67885_4333_4280_97cd_bd5a6c03a06e);
 pub const MF_MT_ORIGINAL_4CC: windows_core::GUID = windows_core::GUID::from_u128(0xd7be3fe0_2bc7_492d_b843_61a1919b70c3);
@@ -46407,6 +47919,7 @@ pub const MF_MT_SAMPLE_SIZE: windows_core::GUID = windows_core::GUID::from_u128(
 pub const MF_MT_SECURE: windows_core::GUID = windows_core::GUID::from_u128(0xc5acc4fd_0304_4ecf_809f_47bc97ff63bd);
 pub const MF_MT_SOURCE_CONTENT_HINT: windows_core::GUID = windows_core::GUID::from_u128(0x68aca3cc_22d0_44e6_85f8_28167197fa38);
 pub const MF_MT_SPATIAL_AUDIO_DATA_PRESENT: windows_core::GUID = windows_core::GUID::from_u128(0x6842f6e7_d43e_4ebb_9c9c_c96f41784863);
+pub const MF_MT_SPATIAL_AUDIO_IS_PREVIRTUALIZED: windows_core::GUID = windows_core::GUID::from_u128(0x4eacab51_ffe5_421a_a2a7_8b7409a1cac4);
 pub const MF_MT_SPATIAL_AUDIO_MAX_DYNAMIC_OBJECTS: windows_core::GUID = windows_core::GUID::from_u128(0xdcfba24a_2609_4240_a721_3faea76a4df9);
 pub const MF_MT_SPATIAL_AUDIO_MAX_METADATA_ITEMS: windows_core::GUID = windows_core::GUID::from_u128(0x11aa80b4_e0da_47c6_8060_96c1259ae50d);
 pub const MF_MT_SPATIAL_AUDIO_MIN_METADATA_ITEM_OFFSET_SPACING: windows_core::GUID = windows_core::GUID::from_u128(0x83e96ec9_1184_417e_8254_9f269158fc06);
@@ -46633,6 +48146,7 @@ pub const MF_SA_D3D11_HW_PROTECTED: windows_core::GUID = windows_core::GUID::fro
 pub const MF_SA_D3D11_SHARED: windows_core::GUID = windows_core::GUID::from_u128(0x7b8f32c3_6d96_4b89_9203_dd38b61414f3);
 pub const MF_SA_D3D11_SHARED_WITHOUT_MUTEX: windows_core::GUID = windows_core::GUID::from_u128(0x39dbd44d_2e44_4931_a4c8_352d3dc42115);
 pub const MF_SA_D3D11_USAGE: windows_core::GUID = windows_core::GUID::from_u128(0xe85fe442_2ca3_486e_a9c7_109dda609880);
+pub const MF_SA_D3D12_AWARE: windows_core::GUID = windows_core::GUID::from_u128(0x77f0bacb_17a8_4a50_9a7d_a5cc09d39d44);
 pub const MF_SA_D3D12_CLEAR_VALUE: windows_core::GUID = windows_core::GUID::from_u128(0x86ba9a39_0526_495d_9ab5_54ec9fad6fc3);
 pub const MF_SA_D3D12_HEAP_FLAGS: windows_core::GUID = windows_core::GUID::from_u128(0x496b3266_d28f_4f8c_93a7_4a596b1a31a1);
 pub const MF_SA_D3D12_HEAP_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x56f26a76_bbc1_4ce0_bb11_e22368d874ed);
@@ -46658,6 +48172,7 @@ pub const MF_SD_MUTUALLY_EXCLUSIVE: windows_core::GUID = windows_core::GUID::fro
 pub const MF_SD_PROTECTED: windows_core::GUID = windows_core::GUID::from_u128(0x00af2181_bdc2_423c_abca_f503593bc121);
 pub const MF_SD_SAMI_LANGUAGE: windows_core::GUID = windows_core::GUID::from_u128(0x36fcb98a_6cd0_44cb_acb9_a8f5600dd0bb);
 pub const MF_SD_STREAM_NAME: windows_core::GUID = windows_core::GUID::from_u128(0x4f1b099d_d314_41e5_a781_7fefaa4c501f);
+pub const MF_SD_SUPPORTS_PROTECTED_CODEC_SWITCH: windows_core::GUID = windows_core::GUID::from_u128(0x8fb6b117_862e_4b31_8dab_5e0a434caef0);
 pub const MF_SD_VIDEO_SPHERICAL: windows_core::GUID = windows_core::GUID::from_u128(0xa51da449_3fdc_478c_bcb5_30be76595f55);
 pub const MF_SD_VIDEO_SPHERICAL_FORMAT: windows_core::GUID = windows_core::GUID::from_u128(0x4a8fc407_6ea1_46c8_b567_6971d4a139c3);
 pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: windows_core::GUID = windows_core::GUID::from_u128(0x11d25a49_bb62_467f_9db1_c17165716c49);
@@ -46828,6 +48343,7 @@ pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: MF_SOURCE_READER_CONSTANTS = MF
 pub const MF_SOURCE_READER_MEDIASOURCE: MF_SOURCE_READER_CONSTANTS = MF_SOURCE_READER_CONSTANTS(-1i32);
 pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: windows_core::GUID = windows_core::GUID::from_u128(0x6d23f5c8_c5d7_4a9b_9971_5d11f8bca880);
 pub const MF_SOURCE_READER_MEDIASOURCE_CONFIG: windows_core::GUID = windows_core::GUID::from_u128(0x9085abeb_0354_48f9_abb5_200df838c68e);
+pub const MF_SOURCE_READER_PASSTHROUGH_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x043ff126_fe2c_4708_a09b_da2ab435ced9);
 pub const MF_SOURCE_STREAM_SUPPORTS_HW_CONNECTION: windows_core::GUID = windows_core::GUID::from_u128(0xa38253aa_6314_42fd_a3ce_bb27b6859946);
 pub const MF_STANDARD_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = MFASYNC_WORKQUEUE_TYPE(0i32);
 pub const MF_STF_VERSION_DATE: windows_core::GUID = windows_core::GUID::from_u128(0x31a165d5_df67_4095_8e44_8868fc20dbfd);
@@ -47964,6 +49480,9 @@ pub struct _MFT_PROCESS_OUTPUT_STATUS(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_SET_TYPE_FLAGS(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct __MIDL___MIDL_itf_mfobjects_0000_0013_0001(pub i32);
 pub const _msoBegin: SEEK_ORIGIN = SEEK_ORIGIN(0i32);
 pub const _msoCurrent: SEEK_ORIGIN = SEEK_ORIGIN(1i32);
 #[repr(transparent)]
@@ -48276,6 +49795,9 @@ pub const eAVEncH264VLevel4_2: eAVEncH264VLevel = eAVEncH264VLevel(42i32);
 pub const eAVEncH264VLevel5: eAVEncH264VLevel = eAVEncH264VLevel(50i32);
 pub const eAVEncH264VLevel5_1: eAVEncH264VLevel = eAVEncH264VLevel(51i32);
 pub const eAVEncH264VLevel5_2: eAVEncH264VLevel = eAVEncH264VLevel(52i32);
+pub const eAVEncH264VLevel6: eAVEncH264VLevel = eAVEncH264VLevel(60i32);
+pub const eAVEncH264VLevel6_1: eAVEncH264VLevel = eAVEncH264VLevel(61i32);
+pub const eAVEncH264VLevel6_2: eAVEncH264VLevel = eAVEncH264VLevel(62i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH264VProfile(pub i32);
@@ -48514,6 +50036,9 @@ pub const eAVEncVideoOutputScan_Automatic: eAVEncVideoOutputScanType = eAVEncVid
 pub const eAVEncVideoOutputScan_Interlaced: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(1i32);
 pub const eAVEncVideoOutputScan_Progressive: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(0i32);
 pub const eAVEncVideoOutputScan_SameAsInput: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(2i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct eAVEncVideoQPMapElementDataType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoSourceScanType(pub i32);

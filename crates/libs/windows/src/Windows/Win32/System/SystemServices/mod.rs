@@ -183,7 +183,6 @@ pub struct ARM64_FNPDATA_CR(pub i32);
 pub struct ARM64_FNPDATA_FLAGS(pub i32);
 pub const ARM64_MAX_BREAKPOINTS: u32 = 8u32;
 pub const ARM64_MAX_WATCHPOINTS: u32 = 2u32;
-pub const ARM64_MULT_INTRINSICS_SUPPORTED: u32 = 1u32;
 pub const ARM64_PREFETCH_KEEP: u32 = 0u32;
 pub const ARM64_PREFETCH_L1: u32 = 0u32;
 pub const ARM64_PREFETCH_L2: u32 = 2u32;
@@ -234,6 +233,12 @@ impl core::ops::Not for ATF_FLAGS {
 }
 pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = ATF_FLAGS(2u32);
 pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ATTRIBUTES_AND_SID {
+    pub Attributes: u32,
+    pub SidStart: u32,
+}
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
 pub const AccessReasonAllowedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(65536i32);
 pub const AccessReasonAllowedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(196608i32);
@@ -435,6 +440,7 @@ pub const DOMAIN_ALIAS_RID_LOGGING_USERS: i32 = 559i32;
 pub const DOMAIN_ALIAS_RID_MONITORING_USERS: i32 = 558i32;
 pub const DOMAIN_ALIAS_RID_NETWORK_CONFIGURATION_OPS: i32 = 556i32;
 pub const DOMAIN_ALIAS_RID_NON_CACHEABLE_PRINCIPALS_GROUP: i32 = 572i32;
+pub const DOMAIN_ALIAS_RID_OPENSSH_USERS: i32 = 585i32;
 pub const DOMAIN_ALIAS_RID_POWER_USERS: i32 = 547i32;
 pub const DOMAIN_ALIAS_RID_PREW2KCOMPACCESS: i32 = 554i32;
 pub const DOMAIN_ALIAS_RID_PRINT_OPS: i32 = 550i32;
@@ -449,6 +455,7 @@ pub const DOMAIN_ALIAS_RID_STORAGE_REPLICA_ADMINS: i32 = 582i32;
 pub const DOMAIN_ALIAS_RID_SYSTEM_OPS: i32 = 549i32;
 pub const DOMAIN_ALIAS_RID_TS_LICENSE_SERVERS: i32 = 561i32;
 pub const DOMAIN_ALIAS_RID_USERS: i32 = 545i32;
+pub const DOMAIN_ALIAS_RID_USER_MODE_HARDWARE_OPERATORS: i32 = 584i32;
 pub const DOMAIN_GROUP_RID_ADMINS: i32 = 512i32;
 pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_CONTAINS_CLAIMS: i32 = 497i32;
 pub const DOMAIN_GROUP_RID_AUTHORIZATION_DATA_IS_COMPOUNDED: i32 = 496i32;
@@ -460,6 +467,8 @@ pub const DOMAIN_GROUP_RID_CONTROLLERS: i32 = 516i32;
 pub const DOMAIN_GROUP_RID_ENTERPRISE_ADMINS: i32 = 519i32;
 pub const DOMAIN_GROUP_RID_ENTERPRISE_KEY_ADMINS: i32 = 527i32;
 pub const DOMAIN_GROUP_RID_ENTERPRISE_READONLY_DOMAIN_CONTROLLERS: i32 = 498i32;
+pub const DOMAIN_GROUP_RID_EXTERNAL_TRUSTS: i32 = 529i32;
+pub const DOMAIN_GROUP_RID_FOREST_TRUSTS: i32 = 528i32;
 pub const DOMAIN_GROUP_RID_GUESTS: i32 = 514i32;
 pub const DOMAIN_GROUP_RID_KEY_ADMINS: i32 = 526i32;
 pub const DOMAIN_GROUP_RID_POLICY_ADMINS: i32 = 520i32;
@@ -473,6 +482,72 @@ pub const DOMAIN_USER_RID_GUEST: i32 = 501i32;
 pub const DOMAIN_USER_RID_KRBTGT: i32 = 502i32;
 pub const DOMAIN_USER_RID_MAX: i32 = 999i32;
 pub const DOMAIN_USER_RID_WDAG_ACCOUNT: i32 = 504i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_INFO_ENTRY {
+    pub InternalName: [i8; 32],
+    pub ImageHashAlgorithm: u16,
+    pub PublisherThumbprintHashAlgorithm: u16,
+    pub ImageHashOffset: u32,
+    pub PublisherThumbprintOffset: u32,
+    pub LoadCount: u16,
+    pub OemNameSize: u16,
+    pub OemNameOffset: u32,
+    pub Flags: DRIVER_INFO_ENTRY_0,
+    pub Padding: u16,
+}
+impl Default for DRIVER_INFO_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DRIVER_INFO_ENTRY_0 {
+    pub Anonymous: DRIVER_INFO_ENTRY_0_0,
+    pub AsUInt16: u16,
+}
+impl Default for DRIVER_INFO_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DRIVER_INFO_ENTRY_0_0 {
+    pub _bitfield: u16,
+}
+pub const DRIVER_REPORT_DIGEST_MAX_SIZE: u32 = 64u32;
+pub const DRIVER_REPORT_NAME_MAX_LENGTH: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DRIVER_RUNTIME_REPORT {
+    pub Header: RUNTIME_REPORT_HEADER,
+    pub NumberOfDrivers: u16,
+    pub Flags: DRIVER_RUNTIME_REPORT_0,
+    pub DriverEntries: [DRIVER_INFO_ENTRY; 1],
+}
+impl Default for DRIVER_RUNTIME_REPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DRIVER_RUNTIME_REPORT_0 {
+    pub Anonymous: DRIVER_RUNTIME_REPORT_0_0,
+    pub AsUInt16: u16,
+}
+impl Default for DRIVER_RUNTIME_REPORT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DRIVER_RUNTIME_REPORT_0_0 {
+    pub _bitfield: u16,
+}
 pub const DYNAMIC_EH_CONTINUATION_TARGET_ADD: u32 = 1u32;
 pub const DYNAMIC_EH_CONTINUATION_TARGET_PROCESSED: u32 = 2u32;
 pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: u32 = 1u32;
@@ -519,6 +594,12 @@ pub const ENCLAVE_TYPE_SGX2: u32 = 2u32;
 pub const ENCLAVE_TYPE_VBS: u32 = 16u32;
 pub const ENCLAVE_TYPE_VBS_BASIC: u32 = 17u32;
 pub const ENCLAVE_VBS_FLAG_DEBUG: u32 = 1u32;
+pub const ENERGY_SAVER_HIGH_SAVINGS: ENERGY_SAVER_STATUS = ENERGY_SAVER_STATUS(2i32);
+pub const ENERGY_SAVER_OFF: ENERGY_SAVER_STATUS = ENERGY_SAVER_STATUS(0i32);
+pub const ENERGY_SAVER_STANDARD: ENERGY_SAVER_STATUS = ENERGY_SAVER_STATUS(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ENERGY_SAVER_STATUS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENLISTMENT_BASIC_INFORMATION {
@@ -545,10 +626,8 @@ pub const ERROR_SEVERITY_ERROR: u32 = 3221225472u32;
 pub const ERROR_SEVERITY_INFORMATIONAL: u32 = 1073741824u32;
 pub const ERROR_SEVERITY_SUCCESS: u32 = 0u32;
 pub const ERROR_SEVERITY_WARNING: u32 = 2147483648u32;
-pub const EVENTLOG_BACKWARDS_READ: u32 = 8u32;
 pub const EVENTLOG_END_ALL_PAIRED_EVENTS: u32 = 4u32;
 pub const EVENTLOG_END_PAIRED_EVENT: u32 = 2u32;
-pub const EVENTLOG_FORWARDS_READ: u32 = 4u32;
 pub const EVENTLOG_PAIRED_EVENT_ACTIVE: u32 = 8u32;
 pub const EVENTLOG_PAIRED_EVENT_INACTIVE: u32 = 16u32;
 pub const EVENTLOG_START_PAIRED_EVENT: u32 = 1u32;
@@ -569,10 +648,13 @@ pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_IN
 pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(1i32);
 pub const FAST_FAIL_ADMINLESS_ACCESS_DENIED: u32 = 55u32;
 pub const FAST_FAIL_APCS_DISABLED: u32 = 32u32;
+pub const FAST_FAIL_ASAN_ERROR: u32 = 71u32;
 pub const FAST_FAIL_CAST_GUARD: u32 = 65u32;
 pub const FAST_FAIL_CERTIFICATION_FAILURE: u32 = 20u32;
+pub const FAST_FAIL_CLR_EXCEPTION_AOT: u32 = 72u32;
 pub const FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS: u32 = 57u32;
 pub const FAST_FAIL_CORRUPT_LIST_ENTRY: u32 = 3u32;
+pub const FAST_FAIL_CORRUPT_WOW64_STATE: u32 = 75u32;
 pub const FAST_FAIL_CRYPTO_LIBRARY: u32 = 22u32;
 pub const FAST_FAIL_DEPRECATED_SERVICE_INVOKED: u32 = 27u32;
 pub const FAST_FAIL_DLOAD_PROTECTION_FAILURE: u32 = 25u32;
@@ -598,6 +680,7 @@ pub const FAST_FAIL_INVALID_CALL_IN_DLL_CALLOUT: u32 = 23u32;
 pub const FAST_FAIL_INVALID_CONTROL_STACK: u32 = 47u32;
 pub const FAST_FAIL_INVALID_DISPATCH_CONTEXT: u32 = 39u32;
 pub const FAST_FAIL_INVALID_EXCEPTION_CHAIN: u32 = 21u32;
+pub const FAST_FAIL_INVALID_EXTENDED_STATE: u32 = 76u32;
 pub const FAST_FAIL_INVALID_FAST_FAIL_CODE: u32 = 4294967295u32;
 pub const FAST_FAIL_INVALID_FIBER_SWITCH: u32 = 12u32;
 pub const FAST_FAIL_INVALID_FILE_OPERATION: u32 = 42u32;
@@ -614,7 +697,9 @@ pub const FAST_FAIL_INVALID_REFERENCE_COUNT: u32 = 14u32;
 pub const FAST_FAIL_INVALID_SET_OF_CONTEXT: u32 = 13u32;
 pub const FAST_FAIL_INVALID_SYSCALL_NUMBER: u32 = 41u32;
 pub const FAST_FAIL_INVALID_THREAD: u32 = 40u32;
+pub const FAST_FAIL_INVALID_THREAD_STATE: u32 = 74u32;
 pub const FAST_FAIL_KERNEL_CET_SHADOW_STACK_ASSIST: u32 = 67u32;
+pub const FAST_FAIL_KERNEL_POINTER_EXPECTED: u32 = 77u32;
 pub const FAST_FAIL_LEGACY_GS_VIOLATION: u32 = 0u32;
 pub const FAST_FAIL_LOADER_CONTINUITY_FAILURE: u32 = 45u32;
 pub const FAST_FAIL_LOW_LABEL_ACCESS_DENIED: u32 = 52u32;
@@ -624,6 +709,7 @@ pub const FAST_FAIL_MRDATA_PROTECTION_FAILURE: u32 = 34u32;
 pub const FAST_FAIL_NTDLL_PATCH_FAILED: u32 = 69u32;
 pub const FAST_FAIL_PATCH_CALLBACK_FAILED: u32 = 68u32;
 pub const FAST_FAIL_PAYLOAD_RESTRICTION_VIOLATION: u32 = 51u32;
+pub const FAST_FAIL_POINTER_AUTH_INVALID_RETURN_ADDRESS: u32 = 73u32;
 pub const FAST_FAIL_RANGE_CHECK_FAILURE: u32 = 8u32;
 pub const FAST_FAIL_RIO_ABORT: u32 = 62u32;
 pub const FAST_FAIL_SET_CONTEXT_DENIED: u32 = 48u32;
@@ -638,6 +724,11 @@ pub const FAST_FAIL_VEH_CORRUPTION: u32 = 60u32;
 pub const FAST_FAIL_VTGUARD_CHECK_FAILURE: u32 = 1u32;
 pub const FILE_ATTRIBUTE_STRICTLY_SEQUENTIAL: u32 = 536870912u32;
 pub const FILE_CASE_PRESERVED_NAMES: u32 = 2u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct FILE_CASE_SENSITIVE_INFORMATION {
+    pub Flags: u32,
+}
 pub const FILE_CASE_SENSITIVE_SEARCH: u32 = 1u32;
 pub const FILE_CS_FLAG_CASE_SENSITIVE_DIR: u32 = 1u32;
 pub const FILE_DAX_VOLUME: u32 = 536870912u32;
@@ -688,6 +779,42 @@ pub const FILE_PERSISTENT_ACLS: u32 = 8u32;
 pub const FILE_READ_ONLY_VOLUME: u32 = 524288u32;
 pub const FILE_RETURNS_CLEANUP_RESULT_INFO: u32 = 512u32;
 pub const FILE_SEQUENTIAL_WRITE_ONCE: u32 = 1048576u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct FILE_STAT_INFORMATION {
+    pub FileId: i64,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub AllocationSize: i64,
+    pub EndOfFile: i64,
+    pub FileAttributes: u32,
+    pub ReparseTag: u32,
+    pub NumberOfLinks: u32,
+    pub EffectiveAccess: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct FILE_STAT_LX_INFORMATION {
+    pub FileId: i64,
+    pub CreationTime: i64,
+    pub LastAccessTime: i64,
+    pub LastWriteTime: i64,
+    pub ChangeTime: i64,
+    pub AllocationSize: i64,
+    pub EndOfFile: i64,
+    pub FileAttributes: u32,
+    pub ReparseTag: u32,
+    pub NumberOfLinks: u32,
+    pub EffectiveAccess: u32,
+    pub LxFlags: u32,
+    pub LxUid: u32,
+    pub LxGid: u32,
+    pub LxMode: u32,
+    pub LxDeviceIdMajor: u32,
+    pub LxDeviceIdMinor: u32,
+}
 pub const FILE_SUPPORTS_BLOCK_REFCOUNTING: u32 = 134217728u32;
 pub const FILE_SUPPORTS_BYPASS_IO: u32 = 2048u32;
 pub const FILE_SUPPORTS_CASE_SENSITIVE_DIRS: u32 = 8192u32;
@@ -715,6 +842,7 @@ pub const FILL_NV_MEMORY_FLAG_NO_DRAIN: u32 = 256u32;
 pub const FLS_MAXIMUM_AVAILABLE: u32 = 4080u32;
 pub const FLUSH_FLAGS_FILE_DATA_ONLY: u32 = 1u32;
 pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: u32 = 4u32;
+pub const FLUSH_FLAGS_FLUSH_AND_PURGE: u32 = 8u32;
 pub const FLUSH_FLAGS_NO_SYNC: u32 = 2u32;
 pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: u32 = 1u32;
 pub const FOREST_USER_RID_MAX: i32 = 499i32;
@@ -846,6 +974,7 @@ pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: windows_core::GUID = windows_core:
 pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xe69653ca_cf7f_4f05_aa73_cb833fa90ad4);
 pub const GUID_ENERGY_SAVER_BRIGHTNESS: windows_core::GUID = windows_core::GUID::from_u128(0x13d09884_f74e_474a_a852_b6bde8ad03a8);
 pub const GUID_ENERGY_SAVER_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x5c5bb349_ad29_4ee2_9d0b_2b25270f7a81);
+pub const GUID_ENERGY_SAVER_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x550e8400_e29b_41d4_a716_446655440000);
 pub const GUID_ENERGY_SAVER_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0xde830923_a562_41af_a086_e3a2c6bad2da);
 pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: windows_core::GUID = windows_core::GUID::from_u128(0x3166bc41_7e98_4e03_b34e_ec0f5f2b218e);
 pub const GUID_GLOBAL_USER_PRESENCE: windows_core::GUID = windows_core::GUID::from_u128(0x786e8a1d_b427_4344_9207_09e70bdcbea9);
@@ -879,6 +1008,10 @@ pub const GUID_PCIEXPRESS_ASPM_POLICY: windows_core::GUID = windows_core::GUID::
 pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x501a4d13_42af_4429_9fd1_a8218c268e20);
 pub const GUID_POWERBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x7648efa3_dd9c_4e3e_b566_50f929386280);
 pub const GUID_POWERSCHEME_PERSONALITY: windows_core::GUID = windows_core::GUID::from_u128(0x245d8541_3943_4422_b025_13a784f679b7);
+pub const GUID_POWER_MODE_BEST_EFFICIENCY: windows_core::GUID = windows_core::GUID::from_u128(0x961cc777_2547_4f9d_8174_7d86181b8a7a);
+pub const GUID_POWER_MODE_BEST_PERFORMANCE: windows_core::GUID = windows_core::GUID::from_u128(0xded574b5_45a0_4f42_8737_46345c09c238);
+pub const GUID_POWER_MODE_NONE: windows_core::GUID = windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_POWER_MODE_PERFORMANCE: windows_core::GUID = windows_core::GUID::from_u128(0x3af9b8d9_7c97_431d_ad78_34a8bfea439f);
 pub const GUID_POWER_SAVING_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0xe00958c0_c213_4ace_ac77_fecced2eeea5);
 pub const GUID_PROCESSOR_ALLOW_THROTTLING: windows_core::GUID = windows_core::GUID::from_u128(0x3b04d4fd_1cc7_4f23_ab1c_d1337819c4bb);
 pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: windows_core::GUID = windows_core::GUID::from_u128(0xfddc842b_8364_4edc_94cf_c17f60de1c80);
@@ -905,7 +1038,15 @@ pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: windows_core::GUID = windows_core::
 pub const GUID_PROCESSOR_DUTY_CYCLING: windows_core::GUID = windows_core::GUID::from_u128(0x4e4450b3_6179_4e91_b8f1_5bb9938f81a1);
 pub const GUID_PROCESSOR_FREQUENCY_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e100);
 pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e101);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT_2: windows_core::GUID = windows_core::GUID::from_u128(0x75b0ae3f_bce0_45a7_8c89_c9611c25e102);
 pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x7f2f5cfa_f10c_4823_b5e1_e93ae85f46b5);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x6ff13aeb_7897_4356_9999_dd9930af065f);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_EFFICIENCY_IMP_UTIL_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6ece9e1f_b6dd_42bf_b1b7_5a512b10c092);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_EFFICIENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x69439b22_221b_4830_bd34_f7bcece24583);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_HYBRID_IMP_UTIL_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x12fd031f_53d2_4bf4_ac6d_c699fc9538c7);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_HYBRID_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6788488b_1b90_4d11_8fa7_973e470dff47);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x64fcee6b_5b1f_45a4_a76a_19b2c36ee290);
+pub const GUID_PROCESSOR_HETERO_CONTAINMENT_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x60fbe21b_efd9_49f2_b066_8674d8e9f423);
 pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6b);
 pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0xf8861c27_95e7_475c_865b_13c0cb3f9d6c);
 pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x7f2492b6_60b1_45e5_ae55_773f8cd5caec);
@@ -945,6 +1086,7 @@ pub const GUID_PROCESSOR_PERF_DECREASE_TIME: windows_core::GUID = windows_core::
 pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0xd8edeb9b_95cf_4f95_a73c_b061973693c9);
 pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6863);
 pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6864);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_2: windows_core::GUID = windows_core::GUID::from_u128(0x36687f9e_e3a5_4dbf_b1dc_15eb381c6865);
 pub const GUID_PROCESSOR_PERF_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f5f);
 pub const GUID_PROCESSOR_PERF_HISTORY_1: windows_core::GUID = windows_core::GUID::from_u128(0x7d24baa7_0b84_480f_840c_1b0743c00f60);
 pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: windows_core::GUID = windows_core::GUID::from_u128(0x99b3ef01_752f_46a1_80fb_7730011f2354);
@@ -955,9 +1097,16 @@ pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: windows_core::GUID = windows
 pub const GUID_PROCESSOR_PERF_INCREASE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5aa);
 pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: windows_core::GUID = windows_core::GUID::from_u128(0x984cf492_3bed_4488_a8f9_4286c97bf5ab);
 pub const GUID_PROCESSOR_PERF_LATENCY_HINT: windows_core::GUID = windows_core::GUID::from_u128(0x0822df31_9c83_441c_a079_0de4cf009c7b);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98173);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP_1: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98174);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_EPP_2: windows_core::GUID = windows_core::GUID::from_u128(0x4b70f900_cdd9_4e66_aa26_ae8417f98175);
 pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300971);
 pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300972);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_2: windows_core::GUID = windows_core::GUID::from_u128(0x619b7505_003b_4e82_b7a6_4dd29c300973);
 pub const GUID_PROCESSOR_PERF_TIME_CHECK: windows_core::GUID = windows_core::GUID::from_u128(0x4d2b0152_7d5c_498b_88e2_34345392a2c5);
+pub const GUID_PROCESSOR_RESOURCE_PRIORITY: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5c);
+pub const GUID_PROCESSOR_RESOURCE_PRIORITY_1: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5d);
+pub const GUID_PROCESSOR_RESOURCE_PRIORITY_2: windows_core::GUID = windows_core::GUID::from_u128(0x603fe9ce_8d01_4b48_a968_1d706c28fd5e);
 pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc480);
 pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: windows_core::GUID = windows_core::GUID::from_u128(0x38b8383d_cce0_4c79_9e3e_56a4f17cc481);
 pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0xf565999f_3fb0_411a_a226_3f0198dec130);
@@ -970,6 +1119,7 @@ pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: windows_core::GUID = window
 pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: windows_core::GUID = windows_core::GUID::from_u128(0x4427c73b_9756_4a5c_b84b_c7bda79c7321);
 pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: windows_core::GUID = windows_core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd40);
 pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: windows_core::GUID = windows_core::GUID::from_u128(0xce8e92ee_6a86_4572_bfe0_20c21d03cd41);
+pub const GUID_PROCESSOR_RESTRICTION_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x1a98ad09_af22_42ca_8e61_f0a5802c270a);
 pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u128(0x54533251_82be_4824_96c1_47b60b740d00);
 pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_LOWER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x53824d46_87bd_4739_aa1b_aa793fac36d6);
 pub const GUID_PROCESSOR_SHORT_THREAD_ARCH_CLASS_UPPER_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x828423eb_8662_4344_90f7_52bf15870f5a);
@@ -980,9 +1130,12 @@ pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: windows_core::GUID = windows_core
 pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x93b8b6dc_0698_4d1c_9ee4_0644e900c85d);
 pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ec);
 pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ed);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0xbc5038f7_23e0_4960_96da_33abaf5935ee);
 pub const GUID_PROCESSOR_THROTTLE_MINIMUM: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964c);
 pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964d);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM_2: windows_core::GUID = windows_core::GUID::from_u128(0x893dee8e_2bef_41e0_89c6_b55d0929964e);
 pub const GUID_PROCESSOR_THROTTLE_POLICY: windows_core::GUID = windows_core::GUID::from_u128(0x57027304_4af6_4104_9260_e3d95248fc36);
+pub const GUID_PROCESSOR_WPS_MIN_EFFICIENCY_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x5ba7419a_295c_4b02_841b_66799388d6da);
 pub const GUID_SESSION_DISPLAY_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x2b84c20e_ad23_4ddf_93db_05ffbd7efca5);
 pub const GUID_SESSION_USER_PRESENCE: windows_core::GUID = windows_core::GUID::from_u128(0x3c0f4548_c03f_4c4d_b9f2_237ede686376);
 pub const GUID_SLEEPBUTTON_ACTION: windows_core::GUID = windows_core::GUID::from_u128(0x96996bc0_ad50_47ec_923b_6f41874dd9eb);
@@ -991,6 +1144,8 @@ pub const GUID_SLEEP_SUBGROUP: windows_core::GUID = windows_core::GUID::from_u12
 pub const GUID_SPR_ACTIVE_SESSION_CHANGE: windows_core::GUID = windows_core::GUID::from_u128(0x0e24ce38_c393_4742_bdb1_744f4b9ee08e);
 pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0x60c07fe1_0556_45cf_9903_d56e32210242);
 pub const GUID_STANDBY_BUDGET_PERCENT: windows_core::GUID = windows_core::GUID::from_u128(0x9fe527be_1b70_48da_930d_7bcf17b44990);
+pub const GUID_STANDBY_BUDGET_REFRESH_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0xaca8648e_c4b1_4baa_8cce_9390ad647f8c);
+pub const GUID_STANDBY_BUDGET_REFRESH_INTERVAL: windows_core::GUID = windows_core::GUID::from_u128(0x61f45dfe_1919_4180_bb46_8cc70e0b38f1);
 pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0xc763ee92_71e8_4127_84eb_f6ed043a3e3d);
 pub const GUID_STANDBY_RESERVE_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x468fe7e5_1158_46ec_88bc_5b96c9e44fd0);
 pub const GUID_STANDBY_RESET_PERCENT: windows_core::GUID = windows_core::GUID::from_u128(0x49cb11a5_56e2_4afb_9d38_3df47872e21b);
@@ -1121,6 +1276,38 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
+    pub EpilogScopeData: u32,
+    pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0,
+}
+impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
+    pub ExtendedHeaderData: u32,
+    pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0,
+}
+impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -1483,12 +1670,14 @@ pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub SymbolGroup: u32,
     pub Flags: u32,
 }
+pub const IMAGE_DYNAMIC_RELOCATION_ARM64_KERNEL_IMPORT_CALL_TRANSFER: u32 = 8u32;
 pub const IMAGE_DYNAMIC_RELOCATION_FUNCTION_OVERRIDE: u32 = 7u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER: u32 = 3u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_INDIR_CONTROL_TRANSFER: u32 = 4u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_EPILOGUE: u32 = 2u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_RF_PROLOGUE: u32 = 1u32;
 pub const IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: u32 = 5u32;
+pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
@@ -1503,6 +1692,7 @@ pub const IMAGE_ENCLAVE_IMPORT_MATCH_NONE: u32 = 0u32;
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: u32 = 1u32;
 pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: u32 = 32u32;
 pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: u32 = 1u32;
+pub const IMAGE_ENCLAVE_POLICY_STRICT_MEMORY: u32 = 2u32;
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: u32 = 16u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -1581,6 +1771,9 @@ pub struct IMAGE_HOT_PATCH_BASE {
     pub BufferOffset: u32,
 }
 pub const IMAGE_HOT_PATCH_BASE_CAN_ROLL_BACK: u32 = 2u32;
+pub const IMAGE_HOT_PATCH_BASE_MACHINE_AMD64: u32 = 16u32;
+pub const IMAGE_HOT_PATCH_BASE_MACHINE_ARM64: u32 = 8u32;
+pub const IMAGE_HOT_PATCH_BASE_MACHINE_I386: u32 = 4u32;
 pub const IMAGE_HOT_PATCH_BASE_OBLIGATORY: u32 = 1u32;
 pub const IMAGE_HOT_PATCH_CALL_TARGET: u32 = 278528u32;
 pub const IMAGE_HOT_PATCH_CHUNK_INVERSE: u32 = 2147483648u32;
@@ -1614,6 +1807,20 @@ pub struct IMAGE_HOT_PATCH_INFO {
     pub BaseImageCount: u32,
     pub BufferOffset: u32,
     pub ExtraPatchSize: u32,
+    pub MinSequenceNumber: u32,
+    pub Flags: u32,
+}
+pub const IMAGE_HOT_PATCH_INFO_FLAG_HOTSWAP: u32 = 2u32;
+pub const IMAGE_HOT_PATCH_INFO_FLAG_PATCHORDERCRITICAL: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IMAGE_HOT_PATCH_MACHINE {
+    pub Anonymous: IMAGE_HOT_PATCH_MACHINE_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IMAGE_HOT_PATCH_MACHINE_0 {
+    pub _bitfield: u32,
 }
 pub const IMAGE_HOT_PATCH_NONE: u32 = 0u32;
 pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: u32 = 409600u32;
@@ -1628,6 +1835,11 @@ impl Default for IMAGE_IMPORT_BY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
+    pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -2520,6 +2732,7 @@ pub const IO_REPARSE_TAG_RESERVED_TWO: u32 = 2u32;
 pub const IO_REPARSE_TAG_RESERVED_ZERO: u32 = 0u32;
 pub const IO_REPARSE_TAG_SIS: u32 = 2147483655u32;
 pub const IO_REPARSE_TAG_STORAGE_SYNC: u32 = 2147483678u32;
+pub const IO_REPARSE_TAG_STORAGE_SYNC_FOLDER: i32 = -1879048153i32;
 pub const IO_REPARSE_TAG_SYMLINK: u32 = 2684354572u32;
 pub const IO_REPARSE_TAG_UNHANDLED: u32 = 2147483680u32;
 pub const IO_REPARSE_TAG_WCI: u32 = 2147483672u32;
@@ -2548,19 +2761,28 @@ pub const ImagePolicyEntryTypeUInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENT
 pub const ImagePolicyEntryTypeUInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(3i32);
 pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(11i32);
 pub const ImagePolicyIdCapability: IMAGE_POLICY_ID = IMAGE_POLICY_ID(10i32);
+pub const ImagePolicyIdCapabilityOverridable: IMAGE_POLICY_ID = IMAGE_POLICY_ID(12i32);
 pub const ImagePolicyIdCrashDump: IMAGE_POLICY_ID = IMAGE_POLICY_ID(3i32);
 pub const ImagePolicyIdCrashDumpKey: IMAGE_POLICY_ID = IMAGE_POLICY_ID(4i32);
 pub const ImagePolicyIdCrashDumpKeyGuid: IMAGE_POLICY_ID = IMAGE_POLICY_ID(5i32);
 pub const ImagePolicyIdDebug: IMAGE_POLICY_ID = IMAGE_POLICY_ID(2i32);
 pub const ImagePolicyIdDeviceId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(9i32);
 pub const ImagePolicyIdEtw: IMAGE_POLICY_ID = IMAGE_POLICY_ID(1i32);
-pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = IMAGE_POLICY_ID(12i32);
+pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = IMAGE_POLICY_ID(14i32);
 pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
 pub const ImagePolicyIdParentSd: IMAGE_POLICY_ID = IMAGE_POLICY_ID(6i32);
 pub const ImagePolicyIdParentSdRev: IMAGE_POLICY_ID = IMAGE_POLICY_ID(7i32);
 pub const ImagePolicyIdScenarioId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(11i32);
 pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = IMAGE_POLICY_ID(8i32);
+pub const ImagePolicyIdTrustletIdOverridable: IMAGE_POLICY_ID = IMAGE_POLICY_ID(13i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct JOBOBJECT_NETWORK_ACCOUNTING_INFORMATION {
+    pub DataBytesIn: u64,
+    pub DataBytesOut: u64,
+}
 pub const JOB_OBJECT_ASSIGN_PROCESS: u32 = 1u32;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_PER_PROCESSOR_CAPS: u32 = 32u32;
 pub const JOB_OBJECT_IMPERSONATE: u32 = 32u32;
 pub const JOB_OBJECT_MSG_ABNORMAL_EXIT_PROCESS: u32 = 8u32;
 pub const JOB_OBJECT_MSG_ACTIVE_PROCESS_LIMIT: u32 = 3u32;
@@ -2581,9 +2803,10 @@ pub const JOB_OBJECT_QUERY: u32 = 4u32;
 pub const JOB_OBJECT_SET_ATTRIBUTES: u32 = 2u32;
 pub const JOB_OBJECT_SET_SECURITY_ATTRIBUTES: u32 = 16u32;
 pub const JOB_OBJECT_TERMINATE: u32 = 8u32;
-pub const JOB_OBJECT_UILIMIT_ALL: u32 = 511u32;
+pub const JOB_OBJECT_UILIMIT_ALL: u32 = 1023u32;
 pub const JOB_OBJECT_UILIMIT_IME: u32 = 256u32;
-pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 511u32;
+pub const JOB_OBJECT_UILIMIT_INJECTION: u32 = 512u32;
+pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 1023u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KERNEL_CET_CONTEXT {
@@ -2787,7 +3010,13 @@ pub const LOCALE_TRANSIENT_KEYBOARD1: u32 = 8192u32;
 pub const LOCALE_TRANSIENT_KEYBOARD2: u32 = 9216u32;
 pub const LOCALE_TRANSIENT_KEYBOARD3: u32 = 10240u32;
 pub const LOCALE_TRANSIENT_KEYBOARD4: u32 = 11264u32;
+pub const LOCALE_UNASSIGNED_LCID: u32 = 4096u32;
 pub const LTP_PC_SMT: u32 = 1u32;
+pub const LX_FILE_CASE_SENSITIVE_DIR: u32 = 16u32;
+pub const LX_FILE_METADATA_HAS_DEVICE_ID: u32 = 8u32;
+pub const LX_FILE_METADATA_HAS_GID: u32 = 2u32;
+pub const LX_FILE_METADATA_HAS_MODE: u32 = 4u32;
+pub const LX_FILE_METADATA_HAS_UID: u32 = 1u32;
 pub const MAILSLOT_NO_MESSAGE: u32 = 4294967295u32;
 pub const MAILSLOT_WAIT_FOREVER: u32 = 4294967295u32;
 pub const MAXBYTE: u32 = 255u32;
@@ -2824,7 +3053,6 @@ pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1u32;
 pub const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608u32;
 pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
 pub const MEM_EXTENDED_PARAMETER_GRAPHICS: u32 = 1u32;
-pub const MEM_EXTENDED_PARAMETER_IMAGE_NO_HPAT: u32 = 128u32;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED: u32 = 2u32;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: u32 = 16u32;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: u32 = 8u32;
@@ -3015,7 +3243,7 @@ pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
 pub type PIMAGE_TLS_CALLBACK = Option<unsafe extern "system" fn(dllhandle: *mut core::ffi::c_void, reason: u32, reserved: *mut core::ffi::c_void)>;
-pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
+pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 60u32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
@@ -3053,6 +3281,51 @@ pub const POWER_DEVICE_IDLE_POLICY_CONSERVATIVE: u32 = 1u32;
 pub const POWER_DEVICE_IDLE_POLICY_PERFORMANCE: u32 = 0u32;
 pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: u32 = 1u32;
 pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: u32 = 0u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POWER_LIMIT_ATTRIBUTES {
+    pub Type: POWER_LIMIT_TYPES,
+    pub DomainId: u32,
+    pub MaxValue: u32,
+    pub MinValue: u32,
+    pub MinTimeParameter: u32,
+    pub MaxTimeParameter: u32,
+    pub DefaultACValue: u32,
+    pub DefaultDCValue: u32,
+    pub Flags: POWER_LIMIT_ATTRIBUTES_0,
+}
+impl Default for POWER_LIMIT_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union POWER_LIMIT_ATTRIBUTES_0 {
+    pub Anonymous: POWER_LIMIT_ATTRIBUTES_0_0,
+    pub AsUlong: u32,
+}
+impl Default for POWER_LIMIT_ATTRIBUTES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct POWER_LIMIT_ATTRIBUTES_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POWER_LIMIT_TYPES(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct POWER_LIMIT_VALUE {
+    pub Type: POWER_LIMIT_TYPES,
+    pub DomainId: u32,
+    pub TargetValue: u32,
+    pub TimeParameter: u32,
+}
 pub const POWER_REQUEST_CONTEXT_VERSION: u32 = 0u32;
 pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
 pub const POWER_SYSTEM_MAXIMUM: u32 = 7u32;
@@ -3203,32 +3476,6 @@ pub const PROCESS_HEAP_ENTRY_MOVEABLE: u32 = 16u32;
 pub const PROCESS_HEAP_REGION: u32 = 1u32;
 pub const PROCESS_HEAP_SEG_ALLOC: u32 = 8u32;
 pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
-    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0,
-}
-impl Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
-    pub Flags: u32,
-    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0,
-}
-impl Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
-    pub _bitfield: u32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY {
@@ -3698,86 +3945,15 @@ impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PROCESS_NETWORK_COUNTERS {
+    pub BytesIn: u64,
+    pub BytesOut: u64,
+}
 pub const PROCESS_TRUST_LABEL_SECURITY_INFORMATION: i32 = 128i32;
 pub const PROC_IDLE_BUCKET_COUNT: u32 = 6u32;
 pub const PROC_IDLE_BUCKET_COUNT_EX: u32 = 16u32;
-pub const PRODUCT_ARM64_SERVER: u32 = 120u32;
-pub const PRODUCT_AZURESTACKHCI_SERVER_CORE: u32 = 406u32;
-pub const PRODUCT_AZURE_NANO_SERVER: u32 = 169u32;
-pub const PRODUCT_AZURE_SERVER_CLOUDHOST: u32 = 199u32;
-pub const PRODUCT_AZURE_SERVER_CLOUDMOS: u32 = 200u32;
-pub const PRODUCT_AZURE_SERVER_CORE: u32 = 168u32;
-pub const PRODUCT_CLOUD: u32 = 178u32;
-pub const PRODUCT_CLOUDE: u32 = 183u32;
-pub const PRODUCT_CLOUDEDITION: u32 = 203u32;
-pub const PRODUCT_CLOUDEDITIONN: u32 = 202u32;
-pub const PRODUCT_CLOUDEN: u32 = 186u32;
-pub const PRODUCT_CLOUDN: u32 = 179u32;
-pub const PRODUCT_CLOUD_HOST_INFRASTRUCTURE_SERVER: u32 = 124u32;
-pub const PRODUCT_CLOUD_STORAGE_SERVER: u32 = 110u32;
-pub const PRODUCT_CONNECTED_CAR: u32 = 117u32;
-pub const PRODUCT_CORE_ARM: u32 = 97u32;
-pub const PRODUCT_CORE_CONNECTED: u32 = 111u32;
-pub const PRODUCT_CORE_CONNECTED_COUNTRYSPECIFIC: u32 = 116u32;
-pub const PRODUCT_CORE_CONNECTED_N: u32 = 113u32;
-pub const PRODUCT_CORE_CONNECTED_SINGLELANGUAGE: u32 = 115u32;
-pub const PRODUCT_DATACENTER_EVALUATION_SERVER_CORE: u32 = 159u32;
-pub const PRODUCT_DATACENTER_NANO_SERVER: u32 = 143u32;
-pub const PRODUCT_DATACENTER_SERVER_AZURE_EDITION: u32 = 407u32;
-pub const PRODUCT_DATACENTER_SERVER_CORE_AZURE_EDITION: u32 = 408u32;
-pub const PRODUCT_DATACENTER_WS_SERVER_CORE: u32 = 147u32;
-pub const PRODUCT_EMBEDDED: u32 = 65u32;
-pub const PRODUCT_EMBEDDED_A: u32 = 88u32;
-pub const PRODUCT_EMBEDDED_AUTOMOTIVE: u32 = 85u32;
-pub const PRODUCT_EMBEDDED_E: u32 = 90u32;
-pub const PRODUCT_EMBEDDED_EVAL: u32 = 107u32;
-pub const PRODUCT_EMBEDDED_E_EVAL: u32 = 108u32;
-pub const PRODUCT_EMBEDDED_INDUSTRY: u32 = 89u32;
-pub const PRODUCT_EMBEDDED_INDUSTRY_A: u32 = 86u32;
-pub const PRODUCT_EMBEDDED_INDUSTRY_A_E: u32 = 92u32;
-pub const PRODUCT_EMBEDDED_INDUSTRY_E: u32 = 91u32;
-pub const PRODUCT_EMBEDDED_INDUSTRY_EVAL: u32 = 105u32;
-pub const PRODUCT_EMBEDDED_INDUSTRY_E_EVAL: u32 = 106u32;
-pub const PRODUCT_ENTERPRISEG: u32 = 171u32;
-pub const PRODUCT_ENTERPRISEGN: u32 = 172u32;
-pub const PRODUCT_ENTERPRISE_SUBSCRIPTION: u32 = 140u32;
-pub const PRODUCT_ENTERPRISE_SUBSCRIPTION_N: u32 = 141u32;
-pub const PRODUCT_HOLOGRAPHIC: u32 = 135u32;
-pub const PRODUCT_HOLOGRAPHIC_BUSINESS: u32 = 136u32;
-pub const PRODUCT_HUBOS: u32 = 180u32;
-pub const PRODUCT_INDUSTRY_HANDHELD: u32 = 118u32;
-pub const PRODUCT_IOTEDGEOS: u32 = 187u32;
-pub const PRODUCT_IOTENTERPRISE: u32 = 188u32;
-pub const PRODUCT_IOTENTERPRISES: u32 = 191u32;
-pub const PRODUCT_IOTOS: u32 = 185u32;
-pub const PRODUCT_LITE: u32 = 189u32;
-pub const PRODUCT_NANO_SERVER: u32 = 109u32;
-pub const PRODUCT_ONECOREUPDATEOS: u32 = 182u32;
-pub const PRODUCT_PPI_PRO: u32 = 119u32;
-pub const PRODUCT_PROFESSIONAL_EMBEDDED: u32 = 58u32;
-pub const PRODUCT_PROFESSIONAL_S: u32 = 127u32;
-pub const PRODUCT_PROFESSIONAL_STUDENT: u32 = 112u32;
-pub const PRODUCT_PROFESSIONAL_STUDENT_N: u32 = 114u32;
-pub const PRODUCT_PROFESSIONAL_S_N: u32 = 128u32;
-pub const PRODUCT_PRO_CHINA: u32 = 139u32;
-pub const PRODUCT_PRO_FOR_EDUCATION: u32 = 164u32;
-pub const PRODUCT_PRO_FOR_EDUCATION_N: u32 = 165u32;
-pub const PRODUCT_PRO_SINGLE_LANGUAGE: u32 = 138u32;
-pub const PRODUCT_SERVERRDSH: u32 = 175u32;
-pub const PRODUCT_SOLUTION_EMBEDDEDSERVER_CORE: u32 = 57u32;
-pub const PRODUCT_STANDARD_EVALUATION_SERVER_CORE: u32 = 160u32;
-pub const PRODUCT_STANDARD_NANO_SERVER: u32 = 144u32;
-pub const PRODUCT_STANDARD_SERVER_CORE: u32 = 13u32;
-pub const PRODUCT_STANDARD_WS_SERVER_CORE: u32 = 148u32;
-pub const PRODUCT_THINPC: u32 = 87u32;
-pub const PRODUCT_UNLICENSED: u32 = 2882382797u32;
-pub const PRODUCT_UTILITY_VM: u32 = 149u32;
-pub const PRODUCT_XBOX_DURANGOHOSTOS: u32 = 196u32;
-pub const PRODUCT_XBOX_ERAOS: u32 = 195u32;
-pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
-pub const PRODUCT_XBOX_KEYSTONE: u32 = 198u32;
-pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
-pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: *mut core::ffi::c_void)>;
 #[cfg(target_arch = "aarch64")]
@@ -3791,6 +3967,16 @@ pub const PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(1i32);
 pub const PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(2i32);
 pub const PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(1i32);
 pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
+pub const PowerLimitBurst: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(1i32);
+pub const PowerLimitContinuous: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(0i32);
+pub const PowerLimitPreemptive: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(3i32);
+pub const PowerLimitPreemptiveOffset: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(4i32);
+pub const PowerLimitRapid: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(2i32);
+pub const PowerLimitType1: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(0i32);
+pub const PowerLimitType2: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(1i32);
+pub const PowerLimitType3: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(2i32);
+pub const PowerLimitType4: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(3i32);
+pub const PowerLimitTypeMax: POWER_LIMIT_TYPES = POWER_LIMIT_TYPES(5i32);
 pub const PowerMonitorDim: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(2i32);
 pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
 pub const PowerMonitorOn: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(1i32);
@@ -3955,6 +4141,48 @@ pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
 pub const RTL_UMS_VERSION: u32 = 256u32;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RUNTIME_REPORT_DIGEST_HEADER {
+    pub ReportType: u16,
+    pub Reserved: u16,
+    pub ReportDigest: [u8; 64],
+}
+impl Default for RUNTIME_REPORT_DIGEST_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const RUNTIME_REPORT_DIGEST_MAX_SIZE: u32 = 64u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct RUNTIME_REPORT_HEADER {
+    pub ReportType: u16,
+    pub Reserved: u16,
+    pub ReportSize: u32,
+}
+pub const RUNTIME_REPORT_NONCE_SIZE: u32 = 32u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct RUNTIME_REPORT_PACKAGE_HEADER {
+    pub Magic: u32,
+    pub PackageVersion: u16,
+    pub NumberOfReports: u16,
+    pub ReportTypesBitmap: u64,
+    pub PackageSize: u32,
+    pub ReportDigestType: u16,
+    pub TotalReportDigestsSize: u16,
+    pub Reserved: u16,
+    pub SignatureScheme: u16,
+    pub SignatureSize: u32,
+    pub TotalAuthenticatedReportsSize: u32,
+}
+pub const RUNTIME_REPORT_PACKAGE_MAGIC: u32 = 1381257808u32;
+pub const RUNTIME_REPORT_PACKAGE_VERSION_CURRENT: u32 = 1u32;
+pub const RUNTIME_REPORT_SIGNATURE_SCHEME_SHA512_RSA_PSS_SHA512: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RUNTIME_REPORT_TYPE(pub i32);
 pub const RecognizerType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(8i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4054,6 +4282,8 @@ pub struct ReplacesCorHdrNumericDefines(pub i32);
 pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
 pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(1i32);
 pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(5i32);
+pub const RuntimeReportTypeDriver: RUNTIME_REPORT_TYPE = RUNTIME_REPORT_TYPE(0i32);
+pub const RuntimeReportTypeMax: RUNTIME_REPORT_TYPE = RUNTIME_REPORT_TYPE(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_TABLE_AMD64 {
@@ -4118,7 +4348,9 @@ pub struct SCRUB_DATA_INPUT {
     pub Flags: u32,
     pub MaximumIos: u32,
     pub ObjectId: [u32; 4],
-    pub Reserved: [u32; 41],
+    pub StartingByteOffset: u64,
+    pub ByteCount: u64,
+    pub Reserved: [u32; 36],
     pub ResumeContext: [u8; 1040],
 }
 impl Default for SCRUB_DATA_INPUT {
@@ -4146,7 +4378,9 @@ pub struct SCRUB_DATA_OUTPUT {
     pub InternalFileReference: u64,
     pub ResumeContextLength: u16,
     pub ParityExtentDataOffset: u16,
-    pub Reserved: [u32; 9],
+    pub NextStartingByteOffset: u64,
+    pub ValidDataLength: u64,
+    pub Reserved: [u32; 4],
     pub NumberOfMetadataBytesProcessed: u64,
     pub NumberOfDataBytesProcessed: u64,
     pub TotalNumberOfMetadataBytesInUse: u64,
@@ -4244,6 +4478,7 @@ pub const SECURITY_DASHOST_ID_RID_COUNT: i32 = 6i32;
 pub const SECURITY_DESCRIPTOR_REVISION: u32 = 1u32;
 pub const SECURITY_DESCRIPTOR_REVISION1: u32 = 1u32;
 pub const SECURITY_DIALUP_RID: i32 = 1i32;
+pub const SECURITY_EDGE_CLOUD_INFRASTRUCTURE_SERVICE_ID_BASE_RID: i32 = 98i32;
 pub const SECURITY_ENTERPRISE_CONTROLLERS_RID: i32 = 9i32;
 pub const SECURITY_ENTERPRISE_READONLY_CONTROLLERS_RID: i32 = 22i32;
 pub const SECURITY_INSTALLER_CAPABILITY_RID_COUNT: u32 = 10u32;
@@ -4262,6 +4497,7 @@ pub const SECURITY_LOGON_IDS_RID_COUNT: i32 = 3i32;
 pub const SECURITY_MANDATORY_HIGH_RID: i32 = 12288i32;
 pub const SECURITY_MANDATORY_LOW_RID: i32 = 4096i32;
 pub const SECURITY_MANDATORY_MAXIMUM_USER_RID: i32 = 16384i32;
+pub const SECURITY_MANDATORY_MEDIUM_PLUS_CREDUI_RID: u32 = 8202u32;
 pub const SECURITY_MANDATORY_MEDIUM_PLUS_RID: u32 = 8448u32;
 pub const SECURITY_MANDATORY_MEDIUM_RID: i32 = 8192i32;
 pub const SECURITY_MANDATORY_PROTECTED_PROCESS_RID: i32 = 20480i32;
@@ -4306,6 +4542,8 @@ pub const SECURITY_RDV_GFX_BASE_RID: i32 = 91i32;
 pub const SECURITY_REMOTE_LOGON_RID: i32 = 14i32;
 pub const SECURITY_RESERVED_ID_BASE_RID: i32 = 81i32;
 pub const SECURITY_RESTRICTED_CODE_RID: i32 = 12i32;
+pub const SECURITY_RESTRICTED_SERVICES_BASE_RID: i32 = 99i32;
+pub const SECURITY_RESTRICTED_SERVICES_RID_COUNT: i32 = 6i32;
 pub const SECURITY_SERVER_LOGON_RID: i32 = 9i32;
 pub const SECURITY_SERVICE_ID_BASE_RID: i32 = 80i32;
 pub const SECURITY_SERVICE_ID_RID_COUNT: i32 = 6i32;
@@ -4319,6 +4557,7 @@ pub const SECURITY_TRUSTED_INSTALLER_RID3: u32 = 1831038044u32;
 pub const SECURITY_TRUSTED_INSTALLER_RID4: u32 = 1853292631u32;
 pub const SECURITY_TRUSTED_INSTALLER_RID5: u32 = 2271478464u32;
 pub const SECURITY_UMFD_BASE_RID: i32 = 96i32;
+pub const SECURITY_UNIQUIFIED_SERVICE_BASE_RID: i32 = 97i32;
 pub const SECURITY_USERMANAGER_ID_BASE_RID: i32 = 93i32;
 pub const SECURITY_USERMANAGER_ID_RID_COUNT: i32 = 6i32;
 pub const SECURITY_USERMODEDRIVERHOST_ID_BASE_RID: i32 = 84i32;
@@ -4344,11 +4583,25 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
     pub ExitStatus: u32,
-    pub IsDownlevelContainer: bool,
+    pub Reserved: bool,
     pub ApiSetSchema: *mut core::ffi::c_void,
     pub HostApiSetSchema: *mut core::ffi::c_void,
+    pub ContainerBuildNumber: u32,
+    pub HostBuildNumber: u32,
 }
 impl Default for SERVERSILO_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SERVERSILO_DIAGNOSTIC_INFORMATION {
+    pub ReportId: windows_core::GUID,
+    pub ExitStatus: u32,
+    pub CriticalProcessName: [u16; 15],
+}
+impl Default for SERVERSILO_DIAGNOSTIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4379,8 +4632,10 @@ pub const SESSION_QUERY_ACCESS: u32 = 1u32;
 pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8u32;
 pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8u32;
 pub const SE_ACTIVATE_AS_USER_CAPABILITY: windows_core::PCWSTR = windows_core::w!("activateAsUser");
+pub const SE_APP_SILO_ACCESS_TO_PUBLISHER_DIRECTORY_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-accessToPublisherDirectory");
 pub const SE_APP_SILO_PRINT_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-print");
 pub const SE_APP_SILO_PROFILES_ROOT_MINIMAL_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-profilesRootMinimal");
+pub const SE_APP_SILO_PROMPT_FOR_ACCESS_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-promptForAccess");
 pub const SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-userProfileMinimal");
 pub const SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-volumeRootMinimal");
 pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: windows_core::PCWSTR = windows_core::w!("constrainedImpersonation");
@@ -4892,6 +5147,21 @@ pub const SYSTEM_MANDATORY_LABEL_ACE_TYPE: u32 = 17u32;
 pub const SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP: u32 = 4u32;
 pub const SYSTEM_MANDATORY_LABEL_NO_READ_UP: u32 = 2u32;
 pub const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: u32 = 1u32;
+#[repr(C)]
+#[cfg(feature = "Win32_System_Power")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct SYSTEM_POWER_SOURCE_STATE {
+    pub BatteryState: super::Power::SYSTEM_BATTERY_STATE,
+    pub InstantaneousPeakPower: u32,
+    pub InstantaneousPeakPeriod: u32,
+    pub SustainablePeakPower: u32,
+    pub SustainablePeakPeriod: u32,
+    pub PeakPower: u32,
+    pub MaxOutputPower: u32,
+    pub MaxInputPower: u32,
+    pub BatteryRateInCurrent: i32,
+    pub BatteryVoltage: u32,
+}
 pub const SYSTEM_PROCESS_TRUST_LABEL_ACE_TYPE: u32 = 20u32;
 pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: u32 = 16777215u32;
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295u32;
@@ -5094,6 +5364,30 @@ pub const TLS_MINIMUM_AVAILABLE: u32 = 64u32;
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_core::PWSTR,
     pub IsolationEnabled: bool,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Security")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct TOKEN_LOGGING_INFORMATION {
+    pub TokenType: super::super::Security::TOKEN_TYPE,
+    pub TokenElevation: super::super::Security::TOKEN_ELEVATION,
+    pub TokenElevationType: super::super::Security::TOKEN_ELEVATION_TYPE,
+    pub ImpersonationLevel: super::super::Security::SECURITY_IMPERSONATION_LEVEL,
+    pub IntegrityLevel: u32,
+    pub User: super::super::Security::SID_AND_ATTRIBUTES,
+    pub TrustLevelSid: super::super::Security::PSID,
+    pub SessionId: u32,
+    pub AppContainerNumber: u32,
+    pub AuthenticationId: super::super::Foundation::LUID,
+    pub GroupCount: u32,
+    pub GroupsLength: u32,
+    pub Groups: *mut super::super::Security::SID_AND_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Security")]
+impl Default for TOKEN_LOGGING_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -5315,6 +5609,7 @@ pub const VER_SUITE_STORAGE_SERVER: u32 = 8192u32;
 pub const VER_SUITE_TERMINAL: u32 = 16u32;
 pub const VER_SUITE_WH_SERVER: u32 = 32768u32;
 pub const VER_WORKSTATION_NT: u32 = 1073741824u32;
+pub const VM_PREFETCH_TO_WORKING_SET: u32 = 1u32;
 pub const VRL_CUSTOM_CLASS_BEGIN: u32 = 256u32;
 pub const VRL_ENABLE_KERNEL_BREAKS: u32 = 2147483648u32;
 pub const VRL_PREDEFINED_CLASS_BEGIN: u32 = 1u32;
@@ -5409,6 +5704,19 @@ pub const X3_TMPLT_SIGN_VAL_POS_X: u32 = 0u32;
 pub const X3_TMPLT_SIZE_X: u32 = 4u32;
 pub const X86_CACHE_ALIGNMENT_SIZE: u32 = 64u32;
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XSAVE_ARM64_SVE_HEADER {
+    pub VectorLength: u32,
+    pub VectorRegisterOffset: u32,
+    pub PredicateRegisterOffset: u32,
+    pub Reserved: [u32; 5],
+}
+impl Default for XSAVE_ARM64_SVE_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XSAVE_CET_U_FORMAT {
     pub Ia32CetUMsr: u64,
@@ -5417,6 +5725,7 @@ pub struct XSAVE_CET_U_FORMAT {
 pub const XSTATE_ALIGN_BIT: u32 = 1u32;
 pub const XSTATE_AMX_TILE_CONFIG: u32 = 17u32;
 pub const XSTATE_AMX_TILE_DATA: u32 = 18u32;
+pub const XSTATE_ARM64_SVE: u32 = 2u32;
 pub const XSTATE_AVX: u32 = 2u32;
 pub const XSTATE_AVX512_KMASK: u32 = 5u32;
 pub const XSTATE_AVX512_ZMM: u32 = 7u32;
@@ -5424,9 +5733,11 @@ pub const XSTATE_AVX512_ZMM_H: u32 = 6u32;
 pub const XSTATE_CET_S: u32 = 12u32;
 pub const XSTATE_CET_U: u32 = 11u32;
 pub const XSTATE_COMPACTION_ENABLE: u32 = 63u32;
+pub const XSTATE_CONTEXT_FLAG_LOOKASIDE: u32 = 1u32;
 pub const XSTATE_CONTROLFLAG_XFD_MASK: u32 = 4u32;
 pub const XSTATE_CONTROLFLAG_XSAVEC_MASK: u32 = 2u32;
 pub const XSTATE_CONTROLFLAG_XSAVEOPT_MASK: u32 = 1u32;
+pub const XSTATE_FIRST_NON_LEGACY_FEATURE: u32 = 2u32;
 pub const XSTATE_GSSE: u32 = 2u32;
 pub const XSTATE_IPT: u32 = 8u32;
 pub const XSTATE_LEGACY_FLOATING_POINT: u32 = 0u32;
@@ -5436,6 +5747,7 @@ pub const XSTATE_MPX_BNDCSR: u32 = 4u32;
 pub const XSTATE_MPX_BNDREGS: u32 = 3u32;
 pub const XSTATE_PASID: u32 = 10u32;
 pub const XSTATE_XFD_BIT: u32 = 2u32;
+pub const _ARM64_MULT_INTRINS_SUPPORTED: u32 = 0u32;
 pub const _MM_HINT_NTA: u32 = 0u32;
 pub const _MM_HINT_T0: u32 = 1u32;
 pub const _MM_HINT_T1: u32 = 2u32;

@@ -18,6 +18,11 @@ pub unsafe fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: bool) -> windows_co
     unsafe { AdviseInkChange(hrc, bnewstroke.into()).ok() }
 }
 #[inline]
+pub unsafe fn CloneContext(hrc: HRECOCONTEXT, pclonehrc: *mut HRECOCONTEXT) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn CloneContext(hrc : HRECOCONTEXT, pclonehrc : *mut HRECOCONTEXT) -> windows_core::HRESULT);
+    unsafe { CloneContext(hrc, pclonehrc as _).ok() }
+}
+#[inline]
 pub unsafe fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn CreateContext(hrec : HRECOGNIZER, phrc : *mut HRECOCONTEXT) -> windows_core::HRESULT);
     unsafe { CreateContext(hrec, phrc as _).ok() }
@@ -26,6 +31,11 @@ pub unsafe fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> windo
 pub unsafe fn CreateRecognizer(pclsid: *mut windows_core::GUID, phrec: *mut HRECOGNIZER) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn CreateRecognizer(pclsid : *mut windows_core::GUID, phrec : *mut HRECOGNIZER) -> windows_core::HRESULT);
     unsafe { CreateRecognizer(pclsid as _, phrec as _).ok() }
+}
+#[inline]
+pub unsafe fn DestroyAlternate(hrcalt: HRECOALT) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn DestroyAlternate(hrcalt : HRECOALT) -> windows_core::HRESULT);
+    unsafe { DestroyAlternate(hrcalt).ok() }
 }
 #[inline]
 pub unsafe fn DestroyContext(hrc: HRECOCONTEXT) -> windows_core::Result<()> {
@@ -58,6 +68,31 @@ pub unsafe fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestre
     unsafe { GetBestResultString(hrc, pcsize as _, pwcbestresult.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
+pub unsafe fn GetContextPreferenceFlags(hrc: HRECOCONTEXT, pdwcontextpreferenceflags: *mut u32) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn GetContextPreferenceFlags(hrc : HRECOCONTEXT, pdwcontextpreferenceflags : *mut u32) -> windows_core::HRESULT);
+    unsafe { GetContextPreferenceFlags(hrc, pdwcontextpreferenceflags as _).ok() }
+}
+#[inline]
+pub unsafe fn GetContextPropertyList(hrc: HRECOCONTEXT, pcproperties: *mut u32, ppropertyguids: *mut windows_core::GUID) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn GetContextPropertyList(hrc : HRECOCONTEXT, pcproperties : *mut u32, ppropertyguids : *mut windows_core::GUID) -> windows_core::HRESULT);
+    unsafe { GetContextPropertyList(hrc, pcproperties as _, ppropertyguids as _).ok() }
+}
+#[inline]
+pub unsafe fn GetContextPropertyValue(hrc: HRECOCONTEXT, pguid: *mut windows_core::GUID, pcbsize: *mut u32, pproperty: *mut u8) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn GetContextPropertyValue(hrc : HRECOCONTEXT, pguid : *mut windows_core::GUID, pcbsize : *mut u32, pproperty : *mut u8) -> windows_core::HRESULT);
+    unsafe { GetContextPropertyValue(hrc, pguid as _, pcbsize as _, pproperty as _).ok() }
+}
+#[inline]
+pub unsafe fn GetEnabledUnicodeRanges(hrc: HRECOCONTEXT, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn GetEnabledUnicodeRanges(hrc : HRECOCONTEXT, pcranges : *mut u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
+    unsafe { GetEnabledUnicodeRanges(hrc, pcranges as _, pcr as _).ok() }
+}
+#[inline]
+pub unsafe fn GetGuide(hrc: HRECOCONTEXT, pguide: *mut RECO_GUIDE, piindex: *mut u32) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn GetGuide(hrc : HRECOCONTEXT, pguide : *mut RECO_GUIDE, piindex : *mut u32) -> windows_core::HRESULT);
+    unsafe { GetGuide(hrc, pguide as _, piindex as _).ok() }
+}
+#[inline]
 pub unsafe fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn GetLatticePtr(hrc : HRECOCONTEXT, pplattice : *mut *mut RECO_LATTICE) -> windows_core::HRESULT);
     unsafe { GetLatticePtr(hrc, pplattice as _).ok() }
@@ -66,6 +101,11 @@ pub unsafe fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE
 pub unsafe fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: windows_core::PWSTR) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn GetLeftSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcleftseparator : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { GetLeftSeparator(hrc, pcsize as _, core::mem::transmute(pwcleftseparator)).ok() }
+}
+#[inline]
+pub unsafe fn GetPreferredPacketDescription(hrec: HRECOGNIZER, ppacketdescription: *mut PACKET_DESCRIPTION) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn GetPreferredPacketDescription(hrec : HRECOGNIZER, ppacketdescription : *mut PACKET_DESCRIPTION) -> windows_core::HRESULT);
+    unsafe { GetPreferredPacketDescription(hrec, ppacketdescription as _).ok() }
 }
 #[inline]
 pub unsafe fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> windows_core::Result<()> {
@@ -112,6 +152,21 @@ where
 pub unsafe fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("inkobjcore.dll" "system" fn Process(hrc : HRECOCONTEXT, pbpartialprocessing : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { Process(hrc, pbpartialprocessing as _).ok() }
+}
+#[inline]
+pub unsafe fn ResetContext(hrc: HRECOCONTEXT) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn ResetContext(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
+    unsafe { ResetContext(hrc).ok() }
+}
+#[inline]
+pub unsafe fn SetCACMode(hrc: HRECOCONTEXT, imode: i32) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn SetCACMode(hrc : HRECOCONTEXT, imode : i32) -> windows_core::HRESULT);
+    unsafe { SetCACMode(hrc, imode).ok() }
+}
+#[inline]
+pub unsafe fn SetContextPropertyValue(hrc: HRECOCONTEXT, pguid: *mut windows_core::GUID, cbsize: u32, pproperty: *mut u8) -> windows_core::Result<()> {
+    windows_core::link!("inkobjcore.dll" "system" fn SetContextPropertyValue(hrc : HRECOCONTEXT, pguid : *mut windows_core::GUID, cbsize : u32, pproperty : *mut u8) -> windows_core::HRESULT);
+    unsafe { SetContextPropertyValue(hrc, pguid as _, cbsize, pproperty as _).ok() }
 }
 #[inline]
 pub unsafe fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()> {
@@ -1048,6 +1103,17 @@ pub struct HRECOALT(pub *mut core::ffi::c_void);
 impl HRECOALT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HRECOALT {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("inkobjcore.dll" "system" fn DestroyAlternate(hrcalt : *mut core::ffi::c_void) -> i32);
+            unsafe {
+                DestroyAlternate(self.0);
+            }
+        }
     }
 }
 impl Default for HRECOALT {

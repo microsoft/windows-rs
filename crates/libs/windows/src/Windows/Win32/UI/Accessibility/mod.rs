@@ -903,6 +903,8 @@ pub const CAccPropServices: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const CLSID_AccPropServices: windows_core::GUID = windows_core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
 pub const CUIAutomation: windows_core::GUID = windows_core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
 pub const CUIAutomation8: windows_core::GUID = windows_core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
+pub const CUIAutomationClientInfo: windows_core::GUID = windows_core::GUID::from_u128(0xc2d4f567_8a9b_4c3e_9f1a_2b5c7d8e0f3a);
+pub const CUIAutomationClientInfoSource: windows_core::GUID = windows_core::GUID::from_u128(0xa8d4f123_7b2c_4e5f_9a1b_3c8d6e9f0a2b);
 pub const CUIAutomationRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
 pub const Calendar_Control_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
 #[repr(transparent)]
@@ -4582,7 +4584,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::RuntimeName for IRawElementProviderWindowlessSite {}
-windows_core::imp::define_interface!(IRichEditUiaInformation, IRichEditUiaInformation_Vtbl, 0);
+windows_core::imp::define_interface!(IRichEditUiaInformation, IRichEditUiaInformation_Vtbl, 0x23969a9d_8546_4032_a1bb_73750cbf3333);
 windows_core::imp::interface_hierarchy!(IRichEditUiaInformation, windows_core::IUnknown);
 impl IRichEditUiaInformation {
     pub unsafe fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> windows_core::Result<()> {
@@ -4628,7 +4630,7 @@ impl IRichEditUiaInformation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRichEditUiaInformation {}
-windows_core::imp::define_interface!(IRicheditWindowlessAccessibility, IRicheditWindowlessAccessibility_Vtbl, 0);
+windows_core::imp::define_interface!(IRicheditWindowlessAccessibility, IRicheditWindowlessAccessibility_Vtbl, 0x983e572d_20cd_460b_9104_83111592dd10);
 windows_core::imp::interface_hierarchy!(IRicheditWindowlessAccessibility, windows_core::IUnknown);
 impl IRicheditWindowlessAccessibility {
     pub unsafe fn CreateProvider<P0>(&self, psite: P0) -> windows_core::Result<IRawElementProviderSimple>
@@ -9144,6 +9146,208 @@ impl IUIAutomationChangesEventHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IUIAutomationChangesEventHandler {}
+windows_core::imp::define_interface!(IUIAutomationClientConnectionCallback, IUIAutomationClientConnectionCallback_Vtbl, 0x5b8e8f2a_9c7d_4f3e_a1b2_8d6e9f4c0a1b);
+windows_core::imp::interface_hierarchy!(IUIAutomationClientConnectionCallback, windows_core::IUnknown);
+impl IUIAutomationClientConnectionCallback {
+    pub unsafe fn OnConnected<P0>(&self, clientinfo: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IUIAutomationClientInfo>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnConnected)(windows_core::Interface::as_raw(self), clientinfo.param().abi()).ok() }
+    }
+    pub unsafe fn OnDisconnected<P0>(&self, clientinfo: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IUIAutomationClientInfo>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).OnDisconnected)(windows_core::Interface::as_raw(self), clientinfo.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUIAutomationClientConnectionCallback_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub OnConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OnDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IUIAutomationClientConnectionCallback_Impl: windows_core::IUnknownImpl {
+    fn OnConnected(&self, clientinfo: windows_core::Ref<IUIAutomationClientInfo>) -> windows_core::Result<()>;
+    fn OnDisconnected(&self, clientinfo: windows_core::Ref<IUIAutomationClientInfo>) -> windows_core::Result<()>;
+}
+impl IUIAutomationClientConnectionCallback_Vtbl {
+    pub const fn new<Identity: IUIAutomationClientConnectionCallback_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn OnConnected<Identity: IUIAutomationClientConnectionCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUIAutomationClientConnectionCallback_Impl::OnConnected(this, core::mem::transmute_copy(&clientinfo)).into()
+            }
+        }
+        unsafe extern "system" fn OnDisconnected<Identity: IUIAutomationClientConnectionCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUIAutomationClientConnectionCallback_Impl::OnDisconnected(this, core::mem::transmute_copy(&clientinfo)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            OnConnected: OnConnected::<Identity, OFFSET>,
+            OnDisconnected: OnDisconnected::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IUIAutomationClientConnectionCallback as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IUIAutomationClientConnectionCallback {}
+windows_core::imp::define_interface!(IUIAutomationClientInfo, IUIAutomationClientInfo_Vtbl, 0xb2e8a3f1_4c5d_4e7a_8f6b_3d2e1c9a0b8f);
+windows_core::imp::interface_hierarchy!(IUIAutomationClientInfo, windows_core::IUnknown);
+impl IUIAutomationClientInfo {
+    pub unsafe fn ProcessId(&self) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProcessId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    pub unsafe fn ProcessName(&self) -> windows_core::Result<windows_core::BSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ProcessName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUIAutomationClientInfo_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub ProcessName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IUIAutomationClientInfo_Impl: windows_core::IUnknownImpl {
+    fn ProcessId(&self) -> windows_core::Result<u32>;
+    fn ProcessName(&self) -> windows_core::Result<windows_core::BSTR>;
+}
+impl IUIAutomationClientInfo_Vtbl {
+    pub const fn new<Identity: IUIAutomationClientInfo_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn ProcessId<Identity: IUIAutomationClientInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processid: *mut u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUIAutomationClientInfo_Impl::ProcessId(this) {
+                    Ok(ok__) => {
+                        processid.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn ProcessName<Identity: IUIAutomationClientInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUIAutomationClientInfo_Impl::ProcessName(this) {
+                    Ok(ok__) => {
+                        processname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            ProcessId: ProcessId::<Identity, OFFSET>,
+            ProcessName: ProcessName::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IUIAutomationClientInfo as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IUIAutomationClientInfo {}
+windows_core::imp::define_interface!(IUIAutomationClientInfoSource, IUIAutomationClientInfoSource_Vtbl, 0xf4b8a2e1_9c3d_4a7e_8f6b_2d5e4c1a9b8f);
+windows_core::imp::interface_hierarchy!(IUIAutomationClientInfoSource, windows_core::IUnknown);
+impl IUIAutomationClientInfoSource {
+    pub unsafe fn RegisterClientConnectionCallback<P0>(&self, callback: P0) -> windows_core::Result<u64>
+    where
+        P0: windows_core::Param<IUIAutomationClientConnectionCallback>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RegisterClientConnectionCallback)(windows_core::Interface::as_raw(self), callback.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub unsafe fn UnregisterClientConnectionCallback(&self, handle: u64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).UnregisterClientConnectionCallback)(windows_core::Interface::as_raw(self), handle).ok() }
+    }
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetConnectedClients(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetConnectedClients)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUIAutomationClientInfoSource_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub RegisterClientConnectionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub UnregisterClientConnectionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetConnectedClients: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetConnectedClients: usize,
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IUIAutomationClientInfoSource_Impl: windows_core::IUnknownImpl {
+    fn RegisterClientConnectionCallback(&self, callback: windows_core::Ref<IUIAutomationClientConnectionCallback>) -> windows_core::Result<u64>;
+    fn UnregisterClientConnectionCallback(&self, handle: u64) -> windows_core::Result<()>;
+    fn GetConnectedClients(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl IUIAutomationClientInfoSource_Vtbl {
+    pub const fn new<Identity: IUIAutomationClientInfoSource_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn RegisterClientConnectionCallback<Identity: IUIAutomationClientInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void, handle: *mut u64) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUIAutomationClientInfoSource_Impl::RegisterClientConnectionCallback(this, core::mem::transmute_copy(&callback)) {
+                    Ok(ok__) => {
+                        handle.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn UnregisterClientConnectionCallback<Identity: IUIAutomationClientInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u64) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IUIAutomationClientInfoSource_Impl::UnregisterClientConnectionCallback(this, core::mem::transmute_copy(&handle)).into()
+            }
+        }
+        unsafe extern "system" fn GetConnectedClients<Identity: IUIAutomationClientInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clients: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IUIAutomationClientInfoSource_Impl::GetConnectedClients(this) {
+                    Ok(ok__) => {
+                        clients.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            RegisterClientConnectionCallback: RegisterClientConnectionCallback::<Identity, OFFSET>,
+            UnregisterClientConnectionCallback: UnregisterClientConnectionCallback::<Identity, OFFSET>,
+            GetConnectedClients: GetConnectedClients::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IUIAutomationClientInfoSource as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IUIAutomationClientInfoSource {}
 windows_core::imp::define_interface!(IUIAutomationCondition, IUIAutomationCondition_Vtbl, 0x352ffba8_0973_437c_a61f_f64cafd81df9);
 windows_core::imp::interface_hierarchy!(IUIAutomationCondition, windows_core::IUnknown);
 #[repr(C)]
@@ -19522,6 +19726,7 @@ pub struct NotificationProcessing(pub i32);
 pub const NotificationProcessing_All: NotificationProcessing = NotificationProcessing(2i32);
 pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = NotificationProcessing(4i32);
 pub const NotificationProcessing_ImportantAll: NotificationProcessing = NotificationProcessing(0i32);
+pub const NotificationProcessing_ImportantCurrentThenMostRecent: NotificationProcessing = NotificationProcessing(5i32);
 pub const NotificationProcessing_ImportantMostRecent: NotificationProcessing = NotificationProcessing(1i32);
 pub const NotificationProcessing_MostRecent: NotificationProcessing = NotificationProcessing(3i32);
 pub const Notification_Event_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x72c5a2f7_9788_480f_b8eb_4dee00f6186f);

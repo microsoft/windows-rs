@@ -20,7 +20,6 @@ windows_link::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresoluti
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = 5047u32;
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = 5050u32;
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = 4121u32;
-pub type HTASK = *mut core::ffi::c_void;
 pub const JOYERR_BASE: u32 = 160u32;
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;

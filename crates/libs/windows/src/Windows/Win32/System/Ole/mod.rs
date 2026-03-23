@@ -835,13 +835,11 @@ where
     windows_core::link!("oledlg.dll" "system" fn OleUIAddVerbMenuW(lpoleobj : * mut core::ffi::c_void, lpszshorttype : windows_core::PCWSTR, hmenu : super::super::UI::WindowsAndMessaging:: HMENU, upos : u32, uidverbmin : u32, uidverbmax : u32, baddconvert : windows_core::BOOL, idconvert : u32, lphmenu : *mut super::super::UI::WindowsAndMessaging:: HMENU) -> windows_core::BOOL);
     unsafe { OleUIAddVerbMenuW(lpoleobj.param().abi(), lpszshorttype.param().abi(), hmenu, upos, uidverbmin, uidverbmax, baddconvert.into(), idconvert, lphmenu as _) }
 }
-#[cfg(feature = "Win32_Media")]
 #[inline]
 pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     windows_core::link!("oledlg.dll" "system" fn OleUIBusyA(param0 : *const OLEUIBUSYA) -> u32);
     unsafe { OleUIBusyA(param0) }
 }
-#[cfg(feature = "Win32_Media")]
 #[inline]
 pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     windows_core::link!("oledlg.dll" "system" fn OleUIBusyW(param0 : *const OLEUIBUSYW) -> u32);
@@ -14538,7 +14536,6 @@ pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn
 pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0i32;
 pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1i32;
 #[repr(C)]
-#[cfg(feature = "Win32_Media")]
 #[derive(Clone, Copy, Debug)]
 pub struct OLEUIBUSYA {
     pub cbStruct: u32,
@@ -14550,17 +14547,15 @@ pub struct OLEUIBUSYA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: windows_core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hTask: super::super::Media::HTASK,
+    pub hTask: super::super::Foundation::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Media")]
 impl Default for OLEUIBUSYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Media")]
 #[derive(Clone, Copy, Debug)]
 pub struct OLEUIBUSYW {
     pub cbStruct: u32,
@@ -14572,10 +14567,9 @@ pub struct OLEUIBUSYW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: windows_core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hTask: super::super::Media::HTASK,
+    pub hTask: super::super::Foundation::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Media")]
 impl Default for OLEUIBUSYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

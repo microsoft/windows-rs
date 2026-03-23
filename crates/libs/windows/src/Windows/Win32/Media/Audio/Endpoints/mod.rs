@@ -938,8 +938,9 @@ impl IHardwareAudioEngineBase_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IHardwareAudioEngineBase {}
-pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
+pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(5i32);
 pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
 pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
 pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
+pub const eLoopbackConnectorPostVolume: EndpointConnectorType = EndpointConnectorType(4i32);
 pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);

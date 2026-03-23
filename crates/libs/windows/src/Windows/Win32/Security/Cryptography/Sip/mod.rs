@@ -74,6 +74,7 @@ pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pin
 }
 pub const MSSIP_ADDINFO_BLOB: u32 = 3u32;
 pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2u32;
+pub const MSSIP_ADDINFO_DETACHEDSIG: u32 = 4u32;
 pub const MSSIP_ADDINFO_FLAT: u32 = 1u32;
 pub const MSSIP_ADDINFO_NONE: u32 = 0u32;
 pub const MSSIP_ADDINFO_NONMSSIP: u32 = 500u32;
@@ -90,6 +91,19 @@ pub struct MS_ADDINFO_BLOB {
     pub pbMemSignedMsg: *mut u8,
 }
 impl Default for MS_ADDINFO_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MS_ADDINFO_DETACHEDSIG {
+    pub cbStruct: u32,
+    pub hSignatureFile: super::super::super::Foundation::HANDLE,
+    pub cbSignatureObject: u32,
+    pub pbSignatureObject: *mut u8,
+}
+impl Default for MS_ADDINFO_DETACHEDSIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -218,6 +232,7 @@ pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
     pub psCatMember: *mut super::Catalog::MS_ADDINFO_CATALOGMEMBER,
     pub psBlob: *mut MS_ADDINFO_BLOB,
+    pub psDetachedSig: *mut MS_ADDINFO_DETACHEDSIG,
 }
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 impl Default for SIP_SUBJECTINFO_0 {

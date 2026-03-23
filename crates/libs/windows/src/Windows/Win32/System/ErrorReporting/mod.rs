@@ -356,6 +356,7 @@ pub struct REPORT_STORE_TYPES(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_CONSENT(pub i32);
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
+pub const WER_DUMP_AUX_PROMOTE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
@@ -817,10 +818,11 @@ pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = WER_DUMP_TYPE(2i32);
 pub const WerDumpTypeNone: WER_DUMP_TYPE = WER_DUMP_TYPE(0i32);
 pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = WER_DUMP_TYPE(4i32);
 pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = WER_FILE_TYPE(8i32);
+pub const WerFileTypeAuxiliaryHeapDump: WER_FILE_TYPE = WER_FILE_TYPE(10i32);
 pub const WerFileTypeCustomDump: WER_FILE_TYPE = WER_FILE_TYPE(7i32);
 pub const WerFileTypeEtlTrace: WER_FILE_TYPE = WER_FILE_TYPE(9i32);
 pub const WerFileTypeHeapdump: WER_FILE_TYPE = WER_FILE_TYPE(3i32);
-pub const WerFileTypeMax: WER_FILE_TYPE = WER_FILE_TYPE(10i32);
+pub const WerFileTypeMax: WER_FILE_TYPE = WER_FILE_TYPE(11i32);
 pub const WerFileTypeMicrodump: WER_FILE_TYPE = WER_FILE_TYPE(1i32);
 pub const WerFileTypeMinidump: WER_FILE_TYPE = WER_FILE_TYPE(2i32);
 pub const WerFileTypeOther: WER_FILE_TYPE = WER_FILE_TYPE(5i32);

@@ -490,9 +490,9 @@ pub unsafe fn DrawFocusRect(hdc: HDC, lprc: *const super::super::Foundation::REC
     unsafe { DrawFocusRect(hdc, lprc) }
 }
 #[inline]
-pub unsafe fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DrawFrameControl(param0 : HDC, param1 : *mut super::super::Foundation:: RECT, param2 : DFC_TYPE, param3 : DFCS_STATE) -> windows_core::BOOL);
-    unsafe { DrawFrameControl(param0, param1 as _, param2, param3) }
+pub unsafe fn DrawFrameControl(hdc: HDC, lprc: *mut super::super::Foundation::RECT, utype: u32, ustate: u32) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DrawFrameControl(hdc : HDC, lprc : *mut super::super::Foundation:: RECT, utype : u32, ustate : u32) -> windows_core::BOOL);
+    unsafe { DrawFrameControl(hdc, lprc as _, utype, ustate) }
 }
 #[inline]
 pub unsafe fn DrawStateA(hdc: HDC, hbrfore: Option<HBRUSH>, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> windows_core::BOOL {
@@ -3010,6 +3010,12 @@ pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
 pub struct DIB_USAGE(pub u32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DISPLAYCONFIG_ADVANCED_COLOR_MODE(pub i32);
+pub const DISPLAYCONFIG_ADVANCED_COLOR_MODE_HDR: DISPLAYCONFIG_ADVANCED_COLOR_MODE = DISPLAYCONFIG_ADVANCED_COLOR_MODE(2i32);
+pub const DISPLAYCONFIG_ADVANCED_COLOR_MODE_SDR: DISPLAYCONFIG_ADVANCED_COLOR_MODE = DISPLAYCONFIG_ADVANCED_COLOR_MODE(0i32);
+pub const DISPLAYCONFIG_ADVANCED_COLOR_MODE_WCG: DISPLAYCONFIG_ADVANCED_COLOR_MODE = DISPLAYCONFIG_ADVANCED_COLOR_MODE(1i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
 pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
@@ -3018,6 +3024,7 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(1i32);
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
 pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
+pub const DISPLAYCONFIG_PATH_BOOST_REFRESH_RATE: u32 = 16u32;
 pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535u32;
 pub const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535u32;
 pub const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295u32;

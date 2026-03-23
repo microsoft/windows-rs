@@ -3,10 +3,15 @@ windows_link::link!("kernel32.dll" "system" fn CreateEnclave(hprocess : super::s
 windows_link::link!("userenv.dll" "system" fn CreateEnvironmentBlock(lpenvironment : *mut *mut core::ffi::c_void, htoken : super::super::Foundation:: HANDLE, binherit : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn DeleteEnclave(lpaddress : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("userenv.dll" "system" fn DestroyEnvironmentBlock(lpenvironment : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("vertdll.dll" "system" fn EnclaveCopyIntoEnclave(enclaveaddress : *mut core::ffi::c_void, unsecureaddress : *const core::ffi::c_void, numberofbytes : usize) -> windows_sys::core::HRESULT);
+windows_link::link!("vertdll.dll" "system" fn EnclaveCopyOutOfEnclave(unsecureaddress : *mut core::ffi::c_void, enclaveaddress : *const core::ffi::c_void, numberofbytes : usize) -> windows_sys::core::HRESULT);
+windows_link::link!("vertdll.dll" "system" fn EnclaveEncryptDataForTrustlet(datatoencrypt : *const core::ffi::c_void, datatoencryptsize : u32, trustletbindingdata : *const TRUSTLET_BINDING_DATA, encrypteddata : *mut core::ffi::c_void, buffersize : u32, encrypteddatasize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("vertdll.dll" "system" fn EnclaveGetAttestationReport(enclavedata : *const u8, report : *mut core::ffi::c_void, buffersize : u32, outputsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("vertdll.dll" "system" fn EnclaveGetEnclaveInformation(informationsize : u32, enclaveinformation : *mut ENCLAVE_INFORMATION) -> windows_sys::core::HRESULT);
+windows_link::link!("vertdll.dll" "system" fn EnclaveRestrictContainingProcessAccess(restrictaccess : windows_sys::core::BOOL, previouslyrestricted : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("vertdll.dll" "system" fn EnclaveSealData(datatoencrypt : *const core::ffi::c_void, datatoencryptsize : u32, identitypolicy : ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy : u32, protectedblob : *mut core::ffi::c_void, buffersize : u32, protectedblobsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("vertdll.dll" "system" fn EnclaveUnsealData(protectedblob : *const core::ffi::c_void, protectedblobsize : u32, decrypteddata : *mut core::ffi::c_void, buffersize : u32, decrypteddatasize : *mut u32, sealingidentity : *mut ENCLAVE_IDENTITY, unsealingflags : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("vertdll.dll" "system" fn EnclaveUsesAttestedKeys() -> bool);
 windows_link::link!("vertdll.dll" "system" fn EnclaveVerifyAttestationReport(enclavetype : u32, report : *const core::ffi::c_void, reportsize : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsA(lpsrc : windows_sys::core::PCSTR, lpdst : windows_sys::core::PSTR, nsize : u32) -> u32);
 windows_link::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserA(htoken : super::super::Foundation:: HANDLE, lpsrc : windows_sys::core::PCSTR, lpdest : windows_sys::core::PSTR, dwsize : u32) -> windows_sys::core::BOOL);
@@ -95,6 +100,25 @@ pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub EnclaveSVN: u32,
     pub SystemKeyID: u32,
     pub CurrentSystemKeyID: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PS_TRUSTLET_TKSESSION_ID {
+    pub SessionId: [u64; 4],
+}
+impl Default for PS_TRUSTLET_TKSESSION_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct TRUSTLET_BINDING_DATA {
+    pub TrustletIdentity: u64,
+    pub TrustletSessionId: PS_TRUSTLET_TKSESSION_ID,
+    pub TrustletSvn: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u64,
 }
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
 #[cfg(target_arch = "x86")]

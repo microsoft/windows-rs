@@ -21,9 +21,13 @@ where
     unsafe { PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.param().abi(), core::mem::transmute(rgstoreids.as_ptr()), rgstoreids.len().try_into().unwrap(), riid, ppv as _).ok() }
 }
 #[inline]
-pub unsafe fn PSCreateMemoryPropertyStore(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PSCreateMemoryPropertyStore<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("propsys.dll" "system" fn PSCreateMemoryPropertyStore(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PSCreateMemoryPropertyStore(riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { PSCreateMemoryPropertyStore(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[Option<windows_core::IUnknown>], riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {

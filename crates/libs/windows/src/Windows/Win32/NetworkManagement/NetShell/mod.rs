@@ -57,7 +57,6 @@ pub struct CMD_ENTRY {
     pub dwCmdHlpToken: u32,
     pub dwFlags: u32,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
-    pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
 }
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
 pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
@@ -209,7 +208,6 @@ pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = NS_REQS(2i32);
 pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
 pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
 pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
-pub type PFN_CUSTOM_HELP = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: windows_core::PCWSTR)>;
 pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_core::PCWSTR, ppwcarguments: *mut windows_core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut windows_core::BOOL) -> u32>;
 pub type PGET_RESOURCE_STRING_FN = Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: windows_core::PCWSTR, nbuffermax: u32) -> u32>;
 pub type PNS_CONTEXT_COMMIT_FN = Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
