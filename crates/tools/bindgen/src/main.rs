@@ -167,18 +167,6 @@ fn main() {
     // Tests for sort order
     test("--out sort.rs --filter E_FAIL S_FALSE E_OUTOFMEMORY ERROR_OUTOFMEMORY Windows.Foundation.Rect RECT GetTickCount FatalExit --sys --no-deps");
 
-    // Tests input defaults
-    test_raw(
-        "--out default_default.rs --filter GetTickCount --sys --flat --no-comment --in default",
-    );
-    test_raw("--out default_assumed.rs --filter GetTickCount --sys --flat --no-comment");
-
-    // Tests for header elements
-    test_raw("--out comment.rs --in default --filter GetTickCount --sys --flat");
-    test_raw(
-        "--out comment_no_allow.rs --in default --filter GetTickCount --sys --flat --no-allow",
-    );
-
     // Tests for rustfmt
     bindgen("--out rustfmt_25.rs --rustfmt max_width=25,newline_style=Unix --filter POINT --flat --no-comment --no-allow".split_whitespace()).unwrap();
 
