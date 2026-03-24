@@ -99,17 +99,7 @@ impl Reader {
 
         let reference = metadata::reader::TypeIndex::new(reference);
         validate_use_declarations(&input, &index, &reference)?;
-        let output = self.encode(index, &reference)?;
 
-        std::fs::write(&self.output, output)
-            .map_err(|error| Error::new(&error.to_string(), &self.output, 0, 0))
-    }
-
-    fn encode(
-        &self,
-        index: Index,
-        reference: &metadata::reader::TypeIndex,
-    ) -> Result<Vec<u8>, Error> {
         let assembly_name = std::path::Path::new(&self.output)
             .file_name()
             .and_then(|file_name| file_name.to_str())
@@ -121,7 +111,30 @@ impl Reader {
             for variants in members.types.values() {
                 for (file, item) in variants {
                     let name = item.to_string();
-                    item.encode(&mut output, &index, reference, file, namespace, &name)?;
+                    let encoder = &mut Encoder {
+                        output: &mut output,
+                        index: &index,
+                        reference: &reference,
+                        file,
+                        namespace,
+                        name: &name,
+                        generics: vec![],
+                    };
+                    match item {
+                        Item::Attribute(ty) => encoder.encode_attribute(ty),
+                        Item::Callback(ty) => encoder.encode_callback(ty),
+                        Item::Class(ty) => encoder.encode_class(ty),
+                        Item::Const(ty) => encoder.encode_const(ty),
+                        Item::Delegate(ty) => encoder.encode_delegate(ty),
+                        Item::Enum(ty) => encoder.encode_enum(ty),
+                        Item::Fn(ty) => encoder.encode_fn(ty),
+                        Item::Interface(ty) => encoder.encode_interface(ty),
+                        Item::Struct(ty) => encoder.encode_struct(ty),
+                        Item::Union(ty) => encoder.encode_union(ty),
+                        Item::Module(_) => unreachable!(
+                            "Module items are expanded during indexing and never encoded directly"
+                        ),
+                    }?;
                 }
             }
 
@@ -138,19 +151,44 @@ impl Reader {
 
                 for (name, variants) in &members.functions {
                     for (file, item) in variants {
-                        item.encode(&mut output, &index, reference, file, namespace, name)?;
+                        let Item::Fn(ty) = item else {
+                            unreachable!("functions index only contains Item::Fn")
+                        };
+                        Encoder {
+                            output: &mut output,
+                            index: &index,
+                            reference: &reference,
+                            file,
+                            namespace,
+                            name,
+                            generics: vec![],
+                        }
+                        .encode_fn(ty)?;
                     }
                 }
 
                 for (name, variants) in &members.constants {
                     for (file, item) in variants {
-                        item.encode(&mut output, &index, reference, file, namespace, name)?;
+                        let Item::Const(ty) = item else {
+                            unreachable!("constants index only contains Item::Const")
+                        };
+                        Encoder {
+                            output: &mut output,
+                            index: &index,
+                            reference: &reference,
+                            file,
+                            namespace,
+                            name,
+                            generics: vec![],
+                        }
+                        .encode_const(ty)?;
                     }
                 }
             }
         }
 
-        Ok(output.into_stream())
+        std::fs::write(&self.output, output.into_stream())
+            .map_err(|error| Error::new(&error.to_string(), &self.output, 0, 0))
     }
 }
 

@@ -31,44 +31,6 @@ impl Item {
             | Self::Union(Union { attrs, .. }) => std::mem::replace(attrs, new),
         }
     }
-
-    pub fn encode(
-        &self,
-        output: &mut metadata::writer::File,
-        index: &Index,
-        reference: &metadata::reader::TypeIndex,
-        file: &File,
-        namespace: &str,
-        name: &str,
-    ) -> Result<(), Error> {
-        let encoder = &mut Encoder {
-            output,
-            index,
-            reference,
-            file,
-            namespace,
-            name,
-            generics: vec![],
-        };
-
-        match self {
-            Self::Attribute(ty) => encoder.encode_attribute(ty),
-            Self::Callback(ty) => encoder.encode_callback(ty),
-            Self::Class(ty) => encoder.encode_class(ty),
-            Self::Const(ty) => encoder.encode_const(ty),
-            Self::Delegate(ty) => encoder.encode_delegate(ty),
-            Self::Enum(ty) => encoder.encode_enum(ty),
-            Self::Fn(ty) => encoder.encode_fn(ty),
-            Self::Interface(ty) => encoder.encode_interface(ty),
-            Self::Struct(ty) => encoder.encode_struct(ty),
-            Self::Union(ty) => encoder.encode_union(ty),
-            // Module items are expanded into their children during indexing and are
-            // never placed in the index themselves, so this arm is unreachable.
-            Self::Module(_) => unreachable!(
-                "Module items cannot be encoded directly; they are expanded during indexing"
-            ),
-        }
-    }
 }
 
 impl std::fmt::Display for Item {
