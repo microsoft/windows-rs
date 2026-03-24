@@ -172,10 +172,6 @@ impl File {
                 ResolutionScope: ResolutionScope::TypeRef(enclosing),
             }))
         } else {
-            // Determine the resolution scope: if a reference TypeIndex is set, use it to
-            // distinguish local types (defined in this file) from external assembly references.
-            // Without a reference TypeIndex, fall back to inferring the assembly from the root
-            // namespace component.
             let assembly_name = self
                 .reference
                 .as_ref()
@@ -184,15 +180,8 @@ impl File {
 
             let scope = if let Some(assembly_name) = assembly_name {
                 ResolutionScope::AssemblyRef(self.AssemblyRef(&assembly_name))
-            } else if self.reference.is_some() {
-                ResolutionScope::Module(id::Module(0))
             } else {
-                // No reference set: generate a synthetic AssemblyRef from the root namespace
-                // component to preserve backward-compatible behaviour.
-                let root = namespace
-                    .split_once('.')
-                    .map_or(namespace, |(prefix, _)| prefix);
-                ResolutionScope::AssemblyRef(self.AssemblyRef(root))
+                ResolutionScope::Module(id::Module(0))
             };
 
             id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
