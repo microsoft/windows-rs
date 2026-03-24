@@ -52,16 +52,16 @@ impl Item {
         };
 
         match self {
-            Self::Attribute(ty) => ty.encode(encoder),
-            Self::Callback(ty) => ty.encode(encoder),
-            Self::Class(ty) => ty.encode(encoder),
-            Self::Const(ty) => ty.encode(encoder),
-            Self::Delegate(ty) => ty.encode(encoder),
-            Self::Enum(ty) => ty.encode(encoder),
-            Self::Fn(ty) => ty.encode(encoder),
-            Self::Interface(ty) => ty.encode(encoder),
-            Self::Struct(ty) => ty.encode(encoder),
-            Self::Union(ty) => ty.encode(encoder),
+            Self::Attribute(ty) => encoder.encode_attribute(ty),
+            Self::Callback(ty) => encoder.encode_callback(ty),
+            Self::Class(ty) => encoder.encode_class(ty),
+            Self::Const(ty) => encoder.encode_const(ty),
+            Self::Delegate(ty) => encoder.encode_delegate(ty),
+            Self::Enum(ty) => encoder.encode_enum(ty),
+            Self::Fn(ty) => encoder.encode_fn(ty),
+            Self::Interface(ty) => encoder.encode_interface(ty),
+            Self::Struct(ty) => encoder.encode_struct(ty),
+            Self::Union(ty) => encoder.encode_union(ty),
             // Module items are expanded into their children during indexing and are
             // never placed in the index themselves, so this arm is unreachable.
             Self::Module(_) => unreachable!(

@@ -20,7 +20,6 @@ mod union;
 
 use super::*;
 use attribute::*;
-use attribute_ref::*;
 use callback::*;
 use class::*;
 use delegate::*;
@@ -31,7 +30,6 @@ use interface::*;
 use item::*;
 use method::*;
 use module::*;
-use param::*;
 use r#const::*;
 use r#enum::*;
 use r#fn::*;
@@ -330,289 +328,390 @@ impl Encoder<'_> {
     fn err<T, S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Result<T, Error> {
         Err(self.error(spanned, message))
     }
-}
 
-/// Parse an optional `#[packed(N)]` attribute from `attrs`.  Returns `Some(N)` if
-/// the attribute is present and well-formed, `None` if absent, or an error if the
-/// attribute is malformed.
-fn read_packed(encoder: &Encoder, attrs: &[syn::Attribute]) -> Result<Option<u16>, Error> {
-    for attr in attrs {
-        if !attr.path().is_ident("packed") {
-            continue;
+    /// Parse an optional `#[packed(N)]` attribute from `attrs`.  Returns `Some(N)` if
+    /// the attribute is present and well-formed, `None` if absent, or an error if the
+    /// attribute is malformed.
+    fn read_packed(&self, attrs: &[syn::Attribute]) -> Result<Option<u16>, Error> {
+        for attr in attrs {
+            if !attr.path().is_ident("packed") {
+                continue;
+            }
+
+            let Ok(size_literal) = attr.parse_args::<syn::LitInt>() else {
+                return self.err(attr, "`packed` attribute requires an integer argument");
+            };
+
+            let Ok(size) = size_literal.base10_parse::<u16>() else {
+                return self.err(attr, "`packed` size must be a valid u16");
+            };
+
+            return Ok(Some(size));
         }
 
-        let Ok(size_literal) = attr.parse_args::<syn::LitInt>() else {
-            return encoder.err(attr, "`packed` attribute requires an integer argument");
-        };
-
-        let Ok(size) = size_literal.base10_parse::<u16>() else {
-            return encoder.err(attr, "`packed` size must be a valid u16");
-        };
-
-        return Ok(Some(size));
+        Ok(None)
     }
 
-    Ok(None)
-}
-
-fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Error> {
-    match ty {
-        syn::Type::Path(ty) => encode_type_path(encoder, ty),
-        syn::Type::Ptr(ty) => encode_type_ptr(encoder, ty),
-        syn::Type::Reference(ty) => encode_type_reference(encoder, ty),
-        syn::Type::Slice(ty) => encode_type_slice(encoder, ty),
-        syn::Type::Array(ty) => encode_type_array(encoder, ty),
-        rest => encoder.err(rest, "type not supported"),
-    }
-}
-
-/// Like [`encode_type`] but tries `attr_ns` as the primary base namespace for
-/// unqualified type names before falling back to `encoder.namespace`.
-///
-/// This is needed when resolving constructor-parameter types for an attribute
-/// that lives in a namespace other than the one currently being encoded.  For
-/// example, `MarshalingBehaviorAttribute` (in `Windows.Foundation.Metadata`)
-/// takes a `MarshalingType` parameter; if the *calling* item is in
-/// `Windows.Something`, the plain name `MarshalingType` must still be looked
-/// up in `Windows.Foundation.Metadata`, not in `Windows.Something`.
-fn encode_type_in_attr_ns(
-    encoder: &Encoder,
-    attr_ns: &str,
-    ty: &syn::Type,
-) -> Result<metadata::Type, Error> {
-    // Fast path: no special handling needed when the namespaces already agree.
-    if attr_ns == encoder.namespace {
-        return encode_type(encoder, ty);
+    fn encode_type(&self, ty: &syn::Type) -> Result<metadata::Type, Error> {
+        match ty {
+            syn::Type::Path(ty) => self.encode_type_path(ty),
+            syn::Type::Ptr(ty) => self.encode_type_ptr(ty),
+            syn::Type::Reference(ty) => self.encode_type_reference(ty),
+            syn::Type::Slice(ty) => self.encode_type_slice(ty),
+            syn::Type::Array(ty) => self.encode_type_array(ty),
+            rest => self.err(rest, "type not supported"),
+        }
     }
 
-    // For a plain relative (non-`::`) path we first attempt to resolve it in
-    // `attr_ns`.  If the lookup succeeds we return the fully-qualified type
-    // immediately; otherwise we delegate to the regular `encode_type` so that
-    // builtin aliases ("u32", "String", …) and types genuinely local to the
-    // caller's namespace are still handled correctly.
-    if let syn::Type::Path(type_path) = ty {
-        if type_path.qself.is_none() && type_path.path.leading_colon.is_none() {
-            let segs: Vec<String> = type_path
-                .path
-                .segments
-                .iter()
-                .map(|s| s.ident.to_string())
-                .collect();
+    /// Like [`encode_type`] but tries `attr_ns` as the primary base namespace for
+    /// unqualified type names before falling back to `self.namespace`.
+    fn encode_type_in_attr_ns(
+        &self,
+        attr_ns: &str,
+        ty: &syn::Type,
+    ) -> Result<metadata::Type, Error> {
+        if attr_ns == self.namespace {
+            return self.encode_type(ty);
+        }
 
-            // Paths containing `super` need the regular encoder context.
-            if !segs.is_empty() && !segs.iter().any(|s| s == "super") {
-                let name = segs.last().unwrap();
-                let candidate_ns = if segs.len() == 1 {
-                    attr_ns.to_string()
-                } else {
-                    format!("{}.{}", attr_ns, segs[..segs.len() - 1].join("."))
-                };
+        if let syn::Type::Path(type_path) = ty {
+            if type_path.qself.is_none() && type_path.path.leading_colon.is_none() {
+                let segs: Vec<String> = type_path
+                    .path
+                    .segments
+                    .iter()
+                    .map(|s| s.ident.to_string())
+                    .collect();
 
-                if encoder.index.contains(&candidate_ns, name)
-                    || encoder.reference.contains(&candidate_ns, name)
-                {
-                    return Ok(metadata::Type::Name(metadata::TypeName {
-                        namespace: candidate_ns,
-                        name: name.to_string(),
-                        generics: vec![],
-                    }));
+                if !segs.is_empty() && !segs.iter().any(|s| s == "super") {
+                    let name = segs.last().unwrap();
+                    let candidate_ns = if segs.len() == 1 {
+                        attr_ns.to_string()
+                    } else {
+                        format!("{}.{}", attr_ns, segs[..segs.len() - 1].join("."))
+                    };
+
+                    if self.index.contains(&candidate_ns, name)
+                        || self.reference.contains(&candidate_ns, name)
+                    {
+                        return Ok(metadata::Type::Name(metadata::TypeName {
+                            namespace: candidate_ns,
+                            name: name.to_string(),
+                            generics: vec![],
+                        }));
+                    }
                 }
             }
         }
+
+        self.encode_type(ty)
     }
 
-    encode_type(encoder, ty)
-}
-
-fn encode_type_slice(encoder: &Encoder, ty: &syn::TypeSlice) -> Result<metadata::Type, Error> {
-    Ok(metadata::Type::Array(Box::new(encode_type(
-        encoder, &ty.elem,
-    )?)))
-}
-
-fn encode_type_array(encoder: &Encoder, ty: &syn::TypeArray) -> Result<metadata::Type, Error> {
-    Ok(metadata::Type::ArrayFixed(
-        Box::new(encode_type(encoder, &ty.elem)?),
-        encode_lit_int::<usize>(encoder, &ty.len)?,
-    ))
-}
-
-fn encode_value(
-    encoder: &Encoder,
-    ty: &metadata::Type,
-    value: &syn::Expr,
-) -> Result<metadata::Value, Error> {
-    let value = match ty {
-        metadata::Type::I8 => metadata::Value::I8(encode_neg_lit_int::<i8>(encoder, value)?),
-        metadata::Type::U8 => metadata::Value::U8(encode_lit_int::<u8>(encoder, value)?),
-        metadata::Type::I16 => metadata::Value::I16(encode_neg_lit_int::<i16>(encoder, value)?),
-        metadata::Type::U16 => metadata::Value::U16(encode_lit_int::<u16>(encoder, value)?),
-        metadata::Type::I32 => metadata::Value::I32(encode_neg_lit_int::<i32>(encoder, value)?),
-        metadata::Type::U32 => metadata::Value::U32(encode_lit_int::<u32>(encoder, value)?),
-        metadata::Type::I64 => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
-        metadata::Type::U64 => metadata::Value::U64(encode_lit_int::<u64>(encoder, value)?),
-        metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
-        metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
-        metadata::Type::String => metadata::Value::Utf16(encode_lit_string(encoder, value)?),
-        metadata::Type::ISize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
-        metadata::Type::USize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
-        metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
-            metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?)
-        }
-        metadata::Type::Name(tn) => {
-            let underlying = encoder
-                .reference
-                .get(&tn.namespace, &tn.name)
-                .next()
-                .and_then(|def| def.underlying_type())
-                .or_else(|| rdl_underlying_type(encoder, &tn.namespace, &tn.name));
-
-            match underlying {
-                Some(underlying) => return encode_value(encoder, &underlying, value),
-                None => return encoder.err(value, &format!("constant type not supported: {ty:?}")),
-            }
-        }
-        rest => return encoder.err(value, &format!("constant type not supported: {rest:?}")),
-    };
-
-    Ok(value)
-}
-
-fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option<metadata::Type> {
-    let item = encoder.index.get(namespace, name)?;
-
-    if let Item::Struct(s) = item {
-        let mut fields = s.fields.iter();
-
-        if let Some(field) = fields.next() {
-            if fields.next().is_none() {
-                return encode_type(encoder, &field.ty).ok();
-            }
-        }
+    fn encode_type_slice(&self, ty: &syn::TypeSlice) -> Result<metadata::Type, Error> {
+        Ok(metadata::Type::Array(Box::new(self.encode_type(&ty.elem)?)))
     }
 
-    None
-}
+    fn encode_type_array(&self, ty: &syn::TypeArray) -> Result<metadata::Type, Error> {
+        Ok(metadata::Type::ArrayFixed(
+            Box::new(self.encode_type(&ty.elem)?),
+            self.encode_lit_int::<usize>(&ty.len)?,
+        ))
+    }
 
-fn encode_neg_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
-where
-    T: std::str::FromStr + TryFrom<i128>,
-    T::Err: std::fmt::Display,
-{
-    let value = match expr {
-        syn::Expr::Lit(syn::ExprLit {
-            lit: syn::Lit::Int(int),
-            ..
-        }) => int.base10_parse().ok(),
-        syn::Expr::Unary(syn::ExprUnary {
-            op: syn::UnOp::Neg(_),
-            expr,
-            ..
-        }) => match expr.as_ref() {
+    fn encode_value(
+        &self,
+        ty: &metadata::Type,
+        value: &syn::Expr,
+    ) -> Result<metadata::Value, Error> {
+        let value = match ty {
+            metadata::Type::I8 => metadata::Value::I8(self.encode_neg_lit_int::<i8>(value)?),
+            metadata::Type::U8 => metadata::Value::U8(self.encode_lit_int::<u8>(value)?),
+            metadata::Type::I16 => metadata::Value::I16(self.encode_neg_lit_int::<i16>(value)?),
+            metadata::Type::U16 => metadata::Value::U16(self.encode_lit_int::<u16>(value)?),
+            metadata::Type::I32 => metadata::Value::I32(self.encode_neg_lit_int::<i32>(value)?),
+            metadata::Type::U32 => metadata::Value::U32(self.encode_lit_int::<u32>(value)?),
+            metadata::Type::I64 => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
+            metadata::Type::U64 => metadata::Value::U64(self.encode_lit_int::<u64>(value)?),
+            metadata::Type::F32 => metadata::Value::F32(self.encode_neg_lit_float::<f32>(value)?),
+            metadata::Type::F64 => metadata::Value::F64(self.encode_neg_lit_float::<f64>(value)?),
+            metadata::Type::String => metadata::Value::Utf16(self.encode_lit_string(value)?),
+            metadata::Type::ISize => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
+            metadata::Type::USize => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
+            metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
+                metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?)
+            }
+            metadata::Type::Name(tn) => {
+                let underlying = self
+                    .reference
+                    .get(&tn.namespace, &tn.name)
+                    .next()
+                    .and_then(|def| def.underlying_type())
+                    .or_else(|| self.rdl_underlying_type(&tn.namespace, &tn.name));
+
+                match underlying {
+                    Some(underlying) => return self.encode_value(&underlying, value),
+                    None => {
+                        return self.err(value, &format!("constant type not supported: {ty:?}"))
+                    }
+                }
+            }
+            rest => return self.err(value, &format!("constant type not supported: {rest:?}")),
+        };
+
+        Ok(value)
+    }
+
+    fn rdl_underlying_type(&self, namespace: &str, name: &str) -> Option<metadata::Type> {
+        let item = self.index.get(namespace, name)?;
+
+        if let Item::Struct(s) = item {
+            let mut fields = s.fields.iter();
+
+            if let Some(field) = fields.next() {
+                if fields.next().is_none() {
+                    return self.encode_type(&field.ty).ok();
+                }
+            }
+        }
+
+        None
+    }
+
+    fn encode_neg_lit_int<T>(&self, expr: &syn::Expr) -> Result<T, Error>
+    where
+        T: std::str::FromStr + TryFrom<i128>,
+        T::Err: std::fmt::Display,
+    {
+        let value = match expr {
             syn::Expr::Lit(syn::ExprLit {
                 lit: syn::Lit::Int(int),
                 ..
-            }) => int
-                .base10_parse::<u64>()
-                .ok()
-                .and_then(|v| T::try_from(-(v as i128)).ok()),
+            }) => int.base10_parse().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) => int
+                    .base10_parse::<u64>()
+                    .ok()
+                    .and_then(|v| T::try_from(-(v as i128)).ok()),
+                _ => None,
+            },
             _ => None,
-        },
-        _ => None,
-    };
+        };
 
-    value.ok_or_else(|| encoder.error(expr, "value not valid"))
-}
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
 
-fn encode_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
-where
-    T: std::str::FromStr,
-    T::Err: std::fmt::Display,
-{
-    let value = match expr {
-        syn::Expr::Lit(syn::ExprLit {
-            lit: syn::Lit::Int(int),
-            ..
-        }) => int.base10_parse().ok(),
+    fn encode_lit_int<T>(&self, expr: &syn::Expr) -> Result<T, Error>
+    where
+        T: std::str::FromStr,
+        T::Err: std::fmt::Display,
+    {
+        let value = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => int.base10_parse().ok(),
 
-        _ => None,
-    };
+            _ => None,
+        };
 
-    value.ok_or_else(|| encoder.error(expr, "value not valid"))
-}
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
 
-fn encode_neg_lit_float<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
-where
-    T: std::str::FromStr + std::ops::Neg<Output = T>,
-    T::Err: std::fmt::Display,
-{
-    let value = match expr {
-        syn::Expr::Lit(syn::ExprLit {
-            lit: syn::Lit::Float(float),
-            ..
-        }) => float.base10_parse().ok(),
-        syn::Expr::Unary(syn::ExprUnary {
-            op: syn::UnOp::Neg(_),
-            expr,
-            ..
-        }) => match expr.as_ref() {
+    fn encode_neg_lit_float<T>(&self, expr: &syn::Expr) -> Result<T, Error>
+    where
+        T: std::str::FromStr + std::ops::Neg<Output = T>,
+        T::Err: std::fmt::Display,
+    {
+        let value = match expr {
             syn::Expr::Lit(syn::ExprLit {
                 lit: syn::Lit::Float(float),
                 ..
-            }) => float.base10_parse().ok().map(|value: T| -value),
+            }) => float.base10_parse().ok(),
+            syn::Expr::Unary(syn::ExprUnary {
+                op: syn::UnOp::Neg(_),
+                expr,
+                ..
+            }) => match expr.as_ref() {
+                syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Float(float),
+                    ..
+                }) => float.base10_parse().ok().map(|value: T| -value),
+                _ => None,
+            },
             _ => None,
-        },
-        _ => None,
-    };
+        };
 
-    value.ok_or_else(|| encoder.error(expr, "value not valid"))
-}
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
 
-fn encode_lit_string(encoder: &Encoder, expr: &syn::Expr) -> Result<String, Error> {
-    let value = match expr {
-        syn::Expr::Lit(syn::ExprLit {
-            lit: syn::Lit::Str(string),
-            ..
-        }) => Some(string.value()),
-        _ => None,
-    };
+    fn encode_lit_string(&self, expr: &syn::Expr) -> Result<String, Error> {
+        let value = match expr {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Str(string),
+                ..
+            }) => Some(string.value()),
+            _ => None,
+        };
 
-    value.ok_or_else(|| encoder.error(expr, "value not valid"))
-}
+        value.ok_or_else(|| self.error(expr, "value not valid"))
+    }
 
-fn encode_type_reference(
-    encoder: &Encoder,
-    ty: &syn::TypeReference,
-) -> Result<metadata::Type, Error> {
-    let is_mut = ty.mutability.is_some();
-    let ty = encode_type(encoder, &ty.elem)?;
+    fn encode_type_reference(&self, ty: &syn::TypeReference) -> Result<metadata::Type, Error> {
+        let is_mut = ty.mutability.is_some();
+        let ty = self.encode_type(&ty.elem)?;
 
-    let ty = if is_mut {
-        metadata::Type::RefMut(Box::new(ty))
-    } else {
-        metadata::Type::RefConst(Box::new(ty))
-    };
+        let ty = if is_mut {
+            metadata::Type::RefMut(Box::new(ty))
+        } else {
+            metadata::Type::RefConst(Box::new(ty))
+        };
 
-    Ok(ty)
-}
+        Ok(ty)
+    }
 
-fn encode_type_ptr(encoder: &Encoder, ty: &syn::TypePtr) -> Result<metadata::Type, Error> {
-    let is_mut = ty.mutability.is_some();
-    let ty = encode_type(encoder, &ty.elem)?;
+    fn encode_type_ptr(&self, ty: &syn::TypePtr) -> Result<metadata::Type, Error> {
+        let is_mut = ty.mutability.is_some();
+        let ty = self.encode_type(&ty.elem)?;
 
-    let ty = match ty {
-        metadata::Type::PtrMut(ty, pointers) => metadata::Type::PtrMut(ty, pointers + 1),
-        metadata::Type::PtrConst(ty, pointers) => metadata::Type::PtrConst(ty, pointers + 1),
-        _ => {
-            if is_mut {
-                metadata::Type::PtrMut(Box::new(ty), 1)
+        let ty = match ty {
+            metadata::Type::PtrMut(ty, pointers) => metadata::Type::PtrMut(ty, pointers + 1),
+            metadata::Type::PtrConst(ty, pointers) => metadata::Type::PtrConst(ty, pointers + 1),
+            _ => {
+                if is_mut {
+                    metadata::Type::PtrMut(Box::new(ty), 1)
+                } else {
+                    metadata::Type::PtrConst(Box::new(ty), 1)
+                }
+            }
+        };
+
+        Ok(ty)
+    }
+
+    fn encode_type_path(&self, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
+        self.encode_path(&ty.path)
+    }
+
+    fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {
+        let mut path = vec![];
+
+        for segment in &ty.segments {
+            if segment.ident == "super" {
+                if path.is_empty() {
+                    for part in self.namespace.split('.') {
+                        path.push(part.to_string());
+                    }
+                }
+
+                if path.pop().is_none() {
+                    return self.err(ty, "too many leading `super` keywords");
+                }
             } else {
-                metadata::Type::PtrConst(Box::new(ty), 1)
+                path.push(segment.ident.to_string());
             }
         }
-    };
 
-    Ok(ty)
+        let mut generics = vec![];
+
+        if let Some(last) = ty.segments.last() {
+            if let syn::PathArguments::AngleBracketed(arguments) = &last.arguments {
+                for argument in &arguments.args {
+                    if let syn::GenericArgument::Type(ty) = argument {
+                        generics.push(self.encode_type(ty)?);
+                    }
+                }
+            }
+        }
+
+        if path.len() == 1 {
+            if let Some(number) = self.generics.iter().position(|generic| *generic == path[0]) {
+                return Ok(metadata::Type::Generic(
+                    path[0].clone(),
+                    number.try_into().unwrap(),
+                ));
+            }
+
+            match path[0].as_str() {
+                "bool" => return Ok(metadata::Type::Bool),
+                "i8" => return Ok(metadata::Type::I8),
+                "u8" => return Ok(metadata::Type::U8),
+                "i16" => return Ok(metadata::Type::I16),
+                "u16" => return Ok(metadata::Type::U16),
+                "i32" => return Ok(metadata::Type::I32),
+                "u32" => return Ok(metadata::Type::U32),
+                "i64" => return Ok(metadata::Type::I64),
+                "u64" => return Ok(metadata::Type::U64),
+                "f32" => return Ok(metadata::Type::F32),
+                "f64" => return Ok(metadata::Type::F64),
+                "isize" => return Ok(metadata::Type::ISize),
+                "usize" => return Ok(metadata::Type::USize),
+
+                "void" => return Ok(metadata::Type::Void),
+                "String" => return Ok(metadata::Type::String),
+                "Object" => return Ok(metadata::Type::Object),
+                "Type" => return Ok(metadata::Type::named("System", "Type")),
+                "GUID" => return Ok(("System", "Guid").into()),
+                "HRESULT" => return Ok(("Windows.Foundation", "HResult").into()),
+
+                _ => {}
+            }
+        }
+
+        let (name, namespace) = path.split_last().unwrap();
+
+        let namespace = if namespace.is_empty() {
+            self.namespace.to_string()
+        } else {
+            namespace.join(".")
+        };
+
+        let contains = |namespace: &str| -> Option<metadata::Type> {
+            if self.index.contains(namespace, name) || self.reference.contains(namespace, name) {
+                Some(metadata::Type::Name(metadata::TypeName {
+                    namespace: namespace.to_string(),
+                    name: name.to_string(),
+                    generics: generics.clone(),
+                }))
+            } else {
+                None
+            }
+        };
+
+        if let Some(ty) = contains(&namespace) {
+            return Ok(ty);
+        }
+
+        let namespace = format!("{}.{}", self.namespace, namespace);
+
+        if let Some(ty) = contains(&namespace) {
+            return Ok(ty);
+        }
+
+        // Last resort: try glob use declarations
+        for use_item in &self.file.uses {
+            if let Some(ns) = glob_use_namespace(use_item) {
+                if let Some(ty) = contains(&ns) {
+                    return Ok(ty);
+                }
+            }
+        }
+
+        Err(self.error(ty, "type not found"))
+    }
+
+    fn encode_return_type(&self, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
+        match ty {
+            syn::ReturnType::Type(_, ty) => self.encode_type(ty),
+            _ => Ok(metadata::Type::Void),
+        }
+    }
 }
 
 fn glob_use_namespace(use_item: &syn::ItemUse) -> Option<String> {
@@ -631,128 +730,6 @@ fn glob_use_namespace(use_item: &syn::ItemUse) -> Option<String> {
         Some(parts.join("."))
     } else {
         None
-    }
-}
-
-fn encode_type_path(encoder: &Encoder, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
-    encode_path(encoder, &ty.path)
-}
-
-fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Error> {
-    let mut path = vec![];
-
-    for segment in &ty.segments {
-        if segment.ident == "super" {
-            if path.is_empty() {
-                for part in encoder.namespace.split('.') {
-                    path.push(part.to_string());
-                }
-            }
-
-            if path.pop().is_none() {
-                return encoder.err(ty, "too many leading `super` keywords");
-            }
-        } else {
-            path.push(segment.ident.to_string());
-        }
-    }
-
-    let mut generics = vec![];
-
-    if let Some(last) = ty.segments.last() {
-        if let syn::PathArguments::AngleBracketed(arguments) = &last.arguments {
-            for argument in &arguments.args {
-                if let syn::GenericArgument::Type(ty) = argument {
-                    generics.push(encode_type(encoder, ty)?);
-                }
-            }
-        }
-    }
-
-    if path.len() == 1 {
-        if let Some(number) = encoder
-            .generics
-            .iter()
-            .position(|generic| *generic == path[0])
-        {
-            return Ok(metadata::Type::Generic(
-                path[0].clone(),
-                number.try_into().unwrap(),
-            ));
-        }
-
-        match path[0].as_str() {
-            "bool" => return Ok(metadata::Type::Bool),
-            "i8" => return Ok(metadata::Type::I8),
-            "u8" => return Ok(metadata::Type::U8),
-            "i16" => return Ok(metadata::Type::I16),
-            "u16" => return Ok(metadata::Type::U16),
-            "i32" => return Ok(metadata::Type::I32),
-            "u32" => return Ok(metadata::Type::U32),
-            "i64" => return Ok(metadata::Type::I64),
-            "u64" => return Ok(metadata::Type::U64),
-            "f32" => return Ok(metadata::Type::F32),
-            "f64" => return Ok(metadata::Type::F64),
-            "isize" => return Ok(metadata::Type::ISize),
-            "usize" => return Ok(metadata::Type::USize),
-
-            "void" => return Ok(metadata::Type::Void),
-            "String" => return Ok(metadata::Type::String),
-            "Object" => return Ok(metadata::Type::Object),
-            "Type" => return Ok(metadata::Type::named("System", "Type")),
-            "GUID" => return Ok(("System", "Guid").into()),
-            "HRESULT" => return Ok(("Windows.Foundation", "HResult").into()),
-
-            _ => {}
-        }
-    }
-
-    let (name, namespace) = path.split_last().unwrap();
-
-    let namespace = if namespace.is_empty() {
-        encoder.namespace.to_string()
-    } else {
-        namespace.join(".")
-    };
-
-    let contains = |namespace: &str| -> Option<metadata::Type> {
-        if encoder.index.contains(namespace, name) || encoder.reference.contains(namespace, name) {
-            Some(metadata::Type::Name(metadata::TypeName {
-                namespace: namespace.to_string(),
-                name: name.to_string(),
-                generics: generics.clone(),
-            }))
-        } else {
-            None
-        }
-    };
-
-    if let Some(ty) = contains(&namespace) {
-        return Ok(ty);
-    }
-
-    let namespace = format!("{}.{}", encoder.namespace, namespace);
-
-    if let Some(ty) = contains(&namespace) {
-        return Ok(ty);
-    }
-
-    // Last resort: try glob use declarations
-    for use_item in &encoder.file.uses {
-        if let Some(ns) = glob_use_namespace(use_item) {
-            if let Some(ty) = contains(&ns) {
-                return Ok(ty);
-            }
-        }
-    }
-
-    Err(encoder.error(ty, "type not found"))
-}
-
-fn encode_return_type(encoder: &Encoder, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
-    match ty {
-        syn::ReturnType::Type(_, ty) => encode_type(encoder, ty),
-        _ => Ok(metadata::Type::Void),
     }
 }
 

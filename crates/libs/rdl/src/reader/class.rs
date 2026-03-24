@@ -54,85 +54,82 @@ impl syn::parse::Parse for ClassInterface {
     }
 }
 
-impl Class {
-    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
-        let extends = if let Some(path) = &self.extends {
-            let extends = encode_path(encoder, path)?;
+impl Encoder<'_> {
+    pub fn encode_class(&mut self, item: &Class) -> Result<(), Error> {
+        let extends = if let Some(path) = &item.extends {
+            let extends = self.encode_path(path)?;
             if let metadata::Type::Name(extends) = extends {
-                encoder.output.TypeRef(&extends.namespace, &extends.name)
+                self.output.TypeRef(&extends.namespace, &extends.name)
             } else {
-                return encoder.err(&self.extends, "invalid base type");
+                return self.err(&item.extends, "invalid base type");
             }
         } else {
-            encoder.output.TypeRef("System", "Object")
+            self.output.TypeRef("System", "Object")
         };
 
         let flags = metadata::TypeAttributes::Public
             | metadata::TypeAttributes::Sealed
             | metadata::TypeAttributes::WindowsRuntime;
 
-        let class = encoder.output.TypeDef(
-            encoder.namespace,
-            encoder.name,
+        let class = self.output.TypeDef(
+            self.namespace,
+            self.name,
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
 
-        // Emit any Named attributes (defined in metadata or RDL) attached to this class.
-        encode_attrs(
-            encoder,
+        self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(class),
-            &self.attrs,
+            &item.attrs,
             &[],
         )?;
 
-        for interface in &self.interfaces {
-            encode_implement(encoder, class, interface)?;
+        for interface in &item.interfaces {
+            self.encode_implement(class, interface)?;
         }
 
         Ok(())
     }
-}
 
-fn encode_implement(
-    encoder: &mut Encoder,
-    class: metadata::writer::TypeDef,
-    interface: &ClassInterface,
-) -> Result<(), Error> {
-    let ty = encode_path(encoder, &interface.ty)?;
+    fn encode_implement(
+        &mut self,
+        class: metadata::writer::TypeDef,
+        interface: &ClassInterface,
+    ) -> Result<(), Error> {
+        let ty = self.encode_path(&interface.ty)?;
 
-    let interface_impl = encoder.output.InterfaceImpl(class, &ty);
+        let interface_impl = self.output.InterfaceImpl(class, &ty);
 
-    for attr in &interface.attrs {
-        let path = attr.path();
+        for attr in &interface.attrs {
+            let path = attr.path();
 
-        if path.is_ident("default") {
-            if !matches!(attr.meta, syn::Meta::Path(_)) {
-                return encoder.err(attr, "`default` attribute does not accept arguments");
+            if path.is_ident("default") {
+                if !matches!(attr.meta, syn::Meta::Path(_)) {
+                    return self.err(attr, "`default` attribute does not accept arguments");
+                }
+
+                let default_attribute = metadata::writer::MemberRefParent::TypeRef(
+                    self.output
+                        .TypeRef("Windows.Foundation.Metadata", "DefaultAttribute"),
+                );
+
+                let default_ctor = self.output.MemberRef(
+                    ".ctor",
+                    &metadata::Signature {
+                        flags: metadata::MethodCallAttributes::HASTHIS,
+                        ..Default::default()
+                    },
+                    default_attribute,
+                );
+
+                self.output.Attribute(
+                    metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
+                    metadata::writer::AttributeType::MemberRef(default_ctor),
+                    &[],
+                );
             }
-
-            let default_attribute = metadata::writer::MemberRefParent::TypeRef(
-                encoder
-                    .output
-                    .TypeRef("Windows.Foundation.Metadata", "DefaultAttribute"),
-            );
-
-            let default_ctor = encoder.output.MemberRef(
-                ".ctor",
-                &metadata::Signature {
-                    flags: metadata::MethodCallAttributes::HASTHIS,
-                    ..Default::default()
-                },
-                default_attribute,
-            );
-
-            encoder.output.Attribute(
-                metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
-                metadata::writer::AttributeType::MemberRef(default_ctor),
-                &[],
-            );
         }
-    }
 
-    Ok(())
+        Ok(())
+    }
 }

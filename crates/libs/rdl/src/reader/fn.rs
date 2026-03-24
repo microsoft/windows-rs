@@ -19,56 +19,55 @@ impl syn::parse::Parse for Fn {
     }
 }
 
-impl Fn {
-    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
+impl Encoder<'_> {
+    pub fn encode_fn(&mut self, item: &Fn) -> Result<(), Error> {
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
             | metadata::MethodAttributes::Static
             | metadata::MethodAttributes::PInvokeImpl;
 
-        let params = collect_params(encoder, &self.sig)?;
+        let params = self.collect_params(&item.sig)?;
 
         let types = params.iter().map(|param| param.ty.clone()).collect();
 
         let mut call_flags = metadata::MethodCallAttributes::default();
 
-        if self.sig.variadic.is_some() {
+        if item.sig.variadic.is_some() {
             call_flags |= metadata::MethodCallAttributes::VARARG;
         }
 
         let signature = metadata::Signature {
             flags: call_flags,
-            return_type: encode_return_type(encoder, &self.sig.output)?,
+            return_type: self.encode_return_type(&item.sig.output)?,
             types,
         };
 
-        let name = self.sig.ident.to_string();
+        let name = item.sig.ident.to_string();
 
-        let method_def = encoder
+        let method_def = self
             .output
             .MethodDef(&name, &signature, flags, Default::default());
 
         for (sequence, param) in params.iter().enumerate() {
-            let param_id = encoder.output.Param(
+            let param_id = self.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
 
-            encode_attrs(
-                encoder,
+            self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 &param.attrs,
                 &["input", "output", "optional"],
             )?;
         }
 
-        let Some(attribute) = self
+        let Some(attribute) = item
             .attrs
             .iter()
             .find(|attribute| attribute.path().is_ident("library"))
         else {
-            return encoder.err(&self.sig, "`library` attribute not found");
+            return self.err(&item.sig, "`library` attribute not found");
         };
 
         let (library, last_error) = attribute
@@ -89,7 +88,7 @@ impl Fn {
                     Ok((library, last_error))
                 },
             )
-            .or_else(|_| encoder.err(attribute.span(), "`library` name missing"))?;
+            .or_else(|_| self.err(attribute.span(), "`library` name missing"))?;
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;
 
@@ -97,26 +96,23 @@ impl Fn {
             flags |= metadata::PInvokeAttributes::SupportsLastError;
         }
 
-        if let Some(abi) = &self.abi {
+        if let Some(abi) = &item.abi {
             match abi.value().as_str() {
                 "system" => flags |= metadata::PInvokeAttributes::CallConvPlatformapi,
                 "C" => flags |= metadata::PInvokeAttributes::CallConvCdecl,
                 "fastcall" => flags |= metadata::PInvokeAttributes::CallConvFastcall,
-                _ => return encoder.err(abi, "function abi not supported"),
+                _ => return self.err(abi, "function abi not supported"),
             }
         } else {
             flags |= metadata::PInvokeAttributes::CallConvPlatformapi;
         }
 
-        encoder
-            .output
+        self.output
             .ImplMap(method_def, flags, &name, library.value().as_str());
 
-        // Emit any Named attributes (defined in metadata or RDL) attached to this function.
-        encode_attrs(
-            encoder,
+        self.encode_attrs(
             metadata::writer::HasAttribute::MethodDef(method_def),
-            &self.attrs,
+            &item.attrs,
             &["library"],
         )?;
 

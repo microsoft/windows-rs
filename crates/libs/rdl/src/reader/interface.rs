@@ -51,40 +51,40 @@ impl syn::parse::Parse for Interface {
     }
 }
 
-impl Interface {
-    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
+impl Encoder<'_> {
+    pub fn encode_interface(&mut self, item: &Interface) -> Result<(), Error> {
         let mut flags = metadata::TypeAttributes::Public
             | metadata::TypeAttributes::Abstract
             | metadata::TypeAttributes::Interface;
 
-        if self.winrt {
+        if item.winrt {
             flags |= metadata::TypeAttributes::WindowsRuntime;
         }
 
-        let mut generics = Vec::with_capacity(self.generics.params.len());
-        for generic in self.generics.params.iter() {
+        let mut generics = Vec::with_capacity(item.generics.params.len());
+        for generic in item.generics.params.iter() {
             let syn::GenericParam::Type(generic) = generic else {
-                return encoder.err(generic, "only type generic parameters are supported");
+                return self.err(generic, "only type generic parameters are supported");
             };
             generics.push(generic.ident.to_string());
         }
-        encoder.generics = generics;
+        self.generics = generics;
 
-        let mut name = encoder.name.to_string();
+        let mut name = self.name.to_string();
 
-        if !encoder.generics.is_empty() {
-            name = format!("{name}`{}", encoder.generics.len());
+        if !self.generics.is_empty() {
+            name = format!("{name}`{}", self.generics.len());
         }
 
-        let interface = encoder.output.TypeDef(
-            encoder.namespace,
+        let interface = self.output.TypeDef(
+            self.namespace,
             &name,
             metadata::writer::TypeDefOrRef::default(),
             flags,
         );
 
-        for (number, name) in encoder.generics.iter().enumerate() {
-            encoder.output.GenericParam(
+        for (number, name) in self.generics.iter().enumerate() {
+            self.output.GenericParam(
                 name,
                 metadata::writer::TypeOrMethodDef::TypeDef(interface),
                 number.try_into().unwrap(),
@@ -92,30 +92,24 @@ impl Interface {
             );
         }
 
-        // Emit any Named attributes (defined in metadata or RDL) attached to this interface.
-        // Skip GUID derivation if an explicit GuidAttribute is already present.
-        let already_has_guid = self
-            .attrs
-            .iter()
-            .any(|attr| is_guid_attribute(encoder, attr));
+        let already_has_guid = item.attrs.iter().any(|attr| self.is_guid_attribute(attr));
 
-        encode_attrs(
-            encoder,
+        self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(interface),
-            &self.attrs,
+            &item.attrs,
             &[],
         )?;
 
-        if !self.winrt && self.requires.len() > 1 {
-            return encoder.err(
-                &self.requires[1],
+        if !item.winrt && item.requires.len() > 1 {
+            return self.err(
+                &item.requires[1],
                 "non-WinRT interface can only inherit from one interface",
             );
         }
 
-        for require in &self.requires {
-            let ty = encode_path(encoder, require)?;
-            encoder.output.InterfaceImpl(interface, &ty);
+        for require in &item.requires {
+            let ty = self.encode_path(require)?;
+            self.output.InterfaceImpl(interface, &ty);
         }
 
         let base_flags = metadata::MethodAttributes::Public
@@ -124,37 +118,33 @@ impl Interface {
             | metadata::MethodAttributes::NewSlot
             | metadata::MethodAttributes::Virtual;
 
-        // Collect method signatures for GUID derivation (for any interface without an explicit
-        // GuidAttribute — both WinRT and Win32 interfaces benefit from this).
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
 
-        for method in &self.methods {
+        for method in &item.methods {
             let mut params = vec![];
 
             if method.sig.inputs.is_empty() {
-                return encoder.err(&method.sig.ident, "`&self` parameter not found");
+                return self.err(&method.sig.ident, "`&self` parameter not found");
             }
 
             for (sequence, arg) in method.sig.inputs.iter().enumerate() {
                 match arg {
                     syn::FnArg::Receiver(receiver) => {
                         if *receiver != syn::parse_quote! { &self } {
-                            return encoder.err(receiver, "`&self` parameter not found");
+                            return self.err(receiver, "`&self` parameter not found");
                         }
                     }
                     syn::FnArg::Typed(pt) => {
                         if sequence == 0 {
-                            // This may seems a little redundant but is consistent with Rust
-                            // and leaves room for WinRT classes to model static methods.
-                            return encoder.err(arg, "`&self` parameter not found");
+                            return self.err(arg, "`&self` parameter not found");
                         }
-                        params.push(param(encoder, pt)?);
+                        params.push(self.param(pt)?);
                     }
                 }
             }
 
             let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
-            let return_type = encode_return_type(encoder, &method.sig.output)?;
+            let return_type = self.encode_return_type(&method.sig.output)?;
 
             if !already_has_guid {
                 method_signatures.push((
@@ -170,13 +160,11 @@ impl Interface {
                 types,
             };
 
-            // Check for the built-in `#[special]` pseudo-attribute which sets the
-            // SpecialName bit on the MethodDef, preserving properties and events.
             let mut is_special = false;
             for attr in &method.attrs {
                 if attr.path().is_ident("special") {
                     if !matches!(attr.meta, syn::Meta::Path(_)) {
-                        return encoder.err(attr, "`special` attribute does not accept arguments");
+                        return self.err(attr, "`special` attribute does not accept arguments");
                     }
                     is_special = true;
                 }
@@ -187,31 +175,27 @@ impl Interface {
                 flags |= metadata::MethodAttributes::SpecialName;
             }
 
-            let method_def = encoder.output.MethodDef(
+            let method_def = self.output.MethodDef(
                 &method.sig.ident.to_string(),
                 &signature,
                 flags,
                 Default::default(),
             );
 
-            // Emit any Named attributes attached to this method.
-            // `special` is a built-in pseudo-attribute and must not be emitted as metadata.
-            encode_attrs(
-                encoder,
+            self.encode_attrs(
                 metadata::writer::HasAttribute::MethodDef(method_def),
                 &method.attrs,
                 &["special"],
             )?;
 
             for (sequence, param) in params.iter().enumerate() {
-                let param_id = encoder.output.Param(
+                let param_id = self.output.Param(
                     &param.name,
                     (sequence + 1).try_into().unwrap(),
                     param.attributes,
                 );
 
-                encode_attrs(
-                    encoder,
+                self.encode_attrs(
                     metadata::writer::HasAttribute::Param(param_id),
                     &param.attrs,
                     &["input", "output", "optional"],
@@ -219,8 +203,6 @@ impl Interface {
             }
         }
 
-        // For interfaces without an explicit GuidAttribute (both WinRT and Win32), derive the GUID
-        // from the interface name and method signatures using the midlrt algorithm (RFC 4122 UUID v5).
         if !already_has_guid {
             let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = method_signatures
                 .iter()
@@ -228,10 +210,10 @@ impl Interface {
                 .collect();
 
             guid::derive_and_emit_guid(
-                encoder.output,
+                self.output,
                 metadata::writer::HasAttribute::TypeDef(interface),
-                encoder.namespace,
-                encoder.name,
+                self.namespace,
+                self.name,
                 &methods,
             );
         }

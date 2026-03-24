@@ -20,15 +20,15 @@ impl syn::parse::Parse for Delegate {
     }
 }
 
-impl Delegate {
-    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
-        let extends = encoder.output.TypeRef("System", "MulticastDelegate");
+impl Encoder<'_> {
+    pub fn encode_delegate(&mut self, item: &Delegate) -> Result<(), Error> {
+        let extends = self.output.TypeRef("System", "MulticastDelegate");
 
         let flags = metadata::TypeAttributes::Public
             | metadata::TypeAttributes::Sealed
             | metadata::TypeAttributes::WindowsRuntime;
 
-        encoder.generics = self
+        self.generics = item
             .sig
             .generics
             .params
@@ -37,40 +37,34 @@ impl Delegate {
                 if let syn::GenericParam::Type(ty) = generic {
                     Ok(ty.ident.to_string())
                 } else {
-                    Err(encoder.error(generic, "only type generic parameters are supported"))
+                    Err(self.error(generic, "only type generic parameters are supported"))
                 }
             })
             .collect::<Result<Vec<_>, Error>>()?;
 
-        let mut name = encoder.name.to_string();
+        let mut name = self.name.to_string();
 
-        if !encoder.generics.is_empty() {
-            name = format!("{name}`{}", encoder.generics.len());
+        if !self.generics.is_empty() {
+            name = format!("{name}`{}", self.generics.len());
         }
 
-        let delegate = encoder.output.TypeDef(
-            encoder.namespace,
+        let delegate = self.output.TypeDef(
+            self.namespace,
             &name,
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
 
-        // Emit any Named attributes (defined in metadata or RDL) attached to this delegate.
-        // Skip GUID derivation if an explicit GuidAttribute is already present.
-        let already_has_guid = self
-            .attrs
-            .iter()
-            .any(|attr| is_guid_attribute(encoder, attr));
+        let already_has_guid = item.attrs.iter().any(|attr| self.is_guid_attribute(attr));
 
-        encode_attrs(
-            encoder,
+        self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(delegate),
-            &self.attrs,
+            &item.attrs,
             &[],
         )?;
 
-        for (number, name) in encoder.generics.iter().enumerate() {
-            encoder.output.GenericParam(
+        for (number, name) in self.generics.iter().enumerate() {
+            self.output.GenericParam(
                 name,
                 metadata::writer::TypeOrMethodDef::TypeDef(delegate),
                 number.try_into().unwrap(),
@@ -84,19 +78,17 @@ impl Delegate {
             | metadata::MethodAttributes::NewSlot
             | metadata::MethodAttributes::Virtual;
 
-        let params = collect_params(encoder, &self.sig)?;
+        let params = self.collect_params(&item.sig)?;
 
         let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
-        let return_type = encode_return_type(encoder, &self.sig.output)?;
+        let return_type = self.encode_return_type(&item.sig.output)?;
 
-        // For WinRT delegates without an explicit GuidAttribute, derive the GUID from the
-        // delegate name and Invoke method signature using the midlrt algorithm.
         if !already_has_guid {
             guid::derive_and_emit_guid(
-                encoder.output,
+                self.output,
                 metadata::writer::HasAttribute::TypeDef(delegate),
-                encoder.namespace,
-                encoder.name,
+                self.namespace,
+                self.name,
                 &[("Invoke", types.as_slice(), &return_type)],
             );
         }
@@ -107,19 +99,17 @@ impl Delegate {
             types,
         };
 
-        encoder
-            .output
+        self.output
             .MethodDef("Invoke", &signature, flags, Default::default());
 
         for (sequence, param) in params.iter().enumerate() {
-            let param_id = encoder.output.Param(
+            let param_id = self.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
 
-            encode_attrs(
-                encoder,
+            self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 &param.attrs,
                 &["input", "output", "optional"],

@@ -33,36 +33,36 @@ impl syn::parse::Parse for Enum {
     }
 }
 
-impl Enum {
-    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
-        let value_type = encoder.output.TypeRef("System", "Enum");
+impl Encoder<'_> {
+    pub fn encode_enum(&mut self, item: &Enum) -> Result<(), Error> {
+        let value_type = self.output.TypeRef("System", "Enum");
 
         let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
 
-        if self.winrt {
+        if item.winrt {
             flags |= metadata::TypeAttributes::WindowsRuntime;
         }
 
-        let enum_type = encoder.output.TypeDef(
-            encoder.namespace,
-            encoder.name,
+        let enum_type = self.output.TypeDef(
+            self.namespace,
+            self.name,
             metadata::writer::TypeDefOrRef::TypeRef(value_type),
             flags,
         );
 
-        let Some(attribute) = self
+        let Some(attribute) = item
             .attrs
             .iter()
             .find(|attribute| attribute.path().is_ident("repr"))
         else {
-            return encoder.err(self.token, "`repr` attribute not found");
+            return self.err(item.token, "`repr` attribute not found");
         };
 
         let Ok(ty) = attribute.parse_args::<syn::Path>() else {
-            return encoder.err(attribute, "`repr` integer type attribute not found");
+            return self.err(attribute, "`repr` integer type attribute not found");
         };
 
-        let ty = encode_path(encoder, &ty)?;
+        let ty = self.encode_path(&ty)?;
 
         if !matches!(
             ty,
@@ -75,42 +75,39 @@ impl Enum {
                 | metadata::Type::I64
                 | metadata::Type::U64
         ) {
-            return encoder.err(attribute, "`repr` must be an integer type");
+            return self.err(attribute, "`repr` must be an integer type");
         }
 
-        // Handle the special `#[flags]` attribute by encoding it as `System.FlagsAttribute`.
-        if let Some(attr) = self.attrs.iter().find(|a| a.path().is_ident("flags")) {
+        if let Some(attr) = item.attrs.iter().find(|a| a.path().is_ident("flags")) {
             if !matches!(attr.meta, syn::Meta::Path(_)) {
-                return encoder.err(attr, "`flags` attribute does not accept arguments");
+                return self.err(attr, "`flags` attribute does not accept arguments");
             }
 
-            let flags_type = encoder.output.TypeRef("System", "FlagsAttribute");
+            let flags_type = self.output.TypeRef("System", "FlagsAttribute");
             let signature = metadata::Signature {
                 flags: metadata::MethodCallAttributes::HASTHIS,
                 return_type: metadata::Type::Void,
                 types: vec![],
             };
-            let ctor = encoder.output.MemberRef(
+            let ctor = self.output.MemberRef(
                 ".ctor",
                 &signature,
                 metadata::writer::MemberRefParent::TypeRef(flags_type),
             );
-            encoder.output.Attribute(
+            self.output.Attribute(
                 metadata::writer::HasAttribute::TypeDef(enum_type),
                 metadata::writer::AttributeType::MemberRef(ctor),
                 &[],
             );
         }
 
-        // Emit any Named attributes (defined in metadata or RDL) attached to this enum.
-        encode_attrs(
-            encoder,
+        self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(enum_type),
-            &self.attrs,
+            &item.attrs,
             &["repr", "flags"],
         )?;
 
-        encoder.output.Field(
+        self.output.Field(
             "value__",
             &ty,
             metadata::FieldAttributes::Private
@@ -118,12 +115,12 @@ impl Enum {
                 | metadata::FieldAttributes::RTSpecialName,
         );
 
-        let type_name = metadata::Type::named(encoder.namespace, encoder.name);
+        let type_name = metadata::Type::named(self.namespace, self.name);
 
-        for variant in &self.variants {
+        for variant in &item.variants {
             let name = variant.ident.to_string();
 
-            let field = encoder.output.Field(
+            let field = self.output.Field(
                 &name,
                 &type_name,
                 metadata::FieldAttributes::Public
@@ -132,13 +129,12 @@ impl Enum {
             );
 
             let Some((_, value)) = &variant.discriminant else {
-                return encoder.err(variant, "variant value not found");
+                return self.err(variant, "variant value not found");
             };
 
-            let value = encode_value(encoder, &ty, value)?;
+            let value = self.encode_value(&ty, value)?;
 
-            encoder
-                .output
+            self.output
                 .Constant(metadata::writer::HasConstant::Field(field), &value);
         }
 

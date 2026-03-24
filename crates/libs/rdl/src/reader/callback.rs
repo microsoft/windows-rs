@@ -19,25 +19,24 @@ impl syn::parse::Parse for Callback {
     }
 }
 
-impl Callback {
-    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
-        let extends = encoder.output.TypeRef("System", "MulticastDelegate");
+impl Encoder<'_> {
+    pub fn encode_callback(&mut self, item: &Callback) -> Result<(), Error> {
+        let extends = self.output.TypeRef("System", "MulticastDelegate");
 
         let flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
 
-        let name = encoder.name.to_string();
+        let name = self.name.to_string();
 
-        let callback = encoder.output.TypeDef(
-            encoder.namespace,
+        let callback = self.output.TypeDef(
+            self.namespace,
             &name,
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
 
-        encode_attrs(
-            encoder,
+        self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(callback),
-            &self.attrs,
+            &item.attrs,
             &[],
         )?;
 
@@ -47,13 +46,13 @@ impl Callback {
             | metadata::MethodAttributes::NewSlot
             | metadata::MethodAttributes::Virtual;
 
-        let params = collect_params(encoder, &self.sig)?;
+        let params = self.collect_params(&item.sig)?;
 
         let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
-        let return_type = encode_return_type(encoder, &self.sig.output)?;
+        let return_type = self.encode_return_type(&item.sig.output)?;
 
-        if let Some(variadic) = &self.sig.variadic {
-            return encoder.err(
+        if let Some(variadic) = &item.sig.variadic {
+            return self.err(
                 variadic,
                 "variadic parameters are not supported for callbacks",
             );
@@ -61,16 +60,16 @@ impl Callback {
 
         let mut abi = 1; // "system"
 
-        if let Some(value) = &self.abi {
+        if let Some(value) = &item.abi {
             abi = match value.value().as_str() {
                 "system" => 1,
                 "C" => 2,
                 "fastcall" => 5,
-                _ => return encoder.err(value, "callback abi not supported"),
+                _ => return self.err(value, "callback abi not supported"),
             };
         }
 
-        let attribute = encoder.output.TypeRef(
+        let attribute = self.output.TypeRef(
             "System.Runtime.InteropServices",
             "UnmanagedFunctionPointerAttribute",
         );
@@ -84,13 +83,13 @@ impl Callback {
             )],
         };
 
-        let ctor = encoder.output.MemberRef(
+        let ctor = self.output.MemberRef(
             ".ctor",
             &signature,
             windows_metadata::writer::MemberRefParent::TypeRef(attribute),
         );
 
-        encoder.output.Attribute(
+        self.output.Attribute(
             metadata::writer::HasAttribute::TypeDef(callback),
             windows_metadata::writer::AttributeType::MemberRef(ctor),
             &[(String::new(), windows_metadata::Value::I32(abi))],
@@ -102,19 +101,17 @@ impl Callback {
             types,
         };
 
-        encoder
-            .output
+        self.output
             .MethodDef("Invoke", &signature, flags, Default::default());
 
         for (sequence, param) in params.iter().enumerate() {
-            let param_id = encoder.output.Param(
+            let param_id = self.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
 
-            encode_attrs(
-                encoder,
+            self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 &param.attrs,
                 &["input", "output", "optional"],

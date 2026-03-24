@@ -29,19 +29,18 @@ impl syn::parse::Parse for Union {
     }
 }
 
-impl Union {
-    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
+impl Encoder<'_> {
+    pub fn encode_union(&mut self, item: &Union) -> Result<(), Error> {
         let type_def =
-            encode_struct_or_union(encoder, &self.name.to_string(), false, true, &self.fields)?;
+            self.encode_struct_or_union(&item.name.to_string(), false, true, &item.fields)?;
 
-        if let Some(packing_size) = read_packed(encoder, &self.attrs)? {
-            encoder.output.ClassLayout(type_def, packing_size, 0);
+        if let Some(packing_size) = self.read_packed(&item.attrs)? {
+            self.output.ClassLayout(type_def, packing_size, 0);
         }
 
-        encode_attrs(
-            encoder,
+        self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(type_def),
-            &self.attrs,
+            &item.attrs,
             &["packed"],
         )
     }
