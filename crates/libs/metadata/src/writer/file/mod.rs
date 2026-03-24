@@ -180,6 +180,8 @@ impl File {
 
             let scope = if let Some(assembly_name) = assembly_name {
                 ResolutionScope::AssemblyRef(self.AssemblyRef(&assembly_name))
+            } else if namespace == "System" {
+                ResolutionScope::AssemblyRef(self.AssemblyRef("System"))
             } else {
                 ResolutionScope::Module(id::Module(0))
             };
