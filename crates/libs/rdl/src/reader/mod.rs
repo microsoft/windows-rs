@@ -363,7 +363,7 @@ impl Encoder<'_> {
         }
     }
 
-    /// Like [`encode_type`] but tries `attr_ns` as the primary base namespace for
+    /// Like [`Self::encode_type`] but tries `attr_ns` as the primary base namespace for
     /// unqualified type names before falling back to `self.namespace`.
     fn encode_type_in_attr_ns(
         &self,
