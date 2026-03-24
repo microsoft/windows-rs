@@ -103,22 +103,24 @@ impl Encoder<'_> {
         let mut constructors = vec![];
         let mut properties = vec![];
 
-        for typedef in self.reference.get(namespace, attr_name) {
-            if typedef.category() == metadata::reader::TypeCategory::Attribute {
-                for method in typedef.methods() {
-                    if method.name() == ".ctor" {
-                        let sig = method.signature(&[]);
-                        constructors.push(sig.types);
+        if let Some(reference) = self.output.reference() {
+            for typedef in reference.get(namespace, attr_name) {
+                if typedef.category() == metadata::reader::TypeCategory::Attribute {
+                    for method in typedef.methods() {
+                        if method.name() == ".ctor" {
+                            let sig = method.signature(&[]);
+                            constructors.push(sig.types);
+                        }
                     }
-                }
-                for field in typedef.fields() {
-                    let flags = field.flags();
-                    if flags.contains(metadata::FieldAttributes::Public)
-                        && !flags.contains(metadata::FieldAttributes::Static)
-                        && !flags.contains(metadata::FieldAttributes::Literal)
-                        && !flags.contains(metadata::FieldAttributes::SpecialName)
-                    {
-                        properties.push((field.name().to_string(), field.ty()));
+                    for field in typedef.fields() {
+                        let flags = field.flags();
+                        if flags.contains(metadata::FieldAttributes::Public)
+                            && !flags.contains(metadata::FieldAttributes::Static)
+                            && !flags.contains(metadata::FieldAttributes::Literal)
+                            && !flags.contains(metadata::FieldAttributes::SpecialName)
+                        {
+                            properties.push((field.name().to_string(), field.ty()));
+                        }
                     }
                 }
             }
@@ -330,13 +332,16 @@ impl Encoder<'_> {
     }
 
     fn enum_is_flags(&self, tn: &metadata::TypeName) -> bool {
-        for typedef in self.reference.get(&tn.namespace, &tn.name) {
-            if typedef.category() == metadata::reader::TypeCategory::Enum
-                && metadata::HasAttributes::attributes(&typedef).any(|attr| {
-                    attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
-                })
-            {
-                return true;
+        if let Some(reference) = self.output.reference() {
+            for typedef in reference.get(&tn.namespace, &tn.name) {
+                if typedef.category() == metadata::reader::TypeCategory::Enum
+                    && metadata::HasAttributes::attributes(&typedef).any(|attr| {
+                        attr.name() == "FlagsAttribute"
+                            && attr.ctor().parent().namespace() == "System"
+                    })
+                {
+                    return true;
+                }
             }
         }
         if let Some(ns) = self.index.namespaces.get(&tn.namespace) {
@@ -357,23 +362,25 @@ impl Encoder<'_> {
         variant_name: &str,
         spanned: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
-        for typedef in self.reference.get(&tn.namespace, &tn.name) {
-            if typedef.category() == metadata::reader::TypeCategory::Enum {
-                for field in typedef.fields() {
-                    if field.flags().contains(metadata::FieldAttributes::Literal)
-                        && field.name() == variant_name
-                    {
-                        if let Some(constant) = field.constant() {
-                            return Ok(match constant.value() {
-                                metadata::Value::I32(v) => metadata::Value::I32(v),
-                                metadata::Value::U32(v) => metadata::Value::I32(v as i32),
-                                other => {
-                                    return self.err(
-                                        spanned,
-                                        &format!("unsupported enum constant type: {other:?}"),
-                                    )
-                                }
-                            });
+        if let Some(reference) = self.output.reference() {
+            for typedef in reference.get(&tn.namespace, &tn.name) {
+                if typedef.category() == metadata::reader::TypeCategory::Enum {
+                    for field in typedef.fields() {
+                        if field.flags().contains(metadata::FieldAttributes::Literal)
+                            && field.name() == variant_name
+                        {
+                            if let Some(constant) = field.constant() {
+                                return Ok(match constant.value() {
+                                    metadata::Value::I32(v) => metadata::Value::I32(v),
+                                    metadata::Value::U32(v) => metadata::Value::I32(v as i32),
+                                    other => {
+                                        return self.err(
+                                            spanned,
+                                            &format!("unsupported enum constant type: {other:?}"),
+                                        )
+                                    }
+                                });
+                            }
                         }
                     }
                 }

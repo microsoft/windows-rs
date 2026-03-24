@@ -106,6 +106,7 @@ impl Reader {
             .ok_or_else(|| Error::new("invalid output", &self.output, 0, 0))?;
 
         let mut output = metadata::writer::File::new(assembly_name);
+        output.set_reference(reference);
 
         for (namespace, members) in &index.namespaces {
             for variants in members.types.values() {
@@ -114,7 +115,6 @@ impl Reader {
                     let encoder = &mut Encoder {
                         output: &mut output,
                         index: &index,
-                        reference: &reference,
                         file,
                         namespace,
                         name: &name,
@@ -157,7 +157,6 @@ impl Reader {
                         Encoder {
                             output: &mut output,
                             index: &index,
-                            reference: &reference,
                             file,
                             namespace,
                             name,
@@ -175,7 +174,6 @@ impl Reader {
                         Encoder {
                             output: &mut output,
                             index: &index,
-                            reference: &reference,
                             file,
                             namespace,
                             name,
@@ -349,7 +347,6 @@ fn validate_use_declarations(
 struct Encoder<'a> {
     output: &'a mut metadata::writer::File,
     index: &'a Index<'a>,
-    reference: &'a metadata::reader::TypeIndex,
     file: &'a File,
     namespace: &'a str,
     name: &'a str,
@@ -430,7 +427,10 @@ impl Encoder<'_> {
                     };
 
                     if self.index.contains(&candidate_ns, name)
-                        || self.reference.contains(&candidate_ns, name)
+                        || self
+                            .output
+                            .reference()
+                            .is_some_and(|r| r.contains(&candidate_ns, name))
                     {
                         return Ok(metadata::Type::Name(metadata::TypeName {
                             namespace: candidate_ns,
@@ -480,9 +480,9 @@ impl Encoder<'_> {
             }
             metadata::Type::Name(tn) => {
                 let underlying = self
-                    .reference
-                    .get(&tn.namespace, &tn.name)
-                    .next()
+                    .output
+                    .reference()
+                    .and_then(|r| r.get(&tn.namespace, &tn.name).next())
                     .and_then(|def| def.underlying_type())
                     .or_else(|| self.rdl_underlying_type(&tn.namespace, &tn.name));
 
@@ -711,7 +711,12 @@ impl Encoder<'_> {
         };
 
         let contains = |namespace: &str| -> Option<metadata::Type> {
-            if self.index.contains(namespace, name) || self.reference.contains(namespace, name) {
+            if self.index.contains(namespace, name)
+                || self
+                    .output
+                    .reference()
+                    .is_some_and(|r| r.contains(namespace, name))
+            {
                 Some(metadata::Type::Name(metadata::TypeName {
                     namespace: namespace.to_string(),
                     name: name.to_string(),
