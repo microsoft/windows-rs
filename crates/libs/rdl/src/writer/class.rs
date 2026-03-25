@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_class(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
     let extends = item.extends().expect("class always extends");
@@ -12,18 +12,19 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { : #ty }
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
-    let interfaces = item
+    let interfaces: Vec<_> = item
         .interface_impls()
-        .map(|imp| write_interface(namespace, &imp));
+        .map(|imp| write_interface(namespace, &imp))
+        .collect();
 
-    quote! {
+    Ok(quote! {
         #(#custom_attrs)*
         class #name #extends {
             #(#interfaces)*
         }
-    }
+    })
 }
 
 fn write_interface(namespace: &str, imp: &metadata::reader::InterfaceImpl) -> TokenStream {

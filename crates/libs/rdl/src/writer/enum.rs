@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -13,13 +13,16 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let repr = write_type(namespace, &repr);
 
-    let fields = item.fields().filter_map(|field| {
-        field.constant().map(|constant| {
-            let name = write_ident(field.name());
-            let value = write_value(namespace, &constant.value());
-            quote! { #name = #value, }
+    let fields: Vec<_> = item
+        .fields()
+        .filter_map(|field| {
+            field.constant().map(|constant| {
+                let name = write_ident(field.name());
+                let value = write_value(namespace, &constant.value());
+                quote! { #name = #value, }
+            })
         })
-    });
+        .collect();
 
     let is_flags_attr = |attr: metadata::reader::Attribute| {
         attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
@@ -31,9 +34,9 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
         item.attributes().filter(|attr| !is_flags_attr(*attr)),
         namespace,
         item.index(),
-    );
+    )?;
 
-    if has_flags {
+    Ok(if has_flags {
         quote! {
             #[repr(#repr)]
             #[flags]
@@ -50,5 +53,5 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
                 #(#fields)*
             }
         }
-    }
+    })
 }

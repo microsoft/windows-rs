@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -16,7 +16,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let signature = method.signature(&generics);
     let return_type = write_return_type(namespace, &signature);
-    let params = write_params(namespace, &method, signature.types);
+    let params = write_params(namespace, &method, signature.types)?;
 
     let generics = if generics.is_empty() {
         quote! {}
@@ -25,13 +25,13 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let guid_exclude: &[&str] = if delegate_guid_is_derived(item) {
+    let guid_exclude: &[&str] = if delegate_guid_is_derived(item)? {
         &["GuidAttribute", "UnmanagedFunctionPointerAttribute"]
     } else {
         &["UnmanagedFunctionPointerAttribute"]
     };
     let custom_attrs =
-        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude)?;
 
     let mut abi = None;
 
@@ -46,8 +46,8 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         }
     }
 
-    quote! {
+    Ok(quote! {
         #(#custom_attrs)*
         delegate #abi fn #name #generics (#(#params),*) #return_type;
-    }
+    })
 }

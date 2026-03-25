@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -11,14 +11,14 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let signature = method.signature(&[]);
     let return_type = write_return_type(namespace, &signature);
-    let params = write_params(namespace, &method, signature.types);
+    let params = write_params(namespace, &method, signature.types)?;
 
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
         &["UnmanagedFunctionPointerAttribute"],
-    );
+    )?;
 
     let mut abi = None;
 
@@ -33,8 +33,8 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
         }
     }
 
-    quote! {
+    Ok(quote! {
         #(#custom_attrs)*
         extern #abi fn #name (#(#params),*) #return_type;
-    }
+    })
 }

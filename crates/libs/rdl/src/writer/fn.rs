@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
+pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let signature = item.signature(&[]);
 
@@ -8,7 +8,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
     let vararg = signature
         .flags
         .contains(metadata::MethodCallAttributes::VARARG);
-    let mut params = write_params(namespace, item, signature.types);
+    let mut params = write_params(namespace, item, signature.types)?;
 
     if vararg {
         params.push(quote! { ... });
@@ -35,7 +35,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
         )
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
     let library_attr = if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
         quote! { #[library(#library, last_error = true)] }
@@ -43,9 +43,9 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
         quote! { #[library(#library)] }
     };
 
-    quote! {
+    Ok(quote! {
         #(#custom_attrs)*
         #library_attr
         extern #abi fn #name(#(#params),*) #return_type;
-    }
+    })
 }

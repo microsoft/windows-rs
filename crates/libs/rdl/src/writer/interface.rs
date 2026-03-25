@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -11,7 +11,8 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let methods = item
         .methods()
-        .map(|method| write_method(namespace, &method, &generics));
+        .map(|method| write_method(namespace, &method, &generics))
+        .collect::<Result<Vec<_>, Error>>()?;
 
     let requires: Vec<_> = item.interface_impls().collect();
 
@@ -31,35 +32,35 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let guid_exclude: &[&str] = if interface_guid_is_derived(item) {
+    let guid_exclude: &[&str] = if interface_guid_is_derived(item)? {
         &["GuidAttribute"]
     } else {
         &[]
     };
     let custom_attrs =
-        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude)?;
 
-    quote! {
+    Ok(quote! {
         #(#custom_attrs)*
         interface #name #generics #requires_tokens {
             #(#methods)*
         }
-    }
+    })
 }
 
 fn write_method(
     namespace: &str,
     item: &metadata::reader::MethodDef,
     generics: &[metadata::Type],
-) -> TokenStream {
+) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, &signature);
-    let params =
-        std::iter::once(quote! { &self }).chain(write_params(namespace, item, signature.types));
+    let mut params = write_params(namespace, item, signature.types)?;
+    params.insert(0, quote! { &self });
 
-    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
     // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
     // preserving properties and events on round-trip.
@@ -72,9 +73,9 @@ fn write_method(
         quote! {}
     };
 
-    quote! {
+    Ok(quote! {
         #special_attr
         #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
-    }
+    })
 }

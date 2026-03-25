@@ -105,7 +105,7 @@ impl Writer {
                 let mut layout = Layout::new();
 
                 for (_, item) in index.namespace_items(namespace) {
-                    for (name, tokens) in write_items(namespace, item) {
+                    for (name, tokens) in write_items(namespace, item)? {
                         layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
@@ -120,7 +120,7 @@ impl Writer {
                 path.push(&self.output);
                 path.push(format!("{namespace}.rdl"));
 
-                write_to_file(path.to_str().unwrap(), formatter::format(&output));
+                write_to_file(path.to_str().unwrap(), formatter::format(&output))?;
             }
         } else {
             let mut layout = Layout::new();
@@ -131,31 +131,34 @@ impl Writer {
                 }
 
                 for (_, item) in index.namespace_items(namespace) {
-                    for (name, tokens) in write_items(namespace, item) {
+                    for (name, tokens) in write_items(namespace, item)? {
                         layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
                     }
                 }
             }
 
             let output = layout.to_string();
-            write_to_file(&self.output, formatter::format(&output));
+            write_to_file(&self.output, formatter::format(&output))?;
         }
 
         Ok(())
     }
 }
 
-#[track_caller]
-fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
+fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
     if let Some(parent) = std::path::Path::new(path).parent() {
-        if std::fs::create_dir_all(parent).is_err() {
-            panic!("failed to create directory `{path}`");
-        }
+        std::fs::create_dir_all(parent).map_err(|e| {
+            Error::new(
+                &format!("failed to create directory `{path}`: {e}"),
+                "",
+                0,
+                0,
+            )
+        })?;
     }
 
-    if std::fs::write(path, contents).is_err() {
-        panic!("failed to write file `{path}`");
-    }
+    std::fs::write(path, contents)
+        .map_err(|e| Error::new(&format!("failed to write file `{path}`: {e}"), "", 0, 0))
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
@@ -199,12 +202,17 @@ fn item_winrt(item: &metadata::reader::Item) -> bool {
     }
 }
 
-fn write_items(namespace: &str, item: &metadata::reader::Item) -> Vec<(String, TokenStream)> {
+fn write_items(
+    namespace: &str,
+    item: &metadata::reader::Item,
+) -> Result<Vec<(String, TokenStream)>, Error> {
     match item {
         metadata::reader::Item::Type(ty) => write_type_def_items(namespace, ty),
-        metadata::reader::Item::Fn(ty) => vec![(ty.name().to_string(), write_fn(namespace, ty))],
+        metadata::reader::Item::Fn(ty) => {
+            Ok(vec![(ty.name().to_string(), write_fn(namespace, ty)?)])
+        }
         metadata::reader::Item::Const(ty) => {
-            vec![(ty.name().to_string(), write_const(namespace, ty))]
+            Ok(vec![(ty.name().to_string(), write_const(namespace, ty)?)])
         }
     }
 }
@@ -212,21 +220,21 @@ fn write_items(namespace: &str, item: &metadata::reader::Item) -> Vec<(String, T
 fn write_type_def_items(
     _namespace: &str,
     item: &metadata::reader::TypeDef,
-) -> Vec<(String, TokenStream)> {
+) -> Result<Vec<(String, TokenStream)>, Error> {
     match item.category() {
         metadata::reader::TypeCategory::Struct => write_struct_items(item),
         _ => {
-            let tokens = write_type_def(item);
+            let tokens = write_type_def(item)?;
             if tokens.is_empty() {
-                vec![]
+                Ok(vec![])
             } else {
-                vec![(item.name().to_string(), tokens)]
+                Ok(vec![(item.name().to_string(), tokens)])
             }
         }
     }
 }
 
-fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     match item.ty() {
         metadata::Type::ValueName(tn) if &tn == ("System", "Guid") => {
             write_const_guid(namespace, item)
@@ -235,13 +243,16 @@ fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
     }
 }
 
-fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+fn write_const_value(
+    namespace: &str,
+    item: &metadata::reader::Field,
+) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let constant = item.constant();
     let ty = write_type(namespace, &item.ty());
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
-    if let Some(constant) = constant {
+    Ok(if let Some(constant) = constant {
         let value = write_value(namespace, &constant.value());
         quote! {
             #(#custom_attrs)*
@@ -252,25 +263,35 @@ fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenSt
             #(#custom_attrs)*
             const #name: #ty;
         }
-    }
+    })
 }
 
-fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+fn write_const_guid(
+    _namespace: &str,
+    item: &metadata::reader::Field,
+) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let attribute = item
         .find_attribute("GuidAttribute")
         .expect("missing guid attribute");
 
-    let value: u128 = attribute
-        .value()
-        .iter()
-        .fold(0u128, |acc, (_, val)| match val {
-            metadata::Value::U8(x) => (acc << 8) | *x as u128,
-            metadata::Value::U16(x) => (acc << 16) | *x as u128,
-            metadata::Value::U32(x) => (acc << 32) | *x as u128,
-            metadata::Value::U64(x) => (acc << 64) | *x as u128,
-            _ => panic!("unexpected guid attribute value"),
-        });
+    let mut value: u128 = 0;
+    for (_, val) in attribute.value() {
+        value = match val {
+            metadata::Value::U8(x) => (value << 8) | x as u128,
+            metadata::Value::U16(x) => (value << 16) | x as u128,
+            metadata::Value::U32(x) => (value << 32) | x as u128,
+            metadata::Value::U64(x) => (value << 64) | x as u128,
+            v => {
+                return Err(Error::new(
+                    &format!("unexpected guid attribute value: {v:?}"),
+                    "",
+                    0,
+                    0,
+                ))
+            }
+        };
+    }
 
     let value = format!(
         "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",
@@ -282,14 +303,14 @@ fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenSt
     );
 
     let literal = syn::LitInt::new(&value, Span::call_site());
-    quote! { const #name: GUID = #literal; }
+    Ok(quote! { const #name: GUID = #literal; })
 }
 
 fn write_params(
     namespace: &str,
     method: &metadata::reader::MethodDef,
     signature_types: Vec<metadata::Type>,
-) -> Vec<TokenStream> {
+) -> Result<Vec<TokenStream>, Error> {
     method
         .params()
         .filter(|param| param.sequence() != 0)
@@ -316,9 +337,9 @@ fn write_params(
             };
             let name = write_ident(param.name());
             let param_attrs =
-                write_custom_attributes(param.attributes(), namespace, method.index());
+                write_custom_attributes(param.attributes(), namespace, method.index())?;
             let ty = write_type(namespace, &ty);
-            quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty }
+            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
         })
         .collect()
 }
@@ -337,7 +358,7 @@ fn write_custom_attributes<'a>(
     attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
-) -> Vec<TokenStream> {
+) -> Result<Vec<TokenStream>, Error> {
     write_custom_attributes_except(attributes, item_namespace, index, &[])
 }
 
@@ -346,7 +367,7 @@ fn write_custom_attributes_except<'a>(
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
     exclude: &[&str],
-) -> Vec<TokenStream> {
+) -> Result<Vec<TokenStream>, Error> {
     attributes
         .filter(|attr| {
             !namespace_starts_with(attr.namespace(), "System") && !exclude.contains(&attr.name())
@@ -373,30 +394,30 @@ fn write_custom_attributes_except<'a>(
 
             // Build the args token stream.  Positional args are emitted as plain values;
             // named args (non-empty name) are emitted as `name = value`.
-            let args: Vec<_> = attr
+            let args = attr
                 .value()
                 .into_iter()
                 .map(|(name, v)| {
                     let value_ts = match &v {
                         metadata::Value::EnumValue(tn, inner) => {
-                            write_enum_value(item_namespace, tn, inner, index)
+                            write_enum_value(item_namespace, tn, inner, index)?
                         }
                         _ => write_value(item_namespace, &v),
                     };
-                    if name.is_empty() {
+                    Ok(if name.is_empty() {
                         value_ts
                     } else {
                         let name_ident = write_ident(&name);
                         quote! { #name_ident = #value_ts }
-                    }
+                    })
                 })
-                .collect();
+                .collect::<Result<Vec<_>, Error>>()?;
 
-            if args.is_empty() {
+            Ok(if args.is_empty() {
                 quote! { #[#name_ts] }
             } else {
                 quote! { #[#name_ts(#(#args),*)] }
-            }
+            })
         })
         .collect()
 }
@@ -411,19 +432,24 @@ fn write_enum_value(
     tn: &metadata::TypeName,
     inner: &metadata::Value,
     index: &metadata::reader::TypeIndex,
-) -> TokenStream {
+) -> Result<TokenStream, Error> {
     let inner_i32 = match inner {
         metadata::Value::I32(n) => *n,
-        _ => return write_value(namespace, inner),
+        _ => return Ok(write_value(namespace, inner)),
     };
 
     if !index.contains(&tn.namespace, &tn.name) {
-        panic!(
-            "enum type `{}::{}` not found in metadata; \
-             the winmd that defines this type must be included as input to the writer \
-             (e.g. `libs/bindgen/default` for standard Windows types)",
-            tn.namespace, tn.name
-        );
+        return Err(Error::new(
+            &format!(
+                "enum type `{}::{}` not found in metadata; \
+                 the winmd that defines this type must be included as input to the writer \
+                 (e.g. `libs/bindgen/default` for standard Windows types)",
+                tn.namespace, tn.name
+            ),
+            "",
+            0,
+            0,
+        ));
     }
 
     for typedef in index.get(&tn.namespace, &tn.name) {
@@ -441,7 +467,7 @@ fn write_enum_value(
                         };
                         if matches {
                             let variant = write_ident(field.name());
-                            return quote! { #variant };
+                            return Ok(quote! { #variant });
                         }
                     }
                 }
@@ -454,13 +480,13 @@ fn write_enum_value(
 
             if has_flags {
                 if let Some(flags_ts) = write_flags_combination(namespace, &typedef, inner_i32) {
-                    return flags_ts;
+                    return Ok(flags_ts);
                 }
             }
         }
     }
 
-    write_value(namespace, inner)
+    Ok(write_value(namespace, inner))
 }
 
 /// Attempts to express `value` as a bitwise OR of known enum variants for a flags
@@ -530,12 +556,12 @@ fn write_flags_combination(
     Some(result)
 }
 
-fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
+fn write_type_def(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     match item.category() {
         // Structs/unions are handled by write_struct_items (which may return
         // multiple flat items) so this branch is never reached from the main
         // write loop.  It is kept for completeness and internal callers.
-        metadata::reader::TypeCategory::Struct => quote! {},
+        metadata::reader::TypeCategory::Struct => Ok(quote! {}),
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
         metadata::reader::TypeCategory::Class => write_class(item),
@@ -725,41 +751,80 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 }
 
 /// Extracts the raw GUID tuple `(data1, data2, data3, data4)` from a `GuidAttribute`.
-fn extract_guid_from_attribute(attr: metadata::reader::Attribute) -> (u32, u16, u16, [u8; 8]) {
+fn extract_guid_from_attribute(
+    attr: metadata::reader::Attribute,
+) -> Result<(u32, u16, u16, [u8; 8]), Error> {
     let values: Vec<_> = attr.value().into_iter().map(|(_, v)| v).collect();
-    assert_eq!(
-        values.len(),
-        11,
-        "GuidAttribute must have exactly 11 arguments"
-    );
+    if values.len() != 11 {
+        return Err(Error::new(
+            &format!(
+                "GuidAttribute must have exactly 11 arguments, got {}",
+                values.len()
+            ),
+            "",
+            0,
+            0,
+        ));
+    }
     let d1 = match values[0] {
         metadata::Value::U32(v) => v,
-        ref v => panic!("GuidAttribute d1: expected U32, got {v:?}"),
+        ref v => {
+            return Err(Error::new(
+                &format!("GuidAttribute d1: expected U32, got {v:?}"),
+                "",
+                0,
+                0,
+            ))
+        }
     };
     let d2 = match values[1] {
         metadata::Value::U16(v) => v,
-        ref v => panic!("GuidAttribute d2: expected U16, got {v:?}"),
+        ref v => {
+            return Err(Error::new(
+                &format!("GuidAttribute d2: expected U16, got {v:?}"),
+                "",
+                0,
+                0,
+            ))
+        }
     };
     let d3 = match values[2] {
         metadata::Value::U16(v) => v,
-        ref v => panic!("GuidAttribute d3: expected U16, got {v:?}"),
+        ref v => {
+            return Err(Error::new(
+                &format!("GuidAttribute d3: expected U16, got {v:?}"),
+                "",
+                0,
+                0,
+            ))
+        }
     };
-    let d4 = std::array::from_fn(|i| match values[3 + i] {
-        metadata::Value::U8(v) => v,
-        ref v => panic!("GuidAttribute d4[{i}]: expected U8, got {v:?}"),
-    });
-    (d1, d2, d3, d4)
+    let mut d4 = [0u8; 8];
+    for i in 0..8 {
+        d4[i] = match values[3 + i] {
+            metadata::Value::U8(v) => v,
+            ref v => {
+                return Err(Error::new(
+                    &format!("GuidAttribute d4[{i}]: expected U8, got {v:?}"),
+                    "",
+                    0,
+                    0,
+                ))
+            }
+        };
+    }
+    Ok((d1, d2, d3, d4))
 }
 
 /// Returns `true` when the `GuidAttribute` stored on an interface `TypeDef` matches what
 /// would be automatically derived from the interface shape (name + method signatures).
 /// When `true`, the attribute is redundant and may be omitted from the RDL output.
 /// When `false`, the GUID was set explicitly and must be preserved.
-fn interface_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+fn interface_guid_is_derived(item: &metadata::reader::TypeDef) -> Result<bool, Error> {
     let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return true;
+        return Ok(true);
     };
-    let stored = extract_guid_from_attribute(attr);
+    let stored = extract_guid_from_attribute(attr)?;
 
     let generics: Vec<_> = item
         .generic_params()
@@ -785,18 +850,18 @@ fn interface_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
         &methods,
     );
     let derived = crate::reader::guid::guid_from_interface_string(&s);
-    stored == derived
+    Ok(stored == derived)
 }
 
 /// Returns `true` when the `GuidAttribute` stored on a delegate `TypeDef` matches what
 /// would be automatically derived from the `Invoke` method signature.
 /// When `true`, the attribute is redundant and may be omitted from the RDL output.
 /// When `false`, the GUID was set explicitly and must be preserved.
-fn delegate_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+fn delegate_guid_is_derived(item: &metadata::reader::TypeDef) -> Result<bool, Error> {
     let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return true;
+        return Ok(true);
     };
-    let stored = extract_guid_from_attribute(attr);
+    let stored = extract_guid_from_attribute(attr)?;
 
     let generics: Vec<_> = item
         .generic_params()
@@ -818,7 +883,7 @@ fn delegate_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
         &[("Invoke", types.as_slice(), &return_type)],
     );
     let derived = crate::reader::guid::guid_from_interface_string(&s);
-    stored == derived
+    Ok(stored == derived)
 }
 
 fn write_ident(name: &str) -> TokenStream {
