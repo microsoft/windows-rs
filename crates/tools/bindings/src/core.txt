@@ -2,14 +2,14 @@
 --flat --sys --no-comment --no-deps --no-allow
 
 --filter
-    CoIncrementMTAUsage
-    CoTaskMemAlloc
-    CoTaskMemFree
-    EncodePointer
-    FreeLibrary
-    GetProcAddress
-    LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
-    LoadLibraryExA
-    RoGetActivationFactory
-    RPC_S_UUID_LOCAL_ONLY
-    UuidCreate
+    Windows.Win32.System.Com.CoIncrementMTAUsage
+    Windows.Win32.System.Com.CoTaskMemAlloc
+    Windows.Win32.System.Com.CoTaskMemFree
+    Windows.Win32.System.Diagnostics.Debug.EncodePointer
+    Windows.Win32.Foundation.FreeLibrary
+    Windows.Win32.System.LibraryLoader.GetProcAddress
+    Windows.Win32.System.LibraryLoader.LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
+    Windows.Win32.System.LibraryLoader.LoadLibraryExA
+    Windows.Win32.System.WinRT.RoGetActivationFactory
+    Windows.Win32.System.Rpc.RPC_S_UUID_LOCAL_ONLY
+    Windows.Win32.System.Rpc.UuidCreate

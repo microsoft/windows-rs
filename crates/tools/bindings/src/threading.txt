@@ -2,14 +2,14 @@
 --flat --no-comment --sys --no-deps --no-allow
 
 --filter
-    CreateThreadpool
-    SetThreadpoolThreadMaximum
-    SetThreadpoolThreadMinimum
-    TrySubmitThreadpoolCallback
-    CloseThreadpool
-    CreateThreadpoolCleanupGroup
-    CloseThreadpoolCleanupGroup
-    CloseThreadpoolCleanupGroupMembers
-    TP_CALLBACK_PRIORITY_NORMAL
-    GetCurrentThreadId
-    Sleep
+    Windows.Win32.System.Threading.CreateThreadpool
+    Windows.Win32.System.Threading.SetThreadpoolThreadMaximum
+    Windows.Win32.System.Threading.SetThreadpoolThreadMinimum
+    Windows.Win32.System.Threading.TrySubmitThreadpoolCallback
+    Windows.Win32.System.Threading.CloseThreadpool
+    Windows.Win32.System.Threading.CreateThreadpoolCleanupGroup
+    Windows.Win32.System.Threading.CloseThreadpoolCleanupGroup
+    Windows.Win32.System.Threading.CloseThreadpoolCleanupGroupMembers
+    Windows.Win32.System.Threading.TP_CALLBACK_PRIORITY_NORMAL
+    Windows.Win32.System.Threading.GetCurrentThreadId
+    Windows.Win32.System.Threading.Sleep

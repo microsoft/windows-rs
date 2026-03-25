@@ -2,22 +2,22 @@
 --flat --no-comment --sys --no-deps --no-allow
 
 --filter
-    NO_ERROR
-    RegisterServiceCtrlHandlerExW
-    SERVICE_ACCEPT_PAUSE_CONTINUE
-    SERVICE_ACCEPT_SHUTDOWN
-    SERVICE_ACCEPT_STOP
-    SERVICE_CONTINUE_PENDING
-    SERVICE_CONTROL_CONTINUE
-    SERVICE_CONTROL_PAUSE
-    SERVICE_CONTROL_SHUTDOWN
-    SERVICE_CONTROL_STOP
-    SERVICE_PAUSE_PENDING
-    SERVICE_PAUSED
-    SERVICE_RUNNING
-    SERVICE_START_PENDING
-    SERVICE_STOP_PENDING
-    SERVICE_STOPPED
-    SERVICE_WIN32_OWN_PROCESS
-    SetServiceStatus
-    StartServiceCtrlDispatcherW
+    Windows.Win32.Foundation.NO_ERROR
+    Windows.Win32.System.Services.RegisterServiceCtrlHandlerExW
+    Windows.Win32.System.Services.SERVICE_ACCEPT_PAUSE_CONTINUE
+    Windows.Win32.System.Services.SERVICE_ACCEPT_SHUTDOWN
+    Windows.Win32.System.Services.SERVICE_ACCEPT_STOP
+    Windows.Win32.System.Services.SERVICE_CONTINUE_PENDING
+    Windows.Win32.System.Services.SERVICE_CONTROL_CONTINUE
+    Windows.Win32.System.Services.SERVICE_CONTROL_PAUSE
+    Windows.Win32.System.Services.SERVICE_CONTROL_SHUTDOWN
+    Windows.Win32.System.Services.SERVICE_CONTROL_STOP
+    Windows.Win32.System.Services.SERVICE_PAUSE_PENDING
+    Windows.Win32.System.Services.SERVICE_PAUSED
+    Windows.Win32.System.Services.SERVICE_RUNNING
+    Windows.Win32.System.Services.SERVICE_START_PENDING
+    Windows.Win32.System.Services.SERVICE_STOP_PENDING
+    Windows.Win32.System.Services.SERVICE_STOPPED
+    Windows.Win32.System.Services.SERVICE_WIN32_OWN_PROCESS
+    Windows.Win32.System.Services.SetServiceStatus
+    Windows.Win32.System.Services.StartServiceCtrlDispatcherW

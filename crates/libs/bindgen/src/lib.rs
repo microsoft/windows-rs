@@ -58,7 +58,7 @@ use method_names::*;
 ///     "--out",
 ///     "src/bindings.rs",
 ///     "--filter",
-///     "GetTickCount",
+///     "Windows.Win32.System.SystemInformation.GetTickCount",
 /// ];
 ///
 /// windows_bindgen::bindgen(args).unwrap();
@@ -99,12 +99,12 @@ use method_names::*;
 ///     "--out",
 ///     "src/bindings.rs",
 ///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
+///     "Windows.Win32.System.SystemInformation.GetTickCount",
+///     "Windows.Win32.System.Threading.Sleep",
 /// ];
 /// ```
 ///
-/// The `--filter` argument can refer to the function or type name and nothing more. You can also refer
+/// The `--filter` argument must refer to the fully qualified type name or namespace. You can also refer
 /// to the namespace that the API metadata uses to group functions and types:
 ///
 /// ```rust
@@ -147,8 +147,8 @@ use method_names::*;
 ///     "--out",
 ///     "src/bindings.rs",
 ///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
+///     "Windows.Win32.System.SystemInformation.GetTickCount",
+///     "Windows.Win32.System.Threading.Sleep",
 /// ];
 /// ```
 ///
@@ -187,8 +187,8 @@ use method_names::*;
 ///     "src/bindings.rs",
 ///     "--flat",
 ///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
+///     "Windows.Win32.System.SystemInformation.GetTickCount",
+///     "Windows.Win32.System.Threading.Sleep",
 /// ];
 /// ```
 ///
@@ -237,8 +237,8 @@ use method_names::*;
 ///     "--flat",
 ///     "--sys",
 ///     "--filter",
-///     "GetTickCount",
-///     "Sleep",
+///     "Windows.Win32.System.SystemInformation.GetTickCount",
+///     "Windows.Win32.System.Threading.Sleep",
 /// ];
 /// ```
 ///
@@ -267,7 +267,7 @@ use method_names::*;
 ///     "src/bindings.rs",
 ///     "--flat",
 ///     "--filter",
-///     "WindowsStringHasEmbeddedNull",
+///     "Windows.Win32.System.WinRT.WindowsStringHasEmbeddedNull",
 /// ];
 ///
 /// windows_bindgen::bindgen(args).unwrap();
@@ -285,7 +285,7 @@ use method_names::*;
 ///     "--flat",
 ///     "--specific-deps",
 ///     "--filter",
-///     "WindowsStringHasEmbeddedNull",
+///     "Windows.Win32.System.WinRT.WindowsStringHasEmbeddedNull",
 /// ];
 ///
 /// windows_bindgen::bindgen(args).unwrap();
