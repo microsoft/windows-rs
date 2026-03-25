@@ -21,6 +21,7 @@ fn roundtrip() {
 
         writer()
             .input(winmd.to_str().unwrap())
+            .input("../../../libs/bindgen/default")
             .output(path.to_str().unwrap())
             .filter("Test")
             .write()
