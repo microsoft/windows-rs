@@ -417,6 +417,15 @@ fn write_enum_value(
         _ => return write_value(namespace, inner),
     };
 
+    if !index.contains(&tn.namespace, &tn.name) {
+        panic!(
+            "enum type `{}::{}` not found in metadata; \
+             the winmd that defines this type must be included as input to the writer \
+             (e.g. `libs/bindgen/default` for standard Windows types)",
+            tn.namespace, tn.name
+        );
+    }
+
     for typedef in index.get(&tn.namespace, &tn.name) {
         if typedef.category() == metadata::reader::TypeCategory::Enum {
             // First try an exact variant match.
