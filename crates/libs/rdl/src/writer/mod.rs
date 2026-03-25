@@ -298,12 +298,15 @@ fn write_params(
             let has_in = param.flags().contains(metadata::ParamAttributes::In);
             let has_out = param.flags().contains(metadata::ParamAttributes::Out);
             let is_mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
-            let in_attr = if has_in && (has_out || is_mutable) {
+            // When neither `In` nor `Out` is set (e.g., metadata from external sources),
+            // assume `In` as the default.
+            let effective_in = has_in || !has_out;
+            let in_attr = if effective_in && (has_out || is_mutable) {
                 quote! { #[input] }
             } else {
                 quote! {}
             };
-            let out_attr = if has_out && (has_in || !is_mutable) {
+            let out_attr = if has_out && (effective_in || !is_mutable) {
                 quote! { #[output] }
             } else {
                 quote! {}
