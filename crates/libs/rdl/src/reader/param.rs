@@ -36,11 +36,12 @@ impl Encoder<'_> {
 
         if !attributes.contains(metadata::ParamAttributes::Out)
             && !attributes.contains(metadata::ParamAttributes::In)
-            && matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
         {
-            attributes |= metadata::ParamAttributes::Out;
-        } else {
-            attributes |= metadata::ParamAttributes::In;
+            if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..)) {
+                attributes |= metadata::ParamAttributes::Out;
+            } else {
+                attributes |= metadata::ParamAttributes::In;
+            }
         }
 
         Ok(attributes)

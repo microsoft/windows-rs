@@ -31,7 +31,7 @@ mod Windows {
                     Next: *mut EXCEPTION_REGISTRATION_RECORD,
                     Handler: EXCEPTION_ROUTINE,
                 }
-                extern fn EXCEPTION_ROUTINE(ExceptionRecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, #[input] EstablisherFrame: *mut void, ContextRecord: *mut super::Diagnostics::Debug::CONTEXT, #[input] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
+                extern fn EXCEPTION_ROUTINE(#[input] #[output] ExceptionRecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, #[input] EstablisherFrame: *mut void, #[input] #[output] ContextRecord: *mut super::Diagnostics::Debug::CONTEXT, #[input] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
                 #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
                 struct FLOATING_SAVE_AREA {
                     ControlWord: u32,
@@ -140,17 +140,17 @@ mod Windows {
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlinterlockedflushslist")]
                 #[library("ntdll.dll")]
-                extern fn RtlInterlockedFlushSList(ListHead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
+                extern fn RtlInterlockedFlushSList(#[input] #[output] ListHead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlinterlockedpopentryslist")]
                 #[library("ntdll.dll")]
-                extern fn RtlInterlockedPopEntrySList(ListHead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
+                extern fn RtlInterlockedPopEntrySList(#[input] #[output] ListHead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlinterlockedpushentryslist")]
                 #[library("ntdll.dll")]
-                extern fn RtlInterlockedPushEntrySList(ListHead: *mut SLIST_HEADER, ListEntry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
+                extern fn RtlInterlockedPushEntrySList(#[input] #[output] ListHead: *mut SLIST_HEADER, #[input] #[output] ListEntry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
                 #[library("ntdll.dll")]
-                extern fn RtlInterlockedPushListSListEx(ListHead: *mut SLIST_HEADER, List: *mut SLIST_ENTRY, ListEnd: *mut SLIST_ENTRY, Count: u32) -> *mut SLIST_ENTRY;
+                extern fn RtlInterlockedPushListSListEx(#[input] #[output] ListHead: *mut SLIST_HEADER, #[input] #[output] List: *mut SLIST_ENTRY, #[input] #[output] ListEnd: *mut SLIST_ENTRY, Count: u32) -> *mut SLIST_ENTRY;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlquerydepthslist")]
                 #[library("ntdll.dll")]
