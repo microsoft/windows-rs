@@ -53,13 +53,15 @@ impl Writer {
         self
     }
 
-    /// Filter namespaces to include in the output.  Each call appends one rule:
-    /// * `"Windows.Win32"` — include all namespaces whose prefix matches `Windows.Win32`
-    /// * `"!Windows.Win32"` — exclude all namespaces whose prefix matches `Windows.Win32`
+    /// Filter what to include in the output.  Each call appends one rule.
     ///
-    /// Exclusions take priority: if a namespace matches both an include rule and an
-    /// exclude rule, it is excluded.  If no filter rules are provided all namespaces
-    /// from the input are written.
+    /// Rules are resolved against the input metadata and may be:
+    /// * `"Windows.Win32"` — a namespace prefix: includes all items in matching namespaces
+    /// * `"Windows.Win32.Foundation.POINT"` — a qualified type name: includes only that specific type
+    /// * `"POINT"` — an unqualified type name: includes every type named `POINT` across all namespaces
+    ///
+    /// Prefix a rule with `!` to exclude instead of include.  Exclusions win over inclusions.
+    /// If no filter rules are provided, everything from the input is written.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
         self.filter.push(filter.to_string());
         self
@@ -82,6 +84,7 @@ impl Writer {
 
         let index = metadata::reader::TypeIndex::new(files);
         let index = metadata::reader::ItemIndex::new(&index);
+        let rules = resolve_filter(&self.filter, &index);
 
         if self.split {
             // Remove any stale rdl files from a previous run before writing.
@@ -98,15 +101,18 @@ impl Writer {
             }
 
             for namespace in index.keys() {
-                if namespace.is_empty() || !namespace_included(namespace, &self.filter) {
+                if namespace.is_empty() {
                     continue;
                 }
 
                 let mut layout = Layout::new();
 
-                for (_, item) in index.namespace_items(namespace) {
-                    for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
+                for (name, item) in index.namespace_items(namespace) {
+                    if !item_included(&rules, namespace, name) {
+                        continue;
+                    }
+                    for (item_name, tokens) in write_items(namespace, item) {
+                        layout.insert(namespace, &item_name, item_winrt(item), tokens.to_string());
                     }
                 }
 
@@ -126,13 +132,12 @@ impl Writer {
             let mut layout = Layout::new();
 
             for namespace in index.keys() {
-                if !namespace_included(namespace, &self.filter) {
-                    continue;
-                }
-
-                for (_, item) in index.namespace_items(namespace) {
-                    for (name, tokens) in write_items(namespace, item) {
-                        layout.insert(namespace, &name, item_winrt(item), tokens.to_string());
+                for (name, item) in index.namespace_items(namespace) {
+                    if !item_included(&rules, namespace, name) {
+                        continue;
+                    }
+                    for (item_name, tokens) in write_items(namespace, item) {
+                        layout.insert(namespace, &item_name, item_winrt(item), tokens.to_string());
                     }
                 }
             }
@@ -164,30 +169,100 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-/// Returns `true` if `namespace` should be written given the `filter` rules.
+enum FilterRule {
+    /// All items whose namespace has this prefix.
+    Namespace(String),
+    /// A single specific (namespace, name) item.
+    Type(String, String),
+}
+
+/// Resolves raw filter strings against the available metadata, producing typed rules.
 ///
-/// Each rule is either a plain namespace prefix (include) or a `!`-prefixed
-/// namespace prefix (exclude).  Exclusions take priority: the first exclude
-/// rule whose prefix matches causes the function to return `false` immediately.
-/// If no filter rules are provided, every non-empty namespace is included.
-fn namespace_included(namespace: &str, filter: &[String]) -> bool {
-    if filter.is_empty() {
+/// The resolution order for each rule string `r` (after stripping `!`) is:
+/// 1. Namespace prefix — any known namespace starts with `r` → [`FilterRule::Namespace`]
+/// 2. Qualified type — `r` is `"Namespace.TypeName"` and that type exists → [`FilterRule::Type`]
+/// 3. Unqualified type — `r` contains no dot and exists as a type name in one or more
+///    namespaces → one [`FilterRule::Type`] per matching namespace
+/// 4. Fallback — treat as a namespace prefix (may match nothing)
+fn resolve_filter<'a>(
+    filter: &[String],
+    index: &metadata::reader::ItemIndex<'a>,
+) -> Vec<(FilterRule, bool)> {
+    let mut rules = vec![];
+
+    for f in filter {
+        let (rule_str, include) = if let Some(r) = f.strip_prefix('!') {
+            (r, false)
+        } else {
+            (f.as_str(), true)
+        };
+
+        // 1. Namespace prefix match.
+        if index.keys().any(|ns| namespace_starts_with(ns, rule_str)) {
+            rules.push((FilterRule::Namespace(rule_str.to_string()), include));
+            continue;
+        }
+
+        // 2. Qualified type name: "Namespace.TypeName".
+        if let Some((namespace, name)) = rule_str.rsplit_once('.') {
+            if index.get(namespace, name).next().is_some() {
+                rules.push((
+                    FilterRule::Type(namespace.to_string(), name.to_string()),
+                    include,
+                ));
+                continue;
+            }
+        }
+
+        // 3. Unqualified type name: search every namespace.
+        let mut found = false;
+        for ns in index.keys() {
+            if index.get(ns, rule_str).next().is_some() {
+                rules.push((
+                    FilterRule::Type(ns.to_string(), rule_str.to_string()),
+                    include,
+                ));
+                found = true;
+            }
+        }
+        if found {
+            continue;
+        }
+
+        // 4. Fallback: treat as a namespace prefix (may match nothing).
+        rules.push((FilterRule::Namespace(rule_str.to_string()), include));
+    }
+
+    rules
+}
+
+/// Returns `true` if the item identified by `(namespace, name)` should be written.
+///
+/// When `rules` is empty every item is included.  Otherwise, an item is included when
+/// at least one include rule matches it and no exclude rule matches it.  Exclude rules
+/// are checked first and short-circuit immediately.
+fn item_included(rules: &[(FilterRule, bool)], namespace: &str, name: &str) -> bool {
+    if rules.is_empty() {
         return true;
     }
 
-    let mut included = false;
+    let mut matched_include = false;
 
-    for rule in filter {
-        if let Some(prefix) = rule.strip_prefix('!') {
-            if namespace_starts_with(namespace, prefix) {
+    for (rule, include) in rules {
+        let matches = match rule {
+            FilterRule::Namespace(prefix) => namespace_starts_with(namespace, prefix),
+            FilterRule::Type(ns, n) => ns == namespace && n == name,
+        };
+
+        if matches {
+            if !include {
                 return false;
             }
-        } else if namespace_starts_with(namespace, rule) {
-            included = true;
+            matched_include = true;
         }
     }
 
-    included
+    matched_include
 }
 
 fn item_winrt(item: &metadata::reader::Item) -> bool {
