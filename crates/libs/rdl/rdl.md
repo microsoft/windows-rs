@@ -356,7 +356,7 @@ class ClassName : BaseClassName {
 }
 ```
 
-Classes may optionally extend a base class and mark a default interface.
+Classes may optionally extend a base class. The first interface in the list is the default interface.
 
 **Example:**
 
@@ -365,13 +365,11 @@ Classes may optionally extend a base class and mark a default interface.
 mod Contoso {
     mod Sprockets {
         class Sprocket {
-            #[default]
             ISprocket,
         }
 
         #[activatable(1)]
         class ActivatableSprocket: Sprocket {
-            #[default]
             ISprocket,
             #[activatable(1)]
             ISprocketFactory,
@@ -386,7 +384,7 @@ mod Contoso {
 }
 ```
 
-The `#[activatable(...)]` attribute on the class enables default construction. The `#[default]` attribute on an interface marks it as the default interface. The `#[activatable(...)]` and `#[statics(...)]` attributes on interfaces mark them as factory and statics interfaces, respectively.
+The `#[activatable(...)]` attribute on the class enables default construction. The first interface in the list is the default interface. The `#[activatable(...)]` and `#[statics(...)]` attributes on interfaces mark them as factory and statics interfaces, respectively.
 
 ---
 

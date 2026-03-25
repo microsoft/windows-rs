@@ -7,15 +7,15 @@ fn should_panic(rdl: &str) {
 }
 
 #[test]
-#[should_panic(expected = "error: `default` attribute does not accept arguments\n --> .rdl:6:9")]
-fn default_with_args_on_class_interface_errors() {
+#[should_panic(expected = "error: class interface does not support attributes\n --> .rdl:6:9")]
+fn attribute_on_class_interface_errors() {
     should_panic(
         r#"
 #[winrt]
 mod Test {
     interface IFoo {}
     class MyClass {
-        #[default(42)] IFoo,
+        #[default] IFoo,
     }
 }
         "#,
