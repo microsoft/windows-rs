@@ -16,14 +16,30 @@ impl Encoder<'_> {
         let mut attributes = metadata::ParamAttributes::default();
 
         for attr in attrs {
-            if attr.path().is_ident("output") {
+            if attr.path().is_ident("out") || attr.path().is_ident("output") {
                 if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`output` attribute does not accept arguments");
+                    let name = attr
+                        .path()
+                        .get_ident()
+                        .map(|i| i.to_string())
+                        .unwrap_or_else(|| "out".to_string());
+                    return self.err(
+                        attr,
+                        &format!("`{name}` attribute does not accept arguments"),
+                    );
                 }
                 attributes |= metadata::ParamAttributes::Out;
-            } else if attr.path().is_ident("input") {
+            } else if attr.path().is_ident("in") || attr.path().is_ident("input") {
                 if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`input` attribute does not accept arguments");
+                    let name = attr
+                        .path()
+                        .get_ident()
+                        .map(|i| i.to_string())
+                        .unwrap_or_else(|| "in".to_string());
+                    return self.err(
+                        attr,
+                        &format!("`{name}` attribute does not accept arguments"),
+                    );
                 }
                 attributes |= metadata::ParamAttributes::In;
             } else if attr.path().is_ident("optional") {

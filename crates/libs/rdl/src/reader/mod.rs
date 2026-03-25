@@ -190,6 +190,75 @@ impl Reader {
     }
 }
 
+/// Normalize `#[in]` and `#[out]` shorthand attributes to their canonical long forms
+/// `#[input]` and `#[output]` before parsing with `syn`, which rejects `in` as a keyword
+/// in attribute paths.
+///
+/// The normalization is done at the token-stream level using `proc_macro2`, which can
+/// tokenize keyword identifiers that `syn`'s path parser does not accept.
+fn normalize_param_attrs(source: &str) -> std::borrow::Cow<'_, str> {
+    use proc_macro2::{Delimiter, Group, Ident, Span, TokenStream, TokenTree};
+
+    // Fast path: skip tokenization if neither shorthand appears in the source.
+    // A false positive here (e.g. the literal string `"#[in]"` inside an attribute
+    // argument) is harmless — the token-level walk below only replaces `#[in]` when it
+    // is a bare bracket group containing exactly the identifier `in`, so string
+    // literals and longer identifiers are never affected.
+    if !source.contains("#[in]") && !source.contains("#[out]") {
+        return std::borrow::Cow::Borrowed(source);
+    }
+
+    let Ok(stream) = source.parse::<TokenStream>() else {
+        return std::borrow::Cow::Borrowed(source);
+    };
+
+    fn walk(tokens: TokenStream) -> TokenStream {
+        let mut result = TokenStream::new();
+        let mut iter = tokens.into_iter().peekable();
+        while let Some(token) = iter.next() {
+            match &token {
+                TokenTree::Punct(p) if p.as_char() == '#' => {
+                    if let Some(TokenTree::Group(g)) = iter.peek() {
+                        if g.delimiter() == Delimiter::Bracket {
+                            let inner: Vec<TokenTree> = g.stream().into_iter().collect();
+                            if let [TokenTree::Ident(ident)] = inner.as_slice() {
+                                let replacement = if *ident == "in" {
+                                    Some("input")
+                                } else if *ident == "out" {
+                                    Some("output")
+                                } else {
+                                    None
+                                };
+                                if let Some(new_name) = replacement {
+                                    let new_ident = Ident::new(new_name, Span::call_site());
+                                    let mut new_inner = TokenStream::new();
+                                    new_inner.extend([TokenTree::Ident(new_ident)]);
+                                    let new_group = Group::new(Delimiter::Bracket, new_inner);
+                                    result.extend([token]);
+                                    result.extend([TokenTree::Group(new_group)]);
+                                    iter.next(); // consume the group
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+                    result.extend([token]);
+                }
+                TokenTree::Group(g) => {
+                    let inner = walk(g.stream());
+                    let mut new_g = Group::new(g.delimiter(), inner);
+                    new_g.set_span(g.span());
+                    result.extend([TokenTree::Group(new_g)]);
+                }
+                other => result.extend([other.clone()]),
+            }
+        }
+        result
+    }
+
+    std::borrow::Cow::Owned(walk(stream).to_string())
+}
+
 fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
     let paths = expand_files(input, "rdl")?;
 
@@ -200,7 +269,8 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Err
             return Err(Error::new("failed to read binary file", path, 0, 0));
         };
 
-        let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
+        let normalized = normalize_param_attrs(&contents);
+        let mut file = syn::parse_str::<File>(&normalized).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), path, start.line, start.column)
         })?;
@@ -210,7 +280,8 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Err
     }
 
     for contents in input_str {
-        let mut file = syn::parse_str::<File>(contents).map_err(|error| {
+        let normalized = normalize_param_attrs(contents);
+        let mut file = syn::parse_str::<File>(&normalized).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), ".rdl", start.line, start.column)
         })?;
