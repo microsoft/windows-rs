@@ -17,7 +17,7 @@ fn test() {
 
     file.Field(
         "SomeGuid",
-        &Type::named("System", "Guid"),
+        &Type::value_named("System", "Guid"),
         FieldAttributes::Public,
     );
 
@@ -32,7 +32,7 @@ fn test() {
     let fields: Vec<_> = ty.fields().collect();
     assert_eq!(fields.len(), 2);
     assert_eq!(fields[0].name(), "SomeGuid");
-    assert_eq!(fields[0].ty(), Type::named("System", "Guid"));
+    assert_eq!(fields[0].ty(), Type::value_named("System", "Guid"));
     assert_eq!(fields[1].name(), "SomeNum");
     assert_eq!(fields[1].ty(), Type::I32);
 }

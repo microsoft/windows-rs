@@ -82,8 +82,14 @@ fn nested() {
     assert_eq!(fields[0].name(), "Anonymous1");
     assert_eq!(fields[1].name(), "Anonymous2");
 
-    assert_eq!(fields[0].ty(), Type::named("", "_Anonymous1_e__Union"));
-    assert_eq!(fields[1].ty(), Type::named("", "_Anonymous2_e__Union"));
+    assert_eq!(
+        fields[0].ty(),
+        Type::value_named("", "_Anonymous1_e__Union")
+    );
+    assert_eq!(
+        fields[1].ty(),
+        Type::value_named("", "_Anonymous2_e__Union")
+    );
 
     let types: Vec<reader::TypeDef> = index.nested(def).collect();
     assert_eq!(types.len(), 2);
