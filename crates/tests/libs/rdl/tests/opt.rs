@@ -35,4 +35,3 @@ mod Test {
         "Expected `#[optional]` in output but got:\n{contents}"
     );
 }
-
