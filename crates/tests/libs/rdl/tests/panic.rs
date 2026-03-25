@@ -660,3 +660,23 @@ mod Test {
         "#,
     )
 }
+
+#[test]
+#[should_panic(
+    expected = "enum type `Windows.Win32.Foundation.Metadata::Architecture` not found in metadata"
+)]
+fn writer_missing_enum_reference_panics() {
+    windows_rdl::reader()
+        .input("tests/arches.rdl")
+        .reference("../../../libs/bindgen/default/Windows.Win32.winmd")
+        .output("tests/panic_writer_arches.winmd")
+        .write()
+        .unwrap();
+
+    windows_rdl::writer()
+        .input("tests/panic_writer_arches.winmd")
+        .output("tests/panic_writer_arches.rdl")
+        .filter("Test")
+        .write()
+        .unwrap();
+}
