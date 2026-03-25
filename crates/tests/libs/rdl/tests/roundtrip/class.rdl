@@ -1,7 +1,6 @@
 #[winrt]
 mod Test {
     class Base {
-        #[default]
         IBase,
     }
     #[Windows::Foundation::Metadata::Activatable(1)]
@@ -10,7 +9,6 @@ mod Test {
     #[Windows::Foundation::Metadata::Static(IDerivedStatics, 1)]
     #[Windows::Foundation::Metadata::Static(IDerivedStatics2, 2)]
     class Derived: Base {
-        #[default]
         IDerived,
         IDerived2,
     }

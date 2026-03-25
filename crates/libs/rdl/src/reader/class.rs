@@ -84,8 +84,8 @@ impl Encoder<'_> {
             &[],
         )?;
 
-        for interface in &item.interfaces {
-            self.encode_implement(class, interface)?;
+        for (index, interface) in item.interfaces.iter().enumerate() {
+            self.encode_implement(class, interface, index == 0)?;
         }
 
         Ok(())
@@ -95,39 +95,36 @@ impl Encoder<'_> {
         &mut self,
         class: metadata::writer::TypeDef,
         interface: &ClassInterface,
+        default: bool,
     ) -> Result<(), Error> {
         let ty = self.encode_path(&interface.ty)?;
 
         let interface_impl = self.output.InterfaceImpl(class, &ty);
 
-        for attr in &interface.attrs {
-            let path = attr.path();
+        if default {
+            let default_attribute = metadata::writer::MemberRefParent::TypeRef(
+                self.output
+                    .TypeRef("Windows.Foundation.Metadata", "DefaultAttribute"),
+            );
 
-            if path.is_ident("default") {
-                if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`default` attribute does not accept arguments");
-                }
+            let default_ctor = self.output.MemberRef(
+                ".ctor",
+                &metadata::Signature {
+                    flags: metadata::MethodCallAttributes::HASTHIS,
+                    ..Default::default()
+                },
+                default_attribute,
+            );
 
-                let default_attribute = metadata::writer::MemberRefParent::TypeRef(
-                    self.output
-                        .TypeRef("Windows.Foundation.Metadata", "DefaultAttribute"),
-                );
+            self.output.Attribute(
+                metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
+                metadata::writer::AttributeType::MemberRef(default_ctor),
+                &[],
+            );
+        }
 
-                let default_ctor = self.output.MemberRef(
-                    ".ctor",
-                    &metadata::Signature {
-                        flags: metadata::MethodCallAttributes::HASTHIS,
-                        ..Default::default()
-                    },
-                    default_attribute,
-                );
-
-                self.output.Attribute(
-                    metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
-                    metadata::writer::AttributeType::MemberRef(default_ctor),
-                    &[],
-                );
-            }
+        if let Some(attr) = interface.attrs.first() {
+            return self.err(attr, "class interface does not support attributes");
         }
 
         Ok(())

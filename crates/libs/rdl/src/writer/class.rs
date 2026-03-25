@@ -29,14 +29,7 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
 fn write_interface(namespace: &str, imp: &metadata::reader::InterfaceImpl) -> TokenStream {
     let interface = write_type(namespace, &imp.interface(&[]));
 
-    let default = if imp.has_attribute("DefaultAttribute") {
-        quote! { #[default] }
-    } else {
-        quote! {}
-    };
-
     quote! {
-        #default
         #interface,
     }
 }
