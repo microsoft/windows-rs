@@ -2,9 +2,9 @@
 --flat --sys --no-deps --no-comment
 
 --filter
-    Windows.Win32.System.Memory.GetProcessHeap
-    Windows.Win32.System.Memory.HeapAlloc
-    Windows.Win32.System.Memory.HeapFree
-    Windows.Win32.Foundation.SysAllocStringLen
-    Windows.Win32.Foundation.SysFreeString
-    Windows.Win32.Foundation.SysStringLen
+    GetProcessHeap
+    HeapAlloc
+    HeapFree
+    SysAllocStringLen
+    SysFreeString
+    SysStringLen

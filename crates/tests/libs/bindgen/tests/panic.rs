@@ -50,19 +50,19 @@ fn flat_package() {
 #[test]
 #[should_panic(expected = "`--derive` must be `<type name>=Comma,Separated,List")]
 fn invalid_derive_format() {
-    bindgen("--in default --out out.txt --filter Windows.Win32.Foundation.POINT --derive invalid");
+    bindgen("--in default --out out.txt --filter POINT --derive invalid");
 }
 
 #[test]
 #[should_panic(expected = "type not found: `POINTY`")]
 fn invalid_derive_path() {
-    bindgen("--in default --out out.txt --filter Windows.Win32.Foundation.POINT --derive POINTY=PartialOrd");
+    bindgen("--in default --out out.txt --filter POINT --derive POINTY=PartialOrd");
 }
 
 #[test]
 #[should_panic(expected = "type not included: `RECT`")]
 fn excluded_derive_path() {
-    bindgen("--in default --out out.txt --filter Windows.Win32.Foundation.POINT --derive RECT=PartialOrd");
+    bindgen("--in default --out out.txt --filter POINT --derive RECT=PartialOrd");
 }
 
 #[test]
@@ -80,39 +80,37 @@ fn invalid_filter_name() {
 #[test]
 #[should_panic(expected = "`--reference` must be `<crate>,<full/flat/skip-root>,<type name>")]
 fn invalid_reference_format() {
-    bindgen(
-        "--in default --out out.txt --filter Windows.Win32.Foundation.POINT --reference invalid",
-    );
+    bindgen("--in default --out out.txt --filter POINT --reference invalid");
 }
 
 #[test]
 #[should_panic(expected = "`--reference` must be `<crate>,<full/flat/skip-root>,<type name>")]
 fn invalid_reference_style() {
-    bindgen("--in default --out out.txt --filter Windows.Win32.Foundation.POINT --reference windows,style,RECT");
+    bindgen("--in default --out out.txt --filter POINT --reference windows,style,RECT");
 }
 
 #[test]
 #[should_panic(expected = "type not found: `POINTY`")]
 fn invalid_reference_type_name() {
-    bindgen("--in default --out out.txt --filter Windows.Win32.Foundation.POINT --reference windows,full,POINTY");
+    bindgen("--in default --out out.txt --filter POINT --reference windows,full,POINTY");
 }
 
 #[test]
 #[should_panic(expected = "failed to read binary file `invalid.winmd`")]
 fn invalid_input_path() {
-    bindgen("--in invalid.winmd --out out.txt --filter Windows.Win32.Foundation.POINT");
+    bindgen("--in invalid.winmd --out out.txt --filter POINT");
 }
 
 #[test]
 #[should_panic(expected = "failed to find .winmd files in directory `../../libs`")]
 fn input_directory_empty() {
-    bindgen("--in ../../libs --out out.txt --filter Windows.Win32.Foundation.POINT");
+    bindgen("--in ../../libs --out out.txt --filter POINT");
 }
 
 #[test]
 #[should_panic(expected = "failed to read .winmd format `../../../libs/bindgen/default/readme.md`")]
 fn invalid_input_format() {
-    bindgen("--in ../../../libs/bindgen/default/readme.md --out out.txt --filter Windows.Win32.Foundation.POINT");
+    bindgen("--in ../../../libs/bindgen/default/readme.md --out out.txt --filter POINT");
 }
 
 #[test]
@@ -144,9 +142,7 @@ fn failed_to_create_directory() {
     std::fs::write(&test_path, "test").unwrap();
     let test_path = format!("{}\\out.txt", test_path);
 
-    bindgen(&format!(
-        "--out {test_path} --in default --filter Windows.Win32.Foundation.POINT",
-    ));
+    bindgen(&format!("--out {test_path} --in default --filter POINT",));
 }
 
 #[test]
@@ -155,9 +151,7 @@ fn failed_to_write_file() {
     let test_path = format!("{}\\failed_to_write_file", env!("CARGO_TARGET_TMPDIR"));
     std::fs::create_dir_all(&test_path).unwrap();
 
-    bindgen(&format!(
-        "--out {test_path} --in default --filter Windows.Win32.Foundation.POINT",
-    ));
+    bindgen(&format!("--out {test_path} --in default --filter POINT",));
 }
 
 #[test]
@@ -168,13 +162,8 @@ fn skip_cpp_method() {
     let mut path = std::env::temp_dir();
     path.push("skip_cpp_method");
 
-    windows_bindgen::bindgen([
-        "--out",
-        &path.to_string_lossy(),
-        "--filter",
-        "Windows.Win32.System.Com.IPersistFile",
-    ])
-    .unwrap();
+    windows_bindgen::bindgen(["--out", &path.to_string_lossy(), "--filter", "IPersistFile"])
+        .unwrap();
 }
 
 #[test]
@@ -189,7 +178,7 @@ fn skip_method() {
         "--out",
         &path.to_string_lossy(),
         "--filter",
-        "Windows.Foundation.IMemoryBuffer",
+        "IMemoryBuffer",
     ])
     .unwrap();
 }
@@ -206,7 +195,7 @@ fn rustfmt_failure() {
         "--rustfmt",
         "fail=true",
         "--filter",
-        "Windows.Win32.Foundation.POINT",
+        "POINT",
     ])
     .unwrap();
 }

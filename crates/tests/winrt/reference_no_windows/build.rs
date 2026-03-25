@@ -28,7 +28,7 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "Test",
-        "Windows.Foundation.IStringable",
+        "IStringable",
         "--implement",
         "--flat",
         "--no-comment",
