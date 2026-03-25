@@ -32,7 +32,9 @@ impl CppConst {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
-        if let windows_metadata::Type::Name(type_name) = self.field.ty() {
+        if let windows_metadata::Type::ClassName(type_name)
+        | windows_metadata::Type::ValueName(type_name) = self.field.ty()
+        {
             if type_name.namespace.is_empty() {
                 return quote! {};
             }
@@ -142,7 +144,9 @@ impl CppConst {
 
 impl Dependencies for CppConst {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        if let windows_metadata::Type::Name(type_name) = self.field.ty() {
+        if let windows_metadata::Type::ClassName(type_name)
+        | windows_metadata::Type::ValueName(type_name) = self.field.ty()
+        {
             if type_name.namespace.is_empty() {
                 return;
             }

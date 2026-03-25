@@ -276,14 +276,16 @@ impl Encoder<'_> {
                 }) => Ok(metadata::Value::Utf8(s.value())),
                 _ => self.err(value, "expected string literal"),
             },
-            metadata::Type::Name(tn) if tn == ("System", "Type") => match value {
+            metadata::Type::ClassName(tn) if tn == ("System", "Type") => match value {
                 syn::Expr::Path(syn::ExprPath { path, .. }) => match self.encode_path(path)? {
-                    metadata::Type::Name(tn) => Ok(metadata::Value::TypeName(tn)),
+                    metadata::Type::ClassName(tn) | metadata::Type::ValueName(tn) => {
+                        Ok(metadata::Value::TypeName(tn))
+                    }
                     _ => self.err(value, "expected type name"),
                 },
                 _ => self.err(value, "expected type path"),
             },
-            metadata::Type::Name(tn) => {
+            metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
                 if let syn::Expr::Path(syn::ExprPath { path, .. }) = value {
                     if path.leading_colon.is_none() && path.segments.len() == 1 {
                         let variant_name = path.segments[0].ident.to_string();

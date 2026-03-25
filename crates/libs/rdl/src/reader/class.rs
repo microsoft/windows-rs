@@ -58,7 +58,7 @@ impl Encoder<'_> {
     pub fn encode_class(&mut self, item: &Class) -> Result<(), Error> {
         let extends = if let Some(path) = &item.extends {
             let extends = self.encode_path(path)?;
-            if let metadata::Type::Name(extends) = extends {
+            if let metadata::Type::ClassName(extends) = extends {
                 self.output.TypeRef(&extends.namespace, &extends.name)
             } else {
                 return self.err(&item.extends, "invalid base type");

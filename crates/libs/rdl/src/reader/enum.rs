@@ -115,7 +115,7 @@ impl Encoder<'_> {
                 | metadata::FieldAttributes::RTSpecialName,
         );
 
-        let type_name = metadata::Type::named(self.namespace, self.name);
+        let type_name = metadata::Type::value_named(self.namespace, self.name);
 
         for variant in &item.variants {
             let name = variant.ident.to_string();

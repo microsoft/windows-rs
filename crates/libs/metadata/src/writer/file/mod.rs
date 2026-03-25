@@ -369,7 +369,7 @@ impl File {
     }
 
     pub fn InterfaceImpl(&mut self, class: id::TypeDef, interface: &Type) -> id::InterfaceImpl {
-        let Type::Name(interface) = interface else {
+        let Type::ClassName(interface) = interface else {
             panic!("invalid interface type");
         };
 
@@ -463,11 +463,23 @@ impl File {
                 buffer.write_compressed((*number).into());
             }
 
-            Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
+            Type::ClassName(ty) => {
+                self.TypeName(false, &ty.namespace, &ty.name, &ty.generics, buffer)
+            }
+            Type::ValueName(ty) => {
+                self.TypeName(true, &ty.namespace, &ty.name, &ty.generics, buffer)
+            }
         }
     }
 
-    fn TypeName(&mut self, namespace: &str, name: &str, generics: &[Type], buffer: &mut Vec<u8>) {
+    fn TypeName(
+        &mut self,
+        is_value_type: bool,
+        namespace: &str,
+        name: &str,
+        generics: &[Type],
+        buffer: &mut Vec<u8>,
+    ) {
         let pos = if !generics.is_empty() {
             buffer.push(ELEMENT_TYPE_GENERICINST);
             let name = format!("{name}`{}", generics.len());
@@ -476,8 +488,6 @@ impl File {
             self.TypeRef(namespace, name)
         };
 
-        // Technically this should be ELEMENT_TYPE_CLASS if the type is not a value type but that requires more contextual information.
-        let is_value_type = namespace == "System" && name == "Guid";
         buffer.push(if is_value_type {
             ELEMENT_TYPE_VALUETYPE
         } else {

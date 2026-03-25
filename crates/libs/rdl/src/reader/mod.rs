@@ -432,17 +432,40 @@ impl Encoder<'_> {
                             .reference()
                             .is_some_and(|r| r.contains(&candidate_ns, name))
                     {
-                        return Ok(metadata::Type::Name(metadata::TypeName {
-                            namespace: candidate_ns,
+                        let tn = metadata::TypeName {
+                            namespace: candidate_ns.clone(),
                             name: name.to_string(),
                             generics: vec![],
-                        }));
+                        };
+                        return Ok(if self.type_is_value(&candidate_ns, name) {
+                            metadata::Type::ValueName(tn)
+                        } else {
+                            metadata::Type::ClassName(tn)
+                        });
                     }
                 }
             }
         }
 
         self.encode_type(ty)
+    }
+
+    /// Returns `true` if the named type is a value type (struct or enum), by checking
+    /// the local index first and then the reference `TypeIndex`.
+    fn type_is_value(&self, namespace: &str, name: &str) -> bool {
+        self.index.is_value_type(namespace, name)
+            || self
+                .output
+                .reference()
+                .and_then(|r| r.get(namespace, name).next())
+                .map(|def| {
+                    matches!(
+                        def.category(),
+                        metadata::reader::TypeCategory::Struct
+                            | metadata::reader::TypeCategory::Enum
+                    )
+                })
+                .unwrap_or(false)
     }
 
     fn encode_type_slice(&self, ty: &syn::TypeSlice) -> Result<metadata::Type, Error> {
@@ -478,7 +501,7 @@ impl Encoder<'_> {
             metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
                 metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?)
             }
-            metadata::Type::Name(tn) => {
+            metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
                 let underlying = self
                     .output
                     .reference()
@@ -694,9 +717,11 @@ impl Encoder<'_> {
                 "void" => return Ok(metadata::Type::Void),
                 "String" => return Ok(metadata::Type::String),
                 "Object" => return Ok(metadata::Type::Object),
-                "Type" => return Ok(metadata::Type::named("System", "Type")),
-                "GUID" => return Ok(("System", "Guid").into()),
-                "HRESULT" => return Ok(("Windows.Foundation", "HResult").into()),
+                "Type" => return Ok(metadata::Type::class_named("System", "Type")),
+                "GUID" => return Ok(metadata::Type::value_named("System", "Guid")),
+                "HRESULT" => {
+                    return Ok(metadata::Type::value_named("Windows.Foundation", "HResult"))
+                }
 
                 _ => {}
             }
@@ -710,37 +735,42 @@ impl Encoder<'_> {
             namespace.join(".")
         };
 
-        let contains = |namespace: &str| -> Option<metadata::Type> {
+        let make_type = |namespace: &str| -> Option<metadata::Type> {
             if self.index.contains(namespace, name)
                 || self
                     .output
                     .reference()
                     .is_some_and(|r| r.contains(namespace, name))
             {
-                Some(metadata::Type::Name(metadata::TypeName {
+                let tn = metadata::TypeName {
                     namespace: namespace.to_string(),
                     name: name.to_string(),
                     generics: generics.clone(),
-                }))
+                };
+                if self.type_is_value(namespace, name) {
+                    Some(metadata::Type::ValueName(tn))
+                } else {
+                    Some(metadata::Type::ClassName(tn))
+                }
             } else {
                 None
             }
         };
 
-        if let Some(ty) = contains(&namespace) {
+        if let Some(ty) = make_type(&namespace) {
             return Ok(ty);
         }
 
         let namespace = format!("{}.{}", self.namespace, namespace);
 
-        if let Some(ty) = contains(&namespace) {
+        if let Some(ty) = make_type(&namespace) {
             return Ok(ty);
         }
 
         // Last resort: try glob use declarations
         for use_item in &self.file.uses {
             if let Some(ns) = glob_use_namespace(use_item) {
-                if let Some(ty) = contains(&ns) {
+                if let Some(ty) = make_type(&ns) {
                     return Ok(ty);
                 }
             }

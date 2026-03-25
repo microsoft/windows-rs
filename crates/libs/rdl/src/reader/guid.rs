@@ -160,7 +160,7 @@ pub fn type_to_string(ty: &Type) -> String {
         Type::String => "String".to_string(),
         Type::Object => "Object".to_string(),
         Type::Generic(name, index) => format!("Generic({name},{index})"),
-        Type::Name(tn) => {
+        Type::ClassName(tn) | Type::ValueName(tn) => {
             if tn.generics.is_empty() {
                 format!("{}.{}", tn.namespace, tn.name)
             } else {
@@ -298,7 +298,7 @@ mod tests {
         use windows_metadata::TypeName;
 
         // Single-arg generic: IIterable<I32> — literal variant-name encoding, no backtick
-        let iter_ty = Type::Name(TypeName {
+        let iter_ty = Type::ClassName(TypeName {
             namespace: "Windows.Foundation.Collections".to_string(),
             name: "IIterable".to_string(),
             generics: vec![Type::I32],
@@ -318,7 +318,7 @@ mod tests {
         );
 
         // Two-arg generic: IKeyValuePair<String,I32> — args joined with ","
-        let kvp_ty = Type::Name(TypeName {
+        let kvp_ty = Type::ClassName(TypeName {
             namespace: "Windows.Foundation.Collections".to_string(),
             name: "IKeyValuePair".to_string(),
             generics: vec![Type::String, Type::I32],

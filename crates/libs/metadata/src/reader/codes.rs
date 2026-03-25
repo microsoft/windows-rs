@@ -132,7 +132,15 @@ impl<'a> TypeDefOrRef<'a> {
             return def.ty(generics);
         }
 
-        Type::named(self.namespace(), self.name())
+        if let Self::TypeDef(def) = self {
+            let tn = TypeName::named(def.namespace(), def.name());
+            return match def.category() {
+                TypeCategory::Struct | TypeCategory::Enum => Type::ValueName(tn),
+                _ => Type::ClassName(tn),
+            };
+        }
+
+        Type::ClassName(TypeName::named(self.namespace(), self.name()))
     }
 }
 

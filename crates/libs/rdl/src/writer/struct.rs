@@ -137,10 +137,10 @@ fn resolve_nested(
     flat_names: &HashMap<String, String>,
 ) -> metadata::Type {
     match ty {
-        metadata::Type::Name(tn) if tn.namespace.is_empty() => {
+        metadata::Type::ValueName(tn) if tn.namespace.is_empty() => {
             let leaf = tn.name.rsplit('/').next().unwrap_or(&tn.name);
             if let Some(flat) = flat_names.get(leaf) {
-                metadata::Type::named(namespace, flat)
+                metadata::Type::value_named(namespace, flat)
             } else {
                 ty.clone()
             }

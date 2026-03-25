@@ -19,7 +19,8 @@ pub enum Type {
     USize,
     String,
     Object,
-    Name(TypeName),
+    ClassName(TypeName),          // ELEMENT_TYPE_CLASS
+    ValueName(TypeName),          // ELEMENT_TYPE_VALUETYPE
     Array(Box<Self>),             // ELEMENT_TYPE_SZARRAY
     Generic(String, u16),         // ELEMENT_TYPE_VAR
     RefMut(Box<Self>),            // ELEMENT_TYPE_BYREF
@@ -30,8 +31,12 @@ pub enum Type {
 }
 
 impl Type {
-    pub fn named(namespace: &str, name: &str) -> Self {
-        Self::Name(TypeName::named(namespace, name))
+    pub fn class_named(namespace: &str, name: &str) -> Self {
+        Self::ClassName(TypeName::named(namespace, name))
+    }
+
+    pub fn value_named(namespace: &str, name: &str) -> Self {
+        Self::ValueName(TypeName::named(namespace, name))
     }
 
     pub fn code(&self) -> u8 {
@@ -50,11 +55,5 @@ impl Type {
             Self::String => ELEMENT_TYPE_STRING,
             rest => panic!("{rest:?}"),
         }
-    }
-}
-
-impl From<(&str, &str)> for Type {
-    fn from(value: (&str, &str)) -> Self {
-        Self::named(value.0, value.1)
     }
 }

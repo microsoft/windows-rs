@@ -228,7 +228,9 @@ fn write_type_def_items(
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
     match item.ty() {
-        metadata::Type::Name(tn) if &tn == ("System", "Guid") => write_const_guid(namespace, item),
+        metadata::Type::ValueName(tn) if &tn == ("System", "Guid") => {
+            write_const_guid(namespace, item)
+        }
         _ => write_const_value(namespace, item),
     }
 }
@@ -587,7 +589,9 @@ fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
         }
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
-        metadata::Value::TypeName(tn) => write_type(namespace, &metadata::Type::Name(tn.clone())),
+        metadata::Value::TypeName(tn) => {
+            write_type(namespace, &metadata::Type::ClassName(tn.clone()))
+        }
         metadata::Value::EnumValue(_, inner) => write_value(namespace, inner),
     }
 }
@@ -595,7 +599,7 @@ fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
 fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> TokenStream {
     write_type(
         namespace,
-        &metadata::Type::named(item.namespace(), item.name()),
+        &metadata::Type::class_named(item.namespace(), item.name()),
     )
 }
 
@@ -620,9 +624,9 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         Void => quote! { void },
         String => quote! { String },
         Object => quote! { Object },
-        Name(tn) if tn == ("System", "Type") => quote! { Type },
-        Name(tn) if tn == ("System", "Guid") => quote! { GUID },
-        Name(tn) if tn == ("Windows.Foundation", "HResult") => quote! { HRESULT },
+        ClassName(tn) if tn == ("System", "Type") => quote! { Type },
+        ValueName(tn) if tn == ("System", "Guid") => quote! { GUID },
+        ValueName(tn) if tn == ("Windows.Foundation", "HResult") => quote! { HRESULT },
 
         Array(ty) => {
             let ty = write_type(namespace, ty);
@@ -659,7 +663,7 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
             ty
         }
-        Name(type_name) => {
+        ClassName(type_name) | ValueName(type_name) => {
             let name = write_ident(&type_name.name);
 
             let name = if type_name.generics.is_empty() {

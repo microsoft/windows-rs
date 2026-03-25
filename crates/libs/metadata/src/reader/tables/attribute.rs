@@ -72,17 +72,16 @@ fn read_value(blob: &mut Blob, ty: &Type) -> Value {
         Type::F32 => Value::F32(blob.read_f32()),
         Type::F64 => Value::F64(blob.read_f64()),
         Type::String => Value::Utf8(blob.read_utf8()),
-        Type::Name(tn) => {
-            if tn.namespace == "System" && tn.name == "Type" {
-                let s = blob.read_utf8();
-                if let Some(dot) = s.rfind('.') {
-                    Value::TypeName(TypeName::named(&s[..dot], &s[dot + 1..]))
-                } else {
-                    Value::TypeName(TypeName::named("", &s))
-                }
+        Type::ClassName(tn) if tn == ("System", "Type") => {
+            let s = blob.read_utf8();
+            if let Some(dot) = s.rfind('.') {
+                Value::TypeName(TypeName::named(&s[..dot], &s[dot + 1..]))
             } else {
-                Value::EnumValue(tn.clone(), Box::new(Value::I32(blob.read_i32())))
+                Value::TypeName(TypeName::named("", &s))
             }
+        }
+        Type::ValueName(tn) | Type::ClassName(tn) => {
+            Value::EnumValue(tn.clone(), Box::new(Value::I32(blob.read_i32())))
         }
         rest => panic!("{rest:?}"),
     }

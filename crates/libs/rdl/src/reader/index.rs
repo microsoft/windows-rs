@@ -66,6 +66,15 @@ impl<'a> Index<'a> {
             .is_some_and(|v| !v.is_empty())
     }
 
+    pub fn is_value_type(&self, namespace: &str, name: &str) -> bool {
+        self.namespaces
+            .get(namespace)
+            .and_then(|namespace| namespace.types.get(name))
+            .and_then(|v| v.first())
+            .map(|(_, item)| matches!(item, Item::Struct(_) | Item::Enum(_) | Item::Union(_)))
+            .unwrap_or(false)
+    }
+
     pub fn get(&self, namespace: &str, name: &str) -> Option<&Item> {
         self.namespaces
             .get(namespace)

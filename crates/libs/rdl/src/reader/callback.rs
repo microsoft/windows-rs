@@ -77,7 +77,7 @@ impl Encoder<'_> {
         let signature = windows_metadata::Signature {
             flags: windows_metadata::MethodCallAttributes::HASTHIS,
             return_type: windows_metadata::Type::Void,
-            types: vec![windows_metadata::Type::named(
+            types: vec![windows_metadata::Type::value_named(
                 "System.Runtime.InteropServices",
                 "CallingConvention",
             )],

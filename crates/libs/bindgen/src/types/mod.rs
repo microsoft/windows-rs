@@ -263,7 +263,7 @@ impl Type {
             windows_metadata::Type::USize => Self::USize,
             windows_metadata::Type::String => Self::String,
             windows_metadata::Type::Object => Self::Object,
-            windows_metadata::Type::Name(tn) => {
+            windows_metadata::Type::ClassName(tn) | windows_metadata::Type::ValueName(tn) => {
                 let ns: &str = &tn.namespace;
                 let n: &str = &tn.name;
                 // Apply type remaps (same logic as Type::remap but for &str)

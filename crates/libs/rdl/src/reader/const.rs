@@ -38,7 +38,7 @@ impl Encoder<'_> {
         let ty = self.encode_type(&item.ty)?;
 
         match &ty {
-            windows_metadata::Type::Name(tn) if tn == ("System", "Guid") => {
+            windows_metadata::Type::ValueName(tn) if tn == ("System", "Guid") => {
                 self.encode_const_guid(&ty, item, &name)?;
             }
             _ => self.encode_const_value(&ty, item, &name)?,
