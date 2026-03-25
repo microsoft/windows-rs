@@ -112,7 +112,7 @@ impl Encoder<'_> {
             self.encode_attrs(
                 metadata::writer::HasAttribute::Param(param_id),
                 &param.attrs,
-                &["in", "input", "out", "output", "optional"],
+                &["input", "out", "opt"],
             )?;
         }
 

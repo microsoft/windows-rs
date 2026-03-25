@@ -190,21 +190,16 @@ impl Reader {
     }
 }
 
-/// Normalize `#[in]` and `#[out]` shorthand attributes to their canonical long forms
-/// `#[input]` and `#[output]` before parsing with `syn`, which rejects `in` as a keyword
-/// in attribute paths.
+/// Normalize `#[in]` to an internal identifier `input` before parsing with `syn`,
+/// which rejects `in` as a keyword in attribute paths.
 ///
 /// The normalization is done at the token-stream level using `proc_macro2`, which can
 /// tokenize keyword identifiers that `syn`'s path parser does not accept.
 fn normalize_param_attrs(source: &str) -> std::borrow::Cow<'_, str> {
     use proc_macro2::{Delimiter, Group, Ident, Span, TokenStream, TokenTree};
 
-    // Fast path: skip tokenization if neither shorthand appears in the source.
-    // A false positive here (e.g. the literal string `"#[in]"` inside an attribute
-    // argument) is harmless — the token-level walk below only replaces `#[in]` when it
-    // is a bare bracket group containing exactly the identifier `in`, so string
-    // literals and longer identifiers are never affected.
-    if !source.contains("#[in]") && !source.contains("#[out]") {
+    // Fast path: skip tokenization when no `#[in]` shorthand is present.
+    if !source.contains("#[in]") {
         return std::borrow::Cow::Borrowed(source);
     }
 
@@ -222,15 +217,8 @@ fn normalize_param_attrs(source: &str) -> std::borrow::Cow<'_, str> {
                         if g.delimiter() == Delimiter::Bracket {
                             let inner: Vec<TokenTree> = g.stream().into_iter().collect();
                             if let [TokenTree::Ident(ident)] = inner.as_slice() {
-                                let replacement = if *ident == "in" {
-                                    Some("input")
-                                } else if *ident == "out" {
-                                    Some("output")
-                                } else {
-                                    None
-                                };
-                                if let Some(new_name) = replacement {
-                                    let new_ident = Ident::new(new_name, Span::call_site());
+                                if *ident == "in" {
+                                    let new_ident = Ident::new("input", Span::call_site());
                                     let mut new_inner = TokenStream::new();
                                     new_inner.extend([TokenTree::Ident(new_ident)]);
                                     let new_group = Group::new(Delimiter::Bracket, new_inner);

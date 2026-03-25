@@ -1,7 +1,7 @@
 use windows_rdl::*;
 
-// Regression test: `#[optional]` must be preserved when followed by `#[output]`.
-// The order of `#[optional]` and `#[output]` attributes should not matter.
+// Regression test: `#[opt]` must be preserved when followed by `#[out]`.
+// The order of `#[opt]` and `#[out]` attributes should not matter.
 #[test]
 pub fn opt_before_out() {
     let winmd = std::env::temp_dir().join("windows_rdl_opt_before_out.winmd");
@@ -13,7 +13,7 @@ pub fn opt_before_out() {
 #[winrt]
 mod Test {
     interface ITest {
-        fn OutOptional(&self, #[optional] #[output] value: u32);
+        fn OutOptional(&self, #[opt] #[out] value: u32);
     }
 }
         "#,
@@ -31,73 +31,43 @@ mod Test {
 
     let contents = std::fs::read_to_string(&rdl).unwrap();
     assert!(
-        contents.contains("#[optional]"),
-        "Expected `#[optional]` in output but got:\n{contents}"
+        contents.contains("#[opt]"),
+        "Expected `#[opt]` in output but got:\n{contents}"
     );
 }
 
-// Test that `#[in]` and `#[out]` shorthands are accepted as aliases for
-// `#[input]` and `#[output]` respectively. `in` is a Rust keyword and cannot
-// be used directly in attribute paths by `syn`, so the reader normalizes them
-// to their long forms before parsing.
+// Test that `#[in]` is accepted and round-trips correctly.
+// `in` is a Rust keyword; the reader normalizes it before passing to `syn`.
 #[test]
-pub fn in_out_shorthands() {
-    let winmd_long = std::env::temp_dir().join("windows_rdl_in_out_long.winmd");
-    let winmd_short = std::env::temp_dir().join("windows_rdl_in_out_short.winmd");
-    let rdl_long = std::env::temp_dir().join("windows_rdl_in_out_long.rdl");
-    let rdl_short = std::env::temp_dir().join("windows_rdl_in_out_short.rdl");
+pub fn in_shorthand() {
+    let winmd = std::env::temp_dir().join("windows_rdl_in_shorthand.winmd");
+    let rdl = std::env::temp_dir().join("windows_rdl_in_shorthand.rdl");
 
-    // Use the long `#[input]` / `#[output]` forms.
     reader()
         .input_str(
             r#"
 #[winrt]
 mod Test {
     interface ITest {
-        fn Method(&self, #[input] in_ptr: *mut u32, #[output] out_val: u32);
+        fn Method(&self, #[in] p: *mut u32);
     }
 }
         "#,
         )
-        .output(&winmd_long.to_string_lossy())
-        .write()
-        .unwrap();
-
-    // Use the short `#[in]` / `#[out]` forms — should produce identical metadata.
-    reader()
-        .input_str(
-            r#"
-#[winrt]
-mod Test {
-    interface ITest {
-        fn Method(&self, #[in] in_ptr: *mut u32, #[out] out_val: u32);
-    }
-}
-        "#,
-        )
-        .output(&winmd_short.to_string_lossy())
-        .write()
-        .unwrap();
-
-    // Both should round-trip to the same canonical RDL output.
-    writer()
-        .input(&winmd_long.to_string_lossy())
-        .output(&rdl_long.to_string_lossy())
-        .filter("Test")
+        .output(&winmd.to_string_lossy())
         .write()
         .unwrap();
 
     writer()
-        .input(&winmd_short.to_string_lossy())
-        .output(&rdl_short.to_string_lossy())
+        .input(&winmd.to_string_lossy())
+        .output(&rdl.to_string_lossy())
         .filter("Test")
         .write()
         .unwrap();
 
-    let long_contents = std::fs::read_to_string(&rdl_long).unwrap();
-    let short_contents = std::fs::read_to_string(&rdl_short).unwrap();
-    assert_eq!(
-        long_contents, short_contents,
-        "`#[in]`/`#[out]` should produce the same output as `#[input]`/`#[output]`"
+    let contents = std::fs::read_to_string(&rdl).unwrap();
+    assert!(
+        contents.contains("#[in]"),
+        "Expected `#[in]` in output but got:\n{contents}"
     );
 }

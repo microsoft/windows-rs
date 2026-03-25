@@ -31,7 +31,7 @@ mod Windows {
                     Next: *mut EXCEPTION_REGISTRATION_RECORD,
                     Handler: EXCEPTION_ROUTINE,
                 }
-                extern fn EXCEPTION_ROUTINE(ExceptionRecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, #[input] EstablisherFrame: *mut void, ContextRecord: *mut super::Diagnostics::Debug::CONTEXT, #[input] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
+                extern fn EXCEPTION_ROUTINE(ExceptionRecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, #[in] EstablisherFrame: *mut void, ContextRecord: *mut super::Diagnostics::Debug::CONTEXT, #[in] DispatcherContext: *mut void) -> EXCEPTION_DISPOSITION;
                 #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
                 struct FLOATING_SAVE_AREA {
                     ControlWord: u32,
@@ -132,7 +132,7 @@ mod Windows {
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlfirstentryslist")]
                 #[library("ntdll.dll")]
-                extern fn RtlFirstEntrySList(#[Windows::Win32::Foundation::Metadata::Const] #[input] ListHead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
+                extern fn RtlFirstEntrySList(#[Windows::Win32::Foundation::Metadata::Const] #[in] ListHead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlinitializeslisthead")]
                 #[library("ntdll.dll")]
@@ -154,7 +154,7 @@ mod Windows {
                 #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlquerydepthslist")]
                 #[library("ntdll.dll")]
-                extern fn RtlQueryDepthSList(#[input] ListHead: *mut SLIST_HEADER) -> u16;
+                extern fn RtlQueryDepthSList(#[in] ListHead: *mut SLIST_HEADER) -> u16;
                 #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntdef/ns-ntdef-single_list_entry")]
                 struct SINGLE_LIST_ENTRY {
                     Next: *mut SINGLE_LIST_ENTRY,

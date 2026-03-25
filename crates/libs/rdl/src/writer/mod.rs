@@ -298,19 +298,20 @@ fn write_params(
             let in_attr = if !param.flags().contains(metadata::ParamAttributes::Out)
                 && matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
             {
-                quote! { #[input] }
+                // `in` is a Rust keyword so it cannot appear inside `quote!`.
+                "#[in]".parse::<TokenStream>().unwrap()
             } else {
                 quote! {}
             };
             let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
                 && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
             {
-                quote! { #[output] }
+                quote! { #[out] }
             } else {
                 quote! {}
             };
             let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
-                quote! { #[optional] }
+                quote! { #[opt] }
             } else {
                 quote! {}
             };

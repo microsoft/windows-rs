@@ -16,35 +16,20 @@ impl Encoder<'_> {
         let mut attributes = metadata::ParamAttributes::default();
 
         for attr in attrs {
-            if attr.path().is_ident("out") || attr.path().is_ident("output") {
+            if attr.path().is_ident("out") {
                 if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    let name = attr
-                        .path()
-                        .get_ident()
-                        .map(|i| i.to_string())
-                        .unwrap_or_else(|| "out".to_string());
-                    return self.err(
-                        attr,
-                        &format!("`{name}` attribute does not accept arguments"),
-                    );
+                    return self.err(attr, "`out` attribute does not accept arguments");
                 }
                 attributes |= metadata::ParamAttributes::Out;
-            } else if attr.path().is_ident("in") || attr.path().is_ident("input") {
+            } else if attr.path().is_ident("input") {
+                // `#[in]` is normalized to `input` before syn parsing since `in` is a keyword.
                 if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    let name = attr
-                        .path()
-                        .get_ident()
-                        .map(|i| i.to_string())
-                        .unwrap_or_else(|| "in".to_string());
-                    return self.err(
-                        attr,
-                        &format!("`{name}` attribute does not accept arguments"),
-                    );
+                    return self.err(attr, "`in` attribute does not accept arguments");
                 }
                 attributes |= metadata::ParamAttributes::In;
-            } else if attr.path().is_ident("optional") {
+            } else if attr.path().is_ident("opt") {
                 if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`optional` attribute does not accept arguments");
+                    return self.err(attr, "`opt` attribute does not accept arguments");
                 }
                 attributes |= metadata::ParamAttributes::Optional;
             }
