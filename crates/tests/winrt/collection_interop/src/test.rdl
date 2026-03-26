@@ -1,0 +1,12 @@
+use Windows::Foundation::Collections::*;
+
+#[winrt]
+mod Test {
+    interface ITest {
+        fn TestIterable(&self, collection: IIterable<i32>, values: [i32]);
+
+        fn GetIterable(&self, values: [i32]) -> IIterable<i32>;
+
+        fn GetMapView(&self, values: [i32]) -> IMapView<i32, IVectorView<i32>>;
+    }
+}

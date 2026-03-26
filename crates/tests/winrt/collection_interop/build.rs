@@ -3,29 +3,19 @@ fn main() {
         return;
     }
 
-    println!("cargo:rerun-if-changed=src/test.idl");
-    let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
-    let mut command = std::process::Command::new("midlrt.exe");
+    println!("cargo:rerun-if-changed=src/test.rdl");
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
 
-    command.args([
-        "/winrt",
-        "/nomidl",
-        "/h",
-        "nul",
-        "/metadata_dir",
-        &metadata_dir,
-        "/reference",
-        &format!("{metadata_dir}\\Windows.Foundation.winmd"),
-        "/winmd",
-        "test.winmd",
-        "src/test.idl",
-    ]);
+    let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
+    let include = std::env::var("OUT_DIR").unwrap();
 
-    if !command.status().unwrap().success() {
-        panic!("Failed to run midlrt");
-    }
+    windows_rdl::reader()
+        .input("src/test.rdl")
+        .reference(&metadata_dir)
+        .output("test.winmd")
+        .write()
+        .unwrap();
 
     windows_bindgen::bindgen([
         "--in",
@@ -43,15 +33,7 @@ fn main() {
     ])
     .unwrap();
 
-    let include = std::env::var("OUT_DIR").unwrap();
-
-    cppwinrt::cppwinrt([
-        "-in",
-        "test.winmd",
-        &format!("{}\\System32\\WinMetadata", env!("windir")),
-        "-out",
-        &include,
-    ]);
+    cppwinrt::cppwinrt(["-in", "test.winmd", &metadata_dir, "-out", &include]);
 
     cc::Build::new()
         .cpp(true)

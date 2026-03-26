@@ -1,0 +1,34 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod test_component {
+    mod Nested {
+        interface IThing {
+            fn Method(&self);
+        }
+    }
+
+    delegate fn Callback(a: i32) -> i32;
+
+    #[Activatable(1)]
+    #[MarshalingBehavior(Agile)]
+    class Class {
+        IClass,
+    }
+
+    #[ExclusiveTo(Class)]
+    interface IClass {
+        #[special] fn get_Property(&self) -> i32;
+        #[special] fn put_Property(&self, value: i32);
+        #[special] fn get_Flags(&self) -> Flags;
+        fn Int32Array(&self, a: [i32], #[output] b: [i32], c: &mut [i32]) -> [i32];
+        fn StringArray(&self, a: [String], #[output] b: [String], c: &mut [String]) -> [String];
+        fn Input(&self, a: Object, b: Class, c: Windows::Foundation::IStringable, d: Callback);
+    }
+
+    #[repr(u32)]
+    #[flags]
+    enum Flags {
+        Ok = 0,
+    }
+}

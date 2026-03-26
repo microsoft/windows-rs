@@ -15,14 +15,11 @@ workspace = true
 workspace = true
 features = ["std"]
 
-[build-dependencies.windows-bindgen]
-workspace = true
-
 [build-dependencies]
+windows-bindgen = { workspace = true }
+windows-rdl = { workspace = true }
+cppwinrt = { workspace = true }
 cc = "1.0"
-
-[build-dependencies.cppwinrt]
-workspace = true
 
 [lints]
 workspace = true
