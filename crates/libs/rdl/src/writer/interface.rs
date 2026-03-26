@@ -53,7 +53,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
 fn is_event_registration_token(ty: &metadata::Type) -> bool {
     match ty {
         metadata::Type::ValueName(tn) => {
-            &*tn == (
+            tn == (
                 EVENT_REGISTRATION_TOKEN_NAMESPACE,
                 EVENT_REGISTRATION_TOKEN_NAME,
             )
