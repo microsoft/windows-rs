@@ -6,8 +6,8 @@ use windows_rdl::*;
 pub fn write() {
     writer()
         .input("../../../libs/bindgen/default/Windows.Win32.winmd")
-        .output("tests/nested-arches-out.rdl")
-        .filter("Windows.Win32.System.Kernel")
+        .output("tests/nested-arches.rdl")
+        .filter("Windows.Win32.System.Kernel.SLIST_HEADER")
         .write()
         .unwrap();
 }

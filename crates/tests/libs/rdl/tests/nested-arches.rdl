@@ -1,0 +1,58 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Kernel {
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
+                union SLIST_HEADER {
+                    Anonymous: SLIST_HEADER_0,
+                    HeaderArm64: SLIST_HEADER_1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
+                union SLIST_HEADER {
+                    Anonymous: SLIST_HEADER_0,
+                    HeaderX64: SLIST_HEADER_1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                union SLIST_HEADER {
+                    Alignment: u64,
+                    Anonymous: SLIST_HEADER_0,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
+                struct SLIST_HEADER_0 {
+                    Alignment: u64,
+                    Region: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
+                struct SLIST_HEADER_0 {
+                    Alignment: u64,
+                    Region: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                struct SLIST_HEADER_0 {
+                    Next: SINGLE_LIST_ENTRY,
+                    Depth: u16,
+                    CpuId: u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
+                struct SLIST_HEADER_1 {
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Depth", 0, 16)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Sequence", 16, 48)]
+                    _bitfield1: u64,
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 0, 4)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("NextEntry", 4, 60)]
+                    _bitfield2: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
+                struct SLIST_HEADER_1 {
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Depth", 0, 16)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Sequence", 16, 48)]
+                    _bitfield1: u64,
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 0, 4)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("NextEntry", 4, 60)]
+                    _bitfield2: u64,
+                }
+            }
+        }
+    }
+}
