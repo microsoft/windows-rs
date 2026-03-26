@@ -9,7 +9,7 @@
 windows_core::imp::define_interface!(
     Callback,
     Callback_Vtbl,
-    0xe39afc7e_93f1_5a1d_92ef_bd5f71c62cb8
+    0x6409d8e9_9036_5ab4_8bd2_2a70a050428b
 );
 impl windows_core::RuntimeType for Callback {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -304,7 +304,7 @@ impl core::ops::Not for Flags {
         Self(self.0.not())
     }
 }
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0xd4d8912e_c8b5_5e61_8fae_616a9a399306);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -532,7 +532,7 @@ pub struct IClass_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IThing, IThing_Vtbl, 0x5448be22_9873_5ae6_9106_f6e8455d2fdd);
+windows_core::imp::define_interface!(IThing, IThing_Vtbl, 0xa9039ba1_6caf_5414_86e1_32e1c05a6c12);
 impl windows_core::RuntimeType for IThing {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
