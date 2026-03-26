@@ -1,5 +1,5 @@
+#[winrt]
 mod Test {
-    #[winrt]
     mod A {
         struct AS {
             base: super::Base,

@@ -89,11 +89,10 @@ impl Layout {
         let has_winrt = !self.winrt.is_empty();
         let has_win32 = !self.win32.is_empty();
 
-        // When this module has direct winrt items and all nested modules are also winrt-only,
-        // emit a single `#[winrt] mod` block that contains both the nested modules and the
-        // direct items rather than two separate `mod` and `#[winrt] mod` blocks.
-        if has_winrt && !has_win32 && has_modules && self.modules.values().all(|m| m.is_all_winrt())
-        {
+        // When all content in this module (direct items and all nested sub-modules) is winrt-only,
+        // emit a single `#[winrt] mod` block rather than separate `mod` and `#[winrt] mod` blocks.
+        // This applies whether the winrt items are direct children or live exclusively in nested mods.
+        if !has_win32 && has_modules && self.modules.values().all(|m| m.is_all_winrt()) {
             output.push_str("#[winrt] mod ");
             output.push_str(name);
             output.push('{');
@@ -115,8 +114,7 @@ impl Layout {
         }
 
         // Symmetric case for win32.
-        if has_win32 && !has_winrt && has_modules && self.modules.values().all(|m| m.is_all_win32())
-        {
+        if !has_winrt && has_modules && self.modules.values().all(|m| m.is_all_win32()) {
             output.push_str("#[win32] mod ");
             output.push_str(name);
             output.push('{');

@@ -1,5 +1,5 @@
+#[winrt]
 mod Test {
-    #[winrt]
     mod C {
         mod D {
             struct D {}

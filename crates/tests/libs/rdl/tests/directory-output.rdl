@@ -1,12 +1,11 @@
+#[winrt]
 mod Test {
-    #[winrt]
     mod ModForA {
         struct A {
             a1: u8,
             a2: u32,
         }
     }
-    #[winrt]
     mod ModForB {
         mod NestedMod {
             struct D {
@@ -23,7 +22,6 @@ mod Test {
             d: NestedMod::D,
         }
     }
-    #[winrt]
     mod N0 {
         mod N1 {
             mod N2 {
