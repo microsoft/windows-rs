@@ -1,0 +1,9 @@
+#[winrt]
+mod Test {
+    interface ITest {
+        fn Numerics(&self, n: Windows::Foundation::Numerics::Vector2);
+        fn Collections(&self, c: Windows::Foundation::Collections::IVector<i32>);
+        fn Async(&self) -> Windows::Foundation::IAsyncAction;
+        fn Windows(&self, s: Windows::Foundation::IStringable);
+    }
+}
