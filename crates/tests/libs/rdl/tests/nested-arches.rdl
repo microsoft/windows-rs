@@ -1,7 +1,7 @@
+#[win32]
 mod Windows {
     mod Win32 {
         mod System {
-            #[win32]
             mod Kernel {
                 #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64)]
                 union SLIST_HEADER {

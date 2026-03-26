@@ -1,14 +1,10 @@
+#[winrt]
 mod Test {
-    #[winrt]
     mod A {
         struct A {}
     }
-    #[winrt]
     mod B {
         struct B {}
     }
-}
-#[winrt]
-mod Test {
     struct Test {}
 }
