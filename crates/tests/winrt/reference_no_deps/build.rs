@@ -1,7 +1,12 @@
 fn main() {
     println!("cargo:rerun-if-changed=src/test.rdl");
 
-    windows_rdl::reader().output("test.winmd").input("src/test.rdl").reference("../../../libs/bindgen/default").write().unwrap();
+    windows_rdl::reader()
+        .output("test.winmd")
+        .input("src/test.rdl")
+        .reference("../../../libs/bindgen/default")
+        .write()
+        .unwrap();
 
     _ = windows_bindgen::bindgen([
         "--in",
