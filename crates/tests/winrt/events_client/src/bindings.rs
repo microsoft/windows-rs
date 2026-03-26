@@ -116,7 +116,7 @@ impl windows_core::RuntimeName for Class {
 }
 unsafe impl Send for Class {}
 unsafe impl Sync for Class {}
-windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0xad3fd5e5_03a8_5c1e_ab60_efa5e9379730);
+windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x692a46c8_496e_525b_8d21_d7e12ca7cafa);
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -138,7 +138,7 @@ pub struct IClass_Vtbl {
 windows_core::imp::define_interface!(
     IClassStatics,
     IClassStatics_Vtbl,
-    0x47439b4f_f0b4_5a72_8777_4d60e34ec843
+    0x78f8581c_ba59_5701_b2d8_b8aae9be7bad
 );
 impl windows_core::RuntimeType for IClassStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
