@@ -46,6 +46,12 @@ jobs:
         run:  cargo clippy -p csharp_component --tests
       - name: Check helpers
         run:  cargo clippy -p helpers --tests
+      - name: Check robot
+        run:  cargo clippy -p robot --tests
+      - name: Check robot_client
+        run:  cargo clippy -p robot_client --tests
+      - name: Check robot_client_cpp
+        run:  cargo clippy -p robot_client_cpp --tests
       - name: Check sample_bits
         run:  cargo clippy -p sample_bits --tests
       - name: Check sample_com_uri
