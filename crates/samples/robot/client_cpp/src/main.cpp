@@ -28,7 +28,7 @@ extern "C" {
 
         auto handle = interop->Handle();
 
-        printf("interop handle: 0x%x", handle);
+        printf("interop handle: 0x%x\n", handle);
     }
     catch (...) { return winrt::to_hresult(); }
 }

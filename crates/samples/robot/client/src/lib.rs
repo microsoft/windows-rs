@@ -1,7 +1,10 @@
+#![cfg(test)]
+
 mod bindings;
 use bindings::*;
 use windows_core::*;
 
+#[test]
 fn main() -> Result<()> {
     let robot = Robot::new()?;
 
