@@ -1,0 +1,26 @@
+use Windows::Foundation::Metadata::*;
+use Windows::Win32::System::Com::*;
+
+#[winrt]
+mod Robotics {
+    #[Activatable(1)]
+    #[MarshalingBehavior(Agile)]
+    class Robot {
+        IRobot,
+    }
+
+    #[ExclusiveTo(Robot)]
+    interface IRobot {
+        fn Speak(&self, message: String);
+    }
+}
+
+#[win32]
+mod Robotics {
+    #[library("robotics.dll")]
+    extern fn CreateRobotFromHandle(#[input] handle: *mut void, robot: *mut Robot) -> HRESULT;
+
+    interface IRobotInterop: IUnknown {
+        fn Handle(&self) -> *mut void;
+    }
+}
