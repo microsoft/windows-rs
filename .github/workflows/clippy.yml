@@ -292,8 +292,6 @@ jobs:
         run:  cargo clippy -p test_return_struct --tests
       - name: Check test_services
         run:  cargo clippy -p test_services --tests
-      - name: Check test_standalone
-        run:  cargo clippy -p test_standalone --tests
       - name: Check test_string_param
         run:  cargo clippy -p test_string_param --tests
       - name: Check test_strings
@@ -338,8 +336,6 @@ jobs:
         run:  cargo clippy -p tool_msvc --tests
       - name: Check tool_rdl_roundtrip
         run:  cargo clippy -p tool_rdl_roundtrip --tests
-      - name: Check tool_standalone
-        run:  cargo clippy -p tool_standalone --tests
       - name: Check tool_test_all
         run:  cargo clippy -p tool_test_all --tests
       - name: Check tool_workspace
