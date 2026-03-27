@@ -6,7 +6,7 @@ using namespace winrt::Robotics;
 typedef HRESULT (__stdcall *CreateRobotFromHandle)(void* handle, void**) noexcept;
 
 struct __declspec(uuid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed")) IRobotInterop: IUnknown {
-    virtual void* Handle() noexcept;
+    virtual void* __stdcall Handle() noexcept;
 };
 
 extern "C" {
