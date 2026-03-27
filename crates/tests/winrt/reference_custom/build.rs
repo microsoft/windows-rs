@@ -4,7 +4,7 @@ fn main() {
     windows_rdl::reader()
         .output("test.winmd")
         .input("src/test.rdl")
-        .reference("../../../libs/bindgen/default")
+        .input("../../../libs/bindgen/default")
         .write()
         .unwrap();
 

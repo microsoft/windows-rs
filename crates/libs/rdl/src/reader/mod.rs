@@ -41,7 +41,6 @@ use windows_metadata as metadata;
 pub struct Reader {
     input: Vec<String>,
     input_str: Vec<String>,
-    reference: Vec<String>,
     output: String,
 }
 
@@ -60,13 +59,6 @@ impl Reader {
         self
     }
 
-    /// Adds a reference winmd file that will be used to resolve types used by the RDL input
-    /// but defined outside of it (for example, custom attributes from external assemblies).
-    pub fn reference(&mut self, reference: &str) -> &mut Self {
-        self.reference.push(reference.to_string());
-        self
-    }
-
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
@@ -77,8 +69,7 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let (rdl_paths, mut reference_paths) = expand_input_paths(&self.input)?;
-        reference_paths.extend(expand_files(&self.reference, "winmd")?);
+        let (rdl_paths, reference_paths) = expand_input_paths(&self.input)?;
 
         let input = expand_rdl_files(&rdl_paths, &self.input_str)?;
 

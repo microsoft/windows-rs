@@ -2,7 +2,7 @@ fn main() {
     windows_rdl::reader()
         .output("metadata.winmd")
         .input("src/metadata.rdl")
-        .reference("../../../libs/bindgen/default")
+        .input("../../../libs/bindgen/default")
         .write()
         .unwrap();
 
