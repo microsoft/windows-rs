@@ -71,6 +71,8 @@ jobs:
         run:  cargo test -p csharp_component --target ${{ matrix.target }}
       - name: Test helpers
         run:  cargo test -p helpers --target ${{ matrix.target }}
+      - name: Test riddle
+        run:  cargo test -p riddle --target ${{ matrix.target }}
       - name: Test sample_bits
         run:  cargo test -p sample_bits --target ${{ matrix.target }}
       - name: Test sample_com_uri
@@ -161,10 +163,10 @@ jobs:
         run:  cargo test -p sample_uiautomation --target ${{ matrix.target }}
       - name: Test sample_wmi
         run:  cargo test -p sample_wmi --target ${{ matrix.target }}
-      - name: Test sample_xml
-        run:  cargo test -p sample_xml --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test sample_xml
+        run:  cargo test -p sample_xml --target ${{ matrix.target }}
       - name: Test test_activation
         run:  cargo test -p test_activation --target ${{ matrix.target }}
       - name: Test test_activation_client
@@ -263,10 +265,10 @@ jobs:
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
-      - name: Test test_not_dll
-        run:  cargo test -p test_not_dll --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_not_dll
+        run:  cargo test -p test_not_dll --target ${{ matrix.target }}
       - name: Test test_numerics
         run:  cargo test -p test_numerics --target ${{ matrix.target }}
       - name: Test test_overloads
@@ -365,10 +367,10 @@ jobs:
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
-      - name: Test tool_yml
-        run:  cargo test -p tool_yml --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test tool_yml
+        run:  cargo test -p tool_yml --target ${{ matrix.target }}
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }}
       - name: Test windows-bindgen
