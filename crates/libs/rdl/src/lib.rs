@@ -65,3 +65,60 @@ fn expand_files(inputs: &[String], extension: &str) -> Result<Vec<String>, Error
 
     Ok(result)
 }
+
+fn expand_input_paths(inputs: &[String]) -> Result<(Vec<String>, Vec<String>), Error> {
+    let mut rdl_paths = vec![];
+    let mut winmd_paths = vec![];
+
+    for input in inputs {
+        let path = std::path::Path::new(input);
+
+        if path.is_dir() {
+            let prev_total = rdl_paths.len() + winmd_paths.len();
+
+            for entry_path in path
+                .read_dir()
+                .map_err(|_| Error::new("failed to read directory", input, 0, 0))?
+                .flatten()
+                .map(|entry| entry.path())
+            {
+                if entry_path.is_file() {
+                    if entry_path
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("rdl"))
+                    {
+                        rdl_paths.push(entry_path.to_string_lossy().replace('\\', "/"));
+                    } else if entry_path
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
+                    {
+                        winmd_paths.push(entry_path.to_string_lossy().replace('\\', "/"));
+                    }
+                }
+            }
+
+            if rdl_paths.len() + winmd_paths.len() == prev_total {
+                return Err(Error::new(
+                    "failed to find .rdl or .winmd files in directory",
+                    input,
+                    0,
+                    0,
+                ));
+            }
+        } else if path
+            .extension()
+            .is_some_and(|ext| ext.eq_ignore_ascii_case("rdl"))
+        {
+            rdl_paths.push(input.clone());
+        } else if path
+            .extension()
+            .is_some_and(|ext| ext.eq_ignore_ascii_case("winmd"))
+        {
+            winmd_paths.push(input.clone());
+        } else {
+            return Err(Error::new("expected .rdl or .winmd file", input, 0, 0));
+        }
+    }
+
+    Ok((rdl_paths, winmd_paths))
+}

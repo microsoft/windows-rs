@@ -2,10 +2,10 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    // Reader::reference with a directory of .winmd files
+    // Reader::input with a directory of .winmd files
     reader()
         .input("tests/path.rdl")
-        .reference("../../../libs/bindgen/default")
+        .input("../../../libs/bindgen/default")
         .output("tests/directory.winmd")
         .write()
         .unwrap();

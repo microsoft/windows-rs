@@ -77,7 +77,10 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let input = expand_input(&self.input, &self.input_str)?;
+        let (rdl_paths, mut reference_paths) = expand_input_paths(&self.input)?;
+        reference_paths.extend(expand_files(&self.reference, "winmd")?);
+
+        let input = expand_rdl_files(&rdl_paths, &self.input_str)?;
 
         let mut index = Index::new();
 
@@ -87,7 +90,6 @@ impl Reader {
             }
         }
 
-        let reference_paths = expand_files(&self.reference, "winmd")?;
         let mut reference = vec![];
 
         for file_name in &reference_paths {
@@ -190,12 +192,10 @@ impl Reader {
     }
 }
 
-fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
-    let paths = expand_files(input, "rdl")?;
-
+fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
     let mut input = vec![];
 
-    for path in &paths {
+    for path in paths {
         let Ok(contents) = std::fs::read_to_string(path) else {
             return Err(Error::new("failed to read binary file", path, 0, 0));
         };
