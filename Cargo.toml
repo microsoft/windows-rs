@@ -7,6 +7,7 @@ members = [
     "crates/samples/json/*",
     "crates/samples/csharp/*",
     "crates/samples/services/*",
+    "crates/samples/robot/*",
     "crates/targets/*",
     "crates/tests/misc/*",
     "crates/tests/winrt/*",
