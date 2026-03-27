@@ -34,6 +34,7 @@ syn = { version = "2.0", default-features = false }
 serde_json = {version = "1.0", default-features = false }
 # generated dependencies
 cppwinrt = { version = "0.3.4", path = "crates/libs/cppwinrt", default-features = false }
+riddle = { version = "0.0.0", path = "crates/libs/riddle", default-features = false }
 windows = { version = "0.62.2", path = "crates/libs/windows", default-features = false }
 windows-bindgen = { version = "0.66.0", path = "crates/libs/bindgen", default-features = false }
 windows-collections = { version = "0.3.2", path = "crates/libs/collections", default-features = false }

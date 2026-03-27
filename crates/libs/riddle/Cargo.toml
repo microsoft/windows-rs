@@ -1,0 +1,16 @@
+[package]
+name = "riddle"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.82"
+license = "MIT OR Apache-2.0"
+description = "Windows metadata compiler"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[lints]
+workspace = true
+
+[dependencies]
+windows-rdl = { workspace = true }

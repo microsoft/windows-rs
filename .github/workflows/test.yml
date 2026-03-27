@@ -71,6 +71,8 @@ jobs:
         run:  cargo test -p csharp_component --target ${{ matrix.target }}
       - name: Test helpers
         run:  cargo test -p helpers --target ${{ matrix.target }}
+      - name: Test riddle
+        run:  cargo test -p riddle --target ${{ matrix.target }}
       - name: Test robot
         run:  cargo test -p robot --target ${{ matrix.target }}
       - name: Test robot_client
@@ -161,10 +163,10 @@ jobs:
         run:  cargo test -p sample_task_dialog_sys --target ${{ matrix.target }}
       - name: Test sample_thread_pool_work
         run:  cargo test -p sample_thread_pool_work --target ${{ matrix.target }}
-      - name: Test sample_thread_pool_work_sys
-        run:  cargo test -p sample_thread_pool_work_sys --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test sample_thread_pool_work_sys
+        run:  cargo test -p sample_thread_pool_work_sys --target ${{ matrix.target }}
       - name: Test sample_uiautomation
         run:  cargo test -p sample_uiautomation --target ${{ matrix.target }}
       - name: Test sample_wmi
@@ -263,10 +265,10 @@ jobs:
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_core
         run:  cargo test -p test_no_core --target ${{ matrix.target }}
-      - name: Test test_no_std
-        run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_no_std
+        run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
       - name: Test test_noexcept
@@ -365,10 +367,10 @@ jobs:
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Test tool_rdl_roundtrip
         run:  cargo test -p tool_rdl_roundtrip --target ${{ matrix.target }}
-      - name: Test tool_standalone
-        run:  cargo test -p tool_standalone --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test tool_standalone
+        run:  cargo test -p tool_standalone --target ${{ matrix.target }}
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
       - name: Test tool_workspace

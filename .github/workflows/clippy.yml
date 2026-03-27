@@ -46,6 +46,8 @@ jobs:
         run:  cargo clippy -p csharp_component --tests
       - name: Check helpers
         run:  cargo clippy -p helpers --tests
+      - name: Check riddle
+        run:  cargo clippy -p riddle --tests
       - name: Check robot
         run:  cargo clippy -p robot --tests
       - name: Check robot_client
