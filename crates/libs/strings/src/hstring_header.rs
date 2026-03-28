@@ -1,4 +1,5 @@
 use super::*;
+use alloc::alloc::{alloc_zeroed, dealloc, Layout};
 
 pub const HSTRING_REFERENCE_FLAG: u32 = 1;
 
@@ -14,25 +15,26 @@ pub struct HStringHeader {
 }
 
 impl HStringHeader {
+    fn layout(len: u32) -> Layout {
+        // Allocate enough space for header and two bytes per character.
+        // The space for the terminating null character is already accounted for inside of `HStringHeader`.
+        let bytes = core::mem::size_of::<Self>() + 2 * len as usize;
+        Layout::from_size_align(bytes, core::mem::align_of::<Self>()).expect("invalid layout")
+    }
+
     pub fn alloc(len: u32) -> *mut Self {
         if len == 0 {
             return core::ptr::null_mut();
         }
 
-        // Allocate enough space for header and two bytes per character.
-        // The space for the terminating null character is already accounted for inside of `HStringHeader`.
-        let bytes = core::mem::size_of::<Self>() + 2 * len as usize;
-
-        let header =
-            unsafe { bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes) } as *mut Self;
+        let header = unsafe { alloc_zeroed(Self::layout(len)) } as *mut Self;
 
         if header.is_null() {
             panic!("allocation failed");
         }
 
         unsafe {
-            // Use `ptr::write` (since `header` is uninitialized). `HStringHeader` is safe to be all zeros.
-            header.write(core::mem::MaybeUninit::<Self>::zeroed().assume_init());
+            // `alloc_zeroed` zero-initializes the header; only non-zero fields need to be set.
             (*header).len = len;
             (*header).count = RefCount::new(1);
             (*header).data = &mut (*header).buffer_start;
@@ -46,9 +48,8 @@ impl HStringHeader {
             return;
         }
 
-        unsafe {
-            bindings::HeapFree(bindings::GetProcessHeap(), 0, header as *mut _);
-        }
+        let len = unsafe { (*header).len };
+        unsafe { dealloc(header as *mut u8, Self::layout(len)) };
     }
 
     pub fn duplicate(&self) -> *mut Self {

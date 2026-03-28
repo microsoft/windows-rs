@@ -237,8 +237,6 @@ jobs:
         run:  cargo test -p test_implement --target ${{ matrix.target }}
       - name: Test test_interface
         run:  cargo test -p test_interface --target ${{ matrix.target }}
-      - name: Test test_interface_core
-        run:  cargo test -p test_interface_core --target ${{ matrix.target }}
       - name: Test test_interop
         run:  cargo test -p test_interop --target ${{ matrix.target }}
       - name: Test test_just_core
@@ -265,10 +263,10 @@ jobs:
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_numerics
         run:  cargo test -p test_numerics --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_overloads
         run:  cargo test -p test_overloads --target ${{ matrix.target }}
       - name: Test test_overloads_client
@@ -287,10 +285,6 @@ jobs:
         run:  cargo test -p test_reference_custom --target ${{ matrix.target }}
       - name: Test test_reference_float
         run:  cargo test -p test_reference_float --target ${{ matrix.target }}
-      - name: Test test_reference_no_deps
-        run:  cargo test -p test_reference_no_deps --target ${{ matrix.target }}
-      - name: Test test_reference_no_windows
-        run:  cargo test -p test_reference_no_windows --target ${{ matrix.target }}
       - name: Test test_reference_windows
         run:  cargo test -p test_reference_windows --target ${{ matrix.target }}
       - name: Test test_registry
@@ -343,32 +337,22 @@ jobs:
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }}
-      - name: Test windows-collections
-        run:  cargo test -p windows-collections --target ${{ matrix.target }}
-      - name: Test windows-core
-        run:  cargo test -p windows-core --target ${{ matrix.target }}
       - name: Test windows-future
         run:  cargo test -p windows-future --target ${{ matrix.target }}
       - name: Test windows-link
         run:  cargo test -p windows-link --target ${{ matrix.target }}
-      - name: Test windows-numerics
-        run:  cargo test -p windows-numerics --target ${{ matrix.target }}
       - name: Test windows-registry
         run:  cargo test -p windows-registry --target ${{ matrix.target }}
       - name: Test windows-result
         run:  cargo test -p windows-result --target ${{ matrix.target }}
       - name: Test windows-services
         run:  cargo test -p windows-services --target ${{ matrix.target }}
-      - name: Test windows-strings
-        run:  cargo test -p windows-strings --target ${{ matrix.target }}
       - name: Test windows-sys
         run:  cargo test -p windows-sys --target ${{ matrix.target }}
       - name: Test windows-targets
         run:  cargo test -p windows-targets --target ${{ matrix.target }}
       - name: Test windows-threading
         run:  cargo test -p windows-threading --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows-version
         run:  cargo test -p windows-version --target ${{ matrix.target }}
       - name: Check diff
@@ -389,12 +373,18 @@ jobs:
         run:  cargo test -p riddle --target x86_64-unknown-linux-gnu
       - name: Test test_implement_core
         run:  cargo test -p test_implement_core --target x86_64-unknown-linux-gnu
+      - name: Test test_interface_core
+        run:  cargo test -p test_interface_core --target x86_64-unknown-linux-gnu
       - name: Test test_linux
         run:  cargo test -p test_linux --target x86_64-unknown-linux-gnu
       - name: Test test_package
         run:  cargo test -p test_package --target x86_64-unknown-linux-gnu
       - name: Test test_rdl
         run:  cargo test -p test_rdl --target x86_64-unknown-linux-gnu
+      - name: Test test_reference_no_deps
+        run:  cargo test -p test_reference_no_deps --target x86_64-unknown-linux-gnu
+      - name: Test test_reference_no_windows
+        run:  cargo test -p test_reference_no_windows --target x86_64-unknown-linux-gnu
       - name: Test tool_bindgen
         run:  cargo test -p tool_bindgen --target x86_64-unknown-linux-gnu
       - name: Test tool_bindings
@@ -415,14 +405,22 @@ jobs:
         run:  cargo test -p tool_yml --target x86_64-unknown-linux-gnu
       - name: Test windows-bindgen
         run:  cargo test -p windows-bindgen --target x86_64-unknown-linux-gnu
+      - name: Test windows-collections
+        run:  cargo test -p windows-collections --target x86_64-unknown-linux-gnu
+      - name: Test windows-core
+        run:  cargo test -p windows-core --target x86_64-unknown-linux-gnu
       - name: Test windows-implement
         run:  cargo test -p windows-implement --target x86_64-unknown-linux-gnu
       - name: Test windows-interface
         run:  cargo test -p windows-interface --target x86_64-unknown-linux-gnu
       - name: Test windows-metadata
         run:  cargo test -p windows-metadata --target x86_64-unknown-linux-gnu
+      - name: Test windows-numerics
+        run:  cargo test -p windows-numerics --target x86_64-unknown-linux-gnu
       - name: Test windows-rdl
         run:  cargo test -p windows-rdl --target x86_64-unknown-linux-gnu
+      - name: Test windows-strings
+        run:  cargo test -p windows-strings --target x86_64-unknown-linux-gnu
       - name: Test windows_aarch64_gnullvm
         run:  cargo test -p windows_aarch64_gnullvm --target x86_64-unknown-linux-gnu
       - name: Test windows_aarch64_msvc

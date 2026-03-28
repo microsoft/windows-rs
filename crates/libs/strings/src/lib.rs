@@ -1,12 +1,13 @@
 #![doc = include_str!("../readme.md")]
-#![cfg(windows)]
 #![debugger_visualizer(natvis_file = "../windows-strings.natvis")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
 extern crate alloc;
 use alloc::string::String;
 
+#[cfg(windows)]
 mod bstr;
+#[cfg(windows)]
 pub use bstr::*;
 
 mod hstring;
@@ -18,6 +19,7 @@ pub use hstring_builder::*;
 mod hstring_header;
 use hstring_header::*;
 
+#[cfg(windows)]
 mod bindings;
 
 mod decode;

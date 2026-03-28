@@ -13,6 +13,9 @@
 #[cfg(windows)]
 include!("windows.rs");
 
+#[cfg(not(windows))]
+include!("non_windows.rs");
+
 extern crate self as windows_core;
 
 extern crate alloc;

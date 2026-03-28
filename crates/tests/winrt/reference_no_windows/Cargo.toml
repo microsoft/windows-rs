@@ -24,5 +24,8 @@ workspace = true
 windows-bindgen = { workspace = true }
 windows-rdl = { workspace = true }
 
+[package.metadata]
+linux = true
+
 [lints]
 workspace = true

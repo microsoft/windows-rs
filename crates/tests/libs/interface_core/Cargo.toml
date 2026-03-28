@@ -11,5 +11,8 @@ doctest = false
 [dependencies.windows-core]
 workspace = true
 
+[package.metadata]
+linux = true
+
 [lints]
 workspace = true

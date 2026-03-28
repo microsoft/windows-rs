@@ -22,6 +22,8 @@ const A: PCSTR = s!("ansi");
 const W: PCWSTR = w!("wide");
 
 fn main() {
+    # #[cfg(windows)]
+    # {
     let b = BSTR::from("bstr");
     let h = HSTRING::from("hstring");
 
@@ -30,5 +32,6 @@ fn main() {
 
     assert_eq!(unsafe { A.to_string().unwrap() }, "ansi");
     assert_eq!(unsafe { W.to_string().unwrap() }, "wide");
+    # }
 }
 ```

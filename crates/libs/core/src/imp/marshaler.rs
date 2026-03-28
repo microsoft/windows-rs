@@ -1,11 +1,17 @@
-use super::*;
 use crate::{IUnknown, IUnknown_Vtbl, Interface, GUID, HRESULT};
 use core::ffi::c_void;
+
+#[cfg(windows)]
+use super::*;
+#[cfg(windows)]
 use core::mem::{transmute, transmute_copy};
+#[cfg(windows)]
 use core::ptr::null_mut;
 
+#[cfg(windows)]
 windows_link::link!("combase.dll" "system" fn CoCreateFreeThreadedMarshaler(punkouter: *mut c_void, ppunkmarshal: *mut *mut c_void) -> HRESULT);
 
+#[cfg(windows)]
 pub unsafe fn marshaler(outer: IUnknown, result: *mut *mut c_void) -> HRESULT {
     unsafe {
         let mut marshaler_raw = null_mut();
@@ -35,6 +41,12 @@ pub unsafe fn marshaler(outer: IUnknown, result: *mut *mut c_void) -> HRESULT {
     }
 }
 
+#[cfg(not(windows))]
+pub unsafe fn marshaler(_outer: IUnknown, _result: *mut *mut c_void) -> HRESULT {
+    HRESULT(0x80004001_u32 as i32) // E_NOTIMPL
+}
+
+#[cfg(windows)]
 #[repr(C)]
 struct Marshaler {
     vtable: *const IMarshal_Vtbl,
@@ -43,6 +55,7 @@ struct Marshaler {
     count: RefCount,
 }
 
+#[cfg(windows)]
 impl Marshaler {
     const VTABLE: IMarshal_Vtbl = IMarshal_Vtbl {
         base__: IUnknown_Vtbl {
