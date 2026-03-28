@@ -15,5 +15,8 @@ windows-core = { workspace = true }
 windows-rdl = { workspace = true }
 windows-link = { workspace = true }
 
+[package.metadata]
+linux = true
+
 [lints]
 workspace = true

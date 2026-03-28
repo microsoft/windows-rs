@@ -69,8 +69,6 @@ jobs:
         run:  cargo test -p csharp_client --target ${{ matrix.target }}
       - name: Test csharp_component
         run:  cargo test -p csharp_component --target ${{ matrix.target }}
-      - name: Test helpers
-        run:  cargo test -p helpers --target ${{ matrix.target }}
       - name: Test robot
         run:  cargo test -p robot --target ${{ matrix.target }}
       - name: Test robot_client
@@ -163,10 +161,10 @@ jobs:
         run:  cargo test -p sample_thread_pool_work --target ${{ matrix.target }}
       - name: Test sample_thread_pool_work_sys
         run:  cargo test -p sample_thread_pool_work_sys --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test sample_uiautomation
         run:  cargo test -p sample_uiautomation --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test sample_wmi
         run:  cargo test -p sample_wmi --target ${{ matrix.target }}
       - name: Test sample_xml
@@ -237,8 +235,6 @@ jobs:
         run:  cargo test -p test_handles --target ${{ matrix.target }}
       - name: Test test_implement
         run:  cargo test -p test_implement --target ${{ matrix.target }}
-      - name: Test test_implement_core
-        run:  cargo test -p test_implement_core --target ${{ matrix.target }}
       - name: Test test_interface
         run:  cargo test -p test_interface --target ${{ matrix.target }}
       - name: Test test_interface_core
@@ -265,24 +261,20 @@ jobs:
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_numerics
         run:  cargo test -p test_numerics --target ${{ matrix.target }}
       - name: Test test_overloads
         run:  cargo test -p test_overloads --target ${{ matrix.target }}
       - name: Test test_overloads_client
         run:  cargo test -p test_overloads_client --target ${{ matrix.target }}
-      - name: Test test_package
-        run:  cargo test -p test_package --target ${{ matrix.target }}
       - name: Test test_query_signature
         run:  cargo test -p test_query_signature --target ${{ matrix.target }}
-      - name: Test test_rdl
-        run:  cargo test -p test_rdl --target ${{ matrix.target }}
       - name: Test test_readme
         run:  cargo test -p test_readme --target ${{ matrix.target }}
       - name: Test test_ref_params
@@ -347,18 +339,8 @@ jobs:
         run:  cargo test -p test_windows_std --target ${{ matrix.target }}
       - name: Test test_winrt
         run:  cargo test -p test_winrt --target ${{ matrix.target }}
-      - name: Test tool_bindgen
-        run:  cargo test -p tool_bindgen --target ${{ matrix.target }}
-      - name: Test tool_bindings
-        run:  cargo test -p tool_bindings --target ${{ matrix.target }}
-      - name: Test tool_gnu
-        run:  cargo test -p tool_gnu --target ${{ matrix.target }}
-      - name: Test tool_merge
-        run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
-      - name: Test tool_test_all
-        run:  cargo test -p tool_test_all --target ${{ matrix.target }}
       - name: Test windows
         run:  cargo test -p windows --target ${{ matrix.target }}
       - name: Test windows-collections
@@ -367,8 +349,6 @@ jobs:
         run:  cargo test -p windows-core --target ${{ matrix.target }}
       - name: Test windows-future
         run:  cargo test -p windows-future --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test windows-link
         run:  cargo test -p windows-link --target ${{ matrix.target }}
       - name: Test windows-numerics
@@ -387,24 +367,10 @@ jobs:
         run:  cargo test -p windows-targets --target ${{ matrix.target }}
       - name: Test windows-threading
         run:  cargo test -p windows-threading --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test windows-version
         run:  cargo test -p windows-version --target ${{ matrix.target }}
-      - name: Test windows_aarch64_gnullvm
-        run:  cargo test -p windows_aarch64_gnullvm --target ${{ matrix.target }}
-      - name: Test windows_aarch64_msvc
-        run:  cargo test -p windows_aarch64_msvc --target ${{ matrix.target }}
-      - name: Test windows_i686_gnu
-        run:  cargo test -p windows_i686_gnu --target ${{ matrix.target }}
-      - name: Test windows_i686_gnullvm
-        run:  cargo test -p windows_i686_gnullvm --target ${{ matrix.target }}
-      - name: Test windows_i686_msvc
-        run:  cargo test -p windows_i686_msvc --target ${{ matrix.target }}
-      - name: Test windows_x86_64_gnu
-        run:  cargo test -p windows_x86_64_gnu --target ${{ matrix.target }}
-      - name: Test windows_x86_64_gnullvm
-        run:  cargo test -p windows_x86_64_gnullvm --target ${{ matrix.target }}
-      - name: Test windows_x86_64_msvc
-        run:  cargo test -p windows_x86_64_msvc --target ${{ matrix.target }}
       - name: Check diff
         shell: bash
         run: |
@@ -417,14 +383,32 @@ jobs:
         uses: actions/checkout@v6
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
+      - name: Test helpers
+        run:  cargo test -p helpers --target x86_64-unknown-linux-gnu
       - name: Test riddle
         run:  cargo test -p riddle --target x86_64-unknown-linux-gnu
+      - name: Test test_implement_core
+        run:  cargo test -p test_implement_core --target x86_64-unknown-linux-gnu
       - name: Test test_linux
         run:  cargo test -p test_linux --target x86_64-unknown-linux-gnu
+      - name: Test test_package
+        run:  cargo test -p test_package --target x86_64-unknown-linux-gnu
+      - name: Test test_rdl
+        run:  cargo test -p test_rdl --target x86_64-unknown-linux-gnu
+      - name: Test tool_bindgen
+        run:  cargo test -p tool_bindgen --target x86_64-unknown-linux-gnu
+      - name: Test tool_bindings
+        run:  cargo test -p tool_bindings --target x86_64-unknown-linux-gnu
+      - name: Test tool_gnu
+        run:  cargo test -p tool_gnu --target x86_64-unknown-linux-gnu
       - name: Test tool_license
         run:  cargo test -p tool_license --target x86_64-unknown-linux-gnu
+      - name: Test tool_merge
+        run:  cargo test -p tool_merge --target x86_64-unknown-linux-gnu
       - name: Test tool_rdl_roundtrip
         run:  cargo test -p tool_rdl_roundtrip --target x86_64-unknown-linux-gnu
+      - name: Test tool_test_all
+        run:  cargo test -p tool_test_all --target x86_64-unknown-linux-gnu
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target x86_64-unknown-linux-gnu
       - name: Test tool_yml
@@ -439,3 +423,19 @@ jobs:
         run:  cargo test -p windows-metadata --target x86_64-unknown-linux-gnu
       - name: Test windows-rdl
         run:  cargo test -p windows-rdl --target x86_64-unknown-linux-gnu
+      - name: Test windows_aarch64_gnullvm
+        run:  cargo test -p windows_aarch64_gnullvm --target x86_64-unknown-linux-gnu
+      - name: Test windows_aarch64_msvc
+        run:  cargo test -p windows_aarch64_msvc --target x86_64-unknown-linux-gnu
+      - name: Test windows_i686_gnu
+        run:  cargo test -p windows_i686_gnu --target x86_64-unknown-linux-gnu
+      - name: Test windows_i686_gnullvm
+        run:  cargo test -p windows_i686_gnullvm --target x86_64-unknown-linux-gnu
+      - name: Test windows_i686_msvc
+        run:  cargo test -p windows_i686_msvc --target x86_64-unknown-linux-gnu
+      - name: Test windows_x86_64_gnu
+        run:  cargo test -p windows_x86_64_gnu --target x86_64-unknown-linux-gnu
+      - name: Test windows_x86_64_gnullvm
+        run:  cargo test -p windows_x86_64_gnullvm --target x86_64-unknown-linux-gnu
+      - name: Test windows_x86_64_msvc
+        run:  cargo test -p windows_x86_64_msvc --target x86_64-unknown-linux-gnu

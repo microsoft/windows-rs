@@ -9,6 +9,9 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
+[package.metadata]
+linux = true
+
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []

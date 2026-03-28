@@ -7,5 +7,8 @@ publish = false
 [dependencies]
 windows-bindgen = { workspace = true }
 
+[package.metadata]
+linux = true
+
 [lints]
 workspace = true

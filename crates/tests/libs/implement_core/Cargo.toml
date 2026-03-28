@@ -14,5 +14,8 @@ workspace = true
 [dependencies]
 static_assertions = "1.1"
 
+[package.metadata]
+linux = true
+
 [lints]
 workspace = true

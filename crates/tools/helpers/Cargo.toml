@@ -9,5 +9,8 @@ windows-link = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 toml = "1.0"
 
+[package.metadata]
+linux = true
+
 [lints]
 workspace = true
