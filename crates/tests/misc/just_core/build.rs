@@ -1,17 +1,20 @@
 fn main() {
-    windows_bindgen::bindgen([
-        "--out",
-        "src/bindings.rs",
-        "--filter",
+    let mut filters = vec![
         "CoGetCallerTID",
         "IsCharLowerA",
-        "SysFreeString",
         "IStringable",
         "GetLastError",
         "VhfStart",
         "RpcMgmtEnableIdleCleanup",
-        "--flat",
-        "--no-comment",
-    ])
+    ];
+    if cfg!(windows) {
+        filters.push("SysFreeString");
+    }
+    windows_bindgen::bindgen(
+        ["--out", "src/bindings.rs", "--filter"]
+            .iter()
+            .chain(filters.iter())
+            .chain(["--flat", "--no-comment"].iter()),
+    )
     .unwrap();
 }

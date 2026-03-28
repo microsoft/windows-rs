@@ -30,11 +30,6 @@ pub unsafe fn RpcMgmtEnableIdleCleanup() -> windows_core::RPC_STATUS {
     unsafe { RpcMgmtEnableIdleCleanup() }
 }
 #[inline]
-pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {
-    windows_core::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : * mut core::ffi::c_void));
-    unsafe { SysFreeString(core::mem::transmute_copy(bstrstring)) }
-}
-#[inline]
 pub unsafe fn VhfStart(vhfhandle: *const core::ffi::c_void) -> windows_core::NTSTATUS {
     windows_core::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const core::ffi::c_void) -> windows_core:: NTSTATUS);
     unsafe { VhfStart(vhfhandle) }
