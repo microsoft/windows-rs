@@ -41,7 +41,6 @@ use windows_metadata as metadata;
 pub struct Reader {
     input: Vec<String>,
     input_str: Vec<String>,
-    reference: Vec<String>,
     output: String,
 }
 
@@ -60,13 +59,6 @@ impl Reader {
         self
     }
 
-    /// Adds a reference winmd file that will be used to resolve types used by the RDL input
-    /// but defined outside of it (for example, custom attributes from external assemblies).
-    pub fn reference(&mut self, reference: &str) -> &mut Self {
-        self.reference.push(reference.to_string());
-        self
-    }
-
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
@@ -77,7 +69,9 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let input = expand_input(&self.input, &self.input_str)?;
+        let (rdl_paths, reference_paths) = expand_input_paths(&self.input)?;
+
+        let input = expand_rdl_files(&rdl_paths, &self.input_str)?;
 
         let mut index = Index::new();
 
@@ -87,7 +81,6 @@ impl Reader {
             }
         }
 
-        let reference_paths = expand_files(&self.reference, "winmd")?;
         let mut reference = vec![];
 
         for file_name in &reference_paths {
@@ -190,12 +183,10 @@ impl Reader {
     }
 }
 
-fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
-    let paths = expand_files(input, "rdl")?;
-
+fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
     let mut input = vec![];
 
-    for path in &paths {
+    for path in paths {
         let Ok(contents) = std::fs::read_to_string(path) else {
             return Err(Error::new("failed to read binary file", path, 0, 0));
         };

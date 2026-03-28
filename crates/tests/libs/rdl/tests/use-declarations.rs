@@ -20,7 +20,7 @@ pub fn parse() {
 pub fn parse_with_reference() {
     reader()
         .input("tests/use-declarations-ref.rdl")
-        .reference("../../../libs/bindgen/default/Windows.winmd")
+        .input("../../../libs/bindgen/default/Windows.winmd")
         .output("tests/use-declarations-ref.winmd")
         .write()
         .unwrap();

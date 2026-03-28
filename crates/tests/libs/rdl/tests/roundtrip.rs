@@ -14,7 +14,7 @@ fn roundtrip() {
 
         reader()
             .input(path.to_str().unwrap())
-            .reference("../../../libs/bindgen/default")
+            .input("../../../libs/bindgen/default")
             .output(winmd.to_str().unwrap())
             .write()
             .unwrap();

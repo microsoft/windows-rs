@@ -8,7 +8,7 @@ fn main() {
 
     windows_rdl::reader()
         .input("src/sample.rdl")
-        .reference(&windows_foundation)
+        .input(&windows_foundation)
         .output("sample.winmd")
         .write()
         .unwrap();

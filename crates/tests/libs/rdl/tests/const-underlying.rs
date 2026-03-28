@@ -23,7 +23,7 @@ mod Test {
     // Now compile a constant whose type is the single-field struct defined above.
     reader()
         .input("tests/const-underlying.rdl")
-        .reference(reference.to_str().unwrap())
+        .input(reference.to_str().unwrap())
         .output("tests/const-underlying.winmd")
         .write()
         .unwrap();

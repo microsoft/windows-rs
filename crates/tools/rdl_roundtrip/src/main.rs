@@ -10,7 +10,7 @@ fn roundtrip(winmd: &str, rdl: &str, filter: &[&str]) {
 
     reader()
         .input(rdl)
-        .reference("crates/libs/bindgen/default")
+        .input("crates/libs/bindgen/default")
         .output(winmd)
         .write()
         .unwrap();

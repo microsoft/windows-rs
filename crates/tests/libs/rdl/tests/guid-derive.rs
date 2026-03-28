@@ -45,7 +45,7 @@ fn guid_derive() {
     // Step 1: RDL → WINMD (reader derives/validates GUIDs)
     reader()
         .input("tests/guid-derive.rdl")
-        .reference("../../../libs/bindgen/default/Windows.winmd")
+        .input("../../../libs/bindgen/default/Windows.winmd")
         .output("tests/guid-derive.winmd")
         .write()
         .unwrap();
@@ -152,7 +152,7 @@ fn guid_derive() {
     // Step 3: Roundtripped RDL → WINMD (verify that explicit GUIDs survived the roundtrip)
     reader()
         .input("tests/guid-derive-out.rdl")
-        .reference("../../../libs/bindgen/default/Windows.winmd")
+        .input("../../../libs/bindgen/default/Windows.winmd")
         .output("tests/guid-derive-rt.winmd")
         .write()
         .unwrap();

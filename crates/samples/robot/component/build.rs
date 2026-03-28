@@ -5,7 +5,7 @@ fn main() {
 
     windows_rdl::reader()
         .input("src/robot.rdl")
-        .reference(reference)
+        .input(reference)
         .output("robot.winmd")
         .write()
         .unwrap();

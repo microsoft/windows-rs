@@ -12,7 +12,7 @@ fn main() {
 
     windows_rdl::reader()
         .input("src/test.rdl")
-        .reference(&metadata_dir)
+        .input(&metadata_dir)
         .output("test.winmd")
         .write()
         .unwrap();
