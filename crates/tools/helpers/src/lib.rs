@@ -48,6 +48,12 @@ pub struct Package {
     pub readme: Option<String>,
     pub categories: Option<Vec<String>>,
     pub authors: Option<Vec<String>>,
+    pub metadata: Option<PackageMetadata>,
+}
+
+#[derive(Deserialize)]
+pub struct PackageMetadata {
+    pub linux: Option<bool>,
 }
 
 pub fn crates<P: AsRef<Path>>(path: P) -> Vec<Crate> {

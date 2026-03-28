@@ -9,5 +9,8 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
+[package.metadata]
+linux = true
+
 [lints]
 workspace = true
