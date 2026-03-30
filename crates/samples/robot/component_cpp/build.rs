@@ -15,13 +15,7 @@ fn main() {
         .write()
         .unwrap();
 
-    cppwinrt::cppwinrt([
-        "-in",
-        "../component/robot.winmd",
-        reference,
-        "-out",
-        &include,
-    ]);
+    cppwinrt::cppwinrt(["-in", "robot.winmd", reference, "-out", &include]);
 
     cc::Build::new()
         .cpp(true)
