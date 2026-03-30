@@ -908,6 +908,7 @@ pub const APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY: u32 = 32u32;
 pub const APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION: u32 = 16u32;
 pub const APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN: u32 = 8u32;
 pub const APPIDREGFLAGS_RESERVED1: u32 = 64u32;
+pub const APPIDREGFLAGS_RESERVED10: u32 = 32768u32;
 pub const APPIDREGFLAGS_RESERVED2: u32 = 128u32;
 pub const APPIDREGFLAGS_RESERVED3: u32 = 256u32;
 pub const APPIDREGFLAGS_RESERVED4: u32 = 512u32;
@@ -1705,6 +1706,7 @@ pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
 pub const CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: CLSCTX = CLSCTX(67108864u32);
 pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
 pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
+pub const CLSCTX_DO_NOT_ELEVATE_SERVER: CLSCTX = CLSCTX(268435456u32);
 pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
 pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
 pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
@@ -1726,6 +1728,7 @@ pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
 pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
 pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
 pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+pub const CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE: CLSCTX = CLSCTX(134217728u32);
 pub const CLSID_GlobalOptions: windows_core::GUID = windows_core::GUID::from_u128(0x0000034b_0000_0000_c000_000000000046);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7126,6 +7129,46 @@ impl IPSFactoryBuffer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPSFactoryBuffer {}
+windows_core::imp::define_interface!(IPackagedComSyntaxSupport, IPackagedComSyntaxSupport_Vtbl, 0x8f146474_b228_48fb_a58c_105ebb273abc);
+windows_core::imp::interface_hierarchy!(IPackagedComSyntaxSupport, windows_core::IUnknown);
+impl IPackagedComSyntaxSupport {
+    pub unsafe fn GetSupportedVersion(&self) -> windows_core::Result<u32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetSupportedVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPackagedComSyntaxSupport_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetSupportedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+pub trait IPackagedComSyntaxSupport_Impl: windows_core::IUnknownImpl {
+    fn GetSupportedVersion(&self) -> windows_core::Result<u32>;
+}
+impl IPackagedComSyntaxSupport_Vtbl {
+    pub const fn new<Identity: IPackagedComSyntaxSupport_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetSupportedVersion<Identity: IPackagedComSyntaxSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedversion: *mut u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPackagedComSyntaxSupport_Impl::GetSupportedVersion(this) {
+                    Ok(ok__) => {
+                        supportedversion.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSupportedVersion: GetSupportedVersion::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPackagedComSyntaxSupport as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IPackagedComSyntaxSupport {}
 windows_core::imp::define_interface!(IPersist, IPersist_Vtbl, 0x0000010c_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IPersist, windows_core::IUnknown);
 impl IPersist {
@@ -9007,6 +9050,40 @@ impl IStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IStream {}
+windows_core::imp::define_interface!(ISupportActivateAsActivatorPackaged, ISupportActivateAsActivatorPackaged_Vtbl, 0x765d1df2_f0af_4ef8_aa50_84789ca330ed);
+windows_core::imp::interface_hierarchy!(ISupportActivateAsActivatorPackaged, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportActivateAsActivatorPackaged_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait ISupportActivateAsActivatorPackaged_Impl: windows_core::IUnknownImpl {}
+impl ISupportActivateAsActivatorPackaged_Vtbl {
+    pub const fn new<Identity: ISupportActivateAsActivatorPackaged_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISupportActivateAsActivatorPackaged as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISupportActivateAsActivatorPackaged {}
+windows_core::imp::define_interface!(ISupportActivationFromPackage, ISupportActivationFromPackage_Vtbl, 0x0a18aae5_5caa_48c5_a9f4_6e46dcd58ad5);
+windows_core::imp::interface_hierarchy!(ISupportActivationFromPackage, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportActivationFromPackage_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait ISupportActivationFromPackage_Impl: windows_core::IUnknownImpl {}
+impl ISupportActivationFromPackage_Vtbl {
+    pub const fn new<Identity: ISupportActivationFromPackage_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISupportActivationFromPackage as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISupportActivationFromPackage {}
 windows_core::imp::define_interface!(ISupportAllowLowerTrustActivation, ISupportAllowLowerTrustActivation_Vtbl, 0xe9956ef2_3828_4b4b_8fa9_7db61dee4954);
 windows_core::imp::interface_hierarchy!(ISupportAllowLowerTrustActivation, windows_core::IUnknown);
 #[repr(C)]
@@ -9024,6 +9101,40 @@ impl ISupportAllowLowerTrustActivation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISupportAllowLowerTrustActivation {}
+windows_core::imp::define_interface!(ISupportCoAddComDependencyOnPackage, ISupportCoAddComDependencyOnPackage_Vtbl, 0xc8059efc_4e98_4fd0_bfc6_44190b80b823);
+windows_core::imp::interface_hierarchy!(ISupportCoAddComDependencyOnPackage, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportCoAddComDependencyOnPackage_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait ISupportCoAddComDependencyOnPackage_Impl: windows_core::IUnknownImpl {}
+impl ISupportCoAddComDependencyOnPackage_Vtbl {
+    pub const fn new<Identity: ISupportCoAddComDependencyOnPackage_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISupportCoAddComDependencyOnPackage as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISupportCoAddComDependencyOnPackage {}
+windows_core::imp::define_interface!(ISupportDoNotElevateServerActivation, ISupportDoNotElevateServerActivation_Vtbl, 0x40aefe22_3ff6_43dc_8108_c8c402d57b5c);
+windows_core::imp::interface_hierarchy!(ISupportDoNotElevateServerActivation, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportDoNotElevateServerActivation_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait ISupportDoNotElevateServerActivation_Impl: windows_core::IUnknownImpl {}
+impl ISupportDoNotElevateServerActivation_Vtbl {
+    pub const fn new<Identity: ISupportDoNotElevateServerActivation_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISupportDoNotElevateServerActivation as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISupportDoNotElevateServerActivation {}
 windows_core::imp::define_interface!(ISupportErrorInfo, ISupportErrorInfo_Vtbl, 0xdf0b3d60_548f_101b_8e65_08002b2bd119);
 windows_core::imp::interface_hierarchy!(ISupportErrorInfo, windows_core::IUnknown);
 impl ISupportErrorInfo {
@@ -9055,6 +9166,57 @@ impl ISupportErrorInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ISupportErrorInfo {}
+windows_core::imp::define_interface!(ISupportPackagedComElevationEnabledClasses, ISupportPackagedComElevationEnabledClasses_Vtbl, 0xb4219019_f712_4d4f_ade7_f468276af0b8);
+windows_core::imp::interface_hierarchy!(ISupportPackagedComElevationEnabledClasses, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportPackagedComElevationEnabledClasses_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait ISupportPackagedComElevationEnabledClasses_Impl: windows_core::IUnknownImpl {}
+impl ISupportPackagedComElevationEnabledClasses_Vtbl {
+    pub const fn new<Identity: ISupportPackagedComElevationEnabledClasses_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISupportPackagedComElevationEnabledClasses as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISupportPackagedComElevationEnabledClasses {}
+windows_core::imp::define_interface!(ISupportPackagedComRegistrationVisibility, ISupportPackagedComRegistrationVisibility_Vtbl, 0x8dc3444e_c7ee_449a_9fb8_b9173988d66a);
+windows_core::imp::interface_hierarchy!(ISupportPackagedComRegistrationVisibility, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportPackagedComRegistrationVisibility_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait ISupportPackagedComRegistrationVisibility_Impl: windows_core::IUnknownImpl {}
+impl ISupportPackagedComRegistrationVisibility_Vtbl {
+    pub const fn new<Identity: ISupportPackagedComRegistrationVisibility_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISupportPackagedComRegistrationVisibility as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISupportPackagedComRegistrationVisibility {}
+windows_core::imp::define_interface!(ISupportServerMustBeEqualOrGreaterPrivilegeActivation, ISupportServerMustBeEqualOrGreaterPrivilegeActivation_Vtbl, 0x5bdb3ee2_46bc_4313_b5fb_801c360ba5f9);
+windows_core::imp::interface_hierarchy!(ISupportServerMustBeEqualOrGreaterPrivilegeActivation, windows_core::IUnknown);
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISupportServerMustBeEqualOrGreaterPrivilegeActivation_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait ISupportServerMustBeEqualOrGreaterPrivilegeActivation_Impl: windows_core::IUnknownImpl {}
+impl ISupportServerMustBeEqualOrGreaterPrivilegeActivation_Vtbl {
+    pub const fn new<Identity: ISupportServerMustBeEqualOrGreaterPrivilegeActivation_Impl, const OFFSET: isize>() -> Self {
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISupportServerMustBeEqualOrGreaterPrivilegeActivation as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ISupportServerMustBeEqualOrGreaterPrivilegeActivation {}
 windows_core::imp::define_interface!(ISurrogate, ISurrogate_Vtbl, 0x00000022_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(ISurrogate, windows_core::IUnknown);
 impl ISurrogate {

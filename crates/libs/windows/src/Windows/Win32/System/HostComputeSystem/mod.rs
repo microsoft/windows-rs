@@ -16,6 +16,15 @@ where
     unsafe { HcsAttachLayerStorageFilter(layerpath.param().abi(), layerdata.param().abi()).ok() }
 }
 #[inline]
+pub unsafe fn HcsAttachOverlayFilter<P0, P1>(volumemountpoint: P0, layerdata: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("computestorage.dll" "system" fn HcsAttachOverlayFilter(volumemountpoint : windows_core::PCWSTR, layerdata : windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { HcsAttachOverlayFilter(volumemountpoint.param().abi(), layerdata.param().abi()).ok() }
+}
+#[inline]
 pub unsafe fn HcsCancelOperation(operation: HCS_OPERATION) -> windows_core::Result<()> {
     windows_core::link!("computecore.dll" "system" fn HcsCancelOperation(operation : HCS_OPERATION) -> windows_core::HRESULT);
     unsafe { HcsCancelOperation(operation).ok() }
@@ -124,6 +133,15 @@ where
     unsafe { HcsDetachLayerStorageFilter(layerpath.param().abi()).ok() }
 }
 #[inline]
+pub unsafe fn HcsDetachOverlayFilter<P0, P1>(volumemountpoint: P0, layerdata: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("computestorage.dll" "system" fn HcsDetachOverlayFilter(volumemountpoint : windows_core::PCWSTR, layerdata : windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { HcsDetachOverlayFilter(volumemountpoint.param().abi(), layerdata.param().abi()).ok() }
+}
+#[inline]
 pub unsafe fn HcsEnumerateComputeSystems<P0>(query: P0, operation: HCS_OPERATION) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
@@ -163,6 +181,14 @@ where
     unsafe { HcsExportLegacyWritableLayer(writablelayermountpath.param().abi(), writablelayerfolderpath.param().abi(), exportfolderpath.param().abi(), layerdata.param().abi()).ok() }
 }
 #[inline]
+pub unsafe fn HcsFinalizeLiveMigration<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+where
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("computecore.dll" "system" fn HcsFinalizeLiveMigration(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { HcsFinalizeLiveMigration(computesystem, operation, options.param().abi()).ok() }
+}
+#[inline]
 pub unsafe fn HcsFormatWritableLayerVhd(vhdhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_core::link!("computestorage.dll" "system" fn HcsFormatWritableLayerVhd(vhdhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe { HcsFormatWritableLayerVhd(vhdhandle).ok() }
@@ -197,6 +223,17 @@ pub unsafe fn HcsGetOperationContext(operation: HCS_OPERATION) -> *mut core::ffi
 pub unsafe fn HcsGetOperationId(operation: HCS_OPERATION) -> u64 {
     windows_core::link!("computecore.dll" "system" fn HcsGetOperationId(operation : HCS_OPERATION) -> u64);
     unsafe { HcsGetOperationId(operation) }
+}
+#[inline]
+pub unsafe fn HcsGetOperationProperties<P1>(operation: HCS_OPERATION, options: P1) -> windows_core::Result<windows_core::PWSTR>
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("computecore.dll" "system" fn HcsGetOperationProperties(operation : HCS_OPERATION, options : windows_core::PCWSTR, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        HcsGetOperationProperties(operation, options.param().abi(), &mut result__).map(|| result__)
+    }
 }
 #[inline]
 pub unsafe fn HcsGetOperationResult(operation: HCS_OPERATION, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
@@ -287,6 +324,14 @@ where
 {
     windows_core::link!("computestorage.dll" "system" fn HcsInitializeLegacyWritableLayer(writablelayermountpath : windows_core::PCWSTR, writablelayerfolderpath : windows_core::PCWSTR, layerdata : windows_core::PCWSTR, options : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { HcsInitializeLegacyWritableLayer(writablelayermountpath.param().abi(), writablelayerfolderpath.param().abi(), layerdata.param().abi(), options.param().abi()).ok() }
+}
+#[inline]
+pub unsafe fn HcsInitializeLiveMigrationOnSource<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+where
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("computecore.dll" "system" fn HcsInitializeLiveMigrationOnSource(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { HcsInitializeLiveMigrationOnSource(computesystem, operation, options.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn HcsInitializeWritableLayer<P0, P1, P2>(writablelayerpath: P0, layerdata: P1, options: P2) -> windows_core::Result<()>
@@ -456,6 +501,22 @@ where
 {
     windows_core::link!("computecore.dll" "system" fn HcsStartComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { HcsStartComputeSystem(computesystem, operation, options.param().abi()).ok() }
+}
+#[inline]
+pub unsafe fn HcsStartLiveMigrationOnSource<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+where
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("computecore.dll" "system" fn HcsStartLiveMigrationOnSource(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { HcsStartLiveMigrationOnSource(computesystem, operation, options.param().abi()).ok() }
+}
+#[inline]
+pub unsafe fn HcsStartLiveMigrationTransfer<P2>(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: P2) -> windows_core::Result<()>
+where
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("computecore.dll" "system" fn HcsStartLiveMigrationTransfer(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { HcsStartLiveMigrationTransfer(computesystem, operation, options.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn HcsSubmitWerReport<P0>(settings: P0) -> windows_core::Result<()>
@@ -700,10 +761,12 @@ impl Default for HCS_SYSTEM {
     }
 }
 pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
+pub const HcsEventGroupLiveMigration: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-2147483645i32);
 pub const HcsEventGroupOperationInfo: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-1073741823i32);
 pub const HcsEventGroupVmLifecycle: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-2147483646i32);
 pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
 pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
+pub const HcsEventOptionEnableLiveMigrationEvents: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(4i32);
 pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1i32);
 pub const HcsEventOptionEnableVmLifecycle: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(2i32);
 pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0i32);
@@ -741,6 +804,7 @@ pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = HCS_NOTIFICAT
 pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(3i32);
 pub const HcsOperationOptionNone: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(0i32);
 pub const HcsOperationOptionProgressUpdate: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(1i32);
+pub const HcsOperationOptionReserved1: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(2i32);
 pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
 pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(1i32);
 pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(10i32);
@@ -748,16 +812,22 @@ pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(0i3
 pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(12i32);
 pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
 pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(9i32);
+pub const HcsOperationTypeLiveMigration: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(19i32);
 pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(8i32);
 pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
 pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
 pub const HcsOperationTypePause: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(4i32);
+pub const HcsOperationTypeReserved1: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(16i32);
+pub const HcsOperationTypeReserved2: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(17i32);
+pub const HcsOperationTypeReserved3: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(18i32);
 pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(5i32);
 pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(6i32);
 pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(3i32);
 pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(11i32);
 pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(2i32);
 pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(7i32);
+pub const HcsResourceTypeComObject: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(3i32);
 pub const HcsResourceTypeFile: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(1i32);
 pub const HcsResourceTypeJob: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(2i32);
 pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
+pub const HcsResourceTypeSocket: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(4i32);

@@ -190,6 +190,7 @@ pub const MENROLL_E_PROV_CSP_PFW: windows_core::HRESULT = windows_core::HRESULT(
 pub const MENROLL_E_PROV_CSP_W7: windows_core::HRESULT = windows_core::HRESULT(0x8018001F_u32 as _);
 pub const MENROLL_E_PROV_SSLCERTNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0x80180024_u32 as _);
 pub const MENROLL_E_PROV_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0x80180023_u32 as _);
+pub const MENROLL_E_SERVER429: windows_core::HRESULT = windows_core::HRESULT(0x80180033_u32 as _);
 pub const MENROLL_E_USERLICENSE: windows_core::HRESULT = windows_core::HRESULT(0x80180018_u32 as _);
 pub const MENROLL_E_USER_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0x8018002A_u32 as _);
 pub const MENROLL_E_USER_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80180030_u32 as _);

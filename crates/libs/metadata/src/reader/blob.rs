@@ -120,10 +120,15 @@ impl<'a> Blob<'a> {
         let ty = self.read_type_code(generics);
 
         if pointers > 0 {
-            if is_const {
+            let ptr = if is_const {
                 Type::PtrConst(Box::new(ty), pointers)
             } else {
                 Type::PtrMut(Box::new(ty), pointers)
+            };
+            if is_array {
+                Type::Array(Box::new(ptr))
+            } else {
+                ptr
             }
         } else if is_const {
             Type::RefConst(Box::new(ty))
@@ -161,8 +166,21 @@ impl<'a> Blob<'a> {
             ELEMENT_TYPE_U => Type::USize,
             ELEMENT_TYPE_STRING => Type::String,
             ELEMENT_TYPE_OBJECT => Type::Object,
-            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => {
-                self.decode::<TypeDefOrRef>().ty(generics)
+            ELEMENT_TYPE_VALUETYPE => {
+                let tdr = self.decode::<TypeDefOrRef>();
+                if let TypeDefOrRef::TypeSpec(def) = tdr {
+                    def.ty(generics)
+                } else {
+                    Type::ValueName(TypeName::named(tdr.namespace(), tdr.name()))
+                }
+            }
+            ELEMENT_TYPE_CLASS => {
+                let tdr = self.decode::<TypeDefOrRef>();
+                if let TypeDefOrRef::TypeSpec(def) = tdr {
+                    def.ty(generics)
+                } else {
+                    Type::ClassName(TypeName::named(tdr.namespace(), tdr.name()))
+                }
             }
             ELEMENT_TYPE_VAR => generics[self.read_compressed()].clone(),
             ELEMENT_TYPE_ARRAY => {
@@ -198,13 +216,29 @@ impl<'a> Blob<'a> {
                     ty_generics.push(self.read_type_code(generics));
                 }
 
-                Type::Name(TypeName {
+                let type_name = TypeName {
                     namespace: ty.namespace().to_string(),
                     name: ty.name().to_string(),
                     generics: ty_generics,
-                })
+                };
+
+                if type_code == ELEMENT_TYPE_VALUETYPE {
+                    Type::ValueName(type_name)
+                } else {
+                    Type::ClassName(type_name)
+                }
             }
-            0x55 => Type::AttributeEnum,
+            0x55 => {
+                // SERIALIZATION_TYPE_ENUM in custom attribute named argument format
+                // (ECMA-335 §II.23.1.16): followed by a SerString of the enum type name.
+                // Enums are always value types.
+                let name = self.read_utf8();
+                if let Some(dot) = name.rfind('.') {
+                    Type::ValueName(TypeName::named(&name[..dot], &name[dot + 1..]))
+                } else {
+                    Type::ValueName(TypeName::named("", &name))
+                }
+            }
             rest => panic!("{rest:?}"),
         }
     }
@@ -217,7 +251,7 @@ impl<'a> Blob<'a> {
 
     pub fn read_utf8(&mut self) -> String {
         let len = self.read_compressed();
-        let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
+        let value = std::str::from_utf8(&self.slice[..len]).expect("expected valid UTF-8 string");
         self.offset(len);
         value.to_string()
     }

@@ -135,5 +135,5 @@ impl Default for DECOMPRESSOR_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
-pub type PFN_COMPRESS_FREE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;
+pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "C" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
+pub type PFN_COMPRESS_FREE = Option<unsafe extern "C" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;

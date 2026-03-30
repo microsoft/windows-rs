@@ -1,0 +1,58 @@
+#[winrt]
+mod Sample {
+    interface ICompareWithMidl {
+        fn Bool(&self, a: bool, b: [bool]) -> bool;
+        fn U8(&self, a: u8, b: [u8]) -> u8;
+        fn I16(&self, a: i16, b: [i16]) -> i16;
+        fn U16(&self, a: u16, b: [u16]) -> u16;
+        fn I32(&self, a: i32, b: [i32]) -> i32;
+        fn U32(&self, a: u32, b: [u32]) -> u32;
+        fn I64(&self, a: i64, b: [i64]) -> i64;
+        fn U64(&self, a: u64, b: [u64]) -> u64;
+        fn F32(&self, a: f32, b: [f32]) -> f32;
+        fn F64(&self, a: f64, b: [f64]) -> f64;
+        fn String(&self, a: String, b: [String]) -> String;
+        fn Object(&self, a: *mut Object, b: [*mut Object]) -> *mut Object;
+    }
+}
+#[winrt]
+mod Test {
+    interface IEmpty {}
+    #[Windows::Foundation::Metadata::Guid(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)]
+    delegate fn IExplicitDelegate();
+    #[Windows::Foundation::Metadata::Guid(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27)]
+    interface IExplicitInterface {}
+    delegate fn IHandler(arg: i32) -> u32;
+    interface ISimple {
+        fn get_Value(&self) -> i32;
+    }
+    interface ITypeExercise {
+        fn get_Bool(&self) -> bool;
+        fn get_I8(&self) -> i8;
+        fn get_U8(&self) -> u8;
+        fn get_I16(&self) -> i16;
+        fn get_U16(&self) -> u16;
+        fn get_I64(&self) -> i64;
+        fn get_U64(&self) -> u64;
+        fn get_F32(&self) -> f32;
+        fn get_F64(&self) -> f64;
+        fn get_ISize(&self) -> isize;
+        fn get_USize(&self) -> usize;
+        fn get_Obj(&self) -> Object;
+        fn read_const(&self, p: *const i32);
+        fn read_ref(&self, p: &i32);
+        fn write_ptr(&self, p: *mut *mut i32);
+    }
+    interface IWithParam {
+        fn Add(&self, a: i32, b: i32) -> i32;
+    }
+    interface IWithString {
+        fn get_Name(&self) -> String;
+    }
+}
+#[win32]
+mod Test {
+    interface IWin32 {}
+    #[Windows::Foundation::Metadata::Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
+    interface IWin32Explicit {}
+}

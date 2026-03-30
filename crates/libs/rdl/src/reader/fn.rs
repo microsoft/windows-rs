@@ -1,108 +1,121 @@
 use super::*;
 
-pub fn encode_fn(encoder: &mut Encoder, item: &syntax::Fn) -> Result<(), Error> {
-    let flags = metadata::MethodAttributes::Public
-        | metadata::MethodAttributes::HideBySig
-        | metadata::MethodAttributes::Static
-        | metadata::MethodAttributes::PInvokeImpl;
-
-    let mut params = vec![];
-
-    for arg in &item.sig.inputs {
-        match arg {
-            syn::FnArg::Receiver(receiver) => {
-                return encoder.err(receiver, "`unexpected `self` parameter");
-            }
-            syn::FnArg::Typed(pt) => {
-                params.push(param(encoder, pt)?);
-            }
-        }
-    }
-
-    let types = params.iter().map(|param| param.ty.clone()).collect();
-
-    let signature = metadata::Signature {
-        flags: Default::default(),
-        return_type: encode_return_type(encoder, &item.sig.output)?,
-        types,
-    };
-
-    let name = item.sig.ident.to_string();
-
-    let method_def = encoder
-        .output
-        .MethodDef(&name, &signature, flags, Default::default());
-
-    for (sequence, param) in params.iter().enumerate() {
-        encoder.output.Param(
-            &param.name,
-            (sequence + 1).try_into().unwrap(),
-            param.attributes,
-        );
-    }
-
-    let Some(attribute) = item
-        .attrs
-        .iter()
-        .find(|attribute| attribute.path().is_ident("link"))
-    else {
-        return encoder.err(&item.sig, "`link` attribute not found");
-    };
-
-    let Ok((library, abi)) = library(attribute) else {
-        return encoder.err(attribute, "`link` attribute missing name/abi arguments");
-    };
-
-    let mut flags = metadata::PInvokeAttributes::NoMangle;
-
-    match abi.as_str() {
-        "system" => flags |= metadata::PInvokeAttributes::CallConvPlatformapi,
-        "C" => flags |= metadata::PInvokeAttributes::CallConvCdecl,
-        _ => return encoder.err(attribute, "`link` abi not supported"),
-    }
-
-    encoder.output.ImplMap(method_def, flags, &name, &library);
-
-    Ok(())
+#[derive(Debug)]
+pub struct Fn {
+    pub attrs: Vec<syn::Attribute>,
+    pub abi: Option<syn::LitStr>, // "system" is default
+    pub sig: syn::Signature,
 }
 
-fn library(attr: &syn::Attribute) -> syn::Result<(String, String)> {
-    let pairs: syn::punctuated::Punctuated<syn::MetaNameValue, syn::Token![,]> =
-        attr.parse_args_with(syn::punctuated::Punctuated::parse_terminated)?;
+impl syn::parse::Parse for Fn {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
+        input.parse::<syn::Token![extern]>()?;
+        let abi = input.parse()?;
+        let sig = input.parse()?;
+        input.parse::<syn::Token![;]>()?;
 
-    let mut name = None;
-    let mut abi = None;
+        Ok(Self { attrs, abi, sig })
+    }
+}
 
-    for pair in pairs {
-        let key = pair
-            .path
-            .get_ident()
-            .ok_or_else(|| syn::Error::new(pair.path.span(), "expected identifier"))?;
+impl Encoder<'_> {
+    pub fn encode_fn(&mut self, item: &Fn) -> Result<(), Error> {
+        let flags = metadata::MethodAttributes::Public
+            | metadata::MethodAttributes::HideBySig
+            | metadata::MethodAttributes::Static
+            | metadata::MethodAttributes::PInvokeImpl;
 
-        let lit = match pair.value {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Str(s),
-                ..
-            }) => s,
-            _ => {
-                return Err(syn::Error::new(
-                    pair.value.span(),
-                    "expected string literal",
-                ))
-            }
+        let params = self.collect_params(&item.sig)?;
+
+        let types = params.iter().map(|param| param.ty.clone()).collect();
+
+        let mut call_flags = metadata::MethodCallAttributes::default();
+
+        if item.sig.variadic.is_some() {
+            call_flags |= metadata::MethodCallAttributes::VARARG;
+        }
+
+        let signature = metadata::Signature {
+            flags: call_flags,
+            return_type: self.encode_return_type(&item.sig.output)?,
+            types,
         };
 
-        if key == "name" {
-            name = Some(lit.value());
-        } else if key == "abi" {
-            abi = Some(lit.value());
-        } else {
-            return Err(syn::Error::new(key.span(), "unknown argument"));
+        let name = item.sig.ident.to_string();
+
+        let method_def = self
+            .output
+            .MethodDef(&name, &signature, flags, Default::default());
+
+        for (sequence, param) in params.iter().enumerate() {
+            let param_id = self.output.Param(
+                &param.name,
+                (sequence + 1).try_into().unwrap(),
+                param.attributes,
+            );
+
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &["r#in", "out", "opt"],
+            )?;
         }
+
+        let Some(attribute) = item
+            .attrs
+            .iter()
+            .find(|attribute| attribute.path().is_ident("library"))
+        else {
+            return self.err(&item.sig, "`library` attribute not found");
+        };
+
+        let (library, last_error) = attribute
+            .parse_args_with(
+                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, bool)> {
+                    let library: syn::LitStr = input.parse()?;
+                    let mut last_error = false;
+                    if input.peek(syn::Token![,]) {
+                        input.parse::<syn::Token![,]>()?;
+                        let ident: syn::Ident = input.parse()?;
+                        if ident != "last_error" {
+                            return Err(syn::Error::new(ident.span(), "unknown library option"));
+                        }
+                        input.parse::<syn::Token![=]>()?;
+                        let value: syn::LitBool = input.parse()?;
+                        last_error = value.value();
+                    }
+                    Ok((library, last_error))
+                },
+            )
+            .or_else(|_| self.err(attribute.span(), "`library` name missing"))?;
+
+        let mut flags = metadata::PInvokeAttributes::NoMangle;
+
+        if last_error {
+            flags |= metadata::PInvokeAttributes::SupportsLastError;
+        }
+
+        if let Some(abi) = &item.abi {
+            match abi.value().as_str() {
+                "system" => flags |= metadata::PInvokeAttributes::CallConvPlatformapi,
+                "C" => flags |= metadata::PInvokeAttributes::CallConvCdecl,
+                "fastcall" => flags |= metadata::PInvokeAttributes::CallConvFastcall,
+                _ => return self.err(abi, "function abi not supported"),
+            }
+        } else {
+            flags |= metadata::PInvokeAttributes::CallConvPlatformapi;
+        }
+
+        self.output
+            .ImplMap(method_def, flags, &name, library.value().as_str());
+
+        self.encode_attrs(
+            metadata::writer::HasAttribute::MethodDef(method_def),
+            &item.attrs,
+            &["library"],
+        )?;
+
+        Ok(())
     }
-
-    let name = name.ok_or_else(|| syn::Error::new(attr.span(), "missing name"))?;
-    let abi = abi.ok_or_else(|| syn::Error::new(attr.span(), "missing abi"))?;
-
-    Ok((name, abi))
 }

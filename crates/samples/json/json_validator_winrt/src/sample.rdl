@@ -1,0 +1,20 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    #[Activatable(IJsonValidatorFactory, 1)]
+    #[MarshalingBehavior(Agile)]
+    class JsonValidator {
+        IJsonValidator,
+    }
+
+    #[ExclusiveTo(JsonValidator)]
+    interface IJsonValidator {
+        fn Validate(&self, value: String) -> String;
+    }
+
+    #[ExclusiveTo(JsonValidator)]
+    interface IJsonValidatorFactory {
+        fn CreateInstance(&self, schema: String) -> JsonValidator;
+    }
+}

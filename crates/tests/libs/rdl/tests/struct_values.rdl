@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    struct Color {
+        R: u8,
+        G: u8,
+        B: u8,
+    }
+}

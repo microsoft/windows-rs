@@ -1,0 +1,17 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod test_reference {
+    #[ExclusiveTo(Reference)]
+    interface IReference {
+        fn Method(&self, stringable: IStringable) -> String;
+    }
+    
+    #[Activatable(1)]
+    #[MarshalingBehavior(Agile)]
+    class Reference {
+        IReference,
+        IStringable,
+    }
+}

@@ -19,7 +19,6 @@ impl PartialOrd for TypeName {
 
 impl TypeName {
     pub const Object: Self = Self("System", "Object");
-    pub const IsConst: Self = Self("System.Runtime.CompilerServices", "IsConst");
 
     pub const IAsyncAction: Self = Self("Windows.Foundation", "IAsyncAction");
     pub const IAsyncActionWithProgress: Self =
@@ -33,13 +32,6 @@ impl TypeName {
 
     pub const VARIANT: Self = Self("Windows.Win32.System.Variant", "VARIANT");
     pub const PROPVARIANT: Self = Self("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
-
-    pub fn parse(full_name: &'static str) -> Self {
-        let index = full_name
-            .rfind('.')
-            .expect("Expected full name separated with `.`");
-        Self(&full_name[0..index], &full_name[index + 1..])
-    }
 
     pub fn namespace(&self) -> &'static str {
         self.0

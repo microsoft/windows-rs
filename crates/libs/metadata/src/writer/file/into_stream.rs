@@ -171,12 +171,16 @@ impl File {
                 + size_of_stream_headers
                 + size_of_streams;
 
-            optional.SizeOfImage = round(size_of_image, optional.SectionAlignment as usize) as u32;
             section.Misc.VirtualSize = size_of_image as u32 - optional.FileAlignment;
 
             section.SizeOfRawData = round(
                 section.Misc.VirtualSize as usize,
                 optional.FileAlignment as usize,
+            ) as u32;
+
+            optional.SizeOfImage = round(
+                SECTION_ALIGNMENT as usize + section.SizeOfRawData as usize,
+                optional.SectionAlignment as usize,
             ) as u32;
 
             optional.DataDirectory[14] = IMAGE_DATA_DIRECTORY {
@@ -237,8 +241,17 @@ impl File {
             buffer.append(&mut guids);
             buffer.append(&mut blobs);
 
-            assert_eq!(clr.MetaData.Size as usize, buffer.len() - metadata_offset);
-            assert_eq!(size_of_image, buffer.len());
+            let unpadded_size = buffer.len();
+            buffer.resize(
+                optional.FileAlignment as usize + section.SizeOfRawData as usize,
+                0,
+            );
+
+            assert_eq!(clr.MetaData.Size as usize, unpadded_size - metadata_offset);
+            assert_eq!(
+                optional.FileAlignment as usize + section.SizeOfRawData as usize,
+                buffer.len()
+            );
 
             buffer
         }

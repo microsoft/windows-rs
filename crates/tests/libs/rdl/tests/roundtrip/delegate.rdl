@@ -1,0 +1,10 @@
+#[winrt]
+mod Test {
+    delegate fn Handler(arg: i32) -> u32;
+}
+#[win32]
+mod Test {
+    extern "C" fn CallbackC(arg: i64) -> u64;
+    extern "fastcall" fn CallbackFast(arg: i64) -> u64;
+    extern fn CallbackSystem(arg: i64) -> u64;
+}

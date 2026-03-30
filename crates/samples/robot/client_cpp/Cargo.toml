@@ -1,0 +1,16 @@
+[package]
+name = "robot_client_cpp"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+windows-result = { workspace = true }
+robot = { path = "../component" }
+
+[build-dependencies]
+cppwinrt = { workspace = true }
+cc = "1.0"
+
+[lints]
+workspace = true

@@ -220,7 +220,7 @@ pub const PIR_STATUS_TABLE_NONE: u32 = 3u32;
 pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
 pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
 pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
-pub type PQUERYHANDLER = Option<unsafe extern "system" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
+pub type PQUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1013,6 +1013,8 @@ pub const REGSTR_VAL_WRAPPER: windows_sys::core::PCWSTR = windows_sys::core::w!(
 pub const REGSTR_VAL_WRINTTHRESHOLD: windows_sys::core::PCWSTR = windows_sys::core::w!("WRIntThreshold");
 pub const REGSTR_VAL_WRKGRP_FORCEMAPPING: windows_sys::core::PCWSTR = windows_sys::core::w!("WrkgrpForceMapping");
 pub const REGSTR_VAL_WRKGRP_REQUIRED: windows_sys::core::PCWSTR = windows_sys::core::w!("WrkgrpRequired");
+pub const REG_ALLOW_TRANSPORT_FALLBACK: u32 = 2u32;
+pub const REG_ALLOW_UNSECURE_CONNECTION: u32 = 4u32;
 pub const REG_BINARY: REG_VALUE_TYPE = 3u32;
 pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = 1u32;
 pub type REG_CREATE_KEY_DISPOSITION = u32;

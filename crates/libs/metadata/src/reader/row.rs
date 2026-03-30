@@ -156,6 +156,12 @@ impl<'a, R: AsRow<'a>> Iterator for RowIterator<'a, R> {
     }
 }
 
+impl<'a, R: AsRow<'a>> ExactSizeIterator for RowIterator<'a, R> {
+    fn len(&self) -> usize {
+        self.rows.len()
+    }
+}
+
 pub trait HasAttributes<'a> {
     fn attributes(&self) -> RowIterator<'a, Attribute<'a>>;
     fn find_attribute(&self, name: &str) -> Option<Attribute<'a>>;
@@ -181,9 +187,17 @@ impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
         let mut arches = 0;
 
         if let Some(attribute) = self.find_attribute("SupportedArchitectureAttribute") {
-            if let Some((_, Value::I32(value))) = attribute.value().first() {
-                arches = *value;
-            }
+            arches = match attribute.value().first() {
+                Some((_, Value::I32(v))) => *v,
+                Some((_, Value::EnumValue(_, inner))) => {
+                    if let Value::I32(v) = inner.as_ref() {
+                        *v
+                    } else {
+                        0
+                    }
+                }
+                _ => 0,
+            };
         }
 
         arches

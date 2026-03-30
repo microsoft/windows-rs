@@ -80,7 +80,7 @@ windows_link::link!("user32.dll" "system" fn DrawCaption(hwnd : super::super::Fo
 windows_link::link!("user32.dll" "system" fn DrawEdge(hdc : HDC, qrc : *mut super::super::Foundation:: RECT, edge : DRAWEDGE_FLAGS, grfflags : DRAW_EDGE_FLAGS) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn DrawEscape(hdc : HDC, iescape : i32, cjin : i32, lpin : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("user32.dll" "system" fn DrawFocusRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn DrawFrameControl(param0 : HDC, param1 : *mut super::super::Foundation:: RECT, param2 : DFC_TYPE, param3 : DFCS_STATE) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn DrawFrameControl(hdc : HDC, lprc : *mut super::super::Foundation:: RECT, utype : u32, ustate : u32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DrawStateA(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DrawStateW(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DrawTextA(hdc : HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
@@ -693,9 +693,9 @@ pub const CDS_TEST: CDS_TYPE = 2u32;
 pub type CDS_TYPE = u32;
 pub const CDS_UPDATEREGISTRY: CDS_TYPE = 1u32;
 pub const CDS_VIDEOPARAMETERS: CDS_TYPE = 32u32;
-pub type CFP_ALLOCPROC = Option<unsafe extern "system" fn(param0: usize) -> *mut core::ffi::c_void>;
-pub type CFP_FREEPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
-pub type CFP_REALLOCPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: usize) -> *mut core::ffi::c_void>;
+pub type CFP_ALLOCPROC = Option<unsafe extern "C" fn(param0: usize) -> *mut core::ffi::c_void>;
+pub type CFP_FREEPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void)>;
+pub type CFP_REALLOCPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: usize) -> *mut core::ffi::c_void>;
 pub const CHARSET_DEFAULT: u32 = 1u32;
 pub const CHARSET_GLYPHIDX: u32 = 3u32;
 pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = 2u32;
@@ -1082,6 +1082,10 @@ impl Default for DIBSECTION {
 pub const DIB_PAL_COLORS: DIB_USAGE = 1u32;
 pub const DIB_RGB_COLORS: DIB_USAGE = 0u32;
 pub type DIB_USAGE = u32;
+pub type DISPLAYCONFIG_ADVANCED_COLOR_MODE = i32;
+pub const DISPLAYCONFIG_ADVANCED_COLOR_MODE_HDR: DISPLAYCONFIG_ADVANCED_COLOR_MODE = 2i32;
+pub const DISPLAYCONFIG_ADVANCED_COLOR_MODE_SDR: DISPLAYCONFIG_ADVANCED_COLOR_MODE = 0i32;
+pub const DISPLAYCONFIG_ADVANCED_COLOR_MODE_WCG: DISPLAYCONFIG_ADVANCED_COLOR_MODE = 1i32;
 pub type DISPLAYCONFIG_COLOR_ENCODING = i32;
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = 4i32;
 pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = 0i32;
@@ -1090,6 +1094,7 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = 1i32;
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
 pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
+pub const DISPLAYCONFIG_PATH_BOOST_REFRESH_RATE: u32 = 16u32;
 pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535u32;
 pub const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535u32;
 pub const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295u32;
@@ -3791,7 +3796,7 @@ pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = 2048u32;
 pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = 16u32;
 pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = 256u32;
 pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = 8u32;
-pub type READEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
+pub type READEMBEDPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
 pub type REDRAW_WINDOW_FLAGS = u32;
 pub const RELATIVE: u32 = 2u32;
 pub const RESTORE_CTM: u32 = 4100u32;
@@ -4190,7 +4195,7 @@ pub const WHITEONBLACK: STRETCH_BLT_MODE = 2i32;
 pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = 0i32;
 pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = 6i32;
 pub const WINDING: CREATE_POLYGON_RGN_MODE = 2i32;
-pub type WRITEEMBEDPROC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *const core::ffi::c_void, param2: u32) -> u32>;
+pub type WRITEEMBEDPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: *const core::ffi::c_void, param2: u32) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct XFORM {

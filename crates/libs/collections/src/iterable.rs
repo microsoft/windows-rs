@@ -72,6 +72,11 @@ where
     fn GetMany(&self, values: &mut [T::Default]) -> Result<u32> {
         let owner: &StockIterable<T> = &self.owner;
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
+
+        if current >= owner.values.len() {
+            return Ok(0);
+        }
+
         let actual = std::cmp::min(owner.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&owner.values[current..current + actual]);

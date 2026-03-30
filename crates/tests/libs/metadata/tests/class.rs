@@ -60,7 +60,7 @@ fn test() {
         TypeAttributes::Public | TypeAttributes::Sealed | TypeAttributes::WindowsRuntime,
     );
 
-    let interface_impl = file.InterfaceImpl(class_def, &Type::named("Namespace", "IName"));
+    let interface_impl = file.InterfaceImpl(class_def, &Type::class_named("Namespace", "IName"));
 
     let default_attribute = writer::MemberRefParent::TypeRef(
         file.TypeRef("Windows.Foundation.Metadata", "DefaultAttribute"),

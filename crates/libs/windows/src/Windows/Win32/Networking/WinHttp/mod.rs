@@ -152,6 +152,21 @@ where
     unsafe { WinHttpOpenRequest(hconnect as _, pwszverb.param().abi(), pwszobjectname.param().abi(), pwszversion.param().abi(), pwszreferrer.param().abi(), ppwszaccepttypes, dwflags) }
 }
 #[inline]
+pub unsafe fn WinHttpProtocolCompleteUpgrade(hrequest: *const core::ffi::c_void, dwcontext: Option<usize>) -> *mut core::ffi::c_void {
+    windows_core::link!("winhttp.dll" "system" fn WinHttpProtocolCompleteUpgrade(hrequest : *const core::ffi::c_void, dwcontext : usize) -> *mut core::ffi::c_void);
+    unsafe { WinHttpProtocolCompleteUpgrade(hrequest, dwcontext.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[inline]
+pub unsafe fn WinHttpProtocolReceive(protocolhandle: *const core::ffi::c_void, flags: u64, pvbuffer: *mut core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32) -> u32 {
+    windows_core::link!("winhttp.dll" "system" fn WinHttpProtocolReceive(protocolhandle : *const core::ffi::c_void, flags : u64, pvbuffer : *mut core::ffi::c_void, dwbufferlength : u32, pdwbytesread : *mut u32) -> u32);
+    unsafe { WinHttpProtocolReceive(protocolhandle, flags, pvbuffer as _, dwbufferlength, pdwbytesread as _) }
+}
+#[inline]
+pub unsafe fn WinHttpProtocolSend(protocolhandle: *const core::ffi::c_void, flags: u64, pvbuffer: Option<&[u8]>) -> u32 {
+    windows_core::link!("winhttp.dll" "system" fn WinHttpProtocolSend(protocolhandle : *const core::ffi::c_void, flags : u64, pvbuffer : *const core::ffi::c_void, dwbufferlength : u32) -> u32);
+    unsafe { WinHttpProtocolSend(protocolhandle, flags, core::mem::transmute(pvbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pvbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+}
+#[inline]
 pub unsafe fn WinHttpQueryAuthSchemes(hrequest: *mut core::ffi::c_void, lpdwsupportedschemes: *mut u32, lpdwfirstscheme: *mut u32, pdwauthtarget: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("winhttp.dll" "system" fn WinHttpQueryAuthSchemes(hrequest : *mut core::ffi::c_void, lpdwsupportedschemes : *mut u32, lpdwfirstscheme : *mut u32, pdwauthtarget : *mut u32) -> windows_core::BOOL);
     unsafe { WinHttpQueryAuthSchemes(hrequest as _, lpdwsupportedschemes as _, lpdwfirstscheme as _, pdwauthtarget as _).ok() }
@@ -338,6 +353,7 @@ pub const ERROR_WINHTTP_CLIENT_AUTH_CERT_NEEDED_PROXY: u32 = 12187u32;
 pub const ERROR_WINHTTP_CLIENT_CERT_NO_ACCESS_PRIVATE_KEY: u32 = 12186u32;
 pub const ERROR_WINHTTP_CLIENT_CERT_NO_PRIVATE_KEY: u32 = 12185u32;
 pub const ERROR_WINHTTP_CONNECTION_ERROR: u32 = 12030u32;
+pub const ERROR_WINHTTP_FAST_FORWARDING_NOT_SUPPORTED: u32 = 12193u32;
 pub const ERROR_WINHTTP_FEATURE_DISABLED: u32 = 12192u32;
 pub const ERROR_WINHTTP_GLOBAL_CALLBACK_FAILED: u32 = 12191u32;
 pub const ERROR_WINHTTP_HEADER_ALREADY_EXISTS: u32 = 12155u32;
@@ -440,6 +456,7 @@ pub const ICU_ENCODE_PERCENT: u32 = 4096u32;
 pub const ICU_ENCODE_SPACES_ONLY: u32 = 67108864u32;
 pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(2147483648u32);
 pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
+pub const ICU_INCLUDE_DEFAULT_PORT: u32 = 32768u32;
 pub const ICU_NO_ENCODE: u32 = 536870912u32;
 pub const ICU_NO_META: u32 = 134217728u32;
 pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(16384u32);
@@ -1140,7 +1157,7 @@ pub const WINHTTP_ENABLE_SPN_SERVER_PORT: u32 = 1u32;
 pub const WINHTTP_ENABLE_SSL_REVERT_IMPERSONATION: u32 = 2u32;
 pub const WINHTTP_ENABLE_SSL_REVOCATION: u32 = 1u32;
 pub const WINHTTP_ERROR_BASE: u32 = 12000u32;
-pub const WINHTTP_ERROR_LAST: u32 = 12192u32;
+pub const WINHTTP_ERROR_LAST: u32 = 12193u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINHTTP_EXTENDED_HEADER {
@@ -1181,23 +1198,53 @@ pub struct WINHTTP_FAILED_CONNECTION_RETRIES {
     pub dwMaxRetries: u32,
     pub dwAllowedRetryConditions: u32,
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_FAST_FORWARDING_STATE(pub i32);
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct WINHTTP_FAST_FORWARDING_STATUS {
+    pub TransferState: WINHTTP_FAST_FORWARDING_STATE,
+    pub NtStatus: i32,
+    pub dwError: u32,
+    pub ullBytesTransferred: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINHTTP_FAST_FORWARDING_STATUS {
+    pub TransferState: WINHTTP_FAST_FORWARDING_STATE,
+    pub NtStatus: i32,
+    pub dwError: u32,
+    pub ullBytesTransferred: u64,
+}
 pub const WINHTTP_FEATURE_ADD_REQUEST_HEADERS_EX: u32 = 46u32;
 pub const WINHTTP_FEATURE_BACKGROUND_CONNECTIONS: u32 = 34u32;
 pub const WINHTTP_FEATURE_CONNECTION_GUID: u32 = 38u32;
 pub const WINHTTP_FEATURE_CONNECTION_STATS_V0: u32 = 3u32;
 pub const WINHTTP_FEATURE_CONNECTION_STATS_V1: u32 = 12u32;
+pub const WINHTTP_FEATURE_CONNECTION_STATS_V2: u32 = 89u32;
+pub const WINHTTP_FEATURE_DISABLE_AIA_FLAG: u32 = 91u32;
 pub const WINHTTP_FEATURE_DISABLE_CERT_CHAIN_BUILDING: u32 = 33u32;
+pub const WINHTTP_FEATURE_DISABLE_GLOBAL_POOLING: u32 = 76u32;
 pub const WINHTTP_FEATURE_DISABLE_PROXY_AUTH_SCHEMES: u32 = 74u32;
 pub const WINHTTP_FEATURE_DISABLE_SECURE_PROTOCOL_FALLBACK: u32 = 6u32;
 pub const WINHTTP_FEATURE_DISABLE_STREAM_QUEUE: u32 = 1u32;
+pub const WINHTTP_FEATURE_DSCP_TAG: u32 = 92u32;
 pub const WINHTTP_FEATURE_ENABLE_HTTP2_PLUS_CLIENT_CERT: u32 = 23u32;
+pub const WINHTTP_FEATURE_ERROR_LOG_GUID: u32 = 83u32;
 pub const WINHTTP_FEATURE_EXPIRE_CONNECTION: u32 = 5u32;
 pub const WINHTTP_FEATURE_EXTENDED_HEADER_FLAG_UNICODE: u32 = 54u32;
 pub const WINHTTP_FEATURE_FAILED_CONNECTION_RETRIES: u32 = 24u32;
+pub const WINHTTP_FEATURE_FAST_FORWARD_RESPONSE: u32 = 90u32;
 pub const WINHTTP_FEATURE_FIRST_AVAILABLE_CONNECTION: u32 = 35u32;
 pub const WINHTTP_FEATURE_FLAG_AUTOMATIC_CHUNKING: u32 = 59u32;
 pub const WINHTTP_FEATURE_FLAG_SECURE_DEFAULTS: u32 = 53u32;
 pub const WINHTTP_FEATURE_FREE_QUERY_CONNECTION_GROUP_RESULT: u32 = 51u32;
+pub const WINHTTP_FEATURE_GET_PROXY_SETTINGS_EX: u32 = 77u32;
+pub const WINHTTP_FEATURE_GET_PROXY_SETTINGS_EX_XBOX: u32 = 95u32;
+pub const WINHTTP_FEATURE_HTTP11_DOWNGRADE_TTL: u32 = 93u32;
 pub const WINHTTP_FEATURE_HTTP2_KEEPALIVE: u32 = 26u32;
 pub const WINHTTP_FEATURE_HTTP2_PLUS_TRANSFER_ENCODING: u32 = 31u32;
 pub const WINHTTP_FEATURE_HTTP2_RECEIVE_WINDOW: u32 = 43u32;
@@ -1218,6 +1265,8 @@ pub const WINHTTP_FEATURE_QUERY_FLAG_TRAILERS: u32 = 55u32;
 pub const WINHTTP_FEATURE_QUERY_FLAG_WIRE_ENCODING: u32 = 56u32;
 pub const WINHTTP_FEATURE_QUERY_HEADERS_EX: u32 = 49u32;
 pub const WINHTTP_FEATURE_QUIC_STATS: u32 = 66u32;
+pub const WINHTTP_FEATURE_QUIC_STATS_V2: u32 = 79u32;
+pub const WINHTTP_FEATURE_QUIC_STREAM_STATS: u32 = 81u32;
 pub const WINHTTP_FEATURE_READ_DATA_EX: u32 = 48u32;
 pub const WINHTTP_FEATURE_READ_DATA_EX_FLAG_FILL_BUFFER: u32 = 63u32;
 pub const WINHTTP_FEATURE_REFERER_TOKEN_BINDING_HOSTNAME: u32 = 30u32;
@@ -1235,6 +1284,8 @@ pub const WINHTTP_FEATURE_REVERT_IMPERSONATION_SERVER_CERT: u32 = 75u32;
 pub const WINHTTP_FEATURE_SECURITY_FLAG_IGNORE_ALL_CERT_ERRORS: u32 = 52u32;
 pub const WINHTTP_FEATURE_SECURITY_INFO: u32 = 13u32;
 pub const WINHTTP_FEATURE_SERVER_CERT_CHAIN_CONTEXT: u32 = 9u32;
+pub const WINHTTP_FEATURE_SESSION_ERROR_LOG_GUID: u32 = 94u32;
+pub const WINHTTP_FEATURE_SESSION_SCH_CRED: u32 = 78u32;
 pub const WINHTTP_FEATURE_SET_PROXY_SETINGS_PER_USER: u32 = 47u32;
 pub const WINHTTP_FEATURE_SET_TOKEN_BINDING: u32 = 28u32;
 pub const WINHTTP_FEATURE_STREAM_ERROR_CODE: u32 = 21u32;
@@ -1244,6 +1295,9 @@ pub const WINHTTP_FEATURE_TCP_PRIORITY_STATUS: u32 = 37u32;
 pub const WINHTTP_FEATURE_TLS_FALSE_START: u32 = 16u32;
 pub const WINHTTP_FEATURE_TLS_PROTOCOL_INSECURE_FALLBACK: u32 = 20u32;
 pub const WINHTTP_FEATURE_TOKEN_BINDING_PUBLIC_KEY: u32 = 29u32;
+pub const WINHTTP_FEATURE_UPGRADE_TO_PROTOCOL: u32 = 88u32;
+pub const WINHTTP_FEATURE_URL_INCLUDE_DEFAULT_PORT: u32 = 80u32;
+pub const WINHTTP_FEATURE_USE_LOOKASIDE: u32 = 82u32;
 pub const WINHTTP_FLAG_ASYNC: u32 = 268435456u32;
 pub const WINHTTP_FLAG_AUTOMATIC_CHUNKING: u32 = 512u32;
 pub const WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
@@ -1261,6 +1315,7 @@ pub const WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_1: u32 = 512u32;
 pub const WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_2: u32 = 2048u32;
 pub const WINHTTP_FLAG_SECURE_PROTOCOL_TLS1_3: u32 = 8192u32;
 pub const WINHTTP_HANDLE_TYPE_CONNECT: u32 = 2u32;
+pub const WINHTTP_HANDLE_TYPE_PROTOCOL: u32 = 6u32;
 pub const WINHTTP_HANDLE_TYPE_PROXY_RESOLVER: u32 = 4u32;
 pub const WINHTTP_HANDLE_TYPE_REQUEST: u32 = 3u32;
 pub const WINHTTP_HANDLE_TYPE_SESSION: u32 = 1u32;
@@ -1302,7 +1357,7 @@ pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNE
 pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(1i32);
 pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(2i32);
 pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(4i32);
-pub const WINHTTP_LAST_OPTION: u32 = 196u32;
+pub const WINHTTP_LAST_OPTION: u32 = 212u32;
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Default)]
@@ -1368,6 +1423,7 @@ pub const WINHTTP_OPTION_CONNECTION_GUID: u32 = 178u32;
 pub const WINHTTP_OPTION_CONNECTION_INFO: u32 = 93u32;
 pub const WINHTTP_OPTION_CONNECTION_STATS_V0: u32 = 141u32;
 pub const WINHTTP_OPTION_CONNECTION_STATS_V1: u32 = 150u32;
+pub const WINHTTP_OPTION_CONNECTION_STATS_V2: u32 = 208u32;
 pub const WINHTTP_OPTION_CONNECT_RETRIES: u32 = 4u32;
 pub const WINHTTP_OPTION_CONNECT_TIMEOUT: u32 = 3u32;
 pub const WINHTTP_OPTION_CONTEXT_VALUE: u32 = 45u32;
@@ -1378,19 +1434,25 @@ pub const WINHTTP_OPTION_DISABLE_GLOBAL_POOLING: u32 = 195u32;
 pub const WINHTTP_OPTION_DISABLE_PROXY_AUTH_SCHEMES: u32 = 193u32;
 pub const WINHTTP_OPTION_DISABLE_SECURE_PROTOCOL_FALLBACK: u32 = 144u32;
 pub const WINHTTP_OPTION_DISABLE_STREAM_QUEUE: u32 = 139u32;
+pub const WINHTTP_OPTION_DSCP_TAG: u32 = 210u32;
 pub const WINHTTP_OPTION_ENABLETRACING: u32 = 85u32;
+pub const WINHTTP_OPTION_ENABLE_FAST_FORWARDING: u32 = 205u32;
 pub const WINHTTP_OPTION_ENABLE_FEATURE: u32 = 79u32;
 pub const WINHTTP_OPTION_ENABLE_HTTP2_PLUS_CLIENT_CERT: u32 = 161u32;
 pub const WINHTTP_OPTION_ENABLE_HTTP_PROTOCOL: u32 = 133u32;
 pub const WINHTTP_OPTION_ENCODE_EXTRA: u32 = 138u32;
+pub const WINHTTP_OPTION_ERROR_LOG_GUID: u32 = 204u32;
 pub const WINHTTP_OPTION_EXPIRE_CONNECTION: u32 = 143u32;
 pub const WINHTTP_OPTION_EXTENDED_ERROR: u32 = 24u32;
 pub const WINHTTP_OPTION_FAILED_CONNECTION_RETRIES: u32 = 162u32;
+pub const WINHTTP_OPTION_FAST_FORWARDING_RESPONSE_DATA: u32 = 206u32;
+pub const WINHTTP_OPTION_FAST_FORWARDING_RESPONSE_STATUS: u32 = 209u32;
 pub const WINHTTP_OPTION_FEATURE_SUPPORTED: u32 = 184u32;
 pub const WINHTTP_OPTION_FIRST_AVAILABLE_CONNECTION: u32 = 173u32;
 pub const WINHTTP_OPTION_GLOBAL_PROXY_CREDS: u32 = 97u32;
 pub const WINHTTP_OPTION_GLOBAL_SERVER_CREDS: u32 = 98u32;
 pub const WINHTTP_OPTION_HANDLE_TYPE: u32 = 9u32;
+pub const WINHTTP_OPTION_HTTP11_DOWNGRADE_TTL: u32 = 211u32;
 pub const WINHTTP_OPTION_HTTP2_KEEPALIVE: u32 = 164u32;
 pub const WINHTTP_OPTION_HTTP2_PLUS_TRANSFER_ENCODING: u32 = 169u32;
 pub const WINHTTP_OPTION_HTTP2_RECEIVE_WINDOW: u32 = 183u32;
@@ -1426,6 +1488,8 @@ pub const WINHTTP_OPTION_PROXY_RESULT_ENTRY: u32 = 39u32;
 pub const WINHTTP_OPTION_PROXY_SPN_USED: u32 = 107u32;
 pub const WINHTTP_OPTION_PROXY_USERNAME: u32 = 4098u32;
 pub const WINHTTP_OPTION_QUIC_STATS: u32 = 185u32;
+pub const WINHTTP_OPTION_QUIC_STATS_V2: u32 = 200u32;
+pub const WINHTTP_OPTION_QUIC_STREAM_STATS: u32 = 202u32;
 pub const WINHTTP_OPTION_READ_BUFFER_SIZE: u32 = 12u32;
 pub const WINHTTP_OPTION_RECEIVE_PROXY_CONNECT_RESPONSE: u32 = 103u32;
 pub const WINHTTP_OPTION_RECEIVE_RESPONSE_TIMEOUT: u32 = 7u32;
@@ -1455,9 +1519,12 @@ pub const WINHTTP_OPTION_SECURITY_INFO: u32 = 151u32;
 pub const WINHTTP_OPTION_SECURITY_KEY_BITNESS: u32 = 36u32;
 pub const WINHTTP_OPTION_SEND_TIMEOUT: u32 = 5u32;
 pub const WINHTTP_OPTION_SERVER_CBT: u32 = 108u32;
+pub const WINHTTP_OPTION_SERVER_CERT_CHAIN_BUILD_CACHE_ONLY: u32 = 199u32;
+pub const WINHTTP_OPTION_SERVER_CERT_CHAIN_BUILD_FLAGS: u32 = 148u32;
 pub const WINHTTP_OPTION_SERVER_CERT_CHAIN_CONTEXT: u32 = 147u32;
 pub const WINHTTP_OPTION_SERVER_CERT_CONTEXT: u32 = 78u32;
 pub const WINHTTP_OPTION_SERVER_SPN_USED: u32 = 106u32;
+pub const WINHTTP_OPTION_SESSION_ERROR_LOG_GUID: u32 = 212u32;
 pub const WINHTTP_OPTION_SET_TOKEN_BINDING: u32 = 166u32;
 pub const WINHTTP_OPTION_SPN: u32 = 96u32;
 pub const WINHTTP_OPTION_SPN_MASK: u32 = 1u32;
@@ -1471,11 +1538,13 @@ pub const WINHTTP_OPTION_TLS_PROTOCOL_INSECURE_FALLBACK: u32 = 158u32;
 pub const WINHTTP_OPTION_TOKEN_BINDING_PUBLIC_KEY: u32 = 167u32;
 pub const WINHTTP_OPTION_UNLOAD_NOTIFY_EVENT: u32 = 99u32;
 pub const WINHTTP_OPTION_UNSAFE_HEADER_PARSING: u32 = 110u32;
+pub const WINHTTP_OPTION_UPGRADE_TO_PROTOCOL: u32 = 207u32;
 pub const WINHTTP_OPTION_UPGRADE_TO_WEB_SOCKET: u32 = 114u32;
 pub const WINHTTP_OPTION_URL: u32 = 34u32;
 pub const WINHTTP_OPTION_USERNAME: u32 = 4096u32;
 pub const WINHTTP_OPTION_USER_AGENT: u32 = 41u32;
 pub const WINHTTP_OPTION_USE_GLOBAL_SERVER_CREDENTIALS: u32 = 101u32;
+pub const WINHTTP_OPTION_USE_LOOKASIDE: u32 = 203u32;
 pub const WINHTTP_OPTION_USE_SESSION_SCH_CRED: u32 = 196u32;
 pub const WINHTTP_OPTION_WEB_SOCKET_CLOSE_TIMEOUT: u32 = 115u32;
 pub const WINHTTP_OPTION_WEB_SOCKET_KEEPALIVE_INTERVAL: u32 = 116u32;
@@ -1483,8 +1552,19 @@ pub const WINHTTP_OPTION_WEB_SOCKET_RECEIVE_BUFFER_SIZE: u32 = 122u32;
 pub const WINHTTP_OPTION_WEB_SOCKET_SEND_BUFFER_SIZE: u32 = 123u32;
 pub const WINHTTP_OPTION_WORKER_THREAD_COUNT: u32 = 80u32;
 pub const WINHTTP_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINHTTP_PROTOCOL_ASYNC_RESULT {
+    pub AsyncResult: WINHTTP_ASYNC_RESULT,
+    pub Operation: WINHTTP_PROTOCOL_OPERATION,
+}
 pub const WINHTTP_PROTOCOL_FLAG_HTTP2: u32 = 1u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP3: u32 = 2u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINHTTP_PROTOCOL_OPERATION(pub i32);
+pub const WINHTTP_PROTOCOL_RECEIVE_OPERATION: WINHTTP_PROTOCOL_OPERATION = WINHTTP_PROTOCOL_OPERATION(1i32);
+pub const WINHTTP_PROTOCOL_SEND_OPERATION: WINHTTP_PROTOCOL_OPERATION = WINHTTP_PROTOCOL_OPERATION(0i32);
 pub type WINHTTP_PROXY_CHANGE_CALLBACK = Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const core::ffi::c_void)>;
 pub const WINHTTP_PROXY_DISABLE_AUTH_LOCAL_SERVICE: u32 = 256u32;
 pub const WINHTTP_PROXY_DISABLE_SCHEME_BASIC: u32 = 1u32;
@@ -1831,6 +1911,9 @@ pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
+pub const WINHTTP_SERVER_CERT_CHAIN_CACHE_ONLY_URL_RETRIEVAL: u32 = 4u32;
+pub const WINHTTP_SERVER_CERT_CHAIN_DISABLE_AIA: u32 = 8192u32;
+pub const WINHTTP_SERVER_CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY: u32 = 2147483648u32;
 pub type WINHTTP_STATUS_CALLBACK = Option<unsafe extern "system" fn(hinternet: *mut core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut core::ffi::c_void, dwstatusinformationlength: u32)>;
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
 pub const WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
@@ -1886,6 +1969,10 @@ pub const WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_RE
 pub const WinHttpConnectionAcquireWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(3i32);
 pub const WinHttpConnectionEstablishmentEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(8i32);
 pub const WinHttpConnectionEstablishmentStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(7i32);
+pub const WinHttpFastForwardingStateClientSideFailed: WINHTTP_FAST_FORWARDING_STATE = WINHTTP_FAST_FORWARDING_STATE(2i32);
+pub const WinHttpFastForwardingStateInProgress: WINHTTP_FAST_FORWARDING_STATE = WINHTTP_FAST_FORWARDING_STATE(0i32);
+pub const WinHttpFastForwardingStateServerSideFailed: WINHTTP_FAST_FORWARDING_STATE = WINHTTP_FAST_FORWARDING_STATE(3i32);
+pub const WinHttpFastForwardingStateSucceeded: WINHTTP_FAST_FORWARDING_STATE = WINHTTP_FAST_FORWARDING_STATE(1i32);
 pub const WinHttpNameResolutionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(6i32);
 pub const WinHttpNameResolutionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(5i32);
 pub const WinHttpProxyDetectionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(1i32);
@@ -1894,6 +1981,7 @@ pub const WinHttpProxyFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST
 pub const WinHttpProxySettingsTypeUnknown: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(0i32);
 pub const WinHttpProxySettingsTypeWsa: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(2i32);
 pub const WinHttpProxySettingsTypeWsl: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(1i32);
+pub const WinHttpProxySettingsTypeXBox: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(3i32);
 pub const WinHttpProxyTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(31i32);
 pub const WinHttpProxyTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(12i32);
 pub const WinHttpProxyTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(30i32);

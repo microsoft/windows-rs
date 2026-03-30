@@ -1,5 +1,12 @@
 windows_link::link!("kernel32.dll" "system" fn ProcessIdToSessionId(dwprocessid : u32, psessionid : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSActiveSessionExists(pbactivesessionexists : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE));
+windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthClose(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE));
+windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, assertion : windows_sys::core::PCSTR, assertionlength : u32, resourceid : windows_sys::core::PCWSTR, usercredential : *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthDuplicateSerializedUserCredential(usercredential : *const WTS_SERIALIZED_USER_CREDENTIAL, duplicatedusercredential : *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthGetServerNonce(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, servernonce : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthNetworkLogonWithSerializedCredential(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, usercredential : *const WTS_SERIALIZED_USER_CREDENTIAL, token : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthOpen(activityid : *const windows_sys::core::GUID) -> WTS_CLOUD_AUTH_HANDLE);
 windows_link::link!("wtsapi32.dll" "system" fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCSTR, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSConnectSessionW(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCWSTR, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> windows_sys::core::BOOL);
@@ -987,6 +994,7 @@ impl Default for WTSCONFIGINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const WTSCapabilityCheck: WTS_INFO_CLASS = 31i32;
 pub const WTSClientAddress: WTS_INFO_CLASS = 14i32;
 pub const WTSClientBuildNumber: WTS_INFO_CLASS = 9i32;
 pub const WTSClientDirectory: WTS_INFO_CLASS = 11i32;
@@ -1332,13 +1340,16 @@ pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
     pub dwSessionId: u32,
 }
+pub const WTSSessionActivityId: WTS_INFO_CLASS = 30i32;
 pub const WTSSessionAddressV4: WTS_INFO_CLASS = 28i32;
 pub const WTSSessionId: WTS_INFO_CLASS = 4i32;
 pub const WTSSessionInfo: WTS_INFO_CLASS = 24i32;
 pub const WTSSessionInfoEx: WTS_INFO_CLASS = 25i32;
 pub const WTSShadow: WTS_CONNECTSTATE_CLASS = 3i32;
+pub const WTSTypeCloudAuthServerNonce: WTS_TYPE_CLASS = 3i32;
 pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = 0i32;
 pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = 1i32;
+pub const WTSTypeSerializedUserCredential: WTS_TYPE_CLASS = 4i32;
 pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1541,6 +1552,7 @@ pub struct WTS_CLIENT_DISPLAY {
     pub ColorDepth: u32,
 }
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+pub type WTS_CLOUD_AUTH_HANDLE = *mut core::ffi::c_void;
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
 pub type WTS_CONFIG_CLASS = i32;
 pub type WTS_CONFIG_SOURCE = i32;
@@ -1840,6 +1852,17 @@ pub const WTS_SECURITY_RESET: WTS_SECURITY_FLAGS = 4u32;
 pub const WTS_SECURITY_SET_INFORMATION: WTS_SECURITY_FLAGS = 2u32;
 pub const WTS_SECURITY_USER_ACCESS: WTS_SECURITY_FLAGS = 329u32;
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = 8u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WTS_SERIALIZED_USER_CREDENTIAL {
+    pub SerializationLength: u32,
+    pub Serialization: *mut u8,
+}
+impl Default for WTS_SERIALIZED_USER_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WTS_SERVER_INFOA {

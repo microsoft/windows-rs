@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        tool: [bindgen, bindings, yml, license, standalone, workspace]
+        tool: [bindgen, bindings, yml, license, workspace]
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -34,7 +34,7 @@ jobs:
       - name: Install rustfmt
         run: rustup component add rustfmt
       - name: Run
-        run: cargo run -p tool_${{ matrix.tool }} --release
+        run: cargo run -p tool_${{ matrix.tool }}
       - name: Check
         shell: bash
         run: |

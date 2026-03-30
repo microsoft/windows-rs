@@ -2364,6 +2364,7 @@ pub const D3DSHADER_COMPARISON_SHIFT: u32 = 16u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_INSTRUCTION_OPCODE_TYPE(pub i32);
+pub const D3DSHADER_INSTRUCTION_PREDICATED: u32 = 268435456u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_MIN_PRECISION(pub i32);

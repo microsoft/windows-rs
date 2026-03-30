@@ -34,18 +34,14 @@ impl CppDelegate {
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        Cfg::new(&self.dependencies(), config).write(config, false)
+        write_simple_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let method = self.method();
-        let signature = method.method_signature(type_name.namespace(), &[]);
+        let signature = method.method_signature(type_name.namespace(), &[], config.reader);
 
         let mut params = quote! {};
 
@@ -57,19 +53,32 @@ impl CppDelegate {
         let arches = write_arches(self.def);
         let cfg = self.write_cfg(config);
 
+        let mut abi = None;
+
+        if let Some(attribute) = self.def.find_attribute("UnmanagedFunctionPointerAttribute") {
+            if let Some((_, Value::EnumValue(_, value))) = attribute.value().first() {
+                match &**value {
+                    Value::I32(1) => abi = Some("system"),
+                    Value::I32(2) => abi = Some("C"),
+                    Value::I32(5) => abi = Some("system"), // TODO: fastcall unsupported on non-x86 targets
+                    rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
+                }
+            }
+        }
+
         quote! {
             #arches
             #cfg
-            pub type #name = Option<unsafe extern "system" fn(#params) #return_sig>;
+            pub type #name = Option<unsafe extern #abi fn(#params) #return_sig>;
         }
     }
 }
 
 impl Dependencies for CppDelegate {
-    fn combine(&self, dependencies: &mut TypeMap) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         self.method()
-            .method_signature(self.def.namespace(), &[])
-            .combine(dependencies);
+            .method_signature(self.def.namespace(), &[], reader)
+            .combine(dependencies, reader);
     }
 }
 
@@ -82,7 +91,7 @@ fn write_param(config: &Config, param: &Param) -> TokenStream {
     }
 
     if param.is_input() {
-        if param.is_copyable() {
+        if param.is_copyable(config.reader) {
             return quote! { #name: #type_name, };
         } else {
             return quote! { #name: windows_core::Ref<#type_name>, };

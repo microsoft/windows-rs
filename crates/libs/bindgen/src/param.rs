@@ -28,7 +28,7 @@ impl Param {
             || self.def.has_attribute("ReservedAttribute")
     }
 
-    pub fn is_retval(&self) -> bool {
+    pub fn is_retval(&self, reader: &Reader) -> bool {
         if !self.ty.is_pointer() {
             return false;
         }
@@ -56,7 +56,7 @@ impl Param {
         }
 
         // If it's bigger than 128 bits, best to pass as a reference.
-        if self.ty.deref().size() > 16 {
+        if self.ty.deref().size(reader) > 16 {
             return false;
         }
 

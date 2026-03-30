@@ -1,0 +1,11 @@
+#[winrt]
+mod Test {
+    mod A {
+        mod AA {
+            struct AAS {
+                base: super::super::Base,
+                a: super::AS,
+            }
+        }
+    }
+}

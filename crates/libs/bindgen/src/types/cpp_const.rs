@@ -28,25 +28,29 @@ impl CppConst {
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        Cfg::new(&self.dependencies(), config).write(config, false)
+        write_simple_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if let windows_metadata::Type::ClassName(type_name)
+        | windows_metadata::Type::ValueName(type_name) = self.field.ty()
+        {
+            if type_name.namespace.is_empty() {
+                return quote! {};
+            }
+        }
+
         let name = to_ident(self.field.name());
 
         if let Some(guid) = self.field.guid_attribute() {
             return config.write_cpp_const_guid(name, &guid);
         }
 
-        let field_ty = self.field.field_type(None).to_const_type();
+        let field_ty = self.field.field_type(None, config.reader).to_const_type();
         let cfg = self.write_cfg(config);
 
         if let Some(constant) = self.field.constant() {
-            let constant_ty = constant.constant_type();
+            let constant_ty = constant.constant_type(config.reader);
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
@@ -75,12 +79,12 @@ impl CppConst {
                     }
                 }
             } else {
-                let underlying_ty = field_ty.underlying_type();
+                let underlying_ty = field_ty.underlying_type(config.reader);
                 let ty = field_ty.write_name(config);
                 let mut value = constant.value().write();
 
                 if underlying_ty == constant_ty {
-                    if is_signed_error(&field_ty) {
+                    if is_signed_error(&field_ty, config.reader) {
                         if let Value::I32(signed) = constant.value() {
                             value = format!("0x{signed:X}_u32 as _").into();
                         }
@@ -139,11 +143,19 @@ impl CppConst {
 }
 
 impl Dependencies for CppConst {
-    fn combine(&self, dependencies: &mut TypeMap) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        if let windows_metadata::Type::ClassName(type_name)
+        | windows_metadata::Type::ValueName(type_name) = self.field.ty()
+        {
+            if type_name.namespace.is_empty() {
+                return;
+            }
+        }
+
         self.field
-            .field_type(None)
+            .field_type(None, reader)
             .to_const_type()
-            .combine(dependencies);
+            .combine(dependencies, reader);
     }
 }
 
@@ -151,10 +163,10 @@ fn is_ansi_encoding(row: Field) -> bool {
     row.find_attribute("NativeEncodingAttribute").is_some_and(|attribute| matches!(attribute.value().first(), Some((_, Value::Utf8(encoding))) if encoding.as_str() == "ansi"))
 }
 
-fn is_signed_error(ty: &Type) -> bool {
+fn is_signed_error(ty: &Type, reader: &Reader) -> bool {
     match ty {
         Type::HRESULT => true,
-        Type::CppStruct(ty) => !ty.def.underlying_type().is_unsigned(),
+        Type::CppStruct(ty) => !ty.def.underlying_type_ext(reader).is_unsigned(),
         _ => false,
     }
 }

@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    interface IFoo {
+        fn regular_method(&self) -> i32;
+        #[special]
+        fn get_Value(&self) -> i32;
+        #[special]
+        fn put_Value(&self, value: i32);
+    }
+}

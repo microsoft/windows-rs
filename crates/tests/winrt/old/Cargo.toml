@@ -11,9 +11,6 @@ doctest = false
 [dependencies.windows-collections]
 workspace = true
 
-[dependencies.windows-numerics]
-workspace = true
-
 [dependencies.windows-future]
 workspace = true
 
@@ -21,23 +18,11 @@ workspace = true
 workspace = true
 features = [
     "std",
-    "AI_MachineLearning",
-    "ApplicationModel_Activation",
-    "ApplicationModel_Appointments",
-    "ApplicationModel_Email",
     "Data_Xml_Dom",
     "Devices_Enumeration",
-    "Devices_WiFiDirect",
     "Foundation_Collections",
-    "Storage_Streams",
-    "System",
-    "UI_Composition",
     "Win32_System_Com",
-    "Win32_System_WinRT",
 ]
-
-[dev-dependencies]
-helpers = { workspace = true }
 
 [lints]
 workspace = true

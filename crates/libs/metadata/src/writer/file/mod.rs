@@ -18,9 +18,11 @@ pub struct File {
     strings: Strings,
     blobs: Blobs,
     records: rec::Records,
+    reference: Option<crate::reader::TypeIndex>,
 
     // Indexes for fast lookup of preexisting rows.
     TypeRef: HashMap<String, HashMap<String, id::TypeRef>>,
+    TypeSpec: HashMap<id::BlobId, id::TypeSpec>,
     AssemblyRef: HashMap<String, id::AssemblyRef>,
     ModuleRef: HashMap<String, id::ModuleRef>,
     MemberRef: HashMap<rec::MemberRef, id::MemberRef>,
@@ -64,6 +66,17 @@ impl File {
         file
     }
 
+    /// Sets the reference `TypeIndex` used to resolve whether a `TypeRef` refers to a type
+    /// defined locally in this file or in an external assembly.
+    pub fn set_reference(&mut self, reference: crate::reader::TypeIndex) {
+        self.reference = Some(reference);
+    }
+
+    /// Returns the reference `TypeIndex`, if one has been set via [`Self::set_reference`].
+    pub fn reference(&self) -> Option<&crate::reader::TypeIndex> {
+        self.reference.as_ref()
+    }
+
     fn ModuleRef(&mut self, name: &str) -> id::ModuleRef {
         if let Some(pos) = self.ModuleRef.get(name) {
             return *pos;
@@ -94,19 +107,13 @@ impl File {
         })
     }
 
-    /// Adds an `AssemblyRef` row representing the given namespace to the file, returning the row offset.
-    fn AssemblyRef(&mut self, namespace: &str) -> id::AssemblyRef {
-        // This generates a synthetic `AssemblyRef` for every root namespace, but the alternative requires a
-        // lot more contextual information which we can hopefully avoid for now.
-        let namespace = namespace
-            .split_once('.')
-            .map_or(namespace, |(prefix, _)| prefix);
-
-        if let Some(pos) = self.AssemblyRef.get(namespace) {
+    /// Adds an `AssemblyRef` row for the given assembly name, returning the row offset.
+    fn AssemblyRef(&mut self, assembly_name: &str) -> id::AssemblyRef {
+        if let Some(pos) = self.AssemblyRef.get(assembly_name) {
             return *pos;
         }
 
-        let pos = id::AssemblyRef(if namespace == "System" {
+        let pos = id::AssemblyRef(if assembly_name == "System" {
             self.records.AssemblyRef.push_pos(rec::AssemblyRef {
                 Name: self.strings.insert("mscorlib"),
                 MajorVersion: 4,
@@ -117,7 +124,7 @@ impl File {
             })
         } else {
             self.records.AssemblyRef.push_pos(rec::AssemblyRef {
-                Name: self.strings.insert(namespace),
+                Name: self.strings.insert(assembly_name),
                 MajorVersion: 0xFF,
                 MinorVersion: 0xFF,
                 BuildNumber: 0xFF,
@@ -127,7 +134,7 @@ impl File {
             })
         });
 
-        self.AssemblyRef.insert(namespace.to_string(), pos);
+        self.AssemblyRef.insert(assembly_name.to_string(), pos);
         pos
     }
 
@@ -157,14 +164,34 @@ impl File {
             }
         }
 
-        // The type may be local to the module but that requires more contextual information.
-        let scope = ResolutionScope::AssemblyRef(self.AssemblyRef(namespace));
+        let pos = if let Some((parent, leaf)) = name.rsplit_once('/') {
+            let enclosing = self.TypeRef(namespace, parent);
+            id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
+                TypeName: self.strings.insert(leaf),
+                TypeNamespace: self.strings.insert(""),
+                ResolutionScope: ResolutionScope::TypeRef(enclosing),
+            }))
+        } else {
+            let assembly_name = self
+                .reference
+                .as_ref()
+                .and_then(|r| r.assembly_name(namespace, name))
+                .map(str::to_string);
 
-        let pos = id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
-            TypeName: self.strings.insert(name),
-            TypeNamespace: self.strings.insert(namespace),
-            ResolutionScope: scope,
-        }));
+            let scope = if let Some(assembly_name) = assembly_name {
+                ResolutionScope::AssemblyRef(self.AssemblyRef(&assembly_name))
+            } else if namespace == "System" {
+                ResolutionScope::AssemblyRef(self.AssemblyRef("System"))
+            } else {
+                ResolutionScope::Module(id::Module(0))
+            };
+
+            id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
+                TypeName: self.strings.insert(name),
+                TypeNamespace: self.strings.insert(namespace),
+                ResolutionScope: scope,
+            }))
+        };
 
         self.TypeRef
             .entry(namespace.to_string())
@@ -176,7 +203,7 @@ impl File {
 
     pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> id::TypeSpec {
         debug_assert!(!generics.is_empty());
-        // TODO: confirm this decoration is needed for InterfaceImpl
+        // Generic type references use the backtick-suffix convention per ECMA-335 §II.10.7.2.
         let name = format!("{name}`{}", generics.len());
         let type_ref = self.TypeRef(namespace, &name);
 
@@ -190,10 +217,17 @@ impl File {
             self.Type(ty, &mut buffer);
         }
 
-        // tODO: need to reuse here as well
-        id::TypeSpec(self.records.TypeSpec.push_pos(rec::TypeSpec {
-            Signature: self.blobs.insert(&buffer),
-        }))
+        let signature = self.blobs.insert(&buffer);
+
+        if let Some(pos) = self.TypeSpec.get(&signature) {
+            return *pos;
+        }
+
+        let pos = id::TypeSpec(self.records.TypeSpec.push_pos(rec::TypeSpec {
+            Signature: signature,
+        }));
+        self.TypeSpec.insert(signature, pos);
+        pos
     }
 
     /// Adds a `Field` row to the file, returning the row offset.
@@ -335,16 +369,18 @@ impl File {
     }
 
     pub fn InterfaceImpl(&mut self, class: id::TypeDef, interface: &Type) -> id::InterfaceImpl {
-        let Type::Name(interface) = interface else {
-            panic!("invalid interfae type");
+        let Type::ClassName(interface) = interface else {
+            panic!("invalid interface type");
         };
 
         let interface = if interface.generics.is_empty() {
             TypeDefOrRef::TypeRef(self.TypeRef(&interface.namespace, &interface.name))
         } else {
-            // TODO: confirm this decoration is needed for InterfaceImpl
-            let name = format!("{}`{}", interface.name, interface.generics.len());
-            TypeDefOrRef::TypeSpec(self.TypeSpec(&interface.namespace, &name, &interface.generics))
+            TypeDefOrRef::TypeSpec(self.TypeSpec(
+                &interface.namespace,
+                &interface.name,
+                &interface.generics,
+            ))
         };
 
         id::InterfaceImpl(self.records.InterfaceImpl.push_pos(rec::InterfaceImpl {
@@ -427,12 +463,23 @@ impl File {
                 buffer.write_compressed((*number).into());
             }
 
-            Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
-            Type::AttributeEnum => buffer.push(0x55),
+            Type::ClassName(ty) => {
+                self.TypeName(false, &ty.namespace, &ty.name, &ty.generics, buffer)
+            }
+            Type::ValueName(ty) => {
+                self.TypeName(true, &ty.namespace, &ty.name, &ty.generics, buffer)
+            }
         }
     }
 
-    fn TypeName(&mut self, namespace: &str, name: &str, generics: &[Type], buffer: &mut Vec<u8>) {
+    fn TypeName(
+        &mut self,
+        is_value_type: bool,
+        namespace: &str,
+        name: &str,
+        generics: &[Type],
+        buffer: &mut Vec<u8>,
+    ) {
         let pos = if !generics.is_empty() {
             buffer.push(ELEMENT_TYPE_GENERICINST);
             let name = format!("{name}`{}", generics.len());
@@ -441,9 +488,6 @@ impl File {
             self.TypeRef(namespace, name)
         };
 
-        // Technically this should be ELEMENT_TYPE_CLASS if the type is not a value type but that requires more contextual information.
-        // TODO: we could replace Type::Name with Type::Value and Type::Class to provide this context if needed.
-        let is_value_type = namespace == "System" && name == "Guid";
         buffer.push(if is_value_type {
             ELEMENT_TYPE_VALUETYPE
         } else {
@@ -505,11 +549,20 @@ impl File {
 
         for (name, value) in &values[count..] {
             buffer.push(0x53); // field=0x53 property=0x54
-            buffer.push(value.ty().code());
 
-            if let Value::AttributeEnum(type_name, _) = value {
-                buffer.write_compressed(type_name.len());
-                buffer.extend_from_slice(type_name.as_bytes());
+            if let Value::EnumValue(tn, _) = value {
+                // SERIALIZATION_TYPE_ENUM (ECMA-335 §II.23.1.16): 0x55 followed by
+                // a SerString of the fully-qualified enum type name.
+                buffer.push(0x55);
+                let enum_name = if tn.namespace.is_empty() {
+                    tn.name.clone()
+                } else {
+                    format!("{}.{}", tn.namespace, tn.name)
+                };
+                buffer.write_compressed(enum_name.len());
+                buffer.extend_from_slice(enum_name.as_bytes());
+            } else {
+                buffer.push(value.ty().code());
             }
 
             buffer.write_compressed(name.len());

@@ -1,88 +1,121 @@
+use super::guid;
 use super::*;
 
-pub fn encode_delegate(encoder: &mut Encoder, item: &syntax::Delegate) -> Result<(), Error> {
-    let extends = encoder.output.TypeRef("System", "MulticastDelegate");
+syn::custom_keyword!(delegate);
 
-    let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
+#[derive(Debug)]
+pub struct Delegate {
+    pub attrs: Vec<syn::Attribute>,
+    pub sig: syn::Signature,
+}
 
-    if item.winrt {
-        flags |= metadata::TypeAttributes::WindowsRuntime;
+impl syn::parse::Parse for Delegate {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
+        input.parse::<delegate>()?;
+        let sig = input.parse()?;
+        input.parse::<syn::Token![;]>()?;
+
+        Ok(Self { attrs, sig })
     }
+}
 
-    encoder.generics = item
-        .sig
-        .generics
-        .params
-        .iter()
-        .map(|generic| {
-            let syn::GenericParam::Type(generic) = generic else {
-                todo!("syntax parsing should not allow anything else");
-            };
+impl Encoder<'_> {
+    pub fn encode_delegate(&mut self, item: &Delegate) -> Result<(), Error> {
+        let extends = self.output.TypeRef("System", "MulticastDelegate");
 
-            generic.ident.to_string()
-        })
-        .collect();
+        let flags = metadata::TypeAttributes::Public
+            | metadata::TypeAttributes::Sealed
+            | metadata::TypeAttributes::WindowsRuntime;
 
-    let mut name = encoder.name.to_string();
+        self.generics = item
+            .sig
+            .generics
+            .params
+            .iter()
+            .map(|generic| {
+                if let syn::GenericParam::Type(ty) = generic {
+                    Ok(ty.ident.to_string())
+                } else {
+                    Err(self.error(generic, "only type generic parameters are supported"))
+                }
+            })
+            .collect::<Result<Vec<_>, Error>>()?;
 
-    if !encoder.generics.is_empty() {
-        name = format!("{name}`{}", encoder.generics.len());
-    }
+        let mut name = self.name.to_string();
 
-    let delegate = encoder.output.TypeDef(
-        encoder.namespace,
-        &name,
-        metadata::writer::TypeDefOrRef::TypeRef(extends),
-        flags,
-    );
-
-    for (number, name) in encoder.generics.iter().enumerate() {
-        encoder.output.GenericParam(
-            name,
-            metadata::writer::TypeOrMethodDef::TypeDef(delegate),
-            number.try_into().unwrap(),
-            metadata::GenericParamAttributes::None,
-        );
-    }
-
-    let flags = metadata::MethodAttributes::Public
-        | metadata::MethodAttributes::HideBySig
-        | metadata::MethodAttributes::Abstract
-        | metadata::MethodAttributes::NewSlot
-        | metadata::MethodAttributes::Virtual;
-
-    let mut params = vec![];
-
-    for arg in &item.sig.inputs {
-        match arg {
-            syn::FnArg::Receiver(receiver) => {
-                return encoder.err(receiver, "`unexpected `self` parameter");
-            }
-            syn::FnArg::Typed(pt) => {
-                params.push(param(encoder, pt)?);
-            }
+        if !self.generics.is_empty() {
+            name = format!("{name}`{}", self.generics.len());
         }
-    }
 
-    let types = params.iter().map(|param| param.ty.clone()).collect();
-
-    let signature = metadata::Signature {
-        flags: Default::default(),
-        return_type: encode_return_type(encoder, &item.sig.output)?,
-        types,
-    };
-
-    encoder
-        .output
-        .MethodDef("Invoke", &signature, flags, Default::default());
-
-    for (sequence, param) in params.iter().enumerate() {
-        encoder.output.Param(
-            &param.name,
-            (sequence + 1).try_into().unwrap(),
-            param.attributes,
+        let delegate = self.output.TypeDef(
+            self.namespace,
+            &name,
+            metadata::writer::TypeDefOrRef::TypeRef(extends),
+            flags,
         );
-    }
 
-    Ok(())
+        let already_has_guid = item.attrs.iter().any(|attr| self.is_guid_attribute(attr));
+
+        self.encode_attrs(
+            metadata::writer::HasAttribute::TypeDef(delegate),
+            &item.attrs,
+            &[],
+        )?;
+
+        for (number, name) in self.generics.iter().enumerate() {
+            self.output.GenericParam(
+                name,
+                metadata::writer::TypeOrMethodDef::TypeDef(delegate),
+                number.try_into().unwrap(),
+                metadata::GenericParamAttributes::None,
+            );
+        }
+
+        let flags = metadata::MethodAttributes::Public
+            | metadata::MethodAttributes::HideBySig
+            | metadata::MethodAttributes::Abstract
+            | metadata::MethodAttributes::NewSlot
+            | metadata::MethodAttributes::Virtual;
+
+        let params = self.collect_params(&item.sig)?;
+
+        let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
+        let return_type = self.encode_return_type(&item.sig.output)?;
+
+        if !already_has_guid {
+            guid::derive_and_emit_guid(
+                self.output,
+                metadata::writer::HasAttribute::TypeDef(delegate),
+                self.namespace,
+                self.name,
+                &[("Invoke", types.as_slice(), &return_type)],
+            );
+        }
+
+        let signature = metadata::Signature {
+            flags: Default::default(),
+            return_type,
+            types,
+        };
+
+        self.output
+            .MethodDef("Invoke", &signature, flags, Default::default());
+
+        for (sequence, param) in params.iter().enumerate() {
+            let param_id = self.output.Param(
+                &param.name,
+                (sequence + 1).try_into().unwrap(),
+                param.attributes,
+            );
+
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &["r#in", "out", "opt"],
+            )?;
+        }
+
+        Ok(())
+    }
 }

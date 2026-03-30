@@ -1,26 +1,47 @@
 use super::*;
 
-pub fn encode_union(encoder: &mut Encoder, item: &syntax::Union) -> Result<(), Error> {
-    let value_type = encoder.output.TypeRef("System", "ValueType");
+#[derive(Debug, Clone)]
+pub struct Union {
+    pub attrs: Vec<syn::Attribute>,
+    pub name: syn::Ident,
+    pub fields: Vec<Field>,
+}
 
-    encoder.output.TypeDef(
-        encoder.namespace,
-        encoder.name,
-        metadata::writer::TypeDefOrRef::TypeRef(value_type),
-        metadata::TypeAttributes::Public
-            | metadata::TypeAttributes::ExplicitLayout
-            | metadata::TypeAttributes::Sealed,
-    );
+impl syn::parse::Parse for Union {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
+        let _: syn::Token![union] = input.parse()?;
+        let name = input.parse()?;
 
-    for field in &item.fields {
-        let name = field.ident.as_ref().unwrap().to_string();
-        let ty = encode_type(encoder, &field.ty)?;
-        let field_id = encoder
-            .output
-            .Field(&name, &ty, metadata::FieldAttributes::Public);
+        let content;
+        syn::braced!(content in input);
 
-        encoder.output.FieldLayout(field_id, 0);
+        let fields = content
+            .parse_terminated(Field::parse, syn::Token![,])?
+            .into_iter()
+            .collect();
+
+        Ok(Self {
+            attrs,
+            name,
+            fields,
+        })
     }
+}
 
-    Ok(())
+impl Encoder<'_> {
+    pub fn encode_union(&mut self, item: &Union) -> Result<(), Error> {
+        let type_def =
+            self.encode_struct_or_union(&item.name.to_string(), false, true, &item.fields)?;
+
+        if let Some(packing_size) = self.read_packed(&item.attrs)? {
+            self.output.ClassLayout(type_def, packing_size, 0);
+        }
+
+        self.encode_attrs(
+            metadata::writer::HasAttribute::TypeDef(type_def),
+            &item.attrs,
+            &["packed"],
+        )
+    }
 }

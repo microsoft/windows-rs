@@ -14,7 +14,7 @@ windows_link::link!("winspool.drv" "system" fn AddPrintProcessorA(pname : window
 windows_link::link!("winspool.drv" "system" fn AddPrintProcessorW(pname : windows_sys::core::PCWSTR, penvironment : windows_sys::core::PCWSTR, ppathname : windows_sys::core::PCWSTR, pprintprocessorname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrintProvidorA(pname : windows_sys::core::PCSTR, level : u32, pprovidorinfo : *const u8) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrintProvidorW(pname : windows_sys::core::PCWSTR, level : u32, pprovidorinfo : *const u8) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrinterA(pname : windows_sys::core::PCSTR, level : u32, pprinter : *const u8) -> super::super::Foundation:: HANDLE);
+windows_link::link!("winspool.drv" "system" fn AddPrinterA(pname : windows_sys::core::PCSTR, level : u32, pprinter : *const u8) -> PRINTER_HANDLE);
 windows_link::link!("winspool.drv" "system" fn AddPrinterConnection2A(hwnd : super::super::Foundation:: HWND, pszname : windows_sys::core::PCSTR, dwlevel : u32, pconnectioninfo : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrinterConnection2W(hwnd : super::super::Foundation:: HWND, pszname : windows_sys::core::PCWSTR, dwlevel : u32, pconnectioninfo : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrinterConnectionA(pname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
@@ -23,7 +23,7 @@ windows_link::link!("winspool.drv" "system" fn AddPrinterDriverA(pname : windows
 windows_link::link!("winspool.drv" "system" fn AddPrinterDriverExA(pname : windows_sys::core::PCSTR, level : u32, lpbdriverinfo : *const u8, dwfilecopyflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrinterDriverExW(pname : windows_sys::core::PCWSTR, level : u32, lpbdriverinfo : *const u8, dwfilecopyflags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn AddPrinterDriverW(pname : windows_sys::core::PCWSTR, level : u32, pdriverinfo : *const u8) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn AddPrinterW(pname : windows_sys::core::PCWSTR, level : u32, pprinter : *const u8) -> super::super::Foundation:: HANDLE);
+windows_link::link!("winspool.drv" "system" fn AddPrinterW(pname : windows_sys::core::PCWSTR, level : u32, pprinter : *const u8) -> PRINTER_HANDLE);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesA(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE, pdevicename : windows_sys::core::PCSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEA, pdevmodeinput : *const super::Gdi:: DEVMODEA) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -105,9 +105,9 @@ windows_link::link!("winspool.drv" "system" fn EnumPrintersA(flags : u32, name :
 windows_link::link!("winspool.drv" "system" fn EnumPrintersW(flags : u32, name : windows_sys::core::PCWSTR, level : u32, pprinterenum : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("winspool.drv" "system" fn ExtDeviceMode(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HANDLE, pdevmodeoutput : *mut super::Gdi:: DEVMODEA, pdevicename : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, pdevmodeinput : *const super::Gdi:: DEVMODEA, pprofile : windows_sys::core::PCSTR, fmode : u32) -> i32);
-windows_link::link!("winspool.drv" "system" fn FindClosePrinterChangeNotification(hchange : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("winspool.drv" "system" fn FindFirstPrinterChangeNotification(hprinter : PRINTER_HANDLE, fdwfilter : u32, fdwoptions : u32, pprinternotifyoptions : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-windows_link::link!("winspool.drv" "system" fn FindNextPrinterChangeNotification(hchange : super::super::Foundation:: HANDLE, pdwchange : *mut u32, pvreserved : *const core::ffi::c_void, ppprinternotifyinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn FindClosePrinterChangeNotification(hchange : FINDPRINTERCHANGENOTIFICATION_HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("winspool.drv" "system" fn FindFirstPrinterChangeNotification(hprinter : PRINTER_HANDLE, fdwfilter : u32, fdwoptions : u32, pprinternotifyoptions : *const core::ffi::c_void) -> FINDPRINTERCHANGENOTIFICATION_HANDLE);
+windows_link::link!("winspool.drv" "system" fn FindNextPrinterChangeNotification(hchange : FINDPRINTERCHANGENOTIFICATION_HANDLE, pdwchange : *mut u32, pvreserved : *const core::ffi::c_void, ppprinternotifyinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn FlushPrinter(hprinter : PRINTER_HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32, csleep : u32) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn FreePrintNamedPropertyArray(cproperties : u32, ppproperties : *mut *mut PrintNamedProperty));
 windows_link::link!("winspool.drv" "system" fn FreePrintPropertyValue(pvalue : *mut PrintPropertyValue));
@@ -199,9 +199,12 @@ windows_link::link!("spoolss.dll" "system" fn RevertToPrinterSelf() -> super::su
 windows_link::link!("spoolss.dll" "system" fn RouterAllocBidiMem(numbytes : usize) -> *mut core::ffi::c_void);
 windows_link::link!("spoolss.dll" "system" fn RouterAllocBidiResponseContainer(count : u32) -> *mut BIDI_RESPONSE_CONTAINER);
 windows_link::link!("spoolss.dll" "system" fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata : u32) -> *mut PRINTER_NOTIFY_INFO);
+windows_link::link!("spoolss.dll" "system" fn RouterCreatePrintAsyncNotificationChannel(pname : windows_sys::core::PCWSTR, pnotificationtype : *const windows_sys::core::GUID, enotifyfilter : PrintAsyncNotifyUserFilter, econversationstyle : PrintAsyncNotifyConversationStyle, pcallback : * mut core::ffi::c_void, ppiasynchnotification : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("spoolss.dll" "system" fn RouterFreeBidiMem(pmempointer : *const core::ffi::c_void));
 windows_link::link!("winspool.drv" "system" fn RouterFreeBidiResponseContainer(pdata : *const BIDI_RESPONSE_CONTAINER) -> u32);
 windows_link::link!("spoolss.dll" "system" fn RouterFreePrinterNotifyInfo(pinfo : *const PRINTER_NOTIFY_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("spoolss.dll" "system" fn RouterGetPrintClassObject(pprinter : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("spoolss.dll" "system" fn RouterUnregisterForPrintAsyncNotifications(hnotify : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("winspool.drv" "system" fn ScheduleJob(hprinter : PRINTER_HANDLE, jobid : u32) -> windows_sys::core::BOOL);
 windows_link::link!("compstui.dll" "system" fn SetCPSUIUserData(hdlg : super::super::Foundation:: HWND, cpsuiuserdata : usize) -> windows_sys::core::BOOL);
 windows_link::link!("winspool.drv" "system" fn SetDefaultPrinterA(pszprinter : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
@@ -1250,6 +1253,9 @@ impl Default for DOC_INFO_INTERNAL {
     }
 }
 pub const DOC_INFO_INTERNAL_LEVEL: u32 = 100u32;
+pub const DONT_SEND_EXTRA_PAGES_FOR_DUPLEX: u32 = 2u32;
+pub const DOWN_THEN_LEFT: u32 = 8u32;
+pub const DOWN_THEN_RIGHT: u32 = 2u32;
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
 pub const DPD_DELETE_SPECIFIC_VERSION: u32 = 2u32;
 pub const DPD_DELETE_UNUSED_FILES: u32 = 1u32;
@@ -1775,6 +1781,7 @@ pub type EXpsJobConsumption = i32;
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub const FG_CANCHANGE: u32 = 128u32;
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
+pub type FINDPRINTERCHANGENOTIFICATION_HANDLE = *mut core::ffi::c_void;
 pub const FMTID_PrinterPropertyBag: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x75f9adca_097d_45c3_a6e4_bab29e276f3e);
 pub const FNT_INFO_CURRENTFONTID: u32 = 10u32;
 pub const FNT_INFO_FONTBOLD: u32 = 6u32;
@@ -2215,6 +2222,7 @@ pub const IOCTL_USBPRINT_CYCLE_PORT: u32 = 2228320u32;
 pub const IOCTL_USBPRINT_GET_1284_ID: u32 = 2228276u32;
 pub const IOCTL_USBPRINT_GET_INTERFACE_TYPE: u32 = 2228300u32;
 pub const IOCTL_USBPRINT_GET_LPT_STATUS: u32 = 2228272u32;
+pub const IOCTL_USBPRINT_GET_MFG_MDL_ID: u32 = 2228324u32;
 pub const IOCTL_USBPRINT_GET_PROTOCOL: u32 = 2228292u32;
 pub const IOCTL_USBPRINT_SET_DEVICE_ID: u32 = 2228312u32;
 pub const IOCTL_USBPRINT_SET_PORT_NUMBER: u32 = 2228304u32;
@@ -2250,6 +2258,7 @@ pub const JOB_CONTROL_CANCEL: u32 = 3u32;
 pub const JOB_CONTROL_DELETE: u32 = 5u32;
 pub const JOB_CONTROL_LAST_PAGE_EJECTED: u32 = 7u32;
 pub const JOB_CONTROL_PAUSE: u32 = 1u32;
+pub const JOB_CONTROL_PENDING_ON_DEVICE: u32 = 11u32;
 pub const JOB_CONTROL_RELEASE: u32 = 9u32;
 pub const JOB_CONTROL_RESTART: u32 = 4u32;
 pub const JOB_CONTROL_RESUME: u32 = 2u32;
@@ -2501,6 +2510,7 @@ impl Default for KERNDATA {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const LEFT_THEN_DOWN: u32 = 4u32;
 pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = 23i32;
 pub const LPR: u32 = 2u32;
 #[repr(C)]
@@ -3138,7 +3148,10 @@ pub const OTS_MASK: u32 = 255u32;
 pub const OTS_PUSH_ENABLE_ALWAYS: u32 = 128u32;
 pub const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32u32;
 pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
+pub const PDEV_ADJUST_GRAPHICS_RESOLUTION_TYPE: u32 = 4u32;
+pub const PDEV_ADJUST_IMAGEABLE_ORIGIN_AREA_TYPE: u32 = 8u32;
 pub const PDEV_ADJUST_PAPER_MARGIN_TYPE: u32 = 1u32;
+pub const PDEV_ADJUST_PHYSICAL_PAPER_SIZE_TYPE: u32 = 16u32;
 pub const PDEV_HOSTFONT_ENABLED_TYPE: u32 = 2u32;
 pub const PDEV_USE_TRUE_COLOR_TYPE: u32 = 3u32;
 pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::super::Foundation::HANDLE, function: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> isize>;
@@ -3341,6 +3354,10 @@ pub const PORT_TYPE_REDIRECTED: u32 = 4u32;
 pub const PORT_TYPE_WRITE: u32 = 1u32;
 pub const PPCAPS_BOOKLET_EDGE: u32 = 1u32;
 pub const PPCAPS_BORDER_PRINT: u32 = 1u32;
+pub const PPCAPS_DONT_SEND_EXTRA_PAGES_FOR_DUPLEX: u32 = 2u32;
+pub const PPCAPS_DOWN_THEN_LEFT: u32 = 8u32;
+pub const PPCAPS_DOWN_THEN_RIGHT: u32 = 2u32;
+pub const PPCAPS_LEFT_THEN_DOWN: u32 = 4u32;
 pub const PPCAPS_REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
 pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1u32;
 pub const PPCAPS_SQUARE_SCALING: u32 = 1u32;
@@ -4634,6 +4651,7 @@ pub const SPLDS_PRINT_COLLATE: windows_sys::core::PCWSTR = windows_sys::core::w!
 pub const SPLDS_PRINT_COLOR: windows_sys::core::PCWSTR = windows_sys::core::w!("printColor");
 pub const SPLDS_PRINT_DUPLEX_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("printDuplexSupported");
 pub const SPLDS_PRINT_END_TIME: windows_sys::core::PCWSTR = windows_sys::core::w!("printEndTime");
+pub const SPLDS_PRINT_IPP_COMPRESSION_SUPPORTED: windows_sys::core::PCWSTR = windows_sys::core::w!("ippCompressionSupported");
 pub const SPLDS_PRINT_KEEP_PRINTED_JOBS: windows_sys::core::PCWSTR = windows_sys::core::w!("printKeepPrintedJobs");
 pub const SPLDS_PRINT_LANGUAGE: windows_sys::core::PCWSTR = windows_sys::core::w!("printLanguage");
 pub const SPLDS_PRINT_MAC_ADDRESS: windows_sys::core::PCWSTR = windows_sys::core::w!("printMACAddress");
@@ -4895,6 +4913,8 @@ pub const USBPRINT_IOCTL_INDEX: u32 = 0u32;
 pub const USB_PRINTER_INTERFACE_CLASSIC: u32 = 1u32;
 pub const USB_PRINTER_INTERFACE_DUAL: u32 = 3u32;
 pub const USB_PRINTER_INTERFACE_IPP: u32 = 2u32;
+pub const USB_PRINT_IPP_COMPAT_ID: u32 = 1u32;
+pub const USB_PRINT_IPP_FAXOUT: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USERDATA {
@@ -4939,6 +4959,7 @@ pub type XPSRAS_RENDERING_MODE = i32;
 pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1i32;
 pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0i32;
 pub const XPS_FP_DRIVER_PROPERTY_BAG: windows_sys::core::PCWSTR = windows_sys::core::w!("DriverPropertyBag");
+pub const XPS_FP_FAX_JOB_PROPERTIES: windows_sys::core::PCWSTR = windows_sys::core::w!("JobFaxProperties");
 pub const XPS_FP_JOB_ID: windows_sys::core::PCWSTR = windows_sys::core::w!("PrintJobId");
 pub const XPS_FP_JOB_LEVEL_PRINTTICKET: windows_sys::core::PCWSTR = windows_sys::core::w!("JobPrintTicket");
 pub const XPS_FP_MERGED_DATAFILE_PATH: windows_sys::core::PCWSTR = windows_sys::core::w!("MergedDataFilePath");

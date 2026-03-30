@@ -1,39 +1,22 @@
 use super::*;
 
-mod bindings;
 mod reader;
-pub use bindings::*;
 pub use reader::*;
 
 // Type aliases using 'static lifetime.
-// Safety: the TypeIndex backing these types is heap-allocated (via Box::into_raw in Reader::new),
-// never moved, and lives as long as the Reader, which is guaranteed to outlive all uses.
+// Safety: the TypeIndex is leaked in Reader::new (Box::leak), so TypeDef<'static>, etc.
+// truly live forever.
 pub type TypeDef = windows_metadata::reader::TypeDef<'static>;
 pub type Field = windows_metadata::reader::Field<'static>;
 pub type MethodDef = windows_metadata::reader::MethodDef<'static>;
 pub type MethodParam = windows_metadata::reader::MethodParam<'static>;
-pub type Attribute = windows_metadata::reader::Attribute<'static>;
 pub type GenericParam = windows_metadata::reader::GenericParam<'static>;
 pub type InterfaceImpl = windows_metadata::reader::InterfaceImpl<'static>;
-pub type ClassLayout = windows_metadata::reader::ClassLayout<'static>;
 pub type Constant = windows_metadata::reader::Constant<'static>;
-pub type ImplMap = windows_metadata::reader::ImplMap<'static>;
-pub type MemberRef = windows_metadata::reader::MemberRef<'static>;
-pub type ModuleRef = windows_metadata::reader::ModuleRef<'static>;
-pub type NestedClass = windows_metadata::reader::NestedClass<'static>;
-pub type TypeRef = windows_metadata::reader::TypeRef<'static>;
-pub type TypeSpec = windows_metadata::reader::TypeSpec<'static>;
 
 // Coded index type aliases
 pub type TypeDefOrRef = windows_metadata::reader::TypeDefOrRef<'static>;
-pub type TypeOrMethodDef = windows_metadata::reader::TypeOrMethodDef<'static>;
-pub type HasAttribute = windows_metadata::reader::HasAttribute<'static>;
-pub type AttributeType = windows_metadata::reader::AttributeType<'static>;
 pub type MemberRefParent = windows_metadata::reader::MemberRefParent<'static>;
-pub type HasConstant = windows_metadata::reader::HasConstant<'static>;
-pub type MemberForwarded = windows_metadata::reader::MemberForwarded<'static>;
-pub type RowIterator<R> = windows_metadata::reader::RowIterator<'static, R>;
-pub type Blob = windows_metadata::reader::Blob<'static>;
 pub type File = windows_metadata::reader::File;
 
 pub use windows_metadata::reader::AsRow;
@@ -65,34 +48,6 @@ impl MemberRefParentExt for MemberRefParent {
         TypeName(self.namespace(), windows_metadata::trim_tick(self.name()))
     }
 }
-
-/// Extension trait providing `reader()` access on all table row types.
-///
-/// # Panics
-/// Panics if called before `Reader::new()` has completed or after the `Reader` is dropped,
-/// since this accesses the thread-local `CURRENT_READER` pointer.
-pub trait HasReader {
-    fn reader(&self) -> &'static Reader {
-        current_reader()
-    }
-}
-
-impl HasReader for TypeDef {}
-impl HasReader for Field {}
-impl HasReader for MethodDef {}
-impl HasReader for MethodParam {}
-impl HasReader for Attribute {}
-impl HasReader for GenericParam {}
-impl HasReader for InterfaceImpl {}
-impl HasReader for ClassLayout {}
-impl HasReader for Constant {}
-impl HasReader for ImplMap {}
-impl HasReader for MemberRef {}
-impl HasReader for ModuleRef {}
-impl HasReader for NestedClass {}
-impl HasReader for TypeRef {}
-impl HasReader for TypeSpec {}
-impl HasReader for TypeDefOrRef {}
 
 // Extension trait for guid_attribute(), which uses our Value type rather than metadata's.
 pub trait GuidAttributeExt {

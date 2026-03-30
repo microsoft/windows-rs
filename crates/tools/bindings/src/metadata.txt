@@ -1,4 +1,4 @@
---out crates/libs/bindgen/src/winmd/bindings.rs
+--out crates/libs/metadata/src/bindings.rs
 --flat --sys --no-comment --no-allow
 
 --filter

@@ -1022,7 +1022,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub pContext: *mut _NDR_PROC_CONTEXT,
     pub ContextHandleHash: *mut core::ffi::c_void,
     pub pUserMarshalList: *mut core::ffi::c_void,
-    pub Reserved51_3: isize,
+    pub pFullPtrFormat: *mut u8,
     pub Reserved51_4: isize,
     pub Reserved51_5: isize,
 }
@@ -3069,7 +3069,7 @@ impl Default for RPC_SERVER_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type RPC_SETFILTER_FUNC = Option<unsafe extern "system" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
+pub type RPC_SETFILTER_FUNC = Option<unsafe extern "C" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RPC_STATS_VECTOR {

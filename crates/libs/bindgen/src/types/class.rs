@@ -11,13 +11,7 @@ impl Class {
     }
 
     fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
-        if !config.package {
-            return (Cfg::default(), quote! {});
-        }
-
-        let cfg = Cfg::new(&self.dependencies(), config);
-        let tokens = cfg.write(config, false);
-        (cfg, tokens)
+        write_full_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
@@ -25,7 +19,7 @@ impl Class {
             return quote! {};
         }
 
-        let required_interfaces = self.required_interfaces();
+        let required_interfaces = self.required_interfaces(config.reader);
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let (class_cfg, cfg) = self.write_cfg(config);
@@ -79,7 +73,7 @@ impl Class {
 
         let result = config.write_result();
 
-        let new = self.has_default_constructor().then(||
+        let new = self.has_default_constructor(config.reader).then(||
             quote! {
                 pub fn new() -> #result Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -103,7 +97,7 @@ impl Class {
                         let interface_type = interface.write_name(config);
 
                         let cfg = if config.package {
-                            class_cfg.difference(&interface.dependencies(), config).write(config, false)
+                            class_cfg.difference(&interface.dependencies(config.reader), config).write(config, false)
                         } else {
                             quote! {}
                         };
@@ -123,7 +117,7 @@ impl Class {
                 _ => None,
             });
 
-        if let Some(default_interface) = self.default_interface() {
+        if let Some(default_interface) = self.default_interface(config.reader) {
             if default_interface.is_async() {
                 let default_interface = default_interface.write_name(config);
 
@@ -149,7 +143,11 @@ impl Class {
                     .map(|ty| ty.write_name(config))
                     .collect();
 
-                interfaces.extend(self.bases().iter().map(|ty| ty.write_name(config)));
+                interfaces.extend(
+                    self.bases(config.reader)
+                        .iter()
+                        .map(|ty| ty.write_name(config)),
+                );
 
                 if interfaces.is_empty() {
                     quote! {}
@@ -255,25 +253,26 @@ impl Class {
         self.type_name().write(config, &[])
     }
 
-    fn default_interface(&self) -> Option<Type> {
+    fn default_interface(&self, reader: &Reader) -> Option<Type> {
         self.def
             .interface_impls()
             .find(|imp| imp.has_attribute("DefaultAttribute"))
-            .map(|imp| imp.ty(&[]))
+            .map(|imp| imp.ty(&[], reader))
     }
 
-    pub fn runtime_signature(&self) -> String {
+    pub fn runtime_signature(&self, reader: &Reader) -> String {
         format!(
             "rc({};{})",
             self.type_name(),
-            self.default_interface().unwrap().runtime_signature()
+            self.default_interface(reader)
+                .unwrap()
+                .runtime_signature(reader)
         )
     }
 
-    fn bases(&self) -> Vec<Self> {
+    fn bases(&self, reader: &Reader) -> Vec<Self> {
         let mut bases = Vec::new();
         let mut def = self.def;
-        let reader = def.reader();
 
         loop {
             let extends = def.extends().unwrap();
@@ -294,10 +293,16 @@ impl Class {
         bases
     }
 
-    pub fn required_interfaces(&self) -> Vec<Interface> {
-        fn walk(def: TypeDef, generics: &[Type], is_base: bool, set: &mut Vec<Interface>) {
+    pub fn required_interfaces(&self, reader: &Reader) -> Vec<Interface> {
+        fn walk(
+            def: TypeDef,
+            generics: &[Type],
+            is_base: bool,
+            set: &mut Vec<Interface>,
+            reader: &Reader,
+        ) {
             for imp in def.interface_impls() {
-                let Type::Interface(mut interface) = imp.ty(generics) else {
+                let Type::Interface(mut interface) = imp.ty(generics, reader) else {
                     panic!();
                 };
 
@@ -317,16 +322,16 @@ impl Class {
                         set[pos].kind = interface.kind;
                     }
                 } else {
-                    walk(interface.def, &interface.generics, is_base, set);
+                    walk(interface.def, &interface.generics, is_base, set, reader);
                     set.push(interface);
                 }
             }
         }
         let mut set = vec![];
-        walk(self.def, &[], false, &mut set);
+        walk(self.def, &[], false, &mut set, reader);
 
-        for base in self.bases() {
-            walk(base.def, &[], true, &mut set);
+        for base in self.bases(reader) {
+            walk(base.def, &[], true, &mut set, reader);
         }
 
         for attribute in self.def.attributes() {
@@ -337,17 +342,14 @@ impl Class {
             };
 
             for (_, arg) in attribute.value() {
-                if let Value::Utf8(s) = arg {
-                    if let Some(dot) = s.rfind('.') {
-                        let namespace = &s[..dot];
-                        let name = &s[dot + 1..];
-                        if let Some(Type::Interface(mut interface)) =
-                            current_reader().with_full_name(namespace, name).next()
-                        {
-                            interface.kind = kind;
-                            set.push(interface);
-                            break;
-                        }
+                if let Value::TypeName(tn) = arg {
+                    if let Some(Type::Interface(mut interface)) = reader
+                        .with_full_name(tn.namespace.as_str(), tn.name.as_str())
+                        .next()
+                    {
+                        interface.kind = kind;
+                        set.push(interface);
+                        break;
                     }
                 }
             }
@@ -358,32 +360,31 @@ impl Class {
         set
     }
 
-    fn has_default_constructor(&self) -> bool {
+    fn has_default_constructor(&self, reader: &Reader) -> bool {
         self.def
             .attributes()
             .filter(|attribute| attribute.name() == "ActivatableAttribute")
             .any(|attribute| {
                 !attribute.value().iter().any(|(_, arg)| {
-                    if let Value::Utf8(s) = arg {
-                        if let Some(dot) = s.rfind('.') {
-                            let namespace = &s[..dot];
-                            let name = &s[dot + 1..];
-                            return matches!(
-                                current_reader().with_full_name(namespace, name).next(),
-                                Some(Type::Interface(_))
-                            );
-                        }
+                    if let Value::TypeName(tn) = arg {
+                        matches!(
+                            reader
+                                .with_full_name(tn.namespace.as_str(), tn.name.as_str())
+                                .next(),
+                            Some(Type::Interface(_))
+                        )
+                    } else {
+                        false
                     }
-                    false
                 })
             })
     }
 }
 
 impl Dependencies for Class {
-    fn combine(&self, dependencies: &mut TypeMap) {
-        for interface in self.required_interfaces() {
-            Type::Interface(interface).combine(dependencies);
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        for interface in self.required_interfaces(reader) {
+            Type::Interface(interface).combine(dependencies, reader);
         }
     }
 }

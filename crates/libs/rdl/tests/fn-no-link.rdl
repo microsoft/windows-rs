@@ -1,3 +1,0 @@
-mod Test {
-    fn GetTickCount() -> u32;
-}

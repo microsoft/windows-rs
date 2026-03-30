@@ -1,0 +1,41 @@
+#[winrt]
+mod Test {
+    mod ModForA {
+        struct A {
+            a1: u8,
+            a2: u32,
+        }
+    }
+    mod ModForB {
+        mod NestedMod {
+            struct D {
+                a1: u8,
+            }
+        }
+        struct AlsoInB {
+            a1: u8,
+        }
+        struct B {
+            a: super::ModForA::A,
+            b: AlsoInB,
+            c: Windows::Foundation::IStringable,
+            d: NestedMod::D,
+        }
+    }
+    mod N0 {
+        mod N1 {
+            mod N2 {
+                mod N3 {
+                    struct S3 {
+                        a: super::super::super::S0,
+                        b: super::super::S1,
+                        c: super::S2,
+                    }
+                }
+                struct S2 {}
+            }
+            struct S1 {}
+        }
+        struct S0 {}
+    }
+}

@@ -27,6 +27,53 @@ macro_rules! test_with_scalar {
 }
 
 #[test]
+fn vector2_neg() {
+    let value = Vector2 { X: 3.0, Y: -4.0 };
+    let expected = Vector2 { X: -3.0, Y: 4.0 };
+    assert_eq!(-value, expected);
+    assert_eq!(-&value, expected);
+}
+
+#[test]
+fn vector2_dot() {
+    let v1 = Vector2 { X: 2.0, Y: 3.0 };
+    let v2 = Vector2 { X: 4.0, Y: 5.0 };
+    assert_eq!(v1.dot(&v2), 23.0);
+}
+
+#[test]
+fn vector2_length_squared() {
+    let v = Vector2 { X: 3.0, Y: 4.0 };
+    assert_eq!(v.length_squared(), 25.0);
+}
+
+#[test]
+fn vector2_length() {
+    let v = Vector2 { X: 3.0, Y: 4.0 };
+    assert_eq!(v.length(), 5.0);
+}
+
+#[test]
+fn vector2_normalize() {
+    let v = Vector2 { X: 3.0, Y: 0.0 };
+    assert_eq!(v.normalize(), Vector2 { X: 1.0, Y: 0.0 });
+}
+
+#[test]
+fn vector2_distance_squared() {
+    let v1 = Vector2 { X: 0.0, Y: 0.0 };
+    let v2 = Vector2 { X: 3.0, Y: 4.0 };
+    assert_eq!(v1.distance_squared(&v2), 25.0);
+}
+
+#[test]
+fn vector2_distance() {
+    let v1 = Vector2 { X: 0.0, Y: 0.0 };
+    let v2 = Vector2 { X: 3.0, Y: 4.0 };
+    assert_eq!(v1.distance(&v2), 5.0);
+}
+
+#[test]
 fn vector2_add() {
     let value1 = Vector2 { X: 5.0, Y: 50.0 };
     let value2 = Vector2 { X: 15.0, Y: 25.0 };
@@ -70,6 +117,135 @@ fn vector2_mul() {
     let expected = Vector2 { X: 12.5, Y: 125.0 };
 
     test_with_scalar!(value1, value2, *, expected);
+}
+
+#[test]
+fn vector3_neg() {
+    let value = Vector3 {
+        X: 1.0,
+        Y: -2.0,
+        Z: 3.0,
+    };
+    let expected = Vector3 {
+        X: -1.0,
+        Y: 2.0,
+        Z: -3.0,
+    };
+    assert_eq!(-value, expected);
+    assert_eq!(-&value, expected);
+}
+
+#[test]
+fn vector3_dot() {
+    let v1 = Vector3 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 3.0,
+    };
+    let v2 = Vector3 {
+        X: 4.0,
+        Y: 5.0,
+        Z: 6.0,
+    };
+    assert_eq!(v1.dot(&v2), 32.0);
+}
+
+#[test]
+fn vector3_length_squared() {
+    let v = Vector3 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+    };
+    assert_eq!(v.length_squared(), 9.0);
+}
+
+#[test]
+fn vector3_length() {
+    let v = Vector3 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+    };
+    assert_eq!(v.length(), 3.0);
+}
+
+#[test]
+fn vector3_normalize() {
+    let v = Vector3 {
+        X: 0.0,
+        Y: 0.0,
+        Z: 5.0,
+    };
+    assert_eq!(
+        v.normalize(),
+        Vector3 {
+            X: 0.0,
+            Y: 0.0,
+            Z: 1.0
+        }
+    );
+}
+
+#[test]
+fn vector3_distance_squared() {
+    let v1 = Vector3 {
+        X: 0.0,
+        Y: 0.0,
+        Z: 0.0,
+    };
+    let v2 = Vector3 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+    };
+    assert_eq!(v1.distance_squared(&v2), 9.0);
+}
+
+#[test]
+fn vector3_distance() {
+    let v1 = Vector3 {
+        X: 0.0,
+        Y: 0.0,
+        Z: 0.0,
+    };
+    let v2 = Vector3 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+    };
+    assert_eq!(v1.distance(&v2), 3.0);
+}
+
+#[test]
+fn vector3_cross() {
+    let v1 = Vector3 {
+        X: 1.0,
+        Y: 0.0,
+        Z: 0.0,
+    };
+    let v2 = Vector3 {
+        X: 0.0,
+        Y: 1.0,
+        Z: 0.0,
+    };
+    assert_eq!(
+        v1.cross(&v2),
+        Vector3 {
+            X: 0.0,
+            Y: 0.0,
+            Z: 1.0
+        }
+    );
+    // Anti-commutativity: v2 x v1 = -(v1 x v2)
+    assert_eq!(
+        v2.cross(&v1),
+        Vector3 {
+            X: 0.0,
+            Y: 0.0,
+            Z: -1.0
+        }
+    );
 }
 
 #[test]
@@ -172,6 +348,116 @@ fn vector3_mul() {
     };
 
     test_with_scalar!(value1, value2, *, expected);
+}
+
+#[test]
+fn vector4_neg() {
+    let value = Vector4 {
+        X: 1.0,
+        Y: -2.0,
+        Z: 3.0,
+        W: -4.0,
+    };
+    let expected = Vector4 {
+        X: -1.0,
+        Y: 2.0,
+        Z: -3.0,
+        W: 4.0,
+    };
+    assert_eq!(-value, expected);
+    assert_eq!(-&value, expected);
+}
+
+#[test]
+fn vector4_dot() {
+    let v1 = Vector4 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 3.0,
+        W: 4.0,
+    };
+    let v2 = Vector4 {
+        X: 5.0,
+        Y: 6.0,
+        Z: 7.0,
+        W: 8.0,
+    };
+    assert_eq!(v1.dot(&v2), 70.0);
+}
+
+#[test]
+fn vector4_length_squared() {
+    let v = Vector4 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+        W: 0.0,
+    };
+    assert_eq!(v.length_squared(), 9.0);
+}
+
+#[test]
+fn vector4_length() {
+    let v = Vector4 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+        W: 0.0,
+    };
+    assert_eq!(v.length(), 3.0);
+}
+
+#[test]
+fn vector4_normalize() {
+    let v = Vector4 {
+        X: 0.0,
+        Y: 4.0,
+        Z: 0.0,
+        W: 0.0,
+    };
+    assert_eq!(
+        v.normalize(),
+        Vector4 {
+            X: 0.0,
+            Y: 1.0,
+            Z: 0.0,
+            W: 0.0
+        }
+    );
+}
+
+#[test]
+fn vector4_distance_squared() {
+    let v1 = Vector4 {
+        X: 0.0,
+        Y: 0.0,
+        Z: 0.0,
+        W: 0.0,
+    };
+    let v2 = Vector4 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+        W: 0.0,
+    };
+    assert_eq!(v1.distance_squared(&v2), 9.0);
+}
+
+#[test]
+fn vector4_distance() {
+    let v1 = Vector4 {
+        X: 0.0,
+        Y: 0.0,
+        Z: 0.0,
+        W: 0.0,
+    };
+    let v2 = Vector4 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 2.0,
+        W: 0.0,
+    };
+    assert_eq!(v1.distance(&v2), 3.0);
 }
 
 #[test]
@@ -592,4 +878,115 @@ fn matrix4x4_mul() {
     };
 
     test_with_scalar!(value1, value2, *, expected);
+}
+
+#[test]
+fn matrix3x2_identity() {
+    let m = Matrix3x2::identity();
+    assert_eq!(
+        m,
+        Matrix3x2 {
+            M11: 1.0,
+            M12: 0.0,
+            M21: 0.0,
+            M22: 1.0,
+            M31: 0.0,
+            M32: 0.0
+        }
+    );
+}
+
+#[test]
+fn matrix3x2_translation() {
+    let m = Matrix3x2::translation(3.0, 5.0);
+    assert_eq!(
+        m,
+        Matrix3x2 {
+            M11: 1.0,
+            M12: 0.0,
+            M21: 0.0,
+            M22: 1.0,
+            M31: 3.0,
+            M32: 5.0
+        }
+    );
+}
+
+#[test]
+fn matrix3x2_scale() {
+    let m = Matrix3x2::scale(2.0, 3.0);
+    assert_eq!(
+        m,
+        Matrix3x2 {
+            M11: 2.0,
+            M12: 0.0,
+            M21: 0.0,
+            M22: 3.0,
+            M31: 0.0,
+            M32: 0.0
+        }
+    );
+}
+
+#[test]
+fn matrix3x2_scale_around() {
+    let m = Matrix3x2::scale_around(2.0, 3.0, Vector2::new(1.0, 2.0));
+    // M31 = 1.0 - 2.0 * 1.0 = -1.0
+    // M32 = 2.0 - 3.0 * 2.0 = -4.0
+    assert_eq!(
+        m,
+        Matrix3x2 {
+            M11: 2.0,
+            M12: 0.0,
+            M21: 0.0,
+            M22: 3.0,
+            M31: -1.0,
+            M32: -4.0
+        }
+    );
+}
+
+#[test]
+fn matrix3x2_mul_with_identity() {
+    let m = Matrix3x2 {
+        M11: 16.0,
+        M12: 15.0,
+        M21: 14.0,
+        M22: 13.0,
+        M31: 12.0,
+        M32: 11.0,
+    };
+    assert_eq!(m * Matrix3x2::identity(), m);
+    assert_eq!(Matrix3x2::identity() * m, m);
+}
+
+#[test]
+fn matrix4x4_translation() {
+    let m = Matrix4x4::translation(1.0, 2.0, 3.0);
+    assert_eq!(m.M11, 1.0);
+    assert_eq!(m.M22, 1.0);
+    assert_eq!(m.M33, 1.0);
+    assert_eq!(m.M44, 1.0);
+    assert_eq!(m.M41, 1.0);
+    assert_eq!(m.M42, 2.0);
+    assert_eq!(m.M43, 3.0);
+    assert_eq!(m.M12, 0.0);
+    assert_eq!(m.M13, 0.0);
+    assert_eq!(m.M14, 0.0);
+    assert_eq!(m.M34, 0.0);
+}
+
+#[test]
+fn matrix4x4_perspective_projection() {
+    let m = Matrix4x4::perspective_projection(10.0);
+    assert_eq!(m.M34, -0.1);
+    assert_eq!(m.M11, 1.0);
+    assert_eq!(m.M22, 1.0);
+    assert_eq!(m.M33, 1.0);
+    assert_eq!(m.M44, 1.0);
+    // non-positive depth produces zero projection
+    let m_zero = Matrix4x4::perspective_projection(0.0);
+    assert_eq!(m_zero.M34, 0.0);
+    let m_neg = Matrix4x4::perspective_projection(-5.0);
+    assert_eq!(m_neg.M34, 0.0);
 }

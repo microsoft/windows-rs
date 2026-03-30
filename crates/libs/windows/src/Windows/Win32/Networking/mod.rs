@@ -4,6 +4,8 @@ pub mod ActiveDirectory;
 pub mod BackgroundIntelligentTransferService;
 #[cfg(feature = "Win32_Networking_Clustering")]
 pub mod Clustering;
+#[cfg(feature = "Win32_Networking_DeliveryOptimization")]
+pub mod DeliveryOptimization;
 #[cfg(feature = "Win32_Networking_HttpServer")]
 pub mod HttpServer;
 #[cfg(feature = "Win32_Networking_Ldap")]

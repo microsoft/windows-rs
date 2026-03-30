@@ -16,13 +16,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let signature = method.signature(&generics);
     let return_type = write_return_type(namespace, &signature);
-    let params = method.params().filter(|param| param.sequence() != 0);
-
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = write_ident(param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
-    });
+    let params = write_params(namespace, &method, signature.types);
 
     let generics = if generics.is_empty() {
         quote! {}
@@ -31,7 +25,29 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
+    let guid_exclude: &[&str] = if delegate_guid_is_derived(item) {
+        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"]
+    } else {
+        &["UnmanagedFunctionPointerAttribute"]
+    };
+    let custom_attrs =
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
+
+    let mut abi = None;
+
+    if let Some(attribute) = item.find_attribute("UnmanagedFunctionPointerAttribute") {
+        if let Some((_, metadata::Value::EnumValue(_, value))) = attribute.value().first() {
+            match &**value {
+                metadata::Value::I32(1) => abi = Some("system"),
+                metadata::Value::I32(2) => abi = Some("C"),
+                metadata::Value::I32(5) => abi = Some("fastcall"),
+                rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
+            }
+        }
+    }
+
     quote! {
-        delegate fn #name #generics (#(#params),*) #return_type;
+        #(#custom_attrs)*
+        delegate #abi fn #name #generics (#(#params),*) #return_type;
     }
 }

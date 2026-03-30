@@ -13,6 +13,17 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         .methods()
         .map(|method| write_method(namespace, &method, &generics));
 
+    let requires: Vec<_> = item.interface_impls().collect();
+
+    let requires_tokens = if requires.is_empty() {
+        quote! {}
+    } else {
+        let ifaces = requires
+            .iter()
+            .map(|imp| write_type(namespace, &imp.interface(&generics)));
+        quote! { : #(#ifaces)+* }
+    };
+
     let generics = if generics.is_empty() {
         quote! {}
     } else {
@@ -20,8 +31,17 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
+    let guid_exclude: &[&str] = if interface_guid_is_derived(item) {
+        &["GuidAttribute"]
+    } else {
+        &[]
+    };
+    let custom_attrs =
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
+
     quote! {
-        interface #name #generics {
+        #(#custom_attrs)*
+        interface #name #generics #requires_tokens {
             #(#methods)*
         }
     }
@@ -36,16 +56,25 @@ fn write_method(
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, &signature);
-    let params = item.params().filter(|param| param.sequence() != 0);
-
     let params =
-        std::iter::once(quote! { &self }).chain(params.zip(signature.types).map(|(param, ty)| {
-            let name = write_ident(param.name());
-            let ty = write_type(namespace, &ty);
-            quote! { #name: #ty }
-        }));
+        std::iter::once(quote! { &self }).chain(write_params(namespace, item, signature.types));
+
+    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
+    // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
+    // preserving properties and events on round-trip.
+    let special_attr = if item
+        .flags()
+        .contains(metadata::MethodAttributes::SpecialName)
+    {
+        quote! { #[special] }
+    } else {
+        quote! {}
+    };
 
     quote! {
+        #special_attr
+        #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
     }
 }

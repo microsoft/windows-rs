@@ -1723,8 +1723,8 @@ pub unsafe fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
 pub struct BerElement {
     pub opaque: windows_core::PSTR,
 }
-pub type DBGPRINT = Option<unsafe extern "system" fn(format: windows_core::PCSTR) -> u32>;
-pub type DEREFERENCECONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
+pub type DBGPRINT = Option<unsafe extern "C" fn(format: windows_core::PCSTR) -> u32>;
+pub type DEREFERENCECONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
 pub const LAPI_MAJOR_VER1: u32 = 1u32;
 pub const LAPI_MINOR_VER1: u32 = 1u32;
 pub const LBER_DEFAULT: i32 = -1i32;
@@ -1751,6 +1751,7 @@ pub struct LDAP {
     pub ld_cldaptimeout: u32,
     pub ld_refhoplimit: u32,
     pub ld_options: u32,
+    pub ld_anonymousmaxvalrange: u32,
 }
 impl Default for LDAP {
     fn default() -> Self {
@@ -2107,6 +2108,7 @@ pub const LDAP_OPATT_SUPPORTED_LDAP_VERSION_W: windows_core::PCWSTR = windows_co
 pub const LDAP_OPATT_SUPPORTED_SASL_MECHANISM: windows_core::PCSTR = windows_core::s!("supportedSASLMechanisms");
 pub const LDAP_OPATT_SUPPORTED_SASL_MECHANISM_W: windows_core::PCWSTR = windows_core::w!("supportedSASLMechanisms");
 pub const LDAP_OPERATIONS_ERROR: LDAP_RETCODE = LDAP_RETCODE(1i32);
+pub const LDAP_OPT_ANONYMOUS_MAX_VAL_RANGE: u32 = 71u32;
 pub const LDAP_OPT_API_FEATURE_INFO: u32 = 21u32;
 pub const LDAP_OPT_API_INFO: u32 = 0u32;
 pub const LDAP_OPT_AREC_EXCLUSIVE: u32 = 152u32;
@@ -2335,14 +2337,14 @@ pub const LDAP_VERSION_MAX: u32 = 3u32;
 pub const LDAP_VERSION_MIN: u32 = 2u32;
 pub const LDAP_VIRTUAL_LIST_VIEW_ERROR: LDAP_RETCODE = LDAP_RETCODE(76i32);
 pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
-pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_core::PCWSTR, hostname: windows_core::PCSTR, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> bool>;
+pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_core::PCWSTR, hostname: windows_core::PCSTR, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> bool>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PLDAPSearch(pub isize);
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-pub type QUERYCLIENTCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> bool>;
-pub type QUERYFORCONNECTION = Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_core::PCWSTR, hostname: windows_core::PCSTR, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentusertoken: *mut core::ffi::c_void, connectiontouse: *mut *mut LDAP) -> u32>;
+pub type QUERYCLIENTCERT = Option<unsafe extern "C" fn(connection: *mut LDAP, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> bool>;
+pub type QUERYFORCONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: windows_core::PCWSTR, hostname: windows_core::PCSTR, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentusertoken: *mut core::ffi::c_void, connectiontouse: *mut *mut LDAP) -> u32>;
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 #[cfg(feature = "Win32_Security_Cryptography")]
-pub type VERIFYSERVERCERT = Option<unsafe extern "system" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> bool>;
+pub type VERIFYSERVERCERT = Option<unsafe extern "C" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> bool>;

@@ -1,102 +1,101 @@
 use super::*;
 
-pub fn encode_struct(encoder: &mut Encoder, item: &syntax::Struct) -> Result<(), Error> {
-    let mut depth = 0;
-    encode_struct_inner(encoder, item, None, encoder.name, &mut depth)
+#[derive(Debug, Clone)]
+pub struct Struct {
+    pub attrs: Vec<syn::Attribute>,
+    pub span: proc_macro2::Span,
+    pub name: syn::Ident,
+    pub fields: Vec<Field>,
+    pub winrt: bool,
 }
 
-fn encode_struct_inner(
-    encoder: &mut Encoder,
-    item: &syntax::Struct,
-    outer: Option<metadata::writer::TypeDef>,
-    name: &str,
-    depth: &mut usize,
-) -> Result<(), Error> {
-    let nested = nested(item, name, depth);
+impl syn::parse::Parse for Struct {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
+        let token: syn::Token![struct] = input.parse()?;
+        let name = input.parse()?;
 
-    let value_type = encoder.output.TypeRef("System", "ValueType");
-    let mut flags = metadata::TypeAttributes::SequentialLayout | metadata::TypeAttributes::Sealed;
+        let content;
+        syn::braced!(content in input);
 
-    flags |= if outer.is_some() {
-        metadata::TypeAttributes::NestedPublic
-    } else {
-        metadata::TypeAttributes::Public
-    };
+        let fields = content
+            .parse_terminated(Field::parse, syn::Token![,])?
+            .into_iter()
+            .collect();
 
-    if item.winrt {
-        flags |= metadata::TypeAttributes::WindowsRuntime;
-    }
-
-    let ty = encoder.output.TypeDef(
-        encoder.namespace,
-        name,
-        metadata::writer::TypeDefOrRef::TypeRef(value_type),
-        flags,
-    );
-
-    fields(encoder, item, &nested)?;
-
-    if let Some(outer) = outer {
-        encoder.output.NestedClass(ty, outer);
-    }
-
-    for (nested_type_name, def) in nested.values() {
-        *depth = 0;
-        encode_struct_inner(encoder, def, Some(ty), nested_type_name, depth)?;
-    }
-
-    Ok(())
-}
-
-fn fields(
-    encoder: &mut Encoder,
-    item: &syntax::Struct,
-    nested: &BTreeMap<String, (String, &syntax::Struct)>,
-) -> Result<(), Error> {
-    for field in &item.fields {
-        match field {
-            syntax::StructField::Regular(f) => {
-                let name = f.ident.as_ref().unwrap().to_string();
-                let ty = encode_type(encoder, &f.ty)?;
-                encoder
-                    .output
-                    .Field(&name, &ty, metadata::FieldAttributes::Public);
-            }
-            syntax::StructField::Nested { name, .. } => {
-                let field_name = name.to_string();
-                let (nested_type_name, _) = &nested[&field_name];
-                let ty = metadata::Type::named(encoder.namespace, nested_type_name.as_str());
-                encoder
-                    .output
-                    .Field(&field_name, &ty, metadata::FieldAttributes::Public);
-            }
-        }
-    }
-
-    Ok(())
-}
-
-fn nested<'a>(
-    item: &'a syntax::Struct,
-    name: &str,
-    depth: &mut usize,
-) -> BTreeMap<String, (String, &'a syntax::Struct)> {
-    item.fields
-        .iter()
-        .filter_map(|field| {
-            if let syntax::StructField::Nested {
-                name: ident_name,
-                def,
-                ..
-            } = field
-            {
-                let field_name = ident_name.to_string();
-                let nested_name = format!("{}_{}", name, *depth);
-                *depth += 1;
-                Some((field_name, (nested_name, def)))
-            } else {
-                None
-            }
+        Ok(Self {
+            attrs,
+            span: token.span,
+            name,
+            fields,
+            winrt: false,
         })
-        .collect()
+    }
+}
+
+impl Encoder<'_> {
+    pub fn encode_struct(&mut self, item: &Struct) -> Result<(), Error> {
+        let type_def =
+            self.encode_struct_or_union(&item.name.to_string(), item.winrt, false, &item.fields)?;
+
+        if let Some(packing_size) = self.read_packed(&item.attrs)? {
+            self.output.ClassLayout(type_def, packing_size, 0);
+        }
+
+        self.encode_attrs(
+            metadata::writer::HasAttribute::TypeDef(type_def),
+            &item.attrs,
+            &["packed"],
+        )
+    }
+
+    pub fn encode_struct_or_union(
+        &mut self,
+        item_name: &str,
+        winrt: bool,
+        is_union: bool,
+        fields: &[Field],
+    ) -> Result<metadata::writer::TypeDef, Error> {
+        let value_type = self.output.TypeRef("System", "ValueType");
+
+        let layout_flag = if is_union {
+            metadata::TypeAttributes::ExplicitLayout
+        } else {
+            metadata::TypeAttributes::SequentialLayout
+        };
+
+        let flags = layout_flag
+            | metadata::TypeAttributes::Sealed
+            | metadata::TypeAttributes::Public
+            | if winrt {
+                metadata::TypeAttributes::WindowsRuntime
+            } else {
+                metadata::TypeAttributes::default()
+            };
+
+        let type_def = self.output.TypeDef(
+            self.namespace,
+            item_name,
+            metadata::writer::TypeDefOrRef::TypeRef(value_type),
+            flags,
+        );
+
+        for field in fields {
+            let field_name = field.name.to_string();
+            let mt = self.encode_type(&field.ty)?;
+            let field_id = self
+                .output
+                .Field(&field_name, &mt, metadata::FieldAttributes::Public);
+            if is_union {
+                self.output.FieldLayout(field_id, 0);
+            }
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Field(field_id),
+                &field.attrs,
+                &[],
+            )?;
+        }
+
+        Ok(type_def)
+    }
 }

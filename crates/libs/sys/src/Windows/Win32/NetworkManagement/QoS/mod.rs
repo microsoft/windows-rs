@@ -49,13 +49,6 @@ pub struct ADDRESS_LIST_DESCRIPTOR {
     pub MediaType: u32,
     pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
 }
-pub const ADM_CTRL_FAILED: u32 = 3u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct ADSPEC {
-    pub adspec_header: RsvpObjHdr,
-    pub adspec_body: IS_ADSPEC_BODY,
-}
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -76,10 +69,6 @@ pub struct AD_GUARANTEED {
 }
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
-pub type CBADMITRESULT = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
-pub type CBGETRSVPOBJECTS = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
-pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
-pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONTROL_SERVICE {
@@ -110,15 +99,7 @@ pub const CREDENTIAL_SUB_TYPE_PGP_CERT: u32 = 5u32;
 pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CtrlLoadFlowspec {
-    pub CL_spec_serv_hdr: IntServServiceHdr,
-    pub CL_spec_parm_hdr: IntServParmHdr,
-    pub CL_spec_parms: GenTspecParms,
-}
 pub const DD_TCP_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\Tcp");
-pub const DUP_RESULTS: u32 = 4u32;
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -155,91 +136,16 @@ pub const ERROR_INVALID_SERVICE_TYPE: u32 = 7502u32;
 pub const ERROR_INVALID_SHAPE_RATE: u32 = 7519u32;
 pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
-pub const ERROR_NO_MORE_INFO: u32 = 1u32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct ERROR_SPEC {
-    pub errs_header: RsvpObjHdr,
-    pub errs_u: ERROR_SPEC_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for ERROR_SPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union ERROR_SPEC_0 {
-    pub errs_ipv4: Error_Spec_IPv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for ERROR_SPEC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const ERROR_SPECF_InPlace: u32 = 1u32;
-pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
 pub const ERROR_TC_NOT_SUPPORTED: u32 = 7514u32;
 pub const ERROR_TC_OBJECT_LENGTH_INVALID: u32 = 7515u32;
 pub const ERROR_TC_SUPPORTED_OBJECTS_EXIST: u32 = 7512u32;
 pub const ERROR_TOO_MANY_CLIENTS: u32 = 7521u32;
-pub const ERR_FORWARD_OK: u32 = 32768u32;
-pub const ERR_Usage_globl: u32 = 0u32;
-pub const ERR_Usage_local: u32 = 16u32;
-pub const ERR_Usage_serv: u32 = 17u32;
-pub const ERR_global_mask: u32 = 4095u32;
-pub const EXPIRED_CREDENTIAL: u32 = 4u32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Error_Spec_IPv4 {
-    pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
-    pub errs_flags: u8,
-    pub errs_code: u8,
-    pub errs_value: u16,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Error_Spec_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const FILTERSPECV4: FilterType = 1i32;
 pub const FILTERSPECV4_GPI: FilterType = 4i32;
 pub const FILTERSPECV6: FilterType = 2i32;
 pub const FILTERSPECV6_FLOW: FilterType = 3i32;
 pub const FILTERSPECV6_GPI: FilterType = 5i32;
 pub const FILTERSPEC_END: FilterType = 6i32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct FILTER_SPEC {
-    pub filt_header: RsvpObjHdr,
-    pub filt_u: FILTER_SPEC_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FILTER_SPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FILTER_SPEC_0 {
-    pub filt_ipv4: Filter_Spec_IPv4,
-    pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FILTER_SPEC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -254,47 +160,6 @@ impl Default for FLOWDESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct FLOW_DESC {
-    pub u1: FLOW_DESC_0,
-    pub u2: FLOW_DESC_1,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FLOW_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FLOW_DESC_0 {
-    pub stspec: *mut SENDER_TSPEC,
-    pub isflow: *mut IS_FLOWSPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FLOW_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union FLOW_DESC_1 {
-    pub stemp: *mut FILTER_SPEC,
-    pub fspec: *mut FILTER_SPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for FLOW_DESC_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const FLOW_DURATION: u32 = 5u32;
-pub const FORCE_IMMEDIATE_REFRESH: u32 = 1u32;
 pub const FSCTL_TCP_BASE: u32 = 18u32;
 pub const FVEB_UNLOCK_FLAG_AUK_OSFVEINFO: u32 = 512u32;
 pub const FVEB_UNLOCK_FLAG_CACHED: u32 = 1u32;
@@ -307,34 +172,6 @@ pub const FVEB_UNLOCK_FLAG_PIN: u32 = 16u32;
 pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
 pub type FilterType = i32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Filter_Spec_IPv4 {
-    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub filt_unused: u16,
-    pub filt_port: u16,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Filter_Spec_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Filter_Spec_IPv4GPI {
-    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub filt_gpi: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Filter_Spec_IPv4GPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const GENERAL_INFO: u32 = 1u32;
 pub const GQOS_API: u32 = 56400u32;
 pub const GQOS_ERRORCODE_UNKNOWN: u32 = 4294967295u32;
 pub const GQOS_ERRORVALUE_UNKNOWN: u32 = 4294967295u32;
@@ -346,13 +183,6 @@ pub const GQOS_NO_ERRORCODE: u32 = 0u32;
 pub const GQOS_NO_ERRORVALUE: u32 = 0u32;
 pub const GQOS_RSVP: u32 = 56300u32;
 pub const GQOS_RSVP_SYS: u32 = 56600u32;
-pub const GUARANTEED_SERV: u32 = 2u32;
-pub const GUAR_ADSPARM_C: i32 = 131i32;
-pub const GUAR_ADSPARM_Csum: i32 = 135i32;
-pub const GUAR_ADSPARM_Ctot: i32 = 133i32;
-pub const GUAR_ADSPARM_D: i32 = 132i32;
-pub const GUAR_ADSPARM_Dsum: i32 = 136i32;
-pub const GUAR_ADSPARM_Dtot: i32 = 134i32;
 pub const GUID_QOS_BESTEFFORT_BANDWIDTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
 pub const GUID_QOS_ENABLE_AVG_STATS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
 pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
@@ -369,78 +199,7 @@ pub const GUID_QOS_NON_BESTEFFORT_LIMIT: windows_sys::core::GUID = windows_sys::
 pub const GUID_QOS_REMAINING_BANDWIDTH: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
 pub const GUID_QOS_STATISTICS_BUFFER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
 pub const GUID_QOS_TIMER_RESOLUTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct Gads_parms_t {
-    pub Gads_serv_hdr: IntServServiceHdr,
-    pub Gads_Ctot_hdr: IntServParmHdr,
-    pub Gads_Ctot: u32,
-    pub Gads_Dtot_hdr: IntServParmHdr,
-    pub Gads_Dtot: u32,
-    pub Gads_Csum_hdr: IntServParmHdr,
-    pub Gads_Csum: u32,
-    pub Gads_Dsum_hdr: IntServParmHdr,
-    pub Gads_Dsum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct GenAdspecParams {
-    pub gen_parm_hdr: IntServServiceHdr,
-    pub gen_parm_hopcnt_hdr: IntServParmHdr,
-    pub gen_parm_hopcnt: u32,
-    pub gen_parm_pathbw_hdr: IntServParmHdr,
-    pub gen_parm_path_bw: f32,
-    pub gen_parm_minlat_hdr: IntServParmHdr,
-    pub gen_parm_min_latency: u32,
-    pub gen_parm_compmtu_hdr: IntServParmHdr,
-    pub gen_parm_composed_MTU: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct GenTspec {
-    pub gen_Tspec_serv_hdr: IntServServiceHdr,
-    pub gen_Tspec_parm_hdr: IntServParmHdr,
-    pub gen_Tspec_parms: GenTspecParms,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct GenTspecParms {
-    pub TB_Tspec_r: f32,
-    pub TB_Tspec_b: f32,
-    pub TB_Tspec_p: f32,
-    pub TB_Tspec_m: u32,
-    pub TB_Tspec_M: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct GuarFlowSpec {
-    pub Guar_serv_hdr: IntServServiceHdr,
-    pub Guar_Tspec_hdr: IntServParmHdr,
-    pub Guar_Tspec_parms: GenTspecParms,
-    pub Guar_Rspec_hdr: IntServParmHdr,
-    pub Guar_Rspec: GuarRspec,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct GuarRspec {
-    pub Guar_R: f32,
-    pub Guar_S: u32,
-}
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct HSP_UPGRADE_IMAGEDATA {
-    pub hashAlgID: u16,
-    pub digestSize: u16,
-    pub digest: [u8; 64],
-    pub fileName: [u16; 64],
-}
-impl Default for HSP_UPGRADE_IMAGEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const IDENTITY_CHANGED: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IDPE_ATTR {
@@ -454,29 +213,8 @@ impl Default for IDPE_ATTR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct ID_ERROR_OBJECT {
-    pub usIdErrLength: u16,
-    pub ucAType: u8,
-    pub ucSubType: u8,
-    pub usReserved: u16,
-    pub usIdErrorValue: u16,
-    pub ucIdErrData: [u8; 4],
-}
-impl Default for ID_ERROR_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IF_MIB_STATS_ID: u32 = 1u32;
 pub const INFO_NOT_AVAILABLE: u32 = 4294967295u32;
-pub const INSUFFICIENT_PRIVILEGES: u32 = 3u32;
-pub const INTSERV_VERSION0: u32 = 0u32;
-pub const INTSERV_VERS_MASK: u32 = 240u32;
-pub const INV_LPM_HANDLE: u32 = 1u32;
-pub const INV_REQ_HANDLE: u32 = 3u32;
-pub const INV_RESULTS: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IN_ADDR_IPV4 {
@@ -560,144 +298,11 @@ pub struct IP_PATTERN_0_0 {
     pub s_srcport: u16,
     pub s_dstport: u16,
 }
-pub const ISPH_FLG_INV: u32 = 128u32;
-pub const ISSH_BREAK_BIT: u32 = 128u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IS_ADSPEC_BODY {
-    pub adspec_mh: IntServMainHdr,
-    pub adspec_genparms: GenAdspecParams,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IS_FLOWSPEC {
-    pub flow_header: RsvpObjHdr,
-    pub flow_body: IntServFlowSpec,
-}
-impl Default for IS_FLOWSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const IS_GUAR_RSPEC: i32 = 130i32;
-pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = 10i32;
-pub const IS_WKP_HOP_CNT: int_serv_wkp = 4i32;
-pub const IS_WKP_MIN_LATENCY: int_serv_wkp = 8i32;
-pub const IS_WKP_PATH_BW: int_serv_wkp = 6i32;
-pub const IS_WKP_Q_TSPEC: int_serv_wkp = 128i32;
-pub const IS_WKP_TB_TSPEC: int_serv_wkp = 127i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServFlowSpec {
-    pub spec_mh: IntServMainHdr,
-    pub spec_u: IntServFlowSpec_0,
-}
-impl Default for IntServFlowSpec {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IntServFlowSpec_0 {
-    pub CL_spec: CtrlLoadFlowspec,
-    pub G_spec: GuarFlowSpec,
-    pub Q_spec: QualAppFlowSpec,
-}
-impl Default for IntServFlowSpec_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IntServMainHdr {
-    pub ismh_version: u8,
-    pub ismh_unused: u8,
-    pub ismh_len32b: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IntServParmHdr {
-    pub isph_parm_num: u8,
-    pub isph_flags: u8,
-    pub isph_len32b: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IntServServiceHdr {
-    pub issh_service: u8,
-    pub issh_flags: u8,
-    pub issh_len32b: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IntServTspecBody {
-    pub st_mh: IntServMainHdr,
-    pub tspec_u: IntServTspecBody_0,
-}
-impl Default for IntServTspecBody {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IntServTspecBody_0 {
-    pub gen_stspec: GenTspec,
-    pub qual_stspec: QualTspec,
-}
-impl Default for IntServTspecBody_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const LINE_RATE: u32 = 50003u32;
 pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct LPMIPTABLE {
-    pub ulIfIndex: u32,
-    pub MediaType: u32,
-    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
-    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for LPMIPTABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const LPM_API_VERSION_1: u32 = 1u32;
-pub type LPM_HANDLE = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct LPM_INIT_INFO {
-    pub PcmVersionNumber: u32,
-    pub ResultTimeLimit: u32,
-    pub ConfiguredLpmCount: i32,
-    pub AllocMemory: PALLOCMEM,
-    pub FreeMemory: PFREEMEM,
-    pub PcmAdmitResultCallback: CBADMITRESULT,
-    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
-}
-pub const LPM_OK: u32 = 0u32;
-pub const LPM_PE_ALL_TYPES: u32 = 0u32;
-pub const LPM_PE_APP_IDENTITY: u32 = 3u32;
-pub const LPM_PE_USER_IDENTITY: u32 = 2u32;
-pub const LPM_RESULT_DEFER: u32 = 1u32;
-pub const LPM_RESULT_READY: u32 = 0u32;
-pub const LPM_TIME_OUT: u32 = 2u32;
-pub const LPV_DONT_CARE: u32 = 65534u32;
-pub const LPV_DROP_MSG: u32 = 65533u32;
-pub const LPV_MAX_PRIORITY: u32 = 65280u32;
-pub const LPV_MIN_PRIORITY: u32 = 1u32;
-pub const LPV_REJECT: u32 = 65535u32;
-pub const LPV_RESERVED: u32 = 0u32;
-pub const MAX_HSP_UPGRADE_FILENAME_LENGTH: u32 = 64u32;
 pub const MAX_PHYSADDR_SIZE: u32 = 8u32;
+pub const MAX_PLUTON_UPGRADE_FILENAME_LENGTH: u32 = 64u32;
 pub const MAX_STRING_LENGTH: u32 = 256u32;
 pub const MODERATELY_DELAY_SENSITIVE: u32 = 4294967293u32;
 pub const OSDEVICE_TYPE_BLOCKIO_CDROM: u32 = 65539u32;
@@ -713,13 +318,6 @@ pub const OSDEVICE_TYPE_SERIAL: u32 = 131072u32;
 pub const OSDEVICE_TYPE_UDP: u32 = 196608u32;
 pub const OSDEVICE_TYPE_UNKNOWN: u32 = 0u32;
 pub const OSDEVICE_TYPE_VMBUS: u32 = 262144u32;
-pub const Opt_Distinct: u32 = 8u32;
-pub const Opt_Explicit: u32 = 2u32;
-pub const Opt_Share_mask: u32 = 24u32;
-pub const Opt_Shared: u32 = 16u32;
-pub const Opt_SndSel_mask: u32 = 7u32;
-pub const Opt_Wildcard: u32 = 1u32;
-pub type PALLOCMEM = Option<unsafe extern "system" fn(size: u32) -> *mut core::ffi::c_void>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PARAM_BUFFER {
@@ -732,106 +330,27 @@ impl Default for PARAM_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const PCM_VERSION_1: u32 = 1u32;
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
-pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct POLICY_DATA {
-    pub PolicyObjHdr: RsvpObjHdr,
-    pub usPeOffset: u16,
-    pub usReserved: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct POLICY_DECISION {
-    pub lpvResult: u32,
-    pub wPolicyErrCode: u16,
-    pub wPolicyErrValue: u16,
-}
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct POLICY_ELEMENT {
-    pub usPeLength: u16,
-    pub usPeType: u16,
-    pub ucPeData: [u8; 4],
+pub struct PLUTON_UPGRADE_IMAGEDATA {
+    pub hashAlgID: u16,
+    pub digestSize: u16,
+    pub digest: [u8; 64],
+    pub fileName: [u16; 64],
 }
-impl Default for POLICY_ELEMENT {
+impl Default for PLUTON_UPGRADE_IMAGEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const POLICY_ERRV_CRAZY_FLOWSPEC: u32 = 57u32;
-pub const POLICY_ERRV_EXPIRED_CREDENTIALS: u32 = 4u32;
-pub const POLICY_ERRV_EXPIRED_USER_TOKEN: u32 = 51u32;
-pub const POLICY_ERRV_GLOBAL_DEF_FLOW_COUNT: u32 = 1u32;
-pub const POLICY_ERRV_GLOBAL_DEF_FLOW_DURATION: u32 = 9u32;
-pub const POLICY_ERRV_GLOBAL_DEF_FLOW_RATE: u32 = 17u32;
-pub const POLICY_ERRV_GLOBAL_DEF_PEAK_RATE: u32 = 25u32;
-pub const POLICY_ERRV_GLOBAL_DEF_SUM_FLOW_RATE: u32 = 33u32;
-pub const POLICY_ERRV_GLOBAL_DEF_SUM_PEAK_RATE: u32 = 41u32;
-pub const POLICY_ERRV_GLOBAL_GRP_FLOW_COUNT: u32 = 2u32;
-pub const POLICY_ERRV_GLOBAL_GRP_FLOW_DURATION: u32 = 10u32;
-pub const POLICY_ERRV_GLOBAL_GRP_FLOW_RATE: u32 = 18u32;
-pub const POLICY_ERRV_GLOBAL_GRP_PEAK_RATE: u32 = 26u32;
-pub const POLICY_ERRV_GLOBAL_GRP_SUM_FLOW_RATE: u32 = 34u32;
-pub const POLICY_ERRV_GLOBAL_GRP_SUM_PEAK_RATE: u32 = 42u32;
-pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_COUNT: u32 = 4u32;
-pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_DURATION: u32 = 12u32;
-pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_RATE: u32 = 20u32;
-pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_PEAK_RATE: u32 = 28u32;
-pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_FLOW_RATE: u32 = 36u32;
-pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_PEAK_RATE: u32 = 44u32;
-pub const POLICY_ERRV_GLOBAL_USER_FLOW_COUNT: u32 = 3u32;
-pub const POLICY_ERRV_GLOBAL_USER_FLOW_DURATION: u32 = 11u32;
-pub const POLICY_ERRV_GLOBAL_USER_FLOW_RATE: u32 = 19u32;
-pub const POLICY_ERRV_GLOBAL_USER_PEAK_RATE: u32 = 27u32;
-pub const POLICY_ERRV_GLOBAL_USER_SUM_FLOW_RATE: u32 = 35u32;
-pub const POLICY_ERRV_GLOBAL_USER_SUM_PEAK_RATE: u32 = 43u32;
-pub const POLICY_ERRV_IDENTITY_CHANGED: u32 = 5u32;
-pub const POLICY_ERRV_INSUFFICIENT_PRIVILEGES: u32 = 3u32;
-pub const POLICY_ERRV_NO_ACCEPTS: u32 = 55u32;
-pub const POLICY_ERRV_NO_MEMORY: u32 = 56u32;
-pub const POLICY_ERRV_NO_MORE_INFO: u32 = 1u32;
-pub const POLICY_ERRV_NO_PRIVILEGES: u32 = 50u32;
-pub const POLICY_ERRV_NO_RESOURCES: u32 = 52u32;
-pub const POLICY_ERRV_PRE_EMPTED: u32 = 53u32;
-pub const POLICY_ERRV_SUBNET_DEF_FLOW_COUNT: u32 = 5u32;
-pub const POLICY_ERRV_SUBNET_DEF_FLOW_DURATION: u32 = 13u32;
-pub const POLICY_ERRV_SUBNET_DEF_FLOW_RATE: u32 = 21u32;
-pub const POLICY_ERRV_SUBNET_DEF_PEAK_RATE: u32 = 29u32;
-pub const POLICY_ERRV_SUBNET_DEF_SUM_FLOW_RATE: u32 = 37u32;
-pub const POLICY_ERRV_SUBNET_DEF_SUM_PEAK_RATE: u32 = 45u32;
-pub const POLICY_ERRV_SUBNET_GRP_FLOW_COUNT: u32 = 6u32;
-pub const POLICY_ERRV_SUBNET_GRP_FLOW_DURATION: u32 = 14u32;
-pub const POLICY_ERRV_SUBNET_GRP_FLOW_RATE: u32 = 22u32;
-pub const POLICY_ERRV_SUBNET_GRP_PEAK_RATE: u32 = 30u32;
-pub const POLICY_ERRV_SUBNET_GRP_SUM_FLOW_RATE: u32 = 38u32;
-pub const POLICY_ERRV_SUBNET_GRP_SUM_PEAK_RATE: u32 = 46u32;
-pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_COUNT: u32 = 8u32;
-pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_DURATION: u32 = 16u32;
-pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_RATE: u32 = 24u32;
-pub const POLICY_ERRV_SUBNET_UNAUTH_USER_PEAK_RATE: u32 = 32u32;
-pub const POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_FLOW_RATE: u32 = 40u32;
-pub const POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_PEAK_RATE: u32 = 48u32;
-pub const POLICY_ERRV_SUBNET_USER_FLOW_COUNT: u32 = 7u32;
-pub const POLICY_ERRV_SUBNET_USER_FLOW_DURATION: u32 = 15u32;
-pub const POLICY_ERRV_SUBNET_USER_FLOW_RATE: u32 = 23u32;
-pub const POLICY_ERRV_SUBNET_USER_PEAK_RATE: u32 = 31u32;
-pub const POLICY_ERRV_SUBNET_USER_SUM_FLOW_RATE: u32 = 39u32;
-pub const POLICY_ERRV_SUBNET_USER_SUM_PEAK_RATE: u32 = 47u32;
-pub const POLICY_ERRV_UNKNOWN: u32 = 0u32;
-pub const POLICY_ERRV_UNKNOWN_USER: u32 = 49u32;
-pub const POLICY_ERRV_UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
-pub const POLICY_ERRV_USER_CHANGED: u32 = 54u32;
 pub const POLICY_LOCATOR_SUB_TYPE_ASCII_DN: u32 = 1u32;
 pub const POLICY_LOCATOR_SUB_TYPE_ASCII_DN_ENC: u32 = 3u32;
 pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN: u32 = 2u32;
 pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
-pub const PREDICTIVE_SERV: u32 = 3u32;
 pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = 2i32;
 pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = 1i32;
 pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = 3i32;
@@ -982,36 +501,6 @@ pub struct QOS_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-pub const QUALITATIVE_SERV: u32 = 6u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct QualAppFlowSpec {
-    pub Q_spec_serv_hdr: IntServServiceHdr,
-    pub Q_spec_parm_hdr: IntServParmHdr,
-    pub Q_spec_parms: QualTspecParms,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct QualTspec {
-    pub qual_Tspec_serv_hdr: IntServServiceHdr,
-    pub qual_Tspec_parm_hdr: IntServParmHdr,
-    pub qual_Tspec_parms: QualTspecParms,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct QualTspecParms {
-    pub TB_Tspec_M: u32,
-}
-pub const RCVD_PATH_TEAR: u32 = 1u32;
-pub const RCVD_RESV_TEAR: u32 = 2u32;
-pub const RESOURCES_ALLOCATED: u32 = 1u32;
-pub const RESOURCES_MODIFIED: u32 = 2u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct RESV_STYLE {
-    pub style_header: RsvpObjHdr,
-    pub style_word: u32,
-}
 pub type RHANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1027,38 +516,6 @@ impl Default for RSVP_ADSPEC {
     }
 }
 pub const RSVP_DEFAULT_STYLE: u32 = 0u32;
-pub const RSVP_Err_ADMISSION: u32 = 1u32;
-pub const RSVP_Err_AMBIG_FILTER: u32 = 9u32;
-pub const RSVP_Err_API_ERROR: u32 = 20u32;
-pub const RSVP_Err_BAD_DSTPORT: u32 = 7u32;
-pub const RSVP_Err_BAD_SNDPORT: u32 = 8u32;
-pub const RSVP_Err_BAD_STYLE: u32 = 5u32;
-pub const RSVP_Err_NONE: u32 = 0u32;
-pub const RSVP_Err_NO_PATH: u32 = 3u32;
-pub const RSVP_Err_NO_SENDER: u32 = 4u32;
-pub const RSVP_Err_POLICY: u32 = 2u32;
-pub const RSVP_Err_PREEMPTED: u32 = 12u32;
-pub const RSVP_Err_RSVP_SYS_ERROR: u32 = 23u32;
-pub const RSVP_Err_TC_ERROR: u32 = 21u32;
-pub const RSVP_Err_TC_SYS_ERROR: u32 = 22u32;
-pub const RSVP_Err_UNKNOWN_CTYPE: u32 = 14u32;
-pub const RSVP_Err_UNKNOWN_STYLE: u32 = 6u32;
-pub const RSVP_Err_UNKN_OBJ_CLASS: u32 = 13u32;
-pub const RSVP_Erv_API: u32 = 2u32;
-pub const RSVP_Erv_Bandwidth: u32 = 2u32;
-pub const RSVP_Erv_Bucket_szie: u32 = 32770u32;
-pub const RSVP_Erv_Conflict_Serv: u32 = 1u32;
-pub const RSVP_Erv_Crazy_Flowspec: u32 = 3u32;
-pub const RSVP_Erv_Crazy_Tspec: u32 = 4u32;
-pub const RSVP_Erv_DelayBnd: u32 = 1u32;
-pub const RSVP_Erv_Flow_Rate: u32 = 32769u32;
-pub const RSVP_Erv_MEMORY: u32 = 1u32;
-pub const RSVP_Erv_MTU: u32 = 3u32;
-pub const RSVP_Erv_Min_Policied_size: u32 = 32772u32;
-pub const RSVP_Erv_No_Serv: u32 = 2u32;
-pub const RSVP_Erv_Nonev: u32 = 0u32;
-pub const RSVP_Erv_Other: u32 = 0u32;
-pub const RSVP_Erv_Peak_Rate: u32 = 32771u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RSVP_FILTERSPEC {
@@ -1133,58 +590,7 @@ pub struct RSVP_FILTERSPEC_V6_GPI {
     pub GeneralPortId: u32,
 }
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_HOP {
-    pub hop_header: RsvpObjHdr,
-    pub hop_u: RSVP_HOP_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_HOP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_HOP_0 {
-    pub hop_ipv4: Rsvp_Hop_IPv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_HOP_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_MSG_OBJS {
-    pub RsvpMsgType: i32,
-    pub pRsvpSession: *mut RSVP_SESSION,
-    pub pRsvpFromHop: *mut RSVP_HOP,
-    pub pRsvpToHop: *mut RSVP_HOP,
-    pub pResvStyle: *mut RESV_STYLE,
-    pub pRsvpScope: *mut RSVP_SCOPE,
-    pub FlowDescCount: i32,
-    pub pFlowDescs: *mut FLOW_DESC,
-    pub PdObjectCount: i32,
-    pub ppPdObjects: *mut *mut POLICY_DATA,
-    pub pErrorSpec: *mut ERROR_SPEC,
-    pub pAdspec: *mut ADSPEC,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_MSG_OBJS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RSVP_OBJECT_ID_BASE: u32 = 1000u32;
-pub const RSVP_PATH: u32 = 1u32;
-pub const RSVP_PATH_ERR: u32 = 3u32;
-pub const RSVP_PATH_TEAR: u32 = 5u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RSVP_POLICY {
@@ -1226,59 +632,6 @@ impl Default for RSVP_RESERVE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const RSVP_RESV: u32 = 2u32;
-pub const RSVP_RESV_ERR: u32 = 4u32;
-pub const RSVP_RESV_TEAR: u32 = 6u32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_SCOPE {
-    pub scopl_header: RsvpObjHdr,
-    pub scope_u: RSVP_SCOPE_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SCOPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_SCOPE_0 {
-    pub scopl_ipv4: Scope_list_ipv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SCOPE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct RSVP_SESSION {
-    pub sess_header: RsvpObjHdr,
-    pub sess_u: RSVP_SESSION_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SESSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub union RSVP_SESSION_0 {
-    pub sess_ipv4: Session_IPv4,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for RSVP_SESSION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1289,37 +642,6 @@ pub struct RSVP_STATUS_INFO {
     pub ExtendedStatus2: u32,
 }
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct RsvpObjHdr {
-    pub obj_length: u16,
-    pub obj_class: u8,
-    pub obj_ctype: u8,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Rsvp_Hop_IPv4 {
-    pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub hop_LIH: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Rsvp_Hop_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SENDER_TSPEC {
-    pub stspec_header: RsvpObjHdr,
-    pub stspec_body: IntServTspecBody,
-}
-impl Default for SENDER_TSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const SERVICETYPE_BESTEFFORT: u32 = 1u32;
 pub const SERVICETYPE_CONTROLLEDLOAD: u32 = 2u32;
 pub const SERVICETYPE_GENERAL_INFORMATION: u32 = 5u32;
@@ -1336,8 +658,8 @@ pub const SERVICE_GUARANTEED: u32 = 2147745792u32;
 pub const SERVICE_NO_QOS_SIGNALING: u32 = 1073741824u32;
 pub const SERVICE_NO_TRAFFIC_CONTROL: u32 = 2164260864u32;
 pub const SERVICE_QUALITATIVE: u32 = 2149580800u32;
-pub const SESSFLG_E_Police: u32 = 1u32;
 pub const SIPAERROR_FIRMWAREFAILURE: u32 = 196609u32;
+pub const SIPAERROR_HYPERVISORFAILURE: u32 = 196613u32;
 pub const SIPAERROR_INTERNALFAILURE: u32 = 196611u32;
 pub const SIPAEVENTTYPE_AGGREGATION: u32 = 1073741824u32;
 pub const SIPAEVENTTYPE_AUTHORITY: u32 = 393216u32;
@@ -1392,6 +714,7 @@ pub const SIPAEVENT_HYPERVISOR_LAUNCH_TYPE: u32 = 327690u32;
 pub const SIPAEVENT_HYPERVISOR_MMIO_NX_POLICY: u32 = 327696u32;
 pub const SIPAEVENT_HYPERVISOR_MSR_FILTER_POLICY: u32 = 327697u32;
 pub const SIPAEVENT_HYPERVISOR_PATH: u32 = 327691u32;
+pub const SIPAEVENT_IDK_GENERATION_STATUS: u32 = 131084u32;
 pub const SIPAEVENT_IMAGEBASE: u32 = 458759u32;
 pub const SIPAEVENT_IMAGESIZE: u32 = 458754u32;
 pub const SIPAEVENT_IMAGEVALIDATED: u32 = 458762u32;
@@ -1410,8 +733,10 @@ impl Default for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     }
 }
 pub const SIPAEVENT_LSAISO_CONFIG: u32 = 327720u32;
-pub const SIPAEVENT_MODULE_HSP: u32 = 458764u32;
+pub const SIPAEVENT_MODULE_ORIGINAL_FILENAME: u32 = 458765u32;
+pub const SIPAEVENT_MODULE_PLUTON: u32 = 458764u32;
 pub const SIPAEVENT_MODULE_SVN: u32 = 458763u32;
+pub const SIPAEVENT_MODULE_VERSION: u32 = 458766u32;
 pub const SIPAEVENT_MORBIT_API_STATUS: u32 = 131083u32;
 pub const SIPAEVENT_MORBIT_NOT_CANCELABLE: u32 = 131080u32;
 pub const SIPAEVENT_NOAUTHORITY: u32 = 393217u32;
@@ -1420,6 +745,23 @@ pub const SIPAEVENT_OSKERNELDEBUG: u32 = 327681u32;
 pub const SIPAEVENT_OS_REVOCATION_LIST: u32 = 327699u32;
 pub const SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED: u32 = 327714u32;
 pub const SIPAEVENT_PHYSICALADDRESSEXTENSION: u32 = 327687u32;
+pub const SIPAEVENT_PUBLISHER_OEMNAME: u32 = 458767u32;
+pub const SIPAEVENT_REFS_ROLLBACK_PROTECTION_FROZEN_VOLUME_CHECKSUM: u32 = 327732u32;
+pub const SIPAEVENT_REFS_ROLLBACK_PROTECTION_USER_PAYLOAD_HASH: u32 = 327733u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_REFS_ROLLBACK_PROTECTION_USER_PAYLOAD_HASH_DATA {
+    pub ChecksumType: u16,
+    pub ChecksumBuffer: [u8; 1],
+}
+impl Default for SIPAEVENT_REFS_ROLLBACK_PROTECTION_USER_PAYLOAD_HASH_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIPAEVENT_REFS_ROLLBACK_PROTECTION_VERIFICATION_SUCCEEDED: u32 = 327734u32;
+pub const SIPAEVENT_REFS_ROLLBACK_PROTECTION_VOLUME_FIRST_EVER_MOUNT: u32 = 327735u32;
+pub const SIPAEVENT_REFS_VOLUME_CHECKPOINT_RECORD_CHECKSUM: u32 = 327731u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
@@ -1454,6 +796,20 @@ impl Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
 pub const SIPAEVENT_SI_POLICY: u32 = 327695u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
+pub struct SIPAEVENT_SI_POLICY_CERTIFICATE_PAYLOAD {
+    pub PublisherCommonNameLength: u16,
+    pub IssuerCommonNameLength: u16,
+    pub HashAlgID: u32,
+    pub DigestLength: u16,
+    pub VarLengthData: [u8; 1],
+}
+impl Default for SIPAEVENT_SI_POLICY_CERTIFICATE_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
     pub PolicyVersion: u64,
     pub PolicyNameLength: u16,
@@ -1466,6 +822,24 @@ impl Default for SIPAEVENT_SI_POLICY_PAYLOAD {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const SIPAEVENT_SI_POLICY_SIGNER: u32 = 327729u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_SI_POLICY_SIGNER_PAYLOAD {
+    pub RootID: u32,
+    pub CertificatesLength: u32,
+    pub CertificatesCount: u16,
+    pub PolicyNameLength: u16,
+    pub EKUsLength: u16,
+    pub EKUsCount: u16,
+    pub VarLengthData: [u8; 1],
+}
+impl Default for SIPAEVENT_SI_POLICY_SIGNER_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIPAEVENT_SI_POLICY_UPDATE_SIGNER: u32 = 327730u32;
 pub const SIPAEVENT_SMT_STATUS: u32 = 327700u32;
 pub const SIPAEVENT_SVN_CHAIN_STATUS: u32 = 131082u32;
 pub const SIPAEVENT_SYSTEMROOT: u32 = 327689u32;
@@ -1481,6 +855,7 @@ pub const SIPAEVENT_VBS_MSR_FILTERING_REQUIRED: u32 = 655365u32;
 pub const SIPAEVENT_VBS_SECUREBOOT_REQUIRED: u32 = 655362u32;
 pub const SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED: u32 = 655370u32;
 pub const SIPAEVENT_VBS_VSM_REQUIRED: u32 = 655361u32;
+pub const SIPAEVENT_VSM_DRTM_KEYROLL_DETECTED: u32 = 327739u32;
 pub const SIPAEVENT_VSM_IDKS_INFO: u32 = 327715u32;
 pub const SIPAEVENT_VSM_IDK_INFO: u32 = 327712u32;
 #[repr(C, packed(1))]
@@ -1518,8 +893,107 @@ impl Default for SIPAEVENT_VSM_IDK_RSA_INFO {
     }
 }
 pub const SIPAEVENT_VSM_LAUNCH_TYPE: u32 = 327698u32;
+pub const SIPAEVENT_VSM_SEALED_SI_POLICY: u32 = 327738u32;
+pub const SIPAEVENT_VSM_SRTM_ANTI_ROLLBACK_COUNTER: u32 = 327741u32;
+pub const SIPAEVENT_VSM_SRTM_UNSEAL_POLICY: u32 = 327740u32;
+pub const SIPAEVENT_VTL1_DUMP_CONFIG: u32 = 327744u32;
 pub const SIPAEVENT_WINPE: u32 = 327686u32;
 pub const SIPAEV_ACTION: u32 = 5u32;
+pub const SIPAEV_AMD_ABL_1: u32 = 33290u32;
+pub const SIPAEV_AMD_ABL_10: u32 = 33299u32;
+pub const SIPAEV_AMD_ABL_11: u32 = 33300u32;
+pub const SIPAEV_AMD_ABL_12: u32 = 33301u32;
+pub const SIPAEV_AMD_ABL_13: u32 = 33302u32;
+pub const SIPAEV_AMD_ABL_14: u32 = 33303u32;
+pub const SIPAEV_AMD_ABL_15: u32 = 33304u32;
+pub const SIPAEV_AMD_ABL_16: u32 = 33305u32;
+pub const SIPAEV_AMD_ABL_17: u32 = 33306u32;
+pub const SIPAEV_AMD_ABL_18: u32 = 33307u32;
+pub const SIPAEV_AMD_ABL_19: u32 = 33308u32;
+pub const SIPAEV_AMD_ABL_2: u32 = 33291u32;
+pub const SIPAEV_AMD_ABL_20: u32 = 33309u32;
+pub const SIPAEV_AMD_ABL_21: u32 = 33310u32;
+pub const SIPAEV_AMD_ABL_22: u32 = 33311u32;
+pub const SIPAEV_AMD_ABL_23: u32 = 33312u32;
+pub const SIPAEV_AMD_ABL_24: u32 = 33313u32;
+pub const SIPAEV_AMD_ABL_25: u32 = 33314u32;
+pub const SIPAEV_AMD_ABL_26: u32 = 33315u32;
+pub const SIPAEV_AMD_ABL_27: u32 = 33316u32;
+pub const SIPAEV_AMD_ABL_28: u32 = 33317u32;
+pub const SIPAEV_AMD_ABL_29: u32 = 33318u32;
+pub const SIPAEV_AMD_ABL_3: u32 = 33292u32;
+pub const SIPAEV_AMD_ABL_30: u32 = 33319u32;
+pub const SIPAEV_AMD_ABL_31: u32 = 33320u32;
+pub const SIPAEV_AMD_ABL_32: u32 = 33321u32;
+pub const SIPAEV_AMD_ABL_33: u32 = 33322u32;
+pub const SIPAEV_AMD_ABL_34: u32 = 33323u32;
+pub const SIPAEV_AMD_ABL_35: u32 = 33324u32;
+pub const SIPAEV_AMD_ABL_36: u32 = 33325u32;
+pub const SIPAEV_AMD_ABL_37: u32 = 33326u32;
+pub const SIPAEV_AMD_ABL_38: u32 = 33327u32;
+pub const SIPAEV_AMD_ABL_39: u32 = 33328u32;
+pub const SIPAEV_AMD_ABL_4: u32 = 33293u32;
+pub const SIPAEV_AMD_ABL_40: u32 = 33329u32;
+pub const SIPAEV_AMD_ABL_41: u32 = 33330u32;
+pub const SIPAEV_AMD_ABL_42: u32 = 33331u32;
+pub const SIPAEV_AMD_ABL_43: u32 = 33332u32;
+pub const SIPAEV_AMD_ABL_44: u32 = 33333u32;
+pub const SIPAEV_AMD_ABL_45: u32 = 33334u32;
+pub const SIPAEV_AMD_ABL_46: u32 = 33335u32;
+pub const SIPAEV_AMD_ABL_47: u32 = 33336u32;
+pub const SIPAEV_AMD_ABL_48: u32 = 33337u32;
+pub const SIPAEV_AMD_ABL_5: u32 = 33294u32;
+pub const SIPAEV_AMD_ABL_6: u32 = 33295u32;
+pub const SIPAEV_AMD_ABL_7: u32 = 33296u32;
+pub const SIPAEV_AMD_ABL_8: u32 = 33297u32;
+pub const SIPAEV_AMD_ABL_9: u32 = 33298u32;
+pub const SIPAEV_AMD_ABL_TOC: u32 = 33355u32;
+pub const SIPAEV_AMD_AGESA_DRV: u32 = 33538u32;
+pub const SIPAEV_AMD_BASE_2: u32 = 33280u32;
+pub const SIPAEV_AMD_DRTM_DRV: u32 = 33537u32;
+pub const SIPAEV_AMD_FTPM_DRV: u32 = 33536u32;
+pub const SIPAEV_AMD_GMI3: u32 = 33363u32;
+pub const SIPAEV_AMD_IP_DISCOVERY: u32 = 33351u32;
+pub const SIPAEV_AMD_MID_SMU: u32 = 33338u32;
+pub const SIPAEV_AMD_MP2_CONFIG: u32 = 33288u32;
+pub const SIPAEV_AMD_MP2_FW: u32 = 33289u32;
+pub const SIPAEV_AMD_MP5: u32 = 33361u32;
+pub const SIPAEV_AMD_MPCCX: u32 = 33362u32;
+pub const SIPAEV_AMD_MPIO_FW: u32 = 33360u32;
+pub const SIPAEV_AMD_NO_ACTION: u32 = 3u32;
+pub const SIPAEV_AMD_PMFW0: u32 = 33287u32;
+pub const SIPAEV_AMD_PMU1: u32 = 33358u32;
+pub const SIPAEV_AMD_PMU1_DATA: u32 = 33356u32;
+pub const SIPAEV_AMD_PMU2: u32 = 33359u32;
+pub const SIPAEV_AMD_PMU2_DATA: u32 = 33357u32;
+pub const SIPAEV_AMD_PM_FW1: u32 = 33339u32;
+pub const SIPAEV_AMD_PSP_BL_END: u32 = 33535u32;
+pub const SIPAEV_AMD_PSP_BL_STAGE_1: u32 = 33282u32;
+pub const SIPAEV_AMD_PSP_BL_STAGE_2: u32 = 33285u32;
+pub const SIPAEV_AMD_PSP_DF_RIB0: u32 = 33367u32;
+pub const SIPAEV_AMD_PSP_DF_RIB1: u32 = 33368u32;
+pub const SIPAEV_AMD_PSP_DF_RIB10: u32 = 33377u32;
+pub const SIPAEV_AMD_PSP_DF_RIB11: u32 = 33378u32;
+pub const SIPAEV_AMD_PSP_DF_RIB12: u32 = 33379u32;
+pub const SIPAEV_AMD_PSP_DF_RIB13: u32 = 33380u32;
+pub const SIPAEV_AMD_PSP_DF_RIB14: u32 = 33381u32;
+pub const SIPAEV_AMD_PSP_DF_RIB15: u32 = 33382u32;
+pub const SIPAEV_AMD_PSP_DF_RIB2: u32 = 33369u32;
+pub const SIPAEV_AMD_PSP_DF_RIB3: u32 = 33370u32;
+pub const SIPAEV_AMD_PSP_DF_RIB4: u32 = 33371u32;
+pub const SIPAEV_AMD_PSP_DF_RIB5: u32 = 33372u32;
+pub const SIPAEV_AMD_PSP_DF_RIB6: u32 = 33373u32;
+pub const SIPAEV_AMD_PSP_DF_RIB7: u32 = 33374u32;
+pub const SIPAEV_AMD_PSP_DF_RIB8: u32 = 33375u32;
+pub const SIPAEV_AMD_PSP_DF_RIB9: u32 = 33376u32;
+pub const SIPAEV_AMD_PSP_DF_RIB_TOC: u32 = 33366u32;
+pub const SIPAEV_AMD_PSP_END: u32 = 33791u32;
+pub const SIPAEV_AMD_PSP_KEYDB: u32 = 33283u32;
+pub const SIPAEV_AMD_PSP_L0_SEC_POL: u32 = 33286u32;
+pub const SIPAEV_AMD_PSP_L1_SEC_POL: u32 = 33350u32;
+pub const SIPAEV_AMD_PSP_SPIROM_CONFIG: u32 = 33365u32;
+pub const SIPAEV_AMD_PSP_TOS_KEYDB: u32 = 33354u32;
+pub const SIPAEV_AMD_SECURE_DEBUG_UNLOCK: u32 = 33383u32;
 pub const SIPAEV_AMD_SL_EVENT_BASE: u32 = 32768u32;
 pub const SIPAEV_AMD_SL_LOAD: u32 = 32769u32;
 pub const SIPAEV_AMD_SL_LOAD_1: u32 = 32774u32;
@@ -1528,6 +1002,36 @@ pub const SIPAEV_AMD_SL_PUB_KEY: u32 = 32772u32;
 pub const SIPAEV_AMD_SL_SEPARATOR: u32 = 32775u32;
 pub const SIPAEV_AMD_SL_SVN: u32 = 32773u32;
 pub const SIPAEV_AMD_SL_TSME_RB_FUSE: u32 = 32771u32;
+pub const SIPAEV_AMD_SPL_TABLE_FW: u32 = 33284u32;
+pub const SIPAEV_AMD_SPL_TABLE_ROM: u32 = 33281u32;
+pub const SIPAEV_AMD_SYS_DRV: u32 = 33352u32;
+pub const SIPAEV_AMD_TOS: u32 = 33353u32;
+pub const SIPAEV_AMD_TPMLITE: u32 = 33364u32;
+pub const SIPAEV_AMD_VBL_1: u32 = 33340u32;
+pub const SIPAEV_AMD_VBL_10: u32 = 33349u32;
+pub const SIPAEV_AMD_VBL_2: u32 = 33341u32;
+pub const SIPAEV_AMD_VBL_3: u32 = 33342u32;
+pub const SIPAEV_AMD_VBL_4: u32 = 33343u32;
+pub const SIPAEV_AMD_VBL_5: u32 = 33344u32;
+pub const SIPAEV_AMD_VBL_6: u32 = 33345u32;
+pub const SIPAEV_AMD_VBL_7: u32 = 33346u32;
+pub const SIPAEV_AMD_VBL_8: u32 = 33347u32;
+pub const SIPAEV_AMD_VBL_9: u32 = 33348u32;
+pub const SIPAEV_ARM_BASE: u32 = 36864u32;
+pub const SIPAEV_ARM_DCE: u32 = 36866u32;
+pub const SIPAEV_ARM_DCE_PUBKEY: u32 = 36867u32;
+pub const SIPAEV_ARM_DCE_SECONDARY: u32 = 36872u32;
+pub const SIPAEV_ARM_DEBUG_CONFIG: u32 = 36870u32;
+pub const SIPAEV_ARM_DLME: u32 = 36868u32;
+pub const SIPAEV_ARM_DLME_ENTRY_POINT: u32 = 36869u32;
+pub const SIPAEV_ARM_DLME_PUBKEY: u32 = 36875u32;
+pub const SIPAEV_ARM_DLME_SVN: u32 = 36876u32;
+pub const SIPAEV_ARM_NONSECURE_CONFIG: u32 = 36871u32;
+pub const SIPAEV_ARM_NO_ACTION: u32 = 36877u32;
+pub const SIPAEV_ARM_PCR_SCHEMA: u32 = 36865u32;
+pub const SIPAEV_ARM_SECURE_INT_DISABLE: u32 = 36878u32;
+pub const SIPAEV_ARM_SEPARATOR: u32 = 36874u32;
+pub const SIPAEV_ARM_TZFW: u32 = 36873u32;
 pub const SIPAEV_COMPACT_HASH: u32 = 12u32;
 pub const SIPAEV_CPU_MICROCODE: u32 = 9u32;
 pub const SIPAEV_EFI_ACTION: u32 = 2147483655u32;
@@ -1590,34 +1094,6 @@ pub const SIPAEV_UNUSED: u32 = 2u32;
 pub const SIPAHDRSIGNATURE: u32 = 1279476311u32;
 pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
 pub const SIPALOGVERSION: u32 = 1u32;
-pub const STATE_TIMEOUT: u32 = 4u32;
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Scope_list_ipv4 {
-    pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Scope_list_ipv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
-pub struct Session_IPv4 {
-    pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
-    pub sess_protid: u8,
-    pub sess_flags: u8,
-    pub sess_destport: u16,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl Default for Session_IPv4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const TCBASE: u32 = 7500u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1724,7 +1200,6 @@ impl Default for TC_SUPPORTED_INFO_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_256: u32 = 32u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_384: u32 = 64u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_512: u32 = 128u32;
@@ -1769,40 +1244,7 @@ pub struct WBCL_LogHdr {
     pub entries: u32,
     pub length: u32,
 }
-pub const WBCL_MAX_HSP_UPGRADE_HASH_LEN: u32 = 64u32;
-pub const class_ADSPEC: u32 = 13u32;
-pub const class_CONFIRM: u32 = 15u32;
-pub const class_ERROR_SPEC: u32 = 6u32;
-pub const class_FILTER_SPEC: u32 = 10u32;
-pub const class_FLOWSPEC: u32 = 9u32;
-pub const class_INTEGRITY: u32 = 4u32;
-pub const class_IS_FLOWSPEC: u32 = 9u32;
-pub const class_MAX: u32 = 15u32;
-pub const class_NULL: u32 = 0u32;
-pub const class_POLICY_DATA: u32 = 14u32;
-pub const class_RSVP_HOP: u32 = 3u32;
-pub const class_SCOPE: u32 = 7u32;
-pub const class_SENDER_TEMPLATE: u32 = 11u32;
-pub const class_SENDER_TSPEC: u32 = 12u32;
-pub const class_SESSION: u32 = 1u32;
-pub const class_SESSION_GROUP: u32 = 2u32;
-pub const class_STYLE: u32 = 8u32;
-pub const class_TIME_VALUES: u32 = 5u32;
-pub const ctype_ADSPEC_INTSERV: u32 = 2u32;
-pub const ctype_ERROR_SPEC_ipv4: u32 = 1u32;
-pub const ctype_FILTER_SPEC_ipv4: u32 = 1u32;
-pub const ctype_FILTER_SPEC_ipv4GPI: u32 = 4u32;
-pub const ctype_FLOWSPEC_Intserv0: u32 = 2u32;
-pub const ctype_POLICY_DATA: u32 = 1u32;
-pub const ctype_RSVP_HOP_ipv4: u32 = 1u32;
-pub const ctype_SCOPE_list_ipv4: u32 = 1u32;
-pub const ctype_SENDER_TEMPLATE_ipv4: u32 = 1u32;
-pub const ctype_SENDER_TEMPLATE_ipv4GPI: u32 = 4u32;
-pub const ctype_SENDER_TSPEC: u32 = 2u32;
-pub const ctype_SESSION_ipv4: u32 = 1u32;
-pub const ctype_SESSION_ipv4GPI: u32 = 3u32;
-pub const ctype_STYLE: u32 = 1u32;
-pub type int_serv_wkp = i32;
+pub const WBCL_MAX_PLUTON_UPGRADE_HASH_LEN: u32 = 64u32;
 pub const ioctl_code: u32 = 1u32;
 pub const mCOMPANY: u32 = 402653184u32;
 pub const mIOC_IN: u32 = 2147483648u32;

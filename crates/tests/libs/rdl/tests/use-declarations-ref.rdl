@@ -1,0 +1,23 @@
+use Custom::*;
+use Custom::Metadata::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Test {
+    #[Version(1)]
+    #[Foo(2)]
+    struct Thing {
+        a: CustomThing,
+    }
+}
+
+#[winrt]
+mod Custom {
+    mod Metadata {
+        attribute FooAttribute {
+            fn(value: u32);
+        }
+    }
+
+    struct CustomThing {}
+}

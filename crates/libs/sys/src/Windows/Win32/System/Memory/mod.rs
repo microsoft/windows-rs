@@ -22,6 +22,8 @@ windows_link::link!("kernel32.dll" "system" fn FlushViewOfFile(lpbaseaddress : *
 windows_link::link!("kernel32.dll" "system" fn FreeUserPhysicalPages(hprocess : super::super::Foundation:: HANDLE, numberofpages : *mut usize, pagearray : *const usize) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetLargePageMinimum() -> usize);
 windows_link::link!("kernel32.dll" "system" fn GetMemoryErrorHandlingCapabilities(capabilities : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetMemoryNumaClosestInitiatorNode(targetnodenumber : u32, initiatornodenumber : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetMemoryNumaPerformanceInformation(nodenumber : u32, datatype : u8, perfinfo : *mut *mut WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> super::super::Foundation:: HANDLE);
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeaps(numberofheaps : u32, processheaps : *mut super::super::Foundation:: HANDLE) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetProcessWorkingSetSizeEx(hprocess : super::super::Foundation:: HANDLE, lpminimumworkingsetsize : *mut usize, lpmaximumworkingsetsize : *mut usize, flags : *mut u32) -> windows_sys::core::BOOL);
@@ -457,6 +459,37 @@ pub const VmOfferPriorityLow: OFFER_PRIORITY = 2i32;
 pub const VmOfferPriorityNormal: OFFER_PRIORITY = 4i32;
 pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = 1i32;
 pub type WIN32_MEMORY_INFORMATION_CLASS = i32;
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_ALL_TARGET_NODE: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY {
+    pub InitiatorNodeNumber: u32,
+    pub TargetNodeNumber: u32,
+    pub DataType: u8,
+    pub Flags: WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY_0,
+    pub MinTransferSizeInBytes: u64,
+    pub EntryValue: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT {
+    pub EntryCount: u32,
+    pub PerformanceEntries: [WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY; 1],
+}
+impl Default for WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_READ_BANDWIDTH: u32 = 2u32;
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_READ_LATENCY: u32 = 1u32;
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_WRITE_BANDWIDTH: u32 = 8u32;
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_WRITE_LATENCY: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {

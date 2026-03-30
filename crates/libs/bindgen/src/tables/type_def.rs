@@ -3,10 +3,9 @@ use super::*;
 pub trait TypeDefExt {
     fn type_name(&self) -> TypeName;
     fn generics(&self) -> Vec<Type>;
-    fn nested(&self) -> Option<NestedClass>;
-    fn underlying_type(&self) -> Type;
+    fn underlying_type_ext(&self, reader: &Reader) -> Type;
     fn invalid_values(&self) -> Vec<i64>;
-    fn free_function(&self) -> Option<CppFn>;
+    fn free_function(&self, reader: &Reader) -> Option<CppFn>;
     fn is_agile(&self) -> bool;
     fn is_async(&self) -> bool;
 }
@@ -20,16 +19,12 @@ impl TypeDefExt for TypeDef {
         self.generic_params().map(Type::Generic).collect()
     }
 
-    fn nested(&self) -> Option<NestedClass> {
-        self.equal_range(0, self.pos() + 1).next()
-    }
-
-    fn underlying_type(&self) -> Type {
+    fn underlying_type_ext(&self, reader: &Reader) -> Type {
         let field = self.fields().next().unwrap();
         if let Some(constant) = field.constant() {
-            constant.constant_type()
+            constant.constant_type(reader)
         } else {
-            field.field_type(None)
+            field.field_type(None, reader)
         }
     }
 
@@ -45,12 +40,10 @@ impl TypeDefExt for TypeDef {
         values
     }
 
-    fn free_function(&self) -> Option<CppFn> {
+    fn free_function(&self, reader: &Reader) -> Option<CppFn> {
         if let Some(attribute) = self.find_attribute("RAIIFreeAttribute") {
             if let Some((_, Value::Utf8(name))) = attribute.value().first() {
-                if let Some(Type::CppFn(ty)) = current_reader()
-                    .with_full_name(self.namespace(), name)
-                    .next()
+                if let Some(Type::CppFn(ty)) = reader.with_full_name(self.namespace(), name).next()
                 {
                     return Some(ty);
                 }
@@ -64,7 +57,10 @@ impl TypeDefExt for TypeDef {
             match attribute.name() {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::I32(2))) = attribute.value().first() {
+                    if matches!(
+                        attribute.value().first(),
+                        Some((_, Value::EnumValue(_, inner))) if matches!(**inner, Value::I32(2))
+                    ) {
                         return true;
                     }
                 }

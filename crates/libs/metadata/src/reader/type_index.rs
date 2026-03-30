@@ -7,10 +7,12 @@ pub struct TypeIndex {
 }
 
 impl TypeIndex {
+    #[must_use]
     pub fn read<P: AsRef<std::path::Path>>(path: P) -> Option<Self> {
         Some(Self::new(vec![File::read(path)?]))
     }
 
+    #[must_use]
     pub fn new(files: Vec<File>) -> Self {
         let mut types: HashMap<String, HashMap<String, Vec<(usize, usize)>>> = HashMap::new();
         let mut nested: HashMap<(usize, usize), Vec<usize>> = HashMap::new();
@@ -83,11 +85,24 @@ impl TypeIndex {
             .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
     }
 
+    pub fn contains_namespace(&self, namespace: &str) -> bool {
+        self.types.contains_key(namespace)
+    }
+
     pub fn contains(&self, namespace: &str, name: &str) -> bool {
         self.types
             .get(namespace)
             .and_then(|types| types.get(name))
             .is_some()
+    }
+
+    pub fn assembly_name(&self, namespace: &str, name: &str) -> Option<&str> {
+        self.types
+            .get(namespace)
+            .and_then(|types| types.get(name))
+            .and_then(|types| types.first())
+            .map(|(file, _)| self.files(*file))
+            .and_then(|file| file.assembly_name())
     }
 
     #[track_caller]

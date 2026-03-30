@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub enum Value {
     Bool(bool),
     U8(u8),
@@ -15,7 +15,8 @@ pub enum Value {
     F64(f64),
     Utf8(String),
     Utf16(String),
-    AttributeEnum(String, i32),
+    TypeName(TypeName),
+    EnumValue(TypeName, Box<Value>),
 }
 
 impl Value {
@@ -34,7 +35,8 @@ impl Value {
             Self::F64(..) => Type::F64,
             Self::Utf8(..) => Type::String,
             Self::Utf16(..) => Type::String,
-            Self::AttributeEnum(..) => Type::AttributeEnum,
+            Self::TypeName(..) => Type::ClassName(TypeName::named("System", "Type")),
+            Self::EnumValue(tn, _) => Type::ValueName(tn.clone()),
         }
     }
 }

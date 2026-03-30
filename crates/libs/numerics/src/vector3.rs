@@ -61,6 +61,21 @@ impl Vector3 {
         self / self.length()
     }
 
+    pub fn cross(&self, rhs: &Self) -> Self {
+        Self {
+            X: self.Y * rhs.Z - self.Z * rhs.Y,
+            Y: self.Z * rhs.X - self.X * rhs.Z,
+            Z: self.X * rhs.Y - self.Y * rhs.X,
+        }
+    }
+
+    fn impl_neg(&self) -> Self {
+        Self {
+            X: -self.X,
+            Y: -self.Y,
+            Z: -self.Z,
+        }
+    }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             X: self.X + rhs.X,
@@ -105,6 +120,18 @@ impl Vector3 {
     }
 }
 
+impl core::ops::Neg for Vector3 {
+    type Output = Self;
+    fn neg(self) -> Self {
+        self.impl_neg()
+    }
+}
+impl core::ops::Neg for &Vector3 {
+    type Output = Vector3;
+    fn neg(self) -> Vector3 {
+        self.impl_neg()
+    }
+}
 impl core::ops::Add<Self> for Vector3 {
     type Output = Self;
     fn add(self, rhs: Self) -> Self {

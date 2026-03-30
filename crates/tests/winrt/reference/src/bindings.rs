@@ -9,7 +9,7 @@
 windows_core::imp::define_interface!(
     IReference,
     IReference_Vtbl,
-    0xdb426a55_0a8f_5cd8_8618_2926436cb7e6
+    0x4aec1394_49d6_5942_998d_ee4c12ebe551
 );
 impl windows_core::RuntimeType for IReference {
     const SIGNATURE: windows_core::imp::ConstBuffer =

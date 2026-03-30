@@ -19,8 +19,8 @@ pub enum Type {
     USize,
     String,
     Object,
-    AttributeEnum, // 0x55 is an unnamed ELEMENT_TYPE used by attributes to specify an enum
-    Name(TypeName),
+    ClassName(TypeName),          // ELEMENT_TYPE_CLASS
+    ValueName(TypeName),          // ELEMENT_TYPE_VALUETYPE
     Array(Box<Self>),             // ELEMENT_TYPE_SZARRAY
     Generic(String, u16),         // ELEMENT_TYPE_VAR
     RefMut(Box<Self>),            // ELEMENT_TYPE_BYREF
@@ -31,8 +31,12 @@ pub enum Type {
 }
 
 impl Type {
-    pub fn named(namespace: &str, name: &str) -> Self {
-        Self::Name(TypeName::named(namespace, name))
+    pub fn class_named(namespace: &str, name: &str) -> Self {
+        Self::ClassName(TypeName::named(namespace, name))
+    }
+
+    pub fn value_named(namespace: &str, name: &str) -> Self {
+        Self::ValueName(TypeName::named(namespace, name))
     }
 
     pub fn code(&self) -> u8 {
@@ -49,14 +53,7 @@ impl Type {
             Self::F32 => ELEMENT_TYPE_R4,
             Self::F64 => ELEMENT_TYPE_R8,
             Self::String => ELEMENT_TYPE_STRING,
-            Self::AttributeEnum => 0x55,
             rest => panic!("{rest:?}"),
         }
-    }
-}
-
-impl From<(&str, &str)> for Type {
-    fn from(value: (&str, &str)) -> Self {
-        Self::named(value.0, value.1)
     }
 }

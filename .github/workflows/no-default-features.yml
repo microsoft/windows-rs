@@ -36,6 +36,8 @@ jobs:
 # generated - run `cargo run -p tool_yml` to update
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --no-default-features
+      - name: Check riddle
+        run:  cargo check -p riddle --no-default-features
       - name: Check windows
         run:  cargo check -p windows --no-default-features
       - name: Check windows-bindgen

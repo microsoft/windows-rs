@@ -60,9 +60,10 @@ impl<T: Async> SyncState<T> {
         if guard.completed_assigned {
             Err(Error::from_hresult(HRESULT(0x80000018u32 as i32))) // E_ILLEGAL_DELEGATE_ASSIGNMENT
         } else {
-            guard.completed_assigned = true;
             let status = guard.status();
             let handler = handler.ok()?;
+
+            guard.completed_assigned = true;
 
             if status == AsyncStatus::Started {
                 guard.completed = Some(handler.clone());

@@ -4,7 +4,18 @@ pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
     let mut tokens = quote! {};
 
     if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
-        if let Some((_, Value::I32(value))) = attribute.value().first() {
+        let arch_value = match attribute.value().first() {
+            Some((_, Value::I32(v))) => Some(*v),
+            Some((_, Value::EnumValue(_, inner))) => {
+                if let Value::I32(v) = inner.as_ref() {
+                    Some(*v)
+                } else {
+                    None
+                }
+            }
+            _ => None,
+        };
+        if let Some(value) = arch_value {
             let mut arches = BTreeSet::new();
 
             if value & 1 == 1 {

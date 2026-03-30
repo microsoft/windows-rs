@@ -1,0 +1,23 @@
+#[win32]
+mod Test {
+    #[packed(4)]
+    struct PackedFour {
+        a: u8,
+        b: u32,
+    }
+    #[packed(1)]
+    struct PackedOne {
+        a: u8,
+        b: u64,
+    }
+    #[packed(4)]
+    union PackedUnionFour {
+        a: u8,
+        b: u32,
+    }
+    #[packed(1)]
+    union PackedUnionOne {
+        a: u8,
+        b: u64,
+    }
+}

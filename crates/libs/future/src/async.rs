@@ -32,13 +32,14 @@ pub trait Async: Interface {
     // Waits for the async execution to finish and then returns the results.
     fn join(&self) -> Result<Self::Output> {
         if self.status()? == AsyncStatus::Started {
-            let (_waiter, signaler) = Waiter::new()?;
+            let (waiter, signaler) = Waiter::new()?;
             self.set_completed(move |_| {
                 // This is safe because the waiter will only be dropped after being signaled.
                 unsafe {
                     signaler.signal();
                 }
             })?;
+            waiter.wait();
         }
         self.get_results()
     }

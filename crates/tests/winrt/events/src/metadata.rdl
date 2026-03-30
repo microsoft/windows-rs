@@ -1,0 +1,26 @@
+use Windows::Foundation::*;
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod test_events {
+    #[Activatable(1)]
+    #[Static(IClassStatics, 1)]
+    #[MarshalingBehavior(Agile)]
+    class Class {
+        IClass,
+    }
+
+    #[ExclusiveTo(Class)]
+    interface IClass {
+        fn Signal(&self, value: i32) -> i32;
+        #[special] fn add_Event(&self, handler: TypedEventHandler<Class, i32>) -> EventRegistrationToken;
+        #[special] fn remove_Event(&self, token: EventRegistrationToken);
+    }
+
+    #[ExclusiveTo(Class)]
+    interface IClassStatics {
+        fn StaticSignal(&self, value: i32) -> i32;
+        #[special] fn add_StaticEvent(&self, handler: EventHandler<i32>) -> EventRegistrationToken;
+        #[special] fn remove_StaticEvent(&self, token: EventRegistrationToken);
+    }
+}

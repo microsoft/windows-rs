@@ -564,7 +564,7 @@ fn create_device_3d() -> Result<ID3D11Device> {
         D3D11CreateDevice(
             None,
             D3D_DRIVER_TYPE_HARDWARE,
-            HMODULE::default(),
+            None,
             D3D11_CREATE_DEVICE_BGRA_SUPPORT,
             None,
             D3D11_SDK_VERSION,

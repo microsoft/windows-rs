@@ -10083,7 +10083,7 @@ pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
 pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
 pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
 pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
-pub type MI_MainFunction = Option<unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module>;
+pub type MI_MainFunction = Option<unsafe extern "C" fn(server: *mut MI_Server) -> *mut MI_Module>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct MI_MethodDecl {
