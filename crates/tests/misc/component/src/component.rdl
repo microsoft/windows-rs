@@ -21,8 +21,8 @@ mod test_component {
         #[special] fn get_Property(&self) -> i32;
         #[special] fn put_Property(&self, value: i32);
         #[special] fn get_Flags(&self) -> Flags;
-        fn Int32Array(&self, a: [i32], #[output] b: [i32], c: &mut [i32]) -> [i32];
-        fn StringArray(&self, a: [String], #[output] b: [String], c: &mut [String]) -> [String];
+        fn Int32Array(&self, a: [i32], #[out] b: [i32], c: &mut [i32]) -> [i32];
+        fn StringArray(&self, a: [String], #[out] b: [String], c: &mut [String]) -> [String];
         fn Input(&self, a: Object, b: Class, c: Windows::Foundation::IStringable, d: Callback);
     }
 

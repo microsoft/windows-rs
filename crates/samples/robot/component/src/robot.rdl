@@ -18,7 +18,7 @@ mod Robotics {
 #[win32]
 mod Robotics {
     #[library("robotics.dll")]
-    extern fn CreateRobotFromHandle(#[input] handle: *mut void, robot: *mut Robot) -> HRESULT;
+    extern fn CreateRobotFromHandle(#[in] handle: *mut void, robot: *mut Robot) -> HRESULT;
 
     interface IRobotInterop: IUnknown {
         fn Handle(&self) -> *mut void;
