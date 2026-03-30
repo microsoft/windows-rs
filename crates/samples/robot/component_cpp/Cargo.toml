@@ -1,14 +1,15 @@
 [package]
-name = "robot_client_cpp"
+name = "robot_cpp"
 version = "0.0.0"
 edition = "2021"
 publish = false
 
-[dependencies]
-windows-result = { workspace = true }
-robot_cpp = { path = "../component_cpp" }
+[lib]
+name = "robotics"
+crate-type = ["cdylib"]
 
 [build-dependencies]
+windows-rdl = { workspace = true }
 cppwinrt = { workspace = true }
 cc = "1.0"
 

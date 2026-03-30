@@ -21,6 +21,8 @@ fn main() {
         .cpp(true)
         .std("c++20")
         .flag("/EHsc")
+        .flag("/W4")
+        .flag("/WX")
         .file("src/main.cpp")
         .include(include)
         .compile("main_cpp");
