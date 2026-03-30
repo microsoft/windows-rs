@@ -183,26 +183,26 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `output` attribute does not accept arguments\n --> .rdl:4:23")]
+#[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:4:23")]
 fn callback_out_with_args() {
     should_panic(
         r#"
 #[win32]
 mod Test {
-    extern fn Handler(#[output(42)] output: i32);
+    extern fn Handler(#[out(42)] output: i32);
 }
         "#,
     )
 }
 
 #[test]
-#[should_panic(expected = "error: `optional` attribute does not accept arguments\n --> .rdl:4:23")]
+#[should_panic(expected = "error: `opt` attribute does not accept arguments\n --> .rdl:4:23")]
 fn callback_opt_with_args() {
     should_panic(
         r#"
 #[win32]
 mod Test {
-    extern fn Handler(#[optional(42)] value: i32);
+    extern fn Handler(#[opt(42)] value: i32);
 }
         "#,
     )
@@ -261,26 +261,26 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `output` attribute does not accept arguments\n --> .rdl:4:25")]
+#[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:4:25")]
 fn delegate_out_with_args() {
     should_panic(
         r#"
 #[winrt]
 mod Test {
-    delegate fn Handler(#[output(42)] output: i32);
+    delegate fn Handler(#[out(42)] output: i32);
 }
         "#,
     )
 }
 
 #[test]
-#[should_panic(expected = "error: `optional` attribute does not accept arguments\n --> .rdl:4:25")]
+#[should_panic(expected = "error: `opt` attribute does not accept arguments\n --> .rdl:4:25")]
 fn delegate_opt_with_args() {
     should_panic(
         r#"
 #[winrt]
 mod Test {
-    delegate fn Handler(#[optional(42)] value: i32);
+    delegate fn Handler(#[opt(42)] value: i32);
 }
         "#,
     )
@@ -361,28 +361,28 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `output` attribute does not accept arguments\n --> .rdl:5:17")]
+#[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:5:17")]
 fn fn_out_with_args() {
     should_panic(
         r#"
 #[win32]
 mod Test {
     #[library("lib")]
-    extern fn F(#[output(42)] output: i32);
+    extern fn F(#[out(42)] output: i32);
 }
         "#,
     )
 }
 
 #[test]
-#[should_panic(expected = "error: `optional` attribute does not accept arguments\n --> .rdl:5:17")]
+#[should_panic(expected = "error: `opt` attribute does not accept arguments\n --> .rdl:5:17")]
 fn fn_opt_with_args() {
     should_panic(
         r#"
 #[win32]
 mod Test {
     #[library("lib")]
-    extern fn F(#[optional(42)] value: i32);
+    extern fn F(#[opt(42)] value: i32);
 }
         "#,
     )
@@ -477,14 +477,14 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `output` attribute does not accept arguments\n --> .rdl:5:26")]
+#[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:5:26")]
 fn method_out_with_args() {
     should_panic(
         r#"
 #[win32]
 mod Test {
     interface IFoo {
-        fn Method(&self, #[output(42)] output: i32);
+        fn Method(&self, #[out(42)] output: i32);
     }
 }
         "#,
@@ -492,14 +492,14 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `optional` attribute does not accept arguments\n --> .rdl:5:26")]
+#[should_panic(expected = "error: `opt` attribute does not accept arguments\n --> .rdl:5:26")]
 fn method_opt_with_args() {
     should_panic(
         r#"
 #[win32]
 mod Test {
     interface IFoo {
-        fn Method(&self, #[optional(42)] value: i32);
+        fn Method(&self, #[opt(42)] value: i32);
     }
 }
         "#,

@@ -126,7 +126,10 @@ impl Writer {
                 path.push(&self.output);
                 path.push(format!("{namespace}.rdl"));
 
-                write_to_file(path.to_str().unwrap(), formatter::format(&output));
+                write_to_file(
+                    path.to_str().unwrap(),
+                    formatter::format(&output).replace("#[r#in]", "#[in]"),
+                );
             }
         } else {
             let mut layout = Layout::new();
@@ -143,7 +146,10 @@ impl Writer {
             }
 
             let output = layout.to_string();
-            write_to_file(&self.output, formatter::format(&output));
+            write_to_file(
+                &self.output,
+                formatter::format(&output).replace("#[r#in]", "#[in]"),
+            );
         }
 
         Ok(())
@@ -377,17 +383,17 @@ fn write_params(
             // assume `In` as the default.
             let effective_in = has_in || !has_out;
             let in_attr = if effective_in && (has_out || is_mutable) {
-                quote! { #[input] }
+                quote! { #[r#in] }
             } else {
                 quote! {}
             };
             let out_attr = if has_out && (effective_in || !is_mutable) {
-                quote! { #[output] }
+                quote! { #[out] }
             } else {
                 quote! {}
             };
             let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
-                quote! { #[optional] }
+                quote! { #[opt] }
             } else {
                 quote! {}
             };

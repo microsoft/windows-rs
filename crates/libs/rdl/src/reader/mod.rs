@@ -183,6 +183,19 @@ impl Reader {
     }
 }
 
+/// Replace `#[in]` with `#[r#in]` so that syn can parse it.
+///
+/// `in` is a Rust keyword and cannot appear as a bare identifier in attribute
+/// position. The RDL format uses `#[in]` as a parameter attribute, so we
+/// normalise it to the raw-identifier form before handing the source to syn.
+fn preprocess_rdl(contents: &str) -> std::borrow::Cow<'_, str> {
+    if contents.contains("#[in]") {
+        std::borrow::Cow::Owned(contents.replace("#[in]", "#[r#in]"))
+    } else {
+        std::borrow::Cow::Borrowed(contents)
+    }
+}
+
 fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
     let mut input = vec![];
 
@@ -191,6 +204,7 @@ fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>,
             return Err(Error::new("failed to read binary file", path, 0, 0));
         };
 
+        let contents = preprocess_rdl(&contents);
         let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), path, start.line, start.column)
@@ -201,7 +215,8 @@ fn expand_rdl_files(paths: &[String], input_str: &[String]) -> Result<Vec<File>,
     }
 
     for contents in input_str {
-        let mut file = syn::parse_str::<File>(contents).map_err(|error| {
+        let contents = preprocess_rdl(contents);
+        let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), ".rdl", start.line, start.column)
         })?;
