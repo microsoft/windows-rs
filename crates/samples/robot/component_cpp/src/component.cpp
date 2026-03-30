@@ -4,7 +4,7 @@
 using namespace winrt;
 
 struct __declspec(uuid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed")) IRobotInterop: IUnknown {
-    virtual void* __stdcall Handle() noexcept = 0;
+    virtual HANDLE __stdcall Handle() noexcept = 0;
 };
 
 struct Robot : implements<Robot, Robotics::IRobot, IRobotInterop> {
@@ -16,11 +16,11 @@ struct Robot : implements<Robot, Robotics::IRobot, IRobotInterop> {
         if (m_handle == nullptr) {
             printf("%ls\n", message.c_str());
         } else {
-            printf("%ls (0x%llx)\n", message.c_str(), reinterpret_cast<uintptr_t>(m_handle));
+            printf("%ls (0x%Ix)\n", message.c_str(), reinterpret_cast<uintptr_t>(m_handle));
         }
     }
 
-    HANDLE Handle() noexcept override {
+    HANDLE __stdcall Handle() noexcept override {
         return m_handle;
     }
 };

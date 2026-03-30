@@ -26,7 +26,7 @@ extern "C" {
         auto interop = handy_robot.as<IRobotInterop>();
         auto handle = interop->Handle();
 
-        printf("interop handle: 0x%llx\n", reinterpret_cast<uintptr_t>(handle));
+        printf("interop handle: 0x%Ix\n", reinterpret_cast<uintptr_t>(handle));
         return S_OK;
     }
     catch (...) { return winrt::to_hresult(); }
