@@ -1,5 +1,5 @@
 fn main() {
-    println!("cargo:rerun-if-changed=src/component.rdl");
+    println!("cargo::rerun-if-changed=src/component.rdl");
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
 
     windows_rdl::reader()

@@ -1,5 +1,5 @@
 fn main() {
-    println!("cargo:rerun-if-changed=src/sample.rdl");
+    println!("cargo::rerun-if-changed=src/sample.rdl");
 
     let windows_foundation = format!(
         "{}\\System32\\WinMetadata\\Windows.Foundation.winmd",

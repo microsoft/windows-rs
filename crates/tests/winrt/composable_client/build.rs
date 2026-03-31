@@ -3,9 +3,9 @@ fn main() {
         return;
     }
 
-    println!("cargo:rerun-if-changed=../composable/metadata.winmd");
-    println!("cargo:rerun-if-changed=src/interop.cpp");
-    println!("cargo:rustc-link-lib=onecoreuap");
+    println!("cargo::rerun-if-changed=../composable/metadata.winmd");
+    println!("cargo::rerun-if-changed=src/interop.cpp");
+    println!("cargo::rustc-link-lib=onecoreuap");
 
     windows_bindgen::bindgen([
         "--in",

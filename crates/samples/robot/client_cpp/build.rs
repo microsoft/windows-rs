@@ -3,9 +3,9 @@ fn main() {
         return;
     }
 
-    println!("cargo:rerun-if-changed=../component/robot.winmd");
-    println!("cargo:rerun-if-changed=src/main.cpp");
-    println!("cargo:rustc-link-lib=onecoreuap");
+    println!("cargo::rerun-if-changed=../component/robot.winmd");
+    println!("cargo::rerun-if-changed=src/main.cpp");
+    println!("cargo::rustc-link-lib=onecoreuap");
 
     let include = std::env::var("OUT_DIR").unwrap();
 

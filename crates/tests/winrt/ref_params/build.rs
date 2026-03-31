@@ -3,11 +3,11 @@ fn main() {
         return;
     }
 
-    println!("cargo:rerun-if-changed=src/test.idl");
+    println!("cargo::rerun-if-changed=src/test.idl");
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
     let mut command = std::process::Command::new("midlrt.exe");
-    println!("cargo:rerun-if-changed=src/interop.cpp");
-    println!("cargo:rustc-link-lib=onecoreuap");
+    println!("cargo::rerun-if-changed=src/interop.cpp");
+    println!("cargo::rustc-link-lib=onecoreuap");
 
     command.args([
         "/winrt",
