@@ -3,9 +3,9 @@ fn main() {
         return;
     }
 
-    println!("cargo::rerun-if-changed=src/test.rdl");
-    println!("cargo::rerun-if-changed=src/interop.cpp");
-    println!("cargo::rustc-link-lib=onecoreuap");
+    println!("cargo:rerun-if-changed=src/test.rdl");
+    println!("cargo:rerun-if-changed=src/interop.cpp");
+    println!("cargo:rustc-link-lib=onecoreuap");
 
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
     let include = std::env::var("OUT_DIR").unwrap();

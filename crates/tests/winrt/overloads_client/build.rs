@@ -1,5 +1,5 @@
 fn main() {
-    println!("cargo::rerun-if-changed=../overloads/metadata.winmd");
+    println!("cargo:rerun-if-changed=../overloads/metadata.winmd");
 
     windows_bindgen::bindgen([
         "--in",

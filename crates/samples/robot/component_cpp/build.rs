@@ -3,11 +3,11 @@ fn main() {
         return;
     }
 
-    println!("cargo::rerun-if-changed=src/robot.rdl");
-    println!("cargo::rerun-if-changed=src/component.cpp");
-    println!("cargo::rustc-link-lib=onecoreuap");
-    println!("cargo::rustc-link-arg-cdylib=/export:DllGetActivationFactory");
-    println!("cargo::rustc-link-arg-cdylib=/export:CreateRobotFromHandle");
+    println!("cargo:rerun-if-changed=src/robot.rdl");
+    println!("cargo:rerun-if-changed=src/component.cpp");
+    println!("cargo:rustc-link-lib=onecoreuap");
+    println!("cargo:rustc-link-arg-cdylib=/export:DllGetActivationFactory");
+    println!("cargo:rustc-link-arg-cdylib=/export:CreateRobotFromHandle");
 
     let include = std::env::var("OUT_DIR").unwrap();
     let reference = "../../../libs/bindgen/default";

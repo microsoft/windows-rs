@@ -3,8 +3,8 @@ fn main() {
         return;
     }
 
-    println!("cargo::rerun-if-changed=src/client.cpp");
-    println!("cargo::rustc-link-lib=onecoreuap");
+    println!("cargo:rerun-if-changed=src/client.cpp");
+    println!("cargo:rustc-link-lib=onecoreuap");
 
     cc::Build::new()
         .cpp(true)

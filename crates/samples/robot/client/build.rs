@@ -1,5 +1,5 @@
 fn main() {
-    println!("cargo::rerun-if-changed=../component/robot.winmd");
+    println!("cargo:rerun-if-changed=../component/robot.winmd");
 
     windows_bindgen::bindgen([
         "--in",

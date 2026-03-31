@@ -1,5 +1,5 @@
 fn main() {
-    println!("cargo::rerun-if-changed=src/test.rdl");
+    println!("cargo:rerun-if-changed=src/test.rdl");
 
     windows_rdl::reader()
         .output("test.winmd")

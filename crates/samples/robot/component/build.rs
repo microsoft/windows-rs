@@ -1,5 +1,5 @@
 fn main() {
-    println!("cargo::rerun-if-changed=src/robot.rdl");
+    println!("cargo:rerun-if-changed=src/robot.rdl");
 
     let reference = "../../../libs/bindgen/default";
 
