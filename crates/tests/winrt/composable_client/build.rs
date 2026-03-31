@@ -3,6 +3,7 @@ fn main() {
         return;
     }
 
+    println!("cargo:rerun-if-changed=../composable/metadata.winmd");
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
 

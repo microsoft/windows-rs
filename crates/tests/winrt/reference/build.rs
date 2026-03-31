@@ -1,4 +1,6 @@
 fn main() {
+    println!("cargo:rerun-if-changed=src/metadata.rdl");
+
     windows_rdl::reader()
         .output("metadata.winmd")
         .input("src/metadata.rdl")

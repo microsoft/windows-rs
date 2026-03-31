@@ -1,4 +1,6 @@
 fn main() {
+    println!("cargo:rerun-if-changed=message.txt");
+
     let mut from = std::path::PathBuf::from(std::env::var("CARGO_MANIFEST_DIR").unwrap());
     from.push("message.txt");
 
