@@ -2,7 +2,7 @@
 mod Test {
     interface IFoo {
         fn Method(&self, value: i32) -> i32;
-        property Value: i32;
+        Value: i32;
         event Changed: Windows::Foundation::TypedEventHandler<IFoo, i32>;
     }
 }

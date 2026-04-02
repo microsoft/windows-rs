@@ -2,7 +2,6 @@ use super::guid;
 use super::*;
 
 syn::custom_keyword!(interface);
-syn::custom_keyword!(property);
 syn::custom_keyword!(event);
 
 const EVENT_REGISTRATION_TOKEN_NAMESPACE: &str = "Windows.Foundation";
@@ -11,7 +10,6 @@ const EVENT_REGISTRATION_TOKEN_NAME: &str = "EventRegistrationToken";
 #[derive(Debug)]
 pub struct Property {
     pub attrs: Vec<syn::Attribute>,
-    pub _token: property,
     pub name: syn::Ident,
     pub ty: syn::Type,
 }
@@ -34,21 +32,8 @@ pub enum InterfaceItem {
 impl syn::parse::Parse for InterfaceItem {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let lookahead = input.lookahead1();
 
-        if lookahead.peek(property) {
-            let _token = input.parse::<property>()?;
-            let name = input.parse::<syn::Ident>()?;
-            input.parse::<syn::Token![:]>()?;
-            let ty = input.parse::<syn::Type>()?;
-            input.parse::<syn::Token![;]>()?;
-            Ok(InterfaceItem::Property(Property {
-                attrs,
-                _token,
-                name,
-                ty,
-            }))
-        } else if lookahead.peek(event) {
+        if input.peek(event) {
             let _token = input.parse::<event>()?;
             let name = input.parse::<syn::Ident>()?;
             input.parse::<syn::Token![:]>()?;
@@ -60,11 +45,18 @@ impl syn::parse::Parse for InterfaceItem {
                 name,
                 ty,
             }))
-        } else {
-            // Must be a regular method; attrs already consumed so inline the parse.
+        } else if input.peek(syn::Token![fn]) {
+            // Regular method (attrs already consumed).
             let sig = input.parse::<syn::Signature>()?;
             input.parse::<syn::Token![;]>()?;
             Ok(InterfaceItem::Method(Method { attrs, sig }))
+        } else {
+            // Inferred read-write property: `PropertyName: Type;`
+            let name = input.parse::<syn::Ident>()?;
+            input.parse::<syn::Token![:]>()?;
+            let ty = input.parse::<syn::Type>()?;
+            input.parse::<syn::Token![;]>()?;
+            Ok(InterfaceItem::Property(Property { attrs, name, ty }))
         }
     }
 }

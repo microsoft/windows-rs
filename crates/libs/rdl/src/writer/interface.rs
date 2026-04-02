@@ -98,7 +98,7 @@ fn write_interface_methods(
                                 {
                                     let prop_name = write_ident(base);
                                     let ty = write_type(namespace, &get_sig.return_type);
-                                    tokens.push(quote! { property #prop_name: #ty; });
+                                    tokens.push(quote! { #prop_name: #ty; });
                                     i += 2;
                                     continue;
                                 }

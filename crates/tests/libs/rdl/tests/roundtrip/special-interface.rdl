@@ -2,6 +2,6 @@
 mod Test {
     interface IFoo {
         fn regular_method(&self) -> i32;
-        property Value: i32;
+        Value: i32;
     }
 }
