@@ -392,6 +392,10 @@ where
         }
     }
 
+    if builder.package && builder.flat {
+        panic!("cannot combine `--package` and `--flat`");
+    }
+
     if !has_output {
         panic!("exactly one `--out` is required");
     }
@@ -595,7 +599,7 @@ impl Bindgen {
         }
 
         if include.is_empty() {
-            panic!("at least one filter is required (call `.filter()` or pass `--filter`)");
+            panic!("at least one `--filter` required");
         }
 
         if self.package && self.flat {
