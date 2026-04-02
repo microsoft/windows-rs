@@ -1,0 +1,20 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Devices {
+            mod Bluetooth {
+                #[packed(1)]
+                struct BTH_INFO_RSP {
+                    result: u16,
+                    dataLen: u8,
+                    Anonymous: BTH_INFO_RSP_0,
+                }
+                #[packed(1)]
+                union BTH_INFO_RSP_0 {
+                    connectionlessMTU: u16,
+                    data: [u8; 44],
+                }
+            }
+        }
+    }
+}
