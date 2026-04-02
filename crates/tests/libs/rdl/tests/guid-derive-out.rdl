@@ -55,4 +55,6 @@ mod Test {
     interface IWin32 {}
     #[Windows::Foundation::Metadata::Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
     interface IWin32Explicit {}
+    #[Windows::Foundation::Metadata::Guid(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+    interface IWin32NullGuid {}
 }

@@ -45,6 +45,9 @@ mod Test {
     // Win32 interface with an explicit Guid (derivation must be suppressed)
     #[Windows::Foundation::Metadata::Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
     interface IWin32Explicit {}
+    // Win32 interface with a null Guid (represents an interface that intentionally has no GUID)
+    #[Windows::Foundation::Metadata::Guid(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+    interface IWin32NullGuid {}
 }
 // Exercises literal type encoding with all scalar WinRT primitive types, arrays, and object pointers.
 // Each method: in-param, array param, and return type. E.g. Bool encodes as:

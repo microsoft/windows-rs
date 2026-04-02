@@ -123,6 +123,14 @@ fn guid_derive() {
         "9a1e6fa8-6f1f-5234-b2d0-40f90d191be6",
     );
 
+    // IWin32NullGuid: Win32 interface with a null Guid (all zeros) — must not be derived.
+    assert_guid(
+        "tests/guid-derive.winmd",
+        "Test",
+        "IWin32NullGuid",
+        "00000000-0000-0000-0000-000000000000",
+    );
+
     // IWin32Explicit: Win32 interface with explicit Guid — derivation must be suppressed.
     assert_guid(
         "tests/guid-derive.winmd",
@@ -174,5 +182,12 @@ fn guid_derive() {
         "Test",
         "IWin32Explicit",
         "00000021-0022-0023-2425-262728292a2b",
+    );
+    // IWin32NullGuid: null GUID must survive the full roundtrip (writer must preserve it).
+    assert_guid(
+        "tests/guid-derive-rt.winmd",
+        "Test",
+        "IWin32NullGuid",
+        "00000000-0000-0000-0000-000000000000",
     );
 }

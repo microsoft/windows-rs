@@ -31,7 +31,16 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let guid_exclude: &[&str] = if interface_guid_is_derived(item) {
+    // When the interface has no GuidAttribute at all (e.g. some Win32 COM interfaces that
+    // intentionally lack a GUID), emit a null GUID so that the reader does not invent one
+    // on round-trip.  This is distinct from the derived-GUID case where the attribute is
+    // simply omitted because it can be re-computed from the interface shape.
+    let has_no_guid = item.find_attribute("GuidAttribute").is_none();
+
+    // Exclude the GuidAttribute when its value can be derived from the interface shape so
+    // it does not need to be round-tripped.  When there is no attribute at all the exclude
+    // list is harmless since there is nothing to exclude.
+    let guid_exclude: &[&str] = if has_no_guid || interface_guid_is_derived(item) {
         &["GuidAttribute"]
     } else {
         &[]
@@ -39,7 +48,14 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     let custom_attrs =
         write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
 
+    let null_guid = if has_no_guid {
+        quote! { #[Windows::Foundation::Metadata::Guid(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)] }
+    } else {
+        quote! {}
+    };
+
     quote! {
+        #null_guid
         #(#custom_attrs)*
         interface #name #generics #requires_tokens {
             #(#methods)*
