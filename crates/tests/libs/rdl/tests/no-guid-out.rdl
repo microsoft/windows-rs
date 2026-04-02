@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[Windows::Foundation::Metadata::Guid(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+    interface INoGuid {}
+}

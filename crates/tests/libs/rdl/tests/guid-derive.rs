@@ -2,6 +2,53 @@ use windows_metadata::reader::TypeIndex;
 use windows_metadata::HasAttributes;
 use windows_rdl::*;
 
+/// Create a synthetic Win32 winmd with an interface that has absolutely no GuidAttribute,
+/// verify the writer emits an explicit null GUID, and verify it survives the round-trip.
+#[test]
+fn guid_no_attr() {
+    // Build a minimal winmd: one Win32 interface, no GuidAttribute added.
+    let mut file = windows_metadata::writer::File::new("test");
+    file.TypeDef(
+        "Test",
+        "INoGuid",
+        windows_metadata::writer::TypeDefOrRef::default(),
+        windows_metadata::TypeAttributes::Public
+            | windows_metadata::TypeAttributes::Abstract
+            | windows_metadata::TypeAttributes::Interface,
+    );
+    let bytes = file.into_stream();
+    std::fs::write("tests/no-guid.winmd", &bytes).unwrap();
+
+    // The RDL writer must emit an explicit null GUID rather than omitting it,
+    // so that the reader does not invent a derived GUID on a subsequent round-trip.
+    writer()
+        .input("tests/no-guid.winmd")
+        .output("tests/no-guid-out.rdl")
+        .write()
+        .unwrap();
+
+    let rdl = std::fs::read_to_string("tests/no-guid-out.rdl").unwrap();
+    assert!(
+        rdl.contains("Guid(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)"),
+        "Expected null GUID in writer output, got:\n{rdl}"
+    );
+
+    // Round-trip: RDL → winmd — the GUID must remain null, not be replaced by a derived value.
+    reader()
+        .input("tests/no-guid-out.rdl")
+        .input("../../../libs/bindgen/default/Windows.winmd")
+        .output("tests/no-guid-rt.winmd")
+        .write()
+        .unwrap();
+
+    assert_guid(
+        "tests/no-guid-rt.winmd",
+        "Test",
+        "INoGuid",
+        "00000000-0000-0000-0000-000000000000",
+    );
+}
+
 /// Read back the GuidAttribute for the named type from `winmd` and assert it equals `expected`.
 /// `expected` is a lower-case hyphenated GUID string "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
 fn assert_guid(winmd: &str, namespace: &str, name: &str, expected: &str) {
