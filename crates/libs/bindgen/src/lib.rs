@@ -585,7 +585,7 @@ impl Bindgen {
 
         let default_input = ["default"];
         let input: Vec<&str> = if self.input.is_empty() {
-            default_input.iter().copied().collect()
+            default_input.to_vec()
         } else {
             self.input.iter().map(|s| s.as_str()).collect()
         };
