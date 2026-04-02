@@ -53,6 +53,30 @@ impl Writer {
         self
     }
 
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input.push(input.as_ref().to_string());
+        }
+
+        self
+    }
+
+    pub fn filters<I, S>(&mut self, filters: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for filter in filters {
+            self.filter.push(filter.as_ref().to_string());
+        }
+
+        self
+    }
+
     /// Filter what to include in the output.  Each call appends one rule.
     ///
     /// Rules are resolved against the input metadata and may be:
@@ -67,8 +91,8 @@ impl Writer {
         self
     }
 
-    pub fn split(&mut self) -> &mut Self {
-        self.split = true;
+    pub fn split(&mut self, split: bool) -> &mut Self {
+        self.split = split;
         self
     }
 
