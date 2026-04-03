@@ -14,9 +14,10 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
-    let interfaces = item
-        .interface_impls()
-        .map(|imp| write_interface(namespace, &imp));
+    let mut impls: Vec<_> = item.interface_impls().collect();
+    impls.sort_by_key(|imp| !imp.has_attribute("DefaultAttribute"));
+
+    let interfaces = impls.iter().map(|imp| write_interface(namespace, imp));
 
     quote! {
         #(#custom_attrs)*

@@ -23,10 +23,21 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
 
     let namespace = item.namespace();
     let outer_name = item.name();
+    let outer_packing = item
+        .class_layout()
+        .map(|l| l.packing_size())
+        .filter(|&s| s > 0);
 
     // Collect all un-nested helper types (depth-first so leaves come first).
     let mut unnested: Vec<(String, TokenStream)> = vec![];
-    let flat_names = collect_nested(namespace, item, outer_name, item.arches(), &mut unnested);
+    let flat_names = collect_nested(
+        namespace,
+        item,
+        outer_name,
+        item.arches(),
+        outer_packing,
+        &mut unnested,
+    );
 
     // Write the main type using flat name references for any nested fields.
     let name_ident = write_ident(outer_name);
@@ -62,11 +73,16 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
 /// `parent_arches` carries the effective `SupportedArchitecture` bits from all
 /// enclosing types so that every un-nested helper type gets the correct
 /// architecture constraint even when the nested type itself has none.
+///
+/// `parent_packing` carries the effective packing from all enclosing types so
+/// that every un-nested helper type gets the correct `#[packed(N)]` attribute
+/// even when the nested type itself has no `ClassLayout` record.
 fn collect_nested(
     namespace: &str,
     parent: &metadata::reader::TypeDef,
     outer_flat_name: &str,
     parent_arches: i32,
+    parent_packing: Option<u16>,
     output: &mut Vec<(String, TokenStream)>,
 ) -> HashMap<String, String> {
     let mut flat_names: HashMap<String, String> = HashMap::new();
@@ -83,9 +99,24 @@ fn collect_nested(
         let nested_arches = nested.arches();
         let effective_arches = parent_arches | nested_arches;
 
+        // Use the nested type's own packing if present; otherwise inherit from
+        // the parent so that anonymous inner types of a packed struct/union are
+        // also emitted with the correct `#[packed(N)]` attribute.
+        let own_packing = nested
+            .class_layout()
+            .map(|l| l.packing_size())
+            .filter(|&s| s > 0);
+        let effective_packing = own_packing.or(parent_packing);
+
         // Recurse before emitting so that leaves appear before their parents.
-        let child_flat_names =
-            collect_nested(namespace, &nested, &flat_name, effective_arches, output);
+        let child_flat_names = collect_nested(
+            namespace,
+            &nested,
+            &flat_name,
+            effective_arches,
+            effective_packing,
+            output,
+        );
 
         let name_ident = write_ident(&flat_name);
         let fields: Vec<_> = nested
@@ -98,6 +129,7 @@ fn collect_nested(
         // custom attributes on the nested type (excluding SupportedArchitecture
         // so we don't emit it twice when the nested type already has one).
         let arch_attr = write_arch_attr(effective_arches);
+        let packed_attr = write_packed_attr_value(effective_packing);
         let custom_attrs = write_custom_attributes_except(
             nested.attributes(),
             namespace,
@@ -107,7 +139,7 @@ fn collect_nested(
 
         output.push((
             flat_name,
-            quote! { #arch_attr #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
+            quote! { #packed_attr #arch_attr #(#custom_attrs)* #keyword #name_ident { #(#fields)* } },
         ));
     }
 
@@ -174,12 +206,19 @@ fn struct_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
 /// Emits a `#[packed(N)]` token stream if the type has a `ClassLayout` with a
 /// non-zero packing size, otherwise returns an empty token stream.
 fn write_packed_attr(item: &metadata::reader::TypeDef) -> TokenStream {
-    if let Some(layout) = item.class_layout() {
-        let size = layout.packing_size();
-        if size > 0 {
-            let size_literal = proc_macro2::Literal::u16_unsuffixed(size);
-            return quote! { #[packed(#size_literal)] };
-        }
+    let packing = item
+        .class_layout()
+        .map(|l| l.packing_size())
+        .filter(|&s| s > 0);
+    write_packed_attr_value(packing)
+}
+
+/// Emits a `#[packed(N)]` token stream for the given packing size, or an empty
+/// token stream when `packing` is `None`.
+fn write_packed_attr_value(packing: Option<u16>) -> TokenStream {
+    if let Some(size) = packing {
+        let size_literal = proc_macro2::Literal::u16_unsuffixed(size);
+        return quote! { #[packed(#size_literal)] };
     }
     quote! {}
 }

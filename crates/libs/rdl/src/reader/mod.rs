@@ -59,6 +59,18 @@ impl Reader {
         self
     }
 
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.input.push(input.as_ref().to_string());
+        }
+
+        self
+    }
+
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self

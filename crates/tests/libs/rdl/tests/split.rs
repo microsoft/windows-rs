@@ -12,7 +12,7 @@ pub fn parse() {
         .input("tests/split.winmd")
         .output("tests/split")
         .filter("Test")
-        .split()
+        .split(true)
         .write()
         .unwrap();
 }

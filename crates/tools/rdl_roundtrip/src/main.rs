@@ -1,12 +1,13 @@
 use windows_rdl::*;
 
-fn roundtrip(winmd: &str, rdl: &str, filter: &[&str]) {
-    let mut w = writer();
-    w.input("crates/libs/bindgen/default").output(rdl).split();
-    for f in filter {
-        w.filter(f);
-    }
-    w.write().unwrap();
+fn roundtrip(winmd: &str, rdl: &str, filters: &[&str]) {
+    writer()
+        .input("crates/libs/bindgen/default")
+        .output(rdl)
+        .filters(filters)
+        .split(true)
+        .write()
+        .unwrap();
 
     reader()
         .input(rdl)
