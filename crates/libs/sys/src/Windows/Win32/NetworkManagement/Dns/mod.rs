@@ -977,6 +977,17 @@ impl Default for DNS_RECORDA {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union DNS_RECORDA_0 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
+}
+impl Default for DNS_RECORDA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDA_1 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAA,
@@ -1072,17 +1083,6 @@ impl Default for DNS_RECORDA_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDA_0 {
-    pub DW: u32,
-    pub S: DNS_RECORD_FLAGS,
-}
-impl Default for DNS_RECORDA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct DNS_RECORDW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: windows_sys::core::PWSTR,
@@ -1094,6 +1094,17 @@ pub struct DNS_RECORDW {
     pub Data: DNS_RECORDW_1,
 }
 impl Default for DNS_RECORDW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DNS_RECORDW_0 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
+}
+impl Default for DNS_RECORDW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1194,17 +1205,6 @@ impl Default for DNS_RECORDW_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub union DNS_RECORDW_0 {
-    pub DW: u32,
-    pub S: DNS_RECORD_FLAGS,
-}
-impl Default for DNS_RECORDW_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
@@ -1229,22 +1229,22 @@ impl Default for DNS_RECORD_OPTW {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORD_OPTW_1 {
-    pub OPT: DNS_OPT_DATA,
-    pub Opt: DNS_OPT_DATA,
+pub union DNS_RECORD_OPTW_0 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
 }
-impl Default for DNS_RECORD_OPTW_1 {
+impl Default for DNS_RECORD_OPTW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORD_OPTW_0 {
-    pub DW: u32,
-    pub S: DNS_RECORD_FLAGS,
+pub union DNS_RECORD_OPTW_1 {
+    pub OPT: DNS_OPT_DATA,
+    pub Opt: DNS_OPT_DATA,
 }
-impl Default for DNS_RECORD_OPTW_0 {
+impl Default for DNS_RECORD_OPTW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2061,22 +2061,22 @@ impl Default for _DnsRecordOptA {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union _DnsRecordOptA_1 {
-    pub OPT: DNS_OPT_DATA,
-    pub Opt: DNS_OPT_DATA,
+pub union _DnsRecordOptA_0 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
 }
-impl Default for _DnsRecordOptA_1 {
+impl Default for _DnsRecordOptA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union _DnsRecordOptA_0 {
-    pub DW: u32,
-    pub S: DNS_RECORD_FLAGS,
+pub union _DnsRecordOptA_1 {
+    pub OPT: DNS_OPT_DATA,
+    pub Opt: DNS_OPT_DATA,
 }
-impl Default for _DnsRecordOptA_0 {
+impl Default for _DnsRecordOptA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

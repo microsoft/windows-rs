@@ -209,12 +209,12 @@ impl Default for DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
+pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_3 {
+pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
@@ -224,7 +224,7 @@ pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_0 {
+pub struct DVD_COPYRIGHT_MANAGEMENT_DESCRIPTOR_0_3 {
     pub _bitfield: u8,
 }
 pub const DVD_COPYRIGHT_MASK: u32 = 64u32;

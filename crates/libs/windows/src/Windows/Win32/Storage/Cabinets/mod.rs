@@ -159,6 +159,18 @@ impl Default for FDIDECRYPT_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FDIDECRYPT_0_1 {
+    pub pFolderReserve: *mut core::ffi::c_void,
+    pub cbFolderReserve: u16,
+    pub iFolder: u16,
+}
+impl Default for FDIDECRYPT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_2 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -168,18 +180,6 @@ pub struct FDIDECRYPT_0_2 {
     pub cbPartial: u16,
 }
 impl Default for FDIDECRYPT_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct FDIDECRYPT_0_1 {
-    pub pFolderReserve: *mut core::ffi::c_void,
-    pub cbFolderReserve: u16,
-    pub iFolder: u16,
-}
-impl Default for FDIDECRYPT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

@@ -53,12 +53,6 @@ impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    pub FilterNameLength: u16,
-    pub FilterNameBufferOffset: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FrameID: u32,
     pub NumberOfInstances: u32,
@@ -66,6 +60,12 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FilterNameBufferOffset: u16,
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -92,8 +92,10 @@ impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
+    pub FrameID: u32,
+    pub NumberOfInstances: u32,
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
     pub FilterAltitudeLength: u16,
@@ -101,10 +103,8 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
-    pub FrameID: u32,
-    pub NumberOfInstances: u32,
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
     pub FilterAltitudeLength: u16,
@@ -239,8 +239,12 @@ impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
+    pub FrameID: u32,
+    pub VolumeFileSystemType: FLT_FILESYSTEM_TYPE,
+    pub InstanceNameLength: u16,
+    pub InstanceNameBufferOffset: u16,
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
     pub VolumeNameLength: u16,
@@ -251,12 +255,8 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
-    pub FrameID: u32,
-    pub VolumeFileSystemType: FLT_FILESYSTEM_TYPE,
-    pub InstanceNameLength: u16,
-    pub InstanceNameBufferOffset: u16,
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
     pub VolumeNameLength: u16,

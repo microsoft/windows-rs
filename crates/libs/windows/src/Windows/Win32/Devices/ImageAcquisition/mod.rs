@@ -3953,23 +3953,6 @@ impl Default for WIAS_CHANGED_VALUE_INFO {
     }
 }
 #[repr(C)]
-pub union WIAS_CHANGED_VALUE_INFO_1 {
-    pub lVal: i32,
-    pub fltVal: f32,
-    pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub guidVal: windows_core::GUID,
-}
-impl Clone for WIAS_CHANGED_VALUE_INFO_1 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl Default for WIAS_CHANGED_VALUE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
     pub fltVal: f32,
@@ -3982,6 +3965,23 @@ impl Clone for WIAS_CHANGED_VALUE_INFO_0 {
     }
 }
 impl Default for WIAS_CHANGED_VALUE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub union WIAS_CHANGED_VALUE_INFO_1 {
+    pub lVal: i32,
+    pub fltVal: f32,
+    pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub guidVal: windows_core::GUID,
+}
+impl Clone for WIAS_CHANGED_VALUE_INFO_1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl Default for WIAS_CHANGED_VALUE_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5158,20 +5158,31 @@ impl Default for WIA_PROPERTY_INFO_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_6 {
+pub struct WIA_PROPERTY_INFO_0_0 {
+    pub Min: i32,
     pub Nom: i32,
-    pub ValidBits: i32,
+    pub Max: i32,
+    pub Inc: i32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Debug, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_5 {
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WIA_PROPERTY_INFO_0_1 {
+    pub Min: f64,
+    pub Nom: f64,
+    pub Max: f64,
+    pub Inc: f64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
-    pub Nom: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub pList: *mut windows_core::BSTR,
+    pub Nom: i32,
+    pub pList: *mut u8,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Default for WIA_PROPERTY_INFO_0_5 {
+impl Default for WIA_PROPERTY_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5206,14 +5217,14 @@ impl Default for WIA_PROPERTY_INFO_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_2 {
+#[derive(Clone, Debug, PartialEq)]
+pub struct WIA_PROPERTY_INFO_0_5 {
     pub cNumList: i32,
-    pub Nom: i32,
-    pub pList: *mut u8,
+    pub Nom: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub pList: *mut windows_core::BSTR,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Default for WIA_PROPERTY_INFO_0_2 {
+impl Default for WIA_PROPERTY_INFO_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5221,26 +5232,15 @@ impl Default for WIA_PROPERTY_INFO_0_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WIA_PROPERTY_INFO_0_6 {
+    pub Nom: i32,
+    pub ValidBits: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Dummy: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_1 {
-    pub Min: f64,
-    pub Nom: f64,
-    pub Max: f64,
-    pub Inc: f64,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_0 {
-    pub Min: i32,
-    pub Nom: i32,
-    pub Max: i32,
-    pub Inc: i32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

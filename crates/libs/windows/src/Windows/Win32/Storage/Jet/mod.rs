@@ -2649,17 +2649,6 @@ impl JET_SESID {
         self.0 == 0
     }
 }
-impl windows_core::Free for JET_SESID {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("esent.dll" "system" fn JetEndSession(sesid : usize, grbit : u32) -> i32);
-            unsafe {
-                JetEndSession(self.0, 0);
-            }
-        }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_SETCOLUMN {

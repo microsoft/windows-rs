@@ -946,6 +946,17 @@ impl Default for CM_NOTIFY_EVENT_DATA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct CM_NOTIFY_EVENT_DATA_0_0 {
+    pub ClassGuid: windows_sys::core::GUID,
+    pub SymbolicLink: [u16; 1],
+}
+impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub EventGuid: windows_sys::core::GUID,
     pub NameOffset: i32,
@@ -963,17 +974,6 @@ pub struct CM_NOTIFY_EVENT_DATA_0_2 {
     pub InstanceId: [u16; 1],
 }
 impl Default for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CM_NOTIFY_EVENT_DATA_0_0 {
-    pub ClassGuid: windows_sys::core::GUID,
-    pub SymbolicLink: [u16; 1],
-}
-impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1005,6 +1005,11 @@ impl Default for CM_NOTIFY_FILTER_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CM_NOTIFY_FILTER_0_0 {
+    pub ClassGuid: windows_sys::core::GUID,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub hTarget: super::super::Foundation::HANDLE,
@@ -1023,11 +1028,6 @@ impl Default for CM_NOTIFY_FILTER_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_NOTIFY_FILTER_0_0 {
-    pub ClassGuid: windows_sys::core::GUID,
 }
 pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
 pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;

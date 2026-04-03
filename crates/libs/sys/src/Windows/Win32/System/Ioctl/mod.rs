@@ -623,13 +623,13 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
-pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
-    pub dwAtaPortSpecific: u32,
+pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
+    pub dwReserved: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
-pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
-    pub dwReserved: u32,
+pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
+    pub dwAtaPortSpecific: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -1266,16 +1266,16 @@ impl Default for DISK_CACHE_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DISK_CACHE_INFORMATION_0_1 {
-    pub Minimum: u16,
-    pub Maximum: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
     pub MaximumBlocks: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DISK_CACHE_INFORMATION_0_1 {
+    pub Minimum: u16,
+    pub Maximum: u16,
 }
 pub type DISK_CACHE_RETENTION_PRIORITY = i32;
 #[repr(C)]
@@ -1427,14 +1427,14 @@ impl Default for DISK_PARTITION_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DISK_PARTITION_INFO_0_1 {
-    pub DiskId: windows_sys::core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct DISK_PARTITION_INFO_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DISK_PARTITION_INFO_0_1 {
+    pub DiskId: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3455,24 +3455,11 @@ pub struct NTFS_STATISTICS {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_4 {
-    pub Calls: u32,
-    pub Clusters: u32,
-    pub Hints: u32,
-    pub RunsReturned: u32,
-    pub HintsHonored: u32,
-    pub HintsClusters: u32,
-    pub Cache: u32,
-    pub CacheClusters: u32,
-    pub CacheMiss: u32,
-    pub CacheMissClusters: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_2 {
+pub struct NTFS_STATISTICS_0 {
     pub Write: u16,
     pub Create: u16,
     pub SetInfo: u16,
+    pub Flush: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3484,6 +3471,13 @@ pub struct NTFS_STATISTICS_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct NTFS_STATISTICS_2 {
+    pub Write: u16,
+    pub Create: u16,
+    pub SetInfo: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_3 {
     pub Write: u16,
     pub Create: u16,
@@ -3492,11 +3486,17 @@ pub struct NTFS_STATISTICS_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_0 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
+pub struct NTFS_STATISTICS_4 {
+    pub Calls: u32,
+    pub Clusters: u32,
+    pub Hints: u32,
+    pub RunsReturned: u32,
+    pub HintsHonored: u32,
+    pub HintsClusters: u32,
+    pub Cache: u32,
+    pub CacheClusters: u32,
+    pub CacheMiss: u32,
+    pub CacheMissClusters: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3561,21 +3561,7 @@ pub struct NTFS_STATISTICS_EX {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_EX_4 {
-    pub Calls: u32,
-    pub RunsReturned: u32,
-    pub Hints: u32,
-    pub HintsHonored: u32,
-    pub Cache: u32,
-    pub CacheMiss: u32,
-    pub Clusters: u64,
-    pub HintsClusters: u64,
-    pub CacheClusters: u64,
-    pub CacheMissClusters: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_EX_2 {
+pub struct NTFS_STATISTICS_EX_0 {
     pub Write: u32,
     pub Create: u32,
     pub SetInfo: u32,
@@ -3591,6 +3577,14 @@ pub struct NTFS_STATISTICS_EX_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct NTFS_STATISTICS_EX_2 {
+    pub Write: u32,
+    pub Create: u32,
+    pub SetInfo: u32,
+    pub Flush: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_3 {
     pub Write: u32,
     pub Create: u32,
@@ -3599,11 +3593,17 @@ pub struct NTFS_STATISTICS_EX_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_EX_0 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
+pub struct NTFS_STATISTICS_EX_4 {
+    pub Calls: u32,
+    pub RunsReturned: u32,
+    pub Hints: u32,
+    pub HintsHonored: u32,
+    pub Cache: u32,
+    pub CacheMiss: u32,
+    pub Clusters: u64,
+    pub HintsClusters: u64,
+    pub CacheClusters: u64,
+    pub CacheMissClusters: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -5970,6 +5970,14 @@ impl Default for STORAGE_OPERATIONAL_REASON_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct STORAGE_OPERATIONAL_REASON_0_0 {
+    pub SenseKey: u8,
+    pub ASC: u8,
+    pub ASCQ: u8,
+    pub Reserved: u8,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OPERATIONAL_REASON_0_1 {
     pub CriticalHealth: u8,
@@ -5980,14 +5988,6 @@ impl Default for STORAGE_OPERATIONAL_REASON_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STORAGE_OPERATIONAL_REASON_0_0 {
-    pub SenseKey: u8,
-    pub ASC: u8,
-    pub ASCQ: u8,
-    pub Reserved: u8,
 }
 pub type STORAGE_OPERATIONAL_STATUS_REASON = i32;
 #[repr(C)]
@@ -6519,12 +6519,6 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
-    pub OptimalOpenZoneCount: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
@@ -6535,6 +6529,12 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
+    pub OptimalOpenZoneCount: u32,
+    pub Reserved: u32,
 }
 pub type STORAGE_ZONED_DEVICE_TYPES = i32;
 pub type STORAGE_ZONES_ATTRIBUTES = i32;
@@ -6639,6 +6639,12 @@ impl Default for STREAM_INFORMATION_ENTRY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct STREAM_INFORMATION_ENTRY_0_0 {
+    pub Class: FILE_STORAGE_TIER_CLASS,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct STREAM_INFORMATION_ENTRY_0_1 {
     pub Length: u16,
     pub Flags: u16,
@@ -6647,9 +6653,11 @@ pub struct STREAM_INFORMATION_ENTRY_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_0 {
-    pub Class: FILE_STORAGE_TIER_CLASS,
-    pub Flags: u32,
+pub struct STREAM_INFORMATION_ENTRY_0_2 {
+    pub Length: u16,
+    pub Flags: u16,
+    pub ReparseDataSize: u32,
+    pub ReparseDataOffset: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -6658,14 +6666,6 @@ pub struct STREAM_INFORMATION_ENTRY_0_3 {
     pub Flags: u16,
     pub EaSize: u32,
     pub EaInformationOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_2 {
-    pub Length: u16,
-    pub Flags: u16,
-    pub ReparseDataSize: u32,
-    pub ReparseDataOffset: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

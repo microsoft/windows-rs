@@ -1183,13 +1183,13 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    pub NodeNumber: u32,
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    pub Flags: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    pub Flags: u8,
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    pub NodeNumber: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

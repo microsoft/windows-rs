@@ -171,17 +171,6 @@ impl Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct XPS_COLOR_0_2 {
-    pub channelCount: u8,
-    pub channels: [f32; 9],
-}
-impl Default for XPS_COLOR_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct XPS_COLOR_0_0 {
     pub alpha: u8,
@@ -196,6 +185,17 @@ pub struct XPS_COLOR_0_1 {
     pub red: f32,
     pub green: f32,
     pub blue: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct XPS_COLOR_0_2 {
+    pub channelCount: u8,
+    pub channels: [f32; 9],
+}
+impl Default for XPS_COLOR_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type XPS_COLOR_INTERPOLATION = i32;
 pub const XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = 1i32;

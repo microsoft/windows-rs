@@ -84,11 +84,6 @@ impl Default for MMTIME_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
-pub struct MMTIME_0_1 {
-    pub songptrpos: u32,
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MMTIME_0_0 {
@@ -104,6 +99,11 @@ impl Default for MMTIME_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct MMTIME_0_1 {
+    pub songptrpos: u32,
 }
 pub const MM_ADLIB: u32 = 9u32;
 pub const MM_DRVM_CLOSE: u32 = 977u32;

@@ -200,13 +200,13 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
+pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+    pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    pub NotificationMask: PRJ_NOTIFY_TYPES,
+pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+    pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -361,8 +361,8 @@ impl Default for PRJ_NOTIFICATION_PARAMETERS {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
-    pub IsFileModified: bool,
+pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
+    pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -371,8 +371,8 @@ pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
-    pub NotificationMask: PRJ_NOTIFY_TYPES,
+pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
+    pub IsFileModified: bool,
 }
 pub const PRJ_NOTIFICATION_PRE_DELETE: PRJ_NOTIFICATION = PRJ_NOTIFICATION(16i32);
 pub const PRJ_NOTIFICATION_PRE_RENAME: PRJ_NOTIFICATION = PRJ_NOTIFICATION(32i32);

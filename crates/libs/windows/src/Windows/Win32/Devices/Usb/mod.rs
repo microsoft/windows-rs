@@ -1562,23 +1562,6 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0,
-    pub W: u16,
-}
-impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
-    pub LowByte: u8,
-    pub HiByte: u8,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
 pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
     pub W: u16,
@@ -1591,6 +1574,23 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
+    pub LowByte: u8,
+    pub HiByte: u8,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
+    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0,
+    pub W: u16,
+}
+impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     pub LowByte: u8,
     pub HiByte: u8,
 }
@@ -1637,13 +1637,6 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
-pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
-    pub wSVID: u16,
-    pub bAlternateMode: u8,
-    pub iAlternateModeSetting: u8,
-}
-#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     pub AsUshort: u16,
@@ -1658,6 +1651,13 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
+    pub wSVID: u16,
+    pub bAlternateMode: u8,
+    pub iAlternateModeSetting: u8,
 }
 pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4u32;
 #[repr(C)]

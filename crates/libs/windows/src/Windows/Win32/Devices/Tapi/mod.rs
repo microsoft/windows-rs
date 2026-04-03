@@ -19595,15 +19595,35 @@ impl Default for LINEPROXYREQUEST_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_5 {
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
-    pub dwAgentExtensionIDIndex: u32,
-    pub dwSize: u32,
-    pub Params: [u8; 1],
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_1 {
+    pub dwAddressID: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_10 {
+    pub hAgent: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_11 {
+    pub hAgent: u32,
+    pub AgentInfo: LINEAGENTINFO,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_5 {
+impl Default for LINEPROXYREQUEST_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -19622,46 +19642,9 @@ pub struct LINEPROXYREQUEST_0_12 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_8 {
+pub struct LINEPROXYREQUEST_0_13 {
     pub hAgent: u32,
-    pub dwAgentIDSize: u32,
-    pub dwAgentIDOffset: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_6 {
-    pub dwAddressID: u32,
-    pub ActivityList: LINEAGENTACTIVITYLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_3 {
-    pub dwAddressID: u32,
-    pub AgentCaps: LINEAGENTCAPS,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_7 {
-    pub dwAddressID: u32,
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_11 {
-    pub hAgent: u32,
-    pub AgentInfo: LINEAGENTINFO,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub SessionList: LINEAGENTSESSIONLIST,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -19679,29 +19662,10 @@ impl Default for LINEPROXYREQUEST_0_14 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_13 {
-    pub hAgent: u32,
-    pub SessionList: LINEAGENTSESSIONLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_4 {
-    pub dwAddressID: u32,
-    pub AgentStatus: LINEAGENTSTATUS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_19 {
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_18 {
-    pub dwQueueID: u32,
-    pub QueueInfo: LINEQUEUEINFO,
+pub struct LINEPROXYREQUEST_0_15 {
+    pub hAgentSession: u32,
+    pub dwAgentSessionState: u32,
+    pub dwNextAgentSessionState: u32,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -19713,6 +19677,26 @@ pub struct LINEPROXYREQUEST_0_16 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_17 {
+    pub dwQueueID: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_18 {
+    pub dwQueueID: u32,
+    pub QueueInfo: LINEQUEUEINFO,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_19 {
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_2 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
@@ -19720,24 +19704,55 @@ pub struct LINEPROXYREQUEST_0_2 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_0 {
+pub struct LINEPROXYREQUEST_0_3 {
+    pub dwAddressID: u32,
+    pub AgentCaps: LINEAGENTCAPS,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_4 {
+    pub dwAddressID: u32,
+    pub AgentStatus: LINEAGENTSTATUS,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_5 {
+    pub dwAddressID: u32,
+    pub dwAgentExtensionIDIndex: u32,
+    pub dwSize: u32,
+    pub Params: [u8; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_6 {
+    pub dwAddressID: u32,
+    pub ActivityList: LINEAGENTACTIVITYLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_7 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_10 {
+pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
-    pub dwMeasurementPeriod: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_15 {
-    pub hAgentSession: u32,
-    pub dwAgentSessionState: u32,
-    pub dwNextAgentSessionState: u32,
+    pub dwAgentIDSize: u32,
+    pub dwAgentIDOffset: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
@@ -19746,21 +19761,6 @@ pub struct LINEPROXYREQUEST_0_9 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_1 {
-    pub dwAddressID: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Default)]
-pub struct LINEPROXYREQUEST_0_17 {
-    pub dwQueueID: u32,
-    pub dwMeasurementPeriod: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -20108,43 +20108,12 @@ pub struct MSP_EVENT_INFO_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
-pub struct MSP_EVENT_INFO_0_5 {
-    pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub hrErrorCode: windows_core::HRESULT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
     pub pStream: core::mem::ManuallyDrop<Option<ITStream>>,
     pub pTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrError: windows_core::HRESULT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct MSP_EVENT_INFO_0_4 {
-    pub pParentFileTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub pFileTrack: core::mem::ManuallyDrop<Option<ITFileTrack>>,
-    pub TerminalMediaState: TERMINAL_MEDIA_STATE,
-    pub ftecEventCause: FT_STATE_EVENT_CAUSE,
-    pub hrErrorCode: windows_core::HRESULT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct MSP_EVENT_INFO_0_3 {
-    pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
-    pub lEventCode: i32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct MSP_EVENT_INFO_0_7 {
-    pub pToneTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub hrErrorCode: windows_core::HRESULT,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -20162,8 +20131,39 @@ impl Default for MSP_EVENT_INFO_0_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
+pub struct MSP_EVENT_INFO_0_3 {
+    pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
+    pub lEventCode: i32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct MSP_EVENT_INFO_0_4 {
+    pub pParentFileTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub pFileTrack: core::mem::ManuallyDrop<Option<ITFileTrack>>,
+    pub TerminalMediaState: TERMINAL_MEDIA_STATE,
+    pub ftecEventCause: FT_STATE_EVENT_CAUSE,
+    pub hrErrorCode: windows_core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct MSP_EVENT_INFO_0_5 {
+    pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub hrErrorCode: windows_core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_6 {
     pub pTTSTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub hrErrorCode: windows_core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct MSP_EVENT_INFO_0_7 {
+    pub pToneTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
 }
 pub const McastAddressAllocation: windows_core::GUID = windows_core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);

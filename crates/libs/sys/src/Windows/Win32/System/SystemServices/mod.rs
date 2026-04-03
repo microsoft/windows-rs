@@ -1228,11 +1228,57 @@ impl Default for IMAGE_AUX_SYMBOL {
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 14],
+pub struct IMAGE_AUX_SYMBOL_0 {
+    pub TagIndex: u32,
+    pub Misc: IMAGE_AUX_SYMBOL_0_0,
+    pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
+    pub TvIndex: u16,
 }
-impl Default for IMAGE_AUX_SYMBOL_3 {
+impl Default for IMAGE_AUX_SYMBOL_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub union IMAGE_AUX_SYMBOL_0_0 {
+    pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
+    pub TotalSize: u32,
+}
+impl Default for IMAGE_AUX_SYMBOL_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IMAGE_AUX_SYMBOL_0_0_0 {
+    pub Linenumber: u16,
+    pub Size: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_AUX_SYMBOL_0_1 {
+    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
+    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
+}
+impl Default for IMAGE_AUX_SYMBOL_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
+pub struct IMAGE_AUX_SYMBOL_0_1_0 {
+    pub PointerToLinenumber: u32,
+    pub PointerToNextFunction: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_0_1_1 {
+    pub Dimension: [u16; 4],
+}
+impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1261,60 +1307,14 @@ pub struct IMAGE_AUX_SYMBOL_2 {
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0 {
-    pub TagIndex: u32,
-    pub Misc: IMAGE_AUX_SYMBOL_0_0,
-    pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
-    pub TvIndex: u16,
+pub struct IMAGE_AUX_SYMBOL_3 {
+    pub crc: u32,
+    pub rgbReserved: [u8; 14],
 }
-impl Default for IMAGE_AUX_SYMBOL_0 {
+impl Default for IMAGE_AUX_SYMBOL_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_0_1 {
-    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
-    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
-}
-impl Default for IMAGE_AUX_SYMBOL_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0_1_1 {
-    pub Dimension: [u16; 4],
-}
-impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy, Default)]
-pub struct IMAGE_AUX_SYMBOL_0_1_0 {
-    pub PointerToLinenumber: u32,
-    pub PointerToNextFunction: u32,
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_0_0 {
-    pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
-    pub TotalSize: u32,
-}
-impl Default for IMAGE_AUX_SYMBOL_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IMAGE_AUX_SYMBOL_0_0_0 {
-    pub Linenumber: u16,
-    pub Size: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1330,24 +1330,14 @@ impl Default for IMAGE_AUX_SYMBOL_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_3 {
-    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub rgbReserved: [u8; 2],
-}
-impl Default for IMAGE_AUX_SYMBOL_EX_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_4 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 16],
+pub struct IMAGE_AUX_SYMBOL_EX_0 {
+    pub WeakDefaultSymIndex: u32,
+    pub WeakSearchType: u32,
+    pub rgbReserved: [u8; 12],
 }
-impl Default for IMAGE_AUX_SYMBOL_EX_4 {
+impl Default for IMAGE_AUX_SYMBOL_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1380,14 +1370,24 @@ impl Default for IMAGE_AUX_SYMBOL_EX_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_3 {
+    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
+    pub rgbReserved: [u8; 2],
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_0 {
-    pub WeakDefaultSymIndex: u32,
-    pub WeakSearchType: u32,
-    pub rgbReserved: [u8; 12],
+pub struct IMAGE_AUX_SYMBOL_EX_4 {
+    pub crc: u32,
+    pub rgbReserved: [u8; 16],
 }
-impl Default for IMAGE_AUX_SYMBOL_EX_0 {
+impl Default for IMAGE_AUX_SYMBOL_EX_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

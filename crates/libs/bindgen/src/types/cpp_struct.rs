@@ -235,7 +235,10 @@ impl CppStruct {
             #default
         };
 
-        for nested in self.nested.values() {
+        let mut nested_sorted: Vec<_> = self.nested.values().collect();
+        nested_sorted.sort_by_key(|s| s.name);
+
+        for nested in nested_sorted {
             tokens.combine(nested.write_with_cfg(config, cfg));
         }
 

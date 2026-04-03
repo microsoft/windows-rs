@@ -11600,15 +11600,15 @@ impl Default for WTS_PROPERTY_VALUE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WTS_PROPERTY_VALUE_0_1 {
-    pub size: u32,
-    pub pbVal: windows_core::PSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pstrVal: windows_core::PWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WTS_PROPERTY_VALUE_0_1 {
+    pub size: u32,
+    pub pbVal: windows_core::PSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

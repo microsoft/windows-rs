@@ -6250,27 +6250,16 @@ impl Default for SSVARIANT_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct SSVARIANT_0_4 {
-    pub dbobj: DBOBJECT,
-    pub pUnk: *mut core::ffi::c_void,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct SSVARIANT_0_2 {
+pub struct SSVARIANT_0_0 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub prgbBinaryVal: *mut u8,
+    pub pwchNCharVal: windows_sys::core::PWSTR,
+    pub rgbReserved: [u8; 5],
     pub dwReserved: u32,
+    pub pwchReserved: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_2 {
+impl Default for SSVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6295,16 +6284,14 @@ impl Default for SSVARIANT_0_1 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct SSVARIANT_0_0 {
+pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub pwchNCharVal: windows_sys::core::PWSTR,
-    pub rgbReserved: [u8; 5],
+    pub prgbBinaryVal: *mut u8,
     pub dwReserved: u32,
-    pub pwchReserved: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_0 {
+impl Default for SSVARIANT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6319,6 +6306,19 @@ pub struct SSVARIANT_0_3 {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct SSVARIANT_0_4 {
+    pub dbobj: DBOBJECT,
+    pub pUnk: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

@@ -629,13 +629,18 @@ impl Default for CLFS_MGMT_POLICY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_6 {
-    pub Enabled: u32,
+pub struct CLFS_MGMT_POLICY_0_0 {
+    pub Containers: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_5 {
-    pub Percentage: u32,
+pub struct CLFS_MGMT_POLICY_0_1 {
+    pub Containers: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CLFS_MGMT_POLICY_0_2 {
+    pub SizeInBytes: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -651,24 +656,13 @@ pub struct CLFS_MGMT_POLICY_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_0 {
-    pub Containers: u32,
+pub struct CLFS_MGMT_POLICY_0_5 {
+    pub Percentage: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_1 {
-    pub Containers: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_9 {
-    pub ExtensionLengthInBytes: u16,
-    pub ExtensionString: [u16; 1],
-}
-impl Default for CLFS_MGMT_POLICY_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+pub struct CLFS_MGMT_POLICY_0_6 {
+    pub Enabled: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -683,13 +677,19 @@ impl Default for CLFS_MGMT_POLICY_0_7 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_2 {
-    pub SizeInBytes: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub NextContainerSuffix: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLFS_MGMT_POLICY_0_9 {
+    pub ExtensionLengthInBytes: u16,
+    pub ExtensionString: [u16; 1],
+}
+impl Default for CLFS_MGMT_POLICY_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLFS_MGMT_POLICY_TYPE = i32;
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
@@ -931,6 +931,23 @@ impl Default for COPYFILE2_MESSAGE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct COPYFILE2_MESSAGE_0_0 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliChunkNumber: u64,
+    pub uliChunkSize: u64,
+    pub uliStreamSize: u64,
+    pub uliTotalFileSize: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
@@ -950,38 +967,18 @@ impl Default for COPYFILE2_MESSAGE_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_0 {
+pub struct COPYFILE2_MESSAGE_0_2 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,
     pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliChunkNumber: u64,
-    pub uliChunkSize: u64,
     pub uliStreamSize: u64,
     pub uliTotalFileSize: u64,
 }
-impl Default for COPYFILE2_MESSAGE_0_0 {
+impl Default for COPYFILE2_MESSAGE_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct COPYFILE2_MESSAGE_0_5 {
-    pub CopyPhase: COPYFILE2_COPY_PHASE,
-    pub dwStreamNumber: u32,
-    pub hrFailure: windows_sys::core::HRESULT,
-    pub dwReserved: u32,
-    pub uliChunkNumber: u64,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct COPYFILE2_MESSAGE_0_4 {
-    pub dwReserved: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1001,19 +998,22 @@ impl Default for COPYFILE2_MESSAGE_0_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_2 {
-    pub dwStreamNumber: u32,
+#[derive(Clone, Copy, Default)]
+pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliStreamSize: u64,
-    pub uliTotalFileSize: u64,
 }
-impl Default for COPYFILE2_MESSAGE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct COPYFILE2_MESSAGE_0_5 {
+    pub CopyPhase: COPYFILE2_COPY_PHASE,
+    pub dwStreamNumber: u32,
+    pub hrFailure: windows_sys::core::HRESULT,
+    pub dwReserved: u32,
+    pub uliChunkNumber: u64,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
 }
 pub type COPYFILE2_MESSAGE_ACTION = i32;
 pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;

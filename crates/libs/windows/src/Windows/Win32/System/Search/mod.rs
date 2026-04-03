@@ -21849,22 +21849,17 @@ impl Default for SSVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Default)]
-pub struct SSVARIANT_0_4 {
-    pub dbobj: DBOBJECT,
-    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_2 {
+pub struct SSVARIANT_0_0 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub prgbBinaryVal: *mut u8,
+    pub pwchNCharVal: windows_core::PWSTR,
+    pub rgbReserved: [u8; 5],
     pub dwReserved: u32,
+    pub pwchReserved: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_2 {
+impl Default for SSVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -21889,16 +21884,14 @@ impl Default for SSVARIANT_0_1 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_0 {
+pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub pwchNCharVal: windows_core::PWSTR,
-    pub rgbReserved: [u8; 5],
+    pub prgbBinaryVal: *mut u8,
     pub dwReserved: u32,
-    pub pwchReserved: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_0 {
+impl Default for SSVARIANT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -21916,6 +21909,13 @@ impl Default for SSVARIANT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Default)]
+pub struct SSVARIANT_0_4 {
+    pub dbobj: DBOBJECT,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 pub const STD_BOOKMARKLENGTH: u32 = 1u32;
 pub const STGM_COLLECTION: i32 = 8192i32;

@@ -658,13 +658,29 @@ impl Default for WINBIO_ASYNC_RESULT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_6 {
-    pub Sample: *mut WINBIO_BIR,
-    pub SampleSize: usize,
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_0 {
+    pub Match: bool,
     pub RejectDetail: u32,
 }
-impl Default for WINBIO_ASYNC_RESULT_0_6 {
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_1 {
+    pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
+    pub RejectDetail: u32,
+}
+impl Default for WINBIO_ASYNC_RESULT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_10 {
+    pub Event: WINBIO_EVENT,
+}
+impl Default for WINBIO_ASYNC_RESULT_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -687,41 +703,15 @@ impl Default for WINBIO_ASYNC_RESULT_0_11 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_7 {
-    pub Identity: WINBIO_IDENTITY,
-    pub SubFactor: u8,
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_12 {
+    pub BspCount: usize,
+    pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
-impl Default for WINBIO_ASYNC_RESULT_0_7 {
+impl Default for WINBIO_ASYNC_RESULT_0_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_2 {
-    pub SubFactor: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_3 {
-    pub RejectDetail: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_4 {
-    pub Identity: WINBIO_IDENTITY,
-    pub IsNewTemplate: bool,
-}
-impl Default for WINBIO_ASYNC_RESULT_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_17 {
-    pub SelectorValue: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -746,6 +736,80 @@ impl Default for WINBIO_ASYNC_RESULT_0_14 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_15 {
+    pub Match: bool,
+    pub RejectDetail: u32,
+    pub Ticket: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_16 {
+    pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
+    pub RejectDetail: u32,
+    pub Ticket: u64,
+}
+impl Default for WINBIO_ASYNC_RESULT_0_16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_17 {
+    pub SelectorValue: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_18 {
+    pub ChangeType: u32,
+    pub PresenceCount: usize,
+    pub PresenceArray: *mut WINBIO_PRESENCE,
+}
+impl Default for WINBIO_ASYNC_RESULT_0_18 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_19 {
+    pub Identity: WINBIO_IDENTITY,
+    pub Policy: WINBIO_PROTECTION_POLICY,
+}
+impl Default for WINBIO_ASYNC_RESULT_0_19 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_2 {
+    pub SubFactor: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_20 {
+    pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_3 {
+    pub RejectDetail: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_4 {
+    pub Identity: WINBIO_IDENTITY,
+    pub IsNewTemplate: bool,
+}
+impl Default for WINBIO_ASYNC_RESULT_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub Identity: WINBIO_IDENTITY,
@@ -759,21 +823,23 @@ impl Default for WINBIO_ASYNC_RESULT_0_5 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_12 {
-    pub BspCount: usize,
-    pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
+pub struct WINBIO_ASYNC_RESULT_0_6 {
+    pub Sample: *mut WINBIO_BIR,
+    pub SampleSize: usize,
+    pub RejectDetail: u32,
 }
-impl Default for WINBIO_ASYNC_RESULT_0_12 {
+impl Default for WINBIO_ASYNC_RESULT_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_10 {
-    pub Event: WINBIO_EVENT,
+pub struct WINBIO_ASYNC_RESULT_0_7 {
+    pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
 }
-impl Default for WINBIO_ASYNC_RESULT_0_10 {
+impl Default for WINBIO_ASYNC_RESULT_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -795,59 +861,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_8 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_19 {
-    pub Identity: WINBIO_IDENTITY,
-    pub Policy: WINBIO_PROTECTION_POLICY,
-}
-impl Default for WINBIO_ASYNC_RESULT_0_19 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_16 {
-    pub Identity: WINBIO_IDENTITY,
-    pub SubFactor: u8,
-    pub RejectDetail: u32,
-    pub Ticket: u64,
-}
-impl Default for WINBIO_ASYNC_RESULT_0_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_1 {
-    pub Identity: WINBIO_IDENTITY,
-    pub SubFactor: u8,
-    pub RejectDetail: u32,
-}
-impl Default for WINBIO_ASYNC_RESULT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_18 {
-    pub ChangeType: u32,
-    pub PresenceCount: usize,
-    pub PresenceArray: *mut WINBIO_PRESENCE,
-}
-impl Default for WINBIO_ASYNC_RESULT_0_18 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_20 {
-    pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -860,19 +873,6 @@ impl Default for WINBIO_ASYNC_RESULT_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_15 {
-    pub Match: bool,
-    pub RejectDetail: u32,
-    pub Ticket: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_0 {
-    pub Match: bool,
-    pub RejectDetail: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1144,8 +1144,9 @@ impl Default for WINBIO_EVENT_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_EVENT_0_2 {
-    pub ErrorCode: windows_core::HRESULT,
+pub struct WINBIO_EVENT_0_0 {
+    pub UnitId: u32,
+    pub RejectDetail: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1162,9 +1163,8 @@ impl Default for WINBIO_EVENT_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WINBIO_EVENT_0_0 {
-    pub UnitId: u32,
-    pub RejectDetail: u32,
+pub struct WINBIO_EVENT_0_2 {
+    pub ErrorCode: windows_core::HRESULT,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -454,24 +454,6 @@ impl Default for HTTP_DATA_CHUNK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HTTP_DATA_CHUNK_0_1 {
-    pub ByteRange: HTTP_BYTE_RANGE,
-    pub FileHandle: super::super::Foundation::HANDLE,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HTTP_DATA_CHUNK_0_3 {
-    pub ByteRange: HTTP_BYTE_RANGE,
-    pub pFragmentName: windows_core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HTTP_DATA_CHUNK_0_2 {
-    pub FragmentNameLength: u16,
-    pub pFragmentName: windows_core::PCWSTR,
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_0 {
     pub pBuffer: *mut core::ffi::c_void,
@@ -484,8 +466,21 @@ impl Default for HTTP_DATA_CHUNK_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct HTTP_DATA_CHUNK_0_5 {
-    pub WhFastForwardingData: HTTP_WINHTTP_FAST_FORWARDING_DATA,
+pub struct HTTP_DATA_CHUNK_0_1 {
+    pub ByteRange: HTTP_BYTE_RANGE,
+    pub FileHandle: super::super::Foundation::HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HTTP_DATA_CHUNK_0_2 {
+    pub FragmentNameLength: u16,
+    pub pFragmentName: windows_core::PCWSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HTTP_DATA_CHUNK_0_3 {
+    pub ByteRange: HTTP_BYTE_RANGE,
+    pub pFragmentName: windows_core::PCWSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -497,6 +492,11 @@ impl Default for HTTP_DATA_CHUNK_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HTTP_DATA_CHUNK_0_5 {
+    pub WhFastForwardingData: HTTP_WINHTTP_FAST_FORWARDING_DATA,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
