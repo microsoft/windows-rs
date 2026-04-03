@@ -45,7 +45,11 @@ impl TypeDefExt for TypeDef {
             if let Some((_, Value::Utf8(name))) = attribute.value().first() {
                 if let Some(Type::CppFn(ty)) = reader.with_full_name(self.namespace(), name).next()
                 {
-                    return Some(ty);
+                    let signature = ty.method.method_signature(ty.namespace, &[], reader);
+
+                    if signature.params.len() == 1 {
+                        return Some(ty);
+                    }
                 }
             }
         }

@@ -1116,17 +1116,6 @@ impl FWPM_CALLOUT_ENUM_HANDLE {
         self.0 == -1 as _ || self.0 == 0 as _
     }
 }
-impl windows_core::Free for FWPM_CALLOUT_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmCalloutDestroyEnumHandle0(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for FWPM_CALLOUT_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1429,17 +1418,6 @@ impl FWPM_CONNECTION_ENUM_HANDLE {
         self.0 == -1 as _ || self.0 == 0 as _
     }
 }
-impl windows_core::Free for FWPM_CONNECTION_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmConnectionDestroyEnumHandle0(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for FWPM_CONNECTION_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1600,17 +1578,6 @@ pub struct FWPM_FILTER_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl FWPM_FILTER_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for FWPM_FILTER_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmFilterDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for FWPM_FILTER_ENUM_HANDLE {
@@ -1776,17 +1743,6 @@ pub struct FWPM_LAYER_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl FWPM_LAYER_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for FWPM_LAYER_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmLayerDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for FWPM_LAYER_ENUM_HANDLE {
@@ -2210,17 +2166,6 @@ pub struct FWPM_NET_EVENT_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl FWPM_NET_EVENT_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for FWPM_NET_EVENT_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmNetEventDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for FWPM_NET_EVENT_ENUM_HANDLE {
@@ -3000,17 +2945,6 @@ impl FWPM_PROVIDER_CONTEXT_ENUM_HANDLE {
         self.0 == -1 as _ || self.0 == 0 as _
     }
 }
-impl windows_core::Free for FWPM_PROVIDER_CONTEXT_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmProviderContextDestroyEnumHandle0(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for FWPM_PROVIDER_CONTEXT_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3053,17 +2987,6 @@ pub struct FWPM_PROVIDER_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl FWPM_PROVIDER_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for FWPM_PROVIDER_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmProviderDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for FWPM_PROVIDER_ENUM_HANDLE {
@@ -3132,17 +3055,6 @@ pub struct FWPM_SESSION_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl FWPM_SESSION_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for FWPM_SESSION_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmSessionDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for FWPM_SESSION_ENUM_HANDLE {
@@ -3275,17 +3187,6 @@ pub struct FWPM_SUBLAYER_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl FWPM_SUBLAYER_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for FWPM_SUBLAYER_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                FwpmSubLayerDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for FWPM_SUBLAYER_ENUM_HANDLE {
@@ -5118,17 +5019,6 @@ impl IKEEXT_SA_ENUM_HANDLE {
         self.0 == -1 as _ || self.0 == 0 as _
     }
 }
-impl windows_core::Free for IKEEXT_SA_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                IkeextSaDestroyEnumHandle0(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for IKEEXT_SA_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5436,17 +5326,6 @@ pub struct IPSEC_DOSP_STATE_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl IPSEC_DOSP_STATE_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for IPSEC_DOSP_STATE_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                IPsecDospStateDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for IPSEC_DOSP_STATE_ENUM_HANDLE {
@@ -5914,17 +5793,6 @@ impl IPSEC_SA_CONTEXT_ENUM_HANDLE {
         self.0 == -1 as _ || self.0 == 0 as _
     }
 }
-impl windows_core::Free for IPSEC_SA_CONTEXT_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                IPsecSaContextDestroyEnumHandle0(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for IPSEC_SA_CONTEXT_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6028,17 +5896,6 @@ pub struct IPSEC_SA_ENUM_HANDLE(pub *mut core::ffi::c_void);
 impl IPSEC_SA_ENUM_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for IPSEC_SA_ENUM_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
-            unsafe {
-                IPsecSaDestroyEnumHandle0(self.0, 0);
-            }
-        }
     }
 }
 impl Default for IPSEC_SA_ENUM_HANDLE {

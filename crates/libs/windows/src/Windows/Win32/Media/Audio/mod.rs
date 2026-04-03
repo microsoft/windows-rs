@@ -1924,17 +1924,6 @@ impl HACMDRIVER {
         self.0 == -1 as _ || self.0 == 0 as _
     }
 }
-impl windows_core::Free for HACMDRIVER {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("msacm32.dll" "system" fn acmDriverClose(had : *mut core::ffi::c_void, fdwclose : u32) -> u32);
-            unsafe {
-                acmDriverClose(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for HACMDRIVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1972,17 +1961,6 @@ pub struct HACMSTREAM(pub *mut core::ffi::c_void);
 impl HACMSTREAM {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
-    }
-}
-impl windows_core::Free for HACMSTREAM {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("msacm32.dll" "system" fn acmStreamClose(has : *mut core::ffi::c_void, fdwclose : u32) -> u32);
-            unsafe {
-                acmStreamClose(self.0, 0);
-            }
-        }
     }
 }
 impl Default for HACMSTREAM {

@@ -3115,17 +3115,6 @@ impl BCRYPT_ALG_HANDLE {
         self.0.is_null()
     }
 }
-impl windows_core::Free for BCRYPT_ALG_HANDLE {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("bcrypt.dll" "system" fn BCryptCloseAlgorithmProvider(halgorithm : *mut core::ffi::c_void, dwflags : u32) -> i32);
-            unsafe {
-                BCryptCloseAlgorithmProvider(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for BCRYPT_ALG_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

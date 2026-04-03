@@ -9749,17 +9749,6 @@ impl PDH_HLOG {
         self.0 == -1 as _ || self.0 == 0 as _
     }
 }
-impl windows_core::Free for PDH_HLOG {
-    #[inline]
-    unsafe fn free(&mut self) {
-        if !self.is_invalid() {
-            windows_core::link!("pdh.dll" "system" fn PdhCloseLog(hlog : *mut core::ffi::c_void, dwflags : u32) -> u32);
-            unsafe {
-                PdhCloseLog(self.0, 0);
-            }
-        }
-    }
-}
 impl Default for PDH_HLOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

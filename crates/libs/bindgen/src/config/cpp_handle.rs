@@ -64,17 +64,6 @@ impl Config<'_> {
                 } else {
                     let link = function.write_link(self, true);
                     let free = to_ident(function.method.name());
-                    let signature =
-                        function
-                            .method
-                            .method_signature(def.namespace(), &[], self.reader);
-
-                    // BCryptCloseAlgorithmProvider has an unused trailing parameter.
-                    let tail = if signature.params.len() > 1 {
-                        quote! { , 0 }
-                    } else {
-                        quote! {}
-                    };
 
                     quote! {
                         impl windows_core::Free for #name {
@@ -82,7 +71,7 @@ impl Config<'_> {
                             unsafe fn free(&mut self) {
                                 if !self.is_invalid() {
                                     #link
-                                    unsafe { #free(self.0 #tail); }
+                                    unsafe { #free(self.0); }
                                 }
                             }
                         }
