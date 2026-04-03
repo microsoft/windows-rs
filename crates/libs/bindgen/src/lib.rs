@@ -308,28 +308,9 @@ where
     S: AsRef<str>,
 {
     let args = expand_args(args);
+    let mut builder = Bindgen::new();
     let mut kind = ArgKind::None;
-    let mut input = Vec::new();
-    let mut include = Vec::new();
-    let mut exclude = Vec::new();
-    let mut references = Vec::new();
-    let mut derive = Vec::new();
-
-    let mut flat = false;
-    let mut no_allow = false;
-    let mut no_comment = false;
-    let mut no_deps = false;
-    let mut no_toml = false;
-    let mut package = false;
-    let mut implement = false;
-    let mut specific_deps = false;
-    let mut rustfmt = String::new();
-    let mut output = String::new();
-    let mut sys = false;
-    let mut sys_fn_ptrs = false;
-    let mut sys_fn_extern = false;
-    let mut link = String::new();
-    let mut index = false;
+    let mut has_output = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -344,168 +325,400 @@ where
                 "--rustfmt" => kind = ArgKind::Rustfmt,
                 "--reference" => kind = ArgKind::Reference,
                 "--derive" => kind = ArgKind::Derive,
-                "--flat" => flat = true,
-                "--no-allow" => no_allow = true,
-                "--no-comment" => no_comment = true,
-                "--no-deps" => no_deps = true,
-                "--no-toml" => no_toml = true,
-                "--package" => package = true,
-                "--sys" => sys = true,
-                "--sys-fn-ptrs" => sys_fn_ptrs = true,
-                "--sys-fn-extern" => sys_fn_extern = true,
-                "--implement" => implement = true,
-                "--specific-deps" => specific_deps = true,
+                "--flat" => {
+                    builder.flat();
+                }
+                "--no-allow" => {
+                    builder.no_allow();
+                }
+                "--no-comment" => {
+                    builder.no_comment();
+                }
+                "--no-deps" => {
+                    builder.no_deps();
+                }
+                "--no-toml" => {
+                    builder.no_toml();
+                }
+                "--package" => {
+                    builder.package();
+                }
+                "--sys" => {
+                    builder.sys();
+                }
+                "--sys-fn-ptrs" => {
+                    builder.sys_fn_ptrs();
+                }
+                "--sys-fn-extern" => {
+                    builder.sys_fn_extern();
+                }
+                "--implement" => {
+                    builder.implement();
+                }
+                "--specific-deps" => {
+                    builder.specific_deps();
+                }
                 "--link" => kind = ArgKind::Link,
-                "--index" => index = true,
+                "--index" => {
+                    builder.index();
+                }
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
-                if output.is_empty() {
-                    output = arg.to_string();
-                } else {
+                if has_output {
                     panic!("exactly one `--out` is required");
                 }
+                builder.output(arg);
+                has_output = true;
             }
-            ArgKind::Input => input.push(arg.as_str()),
+            ArgKind::Input => {
+                builder.input(arg);
+            }
             ArgKind::Filter => {
-                if let Some(rest) = arg.strip_prefix('!') {
-                    exclude.push(rest);
-                } else {
-                    include.push(arg.as_str());
-                }
+                builder.filter(arg);
             }
             ArgKind::Reference => {
-                references.push(ReferenceStage::parse(arg));
+                builder.reference(arg);
             }
             ArgKind::Derive => {
-                derive.push(arg.as_str());
+                builder.derive(arg);
             }
-            ArgKind::Rustfmt => rustfmt = arg.to_string(),
-            ArgKind::Link => link = arg.to_string(),
+            ArgKind::Rustfmt => {
+                builder.rustfmt(arg);
+            }
+            ArgKind::Link => {
+                builder.link(arg);
+            }
         }
     }
 
-    if link.is_empty() {
-        if sys || specific_deps {
-            link = "windows_link".to_string();
-        } else {
-            link = "windows_core".to_string();
-        }
-    }
-
-    if package && flat {
+    if builder.package && builder.flat {
         panic!("cannot combine `--package` and `--flat`");
     }
 
-    if input.is_empty() {
-        input.push("default");
-    };
-
-    if output.is_empty() {
+    if !has_output {
         panic!("exactly one `--out` is required");
-    };
-
-    // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
-    // would be generated when building a component for a specific API.
-    if include.is_empty() {
-        panic!("at least one `--filter` required");
     }
 
-    let reader = Reader::new(expand_input(&input));
+    builder.write()
+}
 
-    if !sys && !no_deps {
-        if reader.contains_key("Windows.Foundation") {
-            references.insert(
-                0,
-                ReferenceStage::parse("windows_collections,flat,Windows.Foundation.Collections"),
-            );
-            references.insert(
-                0,
-                ReferenceStage::parse("windows_numerics,flat,Windows.Foundation.Numerics"),
-            );
-            references.insert(
-                0,
-                ReferenceStage::parse("windows_future,flat,Windows.Foundation.Async*"),
-            );
-            references.insert(
-                0,
-                ReferenceStage::parse("windows_future,flat,Windows.Foundation.IAsync*"),
-            );
-        }
+/// Builder for generating Windows API bindings.
+///
+/// This provides a fluent builder API as an alternative to the command-line-like [`bindgen`] function.
+///
+/// # Example
+///
+/// ```rust,no_run
+/// windows_bindgen::Bindgen::new()
+///     .output("src/bindings.rs")
+///     .filter("GetTickCount")
+///     .write()
+///     .unwrap();
+/// ```
+#[derive(Default)]
+pub struct Bindgen {
+    input: Vec<String>,
+    filter: Vec<String>,
+    output: String,
+    references: Vec<String>,
+    derive: Vec<String>,
+    rustfmt: String,
+    link: String,
+    flat: bool,
+    no_allow: bool,
+    no_comment: bool,
+    no_deps: bool,
+    no_toml: bool,
+    package: bool,
+    implement: bool,
+    specific_deps: bool,
+    sys: bool,
+    sys_fn_ptrs: bool,
+    sys_fn_extern: bool,
+    index: bool,
+}
 
-        if reader.contains_key("Windows.Win32.Foundation") {
-            if specific_deps {
-                references.insert(
-                    0,
-                    ReferenceStage::parse(
-                        "windows_result,flat,Windows.Win32.Foundation.WIN32_ERROR",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::parse("windows_result,flat,Windows.Win32.Foundation.NTSTATUS"),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::parse(
-                        "windows_result,flat,Windows.Win32.System.Rpc.RPC_STATUS",
-                    ),
-                );
+impl Bindgen {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    /// Add a `.winmd` file or directory containing `.winmd` files.
+    /// Use `"default"` to include the metadata bundled with `windows-bindgen`.
+    pub fn input(&mut self, input: &str) -> &mut Self {
+        self.input.push(input.to_string());
+        self
+    }
+
+    /// Set the output file where generated bindings will be written.
+    pub fn output(&mut self, output: &str) -> &mut Self {
+        self.output = output.to_string();
+        self
+    }
+
+    /// Add a filter rule to include or exclude APIs.
+    ///
+    /// Filter rules may be a function or type name, a namespace prefix, or a fully-qualified name.
+    /// Prefix with `!` to exclude rather than include.
+    pub fn filter(&mut self, filter: &str) -> &mut Self {
+        self.filter.push(filter.to_string());
+        self
+    }
+
+    /// Add an extra trait for types to derive.
+    pub fn derive(&mut self, derive: &str) -> &mut Self {
+        self.derive.push(derive.to_string());
+        self
+    }
+
+    /// Add a reference dependency.
+    pub fn reference(&mut self, reference: &str) -> &mut Self {
+        self.references.push(reference.to_string());
+        self
+    }
+
+    /// Override the default Rust formatter path.
+    pub fn rustfmt(&mut self, rustfmt: &str) -> &mut Self {
+        self.rustfmt = rustfmt.to_string();
+        self
+    }
+
+    /// Override the default `windows-link` implementation for system calls.
+    pub fn link(&mut self, link: &str) -> &mut Self {
+        self.link = link.to_string();
+        self
+    }
+
+    /// Avoid the default namespace-to-module conversion.
+    pub fn flat(&mut self) -> &mut Self {
+        self.flat = true;
+        self
+    }
+
+    /// Avoid generating the default `allow` attribute.
+    pub fn no_allow(&mut self) -> &mut Self {
+        self.no_allow = true;
+        self
+    }
+
+    /// Avoid generating the code generation comment.
+    pub fn no_comment(&mut self) -> &mut Self {
+        self.no_comment = true;
+        self
+    }
+
+    /// Avoid dependencies on the various `windows-*` crates.
+    pub fn no_deps(&mut self) -> &mut Self {
+        self.no_deps = true;
+        self
+    }
+
+    /// Avoid generating the Cargo.toml features when using `package` mode.
+    pub fn no_toml(&mut self) -> &mut Self {
+        self.no_toml = true;
+        self
+    }
+
+    /// Generate bindings as a package with one file per namespace.
+    pub fn package(&mut self) -> &mut Self {
+        self.package = true;
+        self
+    }
+
+    /// Include implementation traits for WinRT interfaces.
+    pub fn implement(&mut self) -> &mut Self {
+        self.implement = true;
+        self
+    }
+
+    /// Use specific crate dependencies rather than `windows-core`.
+    pub fn specific_deps(&mut self) -> &mut Self {
+        self.specific_deps = true;
+        self
+    }
+
+    /// Generate raw or sys-style Rust bindings.
+    pub fn sys(&mut self) -> &mut Self {
+        self.sys = true;
+        self
+    }
+
+    /// Additionally generate function pointers for sys-style Rust bindings.
+    pub fn sys_fn_ptrs(&mut self) -> &mut Self {
+        self.sys_fn_ptrs = true;
+        self
+    }
+
+    /// Generate extern declarations rather than link macros for sys-style Rust bindings.
+    pub fn sys_fn_extern(&mut self) -> &mut Self {
+        self.sys_fn_extern = true;
+        self
+    }
+
+    /// Generate a `features.json` index alongside the output file.
+    pub fn index(&mut self) -> &mut Self {
+        self.index = true;
+        self
+    }
+
+    /// Generate the bindings.
+    #[track_caller]
+    #[must_use]
+    pub fn write(&self) -> Warnings {
+        let mut include: Vec<&str> = vec![];
+        let mut exclude: Vec<&str> = vec![];
+
+        for f in &self.filter {
+            if let Some(rest) = f.strip_prefix('!') {
+                exclude.push(rest);
             } else {
-                references.insert(
-                    0,
-                    ReferenceStage::parse("windows_core,flat,Windows.Win32.Foundation.WIN32_ERROR"),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::parse("windows_core,flat,Windows.Win32.Foundation.NTSTATUS"),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::parse("windows_core,flat,Windows.Win32.System.Rpc.RPC_STATUS"),
-                );
+                include.push(f.as_str());
             }
         }
+
+        let link = if self.link.is_empty() {
+            if self.sys || self.specific_deps {
+                "windows_link"
+            } else {
+                "windows_core"
+            }
+        } else {
+            self.link.as_str()
+        };
+
+        let default_input = ["default"];
+        let input: Vec<&str> = if self.input.is_empty() {
+            default_input.to_vec()
+        } else {
+            self.input.iter().map(|s| s.as_str()).collect()
+        };
+
+        if self.output.is_empty() {
+            panic!("output is required (call `.output()` or pass `--out`)");
+        }
+
+        if include.is_empty() {
+            panic!("at least one `--filter` required");
+        }
+
+        if self.package && self.flat {
+            panic!("cannot combine `--package` and `--flat`");
+        }
+
+        let reader = Reader::new(expand_input(&input));
+
+        let mut references: Vec<ReferenceStage> = self
+            .references
+            .iter()
+            .map(|s| ReferenceStage::parse(s))
+            .collect();
+
+        if !self.sys && !self.no_deps {
+            if reader.contains_key("Windows.Foundation") {
+                references.insert(
+                    0,
+                    ReferenceStage::parse(
+                        "windows_collections,flat,Windows.Foundation.Collections",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::parse("windows_numerics,flat,Windows.Foundation.Numerics"),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::parse("windows_future,flat,Windows.Foundation.Async*"),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::parse("windows_future,flat,Windows.Foundation.IAsync*"),
+                );
+            }
+
+            if reader.contains_key("Windows.Win32.Foundation") {
+                if self.specific_deps {
+                    references.insert(
+                        0,
+                        ReferenceStage::parse(
+                            "windows_result,flat,Windows.Win32.Foundation.WIN32_ERROR",
+                        ),
+                    );
+                    references.insert(
+                        0,
+                        ReferenceStage::parse(
+                            "windows_result,flat,Windows.Win32.Foundation.NTSTATUS",
+                        ),
+                    );
+                    references.insert(
+                        0,
+                        ReferenceStage::parse(
+                            "windows_result,flat,Windows.Win32.System.Rpc.RPC_STATUS",
+                        ),
+                    );
+                } else {
+                    references.insert(
+                        0,
+                        ReferenceStage::parse(
+                            "windows_core,flat,Windows.Win32.Foundation.WIN32_ERROR",
+                        ),
+                    );
+                    references.insert(
+                        0,
+                        ReferenceStage::parse(
+                            "windows_core,flat,Windows.Win32.Foundation.NTSTATUS",
+                        ),
+                    );
+                    references.insert(
+                        0,
+                        ReferenceStage::parse(
+                            "windows_core,flat,Windows.Win32.System.Rpc.RPC_STATUS",
+                        ),
+                    );
+                }
+            }
+        }
+
+        let derive_str: Vec<&str> = self.derive.iter().map(|s| s.as_str()).collect();
+
+        let filter = Filter::new(&reader, &include, &exclude);
+        let references = References::new(&reader, references);
+        let types = TypeMap::filter(&reader, &filter, &references);
+        let derive = Derive::new(&reader, &types, &derive_str);
+        let warnings = WarningBuilder::default();
+
+        let config = Config {
+            reader: &reader,
+            types: &types,
+            flat: self.flat,
+            references: &references,
+            derive: &derive,
+            no_allow: self.no_allow,
+            no_comment: self.no_comment,
+            no_deps: self.no_deps,
+            no_toml: self.no_toml,
+            package: self.package,
+            rustfmt: &self.rustfmt,
+            output: &self.output,
+            sys: self.sys,
+            sys_fn_ptrs: self.sys_fn_ptrs,
+            sys_fn_extern: self.sys_fn_extern,
+            implement: self.implement,
+            specific_deps: self.specific_deps,
+            link,
+            warnings: &warnings,
+            namespace: "",
+        };
+
+        let tree = TypeTree::new(&types);
+        config.write(tree);
+
+        if self.index {
+            index::write(&types, &format!("{}/features.json", self.output), &reader);
+        }
+
+        warnings.build()
     }
-
-    let filter = Filter::new(&reader, &include, &exclude);
-    let references = References::new(&reader, references);
-    let types = TypeMap::filter(&reader, &filter, &references);
-    let derive = Derive::new(&reader, &types, &derive);
-    let warnings = WarningBuilder::default();
-
-    let config = Config {
-        reader: &reader,
-        types: &types,
-        flat,
-        references: &references,
-        derive: &derive,
-        no_allow,
-        no_comment,
-        no_deps,
-        no_toml,
-        package,
-        rustfmt: &rustfmt,
-        output: &output,
-        sys,
-        sys_fn_ptrs,
-        sys_fn_extern,
-        implement,
-        specific_deps,
-        link: &link,
-        warnings: &warnings,
-        namespace: "",
-    };
-
-    let tree = TypeTree::new(&types);
-
-    config.write(tree);
-
-    if index {
-        index::write(&types, &format!("{output}/features.json"), &reader);
-    }
-
-    warnings.build()
 }
 
 enum ArgKind {
