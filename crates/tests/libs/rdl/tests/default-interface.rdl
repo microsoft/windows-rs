@@ -1,0 +1,15 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod Background {
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IAppBroadcastTriggerFactory, 65536, "Windows.Media.Capture.AppBroadcastContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Media::Capture::AppBroadcastContract, 65536)]
+            class AppBroadcastTrigger {
+                IAppBroadcastTrigger,
+                IBackgroundTrigger,
+            }
+        }
+    }
+}
