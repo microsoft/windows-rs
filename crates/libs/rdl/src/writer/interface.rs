@@ -31,15 +31,23 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let guid_exclude: &[&str] = if interface_guid_is_derived(item) {
-        &["GuidAttribute"]
-    } else {
-        &[]
+    let guid_token = match interface_guid_output(item) {
+        GuidOutput::None => quote! { #[no_guid] },
+        GuidOutput::Omit => quote! {},
+        GuidOutput::Explicit(d1, d2, d3, d4) => {
+            let hex: TokenStream = format_guid_u128(d1, d2, d3, d4).parse().unwrap();
+            quote! { #[guid(#hex)] }
+        }
     };
-    let custom_attrs =
-        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute"],
+    );
 
     quote! {
+        #guid_token
         #(#custom_attrs)*
         interface #name #generics #requires_tokens {
             #(#methods)*

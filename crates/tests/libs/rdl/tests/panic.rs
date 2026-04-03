@@ -660,3 +660,45 @@ mod Test {
         "#,
     )
 }
+
+#[test]
+#[should_panic(expected = "error: `#[no_guid]` attribute does not accept arguments\n --> .rdl:4:5")]
+fn no_guid_with_args_errors() {
+    should_panic(
+        r#"
+#[win32]
+mod Test {
+    #[no_guid(something)]
+    interface IFoo {}
+}
+        "#,
+    )
+}
+
+#[test]
+#[should_panic(expected = "error: `#[guid]` requires a single u128 literal\n --> .rdl:4:5")]
+fn guid_no_args_errors() {
+    should_panic(
+        r#"
+#[win32]
+mod Test {
+    #[guid]
+    interface IFoo {}
+}
+        "#,
+    )
+}
+
+#[test]
+#[should_panic(expected = "error: invalid u128 literal in `#[guid]`\n --> .rdl:4:5")]
+fn guid_invalid_literal_errors() {
+    should_panic(
+        r#"
+#[win32]
+mod Test {
+    #[guid(0xffffffffffffffffffffffffffffffff0)]
+    interface IFoo {}
+}
+        "#,
+    )
+}

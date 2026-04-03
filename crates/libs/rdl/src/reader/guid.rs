@@ -104,6 +104,24 @@ pub fn emit_guid_attribute(
     );
 }
 
+/// Converts a u128 GUID value (big-endian interpretation) to `(data1, data2, data3, data4)`.
+///
+/// The u128 encodes the GUID fields in network (big-endian) byte order, matching the standard
+/// UUID string representation: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` read left-to-right.
+///
+/// For example, `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3` maps to
+/// `(0x005023ca, 0x72b1, 0x11d3, [0x9f, 0xc4, 0x00, 0xc0, 0x4f, 0x79, 0xa0, 0xa3])`.
+pub fn u128_to_guid(v: u128) -> (u32, u16, u16, [u8; 8]) {
+    let bytes = v.to_be_bytes();
+    let data1 = u32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
+    let data2 = u16::from_be_bytes([bytes[4], bytes[5]]);
+    let data3 = u16::from_be_bytes([bytes[6], bytes[7]]);
+    let data4 = [
+        bytes[8], bytes[9], bytes[10], bytes[11], bytes[12], bytes[13], bytes[14], bytes[15],
+    ];
+    (data1, data2, data3, data4)
+}
+
 /// Builds the interface string for a method-based interface or delegate.
 ///
 /// Format: `"namespace.Name:Method1(param1,param2,...);Method2(...);..."`
