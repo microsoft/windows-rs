@@ -849,13 +849,32 @@ fn extract_guid_from_attribute(attr: metadata::reader::Attribute) -> (u32, u16, 
     (d1, d2, d3, d4)
 }
 
-/// Returns `true` when the `GuidAttribute` stored on an interface `TypeDef` matches what
-/// would be automatically derived from the interface shape (name + method signatures).
-/// When `true`, the attribute is redundant and may be omitted from the RDL output.
-/// When `false`, the GUID was set explicitly and must be preserved.
-fn interface_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+/// Describes how a GUID should appear in the RDL output for an interface or delegate.
+enum GuidOutput {
+    /// The GUID matches what would be automatically derived — omit it from the output.
+    Omit,
+    /// An explicit GUID is stored that differs from the derived value — emit `#[guid(0x…)]`.
+    Explicit(u32, u16, u16, [u8; 8]),
+    /// No `GuidAttribute` is present — emit `#[no_guid]` to prevent re-derivation on read-back.
+    None,
+}
+
+/// Formats GUID components as a UUID-style hex u128 literal, e.g.
+/// `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`.
+fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {
+    let d4_word = u16::from_be_bytes([d4[0], d4[1]]);
+    let d4_node = u64::from_be_bytes([0, 0, d4[2], d4[3], d4[4], d4[5], d4[6], d4[7]]);
+    format!("0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}")
+}
+
+/// Determines the GUID output mode for an interface `TypeDef`.
+///
+/// - `GuidOutput::None` — no `GuidAttribute` present; emit `#[no_guid]`.
+/// - `GuidOutput::Omit` — GUID matches derived value; omit from output.
+/// - `GuidOutput::Explicit` — GUID differs from derived value; emit `#[guid(0x…)]`.
+fn interface_guid_output(item: &metadata::reader::TypeDef) -> GuidOutput {
     let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return true;
+        return GuidOutput::None;
     };
     let stored = extract_guid_from_attribute(attr);
 
@@ -883,16 +902,21 @@ fn interface_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
         &methods,
     );
     let derived = crate::reader::guid::guid_from_interface_string(&s);
-    stored == derived
+    if stored == derived {
+        GuidOutput::Omit
+    } else {
+        GuidOutput::Explicit(stored.0, stored.1, stored.2, stored.3)
+    }
 }
 
-/// Returns `true` when the `GuidAttribute` stored on a delegate `TypeDef` matches what
-/// would be automatically derived from the `Invoke` method signature.
-/// When `true`, the attribute is redundant and may be omitted from the RDL output.
-/// When `false`, the GUID was set explicitly and must be preserved.
-fn delegate_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+/// Determines the GUID output mode for a delegate `TypeDef`.
+///
+/// - `GuidOutput::None` — no `GuidAttribute` present; emit `#[no_guid]`.
+/// - `GuidOutput::Omit` — GUID matches derived value; omit from output.
+/// - `GuidOutput::Explicit` — GUID differs from derived value; emit `#[guid(0x…)]`.
+fn delegate_guid_output(item: &metadata::reader::TypeDef) -> GuidOutput {
     let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return true;
+        return GuidOutput::None;
     };
     let stored = extract_guid_from_attribute(attr);
 
@@ -916,7 +940,11 @@ fn delegate_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
         &[("Invoke", types.as_slice(), &return_type)],
     );
     let derived = crate::reader::guid::guid_from_interface_string(&s);
-    stored == derived
+    if stored == derived {
+        GuidOutput::Omit
+    } else {
+        GuidOutput::Explicit(stored.0, stored.1, stored.2, stored.3)
+    }
 }
 
 fn write_ident(name: &str) -> TokenStream {

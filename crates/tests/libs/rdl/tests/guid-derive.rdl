@@ -37,6 +37,18 @@ mod Test {
     // WinRT interface with an explicit Guid (derivation must be suppressed)
     #[Windows::Foundation::Metadata::Guid(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27)]
     interface IExplicitInterface {}
+    // Interface using the new #[guid(u128)] shorthand
+    #[guid(0x00000031_0032_0033_3435_363738393a3b)]
+    interface IGuidLiteral {}
+    // Delegate using the new #[guid(u128)] shorthand
+    #[guid(0x00000041_0042_0043_4445_464748494a4b)]
+    delegate fn IGuidLiteralDelegate();
+    // Interface with #[no_guid] — no GuidAttribute should be emitted
+    #[no_guid]
+    interface INoGuid {}
+    // Delegate with #[no_guid] — no GuidAttribute should be emitted
+    #[no_guid]
+    delegate fn INoGuidDelegate();
 }
 #[win32]
 mod Test {
