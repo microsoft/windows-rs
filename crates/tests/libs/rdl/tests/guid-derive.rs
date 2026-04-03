@@ -40,6 +40,16 @@ fn assert_guid(winmd: &str, namespace: &str, name: &str, expected: &str) {
     assert_eq!(actual, expected, "{namespace}.{name} GUID mismatch");
 }
 
+/// Assert that the named type has no `GuidAttribute` at all.
+fn assert_no_guid(winmd: &str, namespace: &str, name: &str) {
+    let files = TypeIndex::read(winmd).expect("failed to read winmd");
+    let ty = files.expect(namespace, name);
+    assert!(
+        ty.find_attribute("GuidAttribute").is_none(),
+        "{namespace}.{name} should have no GuidAttribute"
+    );
+}
+
 #[test]
 fn guid_derive() {
     // Step 1: RDL → WINMD (reader derives/validates GUIDs)
@@ -106,6 +116,28 @@ fn guid_derive() {
         "00000011-0012-0013-1415-161718191a1b",
     );
 
+    // IGuidLiteral: interface using #[guid(u128)] shorthand.
+    assert_guid(
+        "tests/guid-derive.winmd",
+        "Test",
+        "IGuidLiteral",
+        "00000031-0032-0033-3435-363738393a3b",
+    );
+
+    // IGuidLiteralDelegate: delegate using #[guid(u128)] shorthand.
+    assert_guid(
+        "tests/guid-derive.winmd",
+        "Test",
+        "IGuidLiteralDelegate",
+        "00000041-0042-0043-4445-464748494a4b",
+    );
+
+    // INoGuid: interface with #[no_guid] — must have no GuidAttribute.
+    assert_no_guid("tests/guid-derive.winmd", "Test", "INoGuid");
+
+    // INoGuidDelegate: delegate with #[no_guid] — must have no GuidAttribute.
+    assert_no_guid("tests/guid-derive.winmd", "Test", "INoGuidDelegate");
+
     // ITypeExercise: exercises all type_to_string variants — primitive returns (Bool, I8, …),
     // pointer params (PtrConst(I32,1), RefConst(I32), PtrMut(I32,2)).
     assert_guid(
@@ -149,7 +181,7 @@ fn guid_derive() {
         .write()
         .unwrap();
 
-    // Step 3: Roundtripped RDL → WINMD (verify that explicit GUIDs survived the roundtrip)
+    // Step 3: Roundtripped RDL → WINMD (verify that all explicit GUIDs survived the roundtrip)
     reader()
         .input("tests/guid-derive-out.rdl")
         .input("../../../libs/bindgen/default/Windows.winmd")
@@ -169,6 +201,20 @@ fn guid_derive() {
         "IExplicitInterface",
         "00000011-0012-0013-1415-161718191a1b",
     );
+    assert_guid(
+        "tests/guid-derive-rt.winmd",
+        "Test",
+        "IGuidLiteral",
+        "00000031-0032-0033-3435-363738393a3b",
+    );
+    assert_guid(
+        "tests/guid-derive-rt.winmd",
+        "Test",
+        "IGuidLiteralDelegate",
+        "00000041-0042-0043-4445-464748494a4b",
+    );
+    assert_no_guid("tests/guid-derive-rt.winmd", "Test", "INoGuid");
+    assert_no_guid("tests/guid-derive-rt.winmd", "Test", "INoGuidDelegate");
     assert_guid(
         "tests/guid-derive-rt.winmd",
         "Test",

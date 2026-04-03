@@ -18,11 +18,19 @@ mod Sample {
 #[winrt]
 mod Test {
     interface IEmpty {}
-    #[Windows::Foundation::Metadata::Guid(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)]
+    #[guid(0x00000001_0002_0003_0405_060708090a0b)]
     delegate fn IExplicitDelegate();
-    #[Windows::Foundation::Metadata::Guid(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27)]
+    #[guid(0x00000011_0012_0013_1415_161718191a1b)]
     interface IExplicitInterface {}
+    #[guid(0x00000031_0032_0033_3435_363738393a3b)]
+    interface IGuidLiteral {}
+    #[guid(0x00000041_0042_0043_4445_464748494a4b)]
+    delegate fn IGuidLiteralDelegate();
     delegate fn IHandler(arg: i32) -> u32;
+    #[no_guid]
+    interface INoGuid {}
+    #[no_guid]
+    delegate fn INoGuidDelegate();
     interface ISimple {
         fn get_Value(&self) -> i32;
     }
@@ -53,6 +61,6 @@ mod Test {
 #[win32]
 mod Test {
     interface IWin32 {}
-    #[Windows::Foundation::Metadata::Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
+    #[guid(0x00000021_0022_0023_2425_262728292a2b)]
     interface IWin32Explicit {}
 }
