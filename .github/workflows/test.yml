@@ -37,10 +37,6 @@ jobs:
             target: x86_64-pc-windows-gnu
             runner: windows-2025
           - version: stable
-            host: x86_64-pc-windows-gnu
-            target: i686-pc-windows-gnu
-            runner: windows-2025
-          - version: stable
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
@@ -54,8 +50,8 @@ jobs:
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
-      - name: Install fmt, clippy
-        run: rustup component add clippy rustfmt
+      - name: Install fmt
+        run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment
         with:
