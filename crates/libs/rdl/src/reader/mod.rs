@@ -362,6 +362,22 @@ fn validate_use_declarations(
     Ok(())
 }
 
+/// Parses a `syn::LitInt` as a `u128`, supporting both `0x…` hex and decimal literals.
+/// Underscore separators (e.g. `0x005023ca_72b1_11d3_9fc4_00c04f79a0a3`) are accepted.
+pub(super) fn parse_guid_u128(lit: &syn::LitInt) -> Result<u128, ()> {
+    let s: String = lit
+        .token()
+        .to_string()
+        .chars()
+        .filter(|&c| c != '_')
+        .collect();
+    if let Some(hex) = s.strip_prefix("0x").or_else(|| s.strip_prefix("0X")) {
+        u128::from_str_radix(hex, 16).map_err(|_| ())
+    } else {
+        s.parse::<u128>().map_err(|_| ())
+    }
+}
+
 struct Encoder<'a> {
     output: &'a mut metadata::writer::File,
     index: &'a Index<'a>,
