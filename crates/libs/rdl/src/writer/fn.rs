@@ -4,7 +4,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
     let name = write_ident(item.name());
     let signature = item.signature(&[]);
 
-    let return_type = write_return_type(namespace, &signature);
+    let return_type = write_return_type(namespace, item, &signature);
     let vararg = signature
         .flags
         .contains(metadata::MethodCallAttributes::VARARG);

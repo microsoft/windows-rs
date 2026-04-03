@@ -188,6 +188,17 @@ impl Encoder<'_> {
                 &["special"],
             )?;
 
+            if !method.return_attrs.is_empty() {
+                let param_id = self
+                    .output
+                    .Param("", 0, metadata::ParamAttributes::default());
+                self.encode_attrs(
+                    metadata::writer::HasAttribute::Param(param_id),
+                    &method.return_attrs,
+                    &[],
+                )?;
+            }
+
             for (sequence, param) in params.iter().enumerate() {
                 let param_id = self.output.Param(
                     &param.name,

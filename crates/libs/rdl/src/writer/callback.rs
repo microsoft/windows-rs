@@ -10,7 +10,7 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
         .expect("callbacks are expected to have this named method");
 
     let signature = method.signature(&[]);
-    let return_type = write_return_type(namespace, &signature);
+    let return_type = write_return_type(namespace, &method, &signature);
     let params = write_params(namespace, &method, signature.types);
 
     let custom_attrs = write_custom_attributes_except(

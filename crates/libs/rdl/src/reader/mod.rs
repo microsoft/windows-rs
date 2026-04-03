@@ -805,6 +805,68 @@ impl Encoder<'_> {
     }
 }
 
+/// Parse the function parameter list including variadic handling.
+/// Returns the inputs and an optional variadic marker.
+pub(crate) fn parse_fn_inputs(
+    content: &syn::parse::ParseBuffer,
+) -> syn::Result<(
+    syn::punctuated::Punctuated<syn::FnArg, syn::Token![,]>,
+    Option<syn::Variadic>,
+)> {
+    let mut args = syn::punctuated::Punctuated::new();
+    let mut variadic = None;
+
+    while !content.is_empty() {
+        // Use a fork to peek past any outer attrs to see if we have `...` (variadic).
+        let fork = content.fork();
+        let _ = fork.call(syn::Attribute::parse_outer);
+        if fork.peek(syn::Token![...]) {
+            // It's variadic — consume the attrs and dots from the real stream.
+            let attrs = content.call(syn::Attribute::parse_outer)?;
+            let dots: syn::Token![...] = content.parse()?;
+            variadic = Some(syn::Variadic {
+                attrs,
+                pat: None,
+                dots,
+                comma: if content.is_empty() {
+                    None
+                } else {
+                    Some(content.parse()?)
+                },
+            });
+            break;
+        }
+
+        // Regular fn arg — syn handles inner attrs itself.
+        let arg: syn::FnArg = content.parse()?;
+        args.push_value(arg);
+
+        if content.is_empty() {
+            break;
+        }
+
+        let comma: syn::Token![,] = content.parse()?;
+        args.push_punct(comma);
+    }
+
+    Ok((args, variadic))
+}
+
+/// Parse an optional `-> #[attr]* Type` return type, extracting any outer attributes
+/// that appear between `->` and the type.  Returns `(return_type, return_attrs)`.
+pub(crate) fn parse_return_type_with_attrs(
+    input: syn::parse::ParseStream,
+) -> syn::Result<(syn::ReturnType, Vec<syn::Attribute>)> {
+    if input.peek(syn::Token![->]) {
+        let arrow = input.parse::<syn::Token![->]>()?;
+        let return_attrs = input.call(syn::Attribute::parse_outer)?;
+        let ty: syn::Type = input.parse()?;
+        Ok((syn::ReturnType::Type(arrow, Box::new(ty)), return_attrs))
+    } else {
+        Ok((syn::ReturnType::Default, vec![]))
+    }
+}
+
 fn glob_use_namespace(use_item: &syn::ItemUse) -> Option<String> {
     fn extract(tree: &syn::UseTree, parts: &mut Vec<String>) -> bool {
         match tree {

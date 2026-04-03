@@ -5,17 +5,47 @@ pub struct Callback {
     pub attrs: Vec<syn::Attribute>,
     pub abi: Option<syn::LitStr>, // "system" is default
     pub sig: syn::Signature,
+    pub return_attrs: Vec<syn::Attribute>,
 }
 
 impl syn::parse::Parse for Callback {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
         input.parse::<syn::Token![extern]>()?;
-        let abi = input.parse()?;
-        let sig = input.parse()?;
+        let abi: Option<syn::LitStr> = input.parse()?;
+
+        let fn_token: syn::Token![fn] = input.parse()?;
+        let ident: syn::Ident = input.parse()?;
+        let generics: syn::Generics = input.parse()?;
+
+        let content;
+        let paren_token = syn::parenthesized!(content in input);
+        let (inputs, variadic) = parse_fn_inputs(&content)?;
+
+        let (output, return_attrs) = parse_return_type_with_attrs(input)?;
+
         input.parse::<syn::Token![;]>()?;
 
-        Ok(Self { attrs, abi, sig })
+        let sig = syn::Signature {
+            constness: None,
+            asyncness: None,
+            unsafety: None,
+            abi: None,
+            fn_token,
+            ident,
+            generics,
+            paren_token,
+            inputs,
+            variadic,
+            output,
+        };
+
+        Ok(Self {
+            attrs,
+            abi,
+            sig,
+            return_attrs,
+        })
     }
 }
 
@@ -103,6 +133,17 @@ impl Encoder<'_> {
 
         self.output
             .MethodDef("Invoke", &signature, flags, Default::default());
+
+        if !item.return_attrs.is_empty() {
+            let param_id = self
+                .output
+                .Param("", 0, metadata::ParamAttributes::default());
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Param(param_id),
+                &item.return_attrs,
+                &[],
+            )?;
+        }
 
         for (sequence, param) in params.iter().enumerate() {
             let param_id = self.output.Param(

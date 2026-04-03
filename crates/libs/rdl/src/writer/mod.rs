@@ -430,12 +430,22 @@ fn write_params(
         .collect()
 }
 
-fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenStream {
+fn write_return_type(
+    namespace: &str,
+    method: &metadata::reader::MethodDef,
+    signature: &metadata::Signature,
+) -> TokenStream {
+    let return_attrs: Vec<TokenStream> = method
+        .params()
+        .find(|p| p.sequence() == 0)
+        .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
+        .unwrap_or_default();
+
     match &signature.return_type {
         metadata::Type::Void => quote! {},
         ty => {
             let ty = write_type(namespace, ty);
-            quote! { -> #ty }
+            quote! { -> #(#return_attrs)* #ty }
         }
     }
 }

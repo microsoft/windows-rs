@@ -55,7 +55,7 @@ fn write_method(
     let name = write_ident(item.name());
     let signature = item.signature(generics);
 
-    let return_type = write_return_type(namespace, &signature);
+    let return_type = write_return_type(namespace, item, &signature);
     let params =
         std::iter::once(quote! { &self }).chain(write_params(namespace, item, signature.types));
 
