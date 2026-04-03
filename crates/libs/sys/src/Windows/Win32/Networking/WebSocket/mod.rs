@@ -31,23 +31,23 @@ impl Default for WEB_SOCKET_BUFFER {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WEB_SOCKET_BUFFER_1 {
-    pub pbReason: *mut u8,
-    pub ulReasonLength: u32,
-    pub usStatus: u16,
+pub struct WEB_SOCKET_BUFFER_0 {
+    pub pbBuffer: *mut u8,
+    pub ulBufferLength: u32,
 }
-impl Default for WEB_SOCKET_BUFFER_1 {
+impl Default for WEB_SOCKET_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WEB_SOCKET_BUFFER_0 {
-    pub pbBuffer: *mut u8,
-    pub ulBufferLength: u32,
+pub struct WEB_SOCKET_BUFFER_1 {
+    pub pbReason: *mut u8,
+    pub ulReasonLength: u32,
+    pub usStatus: u16,
 }
-impl Default for WEB_SOCKET_BUFFER_0 {
+impl Default for WEB_SOCKET_BUFFER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

@@ -24,13 +24,13 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    pub attributes: u64,
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+    pub bootIndicator: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    pub bootIndicator: bool,
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+    pub attributes: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -56,13 +56,13 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    pub partitionType: windows_core::GUID,
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+    pub partitionType: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    pub partitionType: u8,
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+    pub partitionType: windows_core::GUID,
 }
 pub const CLSID_VdsLoader: windows_core::GUID = windows_core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
 pub const CLSID_VdsService: windows_core::GUID = windows_core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
@@ -89,6 +89,12 @@ impl Default for CREATE_PARTITION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CREATE_PARTITION_PARAMETERS_0_0 {
+    pub partitionType: u8,
+    pub bootIndicator: bool,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
@@ -100,12 +106,6 @@ impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CREATE_PARTITION_PARAMETERS_0_0 {
-    pub partitionType: u8,
-    pub bootIndicator: bool,
 }
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 windows_core::imp::define_interface!(IEnumVdsObject, IEnumVdsObject_Vtbl, 0x118610b7_8d94_4030_b5b8_500889788e4e);
@@ -6376,30 +6376,10 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_2 {
-    pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_4 {
-    pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
     pub ullOffset: u64,
     pub volumeId: windows_core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_6 {
-    pub pPortalGroupUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -6408,13 +6388,33 @@ pub struct VDS_ASYNC_OUTPUT_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_7 {
-    pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+pub struct VDS_ASYNC_OUTPUT_0_2 {
+    pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
     pub ullReclaimedBytes: u64,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_4 {
+    pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_5 {
+    pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_6 {
+    pub pPortalGroupUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_7 {
+    pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

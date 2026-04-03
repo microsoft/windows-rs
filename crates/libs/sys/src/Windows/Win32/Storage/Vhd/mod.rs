@@ -437,16 +437,12 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GET_VIRTUAL_DISK_INFO_0_3 {
-    pub Enabled: windows_sys::core::BOOL,
-    pub NewerChanges: windows_sys::core::BOOL,
-    pub MostRecentId: [u16; 1],
-}
-impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[derive(Clone, Copy, Default)]
+pub struct GET_VIRTUAL_DISK_INFO_0_0 {
+    pub VirtualSize: u64,
+    pub PhysicalSize: u64,
+    pub BlockSize: u32,
+    pub SectorSize: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -467,12 +463,16 @@ pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub IsRemote: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct GET_VIRTUAL_DISK_INFO_0_0 {
-    pub VirtualSize: u64,
-    pub PhysicalSize: u64,
-    pub BlockSize: u32,
-    pub SectorSize: u32,
+#[derive(Clone, Copy)]
+pub struct GET_VIRTUAL_DISK_INFO_0_3 {
+    pub Enabled: windows_sys::core::BOOL,
+    pub NewerChanges: windows_sys::core::BOOL,
+    pub MostRecentId: [u16; 1],
+}
+impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: GET_VIRTUAL_DISK_INFO_VERSION = 15i32;
 pub const GET_VIRTUAL_DISK_INFO_FRAGMENTATION: GET_VIRTUAL_DISK_INFO_VERSION = 12i32;
@@ -819,22 +819,22 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SET_VIRTUAL_DISK_INFO_0_1 {
-    pub LinkageId: windows_sys::core::GUID,
+pub struct SET_VIRTUAL_DISK_INFO_0_0 {
+    pub ChildDepth: u32,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }
-impl Default for SET_VIRTUAL_DISK_INFO_0_1 {
+impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SET_VIRTUAL_DISK_INFO_0_0 {
-    pub ChildDepth: u32,
+pub struct SET_VIRTUAL_DISK_INFO_0_1 {
+    pub LinkageId: windows_sys::core::GUID,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }
-impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
+impl Default for SET_VIRTUAL_DISK_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

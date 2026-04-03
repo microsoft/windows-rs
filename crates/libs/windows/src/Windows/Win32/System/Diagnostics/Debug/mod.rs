@@ -2800,16 +2800,6 @@ impl Default for CPU_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct CPU_INFORMATION_1 {
-    pub ProcessorFeatures: [u64; 2],
-}
-impl Default for CPU_INFORMATION_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CPU_INFORMATION_0 {
@@ -2819,6 +2809,16 @@ pub struct CPU_INFORMATION_0 {
     pub AMDExtendedCpuFeatures: u32,
 }
 impl Default for CPU_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy)]
+pub struct CPU_INFORMATION_1 {
+    pub ProcessorFeatures: [u64; 2],
+}
+impl Default for CPU_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6007,16 +6007,16 @@ impl Default for LDT_ENTRY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LDT_ENTRY_0_1 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct LDT_ENTRY_0_1 {
+    pub _bitfield: u32,
 }
 pub const LIVE_SYSTEM_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(353u32);
 pub const LM_SERVER_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(84u32);
@@ -9093,13 +9093,8 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: u32,
-    pub Vector: u32,
-    pub SwitchToPollingThreshold: u32,
-    pub SwitchToPollingWindow: u32,
-    pub ErrorThreshold: u32,
-    pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -9123,7 +9118,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: u32,
     pub Vector: u32,
     pub SwitchToPollingThreshold: u32,
@@ -9133,12 +9128,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
-    pub PollInterval: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: u32,
     pub Vector: u32,
     pub SwitchToPollingThreshold: u32,
@@ -9159,6 +9149,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
+    pub PollInterval: u32,
+    pub Vector: u32,
+    pub SwitchToPollingThreshold: u32,
+    pub SwitchToPollingWindow: u32,
+    pub ErrorThreshold: u32,
+    pub ErrorThresholdWindow: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
     pub SwitchToPollingThreshold: u32,
@@ -9452,16 +9452,16 @@ impl Default for WOW64_LDT_ENTRY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WOW64_LDT_ENTRY_0_1 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WOW64_LDT_ENTRY_0_1 {
+    pub _bitfield: u32,
 }
 pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80u32;

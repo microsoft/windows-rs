@@ -4143,6 +4143,13 @@ impl Default for NLA_BLOB {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct NLA_BLOB_0 {
+    pub r#type: NLA_BLOB_DATA_TYPE,
+    pub dwSize: u32,
+    pub nextOffset: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union NLA_BLOB_1 {
     pub rawData: [i8; 1],
@@ -4155,31 +4162,6 @@ impl Default for NLA_BLOB_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct NLA_BLOB_1_3 {
-    pub remote: NLA_BLOB_1_3_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct NLA_BLOB_1_3_0 {
-    pub speed: u32,
-    pub r#type: u32,
-    pub state: u32,
-    pub machineName: [u16; 256],
-    pub sharedAdapterName: [u16; 256],
-}
-impl Default for NLA_BLOB_1_3_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct NLA_BLOB_1_2 {
-    pub r#type: NLA_CONNECTIVITY_TYPE,
-    pub internet: NLA_INTERNET,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4205,10 +4187,28 @@ impl Default for NLA_BLOB_1_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct NLA_BLOB_0 {
-    pub r#type: NLA_BLOB_DATA_TYPE,
-    pub dwSize: u32,
-    pub nextOffset: u32,
+pub struct NLA_BLOB_1_2 {
+    pub r#type: NLA_CONNECTIVITY_TYPE,
+    pub internet: NLA_INTERNET,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct NLA_BLOB_1_3 {
+    pub remote: NLA_BLOB_1_3_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct NLA_BLOB_1_3_0 {
+    pub speed: u32,
+    pub r#type: u32,
+    pub state: u32,
+    pub machineName: [u16; 256],
+    pub sharedAdapterName: [u16; 256],
+}
+impl Default for NLA_BLOB_1_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6336,16 +6336,11 @@ impl Default for WSACOMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug)]
-pub struct WSACOMPLETION_0_2 {
-    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
-    pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
-}
-#[cfg(feature = "Win32_System_IO")]
-impl Default for WSACOMPLETION_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WSACOMPLETION_0_0 {
+    pub hWnd: super::super::Foundation::HWND,
+    pub uMsg: u32,
+    pub context: super::super::Foundation::WPARAM,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
@@ -6355,6 +6350,19 @@ pub struct WSACOMPLETION_0_1 {
 }
 #[cfg(feature = "Win32_System_IO")]
 impl Default for WSACOMPLETION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy, Debug)]
+pub struct WSACOMPLETION_0_2 {
+    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
+    pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
+}
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6372,14 +6380,6 @@ impl Default for WSACOMPLETION_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WSACOMPLETION_0_0 {
-    pub hWnd: super::super::Foundation::HWND,
-    pub uMsg: u32,
-    pub context: super::super::Foundation::WPARAM,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

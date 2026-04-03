@@ -1758,22 +1758,22 @@ impl Default for WTS_PROPERTY_VALUE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WTS_PROPERTY_VALUE_0_1 {
+pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
-    pub pbVal: windows_sys::core::PSTR,
+    pub pstrVal: windows_sys::core::PWSTR,
 }
-impl Default for WTS_PROPERTY_VALUE_0_1 {
+impl Default for WTS_PROPERTY_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WTS_PROPERTY_VALUE_0_0 {
+pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
-    pub pstrVal: windows_sys::core::PWSTR,
+    pub pbVal: windows_sys::core::PSTR,
 }
-impl Default for WTS_PROPERTY_VALUE_0_0 {
+impl Default for WTS_PROPERTY_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

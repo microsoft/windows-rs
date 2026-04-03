@@ -3397,8 +3397,8 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
-    pub RootParameterIndex: u32,
+pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
+    pub Slot: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3409,9 +3409,8 @@ pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
+pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     pub RootParameterIndex: u32,
-    pub DestOffsetIn32BitValues: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3425,8 +3424,9 @@ pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
-    pub Slot: u32,
+pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
+    pub RootParameterIndex: u32,
+    pub DestOffsetIn32BitValues: u32,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

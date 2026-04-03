@@ -868,27 +868,15 @@ impl Default for DWRITE_PAINT_ELEMENT_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_6 {
-    pub glyphIndex: u32,
-    pub clipBox: super::Direct2D::Common::D2D_RECT_F,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_7 {
-    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_5 {
-    pub glyphIndex: u32,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_0 {
     pub childCount: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_1 {
+    pub glyphIndex: u32,
+    pub color: DWRITE_PAINT_COLOR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -919,13 +907,6 @@ pub struct DWRITE_PAINT_ELEMENT_0_3 {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_1 {
-    pub glyphIndex: u32,
-    pub color: DWRITE_PAINT_COLOR,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_4 {
     pub extendMode: u32,
     pub gradientStopCount: u32,
@@ -933,6 +914,25 @@ pub struct DWRITE_PAINT_ELEMENT_0_4 {
     pub centerY: f32,
     pub startAngle: f32,
     pub endAngle: f32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_5 {
+    pub glyphIndex: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_6 {
+    pub glyphIndex: u32,
+    pub clipBox: super::Direct2D::Common::D2D_RECT_F,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_7 {
+    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -971,17 +971,17 @@ impl Default for DWRITE_PANOSE {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DWRITE_PANOSE_2 {
+pub struct DWRITE_PANOSE_0 {
     pub familyKind: u8,
-    pub decorativeClass: u8,
+    pub serifStyle: u8,
     pub weight: u8,
-    pub aspect: u8,
+    pub proportion: u8,
     pub contrast: u8,
-    pub serifVariant: u8,
-    pub fill: u8,
-    pub lining: u8,
-    pub decorativeTopology: u8,
-    pub characterRange: u8,
+    pub strokeVariation: u8,
+    pub armStyle: u8,
+    pub letterform: u8,
+    pub midline: u8,
+    pub xHeight: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -999,6 +999,20 @@ pub struct DWRITE_PANOSE_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DWRITE_PANOSE_2 {
+    pub familyKind: u8,
+    pub decorativeClass: u8,
+    pub weight: u8,
+    pub aspect: u8,
+    pub contrast: u8,
+    pub serifVariant: u8,
+    pub fill: u8,
+    pub lining: u8,
+    pub decorativeTopology: u8,
+    pub characterRange: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DWRITE_PANOSE_3 {
     pub familyKind: u8,
     pub symbolKind: u8,
@@ -1010,20 +1024,6 @@ pub struct DWRITE_PANOSE_3 {
     pub aspectRatio157: u8,
     pub aspectRatio163: u8,
     pub aspectRatio211: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DWRITE_PANOSE_0 {
-    pub familyKind: u8,
-    pub serifStyle: u8,
-    pub weight: u8,
-    pub proportion: u8,
-    pub contrast: u8,
-    pub strokeVariation: u8,
-    pub armStyle: u8,
-    pub letterform: u8,
-    pub midline: u8,
-    pub xHeight: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

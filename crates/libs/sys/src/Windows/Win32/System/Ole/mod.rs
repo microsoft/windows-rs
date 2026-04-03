@@ -2439,11 +2439,13 @@ impl Default for PICTDESC_0_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
-pub struct PICTDESC_0_3 {
-    pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
+pub struct PICTDESC_0_1 {
+    pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
+    pub xExt: i32,
+    pub yExt: i32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for PICTDESC_0_3 {
+impl Default for PICTDESC_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2463,13 +2465,11 @@ impl Default for PICTDESC_0_2 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
-pub struct PICTDESC_0_1 {
-    pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
-    pub xExt: i32,
-    pub yExt: i32,
+pub struct PICTDESC_0_3 {
+    pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for PICTDESC_0_1 {
+impl Default for PICTDESC_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

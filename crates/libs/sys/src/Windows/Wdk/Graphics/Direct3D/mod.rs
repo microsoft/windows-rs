@@ -560,17 +560,6 @@ impl Default for D3DDDI_ALLOCATIONINFO2_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union D3DDDI_ALLOCATIONINFO2_2 {
-    pub Priority: u32,
-    pub Unused: usize,
-}
-impl Default for D3DDDI_ALLOCATIONINFO2_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
     pub Value: u32,
@@ -584,6 +573,17 @@ impl Default for D3DDDI_ALLOCATIONINFO2_1 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
     pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DDDI_ALLOCATIONINFO2_2 {
+    pub Priority: u32,
+    pub Unused: usize,
+}
+impl Default for D3DDDI_ALLOCATIONINFO2_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1392,14 +1392,9 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
-    pub Reserved: [u32; 16],
-}
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
+    pub InitialState: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1408,9 +1403,14 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     pub InitialCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
-    pub InitialState: windows_sys::core::BOOL,
+#[derive(Clone, Copy)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+    pub Reserved: [u32; 16],
+}
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1442,6 +1442,22 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
+    pub InitialState: windows_sys::core::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
+    pub MaxCount: u32,
+    pub InitialCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
+    pub FenceValue: u64,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::super::super::Win32::Foundation::HANDLE,
@@ -1450,11 +1466,6 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    pub FenceValue: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1495,17 +1506,6 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    pub MaxCount: u32,
-    pub InitialCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
-    pub InitialState: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1651,10 +1651,12 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
-    pub SourceAddress: u64,
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
+    pub BaseAddress: u64,
     pub SizeInBytes: u64,
-    pub DestAddress: u64,
+    pub hAllocation: u32,
+    pub AllocationOffsetInBytes: u64,
+    pub AllocationSizeInBytes: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1673,15 +1675,6 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
-    pub BaseAddress: u64,
-    pub SizeInBytes: u64,
-    pub hAllocation: u32,
-    pub AllocationOffsetInBytes: u64,
-    pub AllocationSizeInBytes: u64,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub BaseAddress: u64,
@@ -1692,6 +1685,13 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
+    pub SourceAddress: u64,
+    pub SizeInBytes: u64,
+    pub DestAddress: u64,
 }
 pub type D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = i32;
 pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = 1i32;
@@ -8412,6 +8412,44 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
+    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
+    pub Value: u32,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
+    pub ResourceHandle: u32,
+    pub AllocationHandle: u32,
+    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
@@ -8431,6 +8469,11 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
+    pub SegmentId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub TimerValue: i64,
 }
@@ -8438,23 +8481,6 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub NtHandle: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
-    pub ResourceHandle: u32,
-    pub AllocationHandle: u32,
-    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
-    pub NumBytesToTrim: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8489,53 +8515,10 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
     pub NumVads: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
-    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
-    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
-    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
-    pub Value: u32,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
-    pub MinTrimInterval: u32,
-    pub MaxTrimInterval: u32,
-    pub IdleTrimInterval: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8549,9 +8532,26 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_5 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
+    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
-    pub SegmentId: u32,
+pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
+    pub NumBytesToTrim: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
+    pub MinTrimInterval: u32,
+    pub MaxTrimInterval: u32,
+    pub IdleTrimInterval: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

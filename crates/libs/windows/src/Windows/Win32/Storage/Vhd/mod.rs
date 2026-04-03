@@ -904,16 +904,12 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GET_VIRTUAL_DISK_INFO_0_3 {
-    pub Enabled: windows_core::BOOL,
-    pub NewerChanges: windows_core::BOOL,
-    pub MostRecentId: [u16; 1],
-}
-impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GET_VIRTUAL_DISK_INFO_0_0 {
+    pub VirtualSize: u64,
+    pub PhysicalSize: u64,
+    pub BlockSize: u32,
+    pub SectorSize: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -934,12 +930,16 @@ pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub IsRemote: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GET_VIRTUAL_DISK_INFO_0_0 {
-    pub VirtualSize: u64,
-    pub PhysicalSize: u64,
-    pub BlockSize: u32,
-    pub SectorSize: u32,
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GET_VIRTUAL_DISK_INFO_0_3 {
+    pub Enabled: windows_core::BOOL,
+    pub NewerChanges: windows_core::BOOL,
+    pub MostRecentId: [u16; 1],
+}
+impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(15i32);
 pub const GET_VIRTUAL_DISK_INFO_FRAGMENTATION: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(12i32);
@@ -1535,14 +1535,14 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct SET_VIRTUAL_DISK_INFO_0_1 {
-    pub LinkageId: windows_core::GUID,
+pub struct SET_VIRTUAL_DISK_INFO_0_0 {
+    pub ChildDepth: u32,
     pub ParentFilePath: windows_core::PCWSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct SET_VIRTUAL_DISK_INFO_0_0 {
-    pub ChildDepth: u32,
+pub struct SET_VIRTUAL_DISK_INFO_0_1 {
+    pub LinkageId: windows_core::GUID,
     pub ParentFilePath: windows_core::PCWSTR,
 }
 pub const SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(6i32);

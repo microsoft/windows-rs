@@ -270,8 +270,10 @@ impl Default for ChannelInfo_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct ChannelInfo_0_2 {
-    pub lProgNumber: i32,
+pub struct ChannelInfo_0_0 {
+    pub lONID: i32,
+    pub lTSID: i32,
+    pub lSID: i32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -280,10 +282,8 @@ pub struct ChannelInfo_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct ChannelInfo_0_0 {
-    pub lONID: i32,
-    pub lTSID: i32,
-    pub lSID: i32,
+pub struct ChannelInfo_0_2 {
+    pub lProgNumber: i32,
 }
 pub const ChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
 #[repr(transparent)]

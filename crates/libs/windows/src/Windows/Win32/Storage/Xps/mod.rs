@@ -12608,17 +12608,6 @@ impl Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_COLOR_0_2 {
-    pub channelCount: u8,
-    pub channels: [f32; 9],
-}
-impl Default for XPS_COLOR_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_COLOR_0_0 {
     pub alpha: u8,
@@ -12633,6 +12622,17 @@ pub struct XPS_COLOR_0_1 {
     pub red: f32,
     pub green: f32,
     pub blue: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_COLOR_0_2 {
+    pub channelCount: u8,
+    pub channels: [f32; 9],
+}
+impl Default for XPS_COLOR_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

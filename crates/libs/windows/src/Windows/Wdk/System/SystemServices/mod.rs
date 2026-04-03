@@ -7386,69 +7386,17 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    pub Start: u32,
-    pub Length: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
-    pub Class: u8,
-    pub Type: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u8,
-    pub IdLowPart: u32,
-    pub IdHighPart: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
-    pub Data: [u32; 3],
-}
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
-    pub DataSize: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
-    pub Channel: u32,
-    pub RequestLine: u32,
-    pub TransferWidth: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u8,
-    pub Reserved3: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
-    pub Channel: u32,
-    pub Port: u32,
-    pub Reserved1: u32,
-}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Start: i64,
     pub Length: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
-    pub Level: u32,
-    pub Vector: u32,
-    pub Affinity: usize,
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+    pub Start: i64,
+    pub Length: u32,
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
@@ -7468,11 +7416,22 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     pub Start: i64,
     pub Length64: u32,
 }
-#[repr(C, packed(4))]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
-    pub Start: i64,
-    pub Length: u32,
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
+    pub Class: u8,
+    pub Type: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u8,
+    pub IdLowPart: u32,
+    pub IdHighPart: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
+    pub Level: u32,
+    pub Vector: u32,
+    pub Affinity: usize,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7512,9 +7471,50 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Start: i64,
     pub Length: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
+    pub Channel: u32,
+    pub Port: u32,
+    pub Reserved1: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
+    pub Channel: u32,
+    pub RequestLine: u32,
+    pub TransferWidth: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u8,
+    pub Reserved3: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+    pub Data: [u32; 3],
+}
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
+    pub Start: u32,
+    pub Length: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
+    pub DataSize: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8121,12 +8121,12 @@ impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
+pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
+pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     pub _bitfield: u64,
 }
 #[repr(C)]
@@ -8326,14 +8326,14 @@ impl Default for DISK_SIGNATURE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DISK_SIGNATURE_0_1 {
-    pub DiskId: windows_core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISK_SIGNATURE_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISK_SIGNATURE_0_1 {
+    pub DiskId: windows_core::GUID,
 }
 pub const DISPATCH_LEVEL: u32 = 2u32;
 pub const DMAV3_TRANFER_WIDTH_128: u32 = 4u32;
@@ -10164,13 +10164,6 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
-    pub Base: i64,
-    pub Size: usize,
-}
-#[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     pub Mdl: *mut super::super::Foundation::MDL,
@@ -10180,6 +10173,13 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
+    pub Base: i64,
+    pub Size: usize,
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
@@ -10714,56 +10714,7 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
-    pub Length: u32,
-    pub MinBusNumber: u32,
-    pub MaxBusNumber: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
-    pub Priority: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
-    pub Class: u8,
-    pub Type: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u8,
-    pub IdLowPart: u32,
-    pub IdHighPart: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
-    pub Data: [u32; 3],
-}
-impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
-    pub RequestLine: u32,
-    pub Reserved: u32,
-    pub Channel: u32,
-    pub TransferWidth: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
-    pub MinimumChannel: u32,
-    pub MaximumChannel: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
@@ -10771,18 +10722,9 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
-    pub MinimumVector: u32,
-    pub MaximumVector: u32,
-    pub AffinityPolicy: IRQ_DEVICE_POLICY,
-    pub PriorityPolicy: IRQ_PRIORITY,
-    pub TargetedProcessors: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
-    pub Length40: u32,
-    pub Alignment40: u32,
+pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
+    pub Length: u32,
+    pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
@@ -10804,17 +10746,75 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
+    pub Class: u8,
+    pub Type: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u8,
+    pub IdLowPart: u32,
+    pub IdHighPart: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
+    pub MinimumVector: u32,
+    pub MaximumVector: u32,
+    pub AffinityPolicy: IRQ_DEVICE_POLICY,
+    pub PriorityPolicy: IRQ_PRIORITY,
+    pub TargetedProcessors: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
+    pub MinimumChannel: u32,
+    pub MaximumChannel: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
+    pub RequestLine: u32,
+    pub Reserved: u32,
+    pub Channel: u32,
+    pub TransferWidth: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
+    pub Data: [u32; 3],
+}
+impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub Length: u32,
-    pub Alignment: u32,
+    pub MinBusNumber: u32,
+    pub MaxBusNumber: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
+    pub Priority: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
+    pub Length40: u32,
+    pub Alignment40: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
@@ -12891,6 +12891,22 @@ impl Default for PCIX_BRIDGE_CAPABILITY {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union PCIX_BRIDGE_CAPABILITY_0 {
+    pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
+    pub AsUSHORT: u16,
+}
+impl Default for PCIX_BRIDGE_CAPABILITY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
+    pub _bitfield: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_1 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_1_0,
     pub AsULONG: u32,
@@ -12920,22 +12936,6 @@ impl Default for PCIX_BRIDGE_CAPABILITY_2 {
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_2_0 {
     pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PCIX_BRIDGE_CAPABILITY_0 {
-    pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
-    pub AsUSHORT: u16,
-}
-impl Default for PCIX_BRIDGE_CAPABILITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
-    pub _bitfield: u16,
 }
 pub const PCIX_MODE1_100MHZ: u32 = 2u32;
 pub const PCIX_MODE1_133MHZ: u32 = 3u32;
@@ -13039,12 +13039,12 @@ pub struct PCI_AGP_CAPABILITY {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PCI_AGP_CAPABILITY_1 {
+pub struct PCI_AGP_CAPABILITY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PCI_AGP_CAPABILITY_0 {
+pub struct PCI_AGP_CAPABILITY_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -15374,11 +15374,11 @@ impl Default for PCI_PM_CAPABILITY {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PCI_PM_CAPABILITY_2 {
-    pub BridgeSupport: PCI_PMCSR_BSE,
-    pub AsUCHAR: u8,
+pub union PCI_PM_CAPABILITY_0 {
+    pub Capabilities: PCI_PMC,
+    pub AsUSHORT: u16,
 }
-impl Default for PCI_PM_CAPABILITY_2 {
+impl Default for PCI_PM_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -15396,11 +15396,11 @@ impl Default for PCI_PM_CAPABILITY_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PCI_PM_CAPABILITY_0 {
-    pub Capabilities: PCI_PMC,
-    pub AsUSHORT: u16,
+pub union PCI_PM_CAPABILITY_2 {
+    pub BridgeSupport: PCI_PMCSR_BSE,
+    pub AsUCHAR: u8,
 }
-impl Default for PCI_PM_CAPABILITY_0 {
+impl Default for PCI_PM_CAPABILITY_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16815,6 +16815,11 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
+    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_0_1 {
     pub DriveMap: u32,
@@ -16824,11 +16829,6 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
-    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16853,6 +16853,11 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
+    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     pub DriveMap: u32,
@@ -16862,11 +16867,6 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
-    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -21822,12 +21822,12 @@ pub struct XPF_RECOVERY_INFO {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
-pub struct XPF_RECOVERY_INFO_1 {
+pub struct XPF_RECOVERY_INFO_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
-pub struct XPF_RECOVERY_INFO_0 {
+pub struct XPF_RECOVERY_INFO_1 {
     pub _bitfield: u32,
 }
 pub const XPF_TLB_CHECK_OPERATION_DATAREAD: u32 = 3u32;

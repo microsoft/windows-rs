@@ -110,20 +110,6 @@ impl Default for PSS_HANDLE_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PSS_HANDLE_ENTRY_0_3 {
-    pub ManualReset: windows_sys::core::BOOL,
-    pub Signaled: windows_sys::core::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PSS_HANDLE_ENTRY_0_2 {
-    pub CurrentCount: i32,
-    pub Abandoned: windows_sys::core::BOOL,
-    pub OwnerProcessId: u32,
-    pub OwnerThreadId: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ExitStatus: u32,
@@ -138,6 +124,37 @@ impl Default for PSS_HANDLE_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PSS_HANDLE_ENTRY_0_1 {
+    pub ExitStatus: u32,
+    pub TebBaseAddress: *mut core::ffi::c_void,
+    pub ProcessId: u32,
+    pub ThreadId: u32,
+    pub AffinityMask: usize,
+    pub Priority: i32,
+    pub BasePriority: i32,
+    pub Win32StartAddress: *mut core::ffi::c_void,
+}
+impl Default for PSS_HANDLE_ENTRY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PSS_HANDLE_ENTRY_0_2 {
+    pub CurrentCount: i32,
+    pub Abandoned: windows_sys::core::BOOL,
+    pub OwnerProcessId: u32,
+    pub OwnerThreadId: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PSS_HANDLE_ENTRY_0_3 {
+    pub ManualReset: windows_sys::core::BOOL,
+    pub Signaled: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -156,23 +173,6 @@ impl Default for PSS_HANDLE_ENTRY_0_4 {
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PSS_HANDLE_ENTRY_0_1 {
-    pub ExitStatus: u32,
-    pub TebBaseAddress: *mut core::ffi::c_void,
-    pub ProcessId: u32,
-    pub ThreadId: u32,
-    pub AffinityMask: usize,
-    pub Priority: i32,
-    pub BasePriority: i32,
-    pub Win32StartAddress: *mut core::ffi::c_void,
-}
-impl Default for PSS_HANDLE_ENTRY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub type PSS_HANDLE_FLAGS = i32;
 pub const PSS_HANDLE_HAVE_BASIC_INFORMATION: PSS_HANDLE_FLAGS = 4i32;

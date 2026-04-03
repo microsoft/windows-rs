@@ -1285,15 +1285,15 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
-    pub Numerator: u32,
-    pub Denominator: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
     pub X: u32,
     pub Y: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
+    pub Numerator: u32,
+    pub Denominator: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1794,17 +1794,6 @@ impl Default for KSEVENTDATA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct KSEVENTDATA_0_2 {
-    pub Unused: *mut core::ffi::c_void,
-    pub Alignment: [isize; 2],
-}
-impl Default for KSEVENTDATA_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct KSEVENTDATA_0_0 {
     pub Event: super::super::Foundation::HANDLE,
     pub Reserved: [usize; 2],
@@ -1822,6 +1811,17 @@ pub struct KSEVENTDATA_0_1 {
     pub Adjustment: i32,
 }
 impl Default for KSEVENTDATA_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct KSEVENTDATA_0_2 {
+    pub Unused: *mut core::ffi::c_void,
+    pub Alignment: [isize; 2],
+}
+impl Default for KSEVENTDATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3247,6 +3247,14 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+    pub frame: u8,
+    pub second: u8,
+    pub minute: u8,
+    pub hour: u8,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub PayloadSize: u32,
@@ -3256,14 +3264,6 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
 }
 pub const KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = 2i32;
 pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = 9i32;
@@ -3297,6 +3297,14 @@ impl Default for KSPROPERTY_EXTXPORT_S_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct KSPROPERTY_EXTXPORT_S_0_0 {
+    pub frame: u8,
+    pub second: u8,
+    pub minute: u8,
+    pub hour: u8,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub PayloadSize: u32,
@@ -3306,14 +3314,6 @@ impl Default for KSPROPERTY_EXTXPORT_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct KSPROPERTY_EXTXPORT_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
 }
 pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = 5i32;
 pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = 6i32;

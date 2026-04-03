@@ -1162,6 +1162,15 @@ pub struct NDIS_IPSEC_OFFLOAD_V1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub AhEspCombined: u32,
+    pub TransportTunnelCombined: u32,
+    pub IPv4Options: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
 }
@@ -1169,15 +1178,6 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
 }
 pub const NDIS_IPSEC_OFFLOAD_V2_ADD_SA_EX_REVISION_1: u32 = 1u32;
 pub const NDIS_IPSEC_OFFLOAD_V2_ADD_SA_REVISION_1: u32 = 1u32;
@@ -2383,25 +2383,25 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
@@ -2429,12 +2429,12 @@ impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
+pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
+pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     pub _bitfield: u32,
 }
 pub const NDIS_TCP_LARGE_SEND_OFFLOAD_IPv4: u32 = 0u32;
@@ -2715,6 +2715,15 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub AhEspCombined: u32,
+    pub TransportTunnelCombined: u32,
+    pub IPv4Options: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Md5: u32,
     pub Sha_1: u32,
@@ -2734,15 +2743,6 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Tunnel: u32,
     pub Send: u32,
     pub Receive: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -2829,16 +2829,6 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -2849,7 +2839,17 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    pub Encapsulation: u32,
+    pub IpOptionsSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+    pub IpChecksum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,
@@ -2858,7 +2858,7 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,
