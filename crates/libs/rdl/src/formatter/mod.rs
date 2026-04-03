@@ -18,11 +18,15 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
             if p.as_char() == '#' {
                 if let Some(TokenTree::Group(g)) = tokens.get(i + 1) {
                     if g.delimiter() == Delimiter::Bracket {
-                        if !inline && at_line_start(output) {
+                        // An attribute that immediately follows `->` is a return-type
+                        // attribute and must stay inline (e.g. `-> #[Const] *const u8`).
+                        let after_arrow = output.ends_with("-> ");
+                        let treat_inline = inline || after_arrow;
+                        if !treat_inline && at_line_start(output) {
                             push_indent(output, indent);
                         }
                         format_attribute(g, output);
-                        if inline {
+                        if treat_inline {
                             output.push(' ');
                         } else {
                             output.push('\n');

@@ -4,6 +4,5 @@ mod Test {
         fn();
     }
     #[library("test.dll")]
-    extern fn GetConst() -> #[Const]
-    *const u8;
+    extern fn GetConst() -> #[Const] *const u8;
 }
