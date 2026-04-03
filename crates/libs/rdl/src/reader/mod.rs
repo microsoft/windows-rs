@@ -533,7 +533,12 @@ impl Encoder<'_> {
             metadata::Type::ISize => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
             metadata::Type::USize => metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?),
             metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
-                metadata::Value::I64(self.encode_neg_lit_int::<i64>(value)?)
+                let v = self.encode_neg_lit_int::<i64>(value)?;
+                if let Ok(v) = i32::try_from(v) {
+                    metadata::Value::I32(v)
+                } else {
+                    metadata::Value::I64(v)
+                }
             }
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
                 let underlying = self
