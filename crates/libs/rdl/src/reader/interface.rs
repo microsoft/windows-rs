@@ -123,7 +123,7 @@ impl Encoder<'_> {
                 );
             } else if attr.path().is_ident("no_guid") {
                 if !matches!(attr.meta, syn::Meta::Path(_)) {
-                    return self.err(attr, "`no_guid` attribute does not accept arguments");
+                    return self.err(attr, "`#[no_guid]` attribute does not accept arguments");
                 }
             }
         }
