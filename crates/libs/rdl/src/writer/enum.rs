@@ -1,14 +1,17 @@
 use super::*;
 
-pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
-    let repr = item.fields().next().unwrap();
-    let repr = if let Some(constant) = repr.constant() {
+    let repr_field = item
+        .fields()
+        .next()
+        .ok_or_else(|| Error::new(&format!("enum `{}` has no fields", item.name()), "", 0, 0))?;
+    let repr = if let Some(constant) = repr_field.constant() {
         constant.ty()
     } else {
-        repr.ty()
+        repr_field.ty()
     };
 
     let repr = write_type(namespace, &repr);
@@ -34,21 +37,21 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
     );
 
     if has_flags {
-        quote! {
+        Ok(quote! {
             #[repr(#repr)]
             #[flags]
             #(#custom_attrs)*
             enum #name {
                 #(#fields)*
             }
-        }
+        })
     } else {
-        quote! {
+        Ok(quote! {
             #[repr(#repr)]
             #(#custom_attrs)*
             enum #name {
                 #(#fields)*
             }
-        }
+        })
     }
 }

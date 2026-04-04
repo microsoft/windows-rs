@@ -133,7 +133,7 @@ impl Writer {
                     if !item_included(&rules, namespace, name) {
                         continue;
                     }
-                    for (item_name, tokens) in write_items(namespace, item) {
+                    for (item_name, tokens) in write_items(namespace, item)? {
                         layout.insert(namespace, &item_name, item_winrt(item), tokens.to_string());
                     }
                 }
@@ -148,10 +148,13 @@ impl Writer {
                 path.push(&self.output);
                 path.push(format!("{namespace}.rdl"));
 
+                let path_str = path.to_str().ok_or_else(|| {
+                    Error::new("output path contains non-UTF-8 characters", "", 0, 0)
+                })?;
                 write_to_file(
-                    path.to_str().unwrap(),
+                    path_str,
                     formatter::format(&output).replace("#[r#in]", "#[in]"),
-                );
+                )?;
             }
         } else {
             let mut layout = Layout::new();
@@ -161,7 +164,7 @@ impl Writer {
                     if !item_included(&rules, namespace, name) {
                         continue;
                     }
-                    for (item_name, tokens) in write_items(namespace, item) {
+                    for (item_name, tokens) in write_items(namespace, item)? {
                         layout.insert(namespace, &item_name, item_winrt(item), tokens.to_string());
                     }
                 }
@@ -171,24 +174,21 @@ impl Writer {
             write_to_file(
                 &self.output,
                 formatter::format(&output).replace("#[r#in]", "#[in]"),
-            );
+            )?;
         }
 
         Ok(())
     }
 }
 
-#[track_caller]
-fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
+fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
     if let Some(parent) = std::path::Path::new(path).parent() {
-        if std::fs::create_dir_all(parent).is_err() {
-            panic!("failed to create directory `{path}`");
-        }
+        std::fs::create_dir_all(parent)
+            .map_err(|_| Error::new(&format!("failed to create directory `{path}`"), "", 0, 0))?;
     }
 
-    if std::fs::write(path, contents).is_err() {
-        panic!("failed to write file `{path}`");
-    }
+    std::fs::write(path, contents)
+        .map_err(|_| Error::new(&format!("failed to write file `{path}`"), "", 0, 0))
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
@@ -302,12 +302,17 @@ fn item_winrt(item: &metadata::reader::Item) -> bool {
     }
 }
 
-fn write_items(namespace: &str, item: &metadata::reader::Item) -> Vec<(String, TokenStream)> {
+fn write_items(
+    namespace: &str,
+    item: &metadata::reader::Item,
+) -> Result<Vec<(String, TokenStream)>, Error> {
     match item {
         metadata::reader::Item::Type(ty) => write_type_def_items(namespace, ty),
-        metadata::reader::Item::Fn(ty) => vec![(ty.name().to_string(), write_fn(namespace, ty))],
+        metadata::reader::Item::Fn(ty) => {
+            Ok(vec![(ty.name().to_string(), write_fn(namespace, ty)?)])
+        }
         metadata::reader::Item::Const(ty) => {
-            vec![(ty.name().to_string(), write_const(namespace, ty))]
+            Ok(vec![(ty.name().to_string(), write_const(namespace, ty)?)])
         }
     }
 }
@@ -315,26 +320,26 @@ fn write_items(namespace: &str, item: &metadata::reader::Item) -> Vec<(String, T
 fn write_type_def_items(
     _namespace: &str,
     item: &metadata::reader::TypeDef,
-) -> Vec<(String, TokenStream)> {
+) -> Result<Vec<(String, TokenStream)>, Error> {
     match item.category() {
-        metadata::reader::TypeCategory::Struct => write_struct_items(item),
+        metadata::reader::TypeCategory::Struct => Ok(write_struct_items(item)),
         _ => {
-            let tokens = write_type_def(item);
+            let tokens = write_type_def(item)?;
             if tokens.is_empty() {
-                vec![]
+                Ok(vec![])
             } else {
-                vec![(item.name().to_string(), tokens)]
+                Ok(vec![(item.name().to_string(), tokens)])
             }
         }
     }
 }
 
-fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     match item.ty() {
         metadata::Type::ValueName(tn) if &tn == ("System", "Guid") => {
             write_const_guid(namespace, item)
         }
-        _ => write_const_value(namespace, item),
+        _ => Ok(write_const_value(namespace, item)),
     }
 }
 
@@ -358,22 +363,38 @@ fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenSt
     }
 }
 
-fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+fn write_const_guid(
+    _namespace: &str,
+    item: &metadata::reader::Field,
+) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
-    let attribute = item
-        .find_attribute("GuidAttribute")
-        .expect("missing guid attribute");
+    let attribute = item.find_attribute("GuidAttribute").ok_or_else(|| {
+        Error::new(
+            &format!("GUID constant `{}` has no `GuidAttribute`", item.name()),
+            "",
+            0,
+            0,
+        )
+    })?;
 
     let value: u128 = attribute
         .value()
-        .iter()
-        .fold(0u128, |acc, (_, val)| match val {
-            metadata::Value::U8(x) => (acc << 8) | *x as u128,
-            metadata::Value::U16(x) => (acc << 16) | *x as u128,
-            metadata::Value::U32(x) => (acc << 32) | *x as u128,
-            metadata::Value::U64(x) => (acc << 64) | *x as u128,
-            _ => panic!("unexpected guid attribute value"),
-        });
+        .into_iter()
+        .try_fold(0u128, |acc, (_, val)| match val {
+            metadata::Value::U8(x) => Ok((acc << 8) | x as u128),
+            metadata::Value::U16(x) => Ok((acc << 16) | x as u128),
+            metadata::Value::U32(x) => Ok((acc << 32) | x as u128),
+            metadata::Value::U64(x) => Ok((acc << 64) | x as u128),
+            _ => Err(Error::new(
+                &format!(
+                    "unexpected value type in `GuidAttribute` for `{}`",
+                    item.name()
+                ),
+                "",
+                0,
+                0,
+            )),
+        })?;
 
     let value = format!(
         "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",
@@ -385,7 +406,7 @@ fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenSt
     );
 
     let literal = syn::LitInt::new(&value, Span::call_site());
-    quote! { const #name: GUID = #literal; }
+    Ok(quote! { const #name: GUID = #literal; })
 }
 
 fn write_params(
@@ -636,12 +657,12 @@ fn write_flags_combination(
     Some(result)
 }
 
-fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
+fn write_type_def(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     match item.category() {
         // Structs/unions are handled by write_struct_items (which may return
         // multiple flat items) so this branch is never reached from the main
         // write loop.  It is kept for completeness and internal callers.
-        metadata::reader::TypeCategory::Struct => quote! {},
+        metadata::reader::TypeCategory::Struct => Ok(quote! {}),
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
         metadata::reader::TypeCategory::Class => write_class(item),
@@ -655,7 +676,7 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
                 write_callback(item)
             }
         }
-        metadata::reader::TypeCategory::Attribute => write_attribute(item),
+        metadata::reader::TypeCategory::Attribute => Ok(write_attribute(item)),
     }
 }
 
@@ -831,30 +852,69 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 }
 
 /// Extracts the raw GUID tuple `(data1, data2, data3, data4)` from a `GuidAttribute`.
-fn extract_guid_from_attribute(attr: metadata::reader::Attribute) -> (u32, u16, u16, [u8; 8]) {
+fn extract_guid_from_attribute(
+    attr: metadata::reader::Attribute,
+) -> Result<(u32, u16, u16, [u8; 8]), Error> {
     let values: Vec<_> = attr.value().into_iter().map(|(_, v)| v).collect();
-    assert_eq!(
-        values.len(),
-        11,
-        "GuidAttribute must have exactly 11 arguments"
-    );
+    if values.len() != 11 {
+        return Err(Error::new(
+            &format!(
+                "GuidAttribute must have exactly 11 arguments, got {}",
+                values.len()
+            ),
+            "",
+            0,
+            0,
+        ));
+    }
     let d1 = match values[0] {
         metadata::Value::U32(v) => v,
-        ref v => panic!("GuidAttribute d1: expected U32, got {v:?}"),
+        ref v => {
+            return Err(Error::new(
+                &format!("GuidAttribute d1: expected U32, got {v:?}"),
+                "",
+                0,
+                0,
+            ))
+        }
     };
     let d2 = match values[1] {
         metadata::Value::U16(v) => v,
-        ref v => panic!("GuidAttribute d2: expected U16, got {v:?}"),
+        ref v => {
+            return Err(Error::new(
+                &format!("GuidAttribute d2: expected U16, got {v:?}"),
+                "",
+                0,
+                0,
+            ))
+        }
     };
     let d3 = match values[2] {
         metadata::Value::U16(v) => v,
-        ref v => panic!("GuidAttribute d3: expected U16, got {v:?}"),
+        ref v => {
+            return Err(Error::new(
+                &format!("GuidAttribute d3: expected U16, got {v:?}"),
+                "",
+                0,
+                0,
+            ))
+        }
     };
-    let d4 = std::array::from_fn(|i| match values[3 + i] {
-        metadata::Value::U8(v) => v,
-        ref v => panic!("GuidAttribute d4[{i}]: expected U8, got {v:?}"),
-    });
-    (d1, d2, d3, d4)
+    let mut d4 = [0u8; 8];
+    for i in 0..8 {
+        d4[i] = match values[3 + i] {
+            metadata::Value::U8(v) => v,
+            ref v => {
+                return Err(Error::new(
+                    &format!("GuidAttribute d4[{i}]: expected U8, got {v:?}"),
+                    "",
+                    0,
+                    0,
+                ))
+            }
+        };
+    }
+    Ok((d1, d2, d3, d4))
 }
 
 /// Describes how a GUID should appear in the RDL output for an interface or delegate.
@@ -882,11 +942,11 @@ fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {
 fn guid_output(
     item: &metadata::reader::TypeDef,
     methods: &[(&str, &[metadata::Type], &metadata::Type)],
-) -> GuidOutput {
+) -> Result<GuidOutput, Error> {
     let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return GuidOutput::None;
+        return Ok(GuidOutput::None);
     };
-    let stored = extract_guid_from_attribute(attr);
+    let stored = extract_guid_from_attribute(attr)?;
     let s = crate::reader::guid::build_interface_string(
         item.namespace(),
         metadata::trim_tick(item.name()),
@@ -894,9 +954,9 @@ fn guid_output(
     );
     let derived = crate::reader::guid::guid_from_interface_string(&s);
     if stored == derived {
-        GuidOutput::Omit
+        Ok(GuidOutput::Omit)
     } else {
-        GuidOutput::Explicit(stored.0, stored.1, stored.2, stored.3)
+        Ok(GuidOutput::Explicit(stored.0, stored.1, stored.2, stored.3))
     }
 }
 
@@ -904,7 +964,7 @@ fn guid_output(
 fn interface_guid_output(
     item: &metadata::reader::TypeDef,
     generics: &[metadata::Type],
-) -> GuidOutput {
+) -> Result<GuidOutput, Error> {
     let sigs: Vec<(String, Vec<metadata::Type>, metadata::Type)> = item
         .methods()
         .map(|m| {
@@ -923,7 +983,7 @@ fn interface_guid_output(
 fn delegate_guid_output(
     item: &metadata::reader::TypeDef,
     generics: &[metadata::Type],
-) -> GuidOutput {
+) -> Result<GuidOutput, Error> {
     let (types, return_type) = item
         .methods()
         .find(|m| m.name() == "Invoke")
