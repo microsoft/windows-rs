@@ -5,8 +5,8 @@ mod Test {
     #[library("test.dll")]
     extern fn CallDefault(f: CallbackDefault);
     #[library("test.dll")]
-    extern "system" fn CallS(f: CallbackS);
+    extern fn CallS(f: CallbackS);
     extern "C" fn CallbackC();
     extern fn CallbackDefault();
-    extern "system" fn CallbackS();
+    extern fn CallbackS();
 }
