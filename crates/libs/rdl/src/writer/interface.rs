@@ -4,10 +4,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
-    let generics: Vec<_> = item
-        .generic_params()
-        .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
-        .collect();
+    let (generics, generics_tokens) = write_generic_params(item);
 
     let methods = item
         .methods()
@@ -24,14 +21,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { : #(#ifaces)+* }
     };
 
-    let generics = if generics.is_empty() {
-        quote! {}
-    } else {
-        let generics = item.generic_params().map(|param| write_ident(param.name()));
-        quote! { <#(#generics),*> }
-    };
-
-    let guid_token = match interface_guid_output(item) {
+    let guid_token = match interface_guid_output(item, &generics) {
         GuidOutput::None => quote! { #[no_guid] },
         GuidOutput::Omit => quote! {},
         GuidOutput::Explicit(d1, d2, d3, d4) => {
@@ -49,7 +39,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     quote! {
         #guid_token
         #(#custom_attrs)*
-        interface #name #generics #requires_tokens {
+        interface #name #generics_tokens #requires_tokens {
             #(#methods)*
         }
     }

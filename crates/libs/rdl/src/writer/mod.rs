@@ -38,9 +38,7 @@ pub struct Writer {
 
 impl Writer {
     pub fn new() -> Self {
-        Self {
-            ..Default::default()
-        }
+        Self::default()
     }
 
     pub fn input(&mut self, input: &str) -> &mut Self {
@@ -877,39 +875,22 @@ fn format_guid_u128(d1: u32, d2: u16, d3: u16, d4: [u8; 8]) -> String {
     format!("0x{d1:08x}_{d2:04x}_{d3:04x}_{d4_word:04x}_{d4_node:012x}")
 }
 
-/// Determines the GUID output mode for an interface `TypeDef`.
+/// Core GUID-output logic shared by interfaces and delegates.
 ///
-/// - `GuidOutput::None` — no `GuidAttribute` present; emit `#[no_guid]`.
-/// - `GuidOutput::Omit` — GUID matches derived value; omit from output.
-/// - `GuidOutput::Explicit` — GUID differs from derived value; emit `#[guid(0x…)]`.
-fn interface_guid_output(item: &metadata::reader::TypeDef) -> GuidOutput {
+/// Compares the stored `GuidAttribute` against the value that would be derived from
+/// `methods` and returns the appropriate [`GuidOutput`] variant.
+fn guid_output(
+    item: &metadata::reader::TypeDef,
+    methods: &[(&str, &[metadata::Type], &metadata::Type)],
+) -> GuidOutput {
     let Some(attr) = item.find_attribute("GuidAttribute") else {
         return GuidOutput::None;
     };
     let stored = extract_guid_from_attribute(attr);
-
-    let generics: Vec<_> = item
-        .generic_params()
-        .map(|p| metadata::Type::Generic(p.name().to_string(), p.sequence()))
-        .collect();
-
-    let sigs: Vec<(String, Vec<metadata::Type>, metadata::Type)> = item
-        .methods()
-        .map(|m| {
-            let sig = m.signature(&generics);
-            (m.name().to_string(), sig.types, sig.return_type)
-        })
-        .collect();
-
-    let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = sigs
-        .iter()
-        .map(|(n, t, r)| (n.as_str(), t.as_slice(), r))
-        .collect();
-
     let s = crate::reader::guid::build_interface_string(
         item.namespace(),
         metadata::trim_tick(item.name()),
-        &methods,
+        methods,
     );
     let derived = crate::reader::guid::guid_from_interface_string(&s);
     if stored == derived {
@@ -919,42 +900,75 @@ fn interface_guid_output(item: &metadata::reader::TypeDef) -> GuidOutput {
     }
 }
 
-/// Determines the GUID output mode for a delegate `TypeDef`.
-///
-/// - `GuidOutput::None` — no `GuidAttribute` present; emit `#[no_guid]`.
-/// - `GuidOutput::Omit` — GUID matches derived value; omit from output.
-/// - `GuidOutput::Explicit` — GUID differs from derived value; emit `#[guid(0x…)]`.
-fn delegate_guid_output(item: &metadata::reader::TypeDef) -> GuidOutput {
-    let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return GuidOutput::None;
-    };
-    let stored = extract_guid_from_attribute(attr);
-
-    let generics: Vec<_> = item
-        .generic_params()
-        .map(|p| metadata::Type::Generic(p.name().to_string(), p.sequence()))
+/// Determines the GUID output mode for an interface `TypeDef`.
+fn interface_guid_output(
+    item: &metadata::reader::TypeDef,
+    generics: &[metadata::Type],
+) -> GuidOutput {
+    let sigs: Vec<(String, Vec<metadata::Type>, metadata::Type)> = item
+        .methods()
+        .map(|m| {
+            let sig = m.signature(generics);
+            (m.name().to_string(), sig.types, sig.return_type)
+        })
         .collect();
+    let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = sigs
+        .iter()
+        .map(|(n, t, r)| (n.as_str(), t.as_slice(), r))
+        .collect();
+    guid_output(item, &methods)
+}
 
+/// Determines the GUID output mode for a delegate `TypeDef`.
+fn delegate_guid_output(
+    item: &metadata::reader::TypeDef,
+    generics: &[metadata::Type],
+) -> GuidOutput {
     let (types, return_type) = item
         .methods()
         .find(|m| m.name() == "Invoke")
         .map(|invoke| {
-            let sig = invoke.signature(&generics);
+            let sig = invoke.signature(generics);
             (sig.types, sig.return_type)
         })
         .unwrap_or_else(|| (vec![], metadata::Type::Void));
+    guid_output(item, &[("Invoke", types.as_slice(), &return_type)])
+}
 
-    let s = crate::reader::guid::build_interface_string(
-        item.namespace(),
-        metadata::trim_tick(item.name()),
-        &[("Invoke", types.as_slice(), &return_type)],
-    );
-    let derived = crate::reader::guid::guid_from_interface_string(&s);
-    if stored == derived {
-        GuidOutput::Omit
+/// Reads the calling convention from an `UnmanagedFunctionPointerAttribute`, returning the
+/// ABI string (`"C"`, `"fastcall"`, or `"system"` which maps to `None` for callbacks where
+/// it is the default, and `Some("system")` for delegates where it must be explicit).
+///
+/// Returns `None` when no `UnmanagedFunctionPointerAttribute` is present.
+fn read_unmanaged_abi(item: &metadata::reader::TypeDef) -> Option<i32> {
+    item.find_attribute("UnmanagedFunctionPointerAttribute")
+        .and_then(|attribute| attribute.value().into_iter().next())
+        .and_then(|(_, v)| {
+            if let metadata::Value::EnumValue(_, value) = v {
+                if let metadata::Value::I32(n) = *value {
+                    return Some(n);
+                }
+            }
+            None
+        })
+}
+
+/// Collects the generic type parameters of `item` as a `(types, tokens)` pair.
+///
+/// `types` is the `Vec<Type::Generic>` needed for signature computation; `tokens` is the
+/// `<T, U, …>` token stream for the RDL output (empty when there are no generic params).
+fn write_generic_params(item: &metadata::reader::TypeDef) -> (Vec<metadata::Type>, TokenStream) {
+    let types: Vec<_> = item
+        .generic_params()
+        .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
+        .collect();
+    let tokens = if types.is_empty() {
+        quote! {}
     } else {
-        GuidOutput::Explicit(stored.0, stored.1, stored.2, stored.3)
-    }
+        let names = item.generic_params().map(|param| write_ident(param.name()));
+        quote! { <#(#names),*> }
+    };
+    (types, tokens)
 }
 
 fn write_ident(name: &str) -> TokenStream {

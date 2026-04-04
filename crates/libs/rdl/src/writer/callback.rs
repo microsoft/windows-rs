@@ -20,18 +20,14 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
         &["UnmanagedFunctionPointerAttribute"],
     );
 
-    let mut abi = None;
-
-    if let Some(attribute) = item.find_attribute("UnmanagedFunctionPointerAttribute") {
-        if let Some((_, metadata::Value::EnumValue(_, value))) = attribute.value().first() {
-            match &**value {
-                metadata::Value::I32(1) => {} // "system" is the default
-                metadata::Value::I32(2) => abi = Some("C"),
-                metadata::Value::I32(5) => abi = Some("fastcall"),
-                rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
-            }
+    let abi = read_unmanaged_abi(item).and_then(|n| match n {
+        1 => None, // "system" is the default
+        2 => Some("C"),
+        5 => Some("fastcall"),
+        _ => {
+            unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute")
         }
-    }
+    });
 
     quote! {
         #(#custom_attrs)*

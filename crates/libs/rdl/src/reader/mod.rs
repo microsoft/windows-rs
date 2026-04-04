@@ -826,6 +826,32 @@ impl Encoder<'_> {
     }
 }
 
+/// Builds a `syn::Signature` with all the optional fields (`constness`, `asyncness`,
+/// `unsafety`, `abi`) set to `None`.  Shared by `Callback`, `Fn`, `Delegate`, and `Method`.
+pub(crate) fn make_sig(
+    fn_token: syn::Token![fn],
+    ident: syn::Ident,
+    generics: syn::Generics,
+    paren_token: syn::token::Paren,
+    inputs: syn::punctuated::Punctuated<syn::FnArg, syn::Token![,]>,
+    variadic: Option<syn::Variadic>,
+    output: syn::ReturnType,
+) -> syn::Signature {
+    syn::Signature {
+        constness: None,
+        asyncness: None,
+        unsafety: None,
+        abi: None,
+        fn_token,
+        ident,
+        generics,
+        paren_token,
+        inputs,
+        variadic,
+        output,
+    }
+}
+
 /// Parse the function parameter list including variadic handling.
 /// Returns the inputs and an optional variadic marker.
 pub(crate) fn parse_fn_inputs(

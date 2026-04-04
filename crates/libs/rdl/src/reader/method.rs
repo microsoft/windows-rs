@@ -23,11 +23,7 @@ impl syn::parse::Parse for Method {
 
         input.parse::<syn::Token![;]>()?;
 
-        let sig = syn::Signature {
-            constness: None,
-            asyncness: None,
-            unsafety: None,
-            abi: None,
+        let sig = make_sig(
             fn_token,
             ident,
             generics,
@@ -35,7 +31,7 @@ impl syn::parse::Parse for Method {
             inputs,
             variadic,
             output,
-        };
+        );
 
         Ok(Self {
             attrs,

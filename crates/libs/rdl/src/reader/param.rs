@@ -80,6 +80,36 @@ impl Encoder<'_> {
         })
     }
 
+    pub fn encode_return_attrs(&mut self, return_attrs: &[syn::Attribute]) -> Result<(), Error> {
+        if !return_attrs.is_empty() {
+            let param_id = self
+                .output
+                .Param("", 0, metadata::ParamAttributes::default());
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Param(param_id),
+                return_attrs,
+                &[],
+            )?;
+        }
+        Ok(())
+    }
+
+    pub fn encode_params(&mut self, params: &[Param]) -> Result<(), Error> {
+        for (sequence, param) in params.iter().enumerate() {
+            let param_id = self.output.Param(
+                &param.name,
+                (sequence + 1).try_into().unwrap(),
+                param.attributes,
+            );
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &["r#in", "out", "opt"],
+            )?;
+        }
+        Ok(())
+    }
+
     pub fn collect_params(&mut self, sig: &syn::Signature) -> Result<Vec<Param>, Error> {
         let mut params = vec![];
         let mut param_names = HashSet::new();

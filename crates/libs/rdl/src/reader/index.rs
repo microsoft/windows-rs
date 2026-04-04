@@ -14,9 +14,7 @@ pub struct Namespace<'a> {
 
 impl<'a> Index<'a> {
     pub fn new() -> Self {
-        Self {
-            ..Default::default()
-        }
+        Self::default()
     }
 
     pub fn insert(&mut self, file: &'a File, namespace: &str, item: &'a Item) {

@@ -1,3 +1,4 @@
+use super::guid;
 use super::*;
 
 /// A parsed and validated reference to a custom attribute defined in metadata or RDL.
@@ -488,6 +489,38 @@ impl Encoder<'_> {
         self.find_attribute_type(attr.path())
             .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
             .unwrap_or(false)
+    }
+
+    /// Processes `#[guid(0x…)]` and `#[no_guid]` pseudo-attributes in `attrs`, emitting a
+    /// `GuidAttribute` on `target` when an explicit GUID is supplied.  Returns `true` when the
+    /// attribute list already carries GUID information (explicit `#[guid]`, `#[no_guid]`, or an
+    /// existing `GuidAttribute`), so the caller can skip automatic GUID derivation.
+    pub fn encode_guid_pseudo_attrs(
+        &mut self,
+        target: metadata::writer::HasAttribute,
+        attrs: &[syn::Attribute],
+    ) -> Result<bool, Error> {
+        let already_has_guid = attrs.iter().any(|attr| {
+            self.is_guid_attribute(attr)
+                || attr.path().is_ident("guid")
+                || attr.path().is_ident("no_guid")
+        });
+
+        for attr in attrs {
+            if attr.path().is_ident("guid") {
+                let lit: syn::LitInt = attr
+                    .parse_args()
+                    .map_err(|_| self.error(attr, "`#[guid]` requires a single u128 literal"))?;
+                let v = parse_guid_u128(&lit)
+                    .map_err(|_| self.error(attr, "invalid u128 literal in `#[guid]`"))?;
+                let (d1, d2, d3, d4) = guid::u128_to_guid(v);
+                guid::emit_guid_attribute(self.output, target, d1, d2, d3, d4);
+            } else if attr.path().is_ident("no_guid") && !matches!(attr.meta, syn::Meta::Path(_)) {
+                return self.err(attr, "`#[no_guid]` attribute does not accept arguments");
+            }
+        }
+
+        Ok(already_has_guid)
     }
 
     pub fn encode_attrs(

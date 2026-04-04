@@ -2,13 +2,13 @@ use test_rdl::struct_fields::Test::*;
 
 #[test]
 fn test() {
-    windows_rdl::Reader::new()
+    windows_rdl::reader()
         .input("tests/struct_fields.rdl")
         .output("tests/struct_fields.winmd")
         .write()
         .unwrap();
 
-    windows_rdl::Writer::new()
+    windows_rdl::writer()
         .input("tests/struct_fields.winmd")
         .output("tests/struct_fields.rdl")
         .filter("Test")

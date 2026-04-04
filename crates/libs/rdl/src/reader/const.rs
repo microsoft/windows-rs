@@ -1,3 +1,4 @@
+use super::guid;
 use super::*;
 
 #[derive(Debug)]
@@ -93,51 +94,14 @@ impl Encoder<'_> {
             metadata::FieldAttributes::Public | metadata::FieldAttributes::Static,
         );
 
-        let guid_typeref = self
-            .output
-            .TypeRef("Windows.Foundation.Metadata", "GuidAttribute");
-
-        let signature = metadata::Signature {
-            flags: metadata::MethodCallAttributes::HASTHIS,
-            return_type: metadata::Type::Void,
-            types: vec![
-                metadata::Type::U32,
-                metadata::Type::U16,
-                metadata::Type::U16,
-                metadata::Type::U8,
-                metadata::Type::U8,
-                metadata::Type::U8,
-                metadata::Type::U8,
-                metadata::Type::U8,
-                metadata::Type::U8,
-                metadata::Type::U8,
-                metadata::Type::U8,
-            ],
-        };
-
-        let ctor = self.output.MemberRef(
-            ".ctor",
-            &signature,
-            metadata::writer::MemberRefParent::TypeRef(guid_typeref),
-        );
-
-        let val = |val: metadata::Value| (String::new(), val);
-        self.output.Attribute(
+        let (d1, d2, d3, d4) = guid::u128_to_guid(value);
+        guid::emit_guid_attribute(
+            self.output,
             metadata::writer::HasAttribute::Field(field),
-            metadata::writer::AttributeType::MemberRef(ctor),
-            &[
-                val(metadata::Value::U32((value >> 96) as u32)),
-                val(metadata::Value::U16((value >> 80) as u16)),
-                val(metadata::Value::U16((value >> 64) as u16)),
-                val(metadata::Value::U8((value >> 56) as u8)),
-                val(metadata::Value::U8((value >> 48) as u8)),
-                val(metadata::Value::U8((value >> 40) as u8)),
-                val(metadata::Value::U8((value >> 32) as u8)),
-                val(metadata::Value::U8((value >> 24) as u8)),
-                val(metadata::Value::U8((value >> 16) as u8)),
-                val(metadata::Value::U8((value >> 8) as u8)),
-                val(metadata::Value::U8(value as u8)),
-            ],
+            d1,
+            d2,
+            d3,
+            d4,
         );
 
         Ok(())
