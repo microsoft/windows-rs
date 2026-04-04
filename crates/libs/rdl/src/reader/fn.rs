@@ -26,11 +26,7 @@ impl syn::parse::Parse for Fn {
 
         input.parse::<syn::Token![;]>()?;
 
-        let sig = syn::Signature {
-            constness: None,
-            asyncness: None,
-            unsafety: None,
-            abi: None,
+        let sig = make_sig(
             fn_token,
             ident,
             generics,
@@ -38,7 +34,7 @@ impl syn::parse::Parse for Fn {
             inputs,
             variadic,
             output,
-        };
+        );
 
         Ok(Self {
             attrs,
@@ -78,30 +74,8 @@ impl Encoder<'_> {
             .output
             .MethodDef(&name, &signature, flags, Default::default());
 
-        if !item.return_attrs.is_empty() {
-            let param_id = self
-                .output
-                .Param("", 0, metadata::ParamAttributes::default());
-            self.encode_attrs(
-                metadata::writer::HasAttribute::Param(param_id),
-                &item.return_attrs,
-                &[],
-            )?;
-        }
-
-        for (sequence, param) in params.iter().enumerate() {
-            let param_id = self.output.Param(
-                &param.name,
-                (sequence + 1).try_into().unwrap(),
-                param.attributes,
-            );
-
-            self.encode_attrs(
-                metadata::writer::HasAttribute::Param(param_id),
-                &param.attrs,
-                &["r#in", "out", "opt"],
-            )?;
-        }
+        self.encode_return_attrs(&item.return_attrs)?;
+        self.encode_params(&params)?;
 
         let Some(attribute) = item
             .attrs

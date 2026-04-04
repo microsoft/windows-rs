@@ -27,11 +27,7 @@ impl syn::parse::Parse for Delegate {
 
         input.parse::<syn::Token![;]>()?;
 
-        let sig = syn::Signature {
-            constness: None,
-            asyncness: None,
-            unsafety: None,
-            abi: None,
+        let sig = make_sig(
             fn_token,
             ident,
             generics,
@@ -39,7 +35,7 @@ impl syn::parse::Parse for Delegate {
             inputs,
             variadic,
             output,
-        };
+        );
 
         Ok(Self {
             attrs,
@@ -84,39 +80,16 @@ impl Encoder<'_> {
             flags,
         );
 
-        let already_has_guid = item.attrs.iter().any(|attr| {
-            self.is_guid_attribute(attr)
-                || attr.path().is_ident("guid")
-                || attr.path().is_ident("no_guid")
-        });
-
         self.encode_attrs(
             metadata::writer::HasAttribute::TypeDef(delegate),
             &item.attrs,
             &["guid", "no_guid"],
         )?;
 
-        // Handle pseudo-attributes: #[guid(u128)] and #[no_guid].
-        for attr in &item.attrs {
-            if attr.path().is_ident("guid") {
-                let lit: syn::LitInt = attr
-                    .parse_args()
-                    .map_err(|_| self.error(attr, "`#[guid]` requires a single u128 literal"))?;
-                let v = parse_guid_u128(&lit)
-                    .map_err(|_| self.error(attr, "invalid u128 literal in `#[guid]`"))?;
-                let (d1, d2, d3, d4) = guid::u128_to_guid(v);
-                guid::emit_guid_attribute(
-                    self.output,
-                    metadata::writer::HasAttribute::TypeDef(delegate),
-                    d1,
-                    d2,
-                    d3,
-                    d4,
-                );
-            } else if attr.path().is_ident("no_guid") && !matches!(attr.meta, syn::Meta::Path(_)) {
-                return self.err(attr, "`#[no_guid]` attribute does not accept arguments");
-            }
-        }
+        let already_has_guid = self.encode_guid_pseudo_attrs(
+            metadata::writer::HasAttribute::TypeDef(delegate),
+            &item.attrs,
+        )?;
 
         for (number, name) in self.generics.iter().enumerate() {
             self.output.GenericParam(
@@ -157,30 +130,8 @@ impl Encoder<'_> {
         self.output
             .MethodDef("Invoke", &signature, flags, Default::default());
 
-        if !item.return_attrs.is_empty() {
-            let param_id = self
-                .output
-                .Param("", 0, metadata::ParamAttributes::default());
-            self.encode_attrs(
-                metadata::writer::HasAttribute::Param(param_id),
-                &item.return_attrs,
-                &[],
-            )?;
-        }
-
-        for (sequence, param) in params.iter().enumerate() {
-            let param_id = self.output.Param(
-                &param.name,
-                (sequence + 1).try_into().unwrap(),
-                param.attributes,
-            );
-
-            self.encode_attrs(
-                metadata::writer::HasAttribute::Param(param_id),
-                &param.attrs,
-                &["r#in", "out", "opt"],
-            )?;
-        }
+        self.encode_return_attrs(&item.return_attrs)?;
+        self.encode_params(&params)?;
 
         Ok(())
     }

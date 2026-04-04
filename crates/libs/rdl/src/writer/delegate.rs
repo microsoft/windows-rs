@@ -4,10 +4,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
-    let generics: Vec<_> = item
-        .generic_params()
-        .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
-        .collect();
+    let (generics, generics_tokens) = write_generic_params(item);
 
     let method = item
         .methods()
@@ -18,14 +15,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let return_type = write_return_type(namespace, &method, &signature);
     let params = write_params(namespace, &method, signature.types);
 
-    let generics = if generics.is_empty() {
-        quote! {}
-    } else {
-        let generics = item.generic_params().map(|param| write_ident(param.name()));
-        quote! { <#(#generics),*> }
-    };
-
-    let guid_token = match delegate_guid_output(item) {
+    let guid_token = match delegate_guid_output(item, &generics) {
         GuidOutput::None => quote! { #[no_guid] },
         GuidOutput::Omit => quote! {},
         GuidOutput::Explicit(d1, d2, d3, d4) => {
@@ -40,22 +30,18 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
     );
 
-    let mut abi = None;
-
-    if let Some(attribute) = item.find_attribute("UnmanagedFunctionPointerAttribute") {
-        if let Some((_, metadata::Value::EnumValue(_, value))) = attribute.value().first() {
-            match &**value {
-                metadata::Value::I32(1) => abi = Some("system"),
-                metadata::Value::I32(2) => abi = Some("C"),
-                metadata::Value::I32(5) => abi = Some("fastcall"),
-                rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
-            }
+    let abi = read_unmanaged_abi(item).map(|n| match n {
+        1 => Some("system"),
+        2 => Some("C"),
+        5 => Some("fastcall"),
+        _ => {
+            unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute")
         }
-    }
+    });
 
     quote! {
         #guid_token
         #(#custom_attrs)*
-        delegate #abi fn #name #generics (#(#params),*) #return_type;
+        delegate #abi fn #name #generics_tokens (#(#params),*) #return_type;
     }
 }
