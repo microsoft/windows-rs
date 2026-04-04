@@ -15,12 +15,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
     }
 
     let Some(impl_map) = item.impl_map() else {
-        return Err(Error::new(
-            &format!("fn `{}` has no `ImplMap` record", item.name()),
-            "",
-            0,
-            0,
-        ));
+        return Err(writer_err!("fn `{}` has no `ImplMap` record", item.name()));
     };
 
     let scope = impl_map.import_scope();
@@ -34,14 +29,9 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
     } else if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
         None
     } else {
-        return Err(Error::new(
-            &format!(
-                "unexpected calling convention in `ImplMap` flags for fn `{}`",
-                item.name()
-            ),
-            "",
-            0,
-            0,
+        return Err(writer_err!(
+            "unexpected calling convention in `ImplMap` flags for fn `{}`",
+            item.name()
         ));
     };
 

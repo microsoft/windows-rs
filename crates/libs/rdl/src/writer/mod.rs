@@ -8,6 +8,15 @@ mod interface;
 mod layout;
 mod r#struct;
 
+macro_rules! writer_err {
+    ($($arg:tt)*) => {
+        Error::new(&format!($($arg)*), "", 0, 0)
+    };
+}
+
+// Re-export so sub-modules can use it via `use super::*`.
+pub(crate) use writer_err;
+
 use super::*;
 use attribute::*;
 use callback::*;
@@ -148,9 +157,9 @@ impl Writer {
                 path.push(&self.output);
                 path.push(format!("{namespace}.rdl"));
 
-                let path_str = path.to_str().ok_or_else(|| {
-                    Error::new("output path contains non-UTF-8 characters", "", 0, 0)
-                })?;
+                let path_str = path
+                    .to_str()
+                    .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?;
                 write_to_file(
                     path_str,
                     formatter::format(&output).replace("#[r#in]", "#[in]"),
@@ -184,11 +193,10 @@ impl Writer {
 fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
     if let Some(parent) = std::path::Path::new(path).parent() {
         std::fs::create_dir_all(parent)
-            .map_err(|_| Error::new(&format!("failed to create directory `{path}`"), "", 0, 0))?;
+            .map_err(|_| writer_err!("failed to create directory `{path}`"))?;
     }
 
-    std::fs::write(path, contents)
-        .map_err(|_| Error::new(&format!("failed to write file `{path}`"), "", 0, 0))
+    std::fs::write(path, contents).map_err(|_| writer_err!("failed to write file `{path}`"))
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
@@ -368,14 +376,9 @@ fn write_const_guid(
     item: &metadata::reader::Field,
 ) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
-    let attribute = item.find_attribute("GuidAttribute").ok_or_else(|| {
-        Error::new(
-            &format!("GUID constant `{}` has no `GuidAttribute`", item.name()),
-            "",
-            0,
-            0,
-        )
-    })?;
+    let attribute = item
+        .find_attribute("GuidAttribute")
+        .ok_or_else(|| writer_err!("GUID constant `{}` has no `GuidAttribute`", item.name()))?;
 
     let value: u128 = attribute
         .value()
@@ -385,14 +388,9 @@ fn write_const_guid(
             metadata::Value::U16(x) => Ok((acc << 16) | x as u128),
             metadata::Value::U32(x) => Ok((acc << 32) | x as u128),
             metadata::Value::U64(x) => Ok((acc << 64) | x as u128),
-            _ => Err(Error::new(
-                &format!(
-                    "unexpected value type in `GuidAttribute` for `{}`",
-                    item.name()
-                ),
-                "",
-                0,
-                0,
+            _ => Err(writer_err!(
+                "unexpected value type in `GuidAttribute` for `{}`",
+                item.name()
             )),
         })?;
 
@@ -857,61 +855,28 @@ fn extract_guid_from_attribute(
 ) -> Result<(u32, u16, u16, [u8; 8]), Error> {
     let values: Vec<_> = attr.value().into_iter().map(|(_, v)| v).collect();
     if values.len() != 11 {
-        return Err(Error::new(
-            &format!(
-                "GuidAttribute must have exactly 11 arguments, got {}",
-                values.len()
-            ),
-            "",
-            0,
-            0,
+        return Err(writer_err!(
+            "GuidAttribute must have exactly 11 arguments, got {}",
+            values.len()
         ));
     }
     let d1 = match values[0] {
         metadata::Value::U32(v) => v,
-        ref v => {
-            return Err(Error::new(
-                &format!("GuidAttribute d1: expected U32, got {v:?}"),
-                "",
-                0,
-                0,
-            ))
-        }
+        ref v => return Err(writer_err!("GuidAttribute d1: expected U32, got {v:?}")),
     };
     let d2 = match values[1] {
         metadata::Value::U16(v) => v,
-        ref v => {
-            return Err(Error::new(
-                &format!("GuidAttribute d2: expected U16, got {v:?}"),
-                "",
-                0,
-                0,
-            ))
-        }
+        ref v => return Err(writer_err!("GuidAttribute d2: expected U16, got {v:?}")),
     };
     let d3 = match values[2] {
         metadata::Value::U16(v) => v,
-        ref v => {
-            return Err(Error::new(
-                &format!("GuidAttribute d3: expected U16, got {v:?}"),
-                "",
-                0,
-                0,
-            ))
-        }
+        ref v => return Err(writer_err!("GuidAttribute d3: expected U16, got {v:?}")),
     };
     let mut d4 = [0u8; 8];
     for i in 0..8 {
         d4[i] = match values[3 + i] {
             metadata::Value::U8(v) => v,
-            ref v => {
-                return Err(Error::new(
-                    &format!("GuidAttribute d4[{i}]: expected U8, got {v:?}"),
-                    "",
-                    0,
-                    0,
-                ))
-            }
+            ref v => return Err(writer_err!("GuidAttribute d4[{i}]: expected U8, got {v:?}")),
         };
     }
     Ok((d1, d2, d3, d4))

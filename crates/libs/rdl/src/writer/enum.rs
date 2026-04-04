@@ -7,7 +7,7 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
     let repr_field = item
         .fields()
         .next()
-        .ok_or_else(|| Error::new(&format!("enum `{}` has no fields", item.name()), "", 0, 0))?;
+        .ok_or_else(|| writer_err!("enum `{}` has no fields", item.name()))?;
     let repr = if let Some(constant) = repr_field.constant() {
         constant.ty()
     } else {

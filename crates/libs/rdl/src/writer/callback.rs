@@ -7,14 +7,7 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
     let method = item
         .methods()
         .find(|method| method.name() == "Invoke")
-        .ok_or_else(|| {
-            Error::new(
-                &format!("callback `{}` has no `Invoke` method", item.name()),
-                "",
-                0,
-                0,
-            )
-        })?;
+        .ok_or_else(|| writer_err!("callback `{}` has no `Invoke` method", item.name()))?;
 
     let signature = method.signature(&[]);
     let return_type = write_return_type(namespace, &method, &signature);
@@ -33,13 +26,8 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         Some(2) => Some("C"),
         Some(5) => Some("fastcall"),
         Some(n) => {
-            return Err(Error::new(
-                &format!(
-                    "unexpected CallingConvention value {n} in `UnmanagedFunctionPointerAttribute`"
-                ),
-                "",
-                0,
-                0,
+            return Err(writer_err!(
+                "unexpected CallingConvention value {n} in `UnmanagedFunctionPointerAttribute`"
             ))
         }
     };

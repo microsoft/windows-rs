@@ -3,14 +3,9 @@ use super::*;
 pub fn write_class(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
     let namespace = item.namespace();
     let name = write_ident(item.name());
-    let extends = item.extends().ok_or_else(|| {
-        Error::new(
-            &format!("class `{}` has no base type", item.name()),
-            "",
-            0,
-            0,
-        )
-    })?;
+    let extends = item
+        .extends()
+        .ok_or_else(|| writer_err!("class `{}` has no base type", item.name()))?;
 
     let extends = if extends == ("System", "Object") {
         quote! {}
