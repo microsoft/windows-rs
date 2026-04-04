@@ -22,13 +22,12 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let abi = read_unmanaged_abi(item).and_then(|n| match n {
         1 => None, // "system" is the default
-        2 => Some(Some("C")),
-        5 => Some(Some("fastcall")),
+        2 => Some("C"),
+        5 => Some("fastcall"),
         _ => {
             unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute")
         }
     });
-    let abi = abi.flatten();
 
     quote! {
         #(#custom_attrs)*
