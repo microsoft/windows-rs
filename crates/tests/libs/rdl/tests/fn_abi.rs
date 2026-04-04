@@ -8,7 +8,7 @@ fn test() {
 
     windows_rdl::writer()
         .input("tests/fn_abi.winmd")
-        .output("tests/fn_abi_writer.rdl")
+        .output("tests/fn_abi.rdl")
         .filter("Test")
         .write()
         .unwrap();
@@ -21,6 +21,7 @@ fn test() {
         "--filter",
         "Test",
         "--sys",
+        "--no-comment",
     ])
     .unwrap();
 }

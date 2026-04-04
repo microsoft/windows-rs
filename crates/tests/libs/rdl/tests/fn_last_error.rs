@@ -8,7 +8,7 @@ fn test() {
 
     windows_rdl::writer()
         .input("tests/fn_last_error.winmd")
-        .output("tests/fn_last_error_writer.rdl")
+        .output("tests/fn_last_error.rdl")
         .filter("Test")
         .write()
         .unwrap();
@@ -21,6 +21,7 @@ fn test() {
         "--filter",
         "Test",
         "--sys",
+        "--no-comment",
     ])
     .unwrap();
 }
