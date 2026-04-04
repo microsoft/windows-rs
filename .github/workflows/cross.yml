@@ -8,19 +8,25 @@ on:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
-      - 'crates/libs/rdl/rdl.md'
+      - '**/*.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
-      - 'crates/libs/rdl/rdl.md'
+      - '**/*.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
 
 env:
   LLVM-MINGW-TOOLCHAIN-NAME: llvm-mingw-20220906-ucrt-ubuntu-18.04-x86_64
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
   cross:
@@ -43,6 +49,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Cache
+        uses: Swatinem/rust-cache@v2
 
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable

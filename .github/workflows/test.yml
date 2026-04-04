@@ -8,16 +8,22 @@ on:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
-      - 'crates/libs/rdl/rdl.md'
+      - '**/*.md'
+      - 'docs/**'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
-      - 'crates/libs/rdl/rdl.md'
+      - '**/*.md'
+      - 'docs/**'
       - 'web/**'
     branches:
       - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
   test:
@@ -46,6 +52,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Cache
+        uses: Swatinem/rust-cache@v2
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target
