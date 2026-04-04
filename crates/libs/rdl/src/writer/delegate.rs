@@ -26,10 +26,8 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         GuidOutput::None => quote! { #[no_guid] },
         GuidOutput::Omit => quote! {},
         GuidOutput::Explicit(d1, d2, d3, d4) => {
-            let hex: TokenStream = format_guid_u128(d1, d2, d3, d4)
-                .parse()
-                .expect("format_guid_u128 always produces valid tokens");
-            quote! { #[guid(#hex)] }
+            let lit = syn::LitInt::new(&format_guid_u128(d1, d2, d3, d4), Span::call_site());
+            quote! { #[guid(#lit)] }
         }
     };
     let custom_attrs = write_custom_attributes_except(
@@ -39,21 +37,22 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
     );
 
-    let abi =
-        match read_unmanaged_abi(item) {
-            None => None,
-            Some(1) => Some("system"),
-            Some(2) => Some("C"),
-            Some(5) => Some("fastcall"),
-            Some(n) => return Err(Error::new(
+    let abi = match read_unmanaged_abi(item) {
+        None => None,
+        Some(1) => Some("system"),
+        Some(2) => Some("C"),
+        Some(5) => Some("fastcall"),
+        Some(n) => {
+            return Err(Error::new(
                 &format!(
                     "unexpected CallingConvention value {n} in `UnmanagedFunctionPointerAttribute`"
                 ),
                 "",
                 0,
                 0,
-            )),
-        };
+            ))
+        }
+    };
 
     Ok(quote! {
         #guid_token

@@ -27,21 +27,22 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         &["UnmanagedFunctionPointerAttribute"],
     );
 
-    let abi =
-        match read_unmanaged_abi(item) {
-            None => None,
-            Some(1) => None, // "system" is the default
-            Some(2) => Some("C"),
-            Some(5) => Some("fastcall"),
-            Some(n) => return Err(Error::new(
+    let abi = match read_unmanaged_abi(item) {
+        None => None,
+        Some(1) => None, // "system" is the default
+        Some(2) => Some("C"),
+        Some(5) => Some("fastcall"),
+        Some(n) => {
+            return Err(Error::new(
                 &format!(
                     "unexpected CallingConvention value {n} in `UnmanagedFunctionPointerAttribute`"
                 ),
                 "",
                 0,
                 0,
-            )),
-        };
+            ))
+        }
+    };
 
     Ok(quote! {
         #(#custom_attrs)*

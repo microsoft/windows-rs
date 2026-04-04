@@ -5,17 +5,22 @@ use std::sync::atomic::{AtomicU32, Ordering};
 /// Per-process unique counter so parallel tests don't share temp paths.
 static COUNTER: AtomicU32 = AtomicU32::new(0);
 
-fn unique_path(suffix: &str) -> String {
+fn unique_path(suffix: &str) -> std::path::PathBuf {
     let n = COUNTER.fetch_add(1, Ordering::Relaxed);
-    format!("/tmp/test_writer_errors_{}_{n}{suffix}", std::process::id())
+    let mut path = std::env::temp_dir();
+    path.push(format!(
+        "test_writer_errors_{}_{n}{suffix}",
+        std::process::id()
+    ));
+    path
 }
 
 /// Helper: compile an RDL string to a temp winmd file and return its path.
-fn compile_rdl_to_winmd(rdl: &str) -> String {
+fn compile_rdl_to_winmd(rdl: &str) -> std::path::PathBuf {
     let winmd = unique_path(".winmd");
     windows_rdl::reader()
         .input_str(rdl)
-        .output(&winmd)
+        .output(winmd.to_str().expect("temp_dir is valid UTF-8"))
         .write()
         .expect("reader should succeed for well-formed RDL");
     winmd
@@ -53,7 +58,7 @@ mod Test {
     );
 
     let result = windows_rdl::writer()
-        .input(&winmd)
+        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
         .output("/nonexistent/deeply/nested/split_dir")
         .split(true)
         .write();
@@ -87,8 +92,8 @@ mod Test {
 
     let outpath = unique_path(".rdl");
     let result = windows_rdl::writer()
-        .input(&winmd)
-        .output(&outpath)
+        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
+        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
         .filter("Test")
         .write();
 
@@ -111,8 +116,8 @@ mod Test {
 
     let outpath = unique_path(".rdl");
     let result = windows_rdl::writer()
-        .input(&winmd)
-        .output(&outpath)
+        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
+        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
         .filter("Test")
         .write();
 
@@ -136,8 +141,8 @@ mod Test {
 
     let outpath = unique_path(".rdl");
     let result = windows_rdl::writer()
-        .input(&winmd)
-        .output(&outpath)
+        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
+        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
         .filter("Test")
         .write();
 
@@ -162,8 +167,8 @@ mod Test {
 
     let outpath = unique_path(".rdl");
     let result = windows_rdl::writer()
-        .input(&winmd)
-        .output(&outpath)
+        .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
+        .output(outpath.to_str().expect("temp_dir is valid UTF-8"))
         .filter("Test")
         .write();
 

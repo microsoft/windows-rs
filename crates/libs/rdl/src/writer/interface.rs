@@ -25,10 +25,8 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
         GuidOutput::None => quote! { #[no_guid] },
         GuidOutput::Omit => quote! {},
         GuidOutput::Explicit(d1, d2, d3, d4) => {
-            let hex: TokenStream = format_guid_u128(d1, d2, d3, d4)
-                .parse()
-                .expect("format_guid_u128 always produces valid tokens");
-            quote! { #[guid(#hex)] }
+            let lit = syn::LitInt::new(&format_guid_u128(d1, d2, d3, d4), Span::call_site());
+            quote! { #[guid(#lit)] }
         }
     };
     let custom_attrs = write_custom_attributes_except(
