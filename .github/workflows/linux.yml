@@ -8,15 +8,13 @@ on:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
-      - '**/*.md'
-      - 'docs/**'
+      - 'crates/libs/rdl/rdl.md'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
-      - '**/*.md'
-      - 'docs/**'
+      - 'crates/libs/rdl/rdl.md'
       - 'web/**'
     branches:
       - master
@@ -31,8 +29,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Cache
-        uses: Swatinem/rust-cache@v2
+      - name: Cache rustup
+        uses: actions/cache@v4
+        with:
+          path: ~/.rustup/toolchains
+          key: rustup-${{ runner.os }}-stable
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
       - name: Run cargo test

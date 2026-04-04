@@ -8,12 +8,25 @@ pub fn yml() {
 
             writeln!(
                 yml,
-                r"      - name: Rust version
-        run: rustup update --no-self-update {version} && rustup default {version}
-      - name: Check {name}
-        run:  cargo check -p {name} --all-features"
+                "          - crate: {name}\n            version: \"{version}\""
             )
             .unwrap();
         }
+
+        yml.push_str(
+            r#"    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Cache rustup
+        uses: actions/cache@v4
+        with:
+          path: ~/.rustup/toolchains
+          key: rustup-${{ runner.os }}-${{ matrix.version }}
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
+      - name: Check
+        run:  cargo check -p ${{ matrix.crate }} --all-features
+"#,
+        );
     });
 }
