@@ -50,11 +50,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Cache rustup
-        uses: actions/cache@v4
-        with:
-          path: ~/.rustup/toolchains
-          key: rustup-${{ runner.os }}-${{ matrix.version }}
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target

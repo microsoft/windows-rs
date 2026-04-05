@@ -29,11 +29,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Cache rustup
-        uses: actions/cache@v4
-        with:
-          path: ~/.rustup/toolchains
-          key: rustup-${{ runner.os }}-nightly
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target

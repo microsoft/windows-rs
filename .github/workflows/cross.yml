@@ -48,12 +48,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Cache rustup
-        uses: actions/cache@v4
-        with:
-          path: ~/.rustup/toolchains
-          key: rustup-${{ runner.os }}-stable
-
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
 
