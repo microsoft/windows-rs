@@ -30,11 +30,18 @@ fn compile_rdl_to_winmd(rdl: &str) -> std::path::PathBuf {
 
 #[test]
 fn writer_returns_err_for_bad_output_path() {
-    // Writing to a path whose parent directory cannot be created should return
-    // Err rather than panic.
+    // Use an existing regular file as a "blocker": create_dir_all cannot turn
+    // a file into a directory, so writing to <blocker>/output.rdl returns Err
+    // on both Linux and Windows.
+    let blocker = unique_path(".blocker");
+    std::fs::write(&blocker, b"").expect("should create blocker file");
+
+    let output = blocker.join("output.rdl");
     let result = windows_rdl::writer()
-        .output("/nonexistent/deeply/nested/file.rdl")
+        .output(output.to_str().expect("temp_dir is valid UTF-8"))
         .write();
+
+    let _ = std::fs::remove_file(&blocker);
 
     assert!(result.is_err(), "expected Err for unwritable output path");
     let msg = result.unwrap_err().to_string();
@@ -46,8 +53,9 @@ fn writer_returns_err_for_bad_output_path() {
 
 #[test]
 fn writer_split_returns_err_for_bad_output_dir() {
-    // In split mode the writer tries to create namespace files inside the
-    // output directory.  An unwritable parent should return Err.
+    // In split mode the writer creates <output>/<namespace>.rdl files; the
+    // parent of each such file is <output> itself.  Using an existing regular
+    // file as <output> makes create_dir_all fail on both Linux and Windows.
     let winmd = compile_rdl_to_winmd(
         r#"
 #[win32]
@@ -57,14 +65,18 @@ mod Test {
     "#,
     );
 
+    let blocker = unique_path(".blocker");
+    std::fs::write(&blocker, b"").expect("should create blocker file");
+
     let result = windows_rdl::writer()
         .input(winmd.to_str().expect("temp_dir is valid UTF-8"))
-        .output("/nonexistent/deeply/nested/split_dir")
+        .output(blocker.to_str().expect("temp_dir is valid UTF-8"))
         .split(true)
         .write();
 
-    // Clean up before asserting so the temp file is always removed.
+    // Clean up before asserting so temp files are always removed.
     let _ = std::fs::remove_file(&winmd);
+    let _ = std::fs::remove_file(&blocker);
 
     assert!(
         result.is_err(),
