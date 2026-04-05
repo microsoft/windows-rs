@@ -22,6 +22,10 @@ on:
 env:
   RUSTFLAGS: --cfg windows_slim_errors
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
 jobs:
   slim_errors:
     strategy:
