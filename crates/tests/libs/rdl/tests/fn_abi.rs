@@ -21,6 +21,7 @@ fn test() {
         "--filter",
         "Test",
         "--sys",
+        "--no-comment",
     ])
     .unwrap();
 }
