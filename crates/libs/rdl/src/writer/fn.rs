@@ -4,11 +4,11 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
     let name = write_ident(item.name());
     let signature = item.signature(&[]);
 
-    let return_type = write_return_type(namespace, item, &signature);
+    let return_type = write_return_type(namespace, item, &signature)?;
     let vararg = signature
         .flags
         .contains(metadata::MethodCallAttributes::VARARG);
-    let mut params = write_params(namespace, item, signature.types);
+    let mut params = write_params(namespace, item, signature.types)?;
 
     if vararg {
         params.push(quote! { ... });
@@ -35,7 +35,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
         ));
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
     let library_attr = if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
         quote! { #[library(#library, last_error = true)] }

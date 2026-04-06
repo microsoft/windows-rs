@@ -10,15 +10,15 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         .ok_or_else(|| writer_err!("callback `{}` has no `Invoke` method", item.name()))?;
 
     let signature = method.signature(&[]);
-    let return_type = write_return_type(namespace, &method, &signature);
-    let params = write_params(namespace, &method, signature.types);
+    let return_type = write_return_type(namespace, &method, &signature)?;
+    let params = write_params(namespace, &method, signature.types)?;
 
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
         &["UnmanagedFunctionPointerAttribute"],
-    );
+    )?;
 
     let abi = match read_unmanaged_abi(item) {
         None => None,

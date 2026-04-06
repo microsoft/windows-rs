@@ -330,7 +330,7 @@ fn write_type_def_items(
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
     match item.category() {
-        metadata::reader::TypeCategory::Struct => Ok(write_struct_items(item)),
+        metadata::reader::TypeCategory::Struct => write_struct_items(item),
         _ => {
             let tokens = write_type_def(item)?;
             if tokens.is_empty() {
@@ -347,17 +347,20 @@ fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenS
         metadata::Type::ValueName(tn) if &tn == ("System", "Guid") => {
             write_const_guid(namespace, item)
         }
-        _ => Ok(write_const_value(namespace, item)),
+        _ => write_const_value(namespace, item),
     }
 }
 
-fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+fn write_const_value(
+    namespace: &str,
+    item: &metadata::reader::Field,
+) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let constant = item.constant();
     let ty = write_type(namespace, &item.ty());
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
-    if let Some(constant) = constant {
+    Ok(if let Some(constant) = constant {
         let value = write_value(namespace, &constant.value());
         quote! {
             #(#custom_attrs)*
@@ -368,7 +371,7 @@ fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenSt
             #(#custom_attrs)*
             const #name: #ty;
         }
-    }
+    })
 }
 
 fn write_const_guid(
@@ -411,7 +414,7 @@ fn write_params(
     namespace: &str,
     method: &metadata::reader::MethodDef,
     signature_types: Vec<metadata::Type>,
-) -> Vec<TokenStream> {
+) -> Result<Vec<TokenStream>, Error> {
     method
         .params()
         .filter(|param| param.sequence() != 0)
@@ -440,9 +443,9 @@ fn write_params(
             };
             let name = write_ident(param.name());
             let param_attrs =
-                write_custom_attributes(param.attributes(), namespace, method.index());
+                write_custom_attributes(param.attributes(), namespace, method.index())?;
             let ty = write_type(namespace, &ty);
-            quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty }
+            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
         })
         .collect()
 }
@@ -451,27 +454,28 @@ fn write_return_type(
     namespace: &str,
     method: &metadata::reader::MethodDef,
     signature: &metadata::Signature,
-) -> TokenStream {
+) -> Result<TokenStream, Error> {
     let return_attrs: Vec<TokenStream> = method
         .params()
         .find(|p| p.sequence() == 0)
         .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
+        .transpose()?
         .unwrap_or_default();
 
-    match &signature.return_type {
+    Ok(match &signature.return_type {
         metadata::Type::Void => quote! {},
         ty => {
             let ty = write_type(namespace, ty);
             quote! { -> #(#return_attrs)* #ty }
         }
-    }
+    })
 }
 
 fn write_custom_attributes<'a>(
     attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
-) -> Vec<TokenStream> {
+) -> Result<Vec<TokenStream>, Error> {
     write_custom_attributes_except(attributes, item_namespace, index, &[])
 }
 
@@ -480,7 +484,7 @@ fn write_custom_attributes_except<'a>(
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
     exclude: &[&str],
-) -> Vec<TokenStream> {
+) -> Result<Vec<TokenStream>, Error> {
     attributes
         .filter(|attr| {
             !namespace_starts_with(attr.namespace(), "System") && !exclude.contains(&attr.name())
@@ -507,30 +511,31 @@ fn write_custom_attributes_except<'a>(
 
             // Build the args token stream.  Positional args are emitted as plain values;
             // named args (non-empty name) are emitted as `name = value`.
-            let args: Vec<_> = attr
+            let args: Vec<TokenStream> = attr
                 .value()
                 .into_iter()
                 .map(|(name, v)| {
                     let value_ts = match &v {
                         metadata::Value::EnumValue(tn, inner) => {
-                            write_enum_value(item_namespace, tn, inner, index)
+                            write_enum_value(item_namespace, tn, inner, index)?
                         }
                         _ => write_value(item_namespace, &v),
                     };
-                    if name.is_empty() {
+                    let ts = if name.is_empty() {
                         value_ts
                     } else {
                         let name_ident = write_ident(&name);
                         quote! { #name_ident = #value_ts }
-                    }
+                    };
+                    Ok(ts)
                 })
-                .collect();
+                .collect::<Result<Vec<_>, Error>>()?;
 
-            if args.is_empty() {
+            Ok(if args.is_empty() {
                 quote! { #[#name_ts] }
             } else {
                 quote! { #[#name_ts(#(#args),*)] }
-            }
+            })
         })
         .collect()
 }
@@ -538,20 +543,22 @@ fn write_custom_attributes_except<'a>(
 /// Writes an enum attribute argument as its variant name by looking up the integer
 /// value in the TypeIndex.  For flag enums (those with `System.FlagsAttribute`),
 /// falls back to decomposing the value into a `Flag1 | Flag2` combination when no
-/// exact variant match is found.  Falls back to the raw inner value when no match
-/// or decomposition can be found.
+/// exact variant match is found.  Returns an error when the enum type cannot be
+/// found in the index (e.g. the winmd that defines it was not provided).
 fn write_enum_value(
     namespace: &str,
     tn: &metadata::TypeName,
     inner: &metadata::Value,
     index: &metadata::reader::TypeIndex,
-) -> TokenStream {
+) -> Result<TokenStream, Error> {
     let inner_i32 = match inner {
         metadata::Value::I32(n) => *n,
-        _ => return write_value(namespace, inner),
+        _ => return Ok(write_value(namespace, inner)),
     };
 
+    let mut found_in_index = false;
     for typedef in index.get(&tn.namespace, &tn.name) {
+        found_in_index = true;
         if typedef.category() == metadata::reader::TypeCategory::Enum {
             // First try an exact variant match.
             for field in typedef.fields() {
@@ -566,7 +573,7 @@ fn write_enum_value(
                         };
                         if matches {
                             let variant = write_ident(field.name());
-                            return quote! { #variant };
+                            return Ok(quote! { #variant });
                         }
                     }
                 }
@@ -579,13 +586,21 @@ fn write_enum_value(
 
             if has_flags {
                 if let Some(flags_ts) = write_flags_combination(namespace, &typedef, inner_i32) {
-                    return flags_ts;
+                    return Ok(flags_ts);
                 }
             }
         }
     }
 
-    write_value(namespace, inner)
+    if !found_in_index {
+        return Err(writer_err!(
+            "enum type `{}::{}` not found in the metadata index; ensure the winmd file that defines it is included",
+            tn.namespace,
+            tn.name
+        ));
+    }
+
+    Ok(write_value(namespace, inner))
 }
 
 /// Attempts to express `value` as a bitwise OR of known enum variants for a flags
@@ -674,7 +689,7 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
                 write_callback(item)
             }
         }
-        metadata::reader::TypeCategory::Attribute => Ok(write_attribute(item)),
+        metadata::reader::TypeCategory::Attribute => write_attribute(item),
     }
 }
 
