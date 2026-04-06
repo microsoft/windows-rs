@@ -4,7 +4,7 @@
 
 #![no_std]
 
-use windows::core::{interface, IUnknown, IUnknown_Vtbl};
+use windows::core::{interface, IUnknown};
 
 #[interface("36bb4e8d-0385-477e-a090-e70675f37781")]
 pub unsafe trait IFoo: IUnknown {
