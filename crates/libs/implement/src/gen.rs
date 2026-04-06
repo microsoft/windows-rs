@@ -40,10 +40,11 @@ pub(crate) fn gen_all(inputs: &ImplementInputs) -> Vec<syn::Item> {
 fn gen_original_impl(inputs: &ImplementInputs) -> syn::Item {
     let original_ident = &inputs.original_ident;
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
 
     let mut output: syn::ItemImpl = parse_quote! {
-        impl #generics #original_ident::#generics where #constraints {}
+        impl #generics #original_ident::#generics_idents where #constraints {}
     };
 
     output.items.push(gen_into_outer(inputs));
@@ -64,6 +65,7 @@ fn gen_original_impl(inputs: &ImplementInputs) -> syn::Item {
 fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
     let impl_ident = &inputs.impl_ident;
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
     let original_ident = &inputs.original_ident;
     let vis = &inputs.original_type.vis;
@@ -81,7 +83,7 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
     }
 
     impl_fields.extend(quote! {
-        this: #original_ident::#generics,
+        this: #original_ident::#generics_idents,
         count: ::windows_core::imp::WeakRefCount,
     });
 
@@ -97,13 +99,14 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
 /// Generates the implementation of `core::ops::Deref` for the generated `Foo_Impl` type.
 fn gen_impl_deref(inputs: &ImplementInputs) -> syn::Item {
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
     let original_ident = &inputs.original_type.ident;
     let impl_ident = &inputs.impl_ident;
 
     parse_quote! {
-        impl #generics ::core::ops::Deref for #impl_ident::#generics where #constraints {
-            type Target = #original_ident::#generics;
+        impl #generics ::core::ops::Deref for #impl_ident::#generics_idents where #constraints {
+            type Target = #original_ident::#generics_idents;
 
             #[inline(always)]
             fn deref(&self) -> &Self::Target {
@@ -131,10 +134,11 @@ fn gen_impl_deref(inputs: &ImplementInputs) -> syn::Item {
 fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
     let impl_ident = &inputs.impl_ident;
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
 
     let mut output: syn::ItemImpl = parse_quote! {
-        impl #generics #impl_ident::#generics where #constraints {}
+        impl #generics #impl_ident::#generics_idents where #constraints {}
     };
 
     // This is here so that IInspectable::GetRuntimeClassName can work properly.
@@ -148,7 +152,7 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
     output.items.push(parse_quote! {
         const VTABLE_IDENTITY: ::windows_core::IInspectable_Vtbl =
             ::windows_core::IInspectable_Vtbl::new::<
-                #impl_ident::#generics,
+                #impl_ident::#generics_idents,
                 #identity_type,
                 0,
             >();
@@ -161,7 +165,7 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
         let chain_offset_in_pointers: isize = -1 - interface_index as isize;
         output.items.push(parse_quote! {
             const #vtable_const_ident: #vtbl_ty = #vtbl_ty::new::<
-                #impl_ident::#generics,
+                #impl_ident::#generics_idents,
                 #chain_offset_in_pointers,
             >();
         });
@@ -173,6 +177,7 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
 /// Generates the `IUnknownImpl` implementation for the `Foo_Impl` type.
 fn gen_iunknown_impl(inputs: &ImplementInputs) -> syn::Item {
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
     let impl_ident = &inputs.impl_ident;
     let original_ident = &inputs.original_type.ident;
@@ -180,8 +185,8 @@ fn gen_iunknown_impl(inputs: &ImplementInputs) -> syn::Item {
     let trust_level = proc_macro2::Literal::usize_unsuffixed(inputs.trust_level);
 
     let mut output: syn::ItemImpl = parse_quote! {
-        impl #generics ::windows_core::IUnknownImpl for #impl_ident::#generics where #constraints {
-            type Impl = #original_ident::#generics;
+        impl #generics ::windows_core::IUnknownImpl for #impl_ident::#generics_idents where #constraints {
+            type Impl = #original_ident::#generics_idents;
 
             #[inline(always)]
             fn get_impl(&self) -> &Self::Impl {
@@ -246,12 +251,13 @@ fn gen_iunknown_impl(inputs: &ImplementInputs) -> syn::Item {
 fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
     let original_ident = &inputs.original_type.ident;
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
     let impl_ident = &inputs.impl_ident;
 
     parse_quote! {
-        impl #generics ::windows_core::ComObjectInner for #original_ident::#generics where #constraints {
-            type Outer = #impl_ident::#generics;
+        impl #generics ::windows_core::ComObjectInner for #original_ident::#generics_idents where #constraints {
+            type Outer = #impl_ident::#generics_idents;
 
             // IMPORTANT! This function handles assembling the "boxed" type of a COM object.
             // It immediately moves the box into a heap allocation (box) and returns only a ComObject
@@ -262,7 +268,7 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
             // This is why this function returns ComObject<Self> instead of returning #impl_ident.
 
             fn into_object(self) -> ::windows_core::ComObject<Self> {
-                let boxed = ::windows_core::imp::Box::<#impl_ident::#generics>::new(self.into_outer());
+                let boxed = ::windows_core::imp::Box::<#impl_ident::#generics_idents>::new(self.into_outer());
                 unsafe {
                     let ptr = ::windows_core::imp::Box::into_raw(boxed);
                     ::windows_core::ComObject::from_raw(
@@ -378,11 +384,11 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
 /// Generates the `T::into_outer` function. This function is part of how we construct a
 /// `ComObject<T>` from a `T`.
 fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
-    let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let impl_ident = &inputs.impl_ident;
 
     let mut initializers = quote! {
-        identity: &#impl_ident::#generics::VTABLE_IDENTITY,
+        identity: &#impl_ident::#generics_idents::VTABLE_IDENTITY,
     };
 
     for interface_chain in inputs.interface_chains.iter() {
@@ -391,7 +397,7 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
 
         initializers.extend(quote_spanned! {
             interface_chain.implement.span =>
-            #vtbl_field_ident: &#impl_ident::#generics::#vtable_const_ident,
+            #vtbl_field_ident: &#impl_ident::#generics_idents::#vtable_const_ident,
         });
     }
 
@@ -416,8 +422,8 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
         // TODO: Make it impossible for app code to call this function, by placing it in a
         // module and marking this as private to the module.
         #[inline(always)]
-        #maybe_const fn into_outer(self) -> #impl_ident::#generics {
-            #impl_ident::#generics {
+        #maybe_const fn into_outer(self) -> #impl_ident::#generics_idents {
+            #impl_ident::#generics_idents {
                 #initializers
                 count: ::windows_core::imp::WeakRefCount::new(),
                 this: self,
@@ -471,12 +477,13 @@ fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
 
     let original_ident = &inputs.original_type.ident;
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
 
     items.push(parse_quote! {
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IUnknown where #constraints {
+        impl #generics ::core::convert::From<#original_ident::#generics_idents> for ::windows_core::IUnknown where #constraints {
             #[inline(always)]
-            fn from(this: #original_ident::#generics) -> Self {
+            fn from(this: #original_ident::#generics_idents) -> Self {
                 let com_object = ::windows_core::ComObject::new(this);
                 com_object.into_interface()
             }
@@ -484,9 +491,9 @@ fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
     });
 
     items.push(parse_quote! {
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
+        impl #generics ::core::convert::From<#original_ident::#generics_idents> for ::windows_core::IInspectable where #constraints {
             #[inline(always)]
-            fn from(this: #original_ident::#generics) -> Self {
+            fn from(this: #original_ident::#generics_idents) -> Self {
                 let com_object = ::windows_core::ComObject::new(this);
                 com_object.into_interface()
             }
@@ -498,9 +505,9 @@ fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
 
         items.push(parse_quote_spanned! {
             interface_chain.implement.span =>
-            impl #generics ::core::convert::From<#original_ident::#generics> for #interface_ident where #constraints {
+            impl #generics ::core::convert::From<#original_ident::#generics_idents> for #interface_ident where #constraints {
                 #[inline(always)]
-                fn from(this: #original_ident::#generics) -> Self {
+                fn from(this: #original_ident::#generics_idents) -> Self {
                     let com_object = ::windows_core::ComObject::new(this);
                     com_object.into_interface()
                 }
@@ -520,11 +527,12 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
     let mut items = Vec::new();
 
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
     let impl_ident = &inputs.impl_ident;
 
     items.push(parse_quote! {
-        impl #generics ::windows_core::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics where #constraints {
+        impl #generics ::windows_core::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics_idents where #constraints {
             #[inline(always)]
             fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
                 unsafe {
@@ -536,7 +544,7 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
     });
 
     items.push(parse_quote! {
-        impl #generics ::windows_core::ComObjectInterface<::windows_core::IInspectable> for #impl_ident::#generics where #constraints {
+        impl #generics ::windows_core::ComObjectInterface<::windows_core::IInspectable> for #impl_ident::#generics_idents where #constraints {
             #[inline(always)]
             fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IInspectable> {
                 unsafe {
@@ -554,7 +562,7 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
         items.push(parse_quote_spanned! {
             interface_chain.implement.span =>
             #[allow(clippy::needless_lifetimes)]
-            impl #generics ::windows_core::ComObjectInterface<#interface_ident> for #impl_ident::#generics where #constraints {
+            impl #generics ::windows_core::ComObjectInterface<#interface_ident> for #impl_ident::#generics_idents where #constraints {
                 #[inline(always)]
                 fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
                     unsafe {
@@ -575,6 +583,7 @@ fn gen_impl_as_impl(
     interface_chain_index: usize,
 ) -> syn::Item {
     let generics = &inputs.generics;
+    let generics_idents = &inputs.generics_idents;
     let constraints = &inputs.constraints;
     let interface_ident = interface_chain.implement.to_ident();
     let original_ident = &inputs.original_type.ident;
@@ -582,17 +591,17 @@ fn gen_impl_as_impl(
 
     parse_quote_spanned! {
         interface_chain.implement.span =>
-        impl #generics ::windows_core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
+        impl #generics ::windows_core::AsImpl<#original_ident::#generics_idents> for #interface_ident where #constraints {
             // SAFETY: the offset is guaranteed to be in bounds, and the implementation struct
             // is guaranteed to live at least as long as `self`.
             #[inline(always)]
-            unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<#original_ident::#generics> {
+            unsafe fn as_impl_ptr(&self) -> ::core::ptr::NonNull<#original_ident::#generics_idents> {
                 unsafe {
                     let this = ::windows_core::Interface::as_raw(self);
                     // Subtract away the vtable offset plus 1, for the `identity` field, to get
                     // to the impl struct which contains that original implementation type.
-                    let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #interface_chain_index) as *mut #impl_ident::#generics;
-                    ::core::ptr::NonNull::new_unchecked(::core::ptr::addr_of!((*this).this) as *const #original_ident::#generics as *mut #original_ident::#generics)
+                    let this = (this as *mut *mut ::core::ffi::c_void).sub(1 + #interface_chain_index) as *mut #impl_ident::#generics_idents;
+                    ::core::ptr::NonNull::new_unchecked(::core::ptr::addr_of!((*this).this) as *const #original_ident::#generics_idents as *mut #original_ident::#generics_idents)
                 }
             }
         }
