@@ -5,4 +5,5 @@
 
 mod com_chain;
 mod com_object;
+mod rust_generic;
 mod static_com_object;

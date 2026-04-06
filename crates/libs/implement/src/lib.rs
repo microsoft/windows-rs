@@ -73,6 +73,26 @@ fn implement_core(
         } else {
             quote! { <> }
         },
+        generics_idents: if !original_type.generics.params.is_empty() {
+            let idents: Vec<_> = original_type
+                .generics
+                .params
+                .iter()
+                .map(|param| {
+                    let mut ident = quote! {};
+                    match param {
+                        syn::GenericParam::Type(ty) => ty.ident.to_tokens(&mut ident),
+                        syn::GenericParam::Lifetime(lt) => lt.lifetime.to_tokens(&mut ident),
+                        syn::GenericParam::Const(cnst) => cnst.ident.to_tokens(&mut ident),
+                    };
+
+                    ident
+                })
+                .collect();
+            quote! { <#(#idents),*> }
+        } else {
+            quote! { <> }
+        },
         is_generic: !original_type.generics.params.is_empty(),
         original_type,
     };
@@ -112,6 +132,10 @@ struct ImplementInputs {
     /// The list of generic parameters for this `Foo_Impl` type, including `<` and `>`.
     /// If there are no generics, this contains `<>`.
     generics: proc_macro2::TokenStream,
+
+    /// The list of generic parameters without any bounds, e.g. `<T, 'a, THING>`.
+    /// This is used for things like `impl<T: Foo, 'a, const THING: usize> IInterface for Foo<T, 'a, THING>`.
+    generics_idents: proc_macro2::TokenStream,
 
     /// True if the user type has any generic parameters.
     is_generic: bool,
