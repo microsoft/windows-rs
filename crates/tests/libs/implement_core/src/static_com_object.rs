@@ -2,8 +2,7 @@
 
 use std::sync::atomic::{AtomicU32, Ordering::SeqCst};
 use windows_core::{
-    implement, interface, ComObject, IUnknown, IUnknownImpl, InterfaceRef,
-    StaticComObject,
+    implement, interface, ComObject, IUnknown, IUnknownImpl, InterfaceRef, StaticComObject,
 };
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]
