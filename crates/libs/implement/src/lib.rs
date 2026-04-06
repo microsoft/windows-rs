@@ -74,11 +74,16 @@ fn implement_core(
             quote! { <> }
         },
         generics_idents: if !original_type.generics.params.is_empty() {
-            let idents: Vec<_> = original_type.generics.params.iter().map(|param| match param {
-                syn::GenericParam::Type(ty) => ty.ident.clone(),
-                syn::GenericParam::Lifetime(lt) => lt.lifetime.ident.clone(),
-                syn::GenericParam::Const(cnst) => cnst.ident.clone(),
-            }).collect();
+            let idents: Vec<_> = original_type
+                .generics
+                .params
+                .iter()
+                .map(|param| match param {
+                    syn::GenericParam::Type(ty) => ty.ident.clone(),
+                    syn::GenericParam::Lifetime(lt) => lt.lifetime.ident.clone(),
+                    syn::GenericParam::Const(cnst) => cnst.ident.clone(),
+                })
+                .collect();
             quote! { <#(#idents),*> }
         } else {
             quote! { <> }

@@ -1,6 +1,4 @@
-use windows_core::{
-    ComObject, IUnknown, IUnknown_Vtbl, implement, interface
-};
+use windows_core::{implement, interface, ComObject, IUnknown, IUnknown_Vtbl};
 
 #[interface("91617cc4-df1f-42e5-b6c8-7dd820a2698c")]
 unsafe trait INumberFactory: IUnknown {
@@ -15,7 +13,6 @@ impl<T: Copy + Into<u32> + 'static> INumberFactory_Impl for MyFactory_Impl<T> {
         self.0.into()
     }
 }
-
 
 #[test]
 fn basic() {
