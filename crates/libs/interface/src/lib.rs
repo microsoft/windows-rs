@@ -403,12 +403,7 @@ impl Interface {
     }
 
     fn parent_vtable(&self) -> Option<proc_macro2::TokenStream> {
-        if let Some((ident, path)) = self.parent_path().split_last() {
-            let ident = quote::format_ident!("{}_Vtbl", ident);
-            Some(quote! { #(#path::)* #ident })
-        } else {
-            None
-        }
+        self.parent.as_ref().map(|parent| quote! { <#parent as ::windows_core::Interface>::Vtable })
     }
 
     fn parent_is_iunknown(&self) -> bool {

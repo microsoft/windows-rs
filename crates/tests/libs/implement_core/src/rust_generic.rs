@@ -1,4 +1,4 @@
-use windows_core::{implement, interface, ComObject, IUnknown, IUnknown_Vtbl};
+use windows_core::{implement, interface, ComObject, IUnknown};
 
 #[interface("91617cc4-df1f-42e5-b6c8-7dd820a2698c")]
 unsafe trait INumberFactory: IUnknown {
