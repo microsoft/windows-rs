@@ -78,10 +78,15 @@ fn implement_core(
                 .generics
                 .params
                 .iter()
-                .map(|param| match param {
-                    syn::GenericParam::Type(ty) => ty.ident.clone(),
-                    syn::GenericParam::Lifetime(lt) => lt.lifetime.ident.clone(),
-                    syn::GenericParam::Const(cnst) => cnst.ident.clone(),
+                .map(|param| {
+                    let mut ident = quote! {};
+                    match param {
+                        syn::GenericParam::Type(ty) => ty.ident.to_tokens(&mut ident),
+                        syn::GenericParam::Lifetime(lt) => lt.lifetime.to_tokens(&mut ident),
+                        syn::GenericParam::Const(cnst) => cnst.ident.to_tokens(&mut ident),
+                    };
+
+                    ident
                 })
                 .collect();
             quote! { <#(#idents),*> }
