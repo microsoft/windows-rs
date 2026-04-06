@@ -6,9 +6,10 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
 
     let (generics, generics_tokens) = write_generic_params(item);
 
-    let methods = item
+    let methods: Vec<TokenStream> = item
         .methods()
-        .map(|method| write_method(namespace, &method, &generics));
+        .map(|method| write_method(namespace, &method, &generics))
+        .collect::<Result<Vec<_>, _>>()?;
 
     let requires: Vec<_> = item.interface_impls().collect();
 
@@ -34,7 +35,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
         namespace,
         item.index(),
         &["GuidAttribute"],
-    );
+    )?;
 
     Ok(quote! {
         #guid_token
@@ -49,15 +50,20 @@ fn write_method(
     namespace: &str,
     item: &metadata::reader::MethodDef,
     generics: &[metadata::Type],
-) -> TokenStream {
+) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let signature = item.signature(generics);
 
-    let return_type = write_return_type(namespace, item, &signature);
-    let params =
-        std::iter::once(quote! { &self }).chain(write_params(namespace, item, signature.types));
+    let return_type = write_return_type(namespace, item, &signature)?;
+    let params = std::iter::once(Ok(quote! { &self }))
+        .chain(
+            write_params(namespace, item, signature.types)?
+                .into_iter()
+                .map(Ok),
+        )
+        .collect::<Result<Vec<_>, Error>>()?;
 
-    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
     // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
     // preserving properties and events on round-trip.
@@ -70,9 +76,9 @@ fn write_method(
         quote! {}
     };
 
-    quote! {
+    Ok(quote! {
         #special_attr
         #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
-    }
+    })
 }

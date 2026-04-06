@@ -14,7 +14,7 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> Result<TokenStream, Erro
         quote! { : #ty }
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
     let mut impls: Vec<_> = item.interface_impls().collect();
     impls.sort_by_key(|imp| !imp.has_attribute("DefaultAttribute"));

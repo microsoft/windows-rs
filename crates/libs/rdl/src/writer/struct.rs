@@ -12,13 +12,15 @@ use windows_metadata::AsRow;
 /// using the same numeric-suffix scheme as `windows-bindgen`: `OUTER_0`,
 /// `OUTER_1`, `OUTER_0_0`, etc., where the index is the position of the nested
 /// type in the parent's nested-class list.
-pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, TokenStream)> {
+pub fn write_struct_items(
+    item: &metadata::reader::TypeDef,
+) -> Result<Vec<(String, TokenStream)>, Error> {
     // Nested types are only emitted as part of their enclosing type.
     if item
         .flags()
         .contains(metadata::TypeAttributes::NestedPublic)
     {
-        return vec![];
+        return Ok(vec![]);
     }
 
     let namespace = item.namespace();
@@ -37,18 +39,18 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
         item.arches(),
         outer_packing,
         &mut unnested,
-    );
+    )?;
 
     // Write the main type using flat name references for any nested fields.
     let name_ident = write_ident(outer_name);
-    let fields: Vec<_> = item
+    let fields: Vec<TokenStream> = item
         .fields()
         .map(|field| write_field_flat(namespace, &field, &flat_names))
-        .collect();
+        .collect::<Result<Vec<_>, _>>()?;
 
     let keyword = struct_keyword(item);
     let packed_attr = write_packed_attr(item);
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
 
     let main_tokens = quote! {
         #packed_attr
@@ -59,7 +61,7 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
     };
 
     unnested.push((outer_name.to_string(), main_tokens));
-    unnested
+    Ok(unnested)
 }
 
 /// Recursively collect all nested types of `parent`, emitting each as a flat
@@ -84,7 +86,7 @@ fn collect_nested(
     parent_arches: i32,
     parent_packing: Option<u16>,
     output: &mut Vec<(String, TokenStream)>,
-) -> HashMap<String, String> {
+) -> Result<HashMap<String, String>, Error> {
     let mut flat_names: HashMap<String, String> = HashMap::new();
 
     for (index, nested) in parent.index().nested(*parent).enumerate() {
@@ -116,13 +118,13 @@ fn collect_nested(
             effective_arches,
             effective_packing,
             output,
-        );
+        )?;
 
         let name_ident = write_ident(&flat_name);
-        let fields: Vec<_> = nested
+        let fields: Vec<TokenStream> = nested
             .fields()
             .map(|field| write_field_flat(namespace, &field, &child_flat_names))
-            .collect();
+            .collect::<Result<Vec<_>, _>>()?;
         let keyword = struct_keyword(&nested);
 
         // Write a SupportedArchitecture attribute when needed, and all other
@@ -135,7 +137,7 @@ fn collect_nested(
             namespace,
             nested.index(),
             &["SupportedArchitectureAttribute"],
-        );
+        )?;
 
         output.push((
             flat_name,
@@ -143,7 +145,7 @@ fn collect_nested(
         ));
     }
 
-    flat_names
+    Ok(flat_names)
 }
 
 /// Write a single struct/union field, replacing any reference to a nested type
@@ -152,12 +154,12 @@ fn write_field_flat(
     namespace: &str,
     item: &metadata::reader::Field,
     flat_names: &HashMap<String, String>,
-) -> TokenStream {
+) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let resolved_ty = resolve_nested(&item.ty(), namespace, flat_names);
     let ty = write_type(namespace, &resolved_ty);
-    let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
-    quote! { #(#field_attrs)* #name: #ty, }
+    let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    Ok(quote! { #(#field_attrs)* #name: #ty, })
 }
 
 /// Recursively replace nested-type references inside `ty` with their flat

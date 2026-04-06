@@ -34,7 +34,7 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
         item.attributes().filter(|attr| !is_flags_attr(*attr)),
         namespace,
         item.index(),
-    );
+    )?;
 
     if has_flags {
         Ok(quote! {

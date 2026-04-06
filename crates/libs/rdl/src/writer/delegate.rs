@@ -12,8 +12,8 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         .ok_or_else(|| writer_err!("delegate `{}` has no `Invoke` method", item.name()))?;
 
     let signature = method.signature(&generics);
-    let return_type = write_return_type(namespace, &method, &signature);
-    let params = write_params(namespace, &method, signature.types);
+    let return_type = write_return_type(namespace, &method, &signature)?;
+    let params = write_params(namespace, &method, signature.types)?;
 
     let guid_token = match delegate_guid_output(item, &generics)? {
         GuidOutput::None => quote! { #[no_guid] },
@@ -28,7 +28,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
         namespace,
         item.index(),
         &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
-    );
+    )?;
 
     let abi = match read_unmanaged_abi(item) {
         None => None,
