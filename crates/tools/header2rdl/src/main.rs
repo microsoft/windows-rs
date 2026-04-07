@@ -8,36 +8,36 @@ fn main() {
 fn cli_run(args: impl Iterator<Item = String>) -> Result<(), String> {
     let mut c = tool_header2rdl::converter();
     let args: Vec<String> = args.collect();
-    let mut i = 0;
+    let mut idx = 0;
 
-    while i < args.len() {
-        match args[i].as_str() {
+    while idx < args.len() {
+        match args[idx].as_str() {
             "--namespace" => {
-                i += 1;
-                c.namespace(args.get(i).ok_or("expected value for --namespace")?);
+                idx += 1;
+                c.namespace(args.get(idx).ok_or("expected value for --namespace")?);
             }
             "--library" => {
-                i += 1;
-                c.library(args.get(i).ok_or("expected value for --library")?);
+                idx += 1;
+                c.library(args.get(idx).ok_or("expected value for --library")?);
             }
             "--cpp" => {
                 c.cpp(true);
             }
             "--include" => {
-                i += 1;
-                c.include(args.get(i).ok_or("expected value for --include")?);
+                idx += 1;
+                c.include(args.get(idx).ok_or("expected value for --include")?);
             }
             "--define" => {
-                i += 1;
-                c.define(args.get(i).ok_or("expected value for --define")?);
+                idx += 1;
+                c.define(args.get(idx).ok_or("expected value for --define")?);
             }
             "--arch" => {
-                i += 1;
-                c.arch(args.get(i).ok_or("expected value for --arch")?);
+                idx += 1;
+                c.arch(args.get(idx).ok_or("expected value for --arch")?);
             }
             "--output" => {
-                i += 1;
-                c.output(args.get(i).ok_or("expected value for --output")?);
+                idx += 1;
+                c.output(args.get(idx).ok_or("expected value for --output")?);
             }
             "--split" => {
                 c.split(true);
@@ -47,7 +47,7 @@ fn cli_run(args: impl Iterator<Item = String>) -> Result<(), String> {
             }
             arg => return Err(format!("unknown argument: {arg}")),
         }
-        i += 1;
+        idx += 1;
     }
 
     c.write()
