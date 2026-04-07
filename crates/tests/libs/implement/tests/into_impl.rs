@@ -53,7 +53,10 @@ where
 
             let actual = std::cmp::min(owner.0.len().saturating_sub(current), items.len());
 
-            for (src, dst) in owner.0[current..current + actual].iter().zip(items.iter_mut()) {
+            for (src, dst) in owner.0[current..current + actual]
+                .iter()
+                .zip(items.iter_mut())
+            {
                 *dst = src.clone().into();
             }
 
