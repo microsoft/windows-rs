@@ -824,6 +824,59 @@ impl Encoder<'_> {
             _ => Ok(metadata::Type::Void),
         }
     }
+
+    /// Validates that a resolved `metadata::Type` is a WinRT-compatible type.
+    ///
+    /// WinRT types may not refer to non-WinRT types in fields, parameters, return types,
+    /// or anywhere else.  Primitive types and generic type parameters are always valid.
+    /// Named types (structs, enums, interfaces, …) are checked against the local index
+    /// first, then against any loaded reference metadata.
+    fn validate_type_is_winrt<S: syn::spanned::Spanned + quote::ToTokens>(
+        &self,
+        span: &S,
+        ty: &metadata::Type,
+    ) -> Result<(), Error> {
+        match ty {
+            metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
+                // Recursively validate generic type arguments.
+                for generic_ty in &tn.generics {
+                    self.validate_type_is_winrt(span, generic_ty)?;
+                }
+
+                // Check the local RDL index first.
+                if let Some(is_winrt) = self.index.is_winrt(&tn.namespace, &tn.name) {
+                    if !is_winrt {
+                        return self.err(span, "WinRT types cannot refer to non-WinRT types");
+                    }
+                } else if let Some(reference) = self.output.reference() {
+                    // Fall back to the external reference metadata.
+                    if let Some(def) = reference.get(&tn.namespace, &tn.name).next() {
+                        if !def
+                            .flags()
+                            .contains(metadata::TypeAttributes::WindowsRuntime)
+                        {
+                            return self.err(span, "WinRT types cannot refer to non-WinRT types");
+                        }
+                    }
+                    // If the type isn't found in the reference either it is a hard-coded
+                    // system alias (e.g. System.Guid) and is considered WinRT-compatible.
+                }
+            }
+            metadata::Type::PtrMut(inner, _) | metadata::Type::PtrConst(inner, _) => {
+                self.validate_type_is_winrt(span, inner)?;
+            }
+            metadata::Type::RefMut(inner) | metadata::Type::RefConst(inner) => {
+                self.validate_type_is_winrt(span, inner)?;
+            }
+            metadata::Type::Array(inner) | metadata::Type::ArrayFixed(inner, _) => {
+                self.validate_type_is_winrt(span, inner)?;
+            }
+            // Primitives (Bool, I8, U8, …), String, Object, Void, Generic, … are always OK.
+            _ => {}
+        }
+
+        Ok(())
+    }
 }
 
 /// Builds a `syn::Signature` with all the optional fields (`constness`, `asyncness`,

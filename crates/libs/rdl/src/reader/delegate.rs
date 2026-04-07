@@ -108,8 +108,20 @@ impl Encoder<'_> {
 
         let params = self.collect_params(&item.sig)?;
 
+        // Delegates are always WinRT – validate that all parameter and return types are WinRT.
+        for arg in &item.sig.inputs {
+            if let syn::FnArg::Typed(pt) = arg {
+                let ty = self.encode_type(&pt.ty)?;
+                self.validate_type_is_winrt(&pt.ty, &ty)?;
+            }
+        }
+
         let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
         let return_type = self.encode_return_type(&item.sig.output)?;
+
+        if let syn::ReturnType::Type(_, return_syn_ty) = &item.sig.output {
+            self.validate_type_is_winrt(return_syn_ty.as_ref(), &return_type)?;
+        }
 
         if !already_has_guid {
             guid::derive_and_emit_guid(

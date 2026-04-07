@@ -58,8 +58,10 @@ impl Encoder<'_> {
     pub fn encode_class(&mut self, item: &Class) -> Result<(), Error> {
         let extends = if let Some(path) = &item.extends {
             let extends = self.encode_path(path)?;
-            if let metadata::Type::ClassName(extends) = extends {
-                self.output.TypeRef(&extends.namespace, &extends.name)
+            if let metadata::Type::ClassName(ref tn) = extends {
+                // Classes are always WinRT – the base class must also be WinRT.
+                self.validate_type_is_winrt(path, &extends)?;
+                self.output.TypeRef(&tn.namespace, &tn.name)
             } else {
                 return self.err(&item.extends, "invalid base type");
             }
@@ -98,6 +100,9 @@ impl Encoder<'_> {
         default: bool,
     ) -> Result<(), Error> {
         let ty = self.encode_path(&interface.ty)?;
+
+        // Classes are always WinRT – every implemented interface must also be WinRT.
+        self.validate_type_is_winrt(&interface.ty, &ty)?;
 
         let interface_impl = self.output.InterfaceImpl(class, &ty);
 

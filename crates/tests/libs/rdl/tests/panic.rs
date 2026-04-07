@@ -761,3 +761,77 @@ mod Test {
         .write()
         .unwrap();
 }
+
+#[test]
+#[should_panic(expected = "error: WinRT types cannot refer to non-WinRT types\n --> .rdl:5:12")]
+fn winrt_struct_field_non_winrt_type_errors() {
+    should_panic(
+        r#"
+#[winrt]
+mod Test {
+    struct WinRtPoint {
+        a: Win32Rect,
+    }
+}
+#[win32]
+mod Test {
+    struct Win32Rect { x: i32, }
+}
+"#,
+    )
+}
+
+#[test]
+#[should_panic(expected = "error: WinRT types cannot refer to non-WinRT types\n --> .rdl:5:34")]
+fn winrt_interface_method_param_non_winrt_type_errors() {
+    should_panic(
+        r#"
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn DoThing(&self, value: Win32Type) -> i32;
+    }
+}
+#[win32]
+mod Test {
+    struct Win32Type { x: i32, }
+}
+"#,
+    )
+}
+
+#[test]
+#[should_panic(expected = "error: WinRT types cannot refer to non-WinRT types\n --> .rdl:5:31")]
+fn winrt_interface_method_return_non_winrt_type_errors() {
+    should_panic(
+        r#"
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn GetThing(&self) -> Win32Type;
+    }
+}
+#[win32]
+mod Test {
+    struct Win32Type { x: i32, }
+}
+"#,
+    )
+}
+
+#[test]
+#[should_panic(expected = "error: WinRT types cannot refer to non-WinRT types\n --> .rdl:4:35")]
+fn winrt_delegate_param_non_winrt_type_errors() {
+    should_panic(
+        r#"
+#[winrt]
+mod Test {
+    delegate fn MyDelegate(value: Win32Type);
+}
+#[win32]
+mod Test {
+    struct Win32Type { x: i32, }
+}
+"#,
+    )
+}

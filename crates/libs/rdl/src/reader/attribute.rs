@@ -80,7 +80,11 @@ impl Encoder<'_> {
             let mut params = vec![];
 
             for arg in method.inputs.iter() {
-                params.push(self.bare_param(arg)?);
+                let p = self.bare_param(arg)?;
+                if item.winrt {
+                    self.validate_type_is_winrt(&arg.ty, &p.ty)?;
+                }
+                params.push(p);
             }
 
             let types = params.iter().map(|param| param.ty.clone()).collect();
@@ -111,6 +115,9 @@ impl Encoder<'_> {
 
         for (prop_name, prop_ty) in &item.properties {
             let ty = self.encode_type(prop_ty)?;
+            if item.winrt {
+                self.validate_type_is_winrt(prop_ty, &ty)?;
+            }
             self.output.Field(
                 &prop_name.to_string(),
                 &ty,
