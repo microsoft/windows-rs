@@ -49,15 +49,12 @@ where
         unsafe {
             let this = self.0.get();
             let owner = (*this).0.as_impl();
+            let current = (*this).1;
 
-            if owner.0.len() <= (*this).1 {
-                return Ok(0);
-            }
+            let actual = std::cmp::min(owner.0.len().saturating_sub(current), items.len());
 
-            let actual = std::cmp::min(owner.0.len() - (*this).1, items.len());
-
-            for (i, item) in items.iter_mut().take(actual).enumerate() {
-                *item = owner.0[(*this).1 + i].clone().into();
+            for (src, dst) in owner.0[current..current + actual].iter().zip(items.iter_mut()) {
+                *dst = src.clone().into();
             }
 
             (*this).1 += actual;
