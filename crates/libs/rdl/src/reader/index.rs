@@ -73,11 +73,12 @@ impl<'a> Index<'a> {
             .unwrap_or(false)
     }
 
-    pub fn get(&self, namespace: &str, name: &str) -> Option<&Item> {
+    pub fn get<'b>(&'b self, namespace: &str, name: &str) -> impl Iterator<Item = &'b Item> {
         self.namespaces
             .get(namespace)
             .and_then(|namespace| namespace.types.get(name))
-            .and_then(|v| v.first()) // TODO: should probably return an iterator instead
+            .into_iter()
+            .flatten()
             .map(|(_, item)| *item)
     }
 
