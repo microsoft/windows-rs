@@ -7,7 +7,7 @@ use windows_collections::*;
 )]
 struct Iterator<T>(std::cell::UnsafeCell<(IIterable<T>, usize)>)
 where
-    T: RuntimeType + 'static + Clone,
+    T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq;
 
 impl<T> IIterator_Impl<T> for Iterator_Impl<T>
@@ -71,12 +71,12 @@ where
 )]
 struct Iterable<T>(Vec<T>)
 where
-    T: RuntimeType + 'static + Clone,
+    T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq;
 
 impl<T> IIterable_Impl<T> for Iterable_Impl<T>
 where
-    T: RuntimeType + 'static + Clone,
+    T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
