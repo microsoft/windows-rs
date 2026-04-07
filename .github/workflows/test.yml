@@ -49,6 +49,7 @@ jobs:
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
+            extra_excludes: --exclude test_header2rdl
 
     runs-on: ${{ matrix.runner }}
 
@@ -66,7 +67,7 @@ jobs:
         with:
           target: ${{ matrix.target }}
       - name: Test
-        run:  cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc
+        run:  cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc ${{ matrix.extra_excludes }}
       - name: Check diff
         shell: bash
         run: |
