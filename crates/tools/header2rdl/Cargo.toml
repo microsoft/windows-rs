@@ -4,9 +4,9 @@ version = "0.0.0"
 edition = "2021"
 publish = false
 
-# This tool requires libclang at build time and at runtime.
+# This tool requires libclang at runtime.
 # On Ubuntu, set LIBCLANG_PATH=/usr/lib/llvm-18/lib (or whichever LLVM version
-# is installed) before running `cargo build` or `cargo run`.
+# is installed) before running `cargo run` or the tests.
 
 [lib]
 name = "tool_header2rdl"
@@ -19,7 +19,7 @@ name = "tool_header2rdl"
 path = "src/main.rs"
 
 [dependencies]
-clang = "2.0.0"
+clang = { version = "2.0.0", features = ["runtime"] }
 windows-rdl = { workspace = true }
 
 [lints]
