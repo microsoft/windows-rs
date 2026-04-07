@@ -562,7 +562,7 @@ impl Encoder<'_> {
     }
 
     fn rdl_underlying_type(&self, namespace: &str, name: &str) -> Option<metadata::Type> {
-        let item = self.index.get(namespace, name)?;
+        let item = self.index.get(namespace, name).next()?;
 
         if let Item::Struct(s) = item {
             let mut fields = s.fields.iter();

@@ -7,12 +7,12 @@ use windows_collections::*;
 )]
 struct Iterator<T>(std::cell::UnsafeCell<(IIterable<T>, usize)>)
 where
-    T: RuntimeType + 'static + Clone,
+    T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq;
 
 impl<T> IIterator_Impl<T> for Iterator_Impl<T>
 where
-    T: RuntimeType + 'static + Clone,
+    T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq,
 {
     fn Current(&self) -> Result<T> {
@@ -45,8 +45,24 @@ where
         }
     }
 
-    fn GetMany(&self, _items: &mut [T::Default]) -> Result<u32> {
-        panic!(); // TODO: arrays still need some work.
+    fn GetMany(&self, items: &mut [T::Default]) -> Result<u32> {
+        unsafe {
+            let this = self.0.get();
+            let owner = (*this).0.as_impl();
+            let current = (*this).1;
+
+            let actual = std::cmp::min(owner.0.len().saturating_sub(current), items.len());
+
+            for (src, dst) in owner.0[current..current + actual]
+                .iter()
+                .zip(items.iter_mut())
+            {
+                *dst = src.clone().into();
+            }
+
+            (*this).1 += actual;
+            Ok(actual as u32)
+        }
     }
 }
 
@@ -55,12 +71,12 @@ where
 )]
 struct Iterable<T>(Vec<T>)
 where
-    T: RuntimeType + 'static + Clone,
+    T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq;
 
 impl<T> IIterable_Impl<T> for Iterable_Impl<T>
 where
-    T: RuntimeType + 'static + Clone,
+    T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
@@ -72,14 +88,7 @@ where
 fn test_collect() -> Result<()> {
     let source: IIterable<i32> = Iterable(vec![10, 20, 30]).into();
 
-    // TODO: not sure why this won't compile.
-    // let values: Vec<i32> = source.collect();
-
-    let mut values = Vec::<i32>::new();
-
-    for value in source {
-        values.push(value);
-    }
+    let values: Vec<i32> = source.into_iter().collect();
 
     assert_eq!(values, &[10, 20, 30]);
 

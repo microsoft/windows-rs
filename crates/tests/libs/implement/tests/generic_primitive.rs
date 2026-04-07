@@ -1,8 +1,6 @@
 use windows::core::*;
 use windows_collections::*;
 
-// TODO: test whether we can implement two different IIterable's.
-
 #[implement(
     IVectorView<i32>,
     IIterable<i32>,
