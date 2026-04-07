@@ -1,19 +1,15 @@
 //! Parses C/C++ header files and emits Windows RDL (`.rdl`) source.
 //!
-//! # Usage
+//! # Example
 //!
-//! ```text
-//! tool_header2rdl [OPTIONS] <input.h>...
-//!
-//! Options:
-//!   --namespace <NS>   Target namespace, dot-separated (e.g. Contoso.Widgets)  [required]
-//!   --library   <LIB>  Import-library name for generated functions (e.g. contoso.dll)
-//!   --cpp              Enable C++ mode – detects COM interfaces
-//!   --include   <DIR>  Extra include search path (repeatable)
-//!   --define    <DEF>  Preprocessor define, may include value (e.g. MY_DEF=1) (repeatable)
-//!   --arch      <A>    Target architecture: x86 | x64 | arm64  [default: x64]
-//!   --output    <PATH> Output file (default: output.rdl) or directory when --split
-//!   --split            Write one .rdl file per input into the --output directory
+//! ```no_run
+//! tool_header2rdl::converter()
+//!     .input("widget.h")
+//!     .namespace("Contoso.Widgets")
+//!     .library("contoso.dll")
+//!     .output("contoso.rdl")
+//!     .write()
+//!     .unwrap();
 //! ```
 //!
 //! # Notes
@@ -25,73 +21,157 @@ use clang::{Clang, Entity, EntityKind, Index, TypeKind};
 use std::collections::BTreeSet;
 
 // ---------------------------------------------------------------------------
-// Configuration
+// Public builder
 // ---------------------------------------------------------------------------
 
+/// Returns a new [`Converter`] builder.
+pub fn converter() -> Converter {
+    Converter::new()
+}
+
+/// Builder for converting C/C++ header files to Windows RDL source.
+///
+/// Call builder methods to configure the conversion, then call
+/// [`convert`](Converter::convert) to obtain the RDL string or
+/// [`write`](Converter::write) to write directly to a file.
 #[derive(Default)]
-struct Config {
+pub struct Converter {
     inputs: Vec<String>,
-    output: String,
     namespace: String,
     library: String,
     cpp: bool,
     includes: Vec<String>,
     defines: Vec<String>,
     arch: String,
+    output: String,
     split: bool,
 }
 
-fn parse_args(args: &[String]) -> Result<Config, String> {
-    let mut config = Config {
-        arch: "x64".into(),
-        output: "output.rdl".into(),
-        ..Default::default()
-    };
-
-    let mut i = 0;
-    while i < args.len() {
-        match args[i].as_str() {
-            "--namespace" => {
-                i += 1;
-                config.namespace = args
-                    .get(i)
-                    .cloned()
-                    .ok_or("expected value for --namespace")?;
-            }
-            "--library" => {
-                i += 1;
-                config.library = args.get(i).cloned().ok_or("expected value for --library")?;
-            }
-            "--cpp" => config.cpp = true,
-            "--include" => {
-                i += 1;
-                config
-                    .includes
-                    .push(args.get(i).cloned().ok_or("expected value for --include")?);
-            }
-            "--define" => {
-                i += 1;
-                config
-                    .defines
-                    .push(args.get(i).cloned().ok_or("expected value for --define")?);
-            }
-            "--arch" => {
-                i += 1;
-                config.arch = args.get(i).cloned().ok_or("expected value for --arch")?;
-            }
-            "--output" => {
-                i += 1;
-                config.output = args.get(i).cloned().ok_or("expected value for --output")?;
-            }
-            "--split" => config.split = true,
-            arg if !arg.starts_with('-') => config.inputs.push(arg.to_string()),
-            arg => return Err(format!("unknown argument: {arg}")),
+impl Converter {
+    /// Creates a new [`Converter`] with default settings (`arch = "x64"`).
+    pub fn new() -> Self {
+        Self {
+            arch: "x64".into(),
+            ..Default::default()
         }
-        i += 1;
     }
 
-    Ok(config)
+    /// Add one input header file.
+    pub fn input(&mut self, input: &str) -> &mut Self {
+        self.inputs.push(input.to_string());
+        self
+    }
+
+    /// Add multiple input header files.
+    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        for input in inputs {
+            self.inputs.push(input.as_ref().to_string());
+        }
+        self
+    }
+
+    /// Set the target namespace (dot-separated, e.g. `"Contoso.Widgets"`).
+    /// This is required; [`write`](Converter::write) and
+    /// [`convert`](Converter::convert) return an error if it is empty.
+    pub fn namespace(&mut self, namespace: &str) -> &mut Self {
+        self.namespace = namespace.to_string();
+        self
+    }
+
+    /// Set the import-library name used in `#[link(name = "...", abi = "system")]`
+    /// annotations on generated functions.  If empty, no `#[link]` attribute is emitted.
+    pub fn library(&mut self, library: &str) -> &mut Self {
+        self.library = library.to_string();
+        self
+    }
+
+    /// Enable C++ mode.  When `true`, the input is parsed as C++17 and structs
+    /// with pure-virtual methods are emitted as COM `interface` declarations.
+    pub fn cpp(&mut self, cpp: bool) -> &mut Self {
+        self.cpp = cpp;
+        self
+    }
+
+    /// Add one extra include directory passed to clang as `-I<dir>`.
+    pub fn include(&mut self, include: &str) -> &mut Self {
+        self.includes.push(include.to_string());
+        self
+    }
+
+    /// Add one preprocessor definition passed to clang as `-D<def>`.
+    /// The value may include `=value` (e.g. `"MY_DEFINE=1"`).
+    pub fn define(&mut self, define: &str) -> &mut Self {
+        self.defines.push(define.to_string());
+        self
+    }
+
+    /// Set the target architecture: `"x86"`, `"x64"` (default), or `"arm64"`.
+    pub fn arch(&mut self, arch: &str) -> &mut Self {
+        self.arch = arch.to_string();
+        self
+    }
+
+    /// Set the output file path (used by [`write`](Converter::write)).
+    /// When [`split`](Converter::split) is `true` this is treated as a directory.
+    pub fn output(&mut self, output: &str) -> &mut Self {
+        self.output = output.to_string();
+        self
+    }
+
+    /// When `true`, [`write`](Converter::write) writes one `<namespace>.rdl`
+    /// file into the [`output`](Converter::output) directory instead of a
+    /// single file.
+    pub fn split(&mut self, split: bool) -> &mut Self {
+        self.split = split;
+        self
+    }
+
+    /// Parse the input headers and return the formatted RDL source string.
+    pub fn convert(&self) -> Result<String, String> {
+        if self.inputs.is_empty() {
+            return Err("no input files specified".into());
+        }
+        if self.namespace.is_empty() {
+            return Err("namespace is required".into());
+        }
+        generate(self)
+    }
+
+    /// Parse the input headers and write the formatted RDL to
+    /// [`output`](Converter::output).
+    pub fn write(&self) -> Result<(), String> {
+        let rdl = self.convert()?;
+
+        if self.split {
+            let dir = &self.output;
+            std::fs::create_dir_all(dir)
+                .map_err(|e| format!("failed to create directory `{dir}`: {e}"))?;
+            let filename = format!("{}.rdl", self.namespace);
+            let path = std::path::Path::new(dir).join(&filename);
+            std::fs::write(&path, &rdl)
+                .map_err(|e| format!("failed to write `{}`: {e}", path.display()))?;
+        } else {
+            if let Some(parent) = std::path::Path::new(&self.output).parent() {
+                if !parent.as_os_str().is_empty() {
+                    std::fs::create_dir_all(parent)
+                        .map_err(|e| format!("failed to create parent directory: {e}"))?;
+                }
+            }
+            std::fs::write(&self.output, &rdl)
+                .map_err(|e| format!("failed to write `{}`: {e}", self.output))?;
+        }
+
+        Ok(())
+    }
 }
+
+// ---------------------------------------------------------------------------
+// Core generation
+// ---------------------------------------------------------------------------
 
 fn arch_triple(arch: &str) -> &str {
     match arch {
@@ -99,6 +179,48 @@ fn arch_triple(arch: &str) -> &str {
         "arm64" | "aarch64" => "aarch64-pc-windows-msvc",
         _ => "x86_64-pc-windows-msvc",
     }
+}
+
+fn generate(c: &Converter) -> Result<String, String> {
+    let clang = Clang::new().map_err(|e| format!("failed to initialize libclang: {e}"))?;
+    let index = Index::new(&clang, false, false);
+
+    let mut clang_args: Vec<String> = vec![
+        format!("--target={}", arch_triple(&c.arch)),
+        "-fms-extensions".into(),
+        "-fms-compatibility".into(),
+        "-D_WIN32".into(),
+        "-DWIN32".into(),
+    ];
+
+    for inc in &c.includes {
+        clang_args.push(format!("-I{inc}"));
+    }
+    for def in &c.defines {
+        clang_args.push(format!("-D{def}"));
+    }
+
+    if c.cpp {
+        clang_args.extend(["-x".into(), "c++".into(), "-std=c++17".into()]);
+    } else {
+        clang_args.extend(["-x".into(), "c".into()]);
+    }
+
+    let clang_arg_refs: Vec<&str> = clang_args.iter().map(String::as_str).collect();
+    let mut collector = Collector::new(c.cpp);
+
+    for input in &c.inputs {
+        let tu = index
+            .parser(input.as_str())
+            .arguments(&clang_arg_refs)
+            .parse()
+            .map_err(|_| format!("failed to parse `{input}`"))?;
+
+        collect(tu.get_entity(), &mut collector);
+    }
+
+    let rdl = emit(c, &collector);
+    Ok(windows_rdl::formatter::format(&rdl))
 }
 
 // ---------------------------------------------------------------------------
@@ -117,7 +239,6 @@ struct RdlStruct {
     fields: Vec<(String, String)>,
 }
 
-/// A free function or an interface method (both share the same shape).
 struct RdlFn {
     name: String,
     params: Vec<(String, String)>,
@@ -154,129 +275,6 @@ impl Collector {
 }
 
 // ---------------------------------------------------------------------------
-// Public API
-// ---------------------------------------------------------------------------
-
-/// Convert one or more C/C++ headers to a formatted RDL string.
-///
-/// The `args` iterator supplies the same CLI tokens as the standalone binary,
-/// **excluding** `--output` and `--split` (those control file writing and are
-/// silently ignored when calling this function).
-///
-/// # Example
-///
-/// ```no_run
-/// let rdl = tool_header2rdl::convert([
-///     "--namespace", "Contoso.Widgets",
-///     "--library",   "contoso.dll",
-///     "widget.h",
-/// ]).unwrap();
-/// println!("{rdl}");
-/// ```
-pub fn convert<I, S>(args: I) -> Result<String, String>
-where
-    I: IntoIterator<Item = S>,
-    S: AsRef<str>,
-{
-    let args: Vec<String> = args.into_iter().map(|s| s.as_ref().to_string()).collect();
-    let config = parse_args(&args)?;
-    validate(&config)?;
-    generate(&config)
-}
-
-/// Full CLI behaviour: parse `args`, convert headers, and write the result to
-/// `--output` (or to a directory when `--split` is set).
-pub fn run<I, S>(args: I) -> Result<(), String>
-where
-    I: IntoIterator<Item = S>,
-    S: AsRef<str>,
-{
-    let args: Vec<String> = args.into_iter().map(|s| s.as_ref().to_string()).collect();
-    let config = parse_args(&args)?;
-    validate(&config)?;
-    let rdl = generate(&config)?;
-    write_output(&config, &rdl)
-}
-
-fn validate(config: &Config) -> Result<(), String> {
-    if config.inputs.is_empty() {
-        return Err("no input files specified".into());
-    }
-    if config.namespace.is_empty() {
-        return Err("--namespace is required".into());
-    }
-    Ok(())
-}
-
-fn write_output(config: &Config, rdl: &str) -> Result<(), String> {
-    if config.split {
-        let dir = &config.output;
-        std::fs::create_dir_all(dir)
-            .map_err(|e| format!("failed to create directory `{dir}`: {e}"))?;
-        let filename = format!("{}.rdl", config.namespace);
-        let path = std::path::Path::new(dir).join(&filename);
-        std::fs::write(&path, rdl)
-            .map_err(|e| format!("failed to write `{}`: {e}", path.display()))?;
-    } else {
-        if let Some(parent) = std::path::Path::new(&config.output).parent() {
-            if !parent.as_os_str().is_empty() {
-                std::fs::create_dir_all(parent)
-                    .map_err(|e| format!("failed to create parent directory: {e}"))?;
-            }
-        }
-        std::fs::write(&config.output, rdl)
-            .map_err(|e| format!("failed to write `{}`: {e}", config.output))?;
-    }
-    Ok(())
-}
-
-// ---------------------------------------------------------------------------
-// Core generation
-// ---------------------------------------------------------------------------
-
-fn generate(config: &Config) -> Result<String, String> {
-    let clang = Clang::new().map_err(|e| format!("failed to initialize libclang: {e}"))?;
-    let index = Index::new(&clang, false, false);
-
-    let mut clang_args: Vec<String> = vec![
-        format!("--target={}", arch_triple(&config.arch)),
-        "-fms-extensions".into(),
-        "-fms-compatibility".into(),
-        "-D_WIN32".into(),
-        "-DWIN32".into(),
-    ];
-
-    for inc in &config.includes {
-        clang_args.push(format!("-I{inc}"));
-    }
-    for def in &config.defines {
-        clang_args.push(format!("-D{def}"));
-    }
-
-    if config.cpp {
-        clang_args.extend(["-x".into(), "c++".into(), "-std=c++17".into()]);
-    } else {
-        clang_args.extend(["-x".into(), "c".into()]);
-    }
-
-    let clang_arg_refs: Vec<&str> = clang_args.iter().map(String::as_str).collect();
-    let mut collector = Collector::new(config.cpp);
-
-    for input in &config.inputs {
-        let tu = index
-            .parser(input.as_str())
-            .arguments(&clang_arg_refs)
-            .parse()
-            .map_err(|_| format!("failed to parse `{input}`"))?;
-
-        collect(tu.get_entity(), &mut collector);
-    }
-
-    let rdl = emit(config, &collector);
-    Ok(windows_rdl::formatter::format(&rdl))
-}
-
-// ---------------------------------------------------------------------------
 // AST collection
 // ---------------------------------------------------------------------------
 
@@ -287,8 +285,6 @@ fn collect(entity: Entity, collector: &mut Collector) {
         }
 
         match child.get_kind() {
-            // Plain struct / union – skip underscored names; they will be
-            // handled when the matching TypedefDecl is visited.
             EntityKind::StructDecl | EntityKind::UnionDecl => {
                 let is_union = child.get_kind() == EntityKind::UnionDecl;
                 if collector.cpp && is_com_interface(&child) {
@@ -307,7 +303,6 @@ fn collect(entity: Entity, collector: &mut Collector) {
                     }
                 }
             }
-            // C++ class – same logic as StructDecl in cpp mode.
             EntityKind::ClassDecl if collector.cpp => {
                 if let Some(name) = non_underscore_name(&child) {
                     if collector.seen.insert(name.clone()) {
@@ -347,15 +342,12 @@ fn collect(entity: Entity, collector: &mut Collector) {
     }
 }
 
-/// Returns the entity's name only when it doesn't start with `_`.
 fn non_underscore_name(entity: &Entity) -> Option<String> {
     entity
         .get_name()
         .filter(|n| !n.is_empty() && !n.starts_with('_'))
 }
 
-/// Checks whether a C++ struct / class looks like a COM interface:
-/// it must have at least one pure-virtual method (with or without a base class).
 fn is_com_interface(entity: &Entity) -> bool {
     entity
         .get_children()
@@ -378,7 +370,6 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
             EntityKind::StructDecl | EntityKind::UnionDecl => {
                 let is_union = child.get_kind() == EntityKind::UnionDecl;
                 if let Some(s) = collect_struct(&child, name.clone(), is_union) {
-                    // Also mark the underscored inner name as seen.
                     if let Some(inner) = child.get_name() {
                         collector.seen.insert(inner);
                     }
@@ -401,7 +392,6 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
         }
     }
 
-    // No struct/enum child – just a type alias; mark as seen.
     collector.seen.insert(name);
 }
 
@@ -475,9 +465,7 @@ fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
     let mut params = vec![];
     for (i, child) in entity.get_children().iter().enumerate() {
         if child.get_kind() == EntityKind::ParmDecl {
-            let pname = child
-                .get_name()
-                .unwrap_or_else(|| format!("p_{}", i + 1));
+            let pname = child.get_name().unwrap_or_else(|| format!("p_{}", i + 1));
             if let Some(pty) = child.get_type() {
                 params.push((pname, map_type(&pty)));
             }
@@ -498,7 +486,6 @@ fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
         .find(|c| c.get_kind() == EntityKind::BaseSpecifier)
         .and_then(|c| c.get_name());
 
-    // Skip the standard IUnknown methods – every COM interface inherits them.
     const IUNKNOWN: [&str; 3] = ["QueryInterface", "AddRef", "Release"];
 
     let mut methods = vec![];
@@ -581,8 +568,7 @@ fn map_type(ty: &clang::Type) -> String {
         }
         TypeKind::Record | TypeKind::Enum => {
             let name = strip_elaboration(&ty.get_display_name());
-            // Anonymous types (clang uses "(unnamed ...)" or "(anonymous ...)") are
-            // replaced with an opaque byte pointer since they cannot be named in RDL.
+            // Anonymous types are replaced with an opaque byte pointer.
             if name.starts_with('(') {
                 "*mut u8".into()
             } else {
@@ -590,8 +576,6 @@ fn map_type(ty: &clang::Type) -> String {
             }
         }
         _ => {
-            // Fall back to the canonical type; if that still doesn't resolve,
-            // emit an opaque pointer type.
             let canon = ty.get_canonical_type();
             if canon.get_kind() != ty.get_kind() {
                 map_type(&canon)
@@ -629,8 +613,6 @@ fn map_pointer(ty: &clang::Type) -> String {
     }
 }
 
-/// Like `map_type` but converts the unit type `"()"` to `"u8"` for use in
-/// pointer / array element contexts where a concrete type is required.
 fn map_non_void(ty: &clang::Type) -> String {
     let s = map_type(ty);
     if s == "()" {
@@ -640,8 +622,6 @@ fn map_non_void(ty: &clang::Type) -> String {
     }
 }
 
-/// Strip `struct`/`enum`/`union`/`const` elaboration prefixes from a clang
-/// display name so only the bare type identifier remains.
 fn strip_elaboration(name: &str) -> String {
     let name = name.trim();
     let name = name.strip_prefix("struct ").unwrap_or(name);
@@ -655,7 +635,7 @@ fn strip_elaboration(name: &str) -> String {
 // RDL emission
 // ---------------------------------------------------------------------------
 
-fn emit(config: &Config, collector: &Collector) -> String {
+fn emit(c: &Converter, collector: &Collector) -> String {
     let mut body = String::new();
 
     for e in &collector.enums {
@@ -665,13 +645,13 @@ fn emit(config: &Config, collector: &Collector) -> String {
         body.push_str(&emit_struct(s));
     }
     for f in &collector.functions {
-        body.push_str(&emit_fn(f, &config.library));
+        body.push_str(&emit_fn(f, &c.library));
     }
     for iface in &collector.interfaces {
         body.push_str(&emit_interface(iface));
     }
 
-    wrap_namespace(&config.namespace, &body)
+    wrap_namespace(&c.namespace, &body)
 }
 
 fn emit_enum(e: &RdlEnum) -> String {
@@ -742,8 +722,6 @@ fn emit_interface(iface: &RdlInterface) -> String {
     out
 }
 
-/// Wrap `body` in nested `mod` blocks according to the dot-separated
-/// `namespace`, annotating the outermost module with `#[win32]`.
 fn wrap_namespace(namespace: &str, body: &str) -> String {
     if body.is_empty() {
         return String::new();
