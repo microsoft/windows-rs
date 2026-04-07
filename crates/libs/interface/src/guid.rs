@@ -32,7 +32,7 @@ impl Guid {
                 None => {
                     return Err(syn::Error::new(
                         span,
-                        format!("The IID missing part at index {index}"),
+                        format!("IID part at index {index} is missing"),
                     ))
                 }
             };
