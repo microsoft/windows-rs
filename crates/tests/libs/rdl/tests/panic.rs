@@ -778,6 +778,10 @@ mod Test {
     }
 }
         "#,
+    );
+}
+
+#[test]
 #[should_panic(expected = "error: WinRT types cannot refer to non-WinRT types\n --> .rdl:5:12")]
 fn winrt_struct_field_non_winrt_type_errors() {
     should_panic(
@@ -830,6 +834,10 @@ mod Test {
     }
 }
         "#,
+    );
+}
+
+#[test]
 #[should_panic(expected = "error: WinRT types cannot refer to non-WinRT types\n --> .rdl:5:31")]
 fn winrt_interface_method_return_non_winrt_type_errors() {
     should_panic(
