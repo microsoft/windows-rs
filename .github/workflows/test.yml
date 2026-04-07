@@ -25,22 +25,27 @@ concurrency:
 
 jobs:
   test:
+    name: ${{ matrix.name }}
     strategy:
       matrix:
         include:
-          - version: stable
+          - name: stable x64
+            version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
             runner: windows-2025
-          - version: nightly
+          - name: nightly i686
+            version: nightly
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
             runner: windows-2025
-          - version: nightly
+          - name: nightly gnu
+            version: nightly
             host: x86_64-pc-windows-gnu
             target: x86_64-pc-windows-gnu
             runner: windows-2025
-          - version: stable
+          - name: stable arm64
+            version: stable
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
