@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    interface IFoo {
+        #[get]
+        ReadOnly: i32;
+        #[set]
+        WriteOnly: i32;
+    }
+}
