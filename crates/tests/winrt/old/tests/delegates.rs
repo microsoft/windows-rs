@@ -1,6 +1,6 @@
 use core::convert::*;
 
-use windows::core::{DelegateFn, Interface};
+use windows::core::Interface;
 use windows::{Foundation::Collections::*, Foundation::*};
 use windows_future::*;
 
@@ -63,8 +63,8 @@ fn event() -> windows::core::Result<()> {
     let (tx, rx) = std::sync::mpsc::channel();
 
     let set_clone = set.clone();
-    set.MapChanged(DelegateFn(move |_, args| {
-        let args: &IMapChangedEventArgs<windows::core::HSTRING> = args.as_ref().unwrap();
+    set.MapChanged(&MapChangedEventHandler::new(move |_, args| {
+        let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
         let _: IObservableMap<windows::core::HSTRING, windows::core::IInspectable> = set.cast()?;
