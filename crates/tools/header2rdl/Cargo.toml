@@ -8,6 +8,16 @@ publish = false
 # On Ubuntu, set LIBCLANG_PATH=/usr/lib/llvm-18/lib (or whichever LLVM version
 # is installed) before running `cargo build` or `cargo run`.
 
+[lib]
+name = "tool_header2rdl"
+path = "src/lib.rs"
+doc = false
+doctest = false
+
+[[bin]]
+name = "tool_header2rdl"
+path = "src/main.rs"
+
 [dependencies]
 clang = "2.0.0"
 windows-rdl = { workspace = true }

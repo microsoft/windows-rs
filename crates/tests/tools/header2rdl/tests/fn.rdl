@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    fn Add(a: i32, b: i32) -> i32;
+    fn CreateHandle(flags: DWORD, out: *mut HANDLE) -> HRESULT;
+    fn CloseHandle(handle: HANDLE);
+    fn GetCount(data: *const u8, length: DWORD) -> DWORD;
+}

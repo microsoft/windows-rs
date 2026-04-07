@@ -12,6 +12,7 @@ members = [
     "crates/tests/misc/*",
     "crates/tests/winrt/*",
     "crates/tests/libs/*",
+    "crates/tests/tools/*",
     "crates/tools/*",
 ]
 exclude = [

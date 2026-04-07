@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    struct POINT {
+        X: i32,
+        Y: i32,
+    }
+    struct RECT {
+        left: i32,
+        top: i32,
+        right: i32,
+        bottom: i32,
+    }
+    union LARGE_INTEGER {
+        u: *mut u8,
+        QuadPart: i64,
+    }
+}
