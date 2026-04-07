@@ -2271,6 +2271,11 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerBox<
         }
     }
 }
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DispatchedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(IAcceleratorKeyEventArgs, IAcceleratorKeyEventArgs_Vtbl, 0xff1c4c4a_9287_470b_836e_9086e3126ade);
 impl windows_core::RuntimeType for IAcceleratorKeyEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4971,6 +4976,11 @@ impl<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for IdleDispatchedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

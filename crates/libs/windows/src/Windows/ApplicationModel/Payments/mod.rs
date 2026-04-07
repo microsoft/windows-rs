@@ -1440,6 +1440,11 @@ impl<F: Fn(windows_core::Ref<PaymentRequest>, windows_core::Ref<PaymentRequestCh
         }
     }
 }
+impl<F: Fn(windows_core::Ref<PaymentRequest>, windows_core::Ref<PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for PaymentRequestChangedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentRequestChangedResult(windows_core::IUnknown);

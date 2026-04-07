@@ -169,6 +169,11 @@ impl<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send 
         }
     }
 }
+impl<F: Fn(windows_core::Ref<GameListEntry>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for GameListChangedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameListEntry(windows_core::IUnknown);
@@ -374,6 +379,11 @@ impl<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute(&identifier)).into()
         }
+    }
+}
+impl<F: Fn(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for GameListRemovedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

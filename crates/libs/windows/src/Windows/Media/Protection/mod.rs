@@ -109,6 +109,11 @@ impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<Componen
         }
     }
 }
+impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for ComponentLoadFailedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 pub struct ComponentRenewal;
 impl ComponentRenewal {
     pub fn RenewSystemComponentsAsync<P0>(information: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<RenewalStatus, u32>>
@@ -717,6 +722,11 @@ impl<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()
         }
     }
 }
+impl<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for RebootNeededEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RenewalStatus(pub i32);
@@ -985,5 +995,10 @@ impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ServiceR
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for ServiceRequestedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }

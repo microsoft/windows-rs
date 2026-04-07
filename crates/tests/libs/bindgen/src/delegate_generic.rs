@@ -169,3 +169,17 @@ impl<
         }
     }
 }
+impl<
+        T: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<T>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > From<windows_core::DelegateFn<F>> for EventHandler<T>
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}

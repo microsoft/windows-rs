@@ -2548,6 +2548,11 @@ impl<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> wind
         }
     }
 }
+impl<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for StorageProviderKnownFolderSyncRequestedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderKnownFolderSyncStatus(pub i32);

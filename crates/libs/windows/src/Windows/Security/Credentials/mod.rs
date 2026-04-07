@@ -92,6 +92,12 @@ impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> window
         }
     }
 }
+#[cfg(feature = "Storage_Streams")]
+impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static> From<windows_core::DelegateFn<F>> for AttestationChallengeHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChallengeResponseKind(pub i32);

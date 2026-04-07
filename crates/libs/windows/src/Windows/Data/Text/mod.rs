@@ -399,6 +399,11 @@ impl<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegmen
         }
     }
 }
+impl<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for SelectableWordSegmentsTokenizingHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SelectableWordsSegmenter(windows_core::IUnknown);
@@ -1074,6 +1079,11 @@ impl<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windo
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&precedingwords), core::mem::transmute_copy(&words)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for WordSegmentsTokenizingHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

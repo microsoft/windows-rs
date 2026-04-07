@@ -653,6 +653,11 @@ impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellatio
         }
     }
 }
+impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for BackgroundTaskCanceledEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTaskCancellationReason(pub i32);
@@ -780,6 +785,11 @@ impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<Back
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for BackgroundTaskCompletedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]
@@ -911,6 +921,11 @@ impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<Back
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for BackgroundTaskProgressEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

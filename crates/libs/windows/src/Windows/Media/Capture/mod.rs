@@ -7131,6 +7131,11 @@ impl<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailed
         }
     }
 }
+impl<F: Fn(windows_core::Ref<MediaCapture>, windows_core::Ref<MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for MediaCaptureFailedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureFocusChangedEventArgs(windows_core::IUnknown);
@@ -8079,6 +8084,11 @@ impl<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send +
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<MediaCapture>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for RecordLimitationExceededEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

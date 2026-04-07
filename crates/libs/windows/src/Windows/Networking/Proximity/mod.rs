@@ -99,6 +99,11 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Sen
         }
     }
 }
+impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DeviceArrivedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(DeviceDepartedEventHandler, DeviceDepartedEventHandler_Vtbl, 0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911);
 impl windows_core::RuntimeType for DeviceDepartedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -173,6 +178,11 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Sen
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DeviceDepartedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 windows_core::imp::define_interface!(IConnectionRequestedEventArgs, IConnectionRequestedEventArgs_Vtbl, 0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
@@ -444,6 +454,11 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessag
         }
     }
 }
+impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for MessageReceivedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(MessageTransmittedHandler, MessageTransmittedHandler_Vtbl, 0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e);
 impl windows_core::RuntimeType for MessageTransmittedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -518,6 +533,11 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> 
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), messageid).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for MessageTransmittedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

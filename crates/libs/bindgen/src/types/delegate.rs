@@ -176,6 +176,12 @@ impl Delegate {
                     }
                 }
             }
+            #cfg
+            impl<#constraints #fn_constraint> From<windows_core::DelegateFn<F>> for #name {
+                fn from(value: windows_core::DelegateFn<F>) -> Self {
+                    Self::new(value.0)
+                }
+            }
         }
     }
 

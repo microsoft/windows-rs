@@ -734,6 +734,11 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         }
     }
 }
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for MapChangedEventHandler<K, V> {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PropertySet(windows_core::IUnknown);
@@ -1146,5 +1151,10 @@ impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<IObservable
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&event)).into()
         }
+    }
+}
+impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for VectorChangedEventHandler<T> {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }

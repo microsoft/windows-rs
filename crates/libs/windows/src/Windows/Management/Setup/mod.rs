@@ -236,6 +236,11 @@ impl<F: Fn(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> w
         }
     }
 }
+impl<F: Fn(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DeploymentSessionHeartbeatRequested {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeploymentSessionHeartbeatRequestedEventArgs(windows_core::IUnknown);

@@ -304,6 +304,11 @@ impl<F: Fn(windows_core::Ref<CredentialCommand>) -> windows_core::Result<()> + S
         }
     }
 }
+impl<F: Fn(windows_core::Ref<CredentialCommand>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for CredentialCommandCredentialDeletedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(IAccountsSettingsPane, IAccountsSettingsPane_Vtbl, 0x81ea942c_4f09_4406_a538_838d9b14b7e6);
 impl windows_core::RuntimeType for IAccountsSettingsPane {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -954,6 +959,11 @@ impl<F: Fn(windows_core::Ref<WebAccountCommand>, windows_core::Ref<WebAccountInv
         }
     }
 }
+impl<F: Fn(windows_core::Ref<WebAccountCommand>, windows_core::Ref<WebAccountInvokedArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for WebAccountCommandInvokedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountInvokedArgs(windows_core::IUnknown);
@@ -1097,5 +1107,10 @@ impl<F: Fn(windows_core::Ref<WebAccountProviderCommand>) -> windows_core::Result
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&command)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<WebAccountProviderCommand>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for WebAccountProviderCommandInvokedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }

@@ -2048,6 +2048,11 @@ impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 's
         }
     }
 }
+impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for SmsDeviceStatusChangedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SmsEncodedLength {
@@ -2418,6 +2423,11 @@ impl<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEve
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for SmsMessageReceivedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

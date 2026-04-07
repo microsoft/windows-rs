@@ -572,6 +572,11 @@ impl<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 
         }
     }
 }
+impl<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for CallControlEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CameraOcclusionInfo(windows_core::IUnknown);
@@ -928,6 +933,11 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventA
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DialRequestedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]
@@ -3193,6 +3203,11 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventA
         }
     }
 }
+impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for KeypadPressedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LowLagPhotoControl(windows_core::IUnknown);
@@ -3894,6 +3909,11 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEven
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for RedialRequestedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

@@ -684,6 +684,11 @@ impl<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + S
         }
     }
 }
+impl<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for ApplicationDataSetVersionHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 pub struct CachedFileManager;
 impl CachedFileManager {
     #[cfg(feature = "Storage_Streams")]
@@ -5766,6 +5771,12 @@ impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<(
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&stream)).into()
         }
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for StreamedFileDataRequestedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

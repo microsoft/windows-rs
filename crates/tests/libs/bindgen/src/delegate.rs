@@ -108,3 +108,10 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHand
         }
     }
 }
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>>
+    for DeferralCompletedHandler
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}

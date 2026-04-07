@@ -249,6 +249,11 @@ impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextConn
         }
     }
 }
+impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> From<windows_core::DelegateFn<F>> for RemoteTextConnectionDataHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteTextConnectionOptions(pub u32);

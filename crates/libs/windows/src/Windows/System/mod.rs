@@ -1270,6 +1270,11 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DispatcherQueueHandle
         }
     }
 }
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DispatcherQueueHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DispatcherQueuePriority(pub i32);

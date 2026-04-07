@@ -101,6 +101,12 @@ impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<supe
         }
     }
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for ActivatedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivatedOperation(windows_core::IUnknown);
@@ -241,6 +247,12 @@ impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<supe
         }
     }
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for BackgroundActivatedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -355,6 +367,12 @@ impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<supe
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+#[cfg(feature = "ApplicationModel")]
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for EnteredBackgroundEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[cfg(feature = "Graphics_Printing")]
@@ -983,6 +1001,12 @@ impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<supe
         }
     }
 }
+#[cfg(feature = "ApplicationModel")]
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for LeavingBackgroundEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(NavigatedEventHandler, NavigatedEventHandler_Vtbl, 0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
 impl windows_core::RuntimeType for NavigatedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1058,6 +1082,11 @@ impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<IWeb
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for NavigatedEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]
@@ -1197,6 +1226,11 @@ impl<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Resul
         }
     }
 }
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for ResumingEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1333,6 +1367,12 @@ impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<supe
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
         }
+    }
+}
+#[cfg(feature = "ApplicationModel")]
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for SuspendingEventHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[cfg(feature = "ApplicationModel")]

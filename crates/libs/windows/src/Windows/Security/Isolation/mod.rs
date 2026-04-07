@@ -74,6 +74,11 @@ impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorVi
         }
     }
 }
+impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for HostMessageReceivedCallback {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(IIsolatedWindowsEnvironment, IIsolatedWindowsEnvironment_Vtbl, 0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
 impl windows_core::RuntimeType for IIsolatedWindowsEnvironment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1862,5 +1867,10 @@ impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorVi
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute(&receiverid), core::mem::transmute_copy(&message)).into()
         }
+    }
+}
+impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for MessageReceivedCallback {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }

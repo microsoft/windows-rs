@@ -128,6 +128,16 @@ impl<
         }
     }
 }
+impl<
+        F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > From<windows_core::DelegateFn<F>> for AsyncActionCompletedHandler
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncActionProgressHandler<TProgress>(
@@ -300,6 +310,20 @@ impl<
         }
     }
 }
+impl<
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
+                windows_core::Ref<TProgress>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > From<windows_core::DelegateFn<F>> for AsyncActionProgressHandler<TProgress>
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncActionWithProgressCompletedHandler<TProgress>(
@@ -453,6 +477,20 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
+    }
+}
+impl<
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
+                AsyncStatus,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > From<windows_core::DelegateFn<F>> for AsyncActionWithProgressCompletedHandler<TProgress>
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]
@@ -611,6 +649,17 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
+    }
+}
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > From<windows_core::DelegateFn<F>> for AsyncOperationCompletedHandler<TResult>
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]
@@ -789,6 +838,21 @@ impl<
         }
     }
 }
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
+                windows_core::Ref<TProgress>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > From<windows_core::DelegateFn<F>> for AsyncOperationProgressHandler<TResult, TProgress>
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(
@@ -958,6 +1022,22 @@ impl<
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&asyncinfo), asyncstatus).into()
         }
+    }
+}
+impl<
+        TResult: windows_core::RuntimeType + 'static,
+        TProgress: windows_core::RuntimeType + 'static,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
+                AsyncStatus,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > From<windows_core::DelegateFn<F>>
+    for AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

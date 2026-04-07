@@ -1198,6 +1198,11 @@ impl<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> +
         }
     }
 }
+impl<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DataProviderHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataProviderRequest(windows_core::IUnknown);
@@ -2450,6 +2455,11 @@ impl<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&operation)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for ShareProviderHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

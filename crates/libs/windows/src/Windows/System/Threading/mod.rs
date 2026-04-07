@@ -228,6 +228,11 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
         }
     }
 }
+impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for TimerDestroyedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(TimerElapsedHandler, TimerElapsedHandler_Vtbl, 0xfaaea667_fbeb_49cb_adb2_71184c556e43);
 impl windows_core::RuntimeType for TimerElapsedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -304,6 +309,11 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
         }
     }
 }
+impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for TimerElapsedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 windows_core::imp::define_interface!(WorkItemHandler, WorkItemHandler_Vtbl, 0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa);
 impl windows_core::RuntimeType for WorkItemHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -378,6 +388,11 @@ impl<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Res
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&operation)).into()
         }
+    }
+}
+impl<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for WorkItemHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]

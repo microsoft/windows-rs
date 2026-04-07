@@ -1,6 +1,6 @@
 use core::convert::*;
 
-use windows::core::Interface;
+use windows::core::{DelegateFn, Interface};
 use windows::{Foundation::Collections::*, Foundation::*};
 use windows_future::*;
 
@@ -22,8 +22,6 @@ fn non_generic() -> windows::core::Result<()> {
         Ok(())
     });
 
-    // TODO: delegates are function objects (logically) and we should be able
-    // to call them without an explicit `invoke` method e.g. `d(args);`
     d.Invoke(None, AsyncStatus::Completed)?;
 
     assert!(rx.recv().unwrap());
@@ -65,13 +63,8 @@ fn event() -> windows::core::Result<()> {
     let (tx, rx) = std::sync::mpsc::channel();
 
     let set_clone = set.clone();
-    // TODO: Should be able to elide the delegate construction and simply say:
-    // set.MapChanged(|sender, args| {...})?;
-    set.MapChanged(&MapChangedEventHandler::<
-        windows::core::HSTRING,
-        windows::core::IInspectable,
-    >::new(move |_, args| {
-        let args = args.as_ref().unwrap();
+    set.MapChanged(DelegateFn(move |_, args| {
+        let args: &IMapChangedEventArgs<windows::core::HSTRING> = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
         let _: IObservableMap<windows::core::HSTRING, windows::core::IInspectable> = set.cast()?;

@@ -13,6 +13,9 @@ where
     unsafe fn param(self) -> ParamValue<T>;
 }
 
+/// A closure that can be used as a delegate parameter.
+pub struct DelegateFn<F>(pub F);
+
 impl<T> Param<T> for Option<&T>
 where
     T: Type<T>,
@@ -72,5 +75,15 @@ where
 {
     unsafe fn param(self) -> ParamValue<T> {
         unsafe { ParamValue::Owned(transmute_copy(&self)) }
+    }
+}
+
+impl<D, F> Param<D> for DelegateFn<F>
+where
+    D: Interface,
+    D: From<DelegateFn<F>>,
+{
+    unsafe fn param(self) -> ParamValue<D> {
+        ParamValue::Owned(D::from(self))
     }
 }

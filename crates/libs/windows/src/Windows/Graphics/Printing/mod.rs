@@ -2141,6 +2141,11 @@ impl<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Res
         }
     }
 }
+impl<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for PrintTaskSourceRequestedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 pub struct StandardPrintTaskOptions;
 impl StandardPrintTaskOptions {
     pub fn MediaSize() -> windows_core::Result<windows_core::HSTRING> {

@@ -130,6 +130,11 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHand
         }
     }
 }
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for DeferralCompletedHandler {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EventHandler<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -224,6 +229,11 @@ impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<windows_cor
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
+    }
+}
+impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for EventHandler<T> {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 pub struct GuidHelper;
@@ -2549,6 +2559,11 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
         }
+    }
+}
+impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static> From<windows_core::DelegateFn<F>> for TypedEventHandler<TSender, TResult> {
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
     }
 }
 #[repr(transparent)]
