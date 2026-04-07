@@ -374,7 +374,9 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<RdlSt
     let mut fields = vec![];
     for (i, child) in entity.get_children().iter().enumerate() {
         if child.get_kind() == EntityKind::FieldDecl {
-            let field_name = child.get_name().unwrap_or_else(|| format!("field{i}"));
+            let field_name = child
+                .get_name()
+                .unwrap_or_else(|| format!("field_{}", i + 1));
             if let Some(ty) = child.get_type() {
                 fields.push((field_name, map_type(&ty)));
             }
@@ -434,7 +436,7 @@ fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
     let mut params = vec![];
     for (i, child) in entity.get_children().iter().enumerate() {
         if child.get_kind() == EntityKind::ParmDecl {
-            let pname = child.get_name().unwrap_or_else(|| format!("p{i}"));
+            let pname = child.get_name().unwrap_or_else(|| format!("p_{}", i + 1));
             if let Some(pty) = child.get_type() {
                 params.push((pname, map_type(&pty)));
             }
@@ -474,7 +476,7 @@ fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
         let mut params = vec![];
         for (i, p) in child.get_children().iter().enumerate() {
             if p.get_kind() == EntityKind::ParmDecl {
-                let pname = p.get_name().unwrap_or_else(|| format!("p{i}"));
+                let pname = p.get_name().unwrap_or_else(|| format!("p_{}", i + 1));
                 if let Some(pty) = p.get_type() {
                     params.push((pname, map_type(&pty)));
                 }
@@ -560,7 +562,10 @@ fn map_type(ty: &clang::Type) -> String {
 }
 
 fn map_pointer(ty: &clang::Type) -> String {
-    let inner = ty.get_pointee_type().unwrap();
+    let inner = match ty.get_pointee_type() {
+        Some(t) => t,
+        None => return "*mut u8".into(),
+    };
     let is_const = inner.is_const_qualified();
 
     match inner.get_kind() {
