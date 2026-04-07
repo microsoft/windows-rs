@@ -26,7 +26,6 @@ fn test() -> Result<()> {
     assert_eq!(0, class.Signal(3)?);
 
     class.Event(&TypedEventHandler::new(
-        // TODO: ideally generics also use Ref<T> here
         move |sender: Ref<Class>, args: Ref<i32>| {
             assert_eq!(sender.as_ref().unwrap(), class);
             assert_eq!(*args, 4);
