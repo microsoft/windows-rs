@@ -78,7 +78,7 @@ where
     where
         Self: 'b,
     {
-        &**param
+        param
     }
 }
 
@@ -120,7 +120,7 @@ where
     where
         Self: 'b,
     {
-        &**param
+        param
     }
 }
 
