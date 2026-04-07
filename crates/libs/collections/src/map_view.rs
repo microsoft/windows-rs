@@ -36,7 +36,10 @@ where
     V::Default: Clone,
 {
     fn Lookup(&self, key: ImplParam<'_, K>) -> Result<V> {
-        let value = self.map.get(K::param_as_default(&key)).ok_or_else(|| Error::from(E_BOUNDS))?;
+        let value = self
+            .map
+            .get(K::param_as_default(&key))
+            .ok_or_else(|| Error::from(E_BOUNDS))?;
 
         V::from_default(value)
     }

@@ -50,7 +50,10 @@ where
     }
     fn IndexOf(&self, value: ImplParam<'_, T>, result: &mut u32) -> Result<bool> {
         let reader = self.0.read().unwrap();
-        match reader.iter().position(|element| element == T::param_as_default(&value)) {
+        match reader
+            .iter()
+            .position(|element| element == T::param_as_default(&value))
+        {
             Some(index) => {
                 *result = index as u32;
                 Ok(true)

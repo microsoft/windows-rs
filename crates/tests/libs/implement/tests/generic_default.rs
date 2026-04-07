@@ -28,7 +28,11 @@ where
     }
 
     fn IndexOf(&self, value: ImplParam<'_, T>, result: &mut u32) -> Result<bool> {
-        match self.0.iter().position(|element| element == T::param_as_default(&value)) {
+        match self
+            .0
+            .iter()
+            .position(|element| element == T::param_as_default(&value))
+        {
             Some(index) => {
                 *result = index as u32;
                 Ok(true)
