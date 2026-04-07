@@ -2,27 +2,54 @@ use windows::core::*;
 use windows_collections::*;
 
 #[implement(
-    IIterable<i32>,
-    IIterable<HSTRING>,
+    IIterator<i32>,
+    IIterator<HSTRING>,
 )]
 struct Thing();
 
-impl IIterable_Impl<i32> for Thing_Impl {
-    fn First(&self) -> Result<IIterator<i32>> {
-        panic!();
+impl IIterator_Impl<i32> for Thing_Impl {
+    fn Current(&self) -> Result<i32> {
+        Ok(123)
+    }
+
+    fn HasCurrent(&self) -> Result<bool> {
+        Ok(true)
+    }
+
+    fn MoveNext(&self) -> Result<bool> {
+        Ok(false)
+    }
+
+    fn GetMany(&self, _items: &mut [i32]) -> Result<u32> {
+        Ok(0)
     }
 }
 
-impl IIterable_Impl<HSTRING> for Thing_Impl {
-    fn First(&self) -> Result<IIterator<HSTRING>> {
-        panic!();
+impl IIterator_Impl<HSTRING> for Thing_Impl {
+    fn Current(&self) -> Result<HSTRING> {
+        Ok("hello".into())
+    }
+
+    fn HasCurrent(&self) -> Result<bool> {
+        Ok(true)
+    }
+
+    fn MoveNext(&self) -> Result<bool> {
+        Ok(false)
+    }
+
+    fn GetMany(&self, _items: &mut [HSTRING]) -> Result<u32> {
+        Ok(0)
     }
 }
 
 #[test]
 fn test_implement() -> Result<()> {
-    let a: IIterable<i32> = Thing().into();
-    let _: IIterable<HSTRING> = a.cast()?;
+    let a: IIterator<i32> = Thing().into();
+    assert_eq!(a.Current()?, 123);
+
+    let b: IIterator<HSTRING> = a.cast()?;
+    assert_eq!(b.Current()?, "hello");
 
     Ok(())
 }
