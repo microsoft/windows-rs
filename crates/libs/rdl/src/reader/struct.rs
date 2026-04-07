@@ -83,6 +83,9 @@ impl Encoder<'_> {
         for field in fields {
             let field_name = field.name.to_string();
             let mt = self.encode_type(&field.ty)?;
+            if winrt {
+                self.validate_type_is_winrt(&field.ty, &mt)?;
+            }
             let field_id = self
                 .output
                 .Field(&field_name, &mt, metadata::FieldAttributes::Public);

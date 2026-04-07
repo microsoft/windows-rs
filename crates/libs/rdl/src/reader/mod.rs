@@ -824,6 +824,59 @@ impl Encoder<'_> {
             _ => Ok(metadata::Type::Void),
         }
     }
+
+    /// Validates that a resolved `metadata::Type` is a WinRT-compatible type.
+    ///
+    /// WinRT types may not refer to non-WinRT types in fields, parameters, return types,
+    /// or anywhere else.  Primitive types and generic type parameters are always valid.
+    /// Named types (structs, enums, interfaces, …) are checked against the local index
+    /// first, then against any loaded reference metadata.
+    fn validate_type_is_winrt<S: syn::spanned::Spanned + quote::ToTokens>(
+        &self,
+        span: &S,
+        ty: &metadata::Type,
+    ) -> Result<(), Error> {
+        match ty {
+            metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
+                // Recursively validate generic type arguments.
+                for generic_ty in &tn.generics {
+                    self.validate_type_is_winrt(span, generic_ty)?;
+                }
+
+                // Check the local RDL index first.
+                if let Some(is_winrt) = self.index.is_winrt(&tn.namespace, &tn.name) {
+                    if !is_winrt {
+                        return self.err(span, "WinRT types cannot refer to non-WinRT types");
+                    }
+                } else if let Some(reference) = self.output.reference() {
+                    // Fall back to the external reference metadata.
+                    if let Some(def) = reference.get(&tn.namespace, &tn.name).next() {
+                        if !def
+                            .flags()
+                            .contains(metadata::TypeAttributes::WindowsRuntime)
+                        {
+                            return self.err(span, "WinRT types cannot refer to non-WinRT types");
+                        }
+                    }
+                    // If the type isn't found in the reference either it is a hard-coded
+                    // system alias (e.g. System.Guid) and is considered WinRT-compatible.
+                }
+            }
+            metadata::Type::PtrMut(inner, _) | metadata::Type::PtrConst(inner, _) => {
+                self.validate_type_is_winrt(span, inner)?;
+            }
+            metadata::Type::RefMut(inner) | metadata::Type::RefConst(inner) => {
+                self.validate_type_is_winrt(span, inner)?;
+            }
+            metadata::Type::Array(inner) | metadata::Type::ArrayFixed(inner, _) => {
+                self.validate_type_is_winrt(span, inner)?;
+            }
+            // Primitives (Bool, I8, U8, …), String, Object, Void, Generic, … are always OK.
+            _ => {}
+        }
+
+        Ok(())
+    }
 }
 
 /// Builds a `syn::Signature` with all the optional fields (`constness`, `asyncness`,
@@ -972,4 +1025,174 @@ mod Other {
         .output(&output.to_string_lossy())
         .write()
         .unwrap();
+}
+
+/// A WinRT struct must not have a field whose type is a non-WinRT (Win32) struct.
+#[test]
+fn winrt_struct_field_non_winrt_type_errors() {
+    let output =
+        std::env::temp_dir().join("windows_rdl_winrt_struct_field_non_winrt_type_errors.winmd");
+
+    let err = reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    struct WinRtPoint {
+        a: Win32Rect,
+    }
+}
+
+#[win32]
+mod Test {
+    struct Win32Rect {
+        x: i32,
+        y: i32,
+        w: i32,
+        h: i32,
+    }
+}
+"#,
+        )
+        .output(&output.to_string_lossy())
+        .write()
+        .unwrap_err();
+
+    assert!(
+        err.message
+            .contains("WinRT types cannot refer to non-WinRT types"),
+        "unexpected error: {err}"
+    );
+}
+
+/// A Win32 struct is allowed to have a field of a WinRT type.
+#[test]
+fn win32_struct_field_winrt_type_ok() {
+    let output = std::env::temp_dir().join("windows_rdl_win32_struct_field_winrt_type_ok.winmd");
+
+    reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    struct WinRtPoint {
+        x: i32,
+        y: i32,
+    }
+}
+
+#[win32]
+mod Test {
+    struct Win32Wrapper {
+        inner: WinRtPoint,
+    }
+}
+"#,
+        )
+        .output(&output.to_string_lossy())
+        .write()
+        .unwrap();
+}
+
+/// A WinRT interface method must not use a non-WinRT type as a parameter.
+#[test]
+fn winrt_interface_method_param_non_winrt_type_errors() {
+    let output = std::env::temp_dir()
+        .join("windows_rdl_winrt_interface_method_param_non_winrt_type_errors.winmd");
+
+    let err = reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn DoThing(&self, value: Win32Type) -> i32;
+    }
+}
+
+#[win32]
+mod Test {
+    struct Win32Type {
+        x: i32,
+    }
+}
+"#,
+        )
+        .output(&output.to_string_lossy())
+        .write()
+        .unwrap_err();
+
+    assert!(
+        err.message
+            .contains("WinRT types cannot refer to non-WinRT types"),
+        "unexpected error: {err}"
+    );
+}
+
+/// A WinRT interface method must not return a non-WinRT type.
+#[test]
+fn winrt_interface_method_return_non_winrt_type_errors() {
+    let output = std::env::temp_dir()
+        .join("windows_rdl_winrt_interface_method_return_non_winrt_type_errors.winmd");
+
+    let err = reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn GetThing(&self) -> Win32Type;
+    }
+}
+
+#[win32]
+mod Test {
+    struct Win32Type {
+        x: i32,
+    }
+}
+"#,
+        )
+        .output(&output.to_string_lossy())
+        .write()
+        .unwrap_err();
+
+    assert!(
+        err.message
+            .contains("WinRT types cannot refer to non-WinRT types"),
+        "unexpected error: {err}"
+    );
+}
+
+/// A WinRT delegate must not use a non-WinRT type as a parameter.
+#[test]
+fn winrt_delegate_param_non_winrt_type_errors() {
+    let output =
+        std::env::temp_dir().join("windows_rdl_winrt_delegate_param_non_winrt_type_errors.winmd");
+
+    let err = reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    delegate fn MyDelegate(value: Win32Type);
+}
+
+#[win32]
+mod Test {
+    struct Win32Type {
+        x: i32,
+    }
+}
+"#,
+        )
+        .output(&output.to_string_lossy())
+        .write()
+        .unwrap_err();
+
+    assert!(
+        err.message
+            .contains("WinRT types cannot refer to non-WinRT types"),
+        "unexpected error: {err}"
+    );
 }

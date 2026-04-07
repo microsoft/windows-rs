@@ -80,4 +80,24 @@ impl<'a> Index<'a> {
             .and_then(|v| v.first()) // TODO: should probably return an iterator instead
             .map(|(_, item)| *item)
     }
+
+    /// Returns `Some(true)` if the named type is a WinRT type in the local index,
+    /// `Some(false)` if it is non-WinRT, or `None` if the type is not in the local index.
+    pub fn is_winrt(&self, namespace: &str, name: &str) -> Option<bool> {
+        self.namespaces
+            .get(namespace)
+            .and_then(|ns| ns.types.get(name))
+            .and_then(|v| v.first())
+            .map(|(_, item)| match item {
+                Item::Struct(s) => s.winrt,
+                Item::Enum(e) => e.winrt,
+                Item::Interface(i) => i.winrt,
+                Item::Attribute(a) => a.winrt,
+                // Delegates and classes are always WinRT.
+                Item::Delegate(_) | Item::Class(_) => true,
+                // Unions and callbacks are always non-WinRT.
+                Item::Union(_) | Item::Callback(_) => false,
+                Item::Fn(_) | Item::Const(_) | Item::Module(_) => false,
+            })
+    }
 }

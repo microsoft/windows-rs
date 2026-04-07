@@ -141,13 +141,23 @@ impl Encoder<'_> {
                         if sequence == 0 {
                             return self.err(arg, "`&self` parameter not found");
                         }
-                        params.push(self.param(pt)?);
+                        let p = self.param(pt)?;
+                        if item.winrt {
+                            self.validate_type_is_winrt(&pt.ty, &p.ty)?;
+                        }
+                        params.push(p);
                     }
                 }
             }
 
             let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
             let return_type = self.encode_return_type(&method.sig.output)?;
+
+            if item.winrt {
+                if let syn::ReturnType::Type(_, return_syn_ty) = &method.sig.output {
+                    self.validate_type_is_winrt(return_syn_ty.as_ref(), &return_type)?;
+                }
+            }
 
             if !already_has_guid {
                 method_signatures.push((
