@@ -46,8 +46,7 @@ fn generic() -> windows::core::Result<()> {
     let d = Handler::new(move |_, port| {
         tx.send(true).unwrap();
 
-        // TODO: ideally primitives would be passed by value
-        assert!(*port == 80);
+        assert!(port == 80);
         Ok(())
     });
 
