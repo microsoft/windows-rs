@@ -127,6 +127,13 @@ impl<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F> {
         }
     }
 }
+impl<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static> From<windows_core::DelegateFn<F>>
+    for Callback
+{
+    fn from(value: windows_core::DelegateFn<F>) -> Self {
+        Self::new(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Class(windows_core::IUnknown);
