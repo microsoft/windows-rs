@@ -65,8 +65,15 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "18"
+      - name: Set LIBCLANG_PATH
+        run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
+        shell: bash
       - name: Test
-        run:  cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc --exclude test_header2rdl
+        run:  cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc
       - name: Check diff
         shell: bash
         run: |
