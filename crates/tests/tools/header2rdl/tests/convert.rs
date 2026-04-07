@@ -18,7 +18,7 @@ fn convert() {
         .flatten()
         .filter_map(|e| {
             let p = e.path();
-            if p.extension().map_or(false, |ext| ext == "h") {
+            if p.extension().is_some_and(|ext| ext == "h") {
                 Some(p)
             } else {
                 None
