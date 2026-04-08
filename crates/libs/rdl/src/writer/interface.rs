@@ -6,7 +6,10 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
 
     let (generics, generics_tokens) = write_generic_params(item);
 
-    let members = write_members(namespace, item, &generics)?;
+    let is_winrt = item
+        .flags()
+        .contains(metadata::TypeAttributes::WindowsRuntime);
+    let members = write_members(namespace, item, &generics, is_winrt)?;
 
     let requires: Vec<_> = item.interface_impls().collect();
 
@@ -45,10 +48,16 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
 
 /// Emit all interface members, converting SpecialName method pairs/singles into
 /// the simplified property and event shorthand syntax where possible.
+///
+/// The shorthand is only used for WinRT interfaces. Win32 COM-style property
+/// methods have a raw ABI layout (e.g. `get_X` returns `HRESULT` with an
+/// `[out][retval]` parameter) that does not map cleanly to the shorthand, so
+/// they are always written as explicit `#[special] fn` methods.
 fn write_members(
     namespace: &str,
     item: &metadata::reader::TypeDef,
     generics: &[metadata::Type],
+    is_winrt: bool,
 ) -> Result<Vec<TokenStream>, Error> {
     let methods: Vec<_> = item.methods().collect();
     let count = methods.len();
@@ -63,9 +72,14 @@ fn write_members(
 
         let method = &methods[i];
 
-        if method
-            .flags()
-            .contains(metadata::MethodAttributes::SpecialName)
+        // Only use simplified property/event shorthand for WinRT interfaces.
+        // Win32 COM-style property methods use a raw ABI layout (get_X returns
+        // HRESULT with an [out][retval] param) that does not map cleanly to the
+        // shorthand, so they are always written as explicit `#[special] fn` methods.
+        if is_winrt
+            && method
+                .flags()
+                .contains(metadata::MethodAttributes::SpecialName)
         {
             let name = method.name();
 
