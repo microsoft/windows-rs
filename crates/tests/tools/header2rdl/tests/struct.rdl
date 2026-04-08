@@ -10,12 +10,12 @@ mod Test {
         right: i32,
         bottom: i32,
     }
-    struct LARGE_INTEGER_u {
+    struct LARGE_INTEGER_0 {
         LowPart: u32,
         HighPart: i32,
     }
     union LARGE_INTEGER {
-        u: LARGE_INTEGER_u,
+        u: LARGE_INTEGER_0,
         QuadPart: i64,
     }
 }

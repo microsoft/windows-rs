@@ -413,6 +413,10 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
 
     let mut fields = vec![];
     let mut nested: Vec<RdlStruct> = vec![];
+    // Track the 0-based index of anonymous nested types to match the numeric-
+    // suffix naming scheme used by windows-bindgen and the windows-rdl writer:
+    // OUTER_0, OUTER_1, OUTER_0_0, etc.
+    let mut nested_index: usize = 0;
 
     for (i, child) in entity.get_children().iter().enumerate() {
         if child.get_kind() == EntityKind::FieldDecl {
@@ -427,13 +431,16 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
                 let canonical = ty.get_canonical_type();
                 if display.starts_with('(') && canonical.get_kind() == TypeKind::Record {
                     if let Some(decl) = canonical.get_declaration() {
-                        let nested_name = format!("{}_{}", name, field_name);
+                        // Use numeric suffix matching windows-bindgen/windows-rdl convention:
+                        // OUTER_0, OUTER_1, OUTER_0_0, ...
+                        let nested_name = format!("{}_{}", name, nested_index);
                         let is_nested_union = decl.get_kind() == EntityKind::UnionDecl;
                         if let Some(nested_structs) =
                             collect_struct(&decl, nested_name.clone(), is_nested_union)
                         {
                             fields.push((field_name, nested_name));
                             nested.extend(nested_structs);
+                            nested_index += 1;
                             continue;
                         }
                     }
