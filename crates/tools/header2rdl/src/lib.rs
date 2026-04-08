@@ -228,7 +228,7 @@ fn generate(c: &Converter) -> Result<String, String> {
                     .unwrap_or_default();
                 let line = loc.line;
                 let col = loc.column;
-                format!("error: {}\n --> {file}:{line}:{col}", d.get_text())
+                format!("error: {}\n --> \"{file}\":{line}:{col}", d.get_text())
             })
             .collect();
         if !errors.is_empty() {

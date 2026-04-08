@@ -19,7 +19,7 @@ fn should_panic(header: &str) {
 }
 
 #[test]
-#[should_panic(expected = "error: unknown type name 'typodef'\\n --> ")]
+#[should_panic(expected = "error: unknown type name 'typodef'\\n --> \\\"")]
 fn typo_in_typedef_errors() {
     should_panic("typodef int FOO;\n");
 }
