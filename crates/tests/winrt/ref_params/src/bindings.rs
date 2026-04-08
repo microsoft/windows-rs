@@ -65,7 +65,7 @@ impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
 pub trait ITest_Impl: windows_core::IUnknownImpl {
-    fn Input(&self, input: windows_core::Ref<ITest>) -> windows_core::Result<i32>;
+    fn Input(&self, input: Option<&ITest>) -> windows_core::Result<i32>;
     fn Output(&self, value: i32, output: windows_core::OutRef<ITest>) -> windows_core::Result<()>;
     fn Current(&self) -> windows_core::Result<i32>;
     fn SetCurrent(&self, value: i32) -> windows_core::Result<()>;
@@ -80,7 +80,7 @@ impl ITest_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITest_Impl::Input(this, core::mem::transmute_copy(&input)) {
+                match ITest_Impl::Input(this, windows_core::Ref::option_from_abi(&input)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)

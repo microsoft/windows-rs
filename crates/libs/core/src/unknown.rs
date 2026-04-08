@@ -119,9 +119,9 @@ pub trait IUnknownImpl {
     /// Gets a borrowed reference to an interface that is implemented by this ComObject.
     ///
     /// The returned reference does not have an additional reference count.
-    /// You can AddRef it by calling to_owned().
+    /// You can AddRef it by calling [`Clone::clone`].
     #[inline(always)]
-    fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
+    fn as_interface<I: Interface>(&self) -> &I
     where
         Self: ComObjectInterface<I>,
     {
@@ -134,7 +134,7 @@ pub trait IUnknownImpl {
     where
         Self: ComObjectInterface<I>,
     {
-        <Self as ComObjectInterface<I>>::as_interface_ref(self).to_owned()
+        <Self as ComObjectInterface<I>>::as_interface_ref(self).clone()
     }
 
     /// Creates a new owned reference to this object.

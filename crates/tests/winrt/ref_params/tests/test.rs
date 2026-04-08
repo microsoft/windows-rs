@@ -7,8 +7,11 @@ use test_ref_params::*;
 struct Test(AtomicI32);
 
 impl ITest_Impl for Test_Impl {
-    fn Input(&self, input: Ref<ITest>) -> Result<i32> {
-        input.ok()?.Current()
+    fn Input(&self, input: Option<&ITest>) -> Result<i32> {
+        input.map_or_else(
+            || Err(Error::from_hresult(HRESULT(-2147467261))),
+            |i| i.Current(),
+        )
     }
     fn Output(&self, value: i32, output: OutRef<ITest>) -> Result<()> {
         output.write(Some(Test(value.into()).into()))

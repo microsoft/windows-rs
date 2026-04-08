@@ -655,7 +655,7 @@ impl CppMethod {
                             }
                         }
                         ParamHint::IntoParam => {
-                            quote! { #name.param().abi(), }
+                            quote! { core::mem::transmute_copy(&#name.param().borrow()), }
                         }
                         ParamHint::Optional => {
                             if matches!(param.ty, Type::CppDelegate(..)) {
@@ -733,7 +733,7 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
 
     if param.is_input() && param.is_interface() {
         let type_name = param.write_name(config);
-        quote! { #name: windows_core::Ref<#type_name>, }
+        quote! { #name: Option<&#type_name>, }
     } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
         let type_name = param.deref().write_name(config);
         quote! { #name: windows_core::OutRef<#type_name>, }
@@ -752,7 +752,7 @@ fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
     let name = param.write_ident();
 
     if param.is_input() && param.is_interface() {
-        quote! { core::mem::transmute_copy(&#name) }
+        quote! { windows_core::Ref::option_from_abi(&#name) }
     } else if (!param.is_pointer() && param.is_interface())
         || (param.is_input() && !param.is_primitive(reader))
     {

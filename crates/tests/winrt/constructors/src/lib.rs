@@ -62,7 +62,7 @@ impl IActivationFactory_Impl for ComposableFactory_Impl {
 impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
     fn CreateInstance(
         &self,
-        base: Ref<windows_core::IInspectable>,
+        base: Option<&windows_core::IInspectable>,
         inner: OutRef<windows_core::IInspectable>,
     ) -> Result<bindings::Composable> {
         // windows-rs doesn't support binary composition
@@ -77,7 +77,7 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
     fn WithValue(
         &self,
         arg: i32,
-        base: Ref<windows_core::IInspectable>,
+        base: Option<&windows_core::IInspectable>,
         inner: OutRef<windows_core::IInspectable>,
     ) -> Result<bindings::Composable> {
         // windows-rs doesn't support binary composition

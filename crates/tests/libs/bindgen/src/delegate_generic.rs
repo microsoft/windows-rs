@@ -25,10 +25,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
 }
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<
-        F: Fn(
-                windows_core::Ref<windows_core::IInspectable>,
-                windows_core::Ref<T>,
-            ) -> windows_core::Result<()>
+        F: Fn(Option<&windows_core::IInspectable>, Option<&T>) -> windows_core::Result<()>
             + Send
             + 'static,
     >(
@@ -50,8 +47,8 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
         unsafe {
             (windows_core::Interface::vtable(this).Invoke)(
                 windows_core::Interface::as_raw(this),
-                sender.param().abi(),
-                args.param().abi(),
+                core::mem::transmute_copy(&sender.param().borrow()),
+                core::mem::transmute_copy(&args.param().borrow()),
             )
             .ok()
         }
@@ -74,10 +71,7 @@ where
 #[repr(C)]
 struct EventHandlerBox<
     T,
-    F: Fn(
-            windows_core::Ref<windows_core::IInspectable>,
-            windows_core::Ref<T>,
-        ) -> windows_core::Result<()>
+    F: Fn(Option<&windows_core::IInspectable>, Option<&T>) -> windows_core::Result<()>
         + Send
         + 'static,
 > where
@@ -89,10 +83,7 @@ struct EventHandlerBox<
 }
 impl<
         T: windows_core::RuntimeType + 'static,
-        F: Fn(
-                windows_core::Ref<windows_core::IInspectable>,
-                windows_core::Ref<T>,
-            ) -> windows_core::Result<()>
+        F: Fn(Option<&windows_core::IInspectable>, Option<&T>) -> windows_core::Result<()>
             + Send
             + 'static,
     > EventHandlerBox<T, F>
@@ -162,8 +153,8 @@ impl<
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(
-                core::mem::transmute_copy(&sender),
-                core::mem::transmute_copy(&args),
+                windows_core::Ref::option_from_abi(&sender),
+                windows_core::Ref::option_from_abi(&args),
             )
             .into()
         }

@@ -35,7 +35,7 @@ impl bindings::IClassStatics_Impl for ClassFactory_Impl {
         Ok(counter)
     }
 
-    fn StaticEvent(&self, handler: Ref<EventHandler<i32>>) -> Result<i64> {
+    fn StaticEvent(&self, handler: Option<&EventHandler<i32>>) -> Result<i64> {
         self.0.add(handler.unwrap())
     }
 
@@ -66,7 +66,7 @@ impl bindings::IClass_Impl for Class_Impl {
 
     fn Event(
         &self,
-        handler: Ref<TypedEventHandler<bindings::Class, i32>>,
+        handler: Option<&TypedEventHandler<bindings::Class, i32>>,
     ) -> windows_core::Result<i64> {
         self.0.add(handler.unwrap())
     }

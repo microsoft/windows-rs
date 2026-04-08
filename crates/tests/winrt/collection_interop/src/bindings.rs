@@ -69,7 +69,7 @@ impl windows_core::RuntimeName for ITest {
 pub trait ITest_Impl: windows_core::IUnknownImpl {
     fn TestIterable(
         &self,
-        collection: windows_core::Ref<windows_collections::IIterable<i32>>,
+        collection: Option<&windows_collections::IIterable<i32>>,
         values: &[i32],
     ) -> windows_core::Result<()>;
     fn GetIterable(
@@ -96,7 +96,7 @@ impl ITest_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITest_Impl::TestIterable(
                     this,
-                    core::mem::transmute_copy(&collection),
+                    windows_core::Ref::option_from_abi(&collection),
                     core::slice::from_raw_parts(
                         core::mem::transmute_copy(&values),
                         values_array_size as usize,

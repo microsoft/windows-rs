@@ -89,7 +89,7 @@ impl IPersistFile {
         unsafe {
             (windows_core::Interface::vtable(self).Save)(
                 windows_core::Interface::as_raw(self),
-                pszfilename.param().abi(),
+                core::mem::transmute_copy(&pszfilename.param().borrow()),
                 fremember.into(),
             )
             .ok()
@@ -102,7 +102,7 @@ impl IPersistFile {
         unsafe {
             (windows_core::Interface::vtable(self).SaveCompleted)(
                 windows_core::Interface::as_raw(self),
-                pszfilename.param().abi(),
+                core::mem::transmute_copy(&pszfilename.param().borrow()),
             )
             .ok()
         }

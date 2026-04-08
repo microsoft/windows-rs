@@ -5,6 +5,19 @@ use core::mem::transmute;
 #[repr(transparent)]
 pub struct Ref<'a, T: Type<T>>(T::Abi, core::marker::PhantomData<&'a T>);
 
+impl<'a, T: Type<T>> Ref<'a, T> {
+    /// Converts a reference to a `T::Abi` value into an `Option<&T>`.
+    ///
+    /// # Safety
+    ///
+    /// The caller must ensure that `abi` points to a valid `T::Abi` value for the duration of the returned reference.
+    #[doc(hidden)]
+    pub unsafe fn option_from_abi(abi: &'a T::Abi) -> Option<&'a T> {
+        let ref_: &'a Self = unsafe { &*(abi as *const T::Abi as *const Self) };
+        ref_.as_ref()
+    }
+}
+
 impl<T: Type<T>> Ref<'_, T> {
     /// Returns `true` if the argument is null.
     pub fn is_null(&self) -> bool {

@@ -408,7 +408,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(
                 windows_core::Interface::as_raw(this),
-                value.param().abi(),
+                core::mem::transmute_copy(&value.param().borrow()),
                 index,
                 &mut result__,
             )
@@ -468,7 +468,7 @@ where
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
+    fn IndexOf(&self, value: Option<&T>, index: &mut u32) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
         startIndex: u32,
@@ -534,7 +534,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVectorView_Impl::IndexOf(
                     this,
-                    core::mem::transmute_copy(&value),
+                    windows_core::Ref::option_from_abi(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
@@ -822,7 +822,7 @@ impl WwwFormUrlDecoder {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(
                 windows_core::Interface::as_raw(this),
-                value.param().abi(),
+                core::mem::transmute_copy(&value.param().borrow()),
                 index,
                 &mut result__,
             )

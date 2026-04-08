@@ -38,7 +38,7 @@ impl Deferral {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(
                 windows_core::Interface::as_raw(this),
-                handler.param().abi(),
+                core::mem::transmute_copy(&handler.param().borrow()),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))

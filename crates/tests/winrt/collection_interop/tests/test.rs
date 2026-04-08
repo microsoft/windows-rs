@@ -9,8 +9,11 @@ use windows_collections::*;
 struct Test;
 
 impl ITest_Impl for Test_Impl {
-    fn TestIterable(&self, collection: Ref<IIterable<i32>>, values: &[i32]) -> Result<()> {
-        let collection: Vec<i32> = collection.ok()?.into_iter().collect();
+    fn TestIterable(&self, collection: Option<&IIterable<i32>>, values: &[i32]) -> Result<()> {
+        let collection: Vec<i32> = collection
+            .ok_or_else(|| Error::from_hresult(HRESULT(-2147467261)))?
+            .into_iter()
+            .collect();
         assert_eq!(collection, values);
         Ok(())
     }

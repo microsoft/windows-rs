@@ -27,7 +27,7 @@ impl IDynamicConceptProviderConcept {
         unsafe {
             (windows_core::Interface::vtable(self).GetConcept)(
                 windows_core::Interface::as_raw(self),
-                contextobject.param().abi(),
+                core::mem::transmute_copy(&contextobject.param().borrow()),
                 conceptid,
                 core::mem::transmute(conceptinterface),
                 conceptmetadata.unwrap_or(core::mem::zeroed()) as _,
@@ -51,10 +51,10 @@ impl IDynamicConceptProviderConcept {
         unsafe {
             (windows_core::Interface::vtable(self).SetConcept)(
                 windows_core::Interface::as_raw(self),
-                contextobject.param().abi(),
+                core::mem::transmute_copy(&contextobject.param().borrow()),
                 conceptid,
-                conceptinterface.param().abi(),
-                conceptmetadata.param().abi(),
+                core::mem::transmute_copy(&conceptinterface.param().borrow()),
+                core::mem::transmute_copy(&conceptmetadata.param().borrow()),
             )
             .ok()
         }
@@ -66,7 +66,7 @@ impl IDynamicConceptProviderConcept {
         unsafe {
             (windows_core::Interface::vtable(self).NotifyParent)(
                 windows_core::Interface::as_raw(self),
-                parentmodel.param().abi(),
+                core::mem::transmute_copy(&parentmodel.param().borrow()),
             )
             .ok()
         }
@@ -78,7 +78,7 @@ impl IDynamicConceptProviderConcept {
         unsafe {
             (windows_core::Interface::vtable(self).NotifyParentChange)(
                 windows_core::Interface::as_raw(self),
-                parentmodel.param().abi(),
+                core::mem::transmute_copy(&parentmodel.param().borrow()),
             )
             .ok()
         }
@@ -124,7 +124,7 @@ pub struct IDynamicConceptProviderConcept_Vtbl {
 pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
     fn GetConcept(
         &self,
-        contextobject: windows_core::Ref<IModelObject>,
+        contextobject: Option<&IModelObject>,
         conceptid: *const windows_core::GUID,
         conceptinterface: windows_core::OutRef<windows_core::IUnknown>,
         conceptmetadata: windows_core::OutRef<IKeyStore>,
@@ -132,19 +132,13 @@ pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
     fn SetConcept(
         &self,
-        contextobject: windows_core::Ref<IModelObject>,
+        contextobject: Option<&IModelObject>,
         conceptid: *const windows_core::GUID,
-        conceptinterface: windows_core::Ref<windows_core::IUnknown>,
-        conceptmetadata: windows_core::Ref<IKeyStore>,
+        conceptinterface: Option<&windows_core::IUnknown>,
+        conceptmetadata: Option<&IKeyStore>,
     ) -> windows_core::Result<()>;
-    fn NotifyParent(
-        &self,
-        parentmodel: windows_core::Ref<IModelObject>,
-    ) -> windows_core::Result<()>;
-    fn NotifyParentChange(
-        &self,
-        parentmodel: windows_core::Ref<IModelObject>,
-    ) -> windows_core::Result<()>;
+    fn NotifyParent(&self, parentmodel: Option<&IModelObject>) -> windows_core::Result<()>;
+    fn NotifyParentChange(&self, parentmodel: Option<&IModelObject>) -> windows_core::Result<()>;
     fn NotifyDestruct(&self) -> windows_core::Result<()>;
 }
 impl IDynamicConceptProviderConcept_Vtbl {
@@ -165,7 +159,7 @@ impl IDynamicConceptProviderConcept_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDynamicConceptProviderConcept_Impl::GetConcept(
                     this,
-                    core::mem::transmute_copy(&contextobject),
+                    windows_core::Ref::option_from_abi(&contextobject),
                     core::mem::transmute_copy(&conceptid),
                     core::mem::transmute_copy(&conceptinterface),
                     core::mem::transmute_copy(&conceptmetadata),
@@ -189,10 +183,10 @@ impl IDynamicConceptProviderConcept_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDynamicConceptProviderConcept_Impl::SetConcept(
                     this,
-                    core::mem::transmute_copy(&contextobject),
+                    windows_core::Ref::option_from_abi(&contextobject),
                     core::mem::transmute_copy(&conceptid),
-                    core::mem::transmute_copy(&conceptinterface),
-                    core::mem::transmute_copy(&conceptmetadata),
+                    windows_core::Ref::option_from_abi(&conceptinterface),
+                    windows_core::Ref::option_from_abi(&conceptmetadata),
                 )
                 .into()
             }
@@ -209,7 +203,7 @@ impl IDynamicConceptProviderConcept_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDynamicConceptProviderConcept_Impl::NotifyParent(
                     this,
-                    core::mem::transmute_copy(&parentmodel),
+                    windows_core::Ref::option_from_abi(&parentmodel),
                 )
                 .into()
             }
@@ -226,7 +220,7 @@ impl IDynamicConceptProviderConcept_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDynamicConceptProviderConcept_Impl::NotifyParentChange(
                     this,
-                    core::mem::transmute_copy(&parentmodel),
+                    windows_core::Ref::option_from_abi(&parentmodel),
                 )
                 .into()
             }
@@ -276,7 +270,7 @@ impl IKeyStore {
         unsafe {
             (windows_core::Interface::vtable(self).GetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -297,9 +291,9 @@ impl IKeyStore {
         unsafe {
             (windows_core::Interface::vtable(self).SetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
-                object.param().abi(),
-                metadata.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
+                core::mem::transmute_copy(&object.param().borrow()),
+                core::mem::transmute_copy(&metadata.param().borrow()),
             )
             .ok()
         }
@@ -316,7 +310,7 @@ impl IKeyStore {
         unsafe {
             (windows_core::Interface::vtable(self).GetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -331,8 +325,8 @@ impl IKeyStore {
         unsafe {
             (windows_core::Interface::vtable(self).SetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
-                object.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
+                core::mem::transmute_copy(&object.param().borrow()),
             )
             .ok()
         }
@@ -383,8 +377,8 @@ pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
     fn SetKey(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<IModelObject>,
-        metadata: windows_core::Ref<IKeyStore>,
+        object: Option<&IModelObject>,
+        metadata: Option<&IKeyStore>,
     ) -> windows_core::Result<()>;
     fn GetKeyValue(
         &self,
@@ -395,7 +389,7 @@ pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
     fn SetKeyValue(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<IModelObject>,
+        object: Option<&IModelObject>,
     ) -> windows_core::Result<()>;
     fn ClearKeys(&self) -> windows_core::Result<()>;
 }
@@ -431,8 +425,8 @@ impl IKeyStore_Vtbl {
                 IKeyStore_Impl::SetKey(
                     this,
                     core::mem::transmute(&key),
-                    core::mem::transmute_copy(&object),
-                    core::mem::transmute_copy(&metadata),
+                    windows_core::Ref::option_from_abi(&object),
+                    windows_core::Ref::option_from_abi(&metadata),
                 )
                 .into()
             }
@@ -466,7 +460,7 @@ impl IKeyStore_Vtbl {
                 IKeyStore_Impl::SetKeyValue(
                     this,
                     core::mem::transmute(&key),
-                    core::mem::transmute_copy(&object),
+                    windows_core::Ref::option_from_abi(&object),
                 )
                 .into()
             }
@@ -513,7 +507,7 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).GetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -528,8 +522,8 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).SetKeyValue)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
-                object.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
+                core::mem::transmute_copy(&object.param().borrow()),
             )
             .ok()
         }
@@ -609,8 +603,8 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).AddParentModel)(
                 windows_core::Interface::as_raw(self),
-                model.param().abi(),
-                contextobject.param().abi(),
+                core::mem::transmute_copy(&model.param().borrow()),
+                core::mem::transmute_copy(&contextobject.param().borrow()),
                 r#override,
             )
             .ok()
@@ -623,7 +617,7 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).RemoveParentModel)(
                 windows_core::Interface::as_raw(self),
-                model.param().abi(),
+                core::mem::transmute_copy(&model.param().borrow()),
             )
             .ok()
         }
@@ -640,7 +634,7 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).GetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 object.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -659,7 +653,7 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).GetKeyReference)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 objectreference.unwrap_or(core::mem::zeroed()) as _,
                 metadata.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -680,9 +674,9 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).SetKey)(
                 windows_core::Interface::as_raw(self),
-                key.param().abi(),
-                object.param().abi(),
-                metadata.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
+                core::mem::transmute_copy(&object.param().borrow()),
+                core::mem::transmute_copy(&metadata.param().borrow()),
             )
             .ok()
         }
@@ -707,8 +701,8 @@ impl IModelObject {
             (windows_core::Interface::vtable(self).SetConcept)(
                 windows_core::Interface::as_raw(self),
                 conceptid,
-                conceptinterface.param().abi(),
-                conceptmetadata.param().abi(),
+                core::mem::transmute_copy(&conceptinterface.param().borrow()),
+                core::mem::transmute_copy(&conceptmetadata.param().borrow()),
             )
             .ok()
         }
@@ -733,8 +727,8 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).SetContextForDataModel)(
                 windows_core::Interface::as_raw(self),
-                datamodelobject.param().abi(),
-                context.param().abi(),
+                core::mem::transmute_copy(&datamodelobject.param().borrow()),
+                core::mem::transmute_copy(&context.param().borrow()),
             )
             .ok()
         }
@@ -750,7 +744,7 @@ impl IModelObject {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetContextForDataModel)(
                 windows_core::Interface::as_raw(self),
-                datamodelobject.param().abi(),
+                core::mem::transmute_copy(&datamodelobject.param().borrow()),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -767,7 +761,7 @@ impl IModelObject {
         unsafe {
             (windows_core::Interface::vtable(self).Compare)(
                 windows_core::Interface::as_raw(self),
-                other.param().abi(),
+                core::mem::transmute_copy(&other.param().borrow()),
                 ppresult.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
@@ -781,7 +775,7 @@ impl IModelObject {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsEqualTo)(
                 windows_core::Interface::as_raw(self),
-                other.param().abi(),
+                core::mem::transmute_copy(&other.param().borrow()),
                 &mut result__,
             )
             .map(|| result__)
@@ -906,7 +900,7 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     fn SetKeyValue(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<IModelObject>,
+        object: Option<&IModelObject>,
     ) -> windows_core::Result<()>;
     fn Dereference(&self) -> windows_core::Result<IModelObject>;
     fn TryCastToRuntimeType(&self) -> windows_core::Result<IModelObject>;
@@ -925,12 +919,11 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
     fn AddParentModel(
         &self,
-        model: windows_core::Ref<IModelObject>,
-        contextobject: windows_core::Ref<IModelObject>,
+        model: Option<&IModelObject>,
+        contextobject: Option<&IModelObject>,
         r#override: u8,
     ) -> windows_core::Result<()>;
-    fn RemoveParentModel(&self, model: windows_core::Ref<IModelObject>)
-        -> windows_core::Result<()>;
+    fn RemoveParentModel(&self, model: Option<&IModelObject>) -> windows_core::Result<()>;
     fn GetKey(
         &self,
         key: &windows_core::PCWSTR,
@@ -946,32 +939,32 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     fn SetKey(
         &self,
         key: &windows_core::PCWSTR,
-        object: windows_core::Ref<IModelObject>,
-        metadata: windows_core::Ref<IKeyStore>,
+        object: Option<&IModelObject>,
+        metadata: Option<&IKeyStore>,
     ) -> windows_core::Result<()>;
     fn ClearKeys(&self) -> windows_core::Result<()>;
     fn SetConcept(
         &self,
         conceptid: *const windows_core::GUID,
-        conceptinterface: windows_core::Ref<windows_core::IUnknown>,
-        conceptmetadata: windows_core::Ref<IKeyStore>,
+        conceptinterface: Option<&windows_core::IUnknown>,
+        conceptmetadata: Option<&IKeyStore>,
     ) -> windows_core::Result<()>;
     fn ClearConcepts(&self) -> windows_core::Result<()>;
     fn SetContextForDataModel(
         &self,
-        datamodelobject: windows_core::Ref<IModelObject>,
-        context: windows_core::Ref<windows_core::IUnknown>,
+        datamodelobject: Option<&IModelObject>,
+        context: Option<&windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
     fn GetContextForDataModel(
         &self,
-        datamodelobject: windows_core::Ref<IModelObject>,
+        datamodelobject: Option<&IModelObject>,
     ) -> windows_core::Result<windows_core::IUnknown>;
     fn Compare(
         &self,
-        other: windows_core::Ref<IModelObject>,
+        other: Option<&IModelObject>,
         ppresult: windows_core::OutRef<IModelObject>,
     ) -> windows_core::Result<()>;
-    fn IsEqualTo(&self, other: windows_core::Ref<IModelObject>) -> windows_core::Result<bool>;
+    fn IsEqualTo(&self, other: Option<&IModelObject>) -> windows_core::Result<bool>;
 }
 impl IModelObject_Vtbl {
     pub const fn new<Identity: IModelObject_Impl, const OFFSET: isize>() -> Self {
@@ -1004,7 +997,7 @@ impl IModelObject_Vtbl {
                 IModelObject_Impl::SetKeyValue(
                     this,
                     core::mem::transmute(&key),
-                    core::mem::transmute_copy(&object),
+                    windows_core::Ref::option_from_abi(&object),
                 )
                 .into()
             }
@@ -1116,8 +1109,8 @@ impl IModelObject_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IModelObject_Impl::AddParentModel(
                     this,
-                    core::mem::transmute_copy(&model),
-                    core::mem::transmute_copy(&contextobject),
+                    windows_core::Ref::option_from_abi(&model),
+                    windows_core::Ref::option_from_abi(&contextobject),
                     core::mem::transmute_copy(&r#override),
                 )
                 .into()
@@ -1133,7 +1126,11 @@ impl IModelObject_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IModelObject_Impl::RemoveParentModel(this, core::mem::transmute_copy(&model)).into()
+                IModelObject_Impl::RemoveParentModel(
+                    this,
+                    windows_core::Ref::option_from_abi(&model),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn GetKey<Identity: IModelObject_Impl, const OFFSET: isize>(
@@ -1187,8 +1184,8 @@ impl IModelObject_Vtbl {
                 IModelObject_Impl::SetKey(
                     this,
                     core::mem::transmute(&key),
-                    core::mem::transmute_copy(&object),
-                    core::mem::transmute_copy(&metadata),
+                    windows_core::Ref::option_from_abi(&object),
+                    windows_core::Ref::option_from_abi(&metadata),
                 )
                 .into()
             }
@@ -1214,8 +1211,8 @@ impl IModelObject_Vtbl {
                 IModelObject_Impl::SetConcept(
                     this,
                     core::mem::transmute_copy(&conceptid),
-                    core::mem::transmute_copy(&conceptinterface),
-                    core::mem::transmute_copy(&conceptmetadata),
+                    windows_core::Ref::option_from_abi(&conceptinterface),
+                    windows_core::Ref::option_from_abi(&conceptmetadata),
                 )
                 .into()
             }
@@ -1245,8 +1242,8 @@ impl IModelObject_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IModelObject_Impl::SetContextForDataModel(
                     this,
-                    core::mem::transmute_copy(&datamodelobject),
-                    core::mem::transmute_copy(&context),
+                    windows_core::Ref::option_from_abi(&datamodelobject),
+                    windows_core::Ref::option_from_abi(&context),
                 )
                 .into()
             }
@@ -1264,7 +1261,7 @@ impl IModelObject_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IModelObject_Impl::GetContextForDataModel(
                     this,
-                    core::mem::transmute_copy(&datamodelobject),
+                    windows_core::Ref::option_from_abi(&datamodelobject),
                 ) {
                     Ok(ok__) => {
                         context.write(core::mem::transmute(ok__));
@@ -1284,7 +1281,7 @@ impl IModelObject_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IModelObject_Impl::Compare(
                     this,
-                    core::mem::transmute_copy(&other),
+                    windows_core::Ref::option_from_abi(&other),
                     core::mem::transmute_copy(&ppresult),
                 )
                 .into()
@@ -1298,7 +1295,8 @@ impl IModelObject_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IModelObject_Impl::IsEqualTo(this, core::mem::transmute_copy(&other)) {
+                match IModelObject_Impl::IsEqualTo(this, windows_core::Ref::option_from_abi(&other))
+                {
                     Ok(ok__) => {
                         equal.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

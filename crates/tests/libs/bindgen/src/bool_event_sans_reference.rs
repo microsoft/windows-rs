@@ -22,7 +22,7 @@ where
             lpeventattributes.unwrap_or(core::mem::zeroed()) as _,
             bmanualreset.into(),
             binitialstate.into(),
-            lpname.param().abi(),
+            core::mem::transmute_copy(&lpname.param().borrow()),
         )
     };
     (!result__.is_invalid())

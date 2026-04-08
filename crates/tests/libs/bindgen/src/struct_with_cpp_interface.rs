@@ -140,7 +140,7 @@ impl ID3D12Object {
             (windows_core::Interface::vtable(self).SetPrivateDataInterface)(
                 windows_core::Interface::as_raw(self),
                 guid,
-                pdata.param().abi(),
+                core::mem::transmute_copy(&pdata.param().borrow()),
             )
             .ok()
         }
@@ -152,7 +152,7 @@ impl ID3D12Object {
         unsafe {
             (windows_core::Interface::vtable(self).SetName)(
                 windows_core::Interface::as_raw(self),
-                name.param().abi(),
+                core::mem::transmute_copy(&name.param().borrow()),
             )
             .ok()
         }
@@ -202,7 +202,7 @@ pub trait ID3D12Object_Impl: windows_core::IUnknownImpl {
     fn SetPrivateDataInterface(
         &self,
         guid: *const windows_core::GUID,
-        pdata: windows_core::Ref<windows_core::IUnknown>,
+        pdata: Option<&windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
     fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -264,7 +264,7 @@ impl ID3D12Object_Vtbl {
                 ID3D12Object_Impl::SetPrivateDataInterface(
                     this,
                     core::mem::transmute_copy(&guid),
-                    core::mem::transmute_copy(&pdata),
+                    windows_core::Ref::option_from_abi(&pdata),
                 )
                 .into()
             }

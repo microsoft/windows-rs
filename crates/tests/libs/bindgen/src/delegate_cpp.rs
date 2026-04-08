@@ -17,7 +17,12 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : windows_core::PCSTR) -> FARPROC);
-    unsafe { GetProcAddress(hmodule, lpprocname.param().abi()) }
+    unsafe {
+        GetProcAddress(
+            hmodule,
+            core::mem::transmute_copy(&lpprocname.param().borrow()),
+        )
+    }
 }
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
 #[repr(transparent)]

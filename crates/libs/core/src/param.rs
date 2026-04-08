@@ -27,7 +27,7 @@ where
     }
 }
 
-impl<T> Param<T> for InterfaceRef<'_, T>
+impl<T> Param<T> for Ref<'_, T>
 where
     T: Type<T>,
 {

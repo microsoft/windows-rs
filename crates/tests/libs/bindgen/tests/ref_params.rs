@@ -8,7 +8,7 @@ struct Test(std::sync::RwLock<Option<IUnknown>>);
 impl IDynamicConceptProviderConcept_Impl for Test_Impl {
     fn GetConcept(
         &self,
-        _: Ref<IModelObject>,
+        _: Option<&IModelObject>,
         _: *const GUID,
         concept: OutRef<IUnknown>,
         _: OutRef<IKeyStore>,
@@ -20,19 +20,19 @@ impl IDynamicConceptProviderConcept_Impl for Test_Impl {
     }
     fn SetConcept(
         &self,
-        _: Ref<IModelObject>,
+        _: Option<&IModelObject>,
         _: *const GUID,
-        concept: Ref<IUnknown>,
-        _: Ref<IKeyStore>,
+        concept: Option<&IUnknown>,
+        _: Option<&IKeyStore>,
     ) -> Result<()> {
         let mut this = self.0.write().unwrap();
         *this = concept.cloned();
         Ok(())
     }
-    fn NotifyParent(&self, _: Ref<IModelObject>) -> Result<()> {
+    fn NotifyParent(&self, _: Option<&IModelObject>) -> Result<()> {
         todo!()
     }
-    fn NotifyParentChange(&self, _: Ref<IModelObject>) -> Result<()> {
+    fn NotifyParentChange(&self, _: Option<&IModelObject>) -> Result<()> {
         todo!()
     }
     fn NotifyDestruct(&self) -> Result<()> {
