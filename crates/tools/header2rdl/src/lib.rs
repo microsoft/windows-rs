@@ -303,8 +303,8 @@ fn collect(entity: Entity, collector: &mut Collector) {
                     }
                 } else if let Some(name) = non_underscore_name(&child) {
                     if collector.seen.insert(name.clone()) {
-                        if let Some(s) = collect_struct(&child, name, is_union) {
-                            collector.structs.push(s);
+                        if let Some(structs) = collect_struct(&child, name, is_union) {
+                            collector.structs.extend(structs);
                         }
                     }
                 }
@@ -317,7 +317,7 @@ fn collect(entity: Entity, collector: &mut Collector) {
                                 collector.interfaces.push(iface);
                             }
                         } else if let Some(s) = collect_struct(&child, name, false) {
-                            collector.structs.push(s);
+                            collector.structs.extend(s);
                         }
                     }
                 }
@@ -375,12 +375,12 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
         match child.get_kind() {
             EntityKind::StructDecl | EntityKind::UnionDecl => {
                 let is_union = child.get_kind() == EntityKind::UnionDecl;
-                if let Some(s) = collect_struct(&child, name.clone(), is_union) {
+                if let Some(structs) = collect_struct(&child, name.clone(), is_union) {
                     if let Some(inner) = child.get_name() {
                         collector.seen.insert(inner);
                     }
                     collector.seen.insert(name);
-                    collector.structs.push(s);
+                    collector.structs.extend(structs);
                 }
                 return;
             }
@@ -406,28 +406,46 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
     }
 }
 
-fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<RdlStruct> {
+fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<RdlStruct>> {
     if !entity.is_definition() {
         return None;
     }
 
     let mut fields = vec![];
+    let mut nested: Vec<RdlStruct> = vec![];
+
     for (i, child) in entity.get_children().iter().enumerate() {
         if child.get_kind() == EntityKind::FieldDecl {
             let field_name = child
                 .get_name()
                 .unwrap_or_else(|| format!("field_{}", i + 1));
             if let Some(ty) = child.get_type() {
+                // Detect anonymous struct/union fields by checking whether the
+                // (stripped) display name of the *original* type starts with '('.
+                // e.g. Elaborated "struct (unnamed struct at ...)" → "(unnamed struct at ...)"
+                let display = strip_elaboration(&ty.get_display_name());
+                let canonical = ty.get_canonical_type();
+                if display.starts_with('(') && canonical.get_kind() == TypeKind::Record {
+                    if let Some(decl) = canonical.get_declaration() {
+                        let nested_name = format!("{}_{}", name, field_name);
+                        let is_nested_union = decl.get_kind() == EntityKind::UnionDecl;
+                        if let Some(nested_structs) =
+                            collect_struct(&decl, nested_name.clone(), is_nested_union)
+                        {
+                            fields.push((field_name, nested_name));
+                            nested.extend(nested_structs);
+                            continue;
+                        }
+                    }
+                }
                 fields.push((field_name, map_type(&ty)));
             }
         }
     }
 
-    Some(RdlStruct {
-        name,
-        is_union,
-        fields,
-    })
+    // Nested types must be emitted before the type that references them.
+    nested.push(RdlStruct { name, is_union, fields });
+    Some(nested)
 }
 
 fn collect_enum(entity: &Entity, name: String) -> Option<RdlEnum> {
