@@ -224,7 +224,12 @@ fn generate(c: &Converter) -> Result<String, String> {
                 let loc = d.get_location().get_file_location();
                 let file = loc
                     .file
-                    .map(|f| f.get_path().to_string_lossy().into_owned())
+                    .map(|f| {
+                        // Normalize the path: collect components to remove any redundant
+                        // separators that libclang sometimes produces (e.g. `dir\\file`).
+                        let normalized: std::path::PathBuf = f.get_path().components().collect();
+                        normalized.to_string_lossy().into_owned()
+                    })
                     .unwrap_or_default();
                 let line = loc.line;
                 let col = loc.column;
