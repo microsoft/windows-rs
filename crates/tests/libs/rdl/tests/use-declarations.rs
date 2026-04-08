@@ -32,3 +32,26 @@ pub fn parse_with_reference() {
         .write()
         .unwrap();
 }
+
+#[test]
+pub fn exclusive_to_with_use() {
+    reader()
+        .input("tests/exclusive-to-use.rdl")
+        .input("../../../libs/bindgen/default/Windows.winmd")
+        .output("tests/exclusive-to-use.winmd")
+        .write()
+        .unwrap();
+
+    writer()
+        .input("tests/exclusive-to-use.winmd")
+        .output("tests/exclusive-to-use-out.rdl")
+        .filter("Test")
+        .write()
+        .unwrap();
+
+    let expected = std::fs::read_to_string("tests/exclusive-to-use-out.rdl").unwrap();
+    assert!(
+        expected.contains("ExclusiveTo"),
+        "expected ExclusiveTo attribute in output"
+    );
+}
