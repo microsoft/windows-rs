@@ -12,7 +12,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernelbase.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { AddPackageDependency(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AddPackageDependency(core::mem::transmute_copy(&packagedependencyid.param().borrow()), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn AddPackageDependency2<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions2, packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -20,7 +20,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn AddPackageDependency2(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions2, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { AddPackageDependency2(packagedependencyid.param().abi(), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AddPackageDependency2(core::mem::transmute_copy(&packagedependencyid.param().borrow()), rank, options, packagedependencycontext as _, packagefullname.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn AppPolicyGetClrCompat(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyClrCompat) -> windows_core::WIN32_ERROR {
@@ -70,7 +70,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn CheckIsMSIXPackage(packagefullname : windows_core::PCWSTR, ismsixpackage : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CheckIsMSIXPackage(packagefullname.param().abi(), &mut result__).map(|| result__)
+        CheckIsMSIXPackage(core::mem::transmute_copy(&packagefullname.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -86,7 +86,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn CreatePackageVirtualizationContext(packagefamilyname : windows_core::PCWSTR, context : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreatePackageVirtualizationContext(packagefamilyname.param().abi(), &mut result__).map(|| result__)
+        CreatePackageVirtualizationContext(core::mem::transmute_copy(&packagefamilyname.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -100,7 +100,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernelbase.dll" "system" fn DeletePackageDependency(packagedependencyid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { DeletePackageDependency(packagedependencyid.param().abi()).ok() }
+    unsafe { DeletePackageDependency(core::mem::transmute_copy(&packagedependencyid.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> windows_core::Result<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE> {
@@ -122,7 +122,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindPackagesByPackageFamily(packagefamilyname : windows_core::PCWSTR, packagefilters : u32, count : *mut u32, packagefullnames : *mut windows_core::PWSTR, bufferlength : *mut u32, buffer : windows_core::PWSTR, packageproperties : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { FindPackagesByPackageFamily(packagefamilyname.param().abi(), packagefilters, count as _, packagefullnames.unwrap_or(core::mem::zeroed()) as _, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, packageproperties.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FindPackagesByPackageFamily(core::mem::transmute_copy(&packagefamilyname.param().borrow()), packagefilters, count as _, packagefullnames.unwrap_or(core::mem::zeroed()) as _, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _, packageproperties.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn FormatApplicationUserModelId<P0, P1>(packagefamilyname: P0, packagerelativeapplicationid: P1, applicationusermodelidlength: *mut u32, applicationusermodelid: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -131,7 +131,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FormatApplicationUserModelId(packagefamilyname : windows_core::PCWSTR, packagerelativeapplicationid : windows_core::PCWSTR, applicationusermodelidlength : *mut u32, applicationusermodelid : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { FormatApplicationUserModelId(packagefamilyname.param().abi(), packagerelativeapplicationid.param().abi(), applicationusermodelidlength as _, applicationusermodelid.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FormatApplicationUserModelId(core::mem::transmute_copy(&packagefamilyname.param().borrow()), core::mem::transmute_copy(&packagerelativeapplicationid.param().borrow()), applicationusermodelidlength as _, applicationusermodelid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetApplicationUserModelId(hprocess: super::super::super::Foundation::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR {
@@ -213,7 +213,20 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetPackageDependencyInformation(packagedependencyid : windows_core::PCWSTR, user : *mut super::super::super::Security:: PSID, packagefamilyname : *mut windows_core::PWSTR, minversion : *mut PACKAGE_VERSION, packagedependencyprocessorarchitectures : *mut PackageDependencyProcessorArchitectures, lifetimekind : *mut PackageDependencyLifetimeKind, lifetimeartifact : *mut windows_core::PWSTR, options : *mut CreatePackageDependencyOptions, lifetimeexpiration : *mut super::super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
-    unsafe { GetPackageDependencyInformation(packagedependencyid.param().abi(), user.unwrap_or(core::mem::zeroed()) as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _, minversion.unwrap_or(core::mem::zeroed()) as _, packagedependencyprocessorarchitectures.unwrap_or(core::mem::zeroed()) as _, lifetimekind.unwrap_or(core::mem::zeroed()) as _, lifetimeartifact.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, lifetimeexpiration.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe {
+        GetPackageDependencyInformation(
+            core::mem::transmute_copy(&packagedependencyid.param().borrow()),
+            user.unwrap_or(core::mem::zeroed()) as _,
+            packagefamilyname.unwrap_or(core::mem::zeroed()) as _,
+            minversion.unwrap_or(core::mem::zeroed()) as _,
+            packagedependencyprocessorarchitectures.unwrap_or(core::mem::zeroed()) as _,
+            lifetimekind.unwrap_or(core::mem::zeroed()) as _,
+            lifetimeartifact.unwrap_or(core::mem::zeroed()) as _,
+            options.unwrap_or(core::mem::zeroed()) as _,
+            lifetimeexpiration.unwrap_or(core::mem::zeroed()) as _,
+        )
+        .ok()
+    }
 }
 #[inline]
 pub unsafe fn GetPackageFamilyName(hprocess: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR {
@@ -266,7 +279,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetPackagePathByFullName(packagefullname : windows_core::PCWSTR, pathlength : *mut u32, path : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { GetPackagePathByFullName(packagefullname.param().abi(), pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetPackagePathByFullName(core::mem::transmute_copy(&packagefullname.param().borrow()), pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -274,7 +287,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetPackagePathByFullName2(packagefullname : windows_core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { GetPackagePathByFullName2(packagefullname.param().abi(), packagepathtype, pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetPackagePathByFullName2(core::mem::transmute_copy(&packagefullname.param().borrow()), packagepathtype, pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetPackagesByPackageFamily<P0>(packagefamilyname: P0, count: *mut u32, packagefullnames: Option<*mut windows_core::PWSTR>, bufferlength: *mut u32, buffer: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -282,7 +295,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetPackagesByPackageFamily(packagefamilyname : windows_core::PCWSTR, count : *mut u32, packagefullnames : *mut windows_core::PWSTR, bufferlength : *mut u32, buffer : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { GetPackagesByPackageFamily(packagefamilyname.param().abi(), count as _, packagefullnames.unwrap_or(core::mem::zeroed()) as _, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetPackagesByPackageFamily(core::mem::transmute_copy(&packagefamilyname.param().borrow()), count as _, packagefullnames.unwrap_or(core::mem::zeroed()) as _, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetProcessesInVirtualizationContext<P0>(packagefamilyname: P0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -290,7 +303,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetProcessesInVirtualizationContext(packagefamilyname : windows_core::PCWSTR, count : *mut u32, processes : *mut *mut super::super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    unsafe { GetProcessesInVirtualizationContext(packagefamilyname.param().abi(), count as _, processes as _).ok() }
+    unsafe { GetProcessesInVirtualizationContext(core::mem::transmute_copy(&packagefamilyname.param().borrow()), count as _, processes as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -299,7 +312,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetProcessesUsingPackageDependency(packagedependencyid : windows_core::PCWSTR, user : super::super::super::Security:: PSID, scopeissystem : windows_core::BOOL, processidscount : *mut u32, processids : *mut *mut u32) -> windows_core::HRESULT);
-    unsafe { GetProcessesUsingPackageDependency(packagedependencyid.param().abi(), user.unwrap_or(core::mem::zeroed()) as _, scopeissystem.into(), processidscount as _, processids as _).ok() }
+    unsafe { GetProcessesUsingPackageDependency(core::mem::transmute_copy(&packagedependencyid.param().borrow()), user.unwrap_or(core::mem::zeroed()) as _, scopeissystem.into(), processidscount as _, processids as _).ok() }
 }
 #[inline]
 pub unsafe fn GetResolvedPackageFullNameForPackageDependency<P0>(packagedependencyid: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -309,7 +322,7 @@ where
     windows_core::link!("kernelbase.dll" "system" fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid : windows_core::PCWSTR, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetResolvedPackageFullNameForPackageDependency(packagedependencyid.param().abi(), &mut result__).map(|| result__)
+        GetResolvedPackageFullNameForPackageDependency(core::mem::transmute_copy(&packagedependencyid.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -320,7 +333,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn GetResolvedPackageFullNameForPackageDependency2(packagedependencyid : windows_core::PCWSTR, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetResolvedPackageFullNameForPackageDependency2(packagedependencyid.param().abi(), &mut result__).map(|| result__)
+        GetResolvedPackageFullNameForPackageDependency2(core::mem::transmute_copy(&packagedependencyid.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -329,7 +342,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetStagedPackageOrigin(packagefullname : windows_core::PCWSTR, origin : *mut PackageOrigin) -> windows_core:: WIN32_ERROR);
-    unsafe { GetStagedPackageOrigin(packagefullname.param().abi(), origin as _) }
+    unsafe { GetStagedPackageOrigin(core::mem::transmute_copy(&packagefullname.param().borrow()), origin as _) }
 }
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName<P0>(packagefullname: P0, pathlength: *mut u32, path: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -337,7 +350,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetStagedPackagePathByFullName(packagefullname : windows_core::PCWSTR, pathlength : *mut u32, path : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { GetStagedPackagePathByFullName(packagefullname.param().abi(), pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetStagedPackagePathByFullName(core::mem::transmute_copy(&packagefullname.param().borrow()), pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName2<P0>(packagefullname: P0, packagepathtype: PackagePathType, pathlength: *mut u32, path: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -345,7 +358,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-3.dll" "system" fn GetStagedPackagePathByFullName2(packagefullname : windows_core::PCWSTR, packagepathtype : PackagePathType, pathlength : *mut u32, path : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { GetStagedPackagePathByFullName2(packagefullname.param().abi(), packagepathtype, pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetStagedPackagePathByFullName2(core::mem::transmute_copy(&packagefullname.param().borrow()), packagepathtype, pathlength as _, path.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OpenPackageInfoByFullName<P0>(packagefullname: P0, reserved: Option<u32>, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> windows_core::WIN32_ERROR
@@ -353,7 +366,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenPackageInfoByFullName(packagefullname : windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> windows_core:: WIN32_ERROR);
-    unsafe { OpenPackageInfoByFullName(packagefullname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, packageinforeference as _) }
+    unsafe { OpenPackageInfoByFullName(core::mem::transmute_copy(&packagefullname.param().borrow()), reserved.unwrap_or(core::mem::zeroed()) as _, packageinforeference as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -362,7 +375,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn OpenPackageInfoByFullNameForUser(usersid : super::super::super::Security:: PSID, packagefullname : windows_core::PCWSTR, reserved : u32, packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE) -> windows_core:: WIN32_ERROR);
-    unsafe { OpenPackageInfoByFullNameForUser(usersid.unwrap_or(core::mem::zeroed()) as _, packagefullname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, packageinforeference as _) }
+    unsafe { OpenPackageInfoByFullNameForUser(usersid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&packagefullname.param().borrow()), reserved.unwrap_or(core::mem::zeroed()) as _, packageinforeference as _) }
 }
 #[inline]
 pub unsafe fn PackageFamilyNameFromFullName<P0>(packagefullname: P0, packagefamilynamelength: *mut u32, packagefamilyname: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -370,7 +383,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn PackageFamilyNameFromFullName(packagefullname : windows_core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { PackageFamilyNameFromFullName(packagefullname.param().abi(), packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PackageFamilyNameFromFullName(core::mem::transmute_copy(&packagefullname.param().borrow()), packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR {
@@ -388,7 +401,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn PackageIdFromFullName(packagefullname : windows_core::PCWSTR, flags : u32, bufferlength : *mut u32, buffer : *mut u8) -> windows_core:: WIN32_ERROR);
-    unsafe { PackageIdFromFullName(packagefullname.param().abi(), flags, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PackageIdFromFullName(core::mem::transmute_copy(&packagefullname.param().borrow()), flags, bufferlength as _, buffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PackageNameAndPublisherIdFromFamilyName<P0>(packagefamilyname: P0, packagenamelength: *mut u32, packagename: Option<windows_core::PWSTR>, packagepublisheridlength: *mut u32, packagepublisherid: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -396,7 +409,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname : windows_core::PCWSTR, packagenamelength : *mut u32, packagename : windows_core::PWSTR, packagepublisheridlength : *mut u32, packagepublisherid : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { PackageNameAndPublisherIdFromFamilyName(packagefamilyname.param().abi(), packagenamelength as _, packagename.unwrap_or(core::mem::zeroed()) as _, packagepublisheridlength as _, packagepublisherid.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PackageNameAndPublisherIdFromFamilyName(core::mem::transmute_copy(&packagefamilyname.param().borrow()), packagenamelength as _, packagename.unwrap_or(core::mem::zeroed()) as _, packagepublisheridlength as _, packagepublisherid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ParseApplicationUserModelId<P0>(applicationusermodelid: P0, packagefamilynamelength: *mut u32, packagefamilyname: Option<windows_core::PWSTR>, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: Option<windows_core::PWSTR>) -> windows_core::WIN32_ERROR
@@ -404,7 +417,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn ParseApplicationUserModelId(applicationusermodelid : windows_core::PCWSTR, packagefamilynamelength : *mut u32, packagefamilyname : windows_core::PWSTR, packagerelativeapplicationidlength : *mut u32, packagerelativeapplicationid : windows_core::PWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { ParseApplicationUserModelId(applicationusermodelid.param().abi(), packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _, packagerelativeapplicationidlength as _, packagerelativeapplicationid.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ParseApplicationUserModelId(core::mem::transmute_copy(&applicationusermodelid.param().borrow()), packagefamilynamelength as _, packagefamilyname.unwrap_or(core::mem::zeroed()) as _, packagerelativeapplicationidlength as _, packagerelativeapplicationid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ReleasePackageVirtualizationContext(context: PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) {
@@ -426,7 +439,7 @@ where
     windows_core::link!("kernelbase.dll" "system" fn TryCreatePackageDependency(user : super::super::super::Security:: PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        TryCreatePackageDependency(user, packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
+        TryCreatePackageDependency(user, core::mem::transmute_copy(&packagefamilyname.param().borrow()), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, core::mem::transmute_copy(&lifetimeartifact.param().borrow()), options, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -439,7 +452,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn TryCreatePackageDependency2(user : super::super::super::Security:: PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, lifetimeexpiration : *const super::super::super::Foundation:: FILETIME, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        TryCreatePackageDependency2(user, packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, lifetimeexpiration, &mut result__).map(|| result__)
+        TryCreatePackageDependency2(user, core::mem::transmute_copy(&packagefamilyname.param().borrow()), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, core::mem::transmute_copy(&lifetimeartifact.param().borrow()), options, lifetimeexpiration, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -448,7 +461,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyApplicationUserModelId(applicationusermodelid : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { VerifyApplicationUserModelId(applicationusermodelid.param().abi()) }
+    unsafe { VerifyApplicationUserModelId(core::mem::transmute_copy(&applicationusermodelid.param().borrow())) }
 }
 #[inline]
 pub unsafe fn VerifyPackageFamilyName<P0>(packagefamilyname: P0) -> windows_core::WIN32_ERROR
@@ -456,7 +469,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFamilyName(packagefamilyname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { VerifyPackageFamilyName(packagefamilyname.param().abi()) }
+    unsafe { VerifyPackageFamilyName(core::mem::transmute_copy(&packagefamilyname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn VerifyPackageFullName<P0>(packagefullname: P0) -> windows_core::WIN32_ERROR
@@ -464,7 +477,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFullName(packagefullname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { VerifyPackageFullName(packagefullname.param().abi()) }
+    unsafe { VerifyPackageFullName(core::mem::transmute_copy(&packagefullname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> windows_core::WIN32_ERROR {
@@ -477,7 +490,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { VerifyPackageRelativeApplicationId(packagerelativeapplicationid.param().abi()) }
+    unsafe { VerifyPackageRelativeApplicationId(core::mem::transmute_copy(&packagerelativeapplicationid.param().borrow())) }
 }
 pub const APPLICATION_USER_MODEL_ID_MAX_LENGTH: u32 = 130u32;
 pub const APPLICATION_USER_MODEL_ID_MIN_LENGTH: u32 = 20u32;
@@ -1143,7 +1156,7 @@ impl IAppxBlockMapFile {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ValidateFileHash)(windows_core::Interface::as_raw(self), filestream.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ValidateFileHash)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filestream.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1166,7 +1179,7 @@ pub trait IAppxBlockMapFile_Impl: windows_core::IUnknownImpl {
     fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32>;
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetUncompressedSize(&self) -> windows_core::Result<u64>;
-    fn ValidateFileHash(&self, filestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<windows_core::BOOL>;
+    fn ValidateFileHash(&self, filestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBlockMapFile_Vtbl {
@@ -1222,7 +1235,7 @@ impl IAppxBlockMapFile_Vtbl {
         unsafe extern "system" fn ValidateFileHash<Identity: IAppxBlockMapFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filestream: *mut core::ffi::c_void, isvalid: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBlockMapFile_Impl::ValidateFileHash(this, core::mem::transmute_copy(&filestream)) {
+                match IAppxBlockMapFile_Impl::ValidateFileHash(this, windows_core::Ref::option_from_abi(&filestream)) {
                     Ok(ok__) => {
                         isvalid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1389,7 +1402,7 @@ impl IAppxBlockMapReader {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), filename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFiles(&self) -> windows_core::Result<IAppxBlockMapFilesEnumerator> {
@@ -1510,7 +1523,7 @@ impl IAppxBundleFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateBundleWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputstream.param().borrow()), bundleversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1520,7 +1533,7 @@ impl IAppxBundleFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBundleReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateBundleReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1530,7 +1543,7 @@ impl IAppxBundleFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBundleManifestReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateBundleManifestReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1553,9 +1566,9 @@ pub struct IAppxBundleFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateBundleWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>;
-    fn CreateBundleReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleReader>;
-    fn CreateBundleManifestReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleManifestReader>;
+    fn CreateBundleWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>;
+    fn CreateBundleReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleReader>;
+    fn CreateBundleManifestReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleManifestReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactory_Vtbl {
@@ -1563,7 +1576,7 @@ impl IAppxBundleFactory_Vtbl {
         unsafe extern "system" fn CreateBundleWriter<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBundleFactory_Impl::CreateBundleWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&bundleversion)) {
+                match IAppxBundleFactory_Impl::CreateBundleWriter(this, windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&bundleversion)) {
                     Ok(ok__) => {
                         bundlewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1575,7 +1588,7 @@ impl IAppxBundleFactory_Vtbl {
         unsafe extern "system" fn CreateBundleReader<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBundleFactory_Impl::CreateBundleReader(this, core::mem::transmute_copy(&inputstream)) {
+                match IAppxBundleFactory_Impl::CreateBundleReader(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1587,7 +1600,7 @@ impl IAppxBundleFactory_Vtbl {
         unsafe extern "system" fn CreateBundleManifestReader<Identity: IAppxBundleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBundleFactory_Impl::CreateBundleManifestReader(this, core::mem::transmute_copy(&inputstream)) {
+                match IAppxBundleFactory_Impl::CreateBundleManifestReader(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1620,7 +1633,7 @@ impl IAppxBundleFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBundleReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateBundleReader2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1635,7 +1648,7 @@ pub struct IAppxBundleFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleFactory2_Impl: windows_core::IUnknownImpl {
-    fn CreateBundleReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
+    fn CreateBundleReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactory2_Vtbl {
@@ -1643,7 +1656,7 @@ impl IAppxBundleFactory2_Vtbl {
         unsafe extern "system" fn CreateBundleReader2<Identity: IAppxBundleFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxBundleFactory2_Impl::CreateBundleReader2(this, core::mem::transmute_copy(&inputstream), core::mem::transmute(&expecteddigest)) {
+                match IAppxBundleFactory2_Impl::CreateBundleReader2(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute(&expecteddigest)) {
                     Ok(ok__) => {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1670,7 +1683,7 @@ impl IAppxBundleFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBundleReaderFromSourceUri)(windows_core::Interface::as_raw(self), uri.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateBundleReaderFromSourceUri)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2440,7 +2453,7 @@ impl IAppxBundleReader {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPayloadPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2546,7 +2559,7 @@ impl IAppxBundleReader2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPayloadPackageReader)(windows_core::Interface::as_raw(self), filename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPayloadPackageReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2589,7 +2602,7 @@ impl IAppxBundleWriter {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&packagestream.param().borrow())).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -2607,7 +2620,7 @@ pub struct IAppxBundleWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2616,7 +2629,7 @@ impl IAppxBundleWriter_Vtbl {
         unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxBundleWriter_Impl::AddPayloadPackage(this, core::mem::transmute(&filename), core::mem::transmute_copy(&packagestream)).into()
+                IAppxBundleWriter_Impl::AddPayloadPackage(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&packagestream)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IAppxBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2646,7 +2659,7 @@ impl IAppxBundleWriter2 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&inputstream.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2660,7 +2673,7 @@ pub struct IAppxBundleWriter2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter2_Impl: windows_core::IUnknownImpl {
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter2_Vtbl {
@@ -2668,7 +2681,7 @@ impl IAppxBundleWriter2_Vtbl {
         unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxBundleWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxBundleWriter2_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream)).into()
+                IAppxBundleWriter2_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&inputstream)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddExternalPackageReference: AddExternalPackageReference::<Identity, OFFSET> }
@@ -2688,13 +2701,13 @@ impl IAppxBundleWriter3 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&inputstream.param().borrow())).ok() }
     }
     pub unsafe fn Close<P0>(&self, hashmethodstring: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), hashmethodstring.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&hashmethodstring.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2709,7 +2722,7 @@ pub struct IAppxBundleWriter3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter3_Impl: windows_core::IUnknownImpl {
-    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self, hashmethodstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2718,7 +2731,7 @@ impl IAppxBundleWriter3_Vtbl {
         unsafe extern "system" fn AddPackageReference<Identity: IAppxBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxBundleWriter3_Impl::AddPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream)).into()
+                IAppxBundleWriter3_Impl::AddPackageReference(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&inputstream)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IAppxBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashmethodstring: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -2748,7 +2761,7 @@ impl IAppxBundleWriter4 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&packagestream.param().borrow()), isdefaultapplicablepackage.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
@@ -2756,7 +2769,7 @@ impl IAppxBundleWriter4 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPackageReference)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&inputstream.param().borrow()), isdefaultapplicablepackage.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
@@ -2764,7 +2777,7 @@ impl IAppxBundleWriter4 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&inputstream.param().borrow()), isdefaultapplicablepackage.into()).ok() }
     }
 }
 #[repr(C)]
@@ -2786,9 +2799,9 @@ pub struct IAppxBundleWriter4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter4_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter4_Vtbl {
@@ -2796,19 +2809,19 @@ impl IAppxBundleWriter4_Vtbl {
         unsafe extern "system" fn AddPayloadPackage<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxBundleWriter4_Impl::AddPayloadPackage(this, core::mem::transmute(&filename), core::mem::transmute_copy(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
+                IAppxBundleWriter4_Impl::AddPayloadPackage(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
         unsafe extern "system" fn AddPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxBundleWriter4_Impl::AddPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
+                IAppxBundleWriter4_Impl::AddPackageReference(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
         unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxBundleWriter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxBundleWriter4_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
+                IAppxBundleWriter4_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
         Self {
@@ -3040,13 +3053,13 @@ impl IAppxContentGroupMapWriter {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomaticGroup)(windows_core::Interface::as_raw(self), groupname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomaticGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&groupname.param().borrow())).ok() }
     }
     pub unsafe fn AddAutomaticFile<P0>(&self, filename: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomaticFile)(windows_core::Interface::as_raw(self), filename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomaticFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow())).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -3231,7 +3244,7 @@ impl IAppxEncryptedBundleWriter {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&packagestream.param().borrow())).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -3249,7 +3262,7 @@ pub struct IAppxEncryptedBundleWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3258,7 +3271,7 @@ impl IAppxEncryptedBundleWriter_Vtbl {
         unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptedBundleWriter_Impl::AddPayloadPackageEncrypted(this, core::mem::transmute(&filename), core::mem::transmute_copy(&packagestream)).into()
+                IAppxEncryptedBundleWriter_Impl::AddPayloadPackageEncrypted(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&packagestream)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IAppxEncryptedBundleWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3288,7 +3301,7 @@ impl IAppxEncryptedBundleWriter2 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&inputstream.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3302,7 +3315,7 @@ pub struct IAppxEncryptedBundleWriter2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter2_Impl: windows_core::IUnknownImpl {
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter2_Vtbl {
@@ -3310,7 +3323,7 @@ impl IAppxEncryptedBundleWriter2_Vtbl {
         unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxEncryptedBundleWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptedBundleWriter2_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream)).into()
+                IAppxEncryptedBundleWriter2_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&inputstream)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddExternalPackageReference: AddExternalPackageReference::<Identity, OFFSET> }
@@ -3330,7 +3343,7 @@ impl IAppxEncryptedBundleWriter3 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), packagestream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadPackageEncrypted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&packagestream.param().borrow()), isdefaultapplicablepackage.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddExternalPackageReference<P0, P1>(&self, filename: P0, inputstream: P1, isdefaultapplicablepackage: bool) -> windows_core::Result<()>
@@ -3338,7 +3351,7 @@ impl IAppxEncryptedBundleWriter3 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), filename.param().abi(), inputstream.param().abi(), isdefaultapplicablepackage.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExternalPackageReference)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&inputstream.param().borrow()), isdefaultapplicablepackage.into()).ok() }
     }
 }
 #[repr(C)]
@@ -3356,8 +3369,8 @@ pub struct IAppxEncryptedBundleWriter3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter3_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: Option<&super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter3_Vtbl {
@@ -3365,13 +3378,13 @@ impl IAppxEncryptedBundleWriter3_Vtbl {
         unsafe extern "system" fn AddPayloadPackageEncrypted<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, packagestream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptedBundleWriter3_Impl::AddPayloadPackageEncrypted(this, core::mem::transmute(&filename), core::mem::transmute_copy(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
+                IAppxEncryptedBundleWriter3_Impl::AddPayloadPackageEncrypted(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&packagestream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
         unsafe extern "system" fn AddExternalPackageReference<Identity: IAppxEncryptedBundleWriter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, inputstream: *mut core::ffi::c_void, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptedBundleWriter3_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
+                IAppxEncryptedBundleWriter3_Impl::AddExternalPackageReference(this, core::mem::transmute(&filename), windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute_copy(&isdefaultapplicablepackage)).into()
             }
         }
         Self {
@@ -3395,7 +3408,7 @@ impl IAppxEncryptedPackageWriter {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFileEncrypted)(windows_core::Interface::as_raw(self), filename.param().abi(), compressionoption, inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFileEncrypted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), compressionoption, core::mem::transmute_copy(&inputstream.param().borrow())).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -3413,7 +3426,7 @@ pub struct IAppxEncryptedPackageWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedPackageWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadFileEncrypted(&self, filename: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadFileEncrypted(&self, filename: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3422,7 +3435,7 @@ impl IAppxEncryptedPackageWriter_Vtbl {
         unsafe extern "system" fn AddPayloadFileEncrypted<Identity: IAppxEncryptedPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptedPackageWriter_Impl::AddPayloadFileEncrypted(this, core::mem::transmute(&filename), core::mem::transmute_copy(&compressionoption), core::mem::transmute_copy(&inputstream)).into()
+                IAppxEncryptedPackageWriter_Impl::AddPayloadFileEncrypted(this, core::mem::transmute(&filename), core::mem::transmute_copy(&compressionoption), windows_core::Ref::option_from_abi(&inputstream)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IAppxEncryptedPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3490,7 +3503,7 @@ impl IAppxEncryptionFactory {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>
@@ -3498,7 +3511,7 @@ impl IAppxEncryptionFactory {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DecryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DecryptPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&outputstream.param().borrow()), keyinfo).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1>(&self, outputstream: P0, manifeststream: P1, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
@@ -3508,7 +3521,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute_copy(&manifeststream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3518,7 +3531,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), keyinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3527,7 +3540,7 @@ impl IAppxEncryptionFactory {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>
@@ -3535,7 +3548,7 @@ impl IAppxEncryptionFactory {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DecryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), keyinfo).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DecryptBundle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&outputstream.param().borrow()), keyinfo).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
@@ -3544,7 +3557,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputstream.param().borrow()), bundleversion, core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3554,7 +3567,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedBundleReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedBundleReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), keyinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3597,14 +3610,14 @@ pub struct IAppxEncryptionFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory_Impl: windows_core::IUnknownImpl {
-    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn DecryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
-    fn CreateEncryptedPackageReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxPackageReader>;
-    fn EncryptBundle(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn DecryptBundle(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
-    fn CreateEncryptedBundleReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>;
+    fn EncryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn DecryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, manifeststream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
+    fn CreateEncryptedPackageReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxPackageReader>;
+    fn EncryptBundle(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn DecryptBundle(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
+    fn CreateEncryptedBundleReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory_Vtbl {
@@ -3612,19 +3625,19 @@ impl IAppxEncryptionFactory_Vtbl {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptionFactory_Impl::EncryptPackage(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
+                IAppxEncryptionFactory_Impl::EncryptPackage(this, windows_core::Ref::option_from_abi(&inputstream), windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
             }
         }
         unsafe extern "system" fn DecryptPackage<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptionFactory_Impl::DecryptPackage(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&keyinfo)).into()
+                IAppxEncryptionFactory_Impl::DecryptPackage(this, windows_core::Ref::option_from_abi(&inputstream), windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&keyinfo)).into()
             }
         }
         unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory_Impl::CreateEncryptedPackageWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&manifeststream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
+                match IAppxEncryptionFactory_Impl::CreateEncryptedPackageWriter(this, windows_core::Ref::option_from_abi(&outputstream), windows_core::Ref::option_from_abi(&manifeststream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                     Ok(ok__) => {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3636,7 +3649,7 @@ impl IAppxEncryptionFactory_Vtbl {
         unsafe extern "system" fn CreateEncryptedPackageReader<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory_Impl::CreateEncryptedPackageReader(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&keyinfo)) {
+                match IAppxEncryptionFactory_Impl::CreateEncryptedPackageReader(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute_copy(&keyinfo)) {
                     Ok(ok__) => {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3648,19 +3661,19 @@ impl IAppxEncryptionFactory_Vtbl {
         unsafe extern "system" fn EncryptBundle<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptionFactory_Impl::EncryptBundle(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
+                IAppxEncryptionFactory_Impl::EncryptBundle(this, windows_core::Ref::option_from_abi(&inputstream), windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
             }
         }
         unsafe extern "system" fn DecryptBundle<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptionFactory_Impl::DecryptBundle(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&keyinfo)).into()
+                IAppxEncryptionFactory_Impl::DecryptBundle(this, windows_core::Ref::option_from_abi(&inputstream), windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&keyinfo)).into()
             }
         }
         unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory_Impl::CreateEncryptedBundleWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
+                match IAppxEncryptionFactory_Impl::CreateEncryptedBundleWriter(this, windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                     Ok(ok__) => {
                         bundlewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3672,7 +3685,7 @@ impl IAppxEncryptionFactory_Vtbl {
         unsafe extern "system" fn CreateEncryptedBundleReader<Identity: IAppxEncryptionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory_Impl::CreateEncryptedBundleReader(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&keyinfo)) {
+                match IAppxEncryptionFactory_Impl::CreateEncryptedBundleReader(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute_copy(&keyinfo)) {
                     Ok(ok__) => {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3711,7 +3724,7 @@ impl IAppxEncryptionFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute_copy(&manifeststream.param().borrow()), core::mem::transmute_copy(&contentgroupmapstream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3726,7 +3739,7 @@ pub struct IAppxEncryptionFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory2_Impl: windows_core::IUnknownImpl {
-    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, contentgroupmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, manifeststream: Option<&super::super::super::System::Com::IStream>, contentgroupmapstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory2_Vtbl {
@@ -3734,7 +3747,7 @@ impl IAppxEncryptionFactory2_Vtbl {
         unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory2_Impl::CreateEncryptedPackageWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&manifeststream), core::mem::transmute_copy(&contentgroupmapstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
+                match IAppxEncryptionFactory2_Impl::CreateEncryptedPackageWriter(this, windows_core::Ref::option_from_abi(&outputstream), windows_core::Ref::option_from_abi(&manifeststream), windows_core::Ref::option_from_abi(&contentgroupmapstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                     Ok(ok__) => {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3760,7 +3773,7 @@ impl IAppxEncryptionFactory3 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
@@ -3771,7 +3784,7 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute_copy(&manifeststream.param().borrow()), core::mem::transmute_copy(&contentgroupmapstream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3780,7 +3793,7 @@ impl IAppxEncryptionFactory3 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
@@ -3789,7 +3802,7 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputstream.param().borrow()), bundleversion, core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3816,10 +3829,10 @@ pub struct IAppxEncryptionFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory3_Impl: windows_core::IUnknownImpl {
-    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, contentgroupmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
-    fn EncryptBundle(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
+    fn EncryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, manifeststream: Option<&super::super::super::System::Com::IStream>, contentgroupmapstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
+    fn EncryptBundle(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory3_Vtbl {
@@ -3827,13 +3840,13 @@ impl IAppxEncryptionFactory3_Vtbl {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptionFactory3_Impl::EncryptPackage(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
+                IAppxEncryptionFactory3_Impl::EncryptPackage(this, windows_core::Ref::option_from_abi(&inputstream), windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
             }
         }
         unsafe extern "system" fn CreateEncryptedPackageWriter<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, manifeststream: *mut core::ffi::c_void, contentgroupmapstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory3_Impl::CreateEncryptedPackageWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&manifeststream), core::mem::transmute_copy(&contentgroupmapstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
+                match IAppxEncryptionFactory3_Impl::CreateEncryptedPackageWriter(this, windows_core::Ref::option_from_abi(&outputstream), windows_core::Ref::option_from_abi(&manifeststream), windows_core::Ref::option_from_abi(&contentgroupmapstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                     Ok(ok__) => {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3845,13 +3858,13 @@ impl IAppxEncryptionFactory3_Vtbl {
         unsafe extern "system" fn EncryptBundle<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptionFactory3_Impl::EncryptBundle(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
+                IAppxEncryptionFactory3_Impl::EncryptBundle(this, windows_core::Ref::option_from_abi(&inputstream), windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)).into()
             }
         }
         unsafe extern "system" fn CreateEncryptedBundleWriter<Identity: IAppxEncryptionFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory3_Impl::CreateEncryptedBundleWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
+                match IAppxEncryptionFactory3_Impl::CreateEncryptedBundleWriter(this, windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&bundleversion), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles)) {
                     Ok(ok__) => {
                         bundlewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3883,7 +3896,7 @@ impl IAppxEncryptionFactory4 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, memorylimit).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute(settings), keyinfo, exemptedfiles, memorylimit).ok() }
     }
 }
 #[repr(C)]
@@ -3897,7 +3910,7 @@ pub struct IAppxEncryptionFactory4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory4_Impl: windows_core::IUnknownImpl {
-    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>;
+    fn EncryptPackage(&self, inputstream: Option<&super::super::super::System::Com::IStream>, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory4_Vtbl {
@@ -3905,7 +3918,7 @@ impl IAppxEncryptionFactory4_Vtbl {
         unsafe extern "system" fn EncryptPackage<Identity: IAppxEncryptionFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxEncryptionFactory4_Impl::EncryptPackage(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles), core::mem::transmute_copy(&memorylimit)).into()
+                IAppxEncryptionFactory4_Impl::EncryptPackage(this, windows_core::Ref::option_from_abi(&inputstream), windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo), core::mem::transmute_copy(&exemptedfiles), core::mem::transmute_copy(&memorylimit)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EncryptPackage: EncryptPackage::<Identity, OFFSET> }
@@ -3927,7 +3940,7 @@ impl IAppxEncryptionFactory5 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageReader2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), keyinfo, core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3938,7 +3951,7 @@ impl IAppxEncryptionFactory5 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedBundleReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), keyinfo, expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedBundleReader2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), keyinfo, core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3957,8 +3970,8 @@ pub struct IAppxEncryptionFactory5_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory5_Impl: windows_core::IUnknownImpl {
-    fn CreateEncryptedPackageReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
-    fn CreateEncryptedBundleReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
+    fn CreateEncryptedPackageReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
+    fn CreateEncryptedBundleReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory5_Vtbl {
@@ -3966,7 +3979,7 @@ impl IAppxEncryptionFactory5_Vtbl {
         unsafe extern "system" fn CreateEncryptedPackageReader2<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory5_Impl::CreateEncryptedPackageReader2(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&keyinfo), core::mem::transmute(&expecteddigest)) {
+                match IAppxEncryptionFactory5_Impl::CreateEncryptedPackageReader2(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute_copy(&keyinfo), core::mem::transmute(&expecteddigest)) {
                     Ok(ok__) => {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3978,7 +3991,7 @@ impl IAppxEncryptionFactory5_Vtbl {
         unsafe extern "system" fn CreateEncryptedBundleReader2<Identity: IAppxEncryptionFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, keyinfo: *const APPX_KEY_INFO, expecteddigest: windows_core::PCWSTR, bundlereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxEncryptionFactory5_Impl::CreateEncryptedBundleReader2(this, core::mem::transmute_copy(&inputstream), core::mem::transmute_copy(&keyinfo), core::mem::transmute(&expecteddigest)) {
+                match IAppxEncryptionFactory5_Impl::CreateEncryptedBundleReader2(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute_copy(&keyinfo), core::mem::transmute(&expecteddigest)) {
                     Ok(ok__) => {
                         bundlereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4009,7 +4022,7 @@ impl IAppxFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), core::mem::transmute(settings), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePackageWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputstream.param().borrow()), core::mem::transmute(settings), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4019,7 +4032,7 @@ impl IAppxFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePackageReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePackageReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4029,7 +4042,7 @@ impl IAppxFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateManifestReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateManifestReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4039,7 +4052,7 @@ impl IAppxFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateBlockMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateBlockMapReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4050,7 +4063,7 @@ impl IAppxFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateValidatedBlockMapReader)(windows_core::Interface::as_raw(self), blockmapstream.param().abi(), signaturefilename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateValidatedBlockMapReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&blockmapstream.param().borrow()), core::mem::transmute_copy(&signaturefilename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4081,11 +4094,11 @@ pub struct IAppxFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory_Impl: windows_core::IUnknownImpl {
-    fn CreatePackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> windows_core::Result<IAppxPackageWriter>;
-    fn CreatePackageReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxPackageReader>;
-    fn CreateManifestReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxManifestReader>;
-    fn CreateBlockMapReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBlockMapReader>;
-    fn CreateValidatedBlockMapReader(&self, blockmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, signaturefilename: &windows_core::PCWSTR) -> windows_core::Result<IAppxBlockMapReader>;
+    fn CreatePackageWriter(&self, outputstream: Option<&super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> windows_core::Result<IAppxPackageWriter>;
+    fn CreatePackageReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxPackageReader>;
+    fn CreateManifestReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxManifestReader>;
+    fn CreateBlockMapReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBlockMapReader>;
+    fn CreateValidatedBlockMapReader(&self, blockmapstream: Option<&super::super::super::System::Com::IStream>, signaturefilename: &windows_core::PCWSTR) -> windows_core::Result<IAppxBlockMapReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory_Vtbl {
@@ -4093,7 +4106,7 @@ impl IAppxFactory_Vtbl {
         unsafe extern "system" fn CreatePackageWriter<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, settings: *const APPX_PACKAGE_SETTINGS, packagewriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory_Impl::CreatePackageWriter(this, core::mem::transmute_copy(&outputstream), core::mem::transmute_copy(&settings)) {
+                match IAppxFactory_Impl::CreatePackageWriter(this, windows_core::Ref::option_from_abi(&outputstream), core::mem::transmute_copy(&settings)) {
                     Ok(ok__) => {
                         packagewriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4105,7 +4118,7 @@ impl IAppxFactory_Vtbl {
         unsafe extern "system" fn CreatePackageReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory_Impl::CreatePackageReader(this, core::mem::transmute_copy(&inputstream)) {
+                match IAppxFactory_Impl::CreatePackageReader(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4117,7 +4130,7 @@ impl IAppxFactory_Vtbl {
         unsafe extern "system" fn CreateManifestReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory_Impl::CreateManifestReader(this, core::mem::transmute_copy(&inputstream)) {
+                match IAppxFactory_Impl::CreateManifestReader(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4129,7 +4142,7 @@ impl IAppxFactory_Vtbl {
         unsafe extern "system" fn CreateBlockMapReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory_Impl::CreateBlockMapReader(this, core::mem::transmute_copy(&inputstream)) {
+                match IAppxFactory_Impl::CreateBlockMapReader(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         blockmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4141,7 +4154,7 @@ impl IAppxFactory_Vtbl {
         unsafe extern "system" fn CreateValidatedBlockMapReader<Identity: IAppxFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, blockmapstream: *mut core::ffi::c_void, signaturefilename: windows_core::PCWSTR, blockmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory_Impl::CreateValidatedBlockMapReader(this, core::mem::transmute_copy(&blockmapstream), core::mem::transmute(&signaturefilename)) {
+                match IAppxFactory_Impl::CreateValidatedBlockMapReader(this, windows_core::Ref::option_from_abi(&blockmapstream), core::mem::transmute(&signaturefilename)) {
                     Ok(ok__) => {
                         blockmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4175,7 +4188,7 @@ impl IAppxFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateContentGroupMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateContentGroupMapReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4185,7 +4198,7 @@ impl IAppxFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSourceContentGroupMapReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSourceContentGroupMapReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4195,7 +4208,7 @@ impl IAppxFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateContentGroupMapWriter)(windows_core::Interface::as_raw(self), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateContentGroupMapWriter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&stream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4218,9 +4231,9 @@ pub struct IAppxFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory2_Impl: windows_core::IUnknownImpl {
-    fn CreateContentGroupMapReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapReader>;
-    fn CreateSourceContentGroupMapReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxSourceContentGroupMapReader>;
-    fn CreateContentGroupMapWriter(&self, stream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapWriter>;
+    fn CreateContentGroupMapReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapReader>;
+    fn CreateSourceContentGroupMapReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxSourceContentGroupMapReader>;
+    fn CreateContentGroupMapWriter(&self, stream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory2_Vtbl {
@@ -4228,7 +4241,7 @@ impl IAppxFactory2_Vtbl {
         unsafe extern "system" fn CreateContentGroupMapReader<Identity: IAppxFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, contentgroupmapreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory2_Impl::CreateContentGroupMapReader(this, core::mem::transmute_copy(&inputstream)) {
+                match IAppxFactory2_Impl::CreateContentGroupMapReader(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         contentgroupmapreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4240,7 +4253,7 @@ impl IAppxFactory2_Vtbl {
         unsafe extern "system" fn CreateSourceContentGroupMapReader<Identity: IAppxFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, reader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory2_Impl::CreateSourceContentGroupMapReader(this, core::mem::transmute_copy(&inputstream)) {
+                match IAppxFactory2_Impl::CreateSourceContentGroupMapReader(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         reader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4252,7 +4265,7 @@ impl IAppxFactory2_Vtbl {
         unsafe extern "system" fn CreateContentGroupMapWriter<Identity: IAppxFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void, contentgroupmapwriter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory2_Impl::CreateContentGroupMapWriter(this, core::mem::transmute_copy(&stream)) {
+                match IAppxFactory2_Impl::CreateContentGroupMapWriter(this, windows_core::Ref::option_from_abi(&stream)) {
                     Ok(ok__) => {
                         contentgroupmapwriter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4285,7 +4298,7 @@ impl IAppxFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePackageReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePackageReader2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4296,7 +4309,7 @@ impl IAppxFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateManifestReader2)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateManifestReader2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4307,7 +4320,7 @@ impl IAppxFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAppInstallerReader)(windows_core::Interface::as_raw(self), inputstream.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateAppInstallerReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputstream.param().borrow()), core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4330,9 +4343,9 @@ pub struct IAppxFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory3_Impl: windows_core::IUnknownImpl {
-    fn CreatePackageReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
-    fn CreateManifestReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxManifestReader>;
-    fn CreateAppInstallerReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxAppInstallerReader>;
+    fn CreatePackageReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
+    fn CreateManifestReader2(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxManifestReader>;
+    fn CreateAppInstallerReader(&self, inputstream: Option<&super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxAppInstallerReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory3_Vtbl {
@@ -4340,7 +4353,7 @@ impl IAppxFactory3_Vtbl {
         unsafe extern "system" fn CreatePackageReader2<Identity: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, packagereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory3_Impl::CreatePackageReader2(this, core::mem::transmute_copy(&inputstream), core::mem::transmute(&expecteddigest)) {
+                match IAppxFactory3_Impl::CreatePackageReader2(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute(&expecteddigest)) {
                     Ok(ok__) => {
                         packagereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4352,7 +4365,7 @@ impl IAppxFactory3_Vtbl {
         unsafe extern "system" fn CreateManifestReader2<Identity: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, manifestreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory3_Impl::CreateManifestReader2(this, core::mem::transmute_copy(&inputstream), core::mem::transmute(&expecteddigest)) {
+                match IAppxFactory3_Impl::CreateManifestReader2(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute(&expecteddigest)) {
                     Ok(ok__) => {
                         manifestreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4364,7 +4377,7 @@ impl IAppxFactory3_Vtbl {
         unsafe extern "system" fn CreateAppInstallerReader<Identity: IAppxFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, expecteddigest: windows_core::PCWSTR, appinstallerreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAppxFactory3_Impl::CreateAppInstallerReader(this, core::mem::transmute_copy(&inputstream), core::mem::transmute(&expecteddigest)) {
+                match IAppxFactory3_Impl::CreateAppInstallerReader(this, windows_core::Ref::option_from_abi(&inputstream), core::mem::transmute(&expecteddigest)) {
                     Ok(ok__) => {
                         appinstallerreader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4396,7 +4409,7 @@ impl IAppxFactory4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePackageReaderFromSourceUri)(windows_core::Interface::as_raw(self), uri.param().abi(), expecteddigest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePackageReaderFromSourceUri)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(&expecteddigest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4710,7 +4723,7 @@ impl IAppxManifestApplication {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetAppUserModelId(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -6202,7 +6215,7 @@ impl IAppxManifestPackageId {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ComparePublisher)(windows_core::Interface::as_raw(self), other.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ComparePublisher)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&other.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetPackageFullName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -6411,7 +6424,7 @@ impl IAppxManifestProperties {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBoolValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetBoolValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetStringValue<P0>(&self, name: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -6420,7 +6433,7 @@ impl IAppxManifestProperties {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetStringValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -6687,7 +6700,7 @@ impl IAppxManifestReader {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPrerequisite)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetPrerequisite)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetApplications(&self) -> windows_core::Result<IAppxManifestApplicationsEnumerator> {
@@ -7464,7 +7477,7 @@ impl IAppxPackageEditor {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), workingdirectory.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&workingdirectory.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDeltaPackage<P0, P1, P2>(&self, updatedpackagestream: P0, baselinepackagestream: P1, deltapackagestream: P2) -> windows_core::Result<()>
@@ -7473,7 +7486,7 @@ impl IAppxPackageEditor {
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
         P2: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackage)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselinepackagestream.param().abi(), deltapackagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&updatedpackagestream.param().borrow()), core::mem::transmute_copy(&baselinepackagestream.param().borrow()), core::mem::transmute_copy(&deltapackagestream.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<P0, P1, P2, P3>(&self, updatedpackagestream: P0, baselineblockmapstream: P1, baselinepackagefullname: P2, deltapackagestream: P3) -> windows_core::Result<()>
@@ -7483,7 +7496,7 @@ impl IAppxPackageEditor {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackageUsingBaselineBlockMap)(windows_core::Interface::as_raw(self), updatedpackagestream.param().abi(), baselineblockmapstream.param().abi(), baselinepackagefullname.param().abi(), deltapackagestream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDeltaPackageUsingBaselineBlockMap)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&updatedpackagestream.param().borrow()), core::mem::transmute_copy(&baselineblockmapstream.param().borrow()), core::mem::transmute_copy(&baselinepackagefullname.param().borrow()), core::mem::transmute_copy(&deltapackagestream.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdatePackage<P0, P1>(&self, baselinepackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::Result<()>
@@ -7491,7 +7504,7 @@ impl IAppxPackageEditor {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdatePackage)(windows_core::Interface::as_raw(self), baselinepackagestream.param().abi(), deltapackagestream.param().abi(), updateoption).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdatePackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&baselinepackagestream.param().borrow()), core::mem::transmute_copy(&deltapackagestream.param().borrow()), updateoption).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdateEncryptedPackage<P0, P1>(&self, baselineencryptedpackagestream: P0, deltapackagestream: P1, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>
@@ -7499,7 +7512,7 @@ impl IAppxPackageEditor {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateEncryptedPackage)(windows_core::Interface::as_raw(self), baselineencryptedpackagestream.param().abi(), deltapackagestream.param().abi(), updateoption, core::mem::transmute(settings), keyinfo).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateEncryptedPackage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&baselineencryptedpackagestream.param().borrow()), core::mem::transmute_copy(&deltapackagestream.param().borrow()), updateoption, core::mem::transmute(settings), keyinfo).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdatePackageManifest<P0, P1>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: bool, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>
@@ -7507,7 +7520,7 @@ impl IAppxPackageEditor {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdatePackageManifest)(windows_core::Interface::as_raw(self), packagestream.param().abi(), updatedmanifeststream.param().abi(), ispackageencrypted.into(), options).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdatePackageManifest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&packagestream.param().borrow()), core::mem::transmute_copy(&updatedmanifeststream.param().borrow()), ispackageencrypted.into(), options).ok() }
     }
 }
 #[repr(C)]
@@ -7539,11 +7552,11 @@ pub struct IAppxPackageEditor_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageEditor_Impl: windows_core::IUnknownImpl {
     fn SetWorkingDirectory(&self, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CreateDeltaPackage(&self, updatedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, baselinepackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, baselineblockmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, baselinepackagefullname: &windows_core::PCWSTR, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn UpdatePackage(&self, baselinepackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::Result<()>;
-    fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn UpdatePackageManifest(&self, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updatedmanifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
+    fn CreateDeltaPackage(&self, updatedpackagestream: Option<&super::super::super::System::Com::IStream>, baselinepackagestream: Option<&super::super::super::System::Com::IStream>, deltapackagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedpackagestream: Option<&super::super::super::System::Com::IStream>, baselineblockmapstream: Option<&super::super::super::System::Com::IStream>, baselinepackagefullname: &windows_core::PCWSTR, deltapackagestream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn UpdatePackage(&self, baselinepackagestream: Option<&super::super::super::System::Com::IStream>, deltapackagestream: Option<&super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::Result<()>;
+    fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: Option<&super::super::super::System::Com::IStream>, deltapackagestream: Option<&super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
+    fn UpdatePackageManifest(&self, packagestream: Option<&super::super::super::System::Com::IStream>, updatedmanifeststream: Option<&super::super::super::System::Com::IStream>, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageEditor_Vtbl {
@@ -7557,31 +7570,31 @@ impl IAppxPackageEditor_Vtbl {
         unsafe extern "system" fn CreateDeltaPackage<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatedpackagestream: *mut core::ffi::c_void, baselinepackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageEditor_Impl::CreateDeltaPackage(this, core::mem::transmute_copy(&updatedpackagestream), core::mem::transmute_copy(&baselinepackagestream), core::mem::transmute_copy(&deltapackagestream)).into()
+                IAppxPackageEditor_Impl::CreateDeltaPackage(this, windows_core::Ref::option_from_abi(&updatedpackagestream), windows_core::Ref::option_from_abi(&baselinepackagestream), windows_core::Ref::option_from_abi(&deltapackagestream)).into()
             }
         }
         unsafe extern "system" fn CreateDeltaPackageUsingBaselineBlockMap<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatedpackagestream: *mut core::ffi::c_void, baselineblockmapstream: *mut core::ffi::c_void, baselinepackagefullname: windows_core::PCWSTR, deltapackagestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageEditor_Impl::CreateDeltaPackageUsingBaselineBlockMap(this, core::mem::transmute_copy(&updatedpackagestream), core::mem::transmute_copy(&baselineblockmapstream), core::mem::transmute(&baselinepackagefullname), core::mem::transmute_copy(&deltapackagestream)).into()
+                IAppxPackageEditor_Impl::CreateDeltaPackageUsingBaselineBlockMap(this, windows_core::Ref::option_from_abi(&updatedpackagestream), windows_core::Ref::option_from_abi(&baselineblockmapstream), core::mem::transmute(&baselinepackagefullname), windows_core::Ref::option_from_abi(&deltapackagestream)).into()
             }
         }
         unsafe extern "system" fn UpdatePackage<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselinepackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageEditor_Impl::UpdatePackage(this, core::mem::transmute_copy(&baselinepackagestream), core::mem::transmute_copy(&deltapackagestream), core::mem::transmute_copy(&updateoption)).into()
+                IAppxPackageEditor_Impl::UpdatePackage(this, windows_core::Ref::option_from_abi(&baselinepackagestream), windows_core::Ref::option_from_abi(&deltapackagestream), core::mem::transmute_copy(&updateoption)).into()
             }
         }
         unsafe extern "system" fn UpdateEncryptedPackage<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baselineencryptedpackagestream: *mut core::ffi::c_void, deltapackagestream: *mut core::ffi::c_void, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageEditor_Impl::UpdateEncryptedPackage(this, core::mem::transmute_copy(&baselineencryptedpackagestream), core::mem::transmute_copy(&deltapackagestream), core::mem::transmute_copy(&updateoption), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo)).into()
+                IAppxPackageEditor_Impl::UpdateEncryptedPackage(this, windows_core::Ref::option_from_abi(&baselineencryptedpackagestream), windows_core::Ref::option_from_abi(&deltapackagestream), core::mem::transmute_copy(&updateoption), core::mem::transmute_copy(&settings), core::mem::transmute_copy(&keyinfo)).into()
             }
         }
         unsafe extern "system" fn UpdatePackageManifest<Identity: IAppxPackageEditor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagestream: *mut core::ffi::c_void, updatedmanifeststream: *mut core::ffi::c_void, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageEditor_Impl::UpdatePackageManifest(this, core::mem::transmute_copy(&packagestream), core::mem::transmute_copy(&updatedmanifeststream), core::mem::transmute_copy(&ispackageencrypted), core::mem::transmute_copy(&options)).into()
+                IAppxPackageEditor_Impl::UpdatePackageManifest(this, windows_core::Ref::option_from_abi(&packagestream), windows_core::Ref::option_from_abi(&updatedmanifeststream), core::mem::transmute_copy(&ispackageencrypted), core::mem::transmute_copy(&options)).into()
             }
         }
         Self {
@@ -7621,7 +7634,7 @@ impl IAppxPackageReader {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPayloadFile)(windows_core::Interface::as_raw(self), filename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPayloadFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPayloadFiles(&self) -> windows_core::Result<IAppxFilesEnumerator> {
@@ -7740,14 +7753,14 @@ impl IAppxPackageWriter {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFile)(windows_core::Interface::as_raw(self), filename.param().abi(), contenttype.param().abi(), compressionoption, inputstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), core::mem::transmute_copy(&contenttype.param().borrow()), compressionoption, core::mem::transmute_copy(&inputstream.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Close<P0>(&self, manifest: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), manifest.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&manifest.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -7765,8 +7778,8 @@ pub struct IAppxPackageWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadFile(&self, filename: &windows_core::PCWSTR, contenttype: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Close(&self, manifest: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadFile(&self, filename: &windows_core::PCWSTR, contenttype: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Close(&self, manifest: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter_Vtbl {
@@ -7774,13 +7787,13 @@ impl IAppxPackageWriter_Vtbl {
         unsafe extern "system" fn AddPayloadFile<Identity: IAppxPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, contenttype: windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageWriter_Impl::AddPayloadFile(this, core::mem::transmute(&filename), core::mem::transmute(&contenttype), core::mem::transmute_copy(&compressionoption), core::mem::transmute_copy(&inputstream)).into()
+                IAppxPackageWriter_Impl::AddPayloadFile(this, core::mem::transmute(&filename), core::mem::transmute(&contenttype), core::mem::transmute_copy(&compressionoption), windows_core::Ref::option_from_abi(&inputstream)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IAppxPackageWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifest: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageWriter_Impl::Close(this, core::mem::transmute_copy(&manifest)).into()
+                IAppxPackageWriter_Impl::Close(this, windows_core::Ref::option_from_abi(&manifest)).into()
             }
         }
         Self {
@@ -7804,7 +7817,7 @@ impl IAppxPackageWriter2 {
         P0: windows_core::Param<super::super::super::System::Com::IStream>,
         P1: windows_core::Param<super::super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), manifest.param().abi(), contentgroupmap.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&manifest.param().borrow()), core::mem::transmute_copy(&contentgroupmap.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -7818,7 +7831,7 @@ pub struct IAppxPackageWriter2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageWriter2_Impl: windows_core::IUnknownImpl {
-    fn Close(&self, manifest: windows_core::Ref<super::super::super::System::Com::IStream>, contentgroupmap: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Close(&self, manifest: Option<&super::super::super::System::Com::IStream>, contentgroupmap: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter2_Vtbl {
@@ -7826,7 +7839,7 @@ impl IAppxPackageWriter2_Vtbl {
         unsafe extern "system" fn Close<Identity: IAppxPackageWriter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manifest: *mut core::ffi::c_void, contentgroupmap: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackageWriter2_Impl::Close(this, core::mem::transmute_copy(&manifest), core::mem::transmute_copy(&contentgroupmap)).into()
+                IAppxPackageWriter2_Impl::Close(this, windows_core::Ref::option_from_abi(&manifest), windows_core::Ref::option_from_abi(&contentgroupmap)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Close: Close::<Identity, OFFSET> }
@@ -7884,13 +7897,13 @@ impl IAppxPackagingDiagnosticEventSink {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReportContextChange)(windows_core::Interface::as_raw(self), changetype, contextid, contextname.param().abi(), contextmessage.param().abi(), detailsmessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReportContextChange)(windows_core::Interface::as_raw(self), changetype, contextid, core::mem::transmute_copy(&contextname.param().borrow()), core::mem::transmute_copy(&contextmessage.param().borrow()), core::mem::transmute_copy(&detailsmessage.param().borrow())).ok() }
     }
     pub unsafe fn ReportError<P0>(&self, errormessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), errormessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReportError)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&errormessage.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -7936,7 +7949,7 @@ impl IAppxPackagingDiagnosticEventSinkManager {
     where
         P0: windows_core::Param<IAppxPackagingDiagnosticEventSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSinkForProcess)(windows_core::Interface::as_raw(self), sink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSinkForProcess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sink.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -7946,14 +7959,14 @@ pub struct IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     pub SetSinkForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAppxPackagingDiagnosticEventSinkManager_Impl: windows_core::IUnknownImpl {
-    fn SetSinkForProcess(&self, sink: windows_core::Ref<IAppxPackagingDiagnosticEventSink>) -> windows_core::Result<()>;
+    fn SetSinkForProcess(&self, sink: Option<&IAppxPackagingDiagnosticEventSink>) -> windows_core::Result<()>;
 }
 impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     pub const fn new<Identity: IAppxPackagingDiagnosticEventSinkManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSinkForProcess<Identity: IAppxPackagingDiagnosticEventSinkManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAppxPackagingDiagnosticEventSinkManager_Impl::SetSinkForProcess(this, core::mem::transmute_copy(&sink)).into()
+                IAppxPackagingDiagnosticEventSinkManager_Impl::SetSinkForProcess(this, windows_core::Ref::option_from_abi(&sink)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSinkForProcess: SetSinkForProcess::<Identity, OFFSET> }

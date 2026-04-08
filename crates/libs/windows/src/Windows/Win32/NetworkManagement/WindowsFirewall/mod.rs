@@ -9,7 +9,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netshell.dll" "system" fn NcIsValidConnectionName(pszwname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { NcIsValidConnectionName(pszwname.param().abi()) }
+    unsafe { NcIsValidConnectionName(core::mem::transmute_copy(&pszwname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<P0>(wszservername: P0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32
@@ -17,7 +17,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername : windows_core::PCWSTR, netisoerror : *mut NETISO_ERROR_TYPE) -> u32);
-    unsafe { NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.param().abi(), netisoerror as _) }
+    unsafe { NetworkIsolationDiagnoseConnectFailureAndGetInfo(core::mem::transmute_copy(&wszservername.param().borrow()), netisoerror as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -52,7 +52,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdAsync(wszservername : windows_core::PCWSTR, dwflags : u32, context : *const core::ffi::c_void, callback : PNETISO_EDP_ID_CALLBACK_FN, hoperation : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { NetworkIsolationGetEnterpriseIdAsync(wszservername.param().abi(), dwflags, context.unwrap_or(core::mem::zeroed()) as _, callback, hoperation as _) }
+    unsafe { NetworkIsolationGetEnterpriseIdAsync(core::mem::transmute_copy(&wszservername.param().borrow()), dwflags, context.unwrap_or(core::mem::zeroed()) as _, callback, hoperation as _) }
 }
 #[inline]
 pub unsafe fn NetworkIsolationGetEnterpriseIdClose(hoperation: super::super::Foundation::HANDLE, bwaitforoperation: bool) -> u32 {
@@ -80,7 +80,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid : super::super::Security:: PSID, packagefullname : windows_core::PCWSTR, packagefolder : windows_core::PCWSTR, displayname : windows_core::PCWSTR, bbinariesfullycomputed : windows_core::BOOL, binaries : *const windows_core::PCWSTR, binariescount : u32) -> windows_core::HRESULT);
-    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, packagefullname.param().abi(), packagefolder.param().abi(), displayname.param().abi(), bbinariesfullycomputed.into(), core::mem::transmute(binaries.as_ptr()), binaries.len().try_into().unwrap()).ok() }
+    unsafe { NetworkIsolationSetupAppContainerBinaries(applicationcontainersid, core::mem::transmute_copy(&packagefullname.param().borrow()), core::mem::transmute_copy(&packagefolder.param().borrow()), core::mem::transmute_copy(&displayname.param().borrow()), bbinariesfullycomputed.into(), core::mem::transmute(binaries.as_ptr()), binaries.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32 {
@@ -1065,13 +1065,13 @@ impl INATEventManager {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetExternalIPAddressCallback)(windows_core::Interface::as_raw(self), punk.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetExternalIPAddressCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&punk.param().borrow())).ok() }
     }
     pub unsafe fn SetNumberOfEntriesCallback<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetNumberOfEntriesCallback)(windows_core::Interface::as_raw(self), punk.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetNumberOfEntriesCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&punk.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1084,8 +1084,8 @@ pub struct INATEventManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INATEventManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn SetExternalIPAddressCallback(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetNumberOfEntriesCallback(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetExternalIPAddressCallback(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetNumberOfEntriesCallback(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INATEventManager_Vtbl {
@@ -1093,13 +1093,13 @@ impl INATEventManager_Vtbl {
         unsafe extern "system" fn SetExternalIPAddressCallback<Identity: INATEventManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INATEventManager_Impl::SetExternalIPAddressCallback(this, core::mem::transmute_copy(&punk)).into()
+                INATEventManager_Impl::SetExternalIPAddressCallback(this, windows_core::Ref::option_from_abi(&punk)).into()
             }
         }
         unsafe extern "system" fn SetNumberOfEntriesCallback<Identity: INATEventManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INATEventManager_Impl::SetNumberOfEntriesCallback(this, core::mem::transmute_copy(&punk)).into()
+                INATEventManager_Impl::SetNumberOfEntriesCallback(this, windows_core::Ref::option_from_abi(&punk)).into()
             }
         }
         Self {
@@ -1282,7 +1282,7 @@ impl INetConnection {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Duplicate)(windows_core::Interface::as_raw(self), pszwduplicatename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Duplicate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszwduplicatename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetProperties(&self) -> windows_core::Result<*mut NETCON_PROPERTIES> {
@@ -1301,7 +1301,7 @@ impl INetConnection {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), pszwnewname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszwnewname.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1410,7 +1410,7 @@ impl INetConnectionConnectUi {
     where
         P0: windows_core::Param<INetConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetConnection)(windows_core::Interface::as_raw(self), pcon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetConnection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcon.param().borrow())).ok() }
     }
     pub unsafe fn Connect(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), hwndparent, dwflags).ok() }
@@ -1428,7 +1428,7 @@ pub struct INetConnectionConnectUi_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
 }
 pub trait INetConnectionConnectUi_Impl: windows_core::IUnknownImpl {
-    fn SetConnection(&self, pcon: windows_core::Ref<INetConnection>) -> windows_core::Result<()>;
+    fn SetConnection(&self, pcon: Option<&INetConnection>) -> windows_core::Result<()>;
     fn Connect(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()>;
     fn Disconnect(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()>;
 }
@@ -1437,7 +1437,7 @@ impl INetConnectionConnectUi_Vtbl {
         unsafe extern "system" fn SetConnection<Identity: INetConnectionConnectUi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetConnectionConnectUi_Impl::SetConnection(this, core::mem::transmute_copy(&pcon)).into()
+                INetConnectionConnectUi_Impl::SetConnection(this, windows_core::Ref::option_from_abi(&pcon)).into()
             }
         }
         unsafe extern "system" fn Connect<Identity: INetConnectionConnectUi_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::HRESULT {
@@ -1923,7 +1923,7 @@ impl INetFwAuthorizedApplications {
     where
         P0: windows_core::Param<INetFwAuthorizedApplication>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), app.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&app.param().borrow())).ok() }
     }
     pub unsafe fn Remove(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(imagefilename)).ok() }
@@ -1955,7 +1955,7 @@ pub struct INetFwAuthorizedApplications_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwAuthorizedApplications_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, app: windows_core::Ref<INetFwAuthorizedApplication>) -> windows_core::Result<()>;
+    fn Add(&self, app: Option<&INetFwAuthorizedApplication>) -> windows_core::Result<()>;
     fn Remove(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Item(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<INetFwAuthorizedApplication>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -1978,7 +1978,7 @@ impl INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn Add<Identity: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, app: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwAuthorizedApplications_Impl::Add(this, core::mem::transmute_copy(&app)).into()
+                INetFwAuthorizedApplications_Impl::Add(this, windows_core::Ref::option_from_abi(&app)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imagefilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2825,7 +2825,7 @@ impl INetFwOpenPorts {
     where
         P0: windows_core::Param<INetFwOpenPort>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), port.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&port.param().borrow())).ok() }
     }
     pub unsafe fn Remove(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), portnumber, ipprotocol).ok() }
@@ -2857,7 +2857,7 @@ pub struct INetFwOpenPorts_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwOpenPorts_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, port: windows_core::Ref<INetFwOpenPort>) -> windows_core::Result<()>;
+    fn Add(&self, port: Option<&INetFwOpenPort>) -> windows_core::Result<()>;
     fn Remove(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::Result<()>;
     fn Item(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::Result<INetFwOpenPort>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -2880,7 +2880,7 @@ impl INetFwOpenPorts_Vtbl {
         unsafe extern "system" fn Add<Identity: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, port: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwOpenPorts_Impl::Add(this, core::mem::transmute_copy(&port)).into()
+                INetFwOpenPorts_Impl::Add(this, windows_core::Ref::option_from_abi(&port)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::HRESULT {
@@ -3587,7 +3587,7 @@ impl INetFwProducts {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), product.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&product.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<INetFwProduct> {
@@ -3616,7 +3616,7 @@ pub struct INetFwProducts_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwProducts_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Register(&self, product: windows_core::Ref<INetFwProduct>) -> windows_core::Result<windows_core::IUnknown>;
+    fn Register(&self, product: Option<&INetFwProduct>) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, index: i32) -> windows_core::Result<INetFwProduct>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
@@ -3638,7 +3638,7 @@ impl INetFwProducts_Vtbl {
         unsafe extern "system" fn Register<Identity: INetFwProducts_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, product: *mut core::ffi::c_void, registration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INetFwProducts_Impl::Register(this, core::mem::transmute_copy(&product)) {
+                match INetFwProducts_Impl::Register(this, windows_core::Ref::option_from_abi(&product)) {
                     Ok(ok__) => {
                         registration.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5111,7 +5111,7 @@ impl INetFwRules {
     where
         P0: windows_core::Param<INetFwRule>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), rule.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rule.param().borrow())).ok() }
     }
     pub unsafe fn Remove(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
@@ -5143,7 +5143,7 @@ pub struct INetFwRules_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwRules_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, rule: windows_core::Ref<INetFwRule>) -> windows_core::Result<()>;
+    fn Add(&self, rule: Option<&INetFwRule>) -> windows_core::Result<()>;
     fn Remove(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Item(&self, name: &windows_core::BSTR) -> windows_core::Result<INetFwRule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -5166,7 +5166,7 @@ impl INetFwRules_Vtbl {
         unsafe extern "system" fn Add<Identity: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rule: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetFwRules_Impl::Add(this, core::mem::transmute_copy(&rule)).into()
+                INetFwRules_Impl::Add(this, windows_core::Ref::option_from_abi(&rule)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: INetFwRules_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5714,7 +5714,7 @@ impl INetSharingConfiguration {
     where
         P0: windows_core::Param<INetSharingPortMapping>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemovePortMapping)(windows_core::Interface::as_raw(self), pmapping.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemovePortMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pmapping.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5744,7 +5744,7 @@ pub trait INetSharingConfiguration_Impl: super::super::System::Com::IDispatch_Im
     fn EnableInternetFirewall(&self) -> windows_core::Result<()>;
     fn get_EnumPortMappings(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> windows_core::Result<INetSharingPortMappingCollection>;
     fn AddPortMapping(&self, bstrname: &windows_core::BSTR, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: &windows_core::BSTR, etargettype: ICS_TARGETTYPE) -> windows_core::Result<INetSharingPortMapping>;
-    fn RemovePortMapping(&self, pmapping: windows_core::Ref<INetSharingPortMapping>) -> windows_core::Result<()>;
+    fn RemovePortMapping(&self, pmapping: Option<&INetSharingPortMapping>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingConfiguration_Vtbl {
@@ -5836,7 +5836,7 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn RemovePortMapping<Identity: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmapping: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetSharingConfiguration_Impl::RemovePortMapping(this, core::mem::transmute_copy(&pmapping)).into()
+                INetSharingConfiguration_Impl::RemovePortMapping(this, windows_core::Ref::option_from_abi(&pmapping)).into()
             }
         }
         Self {
@@ -5974,7 +5974,7 @@ impl INetSharingManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_INetSharingConfigurationForINetConnection)(windows_core::Interface::as_raw(self), pnetconnection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_INetSharingConfigurationForINetConnection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pnetconnection.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumEveryConnection(&self) -> windows_core::Result<INetSharingEveryConnectionCollection> {
@@ -5989,7 +5989,7 @@ impl INetSharingManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_NetConnectionProps)(windows_core::Interface::as_raw(self), pnetconnection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_NetConnectionProps)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pnetconnection.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -6010,9 +6010,9 @@ pub trait INetSharingManager_Impl: super::super::System::Com::IDispatch_Impl {
     fn SharingInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn get_EnumPublicConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> windows_core::Result<INetSharingPublicConnectionCollection>;
     fn get_EnumPrivateConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> windows_core::Result<INetSharingPrivateConnectionCollection>;
-    fn get_INetSharingConfigurationForINetConnection(&self, pnetconnection: windows_core::Ref<INetConnection>) -> windows_core::Result<INetSharingConfiguration>;
+    fn get_INetSharingConfigurationForINetConnection(&self, pnetconnection: Option<&INetConnection>) -> windows_core::Result<INetSharingConfiguration>;
     fn EnumEveryConnection(&self) -> windows_core::Result<INetSharingEveryConnectionCollection>;
-    fn get_NetConnectionProps(&self, pnetconnection: windows_core::Ref<INetConnection>) -> windows_core::Result<INetConnectionProps>;
+    fn get_NetConnectionProps(&self, pnetconnection: Option<&INetConnection>) -> windows_core::Result<INetConnectionProps>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingManager_Vtbl {
@@ -6056,7 +6056,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_INetSharingConfigurationForINetConnection<Identity: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnetconnection: *mut core::ffi::c_void, ppnetsharingconfiguration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INetSharingManager_Impl::get_INetSharingConfigurationForINetConnection(this, core::mem::transmute_copy(&pnetconnection)) {
+                match INetSharingManager_Impl::get_INetSharingConfigurationForINetConnection(this, windows_core::Ref::option_from_abi(&pnetconnection)) {
                     Ok(ok__) => {
                         ppnetsharingconfiguration.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6080,7 +6080,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_NetConnectionProps<Identity: INetSharingManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnetconnection: *mut core::ffi::c_void, ppprops: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INetSharingManager_Impl::get_NetConnectionProps(this, core::mem::transmute_copy(&pnetconnection)) {
+                match INetSharingManager_Impl::get_NetConnectionProps(this, windows_core::Ref::option_from_abi(&pnetconnection)) {
                     Ok(ok__) => {
                         ppprops.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

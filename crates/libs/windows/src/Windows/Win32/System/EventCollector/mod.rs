@@ -9,7 +9,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wecapi.dll" "system" fn EcDeleteSubscription(subscriptionname : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { EcDeleteSubscription(subscriptionname.param().abi(), flags) }
+    unsafe { EcDeleteSubscription(core::mem::transmute_copy(&subscriptionname.param().borrow()), flags) }
 }
 #[inline]
 pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebuffer: Option<&mut [u16]>, subscriptionnamebufferused: *mut u32) -> windows_core::BOOL {
@@ -38,7 +38,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wecapi.dll" "system" fn EcGetSubscriptionRunTimeStatus(subscriptionname : windows_core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : windows_core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> windows_core::BOOL);
-    unsafe { EcGetSubscriptionRunTimeStatus(subscriptionname.param().abi(), statusinfoid, eventsourcename.param().abi(), flags, statusvaluebuffersize, statusvaluebuffer as _, statusvaluebufferused as _) }
+    unsafe { EcGetSubscriptionRunTimeStatus(core::mem::transmute_copy(&subscriptionname.param().borrow()), statusinfoid, core::mem::transmute_copy(&eventsourcename.param().borrow()), flags, statusvaluebuffersize, statusvaluebuffer as _, statusvaluebufferused as _) }
 }
 #[inline]
 pub unsafe fn EcInsertObjectArrayElement(objectarray: isize, arrayindex: u32) -> windows_core::BOOL {
@@ -51,7 +51,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wecapi.dll" "system" fn EcOpenSubscription(subscriptionname : windows_core::PCWSTR, accessmask : u32, flags : u32) -> isize);
-    unsafe { EcOpenSubscription(subscriptionname.param().abi(), accessmask, flags) }
+    unsafe { EcOpenSubscription(core::mem::transmute_copy(&subscriptionname.param().borrow()), accessmask, flags) }
 }
 #[inline]
 pub unsafe fn EcOpenSubscriptionEnum(flags: u32) -> isize {
@@ -70,7 +70,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wecapi.dll" "system" fn EcRetrySubscription(subscriptionname : windows_core::PCWSTR, eventsourcename : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { EcRetrySubscription(subscriptionname.param().abi(), eventsourcename.param().abi(), flags) }
+    unsafe { EcRetrySubscription(core::mem::transmute_copy(&subscriptionname.param().borrow()), core::mem::transmute_copy(&eventsourcename.param().borrow()), flags) }
 }
 #[inline]
 pub unsafe fn EcSaveSubscription(subscription: isize, flags: u32) -> windows_core::BOOL {

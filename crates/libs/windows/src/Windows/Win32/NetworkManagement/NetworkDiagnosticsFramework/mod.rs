@@ -19,7 +19,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreateDNSIncident(hostname : windows_core::PCWSTR, querytype : u16, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreateDNSIncident(hostname.param().abi(), querytype, handle as _).ok() }
+    unsafe { NdfCreateDNSIncident(core::mem::transmute_copy(&hostname.param().borrow()), querytype, handle as _).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -32,7 +32,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreateGroupingIncident(cloudname : windows_core::PCWSTR, groupname : windows_core::PCWSTR, identity : windows_core::PCWSTR, invitation : windows_core::PCWSTR, addresses : *const super::super::Networking::WinSock:: SOCKET_ADDRESS_LIST, appid : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreateGroupingIncident(cloudname.param().abi(), groupname.param().abi(), identity.param().abi(), invitation.param().abi(), addresses.unwrap_or(core::mem::zeroed()) as _, appid.param().abi(), handle as _).ok() }
+    unsafe { NdfCreateGroupingIncident(core::mem::transmute_copy(&cloudname.param().borrow()), core::mem::transmute_copy(&groupname.param().borrow()), core::mem::transmute_copy(&identity.param().borrow()), core::mem::transmute_copy(&invitation.param().borrow()), addresses.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&appid.param().borrow()), handle as _).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateIncident<P0>(helperclassname: P0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -40,7 +40,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreateIncident(helperclassname : windows_core::PCWSTR, celt : u32, attributes : *const HELPER_ATTRIBUTE, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreateIncident(helperclassname.param().abi(), attributes.len().try_into().unwrap(), core::mem::transmute(attributes.as_ptr()), handle as _).ok() }
+    unsafe { NdfCreateIncident(core::mem::transmute_copy(&helperclassname.param().borrow()), attributes.len().try_into().unwrap(), core::mem::transmute(attributes.as_ptr()), handle as _).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut core::ffi::c_void, id: windows_core::GUID) -> windows_core::Result<()> {
@@ -55,7 +55,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreatePnrpIncident(cloudname : windows_core::PCWSTR, peername : windows_core::PCWSTR, diagnosepublish : windows_core::BOOL, appid : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreatePnrpIncident(cloudname.param().abi(), peername.param().abi(), diagnosepublish.into(), appid.param().abi(), handle as _).ok() }
+    unsafe { NdfCreatePnrpIncident(core::mem::transmute_copy(&cloudname.param().borrow()), core::mem::transmute_copy(&peername.param().borrow()), diagnosepublish.into(), core::mem::transmute_copy(&appid.param().borrow()), handle as _).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateSharingIncident<P0>(uncpath: P0, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -63,7 +63,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreateSharingIncident(uncpath : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreateSharingIncident(uncpath.param().abi(), handle as _).ok() }
+    unsafe { NdfCreateSharingIncident(core::mem::transmute_copy(&uncpath.param().borrow()), handle as _).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateWebIncident<P0>(url: P0, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -71,7 +71,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreateWebIncident(url : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreateWebIncident(url.param().abi(), handle as _).ok() }
+    unsafe { NdfCreateWebIncident(core::mem::transmute_copy(&url.param().borrow()), handle as _).ok() }
 }
 #[inline]
 pub unsafe fn NdfCreateWebIncidentEx<P0, P2>(url: P0, usewinhttp: bool, modulename: P2, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -80,7 +80,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : windows_core::PCWSTR, usewinhttp : windows_core::BOOL, modulename : windows_core::PCWSTR, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreateWebIncidentEx(url.param().abi(), usewinhttp.into(), modulename.param().abi(), handle as _).ok() }
+    unsafe { NdfCreateWebIncidentEx(core::mem::transmute_copy(&url.param().borrow()), usewinhttp.into(), core::mem::transmute_copy(&modulename.param().borrow()), handle as _).ok() }
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]
@@ -90,7 +90,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ndfapi.dll" "system" fn NdfCreateWinSockIncident(sock : super::super::Networking::WinSock:: SOCKET, host : windows_core::PCWSTR, port : u16, appid : windows_core::PCWSTR, userid : *const super::super::Security:: SID, handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { NdfCreateWinSockIncident(sock, host.param().abi(), port, appid.param().abi(), userid.unwrap_or(core::mem::zeroed()) as _, handle as _).ok() }
+    unsafe { NdfCreateWinSockIncident(sock, core::mem::transmute_copy(&host.param().borrow()), port, core::mem::transmute_copy(&appid.param().borrow()), userid.unwrap_or(core::mem::zeroed()) as _, handle as _).ok() }
 }
 #[inline]
 pub unsafe fn NdfDiagnoseIncident(handle: *const core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> windows_core::Result<()> {
@@ -271,13 +271,13 @@ impl INetDiagHelper {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LowHealth)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), ppwszdescription as _, pdeferredtime as _, pstatus as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LowHealth)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszinstancedescription.param().borrow()), ppwszdescription as _, pdeferredtime as _, pstatus as _).ok() }
     }
     pub unsafe fn HighUtilization<P0>(&self, pwszinstancedescription: P0, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HighUtilization)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), ppwszdescription as _, pdeferredtime as _, pstatus as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HighUtilization)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszinstancedescription.param().borrow()), ppwszdescription as _, pdeferredtime as _, pstatus as _).ok() }
     }
     pub unsafe fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLowerHypotheses)(windows_core::Interface::as_raw(self), pcelt as _, pprghypotheses as _).ok() }
@@ -533,7 +533,7 @@ impl INetDiagHelperEx {
     where
         P0: windows_core::Param<INetDiagHelperUtilFactory>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetUtilities)(windows_core::Interface::as_raw(self), putilities.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetUtilities)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&putilities.param().borrow())).ok() }
     }
     pub unsafe fn ReproduceFailure(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReproduceFailure)(windows_core::Interface::as_raw(self)).ok() }
@@ -549,7 +549,7 @@ pub struct INetDiagHelperEx_Vtbl {
 }
 pub trait INetDiagHelperEx_Impl: windows_core::IUnknownImpl {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>;
-    fn SetUtilities(&self, putilities: windows_core::Ref<INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
+    fn SetUtilities(&self, putilities: Option<&INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
     fn ReproduceFailure(&self) -> windows_core::Result<()>;
 }
 impl INetDiagHelperEx_Vtbl {
@@ -563,7 +563,7 @@ impl INetDiagHelperEx_Vtbl {
         unsafe extern "system" fn SetUtilities<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, putilities: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INetDiagHelperEx_Impl::SetUtilities(this, core::mem::transmute_copy(&putilities)).into()
+                INetDiagHelperEx_Impl::SetUtilities(this, windows_core::Ref::option_from_abi(&putilities)).into()
             }
         }
         unsafe extern "system" fn ReproduceFailure<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

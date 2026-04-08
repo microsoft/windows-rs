@@ -68,7 +68,7 @@ impl Playlist {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsAsync)(windows_core::Interface::as_raw(this), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&savelocation.param().borrow()), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -79,7 +79,7 @@ impl Playlist {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsWithFormatAsync)(windows_core::Interface::as_raw(this), savelocation.param().abi(), core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsWithFormatAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&savelocation.param().borrow()), core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -89,7 +89,7 @@ impl Playlist {
     {
         Self::IPlaylistStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

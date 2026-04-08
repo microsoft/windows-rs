@@ -3,7 +3,7 @@ impl windows_core::RuntimeType for HostMessageReceivedCallback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl HostMessageReceivedCallback {
-    pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&windows_core::GUID, Option<&windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = HostMessageReceivedCallbackBox { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -12,7 +12,7 @@ impl HostMessageReceivedCallback {
         P1: windows_core::Param<windows_collections::IVectorView<windows_core::IInspectable>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverid, message.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverid, core::mem::transmute_copy(&message.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -22,12 +22,12 @@ pub struct HostMessageReceivedCallback_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct HostMessageReceivedCallbackBox<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
+struct HostMessageReceivedCallbackBox<F: Fn(&windows_core::GUID, Option<&windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const HostMessageReceivedCallback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> HostMessageReceivedCallbackBox<F> {
+impl<F: Fn(&windows_core::GUID, Option<&windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> HostMessageReceivedCallbackBox<F> {
     const VTABLE: HostMessageReceivedCallback_Vtbl = HostMessageReceivedCallback_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -70,7 +70,7 @@ impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorVi
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute(&receiverid), core::mem::transmute_copy(&message)).into()
+            (this.invoke)(core::mem::transmute(&receiverid), windows_core::Ref::option_from_abi(&message)).into()
         }
     }
 }
@@ -458,7 +458,7 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostexepath), core::mem::transmute_copy(arguments), activator, telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostexepath), core::mem::transmute_copy(arguments), activator, core::mem::transmute_copy(&telemetryparameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ShareFolderAsync<P1>(&self, hostfolder: &windows_core::HSTRING, requestoptions: P1) -> windows_core::Result<windows_future::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
@@ -468,7 +468,7 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostfolder), requestoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostfolder), core::mem::transmute_copy(&requestoptions.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ShareFolderWithTelemetryAsync<P1, P2>(&self, hostfolder: &windows_core::HSTRING, requestoptions: P1, telemetryparameters: P2) -> windows_core::Result<windows_future::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
@@ -479,7 +479,7 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostfolder), requestoptions.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostfolder), core::mem::transmute_copy(&requestoptions.param().borrow()), core::mem::transmute_copy(&telemetryparameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LaunchFileWithUIAsync(&self, appexepath: &windows_core::HSTRING, argumentstemplate: &windows_core::HSTRING, filepath: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
@@ -496,7 +496,7 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appexepath), core::mem::transmute_copy(argumentstemplate), core::mem::transmute_copy(filepath), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appexepath), core::mem::transmute_copy(argumentstemplate), core::mem::transmute_copy(filepath), core::mem::transmute_copy(&telemetryparameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TerminateAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -513,7 +513,7 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(windows_core::Interface::as_raw(this), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&telemetryparameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RegisterMessageReceiver<P1>(&self, receiverid: windows_core::GUID, messagereceivedcallback: P1) -> windows_core::Result<()>
@@ -521,7 +521,7 @@ impl IsolatedWindowsEnvironment {
         P1: windows_core::Param<MessageReceivedCallback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterMessageReceiver)(windows_core::Interface::as_raw(this), receiverid, messagereceivedcallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterMessageReceiver)(windows_core::Interface::as_raw(this), receiverid, core::mem::transmute_copy(&messagereceivedcallback.param().borrow())).ok() }
     }
     pub fn UnregisterMessageReceiver(&self, receiverid: windows_core::GUID) -> windows_core::Result<()> {
         let this = self;
@@ -534,7 +534,7 @@ impl IsolatedWindowsEnvironment {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(windows_core::Interface::as_raw(this), receiverid, message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(windows_core::Interface::as_raw(this), receiverid, core::mem::transmute_copy(&message.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PostMessageToReceiverWithTelemetryAsync<P1, P2>(&self, receiverid: windows_core::GUID, message: P1, telemetryparameters: P2) -> windows_core::Result<windows_future::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
@@ -545,7 +545,7 @@ impl IsolatedWindowsEnvironment {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(windows_core::Interface::as_raw(this), receiverid, message.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(windows_core::Interface::as_raw(this), receiverid, core::mem::transmute_copy(&message.param().borrow()), core::mem::transmute_copy(&telemetryparameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetUserInfo(&self) -> windows_core::Result<IsolatedWindowsEnvironmentUserInfo> {
@@ -562,7 +562,7 @@ impl IsolatedWindowsEnvironment {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ShareFileWithTelemetryAsync<P1, P2>(&self, filepath: &windows_core::HSTRING, options: P1, telemetryparameters: P2) -> windows_core::Result<windows_future::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
@@ -573,7 +573,7 @@ impl IsolatedWindowsEnvironment {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), options.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), core::mem::transmute_copy(&options.param().borrow()), core::mem::transmute_copy(&telemetryparameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ChangePriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority) -> windows_core::Result<()> {
@@ -586,7 +586,7 @@ impl IsolatedWindowsEnvironment {
     {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithTelemetryAsync<P0, P1>(options: P0, telemetryparameters: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
@@ -596,7 +596,7 @@ impl IsolatedWindowsEnvironment {
     {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(windows_core::Interface::as_raw(this), options.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow()), core::mem::transmute_copy(&telemetryparameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetById(environmentid: &windows_core::HSTRING) -> windows_core::Result<IsolatedWindowsEnvironment> {
@@ -1183,7 +1183,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistration {
     {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(ownername), ownerregistrationdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(ownername), core::mem::transmute_copy(&ownerregistrationdata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Unregister(ownername: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1759,7 +1759,7 @@ impl IsolatedWindowsHostMessenger {
     where
         P1: windows_core::Param<windows_collections::IVectorView<windows_core::IInspectable>>,
     {
-        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (windows_core::Interface::vtable(this).PostMessageToReceiver)(windows_core::Interface::as_raw(this), receiverid, message.param().abi()).ok() })
+        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (windows_core::Interface::vtable(this).PostMessageToReceiver)(windows_core::Interface::as_raw(this), receiverid, core::mem::transmute_copy(&message.param().borrow())).ok() })
     }
     pub fn GetFileId(filepath: &windows_core::HSTRING) -> windows_core::Result<windows_core::GUID> {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe {
@@ -1771,7 +1771,7 @@ impl IsolatedWindowsHostMessenger {
     where
         P1: windows_core::Param<HostMessageReceivedCallback>,
     {
-        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RegisterHostMessageReceiver)(windows_core::Interface::as_raw(this), receiverid, hostmessagereceivedcallback.param().abi()).ok() })
+        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RegisterHostMessageReceiver)(windows_core::Interface::as_raw(this), receiverid, core::mem::transmute_copy(&hostmessagereceivedcallback.param().borrow())).ok() })
     }
     pub fn UnregisterHostMessageReceiver(receiverid: windows_core::GUID) -> windows_core::Result<()> {
         Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).UnregisterHostMessageReceiver)(windows_core::Interface::as_raw(this), receiverid).ok() })
@@ -1793,7 +1793,7 @@ impl windows_core::RuntimeType for MessageReceivedCallback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageReceivedCallback {
-    pub fn new<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&windows_core::GUID, Option<&windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MessageReceivedCallbackBox { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1802,7 +1802,7 @@ impl MessageReceivedCallback {
         P1: windows_core::Param<windows_collections::IVectorView<windows_core::IInspectable>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverid, message.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverid, core::mem::transmute_copy(&message.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1812,12 +1812,12 @@ pub struct MessageReceivedCallback_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MessageReceivedCallbackBox<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
+struct MessageReceivedCallbackBox<F: Fn(&windows_core::GUID, Option<&windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MessageReceivedCallback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> MessageReceivedCallbackBox<F> {
+impl<F: Fn(&windows_core::GUID, Option<&windows_collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> MessageReceivedCallbackBox<F> {
     const VTABLE: MessageReceivedCallback_Vtbl = MessageReceivedCallback_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1860,7 +1860,7 @@ impl<F: Fn(&windows_core::GUID, windows_core::Ref<windows_collections::IVectorVi
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute(&receiverid), core::mem::transmute_copy(&message)).into()
+            (this.invoke)(core::mem::transmute(&receiverid), windows_core::Ref::option_from_abi(&message)).into()
         }
     }
 }

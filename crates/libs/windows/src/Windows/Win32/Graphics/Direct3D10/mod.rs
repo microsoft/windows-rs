@@ -6,7 +6,7 @@ where
     P4: windows_core::Param<super::Direct3D::ID3DInclude>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10CompileEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, psrcfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, hlslflags : u32, fxflags : u32, ppcompiledeffect : *mut * mut core::ffi::c_void, pperrors : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D10CompileEffectFromMemory(pdata, datalength, psrcfilename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), hlslflags, fxflags, core::mem::transmute(ppcompiledeffect), pperrors.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D10CompileEffectFromMemory(pdata, datalength, core::mem::transmute_copy(&psrcfilename.param().borrow()), pdefines.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pinclude.param().borrow()), hlslflags, fxflags, core::mem::transmute(ppcompiledeffect), pperrors.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
@@ -18,7 +18,7 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10CompileShader(psrcdata : windows_core::PCSTR, srcdatasize : usize, pfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, pfunctionname : windows_core::PCSTR, pprofile : windows_core::PCSTR, flags : u32, ppshader : *mut * mut core::ffi::c_void, pperrormsgs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D10CompileShader(core::mem::transmute(psrcdata.as_ptr()), psrcdata.len().try_into().unwrap(), pfilename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), pfunctionname.param().abi(), pprofile.param().abi(), flags, core::mem::transmute(ppshader), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D10CompileShader(core::mem::transmute(psrcdata.as_ptr()), psrcdata.len().try_into().unwrap(), core::mem::transmute_copy(&pfilename.param().borrow()), pdefines.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pinclude.param().borrow()), core::mem::transmute_copy(&pfunctionname.param().borrow()), core::mem::transmute_copy(&pprofile.param().borrow()), flags, core::mem::transmute(ppshader), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
@@ -36,7 +36,7 @@ where
     P0: windows_core::Param<super::Dxgi::IDXGIAdapter>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10CreateDevice(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, sdkversion : u32, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D10CreateDevice(padapter.param().abi(), drivertype, software, flags, sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D10CreateDevice(core::mem::transmute_copy(&padapter.param().borrow()), drivertype, software, flags, sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
@@ -45,7 +45,7 @@ where
     P0: windows_core::Param<super::Dxgi::IDXGIAdapter>,
 {
     windows_core::link!("d3d10_1.dll" "system" fn D3D10CreateDevice1(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, hardwarelevel : D3D10_FEATURE_LEVEL1, sdkversion : u32, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D10CreateDevice1(padapter.param().abi(), drivertype, software, flags, hardwarelevel, sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D10CreateDevice1(core::mem::transmute_copy(&padapter.param().borrow()), drivertype, software, flags, hardwarelevel, sdkversion, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
@@ -54,7 +54,7 @@ where
     P0: windows_core::Param<super::Dxgi::IDXGIAdapter>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10CreateDeviceAndSwapChain(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, sdkversion : u32, pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut * mut core::ffi::c_void, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D10CreateDeviceAndSwapChain(padapter.param().abi(), drivertype, software, flags, sdkversion, pswapchaindesc.unwrap_or(core::mem::zeroed()) as _, ppswapchain.unwrap_or(core::mem::zeroed()) as _, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D10CreateDeviceAndSwapChain(core::mem::transmute_copy(&padapter.param().borrow()), drivertype, software, flags, sdkversion, pswapchaindesc.unwrap_or(core::mem::zeroed()) as _, ppswapchain.unwrap_or(core::mem::zeroed()) as _, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
@@ -63,7 +63,7 @@ where
     P0: windows_core::Param<super::Dxgi::IDXGIAdapter>,
 {
     windows_core::link!("d3d10_1.dll" "system" fn D3D10CreateDeviceAndSwapChain1(padapter : * mut core::ffi::c_void, drivertype : D3D10_DRIVER_TYPE, software : super::super::Foundation:: HMODULE, flags : u32, hardwarelevel : D3D10_FEATURE_LEVEL1, sdkversion : u32, pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut * mut core::ffi::c_void, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D10CreateDeviceAndSwapChain1(padapter.param().abi(), drivertype, software, flags, hardwarelevel, sdkversion, pswapchaindesc.unwrap_or(core::mem::zeroed()) as _, ppswapchain.unwrap_or(core::mem::zeroed()) as _, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D10CreateDeviceAndSwapChain1(core::mem::transmute_copy(&padapter.param().borrow()), drivertype, software, flags, hardwarelevel, sdkversion, pswapchaindesc.unwrap_or(core::mem::zeroed()) as _, ppswapchain.unwrap_or(core::mem::zeroed()) as _, ppdevice.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn D3D10CreateEffectFromMemory<P3, P4>(pdata: *const core::ffi::c_void, datalength: usize, fxflags: u32, pdevice: P3, peffectpool: P4) -> windows_core::Result<ID3D10Effect>
@@ -74,7 +74,7 @@ where
     windows_core::link!("d3d10.dll" "system" fn D3D10CreateEffectFromMemory(pdata : *const core::ffi::c_void, datalength : usize, fxflags : u32, pdevice : * mut core::ffi::c_void, peffectpool : * mut core::ffi::c_void, ppeffect : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        D3D10CreateEffectFromMemory(pdata, datalength, fxflags, pdevice.param().abi(), peffectpool.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        D3D10CreateEffectFromMemory(pdata, datalength, fxflags, core::mem::transmute_copy(&pdevice.param().borrow()), core::mem::transmute_copy(&peffectpool.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -85,7 +85,7 @@ where
     windows_core::link!("d3d10.dll" "system" fn D3D10CreateEffectPoolFromMemory(pdata : *const core::ffi::c_void, datalength : usize, fxflags : u32, pdevice : * mut core::ffi::c_void, ppeffectpool : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        D3D10CreateEffectPoolFromMemory(pdata, datalength, fxflags, pdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        D3D10CreateEffectPoolFromMemory(pdata, datalength, fxflags, core::mem::transmute_copy(&pdevice.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -96,7 +96,7 @@ where
     windows_core::link!("d3d10.dll" "system" fn D3D10CreateStateBlock(pdevice : * mut core::ffi::c_void, pstateblockmask : *const D3D10_STATE_BLOCK_MASK, ppstateblock : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        D3D10CreateStateBlock(pdevice.param().abi(), pstateblockmask, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        D3D10CreateStateBlock(core::mem::transmute_copy(&pdevice.param().borrow()), pstateblockmask, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -108,7 +108,7 @@ where
     windows_core::link!("d3d10.dll" "system" fn D3D10DisassembleEffect(peffect : * mut core::ffi::c_void, enablecolorcode : windows_core::BOOL, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        D3D10DisassembleEffect(peffect.param().abi(), enablecolorcode.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        D3D10DisassembleEffect(core::mem::transmute_copy(&peffect.param().borrow()), enablecolorcode.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -120,7 +120,7 @@ where
     windows_core::link!("d3d10.dll" "system" fn D3D10DisassembleShader(pshader : *const core::ffi::c_void, bytecodelength : usize, enablecolorcode : windows_core::BOOL, pcomments : windows_core::PCSTR, ppdisassembly : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into(), pcomments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        D3D10DisassembleShader(pshader, bytecodelength, enablecolorcode.into(), core::mem::transmute_copy(&pcomments.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -129,7 +129,7 @@ where
     P0: windows_core::Param<ID3D10Device>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10GetGeometryShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
-    unsafe { D3D10GetGeometryShaderProfile(pdevice.param().abi()) }
+    unsafe { D3D10GetGeometryShaderProfile(core::mem::transmute_copy(&pdevice.param().borrow())) }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
@@ -164,7 +164,7 @@ where
     P0: windows_core::Param<ID3D10Device>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10GetPixelShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
-    unsafe { D3D10GetPixelShaderProfile(pdevice.param().abi()) }
+    unsafe { D3D10GetPixelShaderProfile(core::mem::transmute_copy(&pdevice.param().borrow())) }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
@@ -181,7 +181,7 @@ where
     P0: windows_core::Param<ID3D10Device>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10GetVertexShaderProfile(pdevice : * mut core::ffi::c_void) -> windows_core::PCSTR);
-    unsafe { D3D10GetVertexShaderProfile(pdevice.param().abi()) }
+    unsafe { D3D10GetVertexShaderProfile(core::mem::transmute_copy(&pdevice.param().borrow())) }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
@@ -191,7 +191,7 @@ where
     P4: windows_core::Param<super::Direct3D::ID3DInclude>,
 {
     windows_core::link!("d3d10.dll" "system" fn D3D10PreprocessShader(psrcdata : windows_core::PCSTR, srcdatasize : usize, pfilename : windows_core::PCSTR, pdefines : *const super::Direct3D:: D3D_SHADER_MACRO, pinclude : * mut core::ffi::c_void, ppshadertext : *mut * mut core::ffi::c_void, pperrormsgs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3D10PreprocessShader(core::mem::transmute(psrcdata.as_ptr()), psrcdata.len().try_into().unwrap(), pfilename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), core::mem::transmute(ppshadertext), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { D3D10PreprocessShader(core::mem::transmute(psrcdata.as_ptr()), psrcdata.len().try_into().unwrap(), core::mem::transmute_copy(&pfilename.param().borrow()), pdefines.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pinclude.param().borrow()), core::mem::transmute(ppshadertext), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize) -> windows_core::Result<ID3D10ShaderReflection> {
@@ -2708,7 +2708,7 @@ impl ID3D10Debug {
     where
         P0: windows_core::Param<super::Dxgi::IDXGISwapChain>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSwapChain)(windows_core::Interface::as_raw(self), pswapchain.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSwapChain)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pswapchain.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn GetSwapChain(&self) -> windows_core::Result<super::Dxgi::IDXGISwapChain> {
@@ -2747,7 +2747,7 @@ pub trait ID3D10Debug_Impl: windows_core::IUnknownImpl {
     fn GetFeatureMask(&self) -> u32;
     fn SetPresentPerRenderOpDelay(&self, milliseconds: u32) -> windows_core::Result<()>;
     fn GetPresentPerRenderOpDelay(&self) -> u32;
-    fn SetSwapChain(&self, pswapchain: windows_core::Ref<super::Dxgi::IDXGISwapChain>) -> windows_core::Result<()>;
+    fn SetSwapChain(&self, pswapchain: Option<&super::Dxgi::IDXGISwapChain>) -> windows_core::Result<()>;
     fn GetSwapChain(&self) -> windows_core::Result<super::Dxgi::IDXGISwapChain>;
     fn Validate(&self) -> windows_core::Result<()>;
 }
@@ -2781,7 +2781,7 @@ impl ID3D10Debug_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pswapchain: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Debug_Impl::SetSwapChain(this, core::mem::transmute_copy(&pswapchain)).into()
+                ID3D10Debug_Impl::SetSwapChain(this, windows_core::Ref::option_from_abi(&pswapchain)).into()
             }
         }
         unsafe extern "system" fn GetSwapChain<Identity: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2917,7 +2917,7 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10PixelShader>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PSSetShader)(windows_core::Interface::as_raw(self), ppixelshader.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).PSSetShader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ppixelshader.param().borrow())) }
     }
     pub unsafe fn PSSetSamplers(&self, startslot: u32, ppsamplers: Option<&[Option<ID3D10SamplerState>]>) {
         unsafe { (windows_core::Interface::vtable(self).PSSetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
@@ -2926,7 +2926,7 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10VertexShader>,
     {
-        unsafe { (windows_core::Interface::vtable(self).VSSetShader)(windows_core::Interface::as_raw(self), pvertexshader.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).VSSetShader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pvertexshader.param().borrow())) }
     }
     pub unsafe fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32) {
         unsafe { (windows_core::Interface::vtable(self).DrawIndexed)(windows_core::Interface::as_raw(self), indexcount, startindexlocation, basevertexlocation) }
@@ -2941,7 +2941,7 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10InputLayout>,
     {
-        unsafe { (windows_core::Interface::vtable(self).IASetInputLayout)(windows_core::Interface::as_raw(self), pinputlayout.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).IASetInputLayout)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pinputlayout.param().borrow())) }
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: Option<*const Option<ID3D10Buffer>>, pstrides: Option<*const u32>, poffsets: Option<*const u32>) {
         unsafe { (windows_core::Interface::vtable(self).IASetVertexBuffers)(windows_core::Interface::as_raw(self), startslot, numbuffers, ppvertexbuffers.unwrap_or(core::mem::zeroed()) as _, pstrides.unwrap_or(core::mem::zeroed()) as _, poffsets.unwrap_or(core::mem::zeroed()) as _) }
@@ -2951,7 +2951,7 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10Buffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).IASetIndexBuffer)(windows_core::Interface::as_raw(self), pindexbuffer.param().abi(), format, offset) }
+        unsafe { (windows_core::Interface::vtable(self).IASetIndexBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pindexbuffer.param().borrow()), format, offset) }
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
         unsafe { (windows_core::Interface::vtable(self).DrawIndexedInstanced)(windows_core::Interface::as_raw(self), indexcountperinstance, instancecount, startindexlocation, basevertexlocation, startinstancelocation) }
@@ -2966,7 +2966,7 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10GeometryShader>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GSSetShader)(windows_core::Interface::as_raw(self), pshader.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GSSetShader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pshader.param().borrow())) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
@@ -2982,7 +2982,7 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10Predicate>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), ppredicate.param().abi(), predicatevalue.into()) }
+        unsafe { (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ppredicate.param().borrow()), predicatevalue.into()) }
     }
     pub unsafe fn GSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: Option<&[Option<ID3D10ShaderResourceView>]>) {
         unsafe { (windows_core::Interface::vtable(self).GSSetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
@@ -2994,19 +2994,19 @@ impl ID3D10Device {
     where
         P2: windows_core::Param<ID3D10DepthStencilView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OMSetRenderTargets)(windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pprendertargetviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).OMSetRenderTargets)(windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pprendertargetviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute_copy(&pdepthstencilview.param().borrow())) }
     }
     pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: &[f32; 4], samplemask: u32)
     where
         P0: windows_core::Param<ID3D10BlendState>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OMSetBlendState)(windows_core::Interface::as_raw(self), pblendstate.param().abi(), core::mem::transmute(blendfactor.as_ptr()), samplemask) }
+        unsafe { (windows_core::Interface::vtable(self).OMSetBlendState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pblendstate.param().borrow()), core::mem::transmute(blendfactor.as_ptr()), samplemask) }
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
         P0: windows_core::Param<ID3D10DepthStencilState>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OMSetDepthStencilState)(windows_core::Interface::as_raw(self), pdepthstencilstate.param().abi(), stencilref) }
+        unsafe { (windows_core::Interface::vtable(self).OMSetDepthStencilState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdepthstencilstate.param().borrow()), stencilref) }
     }
     pub unsafe fn SOSetTargets(&self, numbuffers: u32, ppsotargets: Option<*const Option<ID3D10Buffer>>, poffsets: Option<*const u32>) {
         unsafe { (windows_core::Interface::vtable(self).SOSetTargets)(windows_core::Interface::as_raw(self), numbuffers, ppsotargets.unwrap_or(core::mem::zeroed()) as _, poffsets.unwrap_or(core::mem::zeroed()) as _) }
@@ -3018,7 +3018,7 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10RasterizerState>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RSSetState)(windows_core::Interface::as_raw(self), prasterizerstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).RSSetState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&prasterizerstate.param().borrow())) }
     }
     pub unsafe fn RSSetViewports(&self, pviewports: Option<&[D3D10_VIEWPORT]>) {
         unsafe { (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), pviewports.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviewports.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
@@ -3031,38 +3031,38 @@ impl ID3D10Device {
         P0: windows_core::Param<ID3D10Resource>,
         P5: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopySubresourceRegion)(windows_core::Interface::as_raw(self), pdstresource.param().abi(), dstsubresource, dstx, dsty, dstz, psrcresource.param().abi(), srcsubresource, psrcbox.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CopySubresourceRegion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdstresource.param().borrow()), dstsubresource, dstx, dsty, dstz, core::mem::transmute_copy(&psrcresource.param().borrow()), srcsubresource, psrcbox.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn CopyResource<P0, P1>(&self, pdstresource: P0, psrcresource: P1)
     where
         P0: windows_core::Param<ID3D10Resource>,
         P1: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyResource)(windows_core::Interface::as_raw(self), pdstresource.param().abi(), psrcresource.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).CopyResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdstresource.param().borrow()), core::mem::transmute_copy(&psrcresource.param().borrow())) }
     }
     pub unsafe fn UpdateSubresource<P0>(&self, pdstresource: P0, dstsubresource: u32, pdstbox: Option<*const D3D10_BOX>, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32)
     where
         P0: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateSubresource)(windows_core::Interface::as_raw(self), pdstresource.param().abi(), dstsubresource, pdstbox.unwrap_or(core::mem::zeroed()) as _, psrcdata, srcrowpitch, srcdepthpitch) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateSubresource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdstresource.param().borrow()), dstsubresource, pdstbox.unwrap_or(core::mem::zeroed()) as _, psrcdata, srcrowpitch, srcdepthpitch) }
     }
     pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: windows_core::Param<ID3D10RenderTargetView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), prendertargetview.param().abi(), core::mem::transmute(colorrgba.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&prendertargetview.param().borrow()), core::mem::transmute(colorrgba.as_ptr())) }
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
         P0: windows_core::Param<ID3D10DepthStencilView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), pdepthstencilview.param().abi(), clearflags, depth, stencil) }
+        unsafe { (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdepthstencilview.param().borrow()), clearflags, depth, stencil) }
     }
     pub unsafe fn GenerateMips<P0>(&self, pshaderresourceview: P0)
     where
         P0: windows_core::Param<ID3D10ShaderResourceView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GenerateMips)(windows_core::Interface::as_raw(self), pshaderresourceview.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GenerateMips)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pshaderresourceview.param().borrow())) }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveSubresource<P0, P2>(&self, pdstresource: P0, dstsubresource: u32, psrcresource: P2, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT)
@@ -3070,7 +3070,7 @@ impl ID3D10Device {
         P0: windows_core::Param<ID3D10Resource>,
         P2: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ResolveSubresource)(windows_core::Interface::as_raw(self), pdstresource.param().abi(), dstsubresource, psrcresource.param().abi(), srcsubresource, format) }
+        unsafe { (windows_core::Interface::vtable(self).ResolveSubresource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdstresource.param().borrow()), dstsubresource, core::mem::transmute_copy(&psrcresource.param().borrow()), srcsubresource, format) }
     }
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: Option<&mut [Option<ID3D10Buffer>]>) {
         unsafe { (windows_core::Interface::vtable(self).VSGetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
@@ -3189,7 +3189,7 @@ impl ID3D10Device {
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, pdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, core::mem::transmute_copy(&pdata.param().borrow())).ok() }
     }
     pub unsafe fn ClearState(&self) {
         unsafe { (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self)) }
@@ -3226,21 +3226,21 @@ impl ID3D10Device {
     where
         P0: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateShaderResourceView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, ppsrview.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateShaderResourceView)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow()), pdesc.unwrap_or(core::mem::zeroed()) as _, ppsrview.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateRenderTargetView<P0>(&self, presource: P0, pdesc: Option<*const D3D10_RENDER_TARGET_VIEW_DESC>, pprtview: Option<*mut Option<ID3D10RenderTargetView>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateRenderTargetView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, pprtview.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateRenderTargetView)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow()), pdesc.unwrap_or(core::mem::zeroed()) as _, pprtview.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateDepthStencilView<P0>(&self, presource: P0, pdesc: Option<*const D3D10_DEPTH_STENCIL_VIEW_DESC>, ppdepthstencilview: Option<*mut Option<ID3D10DepthStencilView>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDepthStencilView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, ppdepthstencilview.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDepthStencilView)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow()), pdesc.unwrap_or(core::mem::zeroed()) as _, ppdepthstencilview.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateInputLayout(&self, pinputelementdescs: &[D3D10_INPUT_ELEMENT_DESC], pshaderbytecodewithinputsignature: &[u8], ppinputlayout: Option<*mut Option<ID3D10InputLayout>>) -> windows_core::Result<()> {
@@ -3464,40 +3464,40 @@ unsafe impl Sync for ID3D10Device {}
 pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const Option<ID3D10Buffer>);
     fn PSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
-    fn PSSetShader(&self, ppixelshader: windows_core::Ref<ID3D10PixelShader>);
+    fn PSSetShader(&self, ppixelshader: Option<&ID3D10PixelShader>);
     fn PSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
-    fn VSSetShader(&self, pvertexshader: windows_core::Ref<ID3D10VertexShader>);
+    fn VSSetShader(&self, pvertexshader: Option<&ID3D10VertexShader>);
     fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
     fn Draw(&self, vertexcount: u32, startvertexlocation: u32);
     fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const Option<ID3D10Buffer>);
-    fn IASetInputLayout(&self, pinputlayout: windows_core::Ref<ID3D10InputLayout>);
+    fn IASetInputLayout(&self, pinputlayout: Option<&ID3D10InputLayout>);
     fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32);
-    fn IASetIndexBuffer(&self, pindexbuffer: windows_core::Ref<ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
+    fn IASetIndexBuffer(&self, pindexbuffer: Option<&ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
     fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
     fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
     fn GSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const Option<ID3D10Buffer>);
-    fn GSSetShader(&self, pshader: windows_core::Ref<ID3D10GeometryShader>);
+    fn GSSetShader(&self, pshader: Option<&ID3D10GeometryShader>);
     fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
     fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
     fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
-    fn SetPredication(&self, ppredicate: windows_core::Ref<ID3D10Predicate>, predicatevalue: windows_core::BOOL);
+    fn SetPredication(&self, ppredicate: Option<&ID3D10Predicate>, predicatevalue: windows_core::BOOL);
     fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const Option<ID3D10ShaderResourceView>);
     fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const Option<ID3D10SamplerState>);
-    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const Option<ID3D10RenderTargetView>, pdepthstencilview: windows_core::Ref<ID3D10DepthStencilView>);
-    fn OMSetBlendState(&self, pblendstate: windows_core::Ref<ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
-    fn OMSetDepthStencilState(&self, pdepthstencilstate: windows_core::Ref<ID3D10DepthStencilState>, stencilref: u32);
+    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const Option<ID3D10RenderTargetView>, pdepthstencilview: Option<&ID3D10DepthStencilView>);
+    fn OMSetBlendState(&self, pblendstate: Option<&ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
+    fn OMSetDepthStencilState(&self, pdepthstencilstate: Option<&ID3D10DepthStencilState>, stencilref: u32);
     fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const Option<ID3D10Buffer>, poffsets: *const u32);
     fn DrawAuto(&self);
-    fn RSSetState(&self, prasterizerstate: windows_core::Ref<ID3D10RasterizerState>);
+    fn RSSetState(&self, prasterizerstate: Option<&ID3D10RasterizerState>);
     fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D10_VIEWPORT);
     fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn CopySubresourceRegion(&self, pdstresource: windows_core::Ref<ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: windows_core::Ref<ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
-    fn CopyResource(&self, pdstresource: windows_core::Ref<ID3D10Resource>, psrcresource: windows_core::Ref<ID3D10Resource>);
-    fn UpdateSubresource(&self, pdstresource: windows_core::Ref<ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
-    fn ClearRenderTargetView(&self, prendertargetview: windows_core::Ref<ID3D10RenderTargetView>, colorrgba: *const f32);
-    fn ClearDepthStencilView(&self, pdepthstencilview: windows_core::Ref<ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
-    fn GenerateMips(&self, pshaderresourceview: windows_core::Ref<ID3D10ShaderResourceView>);
-    fn ResolveSubresource(&self, pdstresource: windows_core::Ref<ID3D10Resource>, dstsubresource: u32, psrcresource: windows_core::Ref<ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
+    fn CopySubresourceRegion(&self, pdstresource: Option<&ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Option<&ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
+    fn CopyResource(&self, pdstresource: Option<&ID3D10Resource>, psrcresource: Option<&ID3D10Resource>);
+    fn UpdateSubresource(&self, pdstresource: Option<&ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
+    fn ClearRenderTargetView(&self, prendertargetview: Option<&ID3D10RenderTargetView>, colorrgba: *const f32);
+    fn ClearDepthStencilView(&self, pdepthstencilview: Option<&ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
+    fn GenerateMips(&self, pshaderresourceview: Option<&ID3D10ShaderResourceView>);
+    fn ResolveSubresource(&self, pdstresource: Option<&ID3D10Resource>, dstsubresource: u32, psrcresource: Option<&ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
     fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut Option<ID3D10Buffer>);
     fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut Option<ID3D10ShaderResourceView>);
     fn PSGetShader(&self, pppixelshader: windows_core::OutRef<ID3D10PixelShader>);
@@ -3527,16 +3527,16 @@ pub trait ID3D10Device_Impl: windows_core::IUnknownImpl {
     fn GetExceptionMode(&self) -> u32;
     fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ClearState(&self);
     fn Flush(&self);
     fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, ppbuffer: windows_core::OutRef<ID3D10Buffer>) -> windows_core::Result<()>;
     fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> windows_core::Result<ID3D10Texture1D>;
     fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> windows_core::Result<ID3D10Texture2D>;
     fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> windows_core::Result<ID3D10Texture3D>;
-    fn CreateShaderResourceView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
-    fn CreateRenderTargetView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: windows_core::OutRef<ID3D10RenderTargetView>) -> windows_core::Result<()>;
-    fn CreateDepthStencilView(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: windows_core::OutRef<ID3D10DepthStencilView>) -> windows_core::Result<()>;
+    fn CreateShaderResourceView(&self, presource: Option<&ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
+    fn CreateRenderTargetView(&self, presource: Option<&ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: windows_core::OutRef<ID3D10RenderTargetView>) -> windows_core::Result<()>;
+    fn CreateDepthStencilView(&self, presource: Option<&ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: windows_core::OutRef<ID3D10DepthStencilView>) -> windows_core::Result<()>;
     fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const core::ffi::c_void, bytecodelength: usize, ppinputlayout: windows_core::OutRef<ID3D10InputLayout>) -> windows_core::Result<()>;
     fn CreateVertexShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize, ppvertexshader: windows_core::OutRef<ID3D10VertexShader>) -> windows_core::Result<()>;
     fn CreateGeometryShader(&self, pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize, ppgeometryshader: windows_core::OutRef<ID3D10GeometryShader>) -> windows_core::Result<()>;
@@ -3576,7 +3576,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn PSSetShader<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppixelshader: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::PSSetShader(this, core::mem::transmute_copy(&ppixelshader))
+                ID3D10Device_Impl::PSSetShader(this, windows_core::Ref::option_from_abi(&ppixelshader))
             }
         }
         unsafe extern "system" fn PSSetSamplers<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut core::ffi::c_void) {
@@ -3588,7 +3588,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn VSSetShader<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvertexshader: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::VSSetShader(this, core::mem::transmute_copy(&pvertexshader))
+                ID3D10Device_Impl::VSSetShader(this, windows_core::Ref::option_from_abi(&pvertexshader))
             }
         }
         unsafe extern "system" fn DrawIndexed<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexcount: u32, startindexlocation: u32, basevertexlocation: i32) {
@@ -3612,7 +3612,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn IASetInputLayout<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputlayout: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::IASetInputLayout(this, core::mem::transmute_copy(&pinputlayout))
+                ID3D10Device_Impl::IASetInputLayout(this, windows_core::Ref::option_from_abi(&pinputlayout))
             }
         }
         unsafe extern "system" fn IASetVertexBuffers<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startslot: u32, numbuffers: u32, ppvertexbuffers: *const *mut core::ffi::c_void, pstrides: *const u32, poffsets: *const u32) {
@@ -3624,7 +3624,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn IASetIndexBuffer<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pindexbuffer: *mut core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::IASetIndexBuffer(this, core::mem::transmute_copy(&pindexbuffer), core::mem::transmute_copy(&format), core::mem::transmute_copy(&offset))
+                ID3D10Device_Impl::IASetIndexBuffer(this, windows_core::Ref::option_from_abi(&pindexbuffer), core::mem::transmute_copy(&format), core::mem::transmute_copy(&offset))
             }
         }
         unsafe extern "system" fn DrawIndexedInstanced<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
@@ -3648,7 +3648,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn GSSetShader<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::GSSetShader(this, core::mem::transmute_copy(&pshader))
+                ID3D10Device_Impl::GSSetShader(this, windows_core::Ref::option_from_abi(&pshader))
             }
         }
         unsafe extern "system" fn IASetPrimitiveTopology<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
@@ -3672,7 +3672,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn SetPredication<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppredicate: *mut core::ffi::c_void, predicatevalue: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::SetPredication(this, core::mem::transmute_copy(&ppredicate), core::mem::transmute_copy(&predicatevalue))
+                ID3D10Device_Impl::SetPredication(this, windows_core::Ref::option_from_abi(&ppredicate), core::mem::transmute_copy(&predicatevalue))
             }
         }
         unsafe extern "system" fn GSSetShaderResources<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut core::ffi::c_void) {
@@ -3690,19 +3690,19 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn OMSetRenderTargets<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numviews: u32, pprendertargetviews: *const *mut core::ffi::c_void, pdepthstencilview: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::OMSetRenderTargets(this, core::mem::transmute_copy(&numviews), core::mem::transmute_copy(&pprendertargetviews), core::mem::transmute_copy(&pdepthstencilview))
+                ID3D10Device_Impl::OMSetRenderTargets(this, core::mem::transmute_copy(&numviews), core::mem::transmute_copy(&pprendertargetviews), windows_core::Ref::option_from_abi(&pdepthstencilview))
             }
         }
         unsafe extern "system" fn OMSetBlendState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblendstate: *mut core::ffi::c_void, blendfactor: *const f32, samplemask: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::OMSetBlendState(this, core::mem::transmute_copy(&pblendstate), core::mem::transmute_copy(&blendfactor), core::mem::transmute_copy(&samplemask))
+                ID3D10Device_Impl::OMSetBlendState(this, windows_core::Ref::option_from_abi(&pblendstate), core::mem::transmute_copy(&blendfactor), core::mem::transmute_copy(&samplemask))
             }
         }
         unsafe extern "system" fn OMSetDepthStencilState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdepthstencilstate: *mut core::ffi::c_void, stencilref: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::OMSetDepthStencilState(this, core::mem::transmute_copy(&pdepthstencilstate), core::mem::transmute_copy(&stencilref))
+                ID3D10Device_Impl::OMSetDepthStencilState(this, windows_core::Ref::option_from_abi(&pdepthstencilstate), core::mem::transmute_copy(&stencilref))
             }
         }
         unsafe extern "system" fn SOSetTargets<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbuffers: u32, ppsotargets: *const *mut core::ffi::c_void, poffsets: *const u32) {
@@ -3720,7 +3720,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn RSSetState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prasterizerstate: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::RSSetState(this, core::mem::transmute_copy(&prasterizerstate))
+                ID3D10Device_Impl::RSSetState(this, windows_core::Ref::option_from_abi(&prasterizerstate))
             }
         }
         unsafe extern "system" fn RSSetViewports<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numviewports: u32, pviewports: *const D3D10_VIEWPORT) {
@@ -3738,43 +3738,43 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn CopySubresourceRegion<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: *mut core::ffi::c_void, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CopySubresourceRegion(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&dstx), core::mem::transmute_copy(&dsty), core::mem::transmute_copy(&dstz), core::mem::transmute_copy(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&psrcbox))
+                ID3D10Device_Impl::CopySubresourceRegion(this, windows_core::Ref::option_from_abi(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&dstx), core::mem::transmute_copy(&dsty), core::mem::transmute_copy(&dstz), windows_core::Ref::option_from_abi(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&psrcbox))
             }
         }
         unsafe extern "system" fn CopyResource<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, psrcresource: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CopyResource(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&psrcresource))
+                ID3D10Device_Impl::CopyResource(this, windows_core::Ref::option_from_abi(&pdstresource), windows_core::Ref::option_from_abi(&psrcresource))
             }
         }
         unsafe extern "system" fn UpdateSubresource<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::UpdateSubresource(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&pdstbox), core::mem::transmute_copy(&psrcdata), core::mem::transmute_copy(&srcrowpitch), core::mem::transmute_copy(&srcdepthpitch))
+                ID3D10Device_Impl::UpdateSubresource(this, windows_core::Ref::option_from_abi(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&pdstbox), core::mem::transmute_copy(&psrcdata), core::mem::transmute_copy(&srcrowpitch), core::mem::transmute_copy(&srcdepthpitch))
             }
         }
         unsafe extern "system" fn ClearRenderTargetView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendertargetview: *mut core::ffi::c_void, colorrgba: *const f32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::ClearRenderTargetView(this, core::mem::transmute_copy(&prendertargetview), core::mem::transmute_copy(&colorrgba))
+                ID3D10Device_Impl::ClearRenderTargetView(this, windows_core::Ref::option_from_abi(&prendertargetview), core::mem::transmute_copy(&colorrgba))
             }
         }
         unsafe extern "system" fn ClearDepthStencilView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdepthstencilview: *mut core::ffi::c_void, clearflags: u32, depth: f32, stencil: u8) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::ClearDepthStencilView(this, core::mem::transmute_copy(&pdepthstencilview), core::mem::transmute_copy(&clearflags), core::mem::transmute_copy(&depth), core::mem::transmute_copy(&stencil))
+                ID3D10Device_Impl::ClearDepthStencilView(this, windows_core::Ref::option_from_abi(&pdepthstencilview), core::mem::transmute_copy(&clearflags), core::mem::transmute_copy(&depth), core::mem::transmute_copy(&stencil))
             }
         }
         unsafe extern "system" fn GenerateMips<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshaderresourceview: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::GenerateMips(this, core::mem::transmute_copy(&pshaderresourceview))
+                ID3D10Device_Impl::GenerateMips(this, windows_core::Ref::option_from_abi(&pshaderresourceview))
             }
         }
         unsafe extern "system" fn ResolveSubresource<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, dstsubresource: u32, psrcresource: *mut core::ffi::c_void, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::ResolveSubresource(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&format))
+                ID3D10Device_Impl::ResolveSubresource(this, windows_core::Ref::option_from_abi(&pdstresource), core::mem::transmute_copy(&dstsubresource), windows_core::Ref::option_from_abi(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&format))
             }
         }
         unsafe extern "system" fn VSGetConstantBuffers<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut core::ffi::c_void) {
@@ -3954,7 +3954,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdata)).into()
+                ID3D10Device_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), windows_core::Ref::option_from_abi(&pdata)).into()
             }
         }
         unsafe extern "system" fn ClearState<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -4014,19 +4014,19 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn CreateShaderResourceView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateShaderResourceView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview)).into()
+                ID3D10Device_Impl::CreateShaderResourceView(this, windows_core::Ref::option_from_abi(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview)).into()
             }
         }
         unsafe extern "system" fn CreateRenderTargetView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateRenderTargetView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprtview)).into()
+                ID3D10Device_Impl::CreateRenderTargetView(this, windows_core::Ref::option_from_abi(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprtview)).into()
             }
         }
         unsafe extern "system" fn CreateDepthStencilView<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device_Impl::CreateDepthStencilView(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppdepthstencilview)).into()
+                ID3D10Device_Impl::CreateDepthStencilView(this, windows_core::Ref::option_from_abi(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppdepthstencilview)).into()
             }
         }
         unsafe extern "system" fn CreateInputLayout<Identity: ID3D10Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const core::ffi::c_void, bytecodelength: usize, ppinputlayout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4280,7 +4280,7 @@ impl ID3D10Device1 {
     where
         P0: windows_core::Param<ID3D10Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateShaderResourceView1)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, ppsrview.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateShaderResourceView1)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow()), pdesc.unwrap_or(core::mem::zeroed()) as _, ppsrview.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: Option<*mut Option<ID3D10BlendState1>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CreateBlendState1)(windows_core::Interface::as_raw(self), pblendstatedesc, ppblendstate.unwrap_or(core::mem::zeroed()) as _).ok() }
@@ -4304,7 +4304,7 @@ unsafe impl Send for ID3D10Device1 {}
 unsafe impl Sync for ID3D10Device1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10Device1_Impl: ID3D10Device_Impl {
-    fn CreateShaderResourceView1(&self, presource: windows_core::Ref<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView1>) -> windows_core::Result<()>;
+    fn CreateShaderResourceView1(&self, presource: Option<&ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: windows_core::OutRef<ID3D10ShaderResourceView1>) -> windows_core::Result<()>;
     fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: windows_core::OutRef<ID3D10BlendState1>) -> windows_core::Result<()>;
     fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
 }
@@ -4314,7 +4314,7 @@ impl ID3D10Device1_Vtbl {
         unsafe extern "system" fn CreateShaderResourceView1<Identity: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10Device1_Impl::CreateShaderResourceView1(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview)).into()
+                ID3D10Device1_Impl::CreateShaderResourceView1(this, windows_core::Ref::option_from_abi(&presource), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppsrview)).into()
             }
         }
         unsafe extern "system" fn CreateBlendState1<Identity: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4362,7 +4362,7 @@ impl ID3D10DeviceChild {
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, pdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, core::mem::transmute_copy(&pdata.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -4380,7 +4380,7 @@ pub trait ID3D10DeviceChild_Impl: windows_core::IUnknownImpl {
     fn GetDevice(&self, ppdevice: windows_core::OutRef<ID3D10Device>);
     fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ID3D10DeviceChild_Vtbl {
     pub const fn new<Identity: ID3D10DeviceChild_Impl, const OFFSET: isize>() -> Self {
@@ -4405,7 +4405,7 @@ impl ID3D10DeviceChild_Vtbl {
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ID3D10DeviceChild_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D10DeviceChild_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pdata)).into()
+                ID3D10DeviceChild_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&guid), windows_core::Ref::option_from_abi(&pdata)).into()
             }
         }
         Self {
@@ -4446,7 +4446,7 @@ impl ID3D10Effect {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> Option<ID3D10EffectVariable> {
         unsafe { (windows_core::Interface::vtable(self).GetVariableByIndex)(windows_core::Interface::as_raw(self), index) }
@@ -4455,13 +4455,13 @@ impl ID3D10Effect {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn GetVariableBySemantic<P0>(&self, semantic: P0) -> Option<ID3D10EffectVariable>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetVariableBySemantic)(windows_core::Interface::as_raw(self), semantic.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetVariableBySemantic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&semantic.param().borrow())) }
     }
     pub unsafe fn GetTechniqueByIndex(&self, index: u32) -> Option<ID3D10EffectTechnique> {
         unsafe { (windows_core::Interface::vtable(self).GetTechniqueByIndex)(windows_core::Interface::as_raw(self), index) }
@@ -4470,7 +4470,7 @@ impl ID3D10Effect {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetTechniqueByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetTechniqueByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn Optimize(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Optimize)(windows_core::Interface::as_raw(self)).ok() }
@@ -4703,7 +4703,7 @@ impl ID3D10EffectConstantBuffer {
     where
         P0: windows_core::Param<ID3D10Buffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetConstantBuffer)(windows_core::Interface::as_raw(self), pconstantbuffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetConstantBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pconstantbuffer.param().borrow())).ok() }
     }
     pub unsafe fn GetConstantBuffer(&self) -> windows_core::Result<ID3D10Buffer> {
         unsafe {
@@ -4715,7 +4715,7 @@ impl ID3D10EffectConstantBuffer {
     where
         P0: windows_core::Param<ID3D10ShaderResourceView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTextureBuffer)(windows_core::Interface::as_raw(self), ptexturebuffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTextureBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ptexturebuffer.param().borrow())).ok() }
     }
     pub unsafe fn GetTextureBuffer(&self) -> windows_core::Result<ID3D10ShaderResourceView> {
         unsafe {
@@ -4736,9 +4736,9 @@ pub struct ID3D10EffectConstantBuffer_Vtbl {
 unsafe impl Send for ID3D10EffectConstantBuffer {}
 unsafe impl Sync for ID3D10EffectConstantBuffer {}
 pub trait ID3D10EffectConstantBuffer_Impl: ID3D10EffectVariable_Impl {
-    fn SetConstantBuffer(&self, pconstantbuffer: windows_core::Ref<ID3D10Buffer>) -> windows_core::Result<()>;
+    fn SetConstantBuffer(&self, pconstantbuffer: Option<&ID3D10Buffer>) -> windows_core::Result<()>;
     fn GetConstantBuffer(&self) -> windows_core::Result<ID3D10Buffer>;
-    fn SetTextureBuffer(&self, ptexturebuffer: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
+    fn SetTextureBuffer(&self, ptexturebuffer: Option<&ID3D10ShaderResourceView>) -> windows_core::Result<()>;
     fn GetTextureBuffer(&self) -> windows_core::Result<ID3D10ShaderResourceView>;
 }
 impl ID3D10EffectConstantBuffer_Vtbl {
@@ -4747,7 +4747,7 @@ impl ID3D10EffectConstantBuffer_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectConstantBuffer_Impl::SetConstantBuffer(this, core::mem::transmute_copy(&pconstantbuffer)).into()
+                ID3D10EffectConstantBuffer_Impl::SetConstantBuffer(this, windows_core::Ref::option_from_abi(&pconstantbuffer)).into()
             }
         }
         unsafe extern "system" fn GetConstantBuffer<Identity: ID3D10EffectConstantBuffer_Impl>(this: *mut core::ffi::c_void, ppconstantbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4767,7 +4767,7 @@ impl ID3D10EffectConstantBuffer_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectConstantBuffer_Impl::SetTextureBuffer(this, core::mem::transmute_copy(&ptexturebuffer)).into()
+                ID3D10EffectConstantBuffer_Impl::SetTextureBuffer(this, windows_core::Ref::option_from_abi(&ptexturebuffer)).into()
             }
         }
         unsafe extern "system" fn GetTextureBuffer<Identity: ID3D10EffectConstantBuffer_Impl>(this: *mut core::ffi::c_void, pptexturebuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4888,7 +4888,7 @@ impl ID3D10EffectDepthStencilViewVariable {
     where
         P0: windows_core::Param<ID3D10DepthStencilView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDepthStencil)(windows_core::Interface::as_raw(self), presource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDepthStencil)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow())).ok() }
     }
     pub unsafe fn GetDepthStencil(&self) -> windows_core::Result<ID3D10DepthStencilView> {
         unsafe {
@@ -4915,7 +4915,7 @@ pub struct ID3D10EffectDepthStencilViewVariable_Vtbl {
 unsafe impl Send for ID3D10EffectDepthStencilViewVariable {}
 unsafe impl Sync for ID3D10EffectDepthStencilViewVariable {}
 pub trait ID3D10EffectDepthStencilViewVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetDepthStencil(&self, presource: windows_core::Ref<ID3D10DepthStencilView>) -> windows_core::Result<()>;
+    fn SetDepthStencil(&self, presource: Option<&ID3D10DepthStencilView>) -> windows_core::Result<()>;
     fn GetDepthStencil(&self) -> windows_core::Result<ID3D10DepthStencilView>;
     fn SetDepthStencilArray(&self, ppresources: *const Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetDepthStencilArray(&self, ppresources: *mut Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> windows_core::Result<()>;
@@ -4926,7 +4926,7 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectDepthStencilViewVariable_Impl::SetDepthStencil(this, core::mem::transmute_copy(&presource)).into()
+                ID3D10EffectDepthStencilViewVariable_Impl::SetDepthStencil(this, windows_core::Ref::option_from_abi(&presource)).into()
             }
         }
         unsafe extern "system" fn GetDepthStencil<Identity: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut core::ffi::c_void, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5141,7 +5141,7 @@ impl ID3D10EffectPass {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAnnotationByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetAnnotationByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn Apply(&self, flags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Apply)(windows_core::Interface::as_raw(self), flags).ok() }
@@ -5383,7 +5383,7 @@ impl ID3D10EffectRenderTargetViewVariable {
     where
         P0: windows_core::Param<ID3D10RenderTargetView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRenderTarget)(windows_core::Interface::as_raw(self), presource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRenderTarget)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow())).ok() }
     }
     pub unsafe fn GetRenderTarget(&self) -> windows_core::Result<ID3D10RenderTargetView> {
         unsafe {
@@ -5410,7 +5410,7 @@ pub struct ID3D10EffectRenderTargetViewVariable_Vtbl {
 unsafe impl Send for ID3D10EffectRenderTargetViewVariable {}
 unsafe impl Sync for ID3D10EffectRenderTargetViewVariable {}
 pub trait ID3D10EffectRenderTargetViewVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetRenderTarget(&self, presource: windows_core::Ref<ID3D10RenderTargetView>) -> windows_core::Result<()>;
+    fn SetRenderTarget(&self, presource: Option<&ID3D10RenderTargetView>) -> windows_core::Result<()>;
     fn GetRenderTarget(&self) -> windows_core::Result<ID3D10RenderTargetView>;
     fn SetRenderTargetArray(&self, ppresources: *const Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetRenderTargetArray(&self, ppresources: *mut Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> windows_core::Result<()>;
@@ -5421,7 +5421,7 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectRenderTargetViewVariable_Impl::SetRenderTarget(this, core::mem::transmute_copy(&presource)).into()
+                ID3D10EffectRenderTargetViewVariable_Impl::SetRenderTarget(this, windows_core::Ref::option_from_abi(&presource)).into()
             }
         }
         unsafe extern "system" fn GetRenderTarget<Identity: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut core::ffi::c_void, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5772,7 +5772,7 @@ impl ID3D10EffectShaderResourceVariable {
     where
         P0: windows_core::Param<ID3D10ShaderResourceView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetResource)(windows_core::Interface::as_raw(self), presource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow())).ok() }
     }
     pub unsafe fn GetResource(&self) -> windows_core::Result<ID3D10ShaderResourceView> {
         unsafe {
@@ -5799,7 +5799,7 @@ pub struct ID3D10EffectShaderResourceVariable_Vtbl {
 unsafe impl Send for ID3D10EffectShaderResourceVariable {}
 unsafe impl Sync for ID3D10EffectShaderResourceVariable {}
 pub trait ID3D10EffectShaderResourceVariable_Impl: ID3D10EffectVariable_Impl {
-    fn SetResource(&self, presource: windows_core::Ref<ID3D10ShaderResourceView>) -> windows_core::Result<()>;
+    fn SetResource(&self, presource: Option<&ID3D10ShaderResourceView>) -> windows_core::Result<()>;
     fn GetResource(&self) -> windows_core::Result<ID3D10ShaderResourceView>;
     fn SetResourceArray(&self, ppresources: *const Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> windows_core::Result<()>;
     fn GetResourceArray(&self, ppresources: *mut Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> windows_core::Result<()>;
@@ -5810,7 +5810,7 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                ID3D10EffectShaderResourceVariable_Impl::SetResource(this, core::mem::transmute_copy(&presource)).into()
+                ID3D10EffectShaderResourceVariable_Impl::SetResource(this, windows_core::Ref::option_from_abi(&presource)).into()
             }
         }
         unsafe extern "system" fn GetResource<Identity: ID3D10EffectShaderResourceVariable_Impl>(this: *mut core::ffi::c_void, ppresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6098,7 +6098,7 @@ impl ID3D10EffectTechnique {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAnnotationByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetAnnotationByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn GetPassByIndex(&self, index: u32) -> Option<ID3D10EffectPass> {
         unsafe { (windows_core::Interface::vtable(self).GetPassByIndex)(windows_core::Interface::as_raw(self), index) }
@@ -6107,7 +6107,7 @@ impl ID3D10EffectTechnique {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetPassByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetPassByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn ComputeStateBlockMask(&self, pstateblockmask: *mut D3D10_STATE_BLOCK_MASK) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ComputeStateBlockMask)(windows_core::Interface::as_raw(self), pstateblockmask as _).ok() }
@@ -6224,13 +6224,13 @@ impl ID3D10EffectType {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn GetMemberTypeBySemantic<P0>(&self, semantic: P0) -> Option<ID3D10EffectType>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeBySemantic)(windows_core::Interface::as_raw(self), semantic.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeBySemantic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&semantic.param().borrow())) }
     }
     pub unsafe fn GetMemberName(&self, index: u32) -> windows_core::PCSTR {
         unsafe { (windows_core::Interface::vtable(self).GetMemberName)(windows_core::Interface::as_raw(self), index) }
@@ -6360,7 +6360,7 @@ impl ID3D10EffectVariable {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAnnotationByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetAnnotationByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn GetMemberByIndex(&self, index: u32) -> Option<ID3D10EffectVariable> {
         unsafe { (windows_core::Interface::vtable(self).GetMemberByIndex)(windows_core::Interface::as_raw(self), index) }
@@ -6369,13 +6369,13 @@ impl ID3D10EffectVariable {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMemberByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetMemberByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn GetMemberBySemantic<P0>(&self, semantic: P0) -> Option<ID3D10EffectVariable>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMemberBySemantic)(windows_core::Interface::as_raw(self), semantic.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetMemberBySemantic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&semantic.param().borrow())) }
     }
     pub unsafe fn GetElement(&self, index: u32) -> Option<ID3D10EffectVariable> {
         unsafe { (windows_core::Interface::vtable(self).GetElement)(windows_core::Interface::as_raw(self), index) }
@@ -7004,13 +7004,13 @@ impl ID3D10InfoQueue {
     where
         P3: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), category, severity, id, pdescription.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), category, severity, id, core::mem::transmute_copy(&pdescription.param().borrow())).ok() }
     }
     pub unsafe fn AddApplicationMessage<P1>(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, pdescription.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, core::mem::transmute_copy(&pdescription.param().borrow())).ok() }
     }
     pub unsafe fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), category, benable.into()).ok() }
@@ -7770,7 +7770,7 @@ impl ID3D10ShaderReflection {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
@@ -7888,7 +7888,7 @@ impl ID3D10ShaderReflection1 {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
@@ -7906,14 +7906,14 @@ impl ID3D10ShaderReflection1 {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D10_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), name.param().abi(), pdesc as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), pdesc as _).ok() }
     }
     pub unsafe fn GetMovInstructionCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -8190,7 +8190,7 @@ impl ID3D10ShaderReflectionConstantBuffer {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
 }
 #[repr(C)]
@@ -8265,7 +8265,7 @@ impl ID3D10ShaderReflectionType {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow())) }
     }
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> windows_core::PCSTR {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeName)(windows_core::Interface::as_raw(self), index) }

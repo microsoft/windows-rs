@@ -40,7 +40,7 @@ impl ISpiControllerProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceProvider)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -48,14 +48,14 @@ impl windows_core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
 pub trait ISpiControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceProvider(&self, settings: windows_core::Ref<ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: Option<&ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
 }
 impl ISpiControllerProvider_Vtbl {
     pub const fn new<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceProvider<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpiControllerProvider_Impl::GetDeviceProvider(this, core::mem::transmute_copy(&settings)) {
+                match ISpiControllerProvider_Impl::GetDeviceProvider(this, windows_core::Ref::option_from_abi(&settings)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

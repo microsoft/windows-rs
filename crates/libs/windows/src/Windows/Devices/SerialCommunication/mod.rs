@@ -321,7 +321,7 @@ impl SerialDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorReceived)(windows_core::Interface::as_raw(this), reporthandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ErrorReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&reporthandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveErrorReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -335,7 +335,7 @@ impl SerialDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PinChanged)(windows_core::Interface::as_raw(this), reporthandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PinChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&reporthandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePinChanged(&self, token: i64) -> windows_core::Result<()> {

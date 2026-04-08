@@ -10,7 +10,7 @@ impl DevicePortalConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
@@ -24,7 +24,7 @@ impl DevicePortalConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RequestReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRequestReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -38,7 +38,7 @@ impl DevicePortalConnection {
     {
         Self::IDevicePortalConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForAppServiceConnection)(windows_core::Interface::as_raw(this), appserviceconnection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForAppServiceConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&appserviceconnection.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -49,7 +49,7 @@ impl DevicePortalConnection {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -60,7 +60,7 @@ impl DevicePortalConnection {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(windows_core::Interface::as_raw(this), request.param().abi(), messagetype, core::mem::transmute_copy(protocol), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), messagetype, core::mem::transmute_copy(protocol), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -71,7 +71,7 @@ impl DevicePortalConnection {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(windows_core::Interface::as_raw(this), request.param().abi(), messagetype, core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, maxmessagesize, receivemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), messagetype, core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, maxmessagesize, receivemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -82,7 +82,7 @@ impl DevicePortalConnection {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -93,7 +93,7 @@ impl DevicePortalConnection {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest2)(windows_core::Interface::as_raw(this), request.param().abi(), core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, nodelay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, nodelay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     fn IDevicePortalConnectionStatics<R, F: FnOnce(&IDevicePortalConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

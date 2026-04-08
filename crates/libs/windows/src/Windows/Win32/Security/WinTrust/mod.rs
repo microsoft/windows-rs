@@ -66,7 +66,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wintrust.dll" "system" fn WintrustAddDefaultForUsage(pszusageoid : windows_core::PCSTR, psdefusage : *const CRYPT_PROVIDER_REGDEFUSAGE) -> windows_core::BOOL);
-    unsafe { WintrustAddDefaultForUsage(pszusageoid.param().abi(), psdefusage).ok() }
+    unsafe { WintrustAddDefaultForUsage(core::mem::transmute_copy(&pszusageoid.param().borrow()), psdefusage).ok() }
 }
 #[inline]
 pub unsafe fn WintrustGetDefaultForUsage<P1>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: P1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_core::Result<()>
@@ -74,7 +74,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wintrust.dll" "system" fn WintrustGetDefaultForUsage(dwaction : WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid : windows_core::PCSTR, psusage : *mut CRYPT_PROVIDER_DEFUSAGE) -> windows_core::BOOL);
-    unsafe { WintrustGetDefaultForUsage(dwaction, pszusageoid.param().abi(), psusage as _).ok() }
+    unsafe { WintrustGetDefaultForUsage(dwaction, core::mem::transmute_copy(&pszusageoid.param().borrow()), psusage as _).ok() }
 }
 #[inline]
 pub unsafe fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS) {

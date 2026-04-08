@@ -22,7 +22,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdmo.dll" "system" fn DMORegister(szname : windows_core::PCWSTR, clsiddmo : *const windows_core::GUID, guidcategory : *const windows_core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT);
-    unsafe { DMORegister(szname.param().abi(), clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes).ok() }
+    unsafe { DMORegister(core::mem::transmute_copy(&szname.param().borrow()), clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes).ok() }
 }
 #[inline]
 pub unsafe fn DMOUnregister(clsiddmo: *const windows_core::GUID, guidcategory: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -524,7 +524,7 @@ impl IMediaObject {
     where
         P1: windows_core::Param<IMediaBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ProcessInput)(windows_core::Interface::as_raw(self), dwinputstreamindex, pbuffer.param().abi(), dwflags, rttimestamp, rttimelength).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ProcessInput)(windows_core::Interface::as_raw(self), dwinputstreamindex, core::mem::transmute_copy(&pbuffer.param().borrow()), dwflags, rttimestamp, rttimelength).ok() }
     }
     pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, poutputbuffers.len().try_into().unwrap(), core::mem::transmute(poutputbuffers.as_ptr()), pdwstatus as _).ok() }
@@ -578,7 +578,7 @@ pub trait IMediaObject_Impl: windows_core::IUnknownImpl {
     fn AllocateStreamingResources(&self) -> windows_core::Result<()>;
     fn FreeStreamingResources(&self) -> windows_core::Result<()>;
     fn GetInputStatus(&self, dwinputstreamindex: u32) -> windows_core::Result<u32>;
-    fn ProcessInput(&self, dwinputstreamindex: u32, pbuffer: windows_core::Ref<IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> windows_core::Result<()>;
+    fn ProcessInput(&self, dwinputstreamindex: u32, pbuffer: Option<&IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> windows_core::Result<()>;
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::Result<()>;
     fn Lock(&self, block: i32) -> windows_core::Result<()>;
 }
@@ -719,7 +719,7 @@ impl IMediaObject_Vtbl {
         unsafe extern "system" fn ProcessInput<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: u32, pbuffer: *mut core::ffi::c_void, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&rttimestamp), core::mem::transmute_copy(&rttimelength)).into()
+                IMediaObject_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamindex), windows_core::Ref::option_from_abi(&pbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&rttimestamp), core::mem::transmute_copy(&rttimelength)).into()
             }
         }
         unsafe extern "system" fn ProcessOutput<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::HRESULT {

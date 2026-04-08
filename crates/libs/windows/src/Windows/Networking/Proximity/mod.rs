@@ -28,7 +28,7 @@ impl windows_core::RuntimeType for DeviceArrivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeviceArrivedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeviceArrivedEventHandlerBox { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -37,7 +37,7 @@ impl DeviceArrivedEventHandler {
         P0: windows_core::Param<ProximityDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -47,12 +47,12 @@ pub struct DeviceArrivedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeviceArrivedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
+struct DeviceArrivedEventHandlerBox<F: Fn(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const DeviceArrivedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceArrivedEventHandlerBox<F> {
+impl<F: Fn(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceArrivedEventHandlerBox<F> {
     const VTABLE: DeviceArrivedEventHandler_Vtbl = DeviceArrivedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -95,7 +95,7 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Sen
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender)).into()
         }
     }
 }
@@ -104,7 +104,7 @@ impl windows_core::RuntimeType for DeviceDepartedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeviceDepartedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeviceDepartedEventHandlerBox { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -113,7 +113,7 @@ impl DeviceDepartedEventHandler {
         P0: windows_core::Param<ProximityDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -123,12 +123,12 @@ pub struct DeviceDepartedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeviceDepartedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
+struct DeviceDepartedEventHandlerBox<F: Fn(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const DeviceDepartedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceDepartedEventHandlerBox<F> {
+impl<F: Fn(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceDepartedEventHandlerBox<F> {
     const VTABLE: DeviceDepartedEventHandler_Vtbl = DeviceDepartedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -171,7 +171,7 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Sen
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender)).into()
         }
     }
 }
@@ -372,7 +372,7 @@ impl windows_core::RuntimeType for MessageReceivedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageReceivedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&ProximityDevice>, Option<&ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MessageReceivedHandlerBox { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -382,7 +382,7 @@ impl MessageReceivedHandler {
         P1: windows_core::Param<ProximityMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), message.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&message.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -392,12 +392,12 @@ pub struct MessageReceivedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MessageReceivedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static> {
+struct MessageReceivedHandlerBox<F: Fn(Option<&ProximityDevice>, Option<&ProximityMessage>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MessageReceivedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static> MessageReceivedHandlerBox<F> {
+impl<F: Fn(Option<&ProximityDevice>, Option<&ProximityMessage>) -> windows_core::Result<()> + Send + 'static> MessageReceivedHandlerBox<F> {
     const VTABLE: MessageReceivedHandler_Vtbl = MessageReceivedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -440,7 +440,7 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessag
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&message)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&message)).into()
         }
     }
 }
@@ -449,7 +449,7 @@ impl windows_core::RuntimeType for MessageTransmittedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageTransmittedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MessageTransmittedHandlerBox { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -458,7 +458,7 @@ impl MessageTransmittedHandler {
         P0: windows_core::Param<ProximityDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), messageid).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), messageid).ok() }
     }
 }
 #[repr(C)]
@@ -468,12 +468,12 @@ pub struct MessageTransmittedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, messageid: i64) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MessageTransmittedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> {
+struct MessageTransmittedHandlerBox<F: Fn(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MessageTransmittedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> MessageTransmittedHandlerBox<F> {
+impl<F: Fn(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> MessageTransmittedHandlerBox<F> {
     const VTABLE: MessageTransmittedHandler_Vtbl = MessageTransmittedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -516,7 +516,7 @@ impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> 
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, messageid: i64) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), messageid).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), messageid).into()
         }
     }
 }
@@ -632,7 +632,7 @@ impl PeerFinder {
     {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggeredConnectionStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TriggeredConnectionStateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveTriggeredConnectionStateChanged(cookie: i64) -> windows_core::Result<()> {
@@ -644,7 +644,7 @@ impl PeerFinder {
     {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveConnectionRequested(cookie: i64) -> windows_core::Result<()> {
@@ -663,7 +663,7 @@ impl PeerFinder {
     {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), peerinformation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&peerinformation.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Role() -> windows_core::Result<PeerRole> {
@@ -687,7 +687,7 @@ impl PeerFinder {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
-        Self::IPeerFinderStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetDiscoveryData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
+        Self::IPeerFinderStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetDiscoveryData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() })
     }
     pub fn CreateWatcher() -> windows_core::Result<PeerWatcher> {
         Self::IPeerFinderStatics2(|this| unsafe {
@@ -787,7 +787,7 @@ impl PeerWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
@@ -801,7 +801,7 @@ impl PeerWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
@@ -815,7 +815,7 @@ impl PeerWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -829,7 +829,7 @@ impl PeerWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -843,7 +843,7 @@ impl PeerWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
@@ -907,7 +907,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubscribeForMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), messagereceivedhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SubscribeForMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), core::mem::transmute_copy(&messagereceivedhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn PublishMessage(&self, messagetype: &windows_core::HSTRING, message: &windows_core::HSTRING) -> windows_core::Result<i64> {
@@ -924,7 +924,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublishMessageWithCallback)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), core::mem::transmute_copy(message), messagetransmittedhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PublishMessageWithCallback)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), core::mem::transmute_copy(message), core::mem::transmute_copy(&messagetransmittedhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -935,7 +935,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublishBinaryMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), message.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PublishBinaryMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), core::mem::transmute_copy(&message.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -947,7 +947,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublishBinaryMessageWithCallback)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), message.param().abi(), messagetransmittedhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PublishBinaryMessageWithCallback)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), core::mem::transmute_copy(&message.param().borrow()), core::mem::transmute_copy(&messagetransmittedhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn PublishUriMessage<P0>(&self, message: P0) -> windows_core::Result<i64>
@@ -957,7 +957,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublishUriMessage)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PublishUriMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn PublishUriMessageWithCallback<P0, P1>(&self, message: P0, messagetransmittedhandler: P1) -> windows_core::Result<i64>
@@ -968,7 +968,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublishUriMessageWithCallback)(windows_core::Interface::as_raw(this), message.param().abi(), messagetransmittedhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PublishUriMessageWithCallback)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), core::mem::transmute_copy(&messagetransmittedhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn StopSubscribingForMessage(&self, subscriptionid: i64) -> windows_core::Result<()> {
@@ -986,7 +986,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceArrived)(windows_core::Interface::as_raw(this), arrivedhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DeviceArrived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&arrivedhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDeviceArrived(&self, cookie: i64) -> windows_core::Result<()> {
@@ -1000,7 +1000,7 @@ impl ProximityDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceDeparted)(windows_core::Interface::as_raw(this), departedhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DeviceDeparted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&departedhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDeviceDeparted(&self, cookie: i64) -> windows_core::Result<()> {

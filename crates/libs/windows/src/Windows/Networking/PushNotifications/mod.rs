@@ -189,7 +189,7 @@ impl PushNotificationChannel {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PushNotificationReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PushNotificationReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePushNotificationReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -236,7 +236,7 @@ impl PushNotificationChannelManager {
     {
         Self::IPushNotificationChannelManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefault() -> windows_core::Result<PushNotificationChannelManagerForUser> {
@@ -251,7 +251,7 @@ impl PushNotificationChannelManager {
     {
         Self::IPushNotificationChannelManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelsRevoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ChannelsRevoked)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveChannelsRevoked(token: i64) -> windows_core::Result<()> {
@@ -319,7 +319,7 @@ impl PushNotificationChannelManagerForUser {
         let this = &windows_core::Interface::cast::<IPushNotificationChannelManagerForUser2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync)(windows_core::Interface::as_raw(this), appserverkey.param().abi(), core::mem::transmute_copy(channelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&appserverkey.param().borrow()), core::mem::transmute_copy(channelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -330,7 +330,7 @@ impl PushNotificationChannelManagerForUser {
         let this = &windows_core::Interface::cast::<IPushNotificationChannelManagerForUser2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId)(windows_core::Interface::as_raw(this), appserverkey.param().abi(), core::mem::transmute_copy(channelid), core::mem::transmute_copy(appid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&appserverkey.param().borrow()), core::mem::transmute_copy(channelid), core::mem::transmute_copy(appid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

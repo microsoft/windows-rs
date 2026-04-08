@@ -143,7 +143,7 @@ impl PhoneCallOrigin {
         P0: windows_core::Param<super::super::super::Storage::StorageFile>,
     {
         let this = &windows_core::Interface::cast::<IPhoneCallOrigin3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayPicture)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayPicture)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for PhoneCallOrigin {
@@ -173,7 +173,7 @@ impl PhoneCallOriginManager {
     where
         P1: windows_core::Param<PhoneCallOrigin>,
     {
-        Self::IPhoneCallOriginManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetCallOrigin)(windows_core::Interface::as_raw(this), requestid, callorigin.param().abi()).ok() })
+        Self::IPhoneCallOriginManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetCallOrigin)(windows_core::Interface::as_raw(this), requestid, core::mem::transmute_copy(&callorigin.param().borrow())).ok() })
     }
     pub fn RequestSetAsActiveCallOriginAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         Self::IPhoneCallOriginManagerStatics2(|this| unsafe {

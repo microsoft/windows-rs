@@ -69,7 +69,7 @@ impl WalletItemSystemStore {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -80,7 +80,7 @@ impl WalletItemSystemStore {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAppStatusForItem<P0>(&self, item: P0) -> windows_core::Result<WalletItemAppAssociation>
@@ -90,7 +90,7 @@ impl WalletItemSystemStore {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAppStatusForItem)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetAppStatusForItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn LaunchAppForItemAsync<P0>(&self, item: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -100,7 +100,7 @@ impl WalletItemSystemStore {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchAppForItemAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchAppForItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ItemsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -110,7 +110,7 @@ impl WalletItemSystemStore {
         let this = &windows_core::Interface::cast::<IWalletItemSystemStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ItemsChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveItemsChanged(&self, cookie: i64) -> windows_core::Result<()> {

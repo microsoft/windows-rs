@@ -39,7 +39,7 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AccessChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AccessChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAccessChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -63,7 +63,7 @@ impl AppCapability {
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(windows_core::Interface::as_raw(this), capabilitynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&capabilitynames.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -74,7 +74,7 @@ impl AppCapability {
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), capabilitynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(&capabilitynames.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Create(capabilityname: &windows_core::HSTRING) -> windows_core::Result<AppCapability> {
@@ -90,7 +90,7 @@ impl AppCapability {
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(capabilityname), pid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(capabilityname), pid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IAppCapabilityStatics<R, F: FnOnce(&IAppCapabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

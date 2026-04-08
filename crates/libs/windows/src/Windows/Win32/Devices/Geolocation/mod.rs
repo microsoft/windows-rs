@@ -1158,7 +1158,7 @@ impl IDefaultLocation {
     where
         P1: windows_core::Param<ILocationReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetReport)(windows_core::Interface::as_raw(self), reporttype, core::mem::transmute_copy(&plocationreport.param().borrow())).ok() }
     }
     pub unsafe fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport> {
         unsafe {
@@ -1175,7 +1175,7 @@ pub struct IDefaultLocation_Vtbl {
     pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDefaultLocation_Impl: windows_core::IUnknownImpl {
-    fn SetReport(&self, reporttype: *const windows_core::GUID, plocationreport: windows_core::Ref<ILocationReport>) -> windows_core::Result<()>;
+    fn SetReport(&self, reporttype: *const windows_core::GUID, plocationreport: Option<&ILocationReport>) -> windows_core::Result<()>;
     fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport>;
 }
 impl IDefaultLocation_Vtbl {
@@ -1183,7 +1183,7 @@ impl IDefaultLocation_Vtbl {
         unsafe extern "system" fn SetReport<Identity: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDefaultLocation_Impl::SetReport(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&plocationreport)).into()
+                IDefaultLocation_Impl::SetReport(this, core::mem::transmute_copy(&reporttype), windows_core::Ref::option_from_abi(&plocationreport)).into()
             }
         }
         unsafe extern "system" fn GetReport<Identity: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, pplocationreport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1772,7 +1772,7 @@ impl ILocation {
     where
         P0: windows_core::Param<ILocationEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), pevents.param().abi(), reporttype, dwrequestedreportinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterForReport)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pevents.param().borrow()), reporttype, dwrequestedreportinterval).ok() }
     }
     pub unsafe fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnregisterForReport)(windows_core::Interface::as_raw(self), reporttype).ok() }
@@ -1835,7 +1835,7 @@ pub struct ILocation_Vtbl {
 }
 #[cfg(feature = "Win32_Devices_Sensors")]
 pub trait ILocation_Impl: windows_core::IUnknownImpl {
-    fn RegisterForReport(&self, pevents: windows_core::Ref<ILocationEvents>, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>;
+    fn RegisterForReport(&self, pevents: Option<&ILocationEvents>, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>;
     fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport>;
     fn GetReportStatus(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<LOCATION_REPORT_STATUS>;
@@ -1851,7 +1851,7 @@ impl ILocation_Vtbl {
         unsafe extern "system" fn RegisterForReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevents: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocation_Impl::RegisterForReport(this, core::mem::transmute_copy(&pevents), core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&dwrequestedreportinterval)).into()
+                ILocation_Impl::RegisterForReport(this, windows_core::Ref::option_from_abi(&pevents), core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&dwrequestedreportinterval)).into()
             }
         }
         unsafe extern "system" fn UnregisterForReport<Identity: ILocation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID) -> windows_core::HRESULT {
@@ -1952,7 +1952,7 @@ impl ILocationEvents {
     where
         P1: windows_core::Param<ILocationReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, plocationreport.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnLocationChanged)(windows_core::Interface::as_raw(self), reporttype, core::mem::transmute_copy(&plocationreport.param().borrow())).ok() }
     }
     pub unsafe fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnStatusChanged)(windows_core::Interface::as_raw(self), reporttype, newstatus).ok() }
@@ -1966,7 +1966,7 @@ pub struct ILocationEvents_Vtbl {
     pub OnStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, LOCATION_REPORT_STATUS) -> windows_core::HRESULT,
 }
 pub trait ILocationEvents_Impl: windows_core::IUnknownImpl {
-    fn OnLocationChanged(&self, reporttype: *const windows_core::GUID, plocationreport: windows_core::Ref<ILocationReport>) -> windows_core::Result<()>;
+    fn OnLocationChanged(&self, reporttype: *const windows_core::GUID, plocationreport: Option<&ILocationReport>) -> windows_core::Result<()>;
     fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()>;
 }
 impl ILocationEvents_Vtbl {
@@ -1974,7 +1974,7 @@ impl ILocationEvents_Vtbl {
         unsafe extern "system" fn OnLocationChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, plocationreport: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILocationEvents_Impl::OnLocationChanged(this, core::mem::transmute_copy(&reporttype), core::mem::transmute_copy(&plocationreport)).into()
+                ILocationEvents_Impl::OnLocationChanged(this, core::mem::transmute_copy(&reporttype), windows_core::Ref::option_from_abi(&plocationreport)).into()
             }
         }
         unsafe extern "system" fn OnStatusChanged<Identity: ILocationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::HRESULT {

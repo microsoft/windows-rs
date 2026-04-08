@@ -440,7 +440,7 @@ impl PaymentAddress {
         P0: windows_core::Param<windows_collections::IVectorView<windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAddressLines)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAddressLines)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Region(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -706,7 +706,7 @@ impl PaymentDetails {
         P0: windows_core::Param<PaymentItem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTotal)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTotal)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn DisplayItems(&self) -> windows_core::Result<windows_collections::IVectorView<PaymentItem>> {
         let this = self;
@@ -720,7 +720,7 @@ impl PaymentDetails {
         P0: windows_core::Param<windows_collections::IVectorView<PaymentItem>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDisplayItems)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDisplayItems)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ShippingOptions(&self) -> windows_core::Result<windows_collections::IVectorView<PaymentShippingOption>> {
         let this = self;
@@ -734,7 +734,7 @@ impl PaymentDetails {
         P0: windows_core::Param<windows_collections::IVectorView<PaymentShippingOption>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetShippingOptions)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetShippingOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Modifiers(&self) -> windows_core::Result<windows_collections::IVectorView<PaymentDetailsModifier>> {
         let this = self;
@@ -748,7 +748,7 @@ impl PaymentDetails {
         P0: windows_core::Param<windows_collections::IVectorView<PaymentDetailsModifier>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetModifiers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetModifiers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Create<P0>(total: P0) -> windows_core::Result<PaymentDetails>
     where
@@ -756,7 +756,7 @@ impl PaymentDetails {
     {
         Self::IPaymentDetailsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), total.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&total.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithDisplayItems<P0, P1>(total: P0, displayitems: P1) -> windows_core::Result<PaymentDetails>
@@ -766,7 +766,7 @@ impl PaymentDetails {
     {
         Self::IPaymentDetailsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithDisplayItems)(windows_core::Interface::as_raw(this), total.param().abi(), displayitems.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithDisplayItems)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&total.param().borrow()), core::mem::transmute_copy(&displayitems.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentDetailsFactory<R, F: FnOnce(&IPaymentDetailsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -826,7 +826,7 @@ impl PaymentDetailsModifier {
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), supportedmethodids.param().abi(), total.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&supportedmethodids.param().borrow()), core::mem::transmute_copy(&total.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithAdditionalDisplayItems<P0, P1, P2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2) -> windows_core::Result<PaymentDetailsModifier>
@@ -837,7 +837,7 @@ impl PaymentDetailsModifier {
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItems)(windows_core::Interface::as_raw(this), supportedmethodids.param().abi(), total.param().abi(), additionaldisplayitems.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItems)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&supportedmethodids.param().borrow()), core::mem::transmute_copy(&total.param().borrow()), core::mem::transmute_copy(&additionaldisplayitems.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithAdditionalDisplayItemsAndJsonData<P0, P1, P2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2, jsondata: &windows_core::HSTRING) -> windows_core::Result<PaymentDetailsModifier>
@@ -848,7 +848,7 @@ impl PaymentDetailsModifier {
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(windows_core::Interface::as_raw(this), supportedmethodids.param().abi(), total.param().abi(), additionaldisplayitems.param().abi(), core::mem::transmute_copy(jsondata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&supportedmethodids.param().borrow()), core::mem::transmute_copy(&total.param().borrow()), core::mem::transmute_copy(&additionaldisplayitems.param().borrow()), core::mem::transmute_copy(jsondata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentDetailsModifierFactory<R, F: FnOnce(&IPaymentDetailsModifierFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -896,7 +896,7 @@ impl PaymentItem {
         P0: windows_core::Param<PaymentCurrencyAmount>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAmount)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAmount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Pending(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -915,7 +915,7 @@ impl PaymentItem {
     {
         Self::IPaymentItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), core::mem::transmute_copy(&amount.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentItemFactory<R, F: FnOnce(&IPaymentItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -961,7 +961,7 @@ impl PaymentMediator {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubmitPaymentRequestAsync)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SubmitPaymentRequestAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&paymentrequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SubmitPaymentRequestWithChangeHandlerAsync<P0, P1>(&self, paymentrequest: P0, changehandler: P1) -> windows_core::Result<windows_future::IAsyncOperation<PaymentRequestSubmitResult>>
@@ -972,7 +972,7 @@ impl PaymentMediator {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), changehandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&paymentrequest.param().borrow()), core::mem::transmute_copy(&changehandler.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CanMakePaymentAsync<P0>(&self, paymentrequest: P0) -> windows_core::Result<windows_future::IAsyncOperation<PaymentCanMakePaymentResult>>
@@ -982,7 +982,7 @@ impl PaymentMediator {
         let this = &windows_core::Interface::cast::<IPaymentMediator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanMakePaymentAsync)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CanMakePaymentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&paymentrequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1030,7 +1030,7 @@ impl PaymentMerchantInfo {
     {
         Self::IPaymentMerchantInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentMerchantInfoFactory<R, F: FnOnce(&IPaymentMerchantInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1075,7 +1075,7 @@ impl PaymentMethodData {
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), supportedmethodids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&supportedmethodids.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithJsonData<P0>(supportedmethodids: P0, jsondata: &windows_core::HSTRING) -> windows_core::Result<PaymentMethodData>
@@ -1084,7 +1084,7 @@ impl PaymentMethodData {
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithJsonData)(windows_core::Interface::as_raw(this), supportedmethodids.param().abi(), core::mem::transmute_copy(jsondata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithJsonData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&supportedmethodids.param().borrow()), core::mem::transmute_copy(jsondata), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentMethodDataFactory<R, F: FnOnce(&IPaymentMethodDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1245,7 +1245,7 @@ impl PaymentRequest {
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), details.param().abi(), methoddata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&details.param().borrow()), core::mem::transmute_copy(&methoddata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithMerchantInfo<P0, P1, P2>(details: P0, methoddata: P1, merchantinfo: P2) -> windows_core::Result<PaymentRequest>
@@ -1256,7 +1256,7 @@ impl PaymentRequest {
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithMerchantInfo)(windows_core::Interface::as_raw(this), details.param().abi(), methoddata.param().abi(), merchantinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithMerchantInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&details.param().borrow()), core::mem::transmute_copy(&methoddata.param().borrow()), core::mem::transmute_copy(&merchantinfo.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithMerchantInfoAndOptions<P0, P1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3) -> windows_core::Result<PaymentRequest>
@@ -1268,7 +1268,7 @@ impl PaymentRequest {
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithMerchantInfoAndOptions)(windows_core::Interface::as_raw(this), details.param().abi(), methoddata.param().abi(), merchantinfo.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithMerchantInfoAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&details.param().borrow()), core::mem::transmute_copy(&methoddata.param().borrow()), core::mem::transmute_copy(&merchantinfo.param().borrow()), core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithMerchantInfoOptionsAndId<P0, P1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3, id: &windows_core::HSTRING) -> windows_core::Result<PaymentRequest>
@@ -1280,7 +1280,7 @@ impl PaymentRequest {
     {
         Self::IPaymentRequestFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithMerchantInfoOptionsAndId)(windows_core::Interface::as_raw(this), details.param().abi(), methoddata.param().abi(), merchantinfo.param().abi(), options.param().abi(), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithMerchantInfoOptionsAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&details.param().borrow()), core::mem::transmute_copy(&methoddata.param().borrow()), core::mem::transmute_copy(&merchantinfo.param().borrow()), core::mem::transmute_copy(&options.param().borrow()), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentRequestFactory<R, F: FnOnce(&IPaymentRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1348,7 +1348,7 @@ impl PaymentRequestChangedArgs {
         P0: windows_core::Param<PaymentRequestChangedResult>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Acknowledge)(windows_core::Interface::as_raw(this), changeresult.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Acknowledge)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&changeresult.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for PaymentRequestChangedArgs {
@@ -1368,7 +1368,7 @@ impl windows_core::RuntimeType for PaymentRequestChangedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl PaymentRequestChangedHandler {
-    pub fn new<F: Fn(windows_core::Ref<PaymentRequest>, windows_core::Ref<PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = PaymentRequestChangedHandlerBox { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1378,7 +1378,7 @@ impl PaymentRequestChangedHandler {
         P1: windows_core::Param<PaymentRequestChangedArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), args.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&paymentrequest.param().borrow()), core::mem::transmute_copy(&args.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1388,12 +1388,12 @@ pub struct PaymentRequestChangedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct PaymentRequestChangedHandlerBox<F: Fn(windows_core::Ref<PaymentRequest>, windows_core::Ref<PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct PaymentRequestChangedHandlerBox<F: Fn(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const PaymentRequestChangedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<PaymentRequest>, windows_core::Ref<PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> PaymentRequestChangedHandlerBox<F> {
+impl<F: Fn(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> PaymentRequestChangedHandlerBox<F> {
     const VTABLE: PaymentRequestChangedHandler_Vtbl = PaymentRequestChangedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1436,7 +1436,7 @@ impl<F: Fn(windows_core::Ref<PaymentRequest>, windows_core::Ref<PaymentRequestCh
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&paymentrequest), core::mem::transmute_copy(&args)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&paymentrequest), windows_core::Ref::option_from_abi(&args)).into()
         }
     }
 }
@@ -1479,7 +1479,7 @@ impl PaymentRequestChangedResult {
         P0: windows_core::Param<PaymentDetails>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUpdatedPaymentDetails)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUpdatedPaymentDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Create(changeacceptedbymerchant: bool) -> windows_core::Result<PaymentRequestChangedResult> {
         Self::IPaymentRequestChangedResultFactory(|this| unsafe {
@@ -1493,7 +1493,7 @@ impl PaymentRequestChangedResult {
     {
         Self::IPaymentRequestChangedResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithPaymentDetails)(windows_core::Interface::as_raw(this), changeacceptedbymerchant, updatedpaymentdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithPaymentDetails)(windows_core::Interface::as_raw(this), changeacceptedbymerchant, core::mem::transmute_copy(&updatedpaymentdetails.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentRequestChangedResultFactory<R, F: FnOnce(&IPaymentRequestChangedResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1668,7 +1668,7 @@ impl PaymentShippingOption {
         P0: windows_core::Param<PaymentCurrencyAmount>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAmount)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAmount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Tag(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1698,7 +1698,7 @@ impl PaymentShippingOption {
     {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), core::mem::transmute_copy(&amount.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithSelected<P1>(label: &windows_core::HSTRING, amount: P1, selected: bool) -> windows_core::Result<PaymentShippingOption>
@@ -1707,7 +1707,7 @@ impl PaymentShippingOption {
     {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithSelected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), selected, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithSelected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), core::mem::transmute_copy(&amount.param().borrow()), selected, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithSelectedAndTag<P1>(label: &windows_core::HSTRING, amount: P1, selected: bool, tag: &windows_core::HSTRING) -> windows_core::Result<PaymentShippingOption>
@@ -1716,7 +1716,7 @@ impl PaymentShippingOption {
     {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithSelectedAndTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), selected, core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithSelectedAndTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), core::mem::transmute_copy(&amount.param().borrow()), selected, core::mem::transmute_copy(tag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPaymentShippingOptionFactory<R, F: FnOnce(&IPaymentShippingOptionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

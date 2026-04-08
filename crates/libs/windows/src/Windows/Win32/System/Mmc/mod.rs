@@ -1394,14 +1394,14 @@ impl IComponent {
     where
         P0: windows_core::Param<IConsole>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpconsole.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpconsole.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Notify<P0>(&self, lpdataobject: P0, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), event, arg, param3).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpdataobject.param().borrow()), event, arg, param3).ok() }
     }
     pub unsafe fn Destroy(&self, cookie: isize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self), cookie).ok() }
@@ -1425,7 +1425,7 @@ impl IComponent {
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), lpdataobjecta.param().abi(), lpdataobjectb.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpdataobjecta.param().borrow()), core::mem::transmute_copy(&lpdataobjectb.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1451,13 +1451,13 @@ pub struct IComponent_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IComponent_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, lpconsole: windows_core::Ref<IConsole>) -> windows_core::Result<()>;
-    fn Notify(&self, lpdataobject: windows_core::Ref<super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn Initialize(&self, lpconsole: Option<&IConsole>) -> windows_core::Result<()>;
+    fn Notify(&self, lpdataobject: Option<&super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn Destroy(&self, cookie: isize) -> windows_core::Result<()>;
     fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> windows_core::Result<super::Com::IDataObject>;
     fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut windows_core::PWSTR, pviewoptions: *mut i32) -> windows_core::Result<()>;
     fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> windows_core::Result<()>;
-    fn CompareObjects(&self, lpdataobjecta: windows_core::Ref<super::Com::IDataObject>, lpdataobjectb: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn CompareObjects(&self, lpdataobjecta: Option<&super::Com::IDataObject>, lpdataobjectb: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IComponent_Vtbl {
@@ -1465,13 +1465,13 @@ impl IComponent_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpconsole: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::Initialize(this, core::mem::transmute_copy(&lpconsole)).into()
+                IComponent_Impl::Initialize(this, windows_core::Ref::option_from_abi(&lpconsole)).into()
             }
         }
         unsafe extern "system" fn Notify<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobject: *mut core::ffi::c_void, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::Notify(this, core::mem::transmute_copy(&lpdataobject), core::mem::transmute_copy(&event), core::mem::transmute_copy(&arg), core::mem::transmute_copy(&param3)).into()
+                IComponent_Impl::Notify(this, windows_core::Ref::option_from_abi(&lpdataobject), core::mem::transmute_copy(&event), core::mem::transmute_copy(&arg), core::mem::transmute_copy(&param3)).into()
             }
         }
         unsafe extern "system" fn Destroy<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: isize) -> windows_core::HRESULT {
@@ -1507,7 +1507,7 @@ impl IComponent_Vtbl {
         unsafe extern "system" fn CompareObjects<Identity: IComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobjecta: *mut core::ffi::c_void, lpdataobjectb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponent_Impl::CompareObjects(this, core::mem::transmute_copy(&lpdataobjecta), core::mem::transmute_copy(&lpdataobjectb)).into()
+                IComponent_Impl::CompareObjects(this, windows_core::Ref::option_from_abi(&lpdataobjecta), windows_core::Ref::option_from_abi(&lpdataobjectb)).into()
             }
         }
         Self {
@@ -1614,7 +1614,7 @@ impl IComponentData {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), punknown.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&punknown.param().borrow())).ok() }
     }
     pub unsafe fn CreateComponent(&self) -> windows_core::Result<IComponent> {
         unsafe {
@@ -1627,7 +1627,7 @@ impl IComponentData {
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), event, arg, param3).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpdataobject.param().borrow()), event, arg, param3).ok() }
     }
     pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok() }
@@ -1648,7 +1648,7 @@ impl IComponentData {
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), lpdataobjecta.param().abi(), lpdataobjectb.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CompareObjects)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpdataobjecta.param().borrow()), core::mem::transmute_copy(&lpdataobjectb.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1674,13 +1674,13 @@ pub struct IComponentData_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IComponentData_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, punknown: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CreateComponent(&self) -> windows_core::Result<IComponent>;
-    fn Notify(&self, lpdataobject: windows_core::Ref<super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
+    fn Notify(&self, lpdataobject: Option<&super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn Destroy(&self) -> windows_core::Result<()>;
     fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> windows_core::Result<super::Com::IDataObject>;
     fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> windows_core::Result<()>;
-    fn CompareObjects(&self, lpdataobjecta: windows_core::Ref<super::Com::IDataObject>, lpdataobjectb: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn CompareObjects(&self, lpdataobjecta: Option<&super::Com::IDataObject>, lpdataobjectb: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentData_Vtbl {
@@ -1688,7 +1688,7 @@ impl IComponentData_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IComponentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punknown: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentData_Impl::Initialize(this, core::mem::transmute_copy(&punknown)).into()
+                IComponentData_Impl::Initialize(this, windows_core::Ref::option_from_abi(&punknown)).into()
             }
         }
         unsafe extern "system" fn CreateComponent<Identity: IComponentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1706,7 +1706,7 @@ impl IComponentData_Vtbl {
         unsafe extern "system" fn Notify<Identity: IComponentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobject: *mut core::ffi::c_void, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentData_Impl::Notify(this, core::mem::transmute_copy(&lpdataobject), core::mem::transmute_copy(&event), core::mem::transmute_copy(&arg), core::mem::transmute_copy(&param3)).into()
+                IComponentData_Impl::Notify(this, windows_core::Ref::option_from_abi(&lpdataobject), core::mem::transmute_copy(&event), core::mem::transmute_copy(&arg), core::mem::transmute_copy(&param3)).into()
             }
         }
         unsafe extern "system" fn Destroy<Identity: IComponentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1736,7 +1736,7 @@ impl IComponentData_Vtbl {
         unsafe extern "system" fn CompareObjects<Identity: IComponentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobjecta: *mut core::ffi::c_void, lpdataobjectb: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IComponentData_Impl::CompareObjects(this, core::mem::transmute_copy(&lpdataobjecta), core::mem::transmute_copy(&lpdataobjectb)).into()
+                IComponentData_Impl::CompareObjects(this, windows_core::Ref::option_from_abi(&lpdataobjecta), windows_core::Ref::option_from_abi(&lpdataobjectb)).into()
             }
         }
         Self {
@@ -1816,13 +1816,13 @@ impl IConsole {
     where
         P0: windows_core::Param<IHeaderCtrl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHeader)(windows_core::Interface::as_raw(self), pheader.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pheader.param().borrow())).ok() }
     }
     pub unsafe fn SetToolbar<P0>(&self, ptoolbar: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IToolbar>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetToolbar)(windows_core::Interface::as_raw(self), ptoolbar.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetToolbar)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ptoolbar.param().borrow())).ok() }
     }
     pub unsafe fn QueryResultView(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -1847,7 +1847,7 @@ impl IConsole {
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateAllViews)(windows_core::Interface::as_raw(self), lpdataobject.param().abi(), data, hint).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateAllViews)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpdataobject.param().borrow()), data, hint).ok() }
     }
     pub unsafe fn MessageBox<P0, P1>(&self, lpsztext: P0, lpsztitle: P1, fustyle: u32) -> windows_core::Result<i32>
     where
@@ -1856,7 +1856,7 @@ impl IConsole {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MessageBox)(windows_core::Interface::as_raw(self), lpsztext.param().abi(), lpsztitle.param().abi(), fustyle, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MessageBox)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpsztext.param().borrow()), core::mem::transmute_copy(&lpsztitle.param().borrow()), fustyle, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn QueryConsoleVerb(&self) -> windows_core::Result<IConsoleVerb> {
@@ -1899,12 +1899,12 @@ pub struct IConsole_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IConsole_Impl: windows_core::IUnknownImpl {
-    fn SetHeader(&self, pheader: windows_core::Ref<IHeaderCtrl>) -> windows_core::Result<()>;
-    fn SetToolbar(&self, ptoolbar: windows_core::Ref<IToolbar>) -> windows_core::Result<()>;
+    fn SetHeader(&self, pheader: Option<&IHeaderCtrl>) -> windows_core::Result<()>;
+    fn SetToolbar(&self, ptoolbar: Option<&IToolbar>) -> windows_core::Result<()>;
     fn QueryResultView(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn QueryScopeImageList(&self) -> windows_core::Result<IImageList>;
     fn QueryResultImageList(&self) -> windows_core::Result<IImageList>;
-    fn UpdateAllViews(&self, lpdataobject: windows_core::Ref<super::Com::IDataObject>, data: super::super::Foundation::LPARAM, hint: isize) -> windows_core::Result<()>;
+    fn UpdateAllViews(&self, lpdataobject: Option<&super::Com::IDataObject>, data: super::super::Foundation::LPARAM, hint: isize) -> windows_core::Result<()>;
     fn MessageBox(&self, lpsztext: &windows_core::PCWSTR, lpsztitle: &windows_core::PCWSTR, fustyle: u32) -> windows_core::Result<i32>;
     fn QueryConsoleVerb(&self) -> windows_core::Result<IConsoleVerb>;
     fn SelectScopeItem(&self, hscopeitem: isize) -> windows_core::Result<()>;
@@ -1917,13 +1917,13 @@ impl IConsole_Vtbl {
         unsafe extern "system" fn SetHeader<Identity: IConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheader: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConsole_Impl::SetHeader(this, core::mem::transmute_copy(&pheader)).into()
+                IConsole_Impl::SetHeader(this, windows_core::Ref::option_from_abi(&pheader)).into()
             }
         }
         unsafe extern "system" fn SetToolbar<Identity: IConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptoolbar: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConsole_Impl::SetToolbar(this, core::mem::transmute_copy(&ptoolbar)).into()
+                IConsole_Impl::SetToolbar(this, windows_core::Ref::option_from_abi(&ptoolbar)).into()
             }
         }
         unsafe extern "system" fn QueryResultView<Identity: IConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1965,7 +1965,7 @@ impl IConsole_Vtbl {
         unsafe extern "system" fn UpdateAllViews<Identity: IConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobject: *mut core::ffi::c_void, data: super::super::Foundation::LPARAM, hint: isize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IConsole_Impl::UpdateAllViews(this, core::mem::transmute_copy(&lpdataobject), core::mem::transmute_copy(&data), core::mem::transmute_copy(&hint)).into()
+                IConsole_Impl::UpdateAllViews(this, windows_core::Ref::option_from_abi(&lpdataobject), core::mem::transmute_copy(&data), core::mem::transmute_copy(&hint)).into()
             }
         }
         unsafe extern "system" fn MessageBox<Identity: IConsole_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpsztext: windows_core::PCWSTR, lpsztitle: windows_core::PCWSTR, fustyle: u32, piretval: *mut i32) -> windows_core::HRESULT {
@@ -2056,7 +2056,7 @@ impl IConsole2 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStatusText)(windows_core::Interface::as_raw(self), pszstatustext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetStatusText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszstatustext.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2555,14 +2555,14 @@ impl IContextMenuProvider {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPrimaryExtensionItems)(windows_core::Interface::as_raw(self), piextension.param().abi(), pidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPrimaryExtensionItems)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&piextension.param().borrow()), core::mem::transmute_copy(&pidataobject.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddThirdPartyExtensionItems<P0>(&self, pidataobject: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddThirdPartyExtensionItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddThirdPartyExtensionItems)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pidataobject.param().borrow())).ok() }
     }
     pub unsafe fn ShowContextMenu(&self, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32) -> windows_core::Result<i32> {
         unsafe {
@@ -2589,8 +2589,8 @@ pub struct IContextMenuProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IContextMenuProvider_Impl: IContextMenuCallback_Impl {
     fn EmptyMenuList(&self) -> windows_core::Result<()>;
-    fn AddPrimaryExtensionItems(&self, piextension: windows_core::Ref<windows_core::IUnknown>, pidataobject: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
-    fn AddThirdPartyExtensionItems(&self, pidataobject: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn AddPrimaryExtensionItems(&self, piextension: Option<&windows_core::IUnknown>, pidataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn AddThirdPartyExtensionItems(&self, pidataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
     fn ShowContextMenu(&self, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32) -> windows_core::Result<i32>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2605,13 +2605,13 @@ impl IContextMenuProvider_Vtbl {
         unsafe extern "system" fn AddPrimaryExtensionItems<Identity: IContextMenuProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piextension: *mut core::ffi::c_void, pidataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IContextMenuProvider_Impl::AddPrimaryExtensionItems(this, core::mem::transmute_copy(&piextension), core::mem::transmute_copy(&pidataobject)).into()
+                IContextMenuProvider_Impl::AddPrimaryExtensionItems(this, windows_core::Ref::option_from_abi(&piextension), windows_core::Ref::option_from_abi(&pidataobject)).into()
             }
         }
         unsafe extern "system" fn AddThirdPartyExtensionItems<Identity: IContextMenuProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IContextMenuProvider_Impl::AddThirdPartyExtensionItems(this, core::mem::transmute_copy(&pidataobject)).into()
+                IContextMenuProvider_Impl::AddThirdPartyExtensionItems(this, windows_core::Ref::option_from_abi(&pidataobject)).into()
             }
         }
         unsafe extern "system" fn ShowContextMenu<Identity: IContextMenuProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32, plselected: *mut i32) -> windows_core::HRESULT {
@@ -2649,20 +2649,20 @@ impl IControlbar {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), ntype, pextendcontrolbar.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), ntype, core::mem::transmute_copy(&pextendcontrolbar.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Attach<P1>(&self, ntype: MMC_CONTROL_TYPE, lpunknown: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), ntype, lpunknown.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Attach)(windows_core::Interface::as_raw(self), ntype, core::mem::transmute_copy(&lpunknown.param().borrow())).ok() }
     }
     pub unsafe fn Detach<P0>(&self, lpunknown: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self), lpunknown.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpunknown.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2674,16 +2674,16 @@ pub struct IControlbar_Vtbl {
     pub Detach: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IControlbar_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: windows_core::Ref<IExtendControlbar>) -> windows_core::Result<windows_core::IUnknown>;
-    fn Attach(&self, ntype: MMC_CONTROL_TYPE, lpunknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Detach(&self, lpunknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Create(&self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: Option<&IExtendControlbar>) -> windows_core::Result<windows_core::IUnknown>;
+    fn Attach(&self, ntype: MMC_CONTROL_TYPE, lpunknown: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Detach(&self, lpunknown: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IControlbar_Vtbl {
     pub const fn new<Identity: IControlbar_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Create<Identity: IControlbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: *mut core::ffi::c_void, ppunknown: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IControlbar_Impl::Create(this, core::mem::transmute_copy(&ntype), core::mem::transmute_copy(&pextendcontrolbar)) {
+                match IControlbar_Impl::Create(this, core::mem::transmute_copy(&ntype), windows_core::Ref::option_from_abi(&pextendcontrolbar)) {
                     Ok(ok__) => {
                         ppunknown.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2695,13 +2695,13 @@ impl IControlbar_Vtbl {
         unsafe extern "system" fn Attach<Identity: IControlbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntype: MMC_CONTROL_TYPE, lpunknown: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IControlbar_Impl::Attach(this, core::mem::transmute_copy(&ntype), core::mem::transmute_copy(&lpunknown)).into()
+                IControlbar_Impl::Attach(this, core::mem::transmute_copy(&ntype), windows_core::Ref::option_from_abi(&lpunknown)).into()
             }
         }
         unsafe extern "system" fn Detach<Identity: IControlbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpunknown: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IControlbar_Impl::Detach(this, core::mem::transmute_copy(&lpunknown)).into()
+                IControlbar_Impl::Detach(this, windows_core::Ref::option_from_abi(&lpunknown)).into()
             }
         }
         Self {
@@ -2723,7 +2723,7 @@ impl IDisplayHelp {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ShowTopic)(windows_core::Interface::as_raw(self), pszhelptopic.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ShowTopic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszhelptopic.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2838,14 +2838,14 @@ impl IExtendContextMenu {
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<IContextMenuCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi(), picallback.param().abi(), pinsertionallowed as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pidataobject.param().borrow()), core::mem::transmute_copy(&picallback.param().borrow()), pinsertionallowed as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Command<P1>(&self, lcommandid: i32, pidataobject: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Command)(windows_core::Interface::as_raw(self), lcommandid, pidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Command)(windows_core::Interface::as_raw(self), lcommandid, core::mem::transmute_copy(&pidataobject.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2863,8 +2863,8 @@ pub struct IExtendContextMenu_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendContextMenu_Impl: windows_core::IUnknownImpl {
-    fn AddMenuItems(&self, pidataobject: windows_core::Ref<super::Com::IDataObject>, picallback: windows_core::Ref<IContextMenuCallback>, pinsertionallowed: *mut i32) -> windows_core::Result<()>;
-    fn Command(&self, lcommandid: i32, pidataobject: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn AddMenuItems(&self, pidataobject: Option<&super::Com::IDataObject>, picallback: Option<&IContextMenuCallback>, pinsertionallowed: *mut i32) -> windows_core::Result<()>;
+    fn Command(&self, lcommandid: i32, pidataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IExtendContextMenu_Vtbl {
@@ -2872,13 +2872,13 @@ impl IExtendContextMenu_Vtbl {
         unsafe extern "system" fn AddMenuItems<Identity: IExtendContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidataobject: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void, pinsertionallowed: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendContextMenu_Impl::AddMenuItems(this, core::mem::transmute_copy(&pidataobject), core::mem::transmute_copy(&picallback), core::mem::transmute_copy(&pinsertionallowed)).into()
+                IExtendContextMenu_Impl::AddMenuItems(this, windows_core::Ref::option_from_abi(&pidataobject), windows_core::Ref::option_from_abi(&picallback), core::mem::transmute_copy(&pinsertionallowed)).into()
             }
         }
         unsafe extern "system" fn Command<Identity: IExtendContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcommandid: i32, pidataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendContextMenu_Impl::Command(this, core::mem::transmute_copy(&lcommandid), core::mem::transmute_copy(&pidataobject)).into()
+                IExtendContextMenu_Impl::Command(this, core::mem::transmute_copy(&lcommandid), windows_core::Ref::option_from_abi(&pidataobject)).into()
             }
         }
         Self {
@@ -2900,7 +2900,7 @@ impl IExtendControlbar {
     where
         P0: windows_core::Param<IControlbar>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetControlbar)(windows_core::Interface::as_raw(self), pcontrolbar.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetControlbar)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcontrolbar.param().borrow())).ok() }
     }
     pub unsafe fn ControlbarNotify(&self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ControlbarNotify)(windows_core::Interface::as_raw(self), event, arg, param2).ok() }
@@ -2914,7 +2914,7 @@ pub struct IExtendControlbar_Vtbl {
     pub ControlbarNotify: unsafe extern "system" fn(*mut core::ffi::c_void, MMC_NOTIFY_TYPE, super::super::Foundation::LPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 pub trait IExtendControlbar_Impl: windows_core::IUnknownImpl {
-    fn SetControlbar(&self, pcontrolbar: windows_core::Ref<IControlbar>) -> windows_core::Result<()>;
+    fn SetControlbar(&self, pcontrolbar: Option<&IControlbar>) -> windows_core::Result<()>;
     fn ControlbarNotify(&self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 impl IExtendControlbar_Vtbl {
@@ -2922,7 +2922,7 @@ impl IExtendControlbar_Vtbl {
         unsafe extern "system" fn SetControlbar<Identity: IExtendControlbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontrolbar: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendControlbar_Impl::SetControlbar(this, core::mem::transmute_copy(&pcontrolbar)).into()
+                IExtendControlbar_Impl::SetControlbar(this, windows_core::Ref::option_from_abi(&pcontrolbar)).into()
             }
         }
         unsafe extern "system" fn ControlbarNotify<Identity: IExtendControlbar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
@@ -2951,14 +2951,14 @@ impl IExtendPropertySheet {
         P0: windows_core::Param<IPropertySheetCallback>,
         P2: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertyPages)(windows_core::Interface::as_raw(self), lpprovider.param().abi(), handle, lpidataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertyPages)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpprovider.param().borrow()), handle, core::mem::transmute_copy(&lpidataobject.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryPagesFor<P0>(&self, lpdataobject: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryPagesFor)(windows_core::Interface::as_raw(self), lpdataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryPagesFor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpdataobject.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2976,8 +2976,8 @@ pub struct IExtendPropertySheet_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendPropertySheet_Impl: windows_core::IUnknownImpl {
-    fn CreatePropertyPages(&self, lpprovider: windows_core::Ref<IPropertySheetCallback>, handle: isize, lpidataobject: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
-    fn QueryPagesFor(&self, lpdataobject: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn CreatePropertyPages(&self, lpprovider: Option<&IPropertySheetCallback>, handle: isize, lpidataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn QueryPagesFor(&self, lpdataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IExtendPropertySheet_Vtbl {
@@ -2985,13 +2985,13 @@ impl IExtendPropertySheet_Vtbl {
         unsafe extern "system" fn CreatePropertyPages<Identity: IExtendPropertySheet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpprovider: *mut core::ffi::c_void, handle: isize, lpidataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendPropertySheet_Impl::CreatePropertyPages(this, core::mem::transmute_copy(&lpprovider), core::mem::transmute_copy(&handle), core::mem::transmute_copy(&lpidataobject)).into()
+                IExtendPropertySheet_Impl::CreatePropertyPages(this, windows_core::Ref::option_from_abi(&lpprovider), core::mem::transmute_copy(&handle), windows_core::Ref::option_from_abi(&lpidataobject)).into()
             }
         }
         unsafe extern "system" fn QueryPagesFor<Identity: IExtendPropertySheet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendPropertySheet_Impl::QueryPagesFor(this, core::mem::transmute_copy(&lpdataobject)).into()
+                IExtendPropertySheet_Impl::QueryPagesFor(this, windows_core::Ref::option_from_abi(&lpdataobject)).into()
             }
         }
         Self {
@@ -3020,7 +3020,7 @@ impl IExtendPropertySheet2 {
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetWatermarks)(windows_core::Interface::as_raw(self), lpidataobject.param().abi(), lphwatermark as _, lphheader as _, lphpalette as _, bstretch as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetWatermarks)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpidataobject.param().borrow()), lphwatermark as _, lphheader as _, lphpalette as _, bstretch as _).ok() }
     }
 }
 #[repr(C)]
@@ -3034,7 +3034,7 @@ pub struct IExtendPropertySheet2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IExtendPropertySheet2_Impl: IExtendPropertySheet_Impl {
-    fn GetWatermarks(&self, lpidataobject: windows_core::Ref<super::Com::IDataObject>, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetWatermarks(&self, lpidataobject: Option<&super::Com::IDataObject>, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IExtendPropertySheet2_Vtbl {
@@ -3042,7 +3042,7 @@ impl IExtendPropertySheet2_Vtbl {
         unsafe extern "system" fn GetWatermarks<Identity: IExtendPropertySheet2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpidataobject: *mut core::ffi::c_void, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendPropertySheet2_Impl::GetWatermarks(this, core::mem::transmute_copy(&lpidataobject), core::mem::transmute_copy(&lphwatermark), core::mem::transmute_copy(&lphheader), core::mem::transmute_copy(&lphpalette), core::mem::transmute_copy(&bstretch)).into()
+                IExtendPropertySheet2_Impl::GetWatermarks(this, windows_core::Ref::option_from_abi(&lpidataobject), core::mem::transmute_copy(&lphwatermark), core::mem::transmute_copy(&lphheader), core::mem::transmute_copy(&lphpalette), core::mem::transmute_copy(&bstretch)).into()
             }
         }
         Self { base__: IExtendPropertySheet_Vtbl::new::<Identity, OFFSET>(), GetWatermarks: GetWatermarks::<Identity, OFFSET> }
@@ -3061,7 +3061,7 @@ impl IExtendTaskPad {
     where
         P0: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TaskNotify)(windows_core::Interface::as_raw(self), pdo.param().abi(), core::mem::transmute(arg), core::mem::transmute(param2)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TaskNotify)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdo.param().borrow()), core::mem::transmute(arg), core::mem::transmute(param2)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTasks<P0, P1>(&self, pdo: P0, sztaskgroup: P1) -> windows_core::Result<IEnumTASK>
@@ -3071,7 +3071,7 @@ impl IExtendTaskPad {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumTasks)(windows_core::Interface::as_raw(self), pdo.param().abi(), sztaskgroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumTasks)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdo.param().borrow()), core::mem::transmute_copy(&sztaskgroup.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetTitle<P0>(&self, pszgroup: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -3080,7 +3080,7 @@ impl IExtendTaskPad {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszgroup.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetDescriptiveText<P0>(&self, pszgroup: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -3089,7 +3089,7 @@ impl IExtendTaskPad {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDescriptiveText)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetDescriptiveText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszgroup.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetBackground<P0>(&self, pszgroup: P0) -> windows_core::Result<MMC_TASK_DISPLAY_OBJECT>
@@ -3098,7 +3098,7 @@ impl IExtendTaskPad {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBackground)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetBackground)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszgroup.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetListPadInfo<P0>(&self, pszgroup: P0) -> windows_core::Result<MMC_LISTPAD_INFO>
@@ -3107,7 +3107,7 @@ impl IExtendTaskPad {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetListPadInfo)(windows_core::Interface::as_raw(self), pszgroup.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetListPadInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszgroup.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -3130,8 +3130,8 @@ pub struct IExtendTaskPad_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IExtendTaskPad_Impl: windows_core::IUnknownImpl {
-    fn TaskNotify(&self, pdo: windows_core::Ref<super::Com::IDataObject>, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn EnumTasks(&self, pdo: windows_core::Ref<super::Com::IDataObject>, sztaskgroup: &windows_core::PCWSTR) -> windows_core::Result<IEnumTASK>;
+    fn TaskNotify(&self, pdo: Option<&super::Com::IDataObject>, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn EnumTasks(&self, pdo: Option<&super::Com::IDataObject>, sztaskgroup: &windows_core::PCWSTR) -> windows_core::Result<IEnumTASK>;
     fn GetTitle(&self, pszgroup: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
     fn GetDescriptiveText(&self, pszgroup: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
     fn GetBackground(&self, pszgroup: &windows_core::PCWSTR) -> windows_core::Result<MMC_TASK_DISPLAY_OBJECT>;
@@ -3143,13 +3143,13 @@ impl IExtendTaskPad_Vtbl {
         unsafe extern "system" fn TaskNotify<Identity: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdo: *mut core::ffi::c_void, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendTaskPad_Impl::TaskNotify(this, core::mem::transmute_copy(&pdo), core::mem::transmute_copy(&arg), core::mem::transmute_copy(&param2)).into()
+                IExtendTaskPad_Impl::TaskNotify(this, windows_core::Ref::option_from_abi(&pdo), core::mem::transmute_copy(&arg), core::mem::transmute_copy(&param2)).into()
             }
         }
         unsafe extern "system" fn EnumTasks<Identity: IExtendTaskPad_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdo: *mut core::ffi::c_void, sztaskgroup: windows_core::PCWSTR, ppenumtask: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IExtendTaskPad_Impl::EnumTasks(this, core::mem::transmute_copy(&pdo), core::mem::transmute(&sztaskgroup)) {
+                match IExtendTaskPad_Impl::EnumTasks(this, windows_core::Ref::option_from_abi(&pdo), core::mem::transmute(&sztaskgroup)) {
                     Ok(ok__) => {
                         ppenumtask.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3231,7 +3231,7 @@ impl IExtendView {
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<IViewExtensionCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetViews)(windows_core::Interface::as_raw(self), pdataobject.param().abi(), pviewextensioncallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetViews)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdataobject.param().borrow()), core::mem::transmute_copy(&pviewextensioncallback.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3245,7 +3245,7 @@ pub struct IExtendView_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendView_Impl: windows_core::IUnknownImpl {
-    fn GetViews(&self, pdataobject: windows_core::Ref<super::Com::IDataObject>, pviewextensioncallback: windows_core::Ref<IViewExtensionCallback>) -> windows_core::Result<()>;
+    fn GetViews(&self, pdataobject: Option<&super::Com::IDataObject>, pviewextensioncallback: Option<&IViewExtensionCallback>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IExtendView_Vtbl {
@@ -3253,7 +3253,7 @@ impl IExtendView_Vtbl {
         unsafe extern "system" fn GetViews<Identity: IExtendView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, pviewextensioncallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IExtendView_Impl::GetViews(this, core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&pviewextensioncallback)).into()
+                IExtendView_Impl::GetViews(this, windows_core::Ref::option_from_abi(&pdataobject), windows_core::Ref::option_from_abi(&pviewextensioncallback)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetViews: GetViews::<Identity, OFFSET> }
@@ -3271,7 +3271,7 @@ impl IHeaderCtrl {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InsertColumn)(windows_core::Interface::as_raw(self), ncol, title.param().abi(), nformat, nwidth).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertColumn)(windows_core::Interface::as_raw(self), ncol, core::mem::transmute_copy(&title.param().borrow()), nformat, nwidth).ok() }
     }
     pub unsafe fn DeleteColumn(&self, ncol: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteColumn)(windows_core::Interface::as_raw(self), ncol).ok() }
@@ -3280,7 +3280,7 @@ impl IHeaderCtrl {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetColumnText)(windows_core::Interface::as_raw(self), ncol, title.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetColumnText)(windows_core::Interface::as_raw(self), ncol, core::mem::transmute_copy(&title.param().borrow())).ok() }
     }
     pub unsafe fn GetColumnText(&self, ncol: i32) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -3533,14 +3533,14 @@ impl IMenuButton {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddButton)(windows_core::Interface::as_raw(self), idcommand, core::mem::transmute_copy(&lpbuttontext.param().borrow()), core::mem::transmute_copy(&lptooltiptext.param().borrow())).ok() }
     }
     pub unsafe fn SetButton<P1, P2>(&self, idcommand: i32, lpbuttontext: P1, lptooltiptext: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetButton)(windows_core::Interface::as_raw(self), idcommand, lpbuttontext.param().abi(), lptooltiptext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetButton)(windows_core::Interface::as_raw(self), idcommand, core::mem::transmute_copy(&lpbuttontext.param().borrow()), core::mem::transmute_copy(&lptooltiptext.param().borrow())).ok() }
     }
     pub unsafe fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetButtonState)(windows_core::Interface::as_raw(self), idcommand, nstate, bstate.into()).ok() }
@@ -3598,13 +3598,13 @@ impl IMessageView {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTitleText)(windows_core::Interface::as_raw(self), psztitletext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTitleText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psztitletext.param().borrow())).ok() }
     }
     pub unsafe fn SetBodyText<P0>(&self, pszbodytext: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBodyText)(windows_core::Interface::as_raw(self), pszbodytext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetBodyText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszbodytext.param().borrow())).ok() }
     }
     pub unsafe fn SetIcon(&self, id: IconIdentifier) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIcon)(windows_core::Interface::as_raw(self), id).ok() }
@@ -3678,7 +3678,7 @@ impl INodeProperties {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pdataobject.param().abi(), core::mem::transmute_copy(szpropertyname), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdataobject.param().borrow()), core::mem::transmute_copy(szpropertyname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -3693,7 +3693,7 @@ pub struct INodeProperties_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait INodeProperties_Impl: windows_core::IUnknownImpl {
-    fn GetProperty(&self, pdataobject: windows_core::Ref<super::Com::IDataObject>, szpropertyname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn GetProperty(&self, pdataobject: Option<&super::Com::IDataObject>, szpropertyname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl INodeProperties_Vtbl {
@@ -3701,7 +3701,7 @@ impl INodeProperties_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: INodeProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, szpropertyname: *mut core::ffi::c_void, pbstrproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INodeProperties_Impl::GetProperty(this, core::mem::transmute_copy(&pdataobject), core::mem::transmute(&szpropertyname)) {
+                match INodeProperties_Impl::GetProperty(this, windows_core::Ref::option_from_abi(&pdataobject), core::mem::transmute(&szpropertyname)) {
                     Ok(ok__) => {
                         pbstrproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3780,7 +3780,7 @@ impl IPropertySheetProvider {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheet)(windows_core::Interface::as_raw(self), title.param().abi(), r#type, cookie, pidataobjectm.param().abi(), dwoptions).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePropertySheet)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&title.param().borrow()), r#type, cookie, core::mem::transmute_copy(&pidataobjectm.param().borrow()), dwoptions).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindPropertySheet<P1, P2>(&self, hitem: isize, lpcomponent: P1, lpdataobject: P2) -> windows_core::Result<()>
@@ -3788,13 +3788,13 @@ impl IPropertySheetProvider {
         P1: windows_core::Param<IComponent>,
         P2: windows_core::Param<super::Com::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindPropertySheet)(windows_core::Interface::as_raw(self), hitem, lpcomponent.param().abi(), lpdataobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindPropertySheet)(windows_core::Interface::as_raw(self), hitem, core::mem::transmute_copy(&lpcomponent.param().borrow()), core::mem::transmute_copy(&lpdataobject.param().borrow())).ok() }
     }
     pub unsafe fn AddPrimaryPages<P0>(&self, lpunknown: P0, bcreatehandle: bool, hnotifywindow: super::super::Foundation::HWND, bscopepane: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), lpunknown.param().abi(), bcreatehandle.into(), hnotifywindow, bscopepane.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPrimaryPages)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpunknown.param().borrow()), bcreatehandle.into(), hnotifywindow, bscopepane.into()).ok() }
     }
     pub unsafe fn AddExtensionPages(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddExtensionPages)(windows_core::Interface::as_raw(self)).ok() }
@@ -3821,9 +3821,9 @@ pub struct IPropertySheetProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPropertySheetProvider_Impl: windows_core::IUnknownImpl {
-    fn CreatePropertySheet(&self, title: &windows_core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: windows_core::Ref<super::Com::IDataObject>, dwoptions: u32) -> windows_core::Result<()>;
-    fn FindPropertySheet(&self, hitem: isize, lpcomponent: windows_core::Ref<IComponent>, lpdataobject: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
-    fn AddPrimaryPages(&self, lpunknown: windows_core::Ref<windows_core::IUnknown>, bcreatehandle: windows_core::BOOL, hnotifywindow: super::super::Foundation::HWND, bscopepane: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CreatePropertySheet(&self, title: &windows_core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: Option<&super::Com::IDataObject>, dwoptions: u32) -> windows_core::Result<()>;
+    fn FindPropertySheet(&self, hitem: isize, lpcomponent: Option<&IComponent>, lpdataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
+    fn AddPrimaryPages(&self, lpunknown: Option<&windows_core::IUnknown>, bcreatehandle: windows_core::BOOL, hnotifywindow: super::super::Foundation::HWND, bscopepane: windows_core::BOOL) -> windows_core::Result<()>;
     fn AddExtensionPages(&self) -> windows_core::Result<()>;
     fn Show(&self, window: isize, page: i32) -> windows_core::Result<()>;
 }
@@ -3833,19 +3833,19 @@ impl IPropertySheetProvider_Vtbl {
         unsafe extern "system" fn CreatePropertySheet<Identity: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, title: windows_core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: *mut core::ffi::c_void, dwoptions: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertySheetProvider_Impl::CreatePropertySheet(this, core::mem::transmute(&title), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&cookie), core::mem::transmute_copy(&pidataobjectm), core::mem::transmute_copy(&dwoptions)).into()
+                IPropertySheetProvider_Impl::CreatePropertySheet(this, core::mem::transmute(&title), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&cookie), windows_core::Ref::option_from_abi(&pidataobjectm), core::mem::transmute_copy(&dwoptions)).into()
             }
         }
         unsafe extern "system" fn FindPropertySheet<Identity: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hitem: isize, lpcomponent: *mut core::ffi::c_void, lpdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertySheetProvider_Impl::FindPropertySheet(this, core::mem::transmute_copy(&hitem), core::mem::transmute_copy(&lpcomponent), core::mem::transmute_copy(&lpdataobject)).into()
+                IPropertySheetProvider_Impl::FindPropertySheet(this, core::mem::transmute_copy(&hitem), windows_core::Ref::option_from_abi(&lpcomponent), windows_core::Ref::option_from_abi(&lpdataobject)).into()
             }
         }
         unsafe extern "system" fn AddPrimaryPages<Identity: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpunknown: *mut core::ffi::c_void, bcreatehandle: windows_core::BOOL, hnotifywindow: super::super::Foundation::HWND, bscopepane: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertySheetProvider_Impl::AddPrimaryPages(this, core::mem::transmute_copy(&lpunknown), core::mem::transmute_copy(&bcreatehandle), core::mem::transmute_copy(&hnotifywindow), core::mem::transmute_copy(&bscopepane)).into()
+                IPropertySheetProvider_Impl::AddPrimaryPages(this, windows_core::Ref::option_from_abi(&lpunknown), core::mem::transmute_copy(&bcreatehandle), core::mem::transmute_copy(&hnotifywindow), core::mem::transmute_copy(&bscopepane)).into()
             }
         }
         unsafe extern "system" fn AddExtensionPages<Identity: IPropertySheetProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4003,7 +4003,7 @@ impl IResultData {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDescBarText)(windows_core::Interface::as_raw(self), desctext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDescBarText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&desctext.param().borrow())).ok() }
     }
     pub unsafe fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetItemCount)(windows_core::Interface::as_raw(self), nitemcount, dwoptions).ok() }
@@ -4572,13 +4572,13 @@ impl ISnapinProperties {
     where
         P0: windows_core::Param<Properties>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pproperties.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pproperties.param().borrow())).ok() }
     }
     pub unsafe fn QueryPropertyNames<P0>(&self, pcallback: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISnapinPropertiesCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryPropertyNames)(windows_core::Interface::as_raw(self), pcallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryPropertyNames)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcallback.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PropertiesChanged(&self, pproperties: &[MMC_SNAPIN_PROPERTY]) -> windows_core::Result<()> {
@@ -4601,8 +4601,8 @@ pub struct ISnapinProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISnapinProperties_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pproperties: windows_core::Ref<Properties>) -> windows_core::Result<()>;
-    fn QueryPropertyNames(&self, pcallback: windows_core::Ref<ISnapinPropertiesCallback>) -> windows_core::Result<()>;
+    fn Initialize(&self, pproperties: Option<&Properties>) -> windows_core::Result<()>;
+    fn QueryPropertyNames(&self, pcallback: Option<&ISnapinPropertiesCallback>) -> windows_core::Result<()>;
     fn PropertiesChanged(&self, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4611,13 +4611,13 @@ impl ISnapinProperties_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ISnapinProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproperties: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISnapinProperties_Impl::Initialize(this, core::mem::transmute_copy(&pproperties)).into()
+                ISnapinProperties_Impl::Initialize(this, windows_core::Ref::option_from_abi(&pproperties)).into()
             }
         }
         unsafe extern "system" fn QueryPropertyNames<Identity: ISnapinProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISnapinProperties_Impl::QueryPropertyNames(this, core::mem::transmute_copy(&pcallback)).into()
+                ISnapinProperties_Impl::QueryPropertyNames(this, windows_core::Ref::option_from_abi(&pcallback)).into()
             }
         }
         unsafe extern "system" fn PropertiesChanged<Identity: ISnapinProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> windows_core::HRESULT {
@@ -4646,7 +4646,7 @@ impl ISnapinPropertiesCallback {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyName)(windows_core::Interface::as_raw(self), pszpropname.param().abi(), dwflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszpropname.param().borrow()), dwflags).ok() }
     }
 }
 #[repr(C)]
@@ -4682,7 +4682,7 @@ impl IStringTable {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), pszadd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszadd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetString(&self, stringid: u32, lpbuffer: &mut [u16], pcchout: *mut u32) -> windows_core::Result<()> {
@@ -4706,7 +4706,7 @@ impl IStringTable {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindString)(windows_core::Interface::as_raw(self), pszfind.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).FindString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszfind.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -6151,7 +6151,7 @@ impl ScopeNamespace {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), node.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetChild<P0>(&self, node: P0) -> windows_core::Result<Node>
@@ -6160,7 +6160,7 @@ impl ScopeNamespace {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChild)(windows_core::Interface::as_raw(self), node.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetChild)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNext<P0>(&self, node: P0) -> windows_core::Result<Node>
@@ -6169,7 +6169,7 @@ impl ScopeNamespace {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), node.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetRoot(&self) -> windows_core::Result<Node> {
@@ -6182,7 +6182,7 @@ impl ScopeNamespace {
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6198,11 +6198,11 @@ pub struct ScopeNamespace_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ScopeNamespace_Impl: super::Com::IDispatch_Impl {
-    fn GetParent(&self, node: windows_core::Ref<Node>) -> windows_core::Result<Node>;
-    fn GetChild(&self, node: windows_core::Ref<Node>) -> windows_core::Result<Node>;
-    fn GetNext(&self, node: windows_core::Ref<Node>) -> windows_core::Result<Node>;
+    fn GetParent(&self, node: Option<&Node>) -> windows_core::Result<Node>;
+    fn GetChild(&self, node: Option<&Node>) -> windows_core::Result<Node>;
+    fn GetNext(&self, node: Option<&Node>) -> windows_core::Result<Node>;
     fn GetRoot(&self) -> windows_core::Result<Node>;
-    fn Expand(&self, node: windows_core::Ref<Node>) -> windows_core::Result<()>;
+    fn Expand(&self, node: Option<&Node>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ScopeNamespace_Vtbl {
@@ -6210,7 +6210,7 @@ impl ScopeNamespace_Vtbl {
         unsafe extern "system" fn GetParent<Identity: ScopeNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ScopeNamespace_Impl::GetParent(this, core::mem::transmute_copy(&node)) {
+                match ScopeNamespace_Impl::GetParent(this, windows_core::Ref::option_from_abi(&node)) {
                     Ok(ok__) => {
                         parent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6222,7 +6222,7 @@ impl ScopeNamespace_Vtbl {
         unsafe extern "system" fn GetChild<Identity: ScopeNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, child: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ScopeNamespace_Impl::GetChild(this, core::mem::transmute_copy(&node)) {
+                match ScopeNamespace_Impl::GetChild(this, windows_core::Ref::option_from_abi(&node)) {
                     Ok(ok__) => {
                         child.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6234,7 +6234,7 @@ impl ScopeNamespace_Vtbl {
         unsafe extern "system" fn GetNext<Identity: ScopeNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, next: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ScopeNamespace_Impl::GetNext(this, core::mem::transmute_copy(&node)) {
+                match ScopeNamespace_Impl::GetNext(this, windows_core::Ref::option_from_abi(&node)) {
                     Ok(ok__) => {
                         next.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6258,7 +6258,7 @@ impl ScopeNamespace_Vtbl {
         unsafe extern "system" fn Expand<Identity: ScopeNamespace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ScopeNamespace_Impl::Expand(this, core::mem::transmute_copy(&node)).into()
+                ScopeNamespace_Impl::Expand(this, windows_core::Ref::option_from_abi(&node)).into()
             }
         }
         Self {
@@ -6492,7 +6492,7 @@ impl SnapIns {
     where
         P0: windows_core::Param<SnapIn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), snapin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&snapin.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6515,7 +6515,7 @@ pub trait SnapIns_Impl: super::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> windows_core::Result<SnapIn>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn Add(&self, snapinnameorclsid: &windows_core::BSTR, parentsnapin: &super::Variant::VARIANT, properties: &super::Variant::VARIANT) -> windows_core::Result<SnapIn>;
-    fn Remove(&self, snapin: windows_core::Ref<SnapIn>) -> windows_core::Result<()>;
+    fn Remove(&self, snapin: Option<&SnapIn>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl SnapIns_Vtbl {
@@ -6571,7 +6571,7 @@ impl SnapIns_Vtbl {
         unsafe extern "system" fn Remove<Identity: SnapIns_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                SnapIns_Impl::Remove(this, core::mem::transmute_copy(&snapin)).into()
+                SnapIns_Impl::Remove(this, windows_core::Ref::option_from_abi(&snapin)).into()
             }
         }
         Self {
@@ -6615,7 +6615,7 @@ impl View {
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetActiveScopeNode)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetActiveScopeNode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow())).ok() }
     }
     pub unsafe fn Selection(&self) -> windows_core::Result<Nodes> {
         unsafe {
@@ -6648,7 +6648,7 @@ impl View {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Is)(windows_core::Interface::as_raw(self), view.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Is)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&view.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Document(&self) -> windows_core::Result<Document> {
@@ -6664,13 +6664,13 @@ impl View {
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow())).ok() }
     }
     pub unsafe fn Deselect<P0>(&self, node: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Deselect)(windows_core::Interface::as_raw(self), node.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Deselect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow())).ok() }
     }
     pub unsafe fn IsSelected<P0>(&self, node: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -6678,7 +6678,7 @@ impl View {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsSelected)(windows_core::Interface::as_raw(self), node.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsSelected)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6787,7 +6787,7 @@ impl View {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_CellContents)(windows_core::Interface::as_raw(self), node.param().abi(), column, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_CellContents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow()), column, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub unsafe fn ExportList(&self, file: &windows_core::BSTR, exportoptions: _ExportListOptions) -> windows_core::Result<()> {
@@ -6884,17 +6884,17 @@ pub struct View_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait View_Impl: super::Com::IDispatch_Impl {
     fn ActiveScopeNode(&self) -> windows_core::Result<Node>;
-    fn SetActiveScopeNode(&self, node: windows_core::Ref<Node>) -> windows_core::Result<()>;
+    fn SetActiveScopeNode(&self, node: Option<&Node>) -> windows_core::Result<()>;
     fn Selection(&self) -> windows_core::Result<Nodes>;
     fn ListItems(&self) -> windows_core::Result<Nodes>;
     fn SnapinScopeObject(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<super::Com::IDispatch>;
     fn SnapinSelectionObject(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn Is(&self, view: windows_core::Ref<View>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Is(&self, view: Option<&View>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Document(&self) -> windows_core::Result<Document>;
     fn SelectAll(&self) -> windows_core::Result<()>;
-    fn Select(&self, node: windows_core::Ref<Node>) -> windows_core::Result<()>;
-    fn Deselect(&self, node: windows_core::Ref<Node>) -> windows_core::Result<()>;
-    fn IsSelected(&self, node: windows_core::Ref<Node>) -> windows_core::Result<windows_core::BOOL>;
+    fn Select(&self, node: Option<&Node>) -> windows_core::Result<()>;
+    fn Deselect(&self, node: Option<&Node>) -> windows_core::Result<()>;
+    fn IsSelected(&self, node: Option<&Node>) -> windows_core::Result<windows_core::BOOL>;
     fn DisplayScopeNodePropertySheet(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn DisplaySelectionPropertySheet(&self) -> windows_core::Result<()>;
     fn CopyScopeNode(&self, scopenode: &super::Variant::VARIANT) -> windows_core::Result<()>;
@@ -6920,7 +6920,7 @@ pub trait View_Impl: super::Com::IDispatch_Impl {
     fn Memento(&self) -> windows_core::Result<windows_core::BSTR>;
     fn ViewMemento(&self, memento: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Columns(&self) -> windows_core::Result<Columns>;
-    fn get_CellContents(&self, node: windows_core::Ref<Node>, column: i32) -> windows_core::Result<windows_core::BSTR>;
+    fn get_CellContents(&self, node: Option<&Node>, column: i32) -> windows_core::Result<windows_core::BSTR>;
     fn ExportList(&self, file: &windows_core::BSTR, exportoptions: _ExportListOptions) -> windows_core::Result<()>;
     fn ListViewMode(&self) -> windows_core::Result<_ListViewMode>;
     fn SetListViewMode(&self, mode: _ListViewMode) -> windows_core::Result<()>;
@@ -6944,7 +6944,7 @@ impl View_Vtbl {
         unsafe extern "system" fn SetActiveScopeNode<Identity: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                View_Impl::SetActiveScopeNode(this, core::mem::transmute_copy(&node)).into()
+                View_Impl::SetActiveScopeNode(this, windows_core::Ref::option_from_abi(&node)).into()
             }
         }
         unsafe extern "system" fn Selection<Identity: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6998,7 +6998,7 @@ impl View_Vtbl {
         unsafe extern "system" fn Is<Identity: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: *mut core::ffi::c_void, thesame: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match View_Impl::Is(this, core::mem::transmute_copy(&view)) {
+                match View_Impl::Is(this, windows_core::Ref::option_from_abi(&view)) {
                     Ok(ok__) => {
                         thesame.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7028,19 +7028,19 @@ impl View_Vtbl {
         unsafe extern "system" fn Select<Identity: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                View_Impl::Select(this, core::mem::transmute_copy(&node)).into()
+                View_Impl::Select(this, windows_core::Ref::option_from_abi(&node)).into()
             }
         }
         unsafe extern "system" fn Deselect<Identity: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                View_Impl::Deselect(this, core::mem::transmute_copy(&node)).into()
+                View_Impl::Deselect(this, windows_core::Ref::option_from_abi(&node)).into()
             }
         }
         unsafe extern "system" fn IsSelected<Identity: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, isselected: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match View_Impl::IsSelected(this, core::mem::transmute_copy(&node)) {
+                match View_Impl::IsSelected(this, windows_core::Ref::option_from_abi(&node)) {
                     Ok(ok__) => {
                         isselected.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7238,7 +7238,7 @@ impl View_Vtbl {
         unsafe extern "system" fn get_CellContents<Identity: View_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, column: i32, cellcontents: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match View_Impl::get_CellContents(this, core::mem::transmute_copy(&node), core::mem::transmute_copy(&column)) {
+                match View_Impl::get_CellContents(this, windows_core::Ref::option_from_abi(&node), core::mem::transmute_copy(&column)) {
                     Ok(ok__) => {
                         cellcontents.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7369,7 +7369,7 @@ impl Views {
     where
         P0: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), node.param().abi(), viewoptions).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&node.param().borrow()), viewoptions).ok() }
     }
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -7392,7 +7392,7 @@ pub struct Views_Vtbl {
 pub trait Views_Impl: super::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> windows_core::Result<View>;
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, node: windows_core::Ref<Node>, viewoptions: _ViewOptions) -> windows_core::Result<()>;
+    fn Add(&self, node: Option<&Node>, viewoptions: _ViewOptions) -> windows_core::Result<()>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7425,7 +7425,7 @@ impl Views_Vtbl {
         unsafe extern "system" fn Add<Identity: Views_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, viewoptions: _ViewOptions) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                Views_Impl::Add(this, core::mem::transmute_copy(&node), core::mem::transmute_copy(&viewoptions)).into()
+                Views_Impl::Add(this, windows_core::Ref::option_from_abi(&node), core::mem::transmute_copy(&viewoptions)).into()
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: Views_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, retval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7471,65 +7471,65 @@ impl _AppEvents {
     where
         P0: windows_core::Param<_Application>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnQuit)(windows_core::Interface::as_raw(self), application.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnQuit)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&application.param().borrow())).ok() }
     }
     pub unsafe fn OnDocumentOpen<P0>(&self, document: P0, new: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Document>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDocumentOpen)(windows_core::Interface::as_raw(self), document.param().abi(), new.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDocumentOpen)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&document.param().borrow()), new.into()).ok() }
     }
     pub unsafe fn OnDocumentClose<P0>(&self, document: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Document>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDocumentClose)(windows_core::Interface::as_raw(self), document.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDocumentClose)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&document.param().borrow())).ok() }
     }
     pub unsafe fn OnSnapInAdded<P0, P1>(&self, document: P0, snapin: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Document>,
         P1: windows_core::Param<SnapIn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSnapInAdded)(windows_core::Interface::as_raw(self), document.param().abi(), snapin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSnapInAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&document.param().borrow()), core::mem::transmute_copy(&snapin.param().borrow())).ok() }
     }
     pub unsafe fn OnSnapInRemoved<P0, P1>(&self, document: P0, snapin: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Document>,
         P1: windows_core::Param<SnapIn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSnapInRemoved)(windows_core::Interface::as_raw(self), document.param().abi(), snapin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSnapInRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&document.param().borrow()), core::mem::transmute_copy(&snapin.param().borrow())).ok() }
     }
     pub unsafe fn OnNewView<P0>(&self, view: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<View>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnNewView)(windows_core::Interface::as_raw(self), view.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnNewView)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&view.param().borrow())).ok() }
     }
     pub unsafe fn OnViewClose<P0>(&self, view: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<View>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnViewClose)(windows_core::Interface::as_raw(self), view.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnViewClose)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&view.param().borrow())).ok() }
     }
     pub unsafe fn OnViewChange<P0, P1>(&self, view: P0, newownernode: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<View>,
         P1: windows_core::Param<Node>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnViewChange)(windows_core::Interface::as_raw(self), view.param().abi(), newownernode.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnViewChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&view.param().borrow()), core::mem::transmute_copy(&newownernode.param().borrow())).ok() }
     }
     pub unsafe fn OnSelectionChange<P0, P1>(&self, view: P0, newnodes: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<View>,
         P1: windows_core::Param<Nodes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSelectionChange)(windows_core::Interface::as_raw(self), view.param().abi(), newnodes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSelectionChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&view.param().borrow()), core::mem::transmute_copy(&newnodes.param().borrow())).ok() }
     }
     pub unsafe fn OnContextMenuExecuted<P0>(&self, menuitem: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<MenuItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnContextMenuExecuted)(windows_core::Interface::as_raw(self), menuitem.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnContextMenuExecuted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&menuitem.param().borrow())).ok() }
     }
     pub unsafe fn OnToolbarButtonClicked(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnToolbarButtonClicked)(windows_core::Interface::as_raw(self)).ok() }
@@ -7538,7 +7538,7 @@ impl _AppEvents {
     where
         P0: windows_core::Param<View>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnListUpdated)(windows_core::Interface::as_raw(self), view.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnListUpdated)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&view.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7561,18 +7561,18 @@ pub struct _AppEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _AppEvents_Impl: super::Com::IDispatch_Impl {
-    fn OnQuit(&self, application: windows_core::Ref<_Application>) -> windows_core::Result<()>;
-    fn OnDocumentOpen(&self, document: windows_core::Ref<Document>, new: windows_core::BOOL) -> windows_core::Result<()>;
-    fn OnDocumentClose(&self, document: windows_core::Ref<Document>) -> windows_core::Result<()>;
-    fn OnSnapInAdded(&self, document: windows_core::Ref<Document>, snapin: windows_core::Ref<SnapIn>) -> windows_core::Result<()>;
-    fn OnSnapInRemoved(&self, document: windows_core::Ref<Document>, snapin: windows_core::Ref<SnapIn>) -> windows_core::Result<()>;
-    fn OnNewView(&self, view: windows_core::Ref<View>) -> windows_core::Result<()>;
-    fn OnViewClose(&self, view: windows_core::Ref<View>) -> windows_core::Result<()>;
-    fn OnViewChange(&self, view: windows_core::Ref<View>, newownernode: windows_core::Ref<Node>) -> windows_core::Result<()>;
-    fn OnSelectionChange(&self, view: windows_core::Ref<View>, newnodes: windows_core::Ref<Nodes>) -> windows_core::Result<()>;
-    fn OnContextMenuExecuted(&self, menuitem: windows_core::Ref<MenuItem>) -> windows_core::Result<()>;
+    fn OnQuit(&self, application: Option<&_Application>) -> windows_core::Result<()>;
+    fn OnDocumentOpen(&self, document: Option<&Document>, new: windows_core::BOOL) -> windows_core::Result<()>;
+    fn OnDocumentClose(&self, document: Option<&Document>) -> windows_core::Result<()>;
+    fn OnSnapInAdded(&self, document: Option<&Document>, snapin: Option<&SnapIn>) -> windows_core::Result<()>;
+    fn OnSnapInRemoved(&self, document: Option<&Document>, snapin: Option<&SnapIn>) -> windows_core::Result<()>;
+    fn OnNewView(&self, view: Option<&View>) -> windows_core::Result<()>;
+    fn OnViewClose(&self, view: Option<&View>) -> windows_core::Result<()>;
+    fn OnViewChange(&self, view: Option<&View>, newownernode: Option<&Node>) -> windows_core::Result<()>;
+    fn OnSelectionChange(&self, view: Option<&View>, newnodes: Option<&Nodes>) -> windows_core::Result<()>;
+    fn OnContextMenuExecuted(&self, menuitem: Option<&MenuItem>) -> windows_core::Result<()>;
     fn OnToolbarButtonClicked(&self) -> windows_core::Result<()>;
-    fn OnListUpdated(&self, view: windows_core::Ref<View>) -> windows_core::Result<()>;
+    fn OnListUpdated(&self, view: Option<&View>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _AppEvents_Vtbl {
@@ -7580,61 +7580,61 @@ impl _AppEvents_Vtbl {
         unsafe extern "system" fn OnQuit<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, application: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnQuit(this, core::mem::transmute_copy(&application)).into()
+                _AppEvents_Impl::OnQuit(this, windows_core::Ref::option_from_abi(&application)).into()
             }
         }
         unsafe extern "system" fn OnDocumentOpen<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut core::ffi::c_void, new: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnDocumentOpen(this, core::mem::transmute_copy(&document), core::mem::transmute_copy(&new)).into()
+                _AppEvents_Impl::OnDocumentOpen(this, windows_core::Ref::option_from_abi(&document), core::mem::transmute_copy(&new)).into()
             }
         }
         unsafe extern "system" fn OnDocumentClose<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnDocumentClose(this, core::mem::transmute_copy(&document)).into()
+                _AppEvents_Impl::OnDocumentClose(this, windows_core::Ref::option_from_abi(&document)).into()
             }
         }
         unsafe extern "system" fn OnSnapInAdded<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut core::ffi::c_void, snapin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnSnapInAdded(this, core::mem::transmute_copy(&document), core::mem::transmute_copy(&snapin)).into()
+                _AppEvents_Impl::OnSnapInAdded(this, windows_core::Ref::option_from_abi(&document), windows_core::Ref::option_from_abi(&snapin)).into()
             }
         }
         unsafe extern "system" fn OnSnapInRemoved<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut core::ffi::c_void, snapin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnSnapInRemoved(this, core::mem::transmute_copy(&document), core::mem::transmute_copy(&snapin)).into()
+                _AppEvents_Impl::OnSnapInRemoved(this, windows_core::Ref::option_from_abi(&document), windows_core::Ref::option_from_abi(&snapin)).into()
             }
         }
         unsafe extern "system" fn OnNewView<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnNewView(this, core::mem::transmute_copy(&view)).into()
+                _AppEvents_Impl::OnNewView(this, windows_core::Ref::option_from_abi(&view)).into()
             }
         }
         unsafe extern "system" fn OnViewClose<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnViewClose(this, core::mem::transmute_copy(&view)).into()
+                _AppEvents_Impl::OnViewClose(this, windows_core::Ref::option_from_abi(&view)).into()
             }
         }
         unsafe extern "system" fn OnViewChange<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: *mut core::ffi::c_void, newownernode: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnViewChange(this, core::mem::transmute_copy(&view), core::mem::transmute_copy(&newownernode)).into()
+                _AppEvents_Impl::OnViewChange(this, windows_core::Ref::option_from_abi(&view), windows_core::Ref::option_from_abi(&newownernode)).into()
             }
         }
         unsafe extern "system" fn OnSelectionChange<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: *mut core::ffi::c_void, newnodes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnSelectionChange(this, core::mem::transmute_copy(&view), core::mem::transmute_copy(&newnodes)).into()
+                _AppEvents_Impl::OnSelectionChange(this, windows_core::Ref::option_from_abi(&view), windows_core::Ref::option_from_abi(&newnodes)).into()
             }
         }
         unsafe extern "system" fn OnContextMenuExecuted<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, menuitem: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnContextMenuExecuted(this, core::mem::transmute_copy(&menuitem)).into()
+                _AppEvents_Impl::OnContextMenuExecuted(this, windows_core::Ref::option_from_abi(&menuitem)).into()
             }
         }
         unsafe extern "system" fn OnToolbarButtonClicked<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7646,7 +7646,7 @@ impl _AppEvents_Vtbl {
         unsafe extern "system" fn OnListUpdated<Identity: _AppEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, view: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _AppEvents_Impl::OnListUpdated(this, core::mem::transmute_copy(&view)).into()
+                _AppEvents_Impl::OnListUpdated(this, windows_core::Ref::option_from_abi(&view)).into()
             }
         }
         Self {
@@ -7928,7 +7928,7 @@ impl _EventConnector {
     where
         P0: windows_core::Param<_Application>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConnectTo)(windows_core::Interface::as_raw(self), application.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConnectTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&application.param().borrow())).ok() }
     }
     pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
@@ -7944,7 +7944,7 @@ pub struct _EventConnector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _EventConnector_Impl: super::Com::IDispatch_Impl {
-    fn ConnectTo(&self, application: windows_core::Ref<_Application>) -> windows_core::Result<()>;
+    fn ConnectTo(&self, application: Option<&_Application>) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7953,7 +7953,7 @@ impl _EventConnector_Vtbl {
         unsafe extern "system" fn ConnectTo<Identity: _EventConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, application: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _EventConnector_Impl::ConnectTo(this, core::mem::transmute_copy(&application)).into()
+                _EventConnector_Impl::ConnectTo(this, windows_core::Ref::option_from_abi(&application)).into()
             }
         }
         unsafe extern "system" fn Disconnect<Identity: _EventConnector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -263,7 +263,7 @@ impl LocalLocationFinder {
     {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindLocalLocationsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchterm), searcharea.param().abi(), core::mem::transmute_copy(localcategory), maxresults, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindLocalLocationsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchterm), core::mem::transmute_copy(&searcharea.param().borrow()), core::mem::transmute_copy(localcategory), maxresults, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ILocalLocationFinderStatics<R, F: FnOnce(&ILocalLocationFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -412,7 +412,7 @@ impl PlaceInfoHelper {
     {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromLocalLocation)(windows_core::Interface::as_raw(this), location.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromLocalLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&location.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPlaceInfoHelperStatics<R, F: FnOnce(&IPlaceInfoHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

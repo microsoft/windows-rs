@@ -57,7 +57,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AvailabilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AvailabilityChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAvailabilityChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -70,7 +70,7 @@ impl ActivationSignalDetectionConfiguration {
         P1: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetModelData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetModelData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), core::mem::transmute_copy(&data.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelDataAsync<P1>(&self, datatype: &windows_core::HSTRING, data: P1) -> windows_core::Result<windows_future::IAsyncAction>
@@ -80,7 +80,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetModelDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetModelDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetModelDataType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -153,7 +153,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApplyTrainingData)(windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ApplyTrainingData)(windows_core::Interface::as_raw(this), trainingdataformat, core::mem::transmute_copy(&trainingdata.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -164,7 +164,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ApplyTrainingDataAsync)(windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ApplyTrainingDataAsync)(windows_core::Interface::as_raw(this), trainingdataformat, core::mem::transmute_copy(&trainingdata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearTrainingData(&self) -> windows_core::Result<()> {
@@ -186,7 +186,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = &windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetModelDataWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetModelDataWithResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), core::mem::transmute_copy(&data.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -197,7 +197,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = &windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetModelDataWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetModelDataWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(datatype), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetEnabledWithResultAsync(&self, value: bool) -> windows_core::Result<windows_future::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>> {
@@ -675,7 +675,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionInterrupted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SessionInterrupted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSessionInterrupted(&self, token: i64) -> windows_core::Result<()> {
@@ -689,7 +689,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignalDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SignalDetected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSignalDetected(&self, token: i64) -> windows_core::Result<()> {
@@ -703,7 +703,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemStateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemStateChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -830,7 +830,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNodeAsync)(windows_core::Interface::as_raw(this), graph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&graph.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Audio")]
@@ -841,7 +841,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNode)(windows_core::Interface::as_raw(this), graph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAudioDeviceInputNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&graph.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAudioCaptureDeviceIdAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
@@ -1062,7 +1062,7 @@ impl ConversationalAgentSignal {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSignalContext)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSignalContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SignalStart(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;

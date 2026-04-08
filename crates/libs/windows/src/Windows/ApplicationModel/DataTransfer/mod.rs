@@ -14,7 +14,7 @@ impl Clipboard {
     where
         P0: windows_core::Param<DataPackage>,
     {
-        Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), content.param().abi()).ok() })
+        Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow())).ok() })
     }
     pub fn Flush() -> windows_core::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).Flush)(windows_core::Interface::as_raw(this)).ok() })
@@ -28,7 +28,7 @@ impl Clipboard {
     {
         Self::IClipboardStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContentChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveContentChanged(token: i64) -> windows_core::Result<()> {
@@ -52,7 +52,7 @@ impl Clipboard {
     {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteItemFromHistory)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DeleteItemFromHistory)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn SetHistoryItemAsContent<P0>(item: P0) -> windows_core::Result<SetHistoryItemAsContentStatus>
@@ -61,7 +61,7 @@ impl Clipboard {
     {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetHistoryItemAsContent)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetHistoryItemAsContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn IsHistoryEnabled() -> windows_core::Result<bool> {
@@ -83,7 +83,7 @@ impl Clipboard {
     {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetContentWithOptions)(windows_core::Interface::as_raw(this), content.param().abi(), options.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetContentWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), core::mem::transmute_copy(&options.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn HistoryChanged<P0>(handler: P0) -> windows_core::Result<i64>
@@ -92,7 +92,7 @@ impl Clipboard {
     {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HistoryChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HistoryChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveHistoryChanged(token: i64) -> windows_core::Result<()> {
@@ -104,7 +104,7 @@ impl Clipboard {
     {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RoamingEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RoamingEnabledChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveRoamingEnabledChanged(token: i64) -> windows_core::Result<()> {
@@ -116,7 +116,7 @@ impl Clipboard {
     {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HistoryEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HistoryEnabledChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveHistoryEnabledChanged(token: i64) -> windows_core::Result<()> {
@@ -341,7 +341,7 @@ impl DataPackage {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OperationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).OperationCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveOperationCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -355,7 +355,7 @@ impl DataPackage {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Destroyed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Destroyed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDestroyed(&self, token: i64) -> windows_core::Result<()> {
@@ -367,14 +367,14 @@ impl DataPackage {
         P1: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SetDataProvider<P1>(&self, formatid: &windows_core::HSTRING, delayrenderer: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<DataProviderHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDataProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), delayrenderer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDataProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), core::mem::transmute_copy(&delayrenderer.param().borrow())).ok() }
     }
     pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -385,7 +385,7 @@ impl DataPackage {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SetHtmlFormat(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -409,7 +409,7 @@ impl DataPackage {
         P0: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage")]
     pub fn SetStorageItemsReadOnly<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -417,7 +417,7 @@ impl DataPackage {
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStorageItemsReadOnly)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStorageItemsReadOnly)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage")]
     pub fn SetStorageItems<P0>(&self, value: P0, readonly: bool) -> windows_core::Result<()>
@@ -425,21 +425,21 @@ impl DataPackage {
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStorageItems)(windows_core::Interface::as_raw(this), value.param().abi(), readonly).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStorageItems)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), readonly).ok() }
     }
     pub fn SetApplicationLink<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackage2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetApplicationLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetApplicationLink)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SetWebLink<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackage2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetWebLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWebLink)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ShareCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -448,7 +448,7 @@ impl DataPackage {
         let this = &windows_core::Interface::cast::<IDataPackage3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShareCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShareCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -462,7 +462,7 @@ impl DataPackage {
         let this = &windows_core::Interface::cast::<IDataPackage4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareCanceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShareCanceled)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShareCanceled(&self, token: i64) -> windows_core::Result<()> {
@@ -572,7 +572,7 @@ impl DataPackagePropertySet {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn FileTypes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
@@ -604,7 +604,7 @@ impl DataPackagePropertySet {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetApplicationListingUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetApplicationListingUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentSourceWebLink(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -618,7 +618,7 @@ impl DataPackagePropertySet {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetContentSourceWebLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentSourceWebLink)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentSourceApplicationLink(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -632,7 +632,7 @@ impl DataPackagePropertySet {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetContentSourceApplicationLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentSourceApplicationLink)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -659,7 +659,7 @@ impl DataPackagePropertySet {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "UI")]
     pub fn LogoBackgroundColor(&self) -> windows_core::Result<super::super::UI::Color> {
@@ -738,7 +738,7 @@ impl DataPackagePropertySet {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1127,7 +1127,7 @@ impl windows_core::RuntimeType for DataProviderHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DataProviderHandler {
-    pub fn new<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DataProviderHandlerBox { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1136,7 +1136,7 @@ impl DataProviderHandler {
         P0: windows_core::Param<DataProviderRequest>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), request.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1146,12 +1146,12 @@ pub struct DataProviderHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DataProviderHandlerBox<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct DataProviderHandlerBox<F: Fn(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const DataProviderHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> DataProviderHandlerBox<F> {
+impl<F: Fn(Option<&DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> DataProviderHandlerBox<F> {
     const VTABLE: DataProviderHandler_Vtbl = DataProviderHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1194,7 +1194,7 @@ impl<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> +
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&request)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&request)).into()
         }
     }
 }
@@ -1229,7 +1229,7 @@ impl DataProviderRequest {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for DataProviderRequest {
@@ -1261,7 +1261,7 @@ impl DataRequest {
         P0: windows_core::Param<DataPackage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1353,7 +1353,7 @@ impl DataTransferManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DataRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDataRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1367,7 +1367,7 @@ impl DataTransferManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetApplicationChosen)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TargetApplicationChosen)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTargetApplicationChosen(&self, token: i64) -> windows_core::Result<()> {
@@ -1381,7 +1381,7 @@ impl DataTransferManager {
         let this = &windows_core::Interface::cast::<IDataTransferManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareProvidersRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShareProvidersRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShareProvidersRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1407,7 +1407,7 @@ impl DataTransferManager {
     where
         P0: windows_core::Param<ShareUIOptions>,
     {
-        Self::IDataTransferManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowShareUIWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() })
+        Self::IDataTransferManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowShareUIWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow())).ok() })
     }
     fn IDataTransferManagerStatics<R, F: FnOnce(&IDataTransferManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics> = windows_core::imp::FactoryCache::new();
@@ -2346,7 +2346,7 @@ impl ShareProvider {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
     pub fn Create<P1, P3>(title: &windows_core::HSTRING, displayicon: P1, backgroundcolor: super::super::UI::Color, handler: P3) -> windows_core::Result<ShareProvider>
@@ -2356,7 +2356,7 @@ impl ShareProvider {
     {
         Self::IShareProviderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), displayicon.param().abi(), backgroundcolor, handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(&displayicon.param().borrow()), backgroundcolor, core::mem::transmute_copy(&handler.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2381,7 +2381,7 @@ impl windows_core::RuntimeType for ShareProviderHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ShareProviderHandler {
-    pub fn new<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ShareProviderHandlerBox { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2390,7 +2390,7 @@ impl ShareProviderHandler {
         P0: windows_core::Param<ShareProviderOperation>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), operation.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&operation.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2400,12 +2400,12 @@ pub struct ShareProviderHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ShareProviderHandlerBox<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static> {
+struct ShareProviderHandlerBox<F: Fn(Option<&ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const ShareProviderHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static> ShareProviderHandlerBox<F> {
+impl<F: Fn(Option<&ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static> ShareProviderHandlerBox<F> {
     const VTABLE: ShareProviderHandler_Vtbl = ShareProviderHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2448,7 +2448,7 @@ impl<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&operation)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&operation)).into()
         }
     }
 }
@@ -2594,7 +2594,7 @@ impl ShareUIOptions {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Rect>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSelectionRect)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSelectionRect)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for ShareUIOptions {
@@ -2632,7 +2632,7 @@ impl SharedStorageAccessManager {
     {
         Self::ISharedStorageAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddFile)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AddFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2790,7 +2790,7 @@ impl TransferTarget {
     {
         Self::ITransferTargetStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ITransferTargetStatics<R, F: FnOnce(&ITransferTargetStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2875,7 +2875,7 @@ impl TransferTargetDiscoveryOptions {
     {
         Self::ITransferTargetDiscoveryOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), datapackage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&datapackage.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ITransferTargetDiscoveryOptionsFactory<R, F: FnOnce(&ITransferTargetDiscoveryOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2948,7 +2948,7 @@ impl TransferTargetWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransferToAsync)(windows_core::Interface::as_raw(this), target.param().abi(), parentwindowhandle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransferToAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&target.param().borrow()), parentwindowhandle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -2958,7 +2958,7 @@ impl TransferTargetWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
@@ -2972,7 +2972,7 @@ impl TransferTargetWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
@@ -2986,7 +2986,7 @@ impl TransferTargetWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -3000,7 +3000,7 @@ impl TransferTargetWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -3014,7 +3014,7 @@ impl TransferTargetWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
@@ -3027,7 +3027,7 @@ impl TransferTargetWatcher {
     {
         Self::ITransferTargetWatcherStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), datapackage.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&datapackage.param().borrow()), &mut result__).map(|| result__)
         })
     }
     fn ITransferTargetWatcherStatics<R, F: FnOnce(&ITransferTargetWatcherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

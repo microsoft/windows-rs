@@ -965,7 +965,7 @@ impl IRDPSRAPIClipboardUseEvents {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnPasteFromClipboard)(windows_core::Interface::as_raw(self), clipboardformat, pattendee.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).OnPasteFromClipboard)(windows_core::Interface::as_raw(self), clipboardformat, core::mem::transmute_copy(&pattendee.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -980,7 +980,7 @@ pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIClipboardUseEvents_Impl: windows_core::IUnknownImpl {
-    fn OnPasteFromClipboard(&self, clipboardformat: u32, pattendee: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn OnPasteFromClipboard(&self, clipboardformat: u32, pattendee: Option<&super::Com::IDispatch>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIClipboardUseEvents_Vtbl {
@@ -988,7 +988,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
         unsafe extern "system" fn OnPasteFromClipboard<Identity: IRDPSRAPIClipboardUseEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clipboardformat: u32, pattendee: *mut core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRDPSRAPIClipboardUseEvents_Impl::OnPasteFromClipboard(this, core::mem::transmute_copy(&clipboardformat), core::mem::transmute_copy(&pattendee)) {
+                match IRDPSRAPIClipboardUseEvents_Impl::OnPasteFromClipboard(this, core::mem::transmute_copy(&clipboardformat), windows_core::Ref::option_from_abi(&pattendee)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1892,7 +1892,7 @@ impl IRDPSRAPISharingSession2 {
     where
         P0: windows_core::Param<IRDPSRAPITransportStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConnectUsingTransportStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), core::mem::transmute_copy(bstrgroup), core::mem::transmute_copy(bstrauthenticatedattendeename)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConnectUsingTransportStream)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pstream.param().borrow()), core::mem::transmute_copy(bstrgroup), core::mem::transmute_copy(bstrauthenticatedattendeename)).ok() }
     }
     pub unsafe fn FrameBuffer(&self) -> windows_core::Result<IRDPSRAPIFrameBuffer> {
         unsafe {
@@ -1904,7 +1904,7 @@ impl IRDPSRAPISharingSession2 {
     where
         P0: windows_core::Param<IRDPSRAPIAttendee>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SendControlLevelChangeResponse)(windows_core::Interface::as_raw(self), pattendee.param().abi(), requestedlevel, reasoncode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SendControlLevelChangeResponse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pattendee.param().borrow()), requestedlevel, reasoncode).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1918,9 +1918,9 @@ pub struct IRDPSRAPISharingSession2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISharingSession2_Impl: IRDPSRAPISharingSession_Impl {
-    fn ConnectUsingTransportStream(&self, pstream: windows_core::Ref<IRDPSRAPITransportStream>, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ConnectUsingTransportStream(&self, pstream: Option<&IRDPSRAPITransportStream>, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn FrameBuffer(&self) -> windows_core::Result<IRDPSRAPIFrameBuffer>;
-    fn SendControlLevelChangeResponse(&self, pattendee: windows_core::Ref<IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::Result<()>;
+    fn SendControlLevelChangeResponse(&self, pattendee: Option<&IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISharingSession2_Vtbl {
@@ -1928,7 +1928,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
         unsafe extern "system" fn ConnectUsingTransportStream<Identity: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, bstrgroup: *mut core::ffi::c_void, bstrauthenticatedattendeename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPISharingSession2_Impl::ConnectUsingTransportStream(this, core::mem::transmute_copy(&pstream), core::mem::transmute(&bstrgroup), core::mem::transmute(&bstrauthenticatedattendeename)).into()
+                IRDPSRAPISharingSession2_Impl::ConnectUsingTransportStream(this, windows_core::Ref::option_from_abi(&pstream), core::mem::transmute(&bstrgroup), core::mem::transmute(&bstrauthenticatedattendeename)).into()
             }
         }
         unsafe extern "system" fn FrameBuffer<Identity: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1946,7 +1946,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
         unsafe extern "system" fn SendControlLevelChangeResponse<Identity: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattendee: *mut core::ffi::c_void, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPISharingSession2_Impl::SendControlLevelChangeResponse(this, core::mem::transmute_copy(&pattendee), core::mem::transmute_copy(&requestedlevel), core::mem::transmute_copy(&reasoncode)).into()
+                IRDPSRAPISharingSession2_Impl::SendControlLevelChangeResponse(this, windows_core::Ref::option_from_abi(&pattendee), core::mem::transmute_copy(&requestedlevel), core::mem::transmute_copy(&reasoncode)).into()
             }
         }
         Self {
@@ -2116,25 +2116,25 @@ impl IRDPSRAPITransportStream {
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuffer.param().borrow())).ok() }
     }
     pub unsafe fn WriteBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WriteBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WriteBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuffer.param().borrow())).ok() }
     }
     pub unsafe fn ReadBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReadBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReadBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuffer.param().borrow())).ok() }
     }
     pub unsafe fn Open<P0>(&self, pcallbacks: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pcallbacks.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcallbacks.param().borrow())).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -2153,10 +2153,10 @@ pub struct IRDPSRAPITransportStream_Vtbl {
 }
 pub trait IRDPSRAPITransportStream_Impl: windows_core::IUnknownImpl {
     fn AllocBuffer(&self, maxpayload: i32) -> windows_core::Result<IRDPSRAPITransportStreamBuffer>;
-    fn FreeBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn WriteBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn ReadBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn Open(&self, pcallbacks: windows_core::Ref<IRDPSRAPITransportStreamEvents>) -> windows_core::Result<()>;
+    fn FreeBuffer(&self, pbuffer: Option<&IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
+    fn WriteBuffer(&self, pbuffer: Option<&IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
+    fn ReadBuffer(&self, pbuffer: Option<&IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
+    fn Open(&self, pcallbacks: Option<&IRDPSRAPITransportStreamEvents>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IRDPSRAPITransportStream_Vtbl {
@@ -2176,25 +2176,25 @@ impl IRDPSRAPITransportStream_Vtbl {
         unsafe extern "system" fn FreeBuffer<Identity: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStream_Impl::FreeBuffer(this, core::mem::transmute_copy(&pbuffer)).into()
+                IRDPSRAPITransportStream_Impl::FreeBuffer(this, windows_core::Ref::option_from_abi(&pbuffer)).into()
             }
         }
         unsafe extern "system" fn WriteBuffer<Identity: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStream_Impl::WriteBuffer(this, core::mem::transmute_copy(&pbuffer)).into()
+                IRDPSRAPITransportStream_Impl::WriteBuffer(this, windows_core::Ref::option_from_abi(&pbuffer)).into()
             }
         }
         unsafe extern "system" fn ReadBuffer<Identity: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStream_Impl::ReadBuffer(this, core::mem::transmute_copy(&pbuffer)).into()
+                IRDPSRAPITransportStream_Impl::ReadBuffer(this, windows_core::Ref::option_from_abi(&pbuffer)).into()
             }
         }
         unsafe extern "system" fn Open<Identity: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbacks: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStream_Impl::Open(this, core::mem::transmute_copy(&pcallbacks)).into()
+                IRDPSRAPITransportStream_Impl::Open(this, windows_core::Ref::option_from_abi(&pcallbacks)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IRDPSRAPITransportStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2270,7 +2270,7 @@ impl IRDPSRAPITransportStreamBuffer {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), pcontext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcontext.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2298,7 +2298,7 @@ pub trait IRDPSRAPITransportStreamBuffer_Impl: windows_core::IUnknownImpl {
     fn Flags(&self) -> windows_core::Result<i32>;
     fn SetFlags(&self, lflags: i32) -> windows_core::Result<()>;
     fn Context(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetContext(&self, pcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetContext(&self, pcontext: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IRDPSRAPITransportStreamBuffer_Vtbl {
     pub const fn new<Identity: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>() -> Self {
@@ -2395,7 +2395,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
         unsafe extern "system" fn SetContext<Identity: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStreamBuffer_Impl::SetContext(this, core::mem::transmute_copy(&pcontext)).into()
+                IRDPSRAPITransportStreamBuffer_Impl::SetContext(this, windows_core::Ref::option_from_abi(&pcontext)).into()
             }
         }
         Self {
@@ -2424,13 +2424,13 @@ impl IRDPSRAPITransportStreamEvents {
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnWriteCompleted)(windows_core::Interface::as_raw(self), pbuffer.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).OnWriteCompleted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuffer.param().borrow())) }
     }
     pub unsafe fn OnReadCompleted<P0>(&self, pbuffer: P0)
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnReadCompleted)(windows_core::Interface::as_raw(self), pbuffer.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).OnReadCompleted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuffer.param().borrow())) }
     }
     pub unsafe fn OnStreamClosed(&self, hrreason: windows_core::HRESULT) {
         unsafe { (windows_core::Interface::vtable(self).OnStreamClosed)(windows_core::Interface::as_raw(self), hrreason) }
@@ -2445,8 +2445,8 @@ pub struct IRDPSRAPITransportStreamEvents_Vtbl {
     pub OnStreamClosed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT),
 }
 pub trait IRDPSRAPITransportStreamEvents_Impl: windows_core::IUnknownImpl {
-    fn OnWriteCompleted(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>);
-    fn OnReadCompleted(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>);
+    fn OnWriteCompleted(&self, pbuffer: Option<&IRDPSRAPITransportStreamBuffer>);
+    fn OnReadCompleted(&self, pbuffer: Option<&IRDPSRAPITransportStreamBuffer>);
     fn OnStreamClosed(&self, hrreason: windows_core::HRESULT);
 }
 impl IRDPSRAPITransportStreamEvents_Vtbl {
@@ -2454,13 +2454,13 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
         unsafe extern "system" fn OnWriteCompleted<Identity: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStreamEvents_Impl::OnWriteCompleted(this, core::mem::transmute_copy(&pbuffer))
+                IRDPSRAPITransportStreamEvents_Impl::OnWriteCompleted(this, windows_core::Ref::option_from_abi(&pbuffer))
             }
         }
         unsafe extern "system" fn OnReadCompleted<Identity: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStreamEvents_Impl::OnReadCompleted(this, core::mem::transmute_copy(&pbuffer))
+                IRDPSRAPITransportStreamEvents_Impl::OnReadCompleted(this, windows_core::Ref::option_from_abi(&pbuffer))
             }
         }
         unsafe extern "system" fn OnStreamClosed<Identity: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrreason: windows_core::HRESULT) {

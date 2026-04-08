@@ -34,7 +34,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxConnectFaxServerA(machinename : windows_core::PCSTR, faxhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { FaxConnectFaxServerA(machinename.param().abi(), faxhandle as _).ok() }
+    unsafe { FaxConnectFaxServerA(core::mem::transmute_copy(&machinename.param().borrow()), faxhandle as _).ok() }
 }
 #[inline]
 pub unsafe fn FaxConnectFaxServerW<P0>(machinename: P0, faxhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -42,7 +42,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxConnectFaxServerW(machinename : windows_core::PCWSTR, faxhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { FaxConnectFaxServerW(machinename.param().abi(), faxhandle as _).ok() }
+    unsafe { FaxConnectFaxServerW(core::mem::transmute_copy(&machinename.param().borrow()), faxhandle as _).ok() }
 }
 #[inline]
 pub unsafe fn FaxEnableRoutingMethodA<P1>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, enabled: bool) -> windows_core::Result<()>
@@ -50,7 +50,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxEnableRoutingMethodA(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCSTR, enabled : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { FaxEnableRoutingMethodA(faxporthandle, routingguid.param().abi(), enabled.into()).ok() }
+    unsafe { FaxEnableRoutingMethodA(faxporthandle, core::mem::transmute_copy(&routingguid.param().borrow()), enabled.into()).ok() }
 }
 #[inline]
 pub unsafe fn FaxEnableRoutingMethodW<P1>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, enabled: bool) -> windows_core::Result<()>
@@ -58,7 +58,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxEnableRoutingMethodW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCWSTR, enabled : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { FaxEnableRoutingMethodW(faxporthandle, routingguid.param().abi(), enabled.into()).ok() }
+    unsafe { FaxEnableRoutingMethodW(faxporthandle, core::mem::transmute_copy(&routingguid.param().borrow()), enabled.into()).ok() }
 }
 #[inline]
 pub unsafe fn FaxEnumGlobalRoutingInfoA(faxhandle: super::super::Foundation::HANDLE, routinginfo: *mut *mut FAX_GLOBAL_ROUTING_INFOA, methodsreturned: *mut u32) -> windows_core::Result<()> {
@@ -166,7 +166,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxGetRoutingInfoA(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCSTR, routinginfobuffer : *mut *mut u8, routinginfobuffersize : *mut u32) -> windows_core::BOOL);
-    unsafe { FaxGetRoutingInfoA(faxporthandle, routingguid.param().abi(), routinginfobuffer as _, routinginfobuffersize as _).ok() }
+    unsafe { FaxGetRoutingInfoA(faxporthandle, core::mem::transmute_copy(&routingguid.param().borrow()), routinginfobuffer as _, routinginfobuffersize as _).ok() }
 }
 #[inline]
 pub unsafe fn FaxGetRoutingInfoW<P1>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> windows_core::Result<()>
@@ -174,7 +174,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxGetRoutingInfoW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCWSTR, routinginfobuffer : *mut *mut u8, routinginfobuffersize : *mut u32) -> windows_core::BOOL);
-    unsafe { FaxGetRoutingInfoW(faxporthandle, routingguid.param().abi(), routinginfobuffer as _, routinginfobuffersize as _).ok() }
+    unsafe { FaxGetRoutingInfoW(faxporthandle, core::mem::transmute_copy(&routingguid.param().borrow()), routinginfobuffer as _, routinginfobuffersize as _).ok() }
 }
 #[inline]
 pub unsafe fn FaxInitializeEventQueue(faxhandle: super::super::Foundation::HANDLE, completionport: super::super::Foundation::HANDLE, completionkey: usize, hwnd: super::super::Foundation::HWND, messagestart: u32) -> windows_core::BOOL {
@@ -206,7 +206,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxRegisterRoutingExtensionW(faxhandle : super::super::Foundation:: HANDLE, extensionname : windows_core::PCWSTR, friendlyname : windows_core::PCWSTR, imagename : windows_core::PCWSTR, callback : PFAX_ROUTING_INSTALLATION_CALLBACKW, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { FaxRegisterRoutingExtensionW(faxhandle, extensionname.param().abi(), friendlyname.param().abi(), imagename.param().abi(), callback, context).ok() }
+    unsafe { FaxRegisterRoutingExtensionW(faxhandle, core::mem::transmute_copy(&extensionname.param().borrow()), core::mem::transmute_copy(&friendlyname.param().borrow()), core::mem::transmute_copy(&imagename.param().borrow()), callback, context).ok() }
 }
 #[inline]
 pub unsafe fn FaxRegisterServiceProviderW<P0, P1, P2, P3>(deviceprovider: P0, friendlyname: P1, imagename: P2, tspname: P3) -> windows_core::Result<()>
@@ -217,7 +217,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxRegisterServiceProviderW(deviceprovider : windows_core::PCWSTR, friendlyname : windows_core::PCWSTR, imagename : windows_core::PCWSTR, tspname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { FaxRegisterServiceProviderW(deviceprovider.param().abi(), friendlyname.param().abi(), imagename.param().abi(), tspname.param().abi()).ok() }
+    unsafe { FaxRegisterServiceProviderW(core::mem::transmute_copy(&deviceprovider.param().borrow()), core::mem::transmute_copy(&friendlyname.param().borrow()), core::mem::transmute_copy(&imagename.param().borrow()), core::mem::transmute_copy(&tspname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn FaxSendDocumentA<P1>(faxhandle: super::super::Foundation::HANDLE, filename: P1, jobparams: *const FAX_JOB_PARAMA, coverpageinfo: *const FAX_COVERPAGE_INFOA, faxjobid: *mut u32) -> windows_core::Result<()>
@@ -225,7 +225,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxSendDocumentA(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, jobparams : *const FAX_JOB_PARAMA, coverpageinfo : *const FAX_COVERPAGE_INFOA, faxjobid : *mut u32) -> windows_core::BOOL);
-    unsafe { FaxSendDocumentA(faxhandle, filename.param().abi(), jobparams, coverpageinfo, faxjobid as _).ok() }
+    unsafe { FaxSendDocumentA(faxhandle, core::mem::transmute_copy(&filename.param().borrow()), jobparams, coverpageinfo, faxjobid as _).ok() }
 }
 #[inline]
 pub unsafe fn FaxSendDocumentForBroadcastA<P1>(faxhandle: super::super::Foundation::HANDLE, filename: P1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -233,7 +233,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxSendDocumentForBroadcastA(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, faxjobid : *mut u32, faxrecipientcallback : PFAX_RECIPIENT_CALLBACKA, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { FaxSendDocumentForBroadcastA(faxhandle, filename.param().abi(), faxjobid as _, faxrecipientcallback, context).ok() }
+    unsafe { FaxSendDocumentForBroadcastA(faxhandle, core::mem::transmute_copy(&filename.param().borrow()), faxjobid as _, faxrecipientcallback, context).ok() }
 }
 #[inline]
 pub unsafe fn FaxSendDocumentForBroadcastW<P1>(faxhandle: super::super::Foundation::HANDLE, filename: P1, faxjobid: *mut u32, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -241,7 +241,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxSendDocumentForBroadcastW(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, faxjobid : *mut u32, faxrecipientcallback : PFAX_RECIPIENT_CALLBACKW, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { FaxSendDocumentForBroadcastW(faxhandle, filename.param().abi(), faxjobid as _, faxrecipientcallback, context).ok() }
+    unsafe { FaxSendDocumentForBroadcastW(faxhandle, core::mem::transmute_copy(&filename.param().borrow()), faxjobid as _, faxrecipientcallback, context).ok() }
 }
 #[inline]
 pub unsafe fn FaxSendDocumentW<P1>(faxhandle: super::super::Foundation::HANDLE, filename: P1, jobparams: *const FAX_JOB_PARAMW, coverpageinfo: *const FAX_COVERPAGE_INFOW, faxjobid: *mut u32) -> windows_core::Result<()>
@@ -249,7 +249,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxSendDocumentW(faxhandle : super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, jobparams : *const FAX_JOB_PARAMW, coverpageinfo : *const FAX_COVERPAGE_INFOW, faxjobid : *mut u32) -> windows_core::BOOL);
-    unsafe { FaxSendDocumentW(faxhandle, filename.param().abi(), jobparams, coverpageinfo, faxjobid as _).ok() }
+    unsafe { FaxSendDocumentW(faxhandle, core::mem::transmute_copy(&filename.param().borrow()), jobparams, coverpageinfo, faxjobid as _).ok() }
 }
 #[inline]
 pub unsafe fn FaxSetConfigurationA(faxhandle: super::super::Foundation::HANDLE, faxconfig: *const FAX_CONFIGURATIONA) -> windows_core::Result<()> {
@@ -307,7 +307,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxSetRoutingInfoA(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCSTR, routinginfobuffer : *const u8, routinginfobuffersize : u32) -> windows_core::BOOL);
-    unsafe { FaxSetRoutingInfoA(faxporthandle, routingguid.param().abi(), routinginfobuffer, routinginfobuffersize).ok() }
+    unsafe { FaxSetRoutingInfoA(faxporthandle, core::mem::transmute_copy(&routingguid.param().borrow()), routinginfobuffer, routinginfobuffersize).ok() }
 }
 #[inline]
 pub unsafe fn FaxSetRoutingInfoW<P1>(faxporthandle: super::super::Foundation::HANDLE, routingguid: P1, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> windows_core::Result<()>
@@ -315,7 +315,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxSetRoutingInfoW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : windows_core::PCWSTR, routinginfobuffer : *const u8, routinginfobuffersize : u32) -> windows_core::BOOL);
-    unsafe { FaxSetRoutingInfoW(faxporthandle, routingguid.param().abi(), routinginfobuffer, routinginfobuffersize).ok() }
+    unsafe { FaxSetRoutingInfoW(faxporthandle, core::mem::transmute_copy(&routingguid.param().borrow()), routinginfobuffer, routinginfobuffersize).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -324,7 +324,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxStartPrintJobA(printername : windows_core::PCSTR, printinfo : *const FAX_PRINT_INFOA, faxjobid : *mut u32, faxcontextinfo : *mut FAX_CONTEXT_INFOA) -> windows_core::BOOL);
-    unsafe { FaxStartPrintJobA(printername.param().abi(), printinfo, faxjobid as _, faxcontextinfo as _).ok() }
+    unsafe { FaxStartPrintJobA(core::mem::transmute_copy(&printername.param().borrow()), printinfo, faxjobid as _, faxcontextinfo as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -333,7 +333,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxStartPrintJobW(printername : windows_core::PCWSTR, printinfo : *const FAX_PRINT_INFOW, faxjobid : *mut u32, faxcontextinfo : *mut FAX_CONTEXT_INFOW) -> windows_core::BOOL);
-    unsafe { FaxStartPrintJobW(printername.param().abi(), printinfo, faxjobid as _, faxcontextinfo as _).ok() }
+    unsafe { FaxStartPrintJobW(core::mem::transmute_copy(&printername.param().borrow()), printinfo, faxjobid as _, faxcontextinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn FaxUnregisterServiceProviderW<P0>(deviceprovider: P0) -> windows_core::BOOL
@@ -341,7 +341,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winfax.dll" "system" fn FaxUnregisterServiceProviderW(deviceprovider : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { FaxUnregisterServiceProviderW(deviceprovider.param().abi()) }
+    unsafe { FaxUnregisterServiceProviderW(core::mem::transmute_copy(&deviceprovider.param().borrow())) }
 }
 #[inline]
 pub unsafe fn SendToFaxRecipient<P1>(sndmode: SendToMode, lpfilename: P1) -> u32
@@ -349,7 +349,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("fxsutility.dll" "system" fn SendToFaxRecipient(sndmode : SendToMode, lpfilename : windows_core::PCWSTR) -> u32);
-    unsafe { SendToFaxRecipient(sndmode, lpfilename.param().abi()) }
+    unsafe { SendToFaxRecipient(sndmode, core::mem::transmute_copy(&lpfilename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn StiCreateInstanceW<P3>(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut Option<IStillImageW>, punkouter: P3) -> windows_core::Result<()>
@@ -357,7 +357,7 @@ where
     P3: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("sti.dll" "system" fn StiCreateInstanceW(hinst : super::super::Foundation:: HINSTANCE, dwver : u32, ppsti : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StiCreateInstanceW(hinst, dwver, core::mem::transmute(ppsti), punkouter.param().abi()).ok() }
+    unsafe { StiCreateInstanceW(hinst, dwver, core::mem::transmute(ppsti), core::mem::transmute_copy(&punkouter.param().borrow())).ok() }
 }
 pub const CF_MSFAXSRV_DEVICE_ID: windows_core::PCWSTR = windows_core::w!("FAXSRV_DeviceID");
 pub const CF_MSFAXSRV_FSP_GUID: windows_core::PCWSTR = windows_core::w!("FAXSRV_FSPGuid");
@@ -1588,69 +1588,69 @@ impl IFaxAccountNotify {
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnIncomingJobRemoved<P0>(&self, pfaxaccount: P0, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnIncomingJobChanged<P0, P2>(&self, pfaxaccount: P0, bstrjobid: &windows_core::BSTR, pjobstatus: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
         P2: windows_core::Param<IFaxJobStatus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrjobid), pjobstatus.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrjobid), core::mem::transmute_copy(&pjobstatus.param().borrow())).ok() }
     }
     pub unsafe fn OnOutgoingJobAdded<P0>(&self, pfaxaccount: P0, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnOutgoingJobRemoved<P0>(&self, pfaxaccount: P0, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnOutgoingJobChanged<P0, P2>(&self, pfaxaccount: P0, bstrjobid: &windows_core::BSTR, pjobstatus: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
         P2: windows_core::Param<IFaxJobStatus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrjobid), pjobstatus.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrjobid), core::mem::transmute_copy(&pjobstatus.param().borrow())).ok() }
     }
     pub unsafe fn OnIncomingMessageAdded<P0>(&self, pfaxaccount: P0, bstrmessageid: &windows_core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrmessageid), faddedtoreceivefolder).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrmessageid), faddedtoreceivefolder).ok() }
     }
     pub unsafe fn OnIncomingMessageRemoved<P0>(&self, pfaxaccount: P0, bstrmessageid: &windows_core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrmessageid), fremovedfromreceivefolder).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrmessageid), fremovedfromreceivefolder).ok() }
     }
     pub unsafe fn OnOutgoingMessageAdded<P0>(&self, pfaxaccount: P0, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrmessageid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrmessageid)).ok() }
     }
     pub unsafe fn OnOutgoingMessageRemoved<P0>(&self, pfaxaccount: P0, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxAccount>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxaccount.param().abi(), core::mem::transmute_copy(bstrmessageid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxaccount.param().borrow()), core::mem::transmute_copy(bstrmessageid)).ok() }
     }
     pub unsafe fn OnServerShutDown<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1672,17 +1672,17 @@ pub struct IFaxAccountNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFaxAccountNotify_Impl: super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxaccount: windows_core::Ref<IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnServerShutDown(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxaccount: Option<&IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxaccount: Option<&IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxaccount: Option<&IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: Option<&IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxaccount: Option<&IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxaccount: Option<&IFaxAccount>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxaccount: Option<&IFaxAccount>, bstrjobid: &windows_core::BSTR, pjobstatus: Option<&IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxaccount: Option<&IFaxAccount>, bstrmessageid: &windows_core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxaccount: Option<&IFaxAccount>, bstrmessageid: &windows_core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxaccount: Option<&IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxaccount: Option<&IFaxAccount>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnServerShutDown(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFaxAccountNotify_Vtbl {
@@ -1690,67 +1690,67 @@ impl IFaxAccountNotify_Vtbl {
         unsafe extern "system" fn OnIncomingJobAdded<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnIncomingJobAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
+                IFaxAccountNotify_Impl::OnIncomingJobAdded(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnIncomingJobRemoved<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnIncomingJobRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
+                IFaxAccountNotify_Impl::OnIncomingJobRemoved(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnIncomingJobChanged<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnIncomingJobChanged(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
+                IFaxAccountNotify_Impl::OnIncomingJobChanged(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrjobid), windows_core::Ref::option_from_abi(&pjobstatus)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingJobAdded<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnOutgoingJobAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
+                IFaxAccountNotify_Impl::OnOutgoingJobAdded(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingJobRemoved<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnOutgoingJobRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
+                IFaxAccountNotify_Impl::OnOutgoingJobRemoved(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingJobChanged<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnOutgoingJobChanged(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
+                IFaxAccountNotify_Impl::OnOutgoingJobChanged(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrjobid), windows_core::Ref::option_from_abi(&pjobstatus)).into()
             }
         }
         unsafe extern "system" fn OnIncomingMessageAdded<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnIncomingMessageAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&faddedtoreceivefolder)).into()
+                IFaxAccountNotify_Impl::OnIncomingMessageAdded(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&faddedtoreceivefolder)).into()
             }
         }
         unsafe extern "system" fn OnIncomingMessageRemoved<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnIncomingMessageRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
+                IFaxAccountNotify_Impl::OnIncomingMessageRemoved(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrmessageid), core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingMessageAdded<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnOutgoingMessageAdded(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
+                IFaxAccountNotify_Impl::OnOutgoingMessageAdded(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxaccount: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnOutgoingMessageRemoved(this, core::mem::transmute_copy(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
+                IFaxAccountNotify_Impl::OnOutgoingMessageRemoved(this, windows_core::Ref::option_from_abi(&pfaxaccount), core::mem::transmute(&bstrmessageid)).into()
             }
         }
         unsafe extern "system" fn OnServerShutDown<Identity: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxAccountNotify_Impl::OnServerShutDown(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxAccountNotify_Impl::OnServerShutDown(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         Self {
@@ -4519,7 +4519,7 @@ impl IFaxDocument {
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_TapiConnection)(windows_core::Interface::as_raw(self), ptapiconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_TapiConnection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ptapiconnection.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Submit(&self, bstrfaxservername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -4535,7 +4535,7 @@ impl IFaxDocument {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectedSubmit)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).ConnectedSubmit)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub unsafe fn AttachFaxToReceipt(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -4625,9 +4625,9 @@ pub trait IFaxDocument_Impl: super::super::System::Com::IDispatch_Impl {
     fn Priority(&self) -> windows_core::Result<FAX_PRIORITY_TYPE_ENUM>;
     fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> windows_core::Result<()>;
     fn TapiConnection(&self) -> windows_core::Result<super::super::System::Com::IDispatch>;
-    fn putref_TapiConnection(&self, ptapiconnection: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn putref_TapiConnection(&self, ptapiconnection: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn Submit(&self, bstrfaxservername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ConnectedSubmit(&self, pfaxserver: windows_core::Ref<IFaxServer>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn ConnectedSubmit(&self, pfaxserver: Option<&IFaxServer>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn AttachFaxToReceipt(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAttachFaxToReceipt(&self, battachfax: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
@@ -4907,7 +4907,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn putref_TapiConnection<Identity: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptapiconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxDocument_Impl::putref_TapiConnection(this, core::mem::transmute_copy(&ptapiconnection)).into()
+                IFaxDocument_Impl::putref_TapiConnection(this, windows_core::Ref::option_from_abi(&ptapiconnection)).into()
             }
         }
         unsafe extern "system" fn Submit<Identity: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrfaxservername: *mut core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
@@ -4925,7 +4925,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn ConnectedSubmit<Identity: IFaxDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFaxDocument_Impl::ConnectedSubmit(this, core::mem::transmute_copy(&pfaxserver)) {
+                match IFaxDocument_Impl::ConnectedSubmit(this, windows_core::Ref::option_from_abi(&pfaxserver)) {
                     Ok(ok__) => {
                         pvfaxoutgoingjobids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5035,7 +5035,7 @@ impl IFaxDocument2 {
     where
         P0: windows_core::Param<IFaxServer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConnectedSubmit2)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConnectedSubmit2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5067,7 +5067,7 @@ pub trait IFaxDocument2_Impl: IFaxDocument_Impl {
     fn Bodies(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetBodies(&self, vbodies: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Submit2(&self, bstrfaxservername: &windows_core::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>;
-    fn ConnectedSubmit2(&self, pfaxserver: windows_core::Ref<IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>;
+    fn ConnectedSubmit2(&self, pfaxserver: Option<&IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFaxDocument2_Vtbl {
@@ -5111,7 +5111,7 @@ impl IFaxDocument2_Vtbl {
         unsafe extern "system" fn ConnectedSubmit2<Identity: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Variant::VARIANT, plerrorbodyfile: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxDocument2_Impl::ConnectedSubmit2(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&pvfaxoutgoingjobids), core::mem::transmute_copy(&plerrorbodyfile)).into()
+                IFaxDocument2_Impl::ConnectedSubmit2(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute_copy(&pvfaxoutgoingjobids), core::mem::transmute_copy(&plerrorbodyfile)).into()
             }
         }
         Self {
@@ -13536,159 +13536,159 @@ impl IFaxServerNotify2 {
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnIncomingJobRemoved<P0>(&self, pfaxserver: P0, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnIncomingJobChanged<P0, P2>(&self, pfaxserver: P0, bstrjobid: &windows_core::BSTR, pjobstatus: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
         P2: windows_core::Param<IFaxJobStatus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrjobid), pjobstatus.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingJobChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrjobid), core::mem::transmute_copy(&pjobstatus.param().borrow())).ok() }
     }
     pub unsafe fn OnOutgoingJobAdded<P0>(&self, pfaxserver: P0, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnOutgoingJobRemoved<P0>(&self, pfaxserver: P0, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrjobid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrjobid)).ok() }
     }
     pub unsafe fn OnOutgoingJobChanged<P0, P2>(&self, pfaxserver: P0, bstrjobid: &windows_core::BSTR, pjobstatus: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
         P2: windows_core::Param<IFaxJobStatus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrjobid), pjobstatus.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingJobChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrjobid), core::mem::transmute_copy(&pjobstatus.param().borrow())).ok() }
     }
     pub unsafe fn OnIncomingMessageAdded<P0>(&self, pfaxserver: P0, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrmessageid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrmessageid)).ok() }
     }
     pub unsafe fn OnIncomingMessageRemoved<P0>(&self, pfaxserver: P0, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrmessageid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrmessageid)).ok() }
     }
     pub unsafe fn OnOutgoingMessageAdded<P0>(&self, pfaxserver: P0, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrmessageid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrmessageid)).ok() }
     }
     pub unsafe fn OnOutgoingMessageRemoved<P0>(&self, pfaxserver: P0, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), core::mem::transmute_copy(bstrmessageid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), core::mem::transmute_copy(bstrmessageid)).ok() }
     }
     pub unsafe fn OnReceiptOptionsChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnReceiptOptionsChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnReceiptOptionsChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnActivityLoggingConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnActivityLoggingConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnActivityLoggingConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnSecurityConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSecurityConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSecurityConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnEventLoggingConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEventLoggingConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEventLoggingConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnOutgoingQueueConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingQueueConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingQueueConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnOutgoingArchiveConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutgoingArchiveConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutgoingArchiveConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnIncomingArchiveConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnIncomingArchiveConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnIncomingArchiveConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnDevicesConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDevicesConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDevicesConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnOutboundRoutingGroupsConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutboundRoutingGroupsConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutboundRoutingGroupsConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnOutboundRoutingRulesConfigChange<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOutboundRoutingRulesConfigChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOutboundRoutingRulesConfigChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnServerActivityChange<P0>(&self, pfaxserver: P0, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnServerActivityChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), lincomingmessages, lroutingmessages, loutgoingmessages, lqueuedmessages).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnServerActivityChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), lincomingmessages, lroutingmessages, loutgoingmessages, lqueuedmessages).ok() }
     }
     pub unsafe fn OnQueuesStatusChange<P0>(&self, pfaxserver: P0, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnQueuesStatusChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), boutgoingqueueblocked, boutgoingqueuepaused, bincomingqueueblocked).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnQueuesStatusChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), boutgoingqueueblocked, boutgoingqueuepaused, bincomingqueueblocked).ok() }
     }
     pub unsafe fn OnNewCall<P0>(&self, pfaxserver: P0, lcallid: i32, ldeviceid: i32, bstrcallerid: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnNewCall)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), lcallid, ldeviceid, core::mem::transmute_copy(bstrcallerid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnNewCall)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), lcallid, ldeviceid, core::mem::transmute_copy(bstrcallerid)).ok() }
     }
     pub unsafe fn OnServerShutDown<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnServerShutDown)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
     pub unsafe fn OnDeviceStatusChange<P0>(&self, pfaxserver: P0, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDeviceStatusChange)(windows_core::Interface::as_raw(self), pfaxserver.param().abi(), ldeviceid, bpoweredoff, bsending, breceiving, bringing).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDeviceStatusChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow()), ldeviceid, bpoweredoff, bsending, breceiving, bringing).ok() }
     }
     pub unsafe fn OnGeneralServerConfigChanged<P0>(&self, pfaxserver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IFaxServer2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnGeneralServerConfigChanged)(windows_core::Interface::as_raw(self), pfaxserver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnGeneralServerConfigChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfaxserver.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13725,32 +13725,32 @@ pub struct IFaxServerNotify2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFaxServerNotify2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: windows_core::Ref<IFaxJobStatus>) -> windows_core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxserver: windows_core::Ref<IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnReceiptOptionsChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnActivityLoggingConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnSecurityConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnEventLoggingConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutgoingQueueConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutgoingArchiveConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnIncomingArchiveConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnDevicesConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutboundRoutingGroupsConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnOutboundRoutingRulesConfigChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnServerActivityChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> windows_core::Result<()>;
-    fn OnQueuesStatusChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnNewCall(&self, pfaxserver: windows_core::Ref<IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OnServerShutDown(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
-    fn OnDeviceStatusChange(&self, pfaxserver: windows_core::Ref<IFaxServer2>, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OnGeneralServerConfigChanged(&self, pfaxserver: windows_core::Ref<IFaxServer2>) -> windows_core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxserver: Option<&IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxserver: Option<&IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxserver: Option<&IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: Option<&IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxserver: Option<&IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxserver: Option<&IFaxServer2>, bstrjobid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxserver: Option<&IFaxServer2>, bstrjobid: &windows_core::BSTR, pjobstatus: Option<&IFaxJobStatus>) -> windows_core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxserver: Option<&IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxserver: Option<&IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxserver: Option<&IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxserver: Option<&IFaxServer2>, bstrmessageid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnReceiptOptionsChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnActivityLoggingConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnSecurityConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnEventLoggingConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutgoingQueueConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutgoingArchiveConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnIncomingArchiveConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnDevicesConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutboundRoutingGroupsConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnOutboundRoutingRulesConfigChange(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnServerActivityChange(&self, pfaxserver: Option<&IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> windows_core::Result<()>;
+    fn OnQueuesStatusChange(&self, pfaxserver: Option<&IFaxServer2>, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnNewCall(&self, pfaxserver: Option<&IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OnServerShutDown(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
+    fn OnDeviceStatusChange(&self, pfaxserver: Option<&IFaxServer2>, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OnGeneralServerConfigChanged(&self, pfaxserver: Option<&IFaxServer2>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFaxServerNotify2_Vtbl {
@@ -13758,157 +13758,157 @@ impl IFaxServerNotify2_Vtbl {
         unsafe extern "system" fn OnIncomingJobAdded<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnIncomingJobAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
+                IFaxServerNotify2_Impl::OnIncomingJobAdded(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnIncomingJobRemoved<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnIncomingJobRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
+                IFaxServerNotify2_Impl::OnIncomingJobRemoved(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnIncomingJobChanged<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnIncomingJobChanged(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
+                IFaxServerNotify2_Impl::OnIncomingJobChanged(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrjobid), windows_core::Ref::option_from_abi(&pjobstatus)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingJobAdded<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutgoingJobAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
+                IFaxServerNotify2_Impl::OnOutgoingJobAdded(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingJobRemoved<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutgoingJobRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
+                IFaxServerNotify2_Impl::OnOutgoingJobRemoved(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrjobid)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingJobChanged<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrjobid: *mut core::ffi::c_void, pjobstatus: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutgoingJobChanged(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrjobid), core::mem::transmute_copy(&pjobstatus)).into()
+                IFaxServerNotify2_Impl::OnOutgoingJobChanged(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrjobid), windows_core::Ref::option_from_abi(&pjobstatus)).into()
             }
         }
         unsafe extern "system" fn OnIncomingMessageAdded<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnIncomingMessageAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
+                IFaxServerNotify2_Impl::OnIncomingMessageAdded(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
         unsafe extern "system" fn OnIncomingMessageRemoved<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnIncomingMessageRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
+                IFaxServerNotify2_Impl::OnIncomingMessageRemoved(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingMessageAdded<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutgoingMessageAdded(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
+                IFaxServerNotify2_Impl::OnOutgoingMessageAdded(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, bstrmessageid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutgoingMessageRemoved(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
+                IFaxServerNotify2_Impl::OnOutgoingMessageRemoved(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute(&bstrmessageid)).into()
             }
         }
         unsafe extern "system" fn OnReceiptOptionsChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnReceiptOptionsChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnReceiptOptionsChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnActivityLoggingConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnActivityLoggingConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnActivityLoggingConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnSecurityConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnSecurityConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnSecurityConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnEventLoggingConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnEventLoggingConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnEventLoggingConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingQueueConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutgoingQueueConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnOutgoingQueueConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnOutgoingArchiveConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutgoingArchiveConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnOutgoingArchiveConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnIncomingArchiveConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnIncomingArchiveConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnIncomingArchiveConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnDevicesConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnDevicesConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnDevicesConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnOutboundRoutingGroupsConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutboundRoutingGroupsConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnOutboundRoutingGroupsConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnOutboundRoutingRulesConfigChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnOutboundRoutingRulesConfigChange(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnOutboundRoutingRulesConfigChange(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnServerActivityChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnServerActivityChange(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&lincomingmessages), core::mem::transmute_copy(&lroutingmessages), core::mem::transmute_copy(&loutgoingmessages), core::mem::transmute_copy(&lqueuedmessages)).into()
+                IFaxServerNotify2_Impl::OnServerActivityChange(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute_copy(&lincomingmessages), core::mem::transmute_copy(&lroutingmessages), core::mem::transmute_copy(&loutgoingmessages), core::mem::transmute_copy(&lqueuedmessages)).into()
             }
         }
         unsafe extern "system" fn OnQueuesStatusChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnQueuesStatusChange(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&boutgoingqueueblocked), core::mem::transmute_copy(&boutgoingqueuepaused), core::mem::transmute_copy(&bincomingqueueblocked)).into()
+                IFaxServerNotify2_Impl::OnQueuesStatusChange(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute_copy(&boutgoingqueueblocked), core::mem::transmute_copy(&boutgoingqueuepaused), core::mem::transmute_copy(&bincomingqueueblocked)).into()
             }
         }
         unsafe extern "system" fn OnNewCall<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, lcallid: i32, ldeviceid: i32, bstrcallerid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnNewCall(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&lcallid), core::mem::transmute_copy(&ldeviceid), core::mem::transmute(&bstrcallerid)).into()
+                IFaxServerNotify2_Impl::OnNewCall(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute_copy(&lcallid), core::mem::transmute_copy(&ldeviceid), core::mem::transmute(&bstrcallerid)).into()
             }
         }
         unsafe extern "system" fn OnServerShutDown<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnServerShutDown(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnServerShutDown(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         unsafe extern "system" fn OnDeviceStatusChange<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnDeviceStatusChange(this, core::mem::transmute_copy(&pfaxserver), core::mem::transmute_copy(&ldeviceid), core::mem::transmute_copy(&bpoweredoff), core::mem::transmute_copy(&bsending), core::mem::transmute_copy(&breceiving), core::mem::transmute_copy(&bringing)).into()
+                IFaxServerNotify2_Impl::OnDeviceStatusChange(this, windows_core::Ref::option_from_abi(&pfaxserver), core::mem::transmute_copy(&ldeviceid), core::mem::transmute_copy(&bpoweredoff), core::mem::transmute_copy(&bsending), core::mem::transmute_copy(&breceiving), core::mem::transmute_copy(&bringing)).into()
             }
         }
         unsafe extern "system" fn OnGeneralServerConfigChanged<Identity: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfaxserver: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFaxServerNotify2_Impl::OnGeneralServerConfigChanged(this, core::mem::transmute_copy(&pfaxserver)).into()
+                IFaxServerNotify2_Impl::OnGeneralServerConfigChanged(this, windows_core::Ref::option_from_abi(&pfaxserver)).into()
             }
         }
         Self {
@@ -13956,7 +13956,7 @@ impl IStiDevice {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst, pwszdevicename.param().abi(), dwversion, dwmode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst, core::mem::transmute_copy(&pwszdevicename.param().borrow()), dwversion, dwmode).ok() }
     }
     pub unsafe fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), pdevcaps as _).ok() }
@@ -14213,7 +14213,7 @@ impl IStiDeviceControl {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), dwdevicetype, dwmode, pwszportname.param().abi(), dwflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), dwdevicetype, dwmode, core::mem::transmute_copy(&pwszportname.param().borrow()), dwflags).ok() }
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
@@ -14250,7 +14250,7 @@ impl IStiDeviceControl {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, pszmessage.param().abi(), dwerrorcode).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, core::mem::transmute_copy(&pszmessage.param().borrow()), dwerrorcode).ok() }
     }
 }
 #[repr(C)]
@@ -14393,7 +14393,7 @@ impl IStiUSD {
     where
         P0: windows_core::Param<IStiDeviceControl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pheldcb.param().abi(), dwstiversion, hparameterskey).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pheldcb.param().borrow()), dwstiversion, hparameterskey).ok() }
     }
     pub unsafe fn GetCapabilities(&self) -> windows_core::Result<STI_USD_CAPS> {
         unsafe {
@@ -14489,7 +14489,7 @@ pub struct IStiUSD_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
 pub trait IStiUSD_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pheldcb: windows_core::Ref<IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> windows_core::Result<()>;
+    fn Initialize(&self, pheldcb: Option<&IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> windows_core::Result<()>;
     fn GetCapabilities(&self) -> windows_core::Result<STI_USD_CAPS>;
     fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> windows_core::Result<()>;
     fn DeviceReset(&self) -> windows_core::Result<()>;
@@ -14512,7 +14512,7 @@ impl IStiUSD_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IStiUSD_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheldcb: *mut core::ffi::c_void, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStiUSD_Impl::Initialize(this, core::mem::transmute_copy(&pheldcb), core::mem::transmute_copy(&dwstiversion), core::mem::transmute_copy(&hparameterskey)).into()
+                IStiUSD_Impl::Initialize(this, windows_core::Ref::option_from_abi(&pheldcb), core::mem::transmute_copy(&dwstiversion), core::mem::transmute_copy(&hparameterskey)).into()
             }
         }
         unsafe extern "system" fn GetCapabilities<Identity: IStiUSD_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevcaps: *mut STI_USD_CAPS) -> windows_core::HRESULT {
@@ -14656,28 +14656,28 @@ impl IStillImageW {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), ppbuffer as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow()), ppbuffer as _).ok() }
     }
     pub unsafe fn CreateDevice<P0, P3>(&self, pwszdevicename: P0, dwmode: u32, pdevice: *mut Option<IStiDevice>, punkouter: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), dwmode, core::mem::transmute(pdevice), punkouter.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow()), dwmode, core::mem::transmute(pdevice), core::mem::transmute_copy(&punkouter.param().borrow())).ok() }
     }
     pub unsafe fn GetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), ptype as _, pdata as _, cbdata as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow()), core::mem::transmute_copy(&pvaluename.param().borrow()), ptype as _, pdata as _, cbdata as _).ok() }
     }
     pub unsafe fn SetDeviceValue<P0, P1>(&self, pwszdevicename: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow()), core::mem::transmute_copy(&pvaluename.param().borrow()), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: &mut [u16; 128], pdweventcode: Option<*mut u32>, pwszeventname: &mut [u16; 128]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSTILaunchInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszdevicename.as_ptr()), pdweventcode.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pwszeventname.as_ptr())).ok() }
@@ -14687,19 +14687,19 @@ impl IStillImageW {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterLaunchApplication)(windows_core::Interface::as_raw(self), pwszappname.param().abi(), pwszcommandline.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterLaunchApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszappname.param().borrow()), core::mem::transmute_copy(&pwszcommandline.param().borrow())).ok() }
     }
     pub unsafe fn UnregisterLaunchApplication<P0>(&self, pwszappname: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterLaunchApplication)(windows_core::Interface::as_raw(self), pwszappname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterLaunchApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszappname.param().borrow())).ok() }
     }
     pub unsafe fn EnableHwNotifications<P0>(&self, pwszdevicename: P0, bnewstate: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnableHwNotifications)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), bnewstate.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnableHwNotifications)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow()), bnewstate.into()).ok() }
     }
     pub unsafe fn GetHwNotificationState<P0>(&self, pwszdevicename: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -14707,21 +14707,21 @@ impl IStillImageW {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHwNotificationState)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetHwNotificationState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn RefreshDeviceBus<P0>(&self, pwszdevicename: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RefreshDeviceBus)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RefreshDeviceBus)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow())).ok() }
     }
     pub unsafe fn LaunchApplicationForDevice<P0, P1>(&self, pwszdevicename: P0, pwszappname: P1, pstinotify: *const STINOTIFY) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LaunchApplicationForDevice)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pwszappname.param().abi(), pstinotify).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LaunchApplicationForDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicename.param().borrow()), core::mem::transmute_copy(&pwszappname.param().borrow()), pstinotify).ok() }
     }
     pub unsafe fn SetupDeviceParameters(&self, param0: *mut STI_DEVICE_INFORMATIONW) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetupDeviceParameters)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -14730,7 +14730,7 @@ impl IStillImageW {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, pszmessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WriteToErrorLog)(windows_core::Interface::as_raw(self), dwmessagetype, core::mem::transmute_copy(&pszmessage.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -14757,7 +14757,7 @@ pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> windows_core::Result<()>;
     fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetDeviceInfo(&self, pwszdevicename: &windows_core::PCWSTR, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateDevice(&self, pwszdevicename: &windows_core::PCWSTR, dwmode: u32, pdevice: windows_core::OutRef<IStiDevice>, punkouter: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, pwszdevicename: &windows_core::PCWSTR, dwmode: u32, pdevice: windows_core::OutRef<IStiDevice>, punkouter: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetDeviceValue(&self, pwszdevicename: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> windows_core::Result<()>;
     fn SetDeviceValue(&self, pwszdevicename: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> windows_core::Result<()>;
     fn GetSTILaunchInformation(&self, pwszdevicename: windows_core::PWSTR, pdweventcode: *mut u32, pwszeventname: windows_core::PWSTR) -> windows_core::Result<()>;
@@ -14793,7 +14793,7 @@ impl IStillImageW_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PCWSTR, dwmode: u32, pdevice: *mut *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStillImageW_Impl::CreateDevice(this, core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&punkouter)).into()
+                IStillImageW_Impl::CreateDevice(this, core::mem::transmute(&pwszdevicename), core::mem::transmute_copy(&dwmode), core::mem::transmute_copy(&pdevice), windows_core::Ref::option_from_abi(&punkouter)).into()
             }
         }
         unsafe extern "system" fn GetDeviceValue<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicename: windows_core::PCWSTR, pvaluename: windows_core::PCWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> windows_core::HRESULT {

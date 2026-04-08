@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateMailslotA(lpname : windows_core::PCSTR, nmaxmessagesize : u32, lreadtimeout : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateMailslotA(lpname.param().abi(), nmaxmessagesize, lreadtimeout, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { CreateMailslotA(core::mem::transmute_copy(&lpname.param().borrow()), nmaxmessagesize, lreadtimeout, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -15,7 +15,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateMailslotW(lpname : windows_core::PCWSTR, nmaxmessagesize : u32, lreadtimeout : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateMailslotW(lpname.param().abi(), nmaxmessagesize, lreadtimeout, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { CreateMailslotW(core::mem::transmute_copy(&lpname.param().borrow()), nmaxmessagesize, lreadtimeout, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]

@@ -24,7 +24,7 @@ impl InputActivationListenerPreview {
     {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForApplicationWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForApplicationWindow)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&window.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IInputActivationListenerPreviewStatics<R, F: FnOnce(&IInputActivationListenerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

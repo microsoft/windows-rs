@@ -37,7 +37,7 @@ impl DtdEntity {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -124,7 +124,7 @@ impl DtdEntity {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -135,7 +135,7 @@ impl DtdEntity {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -145,7 +145,7 @@ impl DtdEntity {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -155,7 +155,7 @@ impl DtdEntity {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -195,7 +195,7 @@ impl DtdEntity {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -218,7 +218,7 @@ impl DtdEntity {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -228,7 +228,7 @@ impl DtdEntity {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -294,7 +294,7 @@ impl DtdNotation {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -381,7 +381,7 @@ impl DtdNotation {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -392,7 +392,7 @@ impl DtdNotation {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -402,7 +402,7 @@ impl DtdNotation {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -412,7 +412,7 @@ impl DtdNotation {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -452,7 +452,7 @@ impl DtdNotation {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -475,7 +475,7 @@ impl DtdNotation {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -485,7 +485,7 @@ impl DtdNotation {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -624,7 +624,7 @@ impl IXmlCharacterData {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -711,7 +711,7 @@ impl IXmlCharacterData {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -722,7 +722,7 @@ impl IXmlCharacterData {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -732,7 +732,7 @@ impl IXmlCharacterData {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -742,7 +742,7 @@ impl IXmlCharacterData {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -782,7 +782,7 @@ impl IXmlCharacterData {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -805,7 +805,7 @@ impl IXmlCharacterData {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -815,7 +815,7 @@ impl IXmlCharacterData {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1152,7 +1152,7 @@ impl IXmlNode {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = self;
@@ -1239,7 +1239,7 @@ impl IXmlNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -1250,7 +1250,7 @@ impl IXmlNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -1260,7 +1260,7 @@ impl IXmlNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -1270,7 +1270,7 @@ impl IXmlNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -1310,7 +1310,7 @@ impl IXmlNode {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -1333,7 +1333,7 @@ impl IXmlNode {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -1343,7 +1343,7 @@ impl IXmlNode {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1370,7 +1370,7 @@ impl windows_core::RuntimeName for IXmlNode {
 }
 pub trait IXmlNode_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn NodeValue(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn SetNodeValue(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn SetNodeValue(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
     fn NodeType(&self) -> windows_core::Result<NodeType>;
     fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ParentNode(&self) -> windows_core::Result<IXmlNode>;
@@ -1382,16 +1382,16 @@ pub trait IXmlNode_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn Attributes(&self) -> windows_core::Result<XmlNamedNodeMap>;
     fn HasChildNodes(&self) -> windows_core::Result<bool>;
     fn OwnerDocument(&self) -> windows_core::Result<XmlDocument>;
-    fn InsertBefore(&self, newChild: windows_core::Ref<IXmlNode>, referenceChild: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn ReplaceChild(&self, newChild: windows_core::Ref<IXmlNode>, referenceChild: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn RemoveChild(&self, childNode: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn AppendChild(&self, newChild: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn InsertBefore(&self, newChild: Option<&IXmlNode>, referenceChild: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn ReplaceChild(&self, newChild: Option<&IXmlNode>, referenceChild: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn RemoveChild(&self, childNode: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn AppendChild(&self, newChild: Option<&IXmlNode>) -> windows_core::Result<IXmlNode>;
     fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode>;
     fn NamespaceUri(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn LocalName(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn Prefix(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn Normalize(&self) -> windows_core::Result<()>;
-    fn SetPrefix(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn SetPrefix(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IXmlNode_Vtbl {
     pub const fn new<Identity: IXmlNode_Impl, const OFFSET: isize>() -> Self {
@@ -1411,7 +1411,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn SetNodeValue<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlNode_Impl::SetNodeValue(this, core::mem::transmute_copy(&value)).into()
+                IXmlNode_Impl::SetNodeValue(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn NodeType<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NodeType) -> windows_core::HRESULT {
@@ -1558,7 +1558,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn InsertBefore<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNode_Impl::InsertBefore(this, core::mem::transmute_copy(&newchild), core::mem::transmute_copy(&referencechild)) {
+                match IXmlNode_Impl::InsertBefore(this, windows_core::Ref::option_from_abi(&newchild), windows_core::Ref::option_from_abi(&referencechild)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1571,7 +1571,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn ReplaceChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, referencechild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNode_Impl::ReplaceChild(this, core::mem::transmute_copy(&newchild), core::mem::transmute_copy(&referencechild)) {
+                match IXmlNode_Impl::ReplaceChild(this, windows_core::Ref::option_from_abi(&newchild), windows_core::Ref::option_from_abi(&referencechild)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1584,7 +1584,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn RemoveChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childnode: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNode_Impl::RemoveChild(this, core::mem::transmute_copy(&childnode)) {
+                match IXmlNode_Impl::RemoveChild(this, windows_core::Ref::option_from_abi(&childnode)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1597,7 +1597,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn AppendChild<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNode_Impl::AppendChild(this, core::mem::transmute_copy(&newchild)) {
+                match IXmlNode_Impl::AppendChild(this, windows_core::Ref::option_from_abi(&newchild)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1668,7 +1668,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn SetPrefix<Identity: IXmlNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXmlNode_Impl::SetPrefix(this, core::mem::transmute_copy(&value)).into()
+                IXmlNode_Impl::SetPrefix(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         Self {
@@ -1768,7 +1768,7 @@ impl IXmlNodeSelector {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -1778,7 +1778,7 @@ impl IXmlNodeSelector {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1788,8 +1788,8 @@ impl windows_core::RuntimeName for IXmlNodeSelector {
 pub trait IXmlNodeSelector_Impl: windows_core::IUnknownImpl {
     fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<XmlNodeList>;
-    fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
-    fn SelectNodesNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<XmlNodeList>;
+    fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: Option<&windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
+    fn SelectNodesNS(&self, xpath: &windows_core::HSTRING, namespaces: Option<&windows_core::IInspectable>) -> windows_core::Result<XmlNodeList>;
 }
 impl IXmlNodeSelector_Vtbl {
     pub const fn new<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>() -> Self {
@@ -1822,7 +1822,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectSingleNodeNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNodeSelector_Impl::SelectSingleNodeNS(this, core::mem::transmute(&xpath), core::mem::transmute_copy(&namespaces)) {
+                match IXmlNodeSelector_Impl::SelectSingleNodeNS(this, core::mem::transmute(&xpath), windows_core::Ref::option_from_abi(&namespaces)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1835,7 +1835,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectNodesNS<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: *mut core::ffi::c_void, namespaces: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IXmlNodeSelector_Impl::SelectNodesNS(this, core::mem::transmute(&xpath), core::mem::transmute_copy(&namespaces)) {
+                match IXmlNodeSelector_Impl::SelectNodesNS(this, core::mem::transmute(&xpath), windows_core::Ref::option_from_abi(&namespaces)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2031,7 +2031,7 @@ impl IXmlText {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -2118,7 +2118,7 @@ impl IXmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -2129,7 +2129,7 @@ impl IXmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -2139,7 +2139,7 @@ impl IXmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -2149,7 +2149,7 @@ impl IXmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -2189,7 +2189,7 @@ impl IXmlText {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -2212,7 +2212,7 @@ impl IXmlText {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -2222,7 +2222,7 @@ impl IXmlText {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2344,7 +2344,7 @@ impl XmlAttribute {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -2431,7 +2431,7 @@ impl XmlAttribute {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -2442,7 +2442,7 @@ impl XmlAttribute {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -2452,7 +2452,7 @@ impl XmlAttribute {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -2462,7 +2462,7 @@ impl XmlAttribute {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -2502,7 +2502,7 @@ impl XmlAttribute {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -2525,7 +2525,7 @@ impl XmlAttribute {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -2535,7 +2535,7 @@ impl XmlAttribute {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2628,7 +2628,7 @@ impl XmlCDataSection {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -2715,7 +2715,7 @@ impl XmlCDataSection {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -2726,7 +2726,7 @@ impl XmlCDataSection {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -2736,7 +2736,7 @@ impl XmlCDataSection {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -2746,7 +2746,7 @@ impl XmlCDataSection {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -2786,7 +2786,7 @@ impl XmlCDataSection {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -2809,7 +2809,7 @@ impl XmlCDataSection {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -2819,7 +2819,7 @@ impl XmlCDataSection {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2919,7 +2919,7 @@ impl XmlComment {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -3006,7 +3006,7 @@ impl XmlComment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -3017,7 +3017,7 @@ impl XmlComment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -3027,7 +3027,7 @@ impl XmlComment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -3037,7 +3037,7 @@ impl XmlComment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -3077,7 +3077,7 @@ impl XmlComment {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -3100,7 +3100,7 @@ impl XmlComment {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -3110,7 +3110,7 @@ impl XmlComment {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3255,7 +3255,7 @@ impl XmlDocument {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAttributeNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(qualifiedname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAttributeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(qualifiedname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateElementNS<P0>(&self, namespaceuri: P0, qualifiedname: &windows_core::HSTRING) -> windows_core::Result<XmlElement>
@@ -3265,7 +3265,7 @@ impl XmlDocument {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateElementNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(qualifiedname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateElementNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(qualifiedname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetElementById(&self, elementid: &windows_core::HSTRING) -> windows_core::Result<XmlElement> {
@@ -3282,7 +3282,7 @@ impl XmlDocument {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportNode)(windows_core::Interface::as_raw(this), node.param().abi(), deep, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&node.param().borrow()), deep, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LoadXml(&self, xml: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -3294,7 +3294,7 @@ impl XmlDocument {
         P1: windows_core::Param<XmlLoadSettings>,
     {
         let this = &windows_core::Interface::cast::<IXmlDocumentIO>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LoadXmlWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), loadsettings.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).LoadXmlWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xml), core::mem::transmute_copy(&loadsettings.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToFileAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -3304,7 +3304,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveToFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveToFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3313,7 +3313,7 @@ impl XmlDocument {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IXmlDocumentIO2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LoadXmlFromBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).LoadXmlFromBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadXmlFromBufferWithSettings<P0, P1>(&self, buffer: P0, loadsettings: P1) -> windows_core::Result<()>
@@ -3322,7 +3322,7 @@ impl XmlDocument {
         P1: windows_core::Param<XmlLoadSettings>,
     {
         let this = &windows_core::Interface::cast::<IXmlDocumentIO2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(windows_core::Interface::as_raw(this), buffer.param().abi(), loadsettings.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), core::mem::transmute_copy(&loadsettings.param().borrow())).ok() }
     }
     pub fn LoadFromUriAsync<P0>(uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<XmlDocument>>
     where
@@ -3330,7 +3330,7 @@ impl XmlDocument {
     {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromUriAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn LoadFromUriWithSettingsAsync<P0, P1>(uri: P0, loadsettings: P1) -> windows_core::Result<windows_future::IAsyncOperation<XmlDocument>>
@@ -3340,7 +3340,7 @@ impl XmlDocument {
     {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), loadsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(&loadsettings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3350,7 +3350,7 @@ impl XmlDocument {
     {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3361,7 +3361,7 @@ impl XmlDocument {
     {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadFromFileWithSettingsAsync)(windows_core::Interface::as_raw(this), file.param().abi(), loadsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadFromFileWithSettingsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&loadsettings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn NodeValue(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -3376,7 +3376,7 @@ impl XmlDocument {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -3463,7 +3463,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -3474,7 +3474,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -3484,7 +3484,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -3494,7 +3494,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -3534,7 +3534,7 @@ impl XmlDocument {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -3557,7 +3557,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -3567,7 +3567,7 @@ impl XmlDocument {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3623,7 +3623,7 @@ impl XmlDocumentFragment {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -3710,7 +3710,7 @@ impl XmlDocumentFragment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -3721,7 +3721,7 @@ impl XmlDocumentFragment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -3731,7 +3731,7 @@ impl XmlDocumentFragment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -3741,7 +3741,7 @@ impl XmlDocumentFragment {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -3781,7 +3781,7 @@ impl XmlDocumentFragment {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -3804,7 +3804,7 @@ impl XmlDocumentFragment {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -3814,7 +3814,7 @@ impl XmlDocumentFragment {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3887,7 +3887,7 @@ impl XmlDocumentType {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -3974,7 +3974,7 @@ impl XmlDocumentType {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -3985,7 +3985,7 @@ impl XmlDocumentType {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -3995,7 +3995,7 @@ impl XmlDocumentType {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -4005,7 +4005,7 @@ impl XmlDocumentType {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -4045,7 +4045,7 @@ impl XmlDocumentType {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -4068,7 +4068,7 @@ impl XmlDocumentType {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -4078,7 +4078,7 @@ impl XmlDocumentType {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -4124,7 +4124,7 @@ impl XmlDomImplementation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasFeature)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(feature), version.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HasFeature)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(feature), core::mem::transmute_copy(&version.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -4182,7 +4182,7 @@ impl XmlElement {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAttributeNode)(windows_core::Interface::as_raw(this), newattribute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetAttributeNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newattribute.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveAttributeNode<P0>(&self, attributenode: P0) -> windows_core::Result<XmlAttribute>
@@ -4192,7 +4192,7 @@ impl XmlElement {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveAttributeNode)(windows_core::Interface::as_raw(this), attributenode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveAttributeNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&attributenode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetElementsByTagName(&self, tagname: &windows_core::HSTRING) -> windows_core::Result<XmlNodeList> {
@@ -4207,7 +4207,7 @@ impl XmlElement {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAttributeNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(qualifiedname), core::mem::transmute_copy(value)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAttributeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(qualifiedname), core::mem::transmute_copy(value)).ok() }
     }
     pub fn GetAttributeNS<P0>(&self, namespaceuri: P0, localname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>
     where
@@ -4216,7 +4216,7 @@ impl XmlElement {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAttributeNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(localname), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetAttributeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(localname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveAttributeNS<P0>(&self, namespaceuri: P0, localname: &windows_core::HSTRING) -> windows_core::Result<()>
@@ -4224,7 +4224,7 @@ impl XmlElement {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAttributeNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(localname)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveAttributeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(localname)).ok() }
     }
     pub fn SetAttributeNodeNS<P0>(&self, newattribute: P0) -> windows_core::Result<XmlAttribute>
     where
@@ -4233,7 +4233,7 @@ impl XmlElement {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAttributeNodeNS)(windows_core::Interface::as_raw(this), newattribute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetAttributeNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newattribute.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAttributeNodeNS<P0>(&self, namespaceuri: P0, localname: &windows_core::HSTRING) -> windows_core::Result<XmlAttribute>
@@ -4243,7 +4243,7 @@ impl XmlElement {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAttributeNodeNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(localname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAttributeNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(localname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn NodeValue(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -4258,7 +4258,7 @@ impl XmlElement {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -4345,7 +4345,7 @@ impl XmlElement {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -4356,7 +4356,7 @@ impl XmlElement {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -4366,7 +4366,7 @@ impl XmlElement {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -4376,7 +4376,7 @@ impl XmlElement {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -4416,7 +4416,7 @@ impl XmlElement {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -4439,7 +4439,7 @@ impl XmlElement {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -4449,7 +4449,7 @@ impl XmlElement {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -4501,7 +4501,7 @@ impl XmlEntityReference {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -4588,7 +4588,7 @@ impl XmlEntityReference {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -4599,7 +4599,7 @@ impl XmlEntityReference {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -4609,7 +4609,7 @@ impl XmlEntityReference {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -4619,7 +4619,7 @@ impl XmlEntityReference {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -4659,7 +4659,7 @@ impl XmlEntityReference {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -4682,7 +4682,7 @@ impl XmlEntityReference {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -4692,7 +4692,7 @@ impl XmlEntityReference {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -4840,7 +4840,7 @@ impl XmlNamedNodeMap {
         let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<IXmlNode>]) -> windows_core::Result<u32> {
@@ -4878,7 +4878,7 @@ impl XmlNamedNodeMap {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetNamedItem)(windows_core::Interface::as_raw(this), node.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetNamedItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&node.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveNamedItem(&self, name: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
@@ -4895,7 +4895,7 @@ impl XmlNamedNodeMap {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNamedItemNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNamedItemNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveNamedItemNS<P0>(&self, namespaceuri: P0, name: &windows_core::HSTRING) -> windows_core::Result<IXmlNode>
@@ -4905,7 +4905,7 @@ impl XmlNamedNodeMap {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveNamedItemNS)(windows_core::Interface::as_raw(this), namespaceuri.param().abi(), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveNamedItemNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&namespaceuri.param().borrow()), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetNamedItemNS<P0>(&self, node: P0) -> windows_core::Result<IXmlNode>
@@ -4915,7 +4915,7 @@ impl XmlNamedNodeMap {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetNamedItemNS)(windows_core::Interface::as_raw(this), node.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetNamedItemNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&node.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4979,7 +4979,7 @@ impl XmlNodeList {
         let this = &windows_core::Interface::cast::<windows_collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<IXmlNode>]) -> windows_core::Result<u32> {
@@ -5048,7 +5048,7 @@ impl XmlProcessingInstruction {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -5135,7 +5135,7 @@ impl XmlProcessingInstruction {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -5146,7 +5146,7 @@ impl XmlProcessingInstruction {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -5156,7 +5156,7 @@ impl XmlProcessingInstruction {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -5166,7 +5166,7 @@ impl XmlProcessingInstruction {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -5206,7 +5206,7 @@ impl XmlProcessingInstruction {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -5229,7 +5229,7 @@ impl XmlProcessingInstruction {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -5239,7 +5239,7 @@ impl XmlProcessingInstruction {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -5350,7 +5350,7 @@ impl XmlText {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNodeValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn NodeType(&self) -> windows_core::Result<NodeType> {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
@@ -5437,7 +5437,7 @@ impl XmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InsertBefore)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReplaceChild<P0, P1>(&self, newchild: P0, referencechild: P1) -> windows_core::Result<IXmlNode>
@@ -5448,7 +5448,7 @@ impl XmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), referencechild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), core::mem::transmute_copy(&referencechild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RemoveChild<P0>(&self, childnode: P0) -> windows_core::Result<IXmlNode>
@@ -5458,7 +5458,7 @@ impl XmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&childnode.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXmlNode>
@@ -5468,7 +5468,7 @@ impl XmlText {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), newchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendChild)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newchild.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode> {
@@ -5508,7 +5508,7 @@ impl XmlText {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IXmlNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode> {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
@@ -5531,7 +5531,7 @@ impl XmlText {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectSingleNodeNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SelectNodesNS<P1>(&self, xpath: &windows_core::HSTRING, namespaces: P1) -> windows_core::Result<XmlNodeList>
@@ -5541,7 +5541,7 @@ impl XmlText {
         let this = &windows_core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), namespaces.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SelectNodesNS)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(xpath), core::mem::transmute_copy(&namespaces.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetXml(&self) -> windows_core::Result<windows_core::HSTRING> {

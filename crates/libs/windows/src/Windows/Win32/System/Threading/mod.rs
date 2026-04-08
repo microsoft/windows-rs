@@ -46,7 +46,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExA(context : *mut AVRT_THREAD_ORDERING_GROUP_HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { AvRtCreateThreadOrderingGroupExA(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _, taskname.param().abi()).ok() }
+    unsafe { AvRtCreateThreadOrderingGroupExA(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&taskname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExW<P4>(context: *mut AVRT_THREAD_ORDERING_GROUP_HANDLE, period: *const i64, threadorderingguid: *mut windows_core::GUID, timeout: Option<*const i64>, taskname: P4) -> windows_core::Result<()>
@@ -54,7 +54,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExW(context : *mut AVRT_THREAD_ORDERING_GROUP_HANDLE, period : *const i64, threadorderingguid : *mut windows_core::GUID, timeout : *const i64, taskname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { AvRtCreateThreadOrderingGroupExW(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _, taskname.param().abi()).ok() }
+    unsafe { AvRtCreateThreadOrderingGroupExW(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&taskname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn AvRtDeleteThreadOrderingGroup(context: AVRT_THREAD_ORDERING_GROUP_HANDLE) -> windows_core::Result<()> {
@@ -83,7 +83,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsA(firsttask : windows_core::PCSTR, secondtask : windows_core::PCSTR, taskindex : *mut u32) -> AVRT_TASK_HANDLE);
-    let result__ = unsafe { AvSetMmMaxThreadCharacteristicsA(firsttask.param().abi(), secondtask.param().abi(), taskindex as _) };
+    let result__ = unsafe { AvSetMmMaxThreadCharacteristicsA(core::mem::transmute_copy(&firsttask.param().borrow()), core::mem::transmute_copy(&secondtask.param().borrow()), taskindex as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -93,7 +93,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("avrt.dll" "system" fn AvSetMmMaxThreadCharacteristicsW(firsttask : windows_core::PCWSTR, secondtask : windows_core::PCWSTR, taskindex : *mut u32) -> AVRT_TASK_HANDLE);
-    let result__ = unsafe { AvSetMmMaxThreadCharacteristicsW(firsttask.param().abi(), secondtask.param().abi(), taskindex as _) };
+    let result__ = unsafe { AvSetMmMaxThreadCharacteristicsW(core::mem::transmute_copy(&firsttask.param().borrow()), core::mem::transmute_copy(&secondtask.param().borrow()), taskindex as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -102,7 +102,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsA(taskname : windows_core::PCSTR, taskindex : *mut u32) -> AVRT_TASK_HANDLE);
-    let result__ = unsafe { AvSetMmThreadCharacteristicsA(taskname.param().abi(), taskindex as _) };
+    let result__ = unsafe { AvSetMmThreadCharacteristicsA(core::mem::transmute_copy(&taskname.param().borrow()), taskindex as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -111,7 +111,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("avrt.dll" "system" fn AvSetMmThreadCharacteristicsW(taskname : windows_core::PCWSTR, taskindex : *mut u32) -> AVRT_TASK_HANDLE);
-    let result__ = unsafe { AvSetMmThreadCharacteristicsW(taskname.param().abi(), taskindex as _) };
+    let result__ = unsafe { AvSetMmThreadCharacteristicsW(core::mem::transmute_copy(&taskname.param().borrow()), taskindex as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -205,7 +205,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorA(name : windows_core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateBoundaryDescriptorA(name.param().abi(), flags) };
+    let result__ = unsafe { CreateBoundaryDescriptorA(core::mem::transmute_copy(&name.param().borrow()), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -214,7 +214,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateBoundaryDescriptorW(name : windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateBoundaryDescriptorW(name.param().abi(), flags) }
+    unsafe { CreateBoundaryDescriptorW(core::mem::transmute_copy(&name.param().borrow()), flags) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -223,7 +223,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateEventA(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : windows_core::BOOL, binitialstate : windows_core::BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateEventA(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), binitialstate.into(), lpname.param().abi()) };
+    let result__ = unsafe { CreateEventA(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), binitialstate.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -233,7 +233,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateEventExA(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR, dwflags : CREATE_EVENT, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateEventExA(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), dwflags, dwdesiredaccess) };
+    let result__ = unsafe { CreateEventExA(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpname.param().borrow()), dwflags, dwdesiredaccess) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -243,7 +243,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateEventExW(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR, dwflags : CREATE_EVENT, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateEventExW(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), dwflags, dwdesiredaccess) };
+    let result__ = unsafe { CreateEventExW(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpname.param().borrow()), dwflags, dwdesiredaccess) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -253,7 +253,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : windows_core::BOOL, binitialstate : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateEventW(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), binitialstate.into(), lpname.param().abi()) };
+    let result__ = unsafe { CreateEventW(lpeventattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), binitialstate.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -273,7 +273,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateMutexA(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binitialowner : windows_core::BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateMutexA(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, binitialowner.into(), lpname.param().abi()) };
+    let result__ = unsafe { CreateMutexA(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, binitialowner.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -283,7 +283,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateMutexExA(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateMutexExA(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), dwflags, dwdesiredaccess) };
+    let result__ = unsafe { CreateMutexExA(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpname.param().borrow()), dwflags, dwdesiredaccess) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -293,7 +293,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateMutexExW(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateMutexExW(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), dwflags, dwdesiredaccess) };
+    let result__ = unsafe { CreateMutexExW(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpname.param().borrow()), dwflags, dwdesiredaccess) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -303,7 +303,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateMutexW(lpmutexattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binitialowner : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateMutexW(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, binitialowner.into(), lpname.param().abi()) };
+    let result__ = unsafe { CreateMutexW(lpmutexattributes.unwrap_or(core::mem::zeroed()) as _, binitialowner.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -313,7 +313,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreatePrivateNamespaceA(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreatePrivateNamespaceA(lpprivatenamespaceattributes.unwrap_or(core::mem::zeroed()) as _, lpboundarydescriptor, lpaliasprefix.param().abi()) };
+    let result__ = unsafe { CreatePrivateNamespaceA(lpprivatenamespaceattributes.unwrap_or(core::mem::zeroed()) as _, lpboundarydescriptor, core::mem::transmute_copy(&lpaliasprefix.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -323,7 +323,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreatePrivateNamespaceW(lpprivatenamespaceattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { CreatePrivateNamespaceW(lpprivatenamespaceattributes.unwrap_or(core::mem::zeroed()) as _, lpboundarydescriptor, lpaliasprefix.param().abi()) }
+    unsafe { CreatePrivateNamespaceW(lpprivatenamespaceattributes.unwrap_or(core::mem::zeroed()) as _, lpboundarydescriptor, core::mem::transmute_copy(&lpaliasprefix.param().borrow())) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -333,7 +333,7 @@ where
     P7: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateProcessA(lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
-    unsafe { CreateProcessA(lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _).ok() }
+    unsafe { CreateProcessA(core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpcurrentdirectory.param().borrow()), lpstartupinfo, lpprocessinformation as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -343,7 +343,7 @@ where
     P8: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CreateProcessAsUserA(htoken : super::super::Foundation:: HANDLE, lpapplicationname : windows_core::PCSTR, lpcommandline : windows_core::PSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCSTR, lpstartupinfo : *const STARTUPINFOA, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
-    unsafe { CreateProcessAsUserA(htoken.unwrap_or(core::mem::zeroed()) as _, lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _).ok() }
+    unsafe { CreateProcessAsUserA(htoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpcurrentdirectory.param().borrow()), lpstartupinfo, lpprocessinformation as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -353,7 +353,7 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CreateProcessAsUserW(htoken : super::super::Foundation:: HANDLE, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
-    unsafe { CreateProcessAsUserW(htoken.unwrap_or(core::mem::zeroed()) as _, lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _).ok() }
+    unsafe { CreateProcessAsUserW(htoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpcurrentdirectory.param().borrow()), lpstartupinfo, lpprocessinformation as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -363,7 +363,7 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateProcessW(lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, lpprocessattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, binherithandles : windows_core::BOOL, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
-    unsafe { CreateProcessW(lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _).ok() }
+    unsafe { CreateProcessW(core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpcommandline.unwrap_or(core::mem::zeroed()) as _, lpprocessattributes.unwrap_or(core::mem::zeroed()) as _, lpthreadattributes.unwrap_or(core::mem::zeroed()) as _, binherithandles.into(), dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpcurrentdirectory.param().borrow()), lpstartupinfo, lpprocessinformation as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateProcessWithLogonW<P0, P1, P2, P4, P8>(lpusername: P0, lpdomain: P1, lppassword: P2, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: P4, lpcommandline: Option<windows_core::PWSTR>, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Option<*const core::ffi::c_void>, lpcurrentdirectory: P8, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> windows_core::Result<()>
@@ -375,7 +375,7 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CreateProcessWithLogonW(lpusername : windows_core::PCWSTR, lpdomain : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, dwlogonflags : CREATE_PROCESS_LOGON_FLAGS, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
-    unsafe { CreateProcessWithLogonW(lpusername.param().abi(), lpdomain.param().abi(), lppassword.param().abi(), dwlogonflags, lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _).ok() }
+    unsafe { CreateProcessWithLogonW(core::mem::transmute_copy(&lpusername.param().borrow()), core::mem::transmute_copy(&lpdomain.param().borrow()), core::mem::transmute_copy(&lppassword.param().borrow()), dwlogonflags, core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpcommandline.unwrap_or(core::mem::zeroed()) as _, dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpcurrentdirectory.param().borrow()), lpstartupinfo, lpprocessinformation as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateProcessWithTokenW<P2, P6>(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: P2, lpcommandline: Option<windows_core::PWSTR>, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Option<*const core::ffi::c_void>, lpcurrentdirectory: P6, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> windows_core::Result<()>
@@ -384,7 +384,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CreateProcessWithTokenW(htoken : super::super::Foundation:: HANDLE, dwlogonflags : CREATE_PROCESS_LOGON_FLAGS, lpapplicationname : windows_core::PCWSTR, lpcommandline : windows_core::PWSTR, dwcreationflags : PROCESS_CREATION_FLAGS, lpenvironment : *const core::ffi::c_void, lpcurrentdirectory : windows_core::PCWSTR, lpstartupinfo : *const STARTUPINFOW, lpprocessinformation : *mut PROCESS_INFORMATION) -> windows_core::BOOL);
-    unsafe { CreateProcessWithTokenW(htoken, dwlogonflags, lpapplicationname.param().abi(), lpcommandline.unwrap_or(core::mem::zeroed()) as _, dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, lpcurrentdirectory.param().abi(), lpstartupinfo, lpprocessinformation as _).ok() }
+    unsafe { CreateProcessWithTokenW(htoken, dwlogonflags, core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpcommandline.unwrap_or(core::mem::zeroed()) as _, dwcreationflags, lpenvironment.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpcurrentdirectory.param().borrow()), lpstartupinfo, lpprocessinformation as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -407,7 +407,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSemaphoreA(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateSemaphoreA(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, lpname.param().abi()) };
+    let result__ = unsafe { CreateSemaphoreA(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -417,7 +417,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSemaphoreExA(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateSemaphoreExA(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, lpname.param().abi(), dwflags.unwrap_or(core::mem::zeroed()) as _, dwdesiredaccess) };
+    let result__ = unsafe { CreateSemaphoreExA(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, core::mem::transmute_copy(&lpname.param().borrow()), dwflags.unwrap_or(core::mem::zeroed()) as _, dwdesiredaccess) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -427,7 +427,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSemaphoreExW(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateSemaphoreExW(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, lpname.param().abi(), dwflags.unwrap_or(core::mem::zeroed()) as _, dwdesiredaccess) };
+    let result__ = unsafe { CreateSemaphoreExW(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, core::mem::transmute_copy(&lpname.param().borrow()), dwflags.unwrap_or(core::mem::zeroed()) as _, dwdesiredaccess) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -437,7 +437,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSemaphoreW(lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, linitialcount : i32, lmaximumcount : i32, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateSemaphoreW(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, lpname.param().abi()) };
+    let result__ = unsafe { CreateSemaphoreW(lpsemaphoreattributes.unwrap_or(core::mem::zeroed()) as _, linitialcount, lmaximumcount, core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -511,7 +511,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : windows_core::BOOL, lptimername : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateWaitableTimerA(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), lptimername.param().abi()) }
+    unsafe { CreateWaitableTimerA(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), core::mem::transmute_copy(&lptimername.param().borrow())) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -520,7 +520,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateWaitableTimerExA(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, lptimername.param().abi(), dwflags, dwdesiredaccess) }
+    unsafe { CreateWaitableTimerExA(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lptimername.param().borrow()), dwflags, dwdesiredaccess) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -529,7 +529,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateWaitableTimerExW(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateWaitableTimerExW(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, lptimername.param().abi(), dwflags, dwdesiredaccess) };
+    let result__ = unsafe { CreateWaitableTimerExW(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lptimername.param().borrow()), dwflags, dwdesiredaccess) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -539,7 +539,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateWaitableTimerW(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : windows_core::BOOL, lptimername : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateWaitableTimerW(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), lptimername.param().abi()) };
+    let result__ = unsafe { CreateWaitableTimerW(lptimerattributes.unwrap_or(core::mem::zeroed()) as _, bmanualreset.into(), core::mem::transmute_copy(&lptimername.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -1156,7 +1156,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenEventA(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : windows_core::BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenEventA(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenEventA(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -1165,7 +1165,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenEventW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenEventW(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenEventW(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -1174,7 +1174,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenMutexW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenMutexW(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenMutexW(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -1183,7 +1183,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenPrivateNamespaceA(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { OpenPrivateNamespaceA(lpboundarydescriptor, lpaliasprefix.param().abi()) }
+    unsafe { OpenPrivateNamespaceA(lpboundarydescriptor, core::mem::transmute_copy(&lpaliasprefix.param().borrow())) }
 }
 #[inline]
 pub unsafe fn OpenPrivateNamespaceW<P1>(lpboundarydescriptor: *const core::ffi::c_void, lpaliasprefix: P1) -> super::super::Foundation::HANDLE
@@ -1191,7 +1191,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenPrivateNamespaceW(lpboundarydescriptor : *const core::ffi::c_void, lpaliasprefix : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { OpenPrivateNamespaceW(lpboundarydescriptor, lpaliasprefix.param().abi()) }
+    unsafe { OpenPrivateNamespaceW(lpboundarydescriptor, core::mem::transmute_copy(&lpaliasprefix.param().borrow())) }
 }
 #[inline]
 pub unsafe fn OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: bool, dwprocessid: u32) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -1211,7 +1211,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenSemaphoreW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenSemaphoreW(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenSemaphoreW(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -1232,7 +1232,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, lptimername : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { OpenWaitableTimerA(dwdesiredaccess, binherithandle.into(), lptimername.param().abi()) }
+    unsafe { OpenWaitableTimerA(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lptimername.param().borrow())) }
 }
 #[inline]
 pub unsafe fn OpenWaitableTimerW<P2>(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: bool, lptimername: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -1240,7 +1240,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenWaitableTimerW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : windows_core::BOOL, lptimername : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenWaitableTimerW(dwdesiredaccess, binherithandle.into(), lptimername.param().abi()) };
+    let result__ = unsafe { OpenWaitableTimerW(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lptimername.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -1350,7 +1350,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqAddPeriodicCallback(callback : RTWQPERIODICCALLBACK, context : * mut core::ffi::c_void, key : *mut u32) -> windows_core::HRESULT);
-    unsafe { RtwqAddPeriodicCallback(callback, context.param().abi(), key.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { RtwqAddPeriodicCallback(callback, core::mem::transmute_copy(&context.param().borrow()), key.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RtwqAllocateSerialWorkQueue(workqueueidin: u32) -> windows_core::Result<u32> {
@@ -1376,7 +1376,7 @@ where
     P5: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid : u32, usageclass : windows_core::PCWSTR, dwtaskid : u32, lpriority : i32, donecallback : * mut core::ffi::c_void, donestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid, usageclass.param().abi(), dwtaskid, lpriority, donecallback.param().abi(), donestate.param().abi()).ok() }
+    unsafe { RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid, core::mem::transmute_copy(&usageclass.param().borrow()), dwtaskid, lpriority, core::mem::transmute_copy(&donecallback.param().borrow()), core::mem::transmute_copy(&donestate.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RtwqBeginUnregisterWorkQueueWithMMCSS<P1, P2>(workqueueid: u32, donecallback: P1, donestate: P2) -> windows_core::Result<()>
@@ -1385,7 +1385,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid : u32, donecallback : * mut core::ffi::c_void, donestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid, donecallback.param().abi(), donestate.param().abi()).ok() }
+    unsafe { RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid, core::mem::transmute_copy(&donecallback.param().borrow()), core::mem::transmute_copy(&donestate.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RtwqCancelDeadline(prequest: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -1407,7 +1407,7 @@ where
     windows_core::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : * mut core::ffi::c_void, callback : * mut core::ffi::c_void, appstate : * mut core::ffi::c_void, asyncresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqCreateAsyncResult(appobject.param().abi(), callback.param().abi(), appstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        RtwqCreateAsyncResult(core::mem::transmute_copy(&appobject.param().borrow()), core::mem::transmute_copy(&callback.param().borrow()), core::mem::transmute_copy(&appstate.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -1418,7 +1418,7 @@ where
     windows_core::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : * mut core::ffi::c_void, taskid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqEndRegisterWorkQueueWithMMCSS(result.param().abi(), &mut result__).map(|| result__)
+        RtwqEndRegisterWorkQueueWithMMCSS(core::mem::transmute_copy(&result.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1448,7 +1448,7 @@ where
     P0: windows_core::Param<IRtwqAsyncResult>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqInvokeCallback(result : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RtwqInvokeCallback(result.param().abi()).ok() }
+    unsafe { RtwqInvokeCallback(core::mem::transmute_copy(&result.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RtwqJoinWorkQueue(workqueueid: u32, hfile: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -1469,7 +1469,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqLockSharedWorkQueue(usageclass : windows_core::PCWSTR, basepriority : i32, taskid : *mut u32, id : *mut u32) -> windows_core::HRESULT);
-    unsafe { RtwqLockSharedWorkQueue(usageclass.param().abi(), basepriority, taskid as _, id as _).ok() }
+    unsafe { RtwqLockSharedWorkQueue(core::mem::transmute_copy(&usageclass.param().borrow()), basepriority, taskid as _, id as _).ok() }
 }
 #[inline]
 pub unsafe fn RtwqLockWorkQueue(workqueueid: u32) -> windows_core::Result<()> {
@@ -1482,7 +1482,7 @@ where
     P2: windows_core::Param<IRtwqAsyncResult>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqPutWaitingWorkItem(hevent : super::super::Foundation:: HANDLE, lpriority : i32, result : * mut core::ffi::c_void, key : *mut u64) -> windows_core::HRESULT);
-    unsafe { RtwqPutWaitingWorkItem(hevent, lpriority, result.param().abi(), key.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { RtwqPutWaitingWorkItem(hevent, lpriority, core::mem::transmute_copy(&result.param().borrow()), key.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RtwqPutWorkItem<P2>(dwqueue: u32, lpriority: i32, result: P2) -> windows_core::Result<()>
@@ -1490,7 +1490,7 @@ where
     P2: windows_core::Param<IRtwqAsyncResult>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqPutWorkItem(dwqueue : u32, lpriority : i32, result : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RtwqPutWorkItem(dwqueue, lpriority, result.param().abi()).ok() }
+    unsafe { RtwqPutWorkItem(dwqueue, lpriority, core::mem::transmute_copy(&result.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RtwqRegisterPlatformEvents<P0>(platformevents: P0) -> windows_core::Result<()>
@@ -1498,7 +1498,7 @@ where
     P0: windows_core::Param<IRtwqPlatformEvents>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformEvents(platformevents : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RtwqRegisterPlatformEvents(platformevents.param().abi()).ok() }
+    unsafe { RtwqRegisterPlatformEvents(core::mem::transmute_copy(&platformevents.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RtwqRegisterPlatformWithMMCSS<P0>(usageclass: P0, taskid: *mut u32, lpriority: i32) -> windows_core::Result<()>
@@ -1506,7 +1506,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqRegisterPlatformWithMMCSS(usageclass : windows_core::PCWSTR, taskid : *mut u32, lpriority : i32) -> windows_core::HRESULT);
-    unsafe { RtwqRegisterPlatformWithMMCSS(usageclass.param().abi(), taskid as _, lpriority).ok() }
+    unsafe { RtwqRegisterPlatformWithMMCSS(core::mem::transmute_copy(&usageclass.param().borrow()), taskid as _, lpriority).ok() }
 }
 #[inline]
 pub unsafe fn RtwqRemovePeriodicCallback(dwkey: u32) -> windows_core::Result<()> {
@@ -1519,7 +1519,7 @@ where
     P0: windows_core::Param<IRtwqAsyncResult>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqScheduleWorkItem(result : * mut core::ffi::c_void, timeout : i64, key : *mut u64) -> windows_core::HRESULT);
-    unsafe { RtwqScheduleWorkItem(result.param().abi(), timeout, key.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { RtwqScheduleWorkItem(core::mem::transmute_copy(&result.param().borrow()), timeout, key.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -1573,7 +1573,7 @@ where
     P0: windows_core::Param<IRtwqPlatformEvents>,
 {
     windows_core::link!("rtworkq.dll" "system" fn RtwqUnregisterPlatformEvents(platformevents : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RtwqUnregisterPlatformEvents(platformevents.param().abi()).ok() }
+    unsafe { RtwqUnregisterPlatformEvents(core::mem::transmute_copy(&platformevents.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RtwqUnregisterPlatformFromMMCSS() -> windows_core::Result<()> {
@@ -1683,7 +1683,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetThreadDescription(hthread : super::super::Foundation:: HANDLE, lpthreaddescription : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { SetThreadDescription(hthread, lpthreaddescription.param().abi()).ok() }
+    unsafe { SetThreadDescription(hthread, core::mem::transmute_copy(&lpthreaddescription.param().borrow())).ok() }
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -1996,7 +1996,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WinExec(lpcmdline : windows_core::PCSTR, ucmdshow : u32) -> u32);
-    unsafe { WinExec(lpcmdline.param().abi(), ucmdshow) }
+    unsafe { WinExec(core::mem::transmute_copy(&lpcmdline.param().borrow()), ucmdshow) }
 }
 #[inline]
 pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
@@ -2238,7 +2238,7 @@ impl IRtwqAsyncCallback {
     where
         P0: windows_core::Param<IRtwqAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), pasyncresult.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pasyncresult.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2250,7 +2250,7 @@ pub struct IRtwqAsyncCallback_Vtbl {
 }
 pub trait IRtwqAsyncCallback_Impl: windows_core::IUnknownImpl {
     fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> windows_core::Result<()>;
-    fn Invoke(&self, pasyncresult: windows_core::Ref<IRtwqAsyncResult>) -> windows_core::Result<()>;
+    fn Invoke(&self, pasyncresult: Option<&IRtwqAsyncResult>) -> windows_core::Result<()>;
 }
 impl IRtwqAsyncCallback_Vtbl {
     pub const fn new<Identity: IRtwqAsyncCallback_Impl, const OFFSET: isize>() -> Self {
@@ -2263,7 +2263,7 @@ impl IRtwqAsyncCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: IRtwqAsyncCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pasyncresult: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRtwqAsyncCallback_Impl::Invoke(this, core::mem::transmute_copy(&pasyncresult)).into()
+                IRtwqAsyncCallback_Impl::Invoke(this, windows_core::Ref::option_from_abi(&pasyncresult)).into()
             }
         }
         Self {

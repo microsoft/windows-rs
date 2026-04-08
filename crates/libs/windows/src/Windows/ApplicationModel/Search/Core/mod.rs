@@ -195,7 +195,7 @@ impl SearchSuggestionManager {
         P0: windows_core::Param<super::LocalContentSuggestionSettings>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow())).ok() }
     }
     pub fn SetQuery(&self, querytext: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -210,7 +210,7 @@ impl SearchSuggestionManager {
         P2: windows_core::Param<super::SearchQueryLinguisticDetails>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language), linguisticdetails.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language), core::mem::transmute_copy(&linguisticdetails.param().borrow())).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Suggestions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>> {
@@ -239,7 +239,7 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SuggestionsRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSuggestionsRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -253,7 +253,7 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRequestingFocusOnKeyboardInput(&self, token: i64) -> windows_core::Result<()> {

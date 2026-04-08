@@ -212,7 +212,7 @@ impl IStorageFolderHandleAccess {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), filename.param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filename.param().borrow()), creationoptions, accessoptions, sharingoptions, options, core::mem::transmute_copy(&oplockbreakinghandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -223,14 +223,14 @@ pub struct IStorageFolderHandleAccess_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, HANDLE_CREATION_OPTIONS, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 pub trait IStorageFolderHandleAccess_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, filename: &windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: windows_core::Ref<IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&self, filename: &windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Option<&IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
 }
 impl IStorageFolderHandleAccess_Vtbl {
     pub const fn new<Identity: IStorageFolderHandleAccess_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Create<Identity: IStorageFolderHandleAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFolderHandleAccess_Impl::Create(this, core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
+                match IStorageFolderHandleAccess_Impl::Create(this, core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::Ref::option_from_abi(&oplockbreakinghandler)) {
                     Ok(ok__) => {
                         interophandle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -255,7 +255,7 @@ impl IStorageItemHandleAccess {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, core::mem::transmute_copy(&oplockbreakinghandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -266,14 +266,14 @@ pub struct IStorageItemHandleAccess_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT,
 }
 pub trait IStorageItemHandleAccess_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: windows_core::Ref<IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Option<&IOplockBreakingHandler>) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
 }
 impl IStorageItemHandleAccess_Vtbl {
     pub const fn new<Identity: IStorageItemHandleAccess_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Create<Identity: IStorageItemHandleAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemHandleAccess_Impl::Create(this, core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
+                match IStorageItemHandleAccess_Impl::Create(this, core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), windows_core::Ref::option_from_abi(&oplockbreakinghandler)) {
                     Ok(ok__) => {
                         interophandle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -329,7 +329,7 @@ impl IUnbufferedFileHandleProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(windows_core::Interface::as_raw(self), oplockbreakcallback.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&oplockbreakcallback.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()> {
@@ -344,7 +344,7 @@ pub struct IUnbufferedFileHandleProvider_Vtbl {
     pub CloseUnbufferedFileHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUnbufferedFileHandleProvider_Impl: windows_core::IUnknownImpl {
-    fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: windows_core::Ref<IUnbufferedFileHandleOplockCallback>) -> windows_core::Result<usize>;
+    fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: Option<&IUnbufferedFileHandleOplockCallback>) -> windows_core::Result<usize>;
     fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()>;
 }
 impl IUnbufferedFileHandleProvider_Vtbl {
@@ -352,7 +352,7 @@ impl IUnbufferedFileHandleProvider_Vtbl {
         unsafe extern "system" fn OpenUnbufferedFileHandle<Identity: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oplockbreakcallback: *mut core::ffi::c_void, filehandle: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUnbufferedFileHandleProvider_Impl::OpenUnbufferedFileHandle(this, core::mem::transmute_copy(&oplockbreakcallback)) {
+                match IUnbufferedFileHandleProvider_Impl::OpenUnbufferedFileHandle(this, windows_core::Ref::option_from_abi(&oplockbreakcallback)) {
                     Ok(ok__) => {
                         filehandle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

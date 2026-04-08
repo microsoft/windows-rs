@@ -10,7 +10,7 @@ impl CoreDragDropManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetRequested)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TargetRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTargetRequested(&self, value: i64) -> windows_core::Result<()> {
@@ -126,7 +126,7 @@ impl CoreDragOperation {
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&softwarebitmap.param().borrow())).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> windows_core::Result<()>
@@ -134,7 +134,7 @@ impl CoreDragOperation {
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi(), anchorpoint).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&softwarebitmap.param().borrow()), anchorpoint).ok() }
     }
     pub fn DragUIContentMode(&self) -> windows_core::Result<CoreDragUIContentMode> {
         let this = self;
@@ -235,7 +235,7 @@ impl CoreDragUIOverride {
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&softwarebitmap.param().borrow())).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> windows_core::Result<()>
@@ -243,7 +243,7 @@ impl CoreDragUIOverride {
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi(), anchorpoint).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&softwarebitmap.param().borrow()), anchorpoint).ok() }
     }
     pub fn IsContentVisible(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -316,7 +316,7 @@ impl CoreDropOperationTargetRequestedEventArgs {
         P0: windows_core::Param<ICoreDropOperationTarget>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), target.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&target.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
@@ -449,7 +449,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnterAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), draguioverride.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EnterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&draginfo.param().borrow()), core::mem::transmute_copy(&draguioverride.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OverAsync<P0, P1>(&self, draginfo: P0, draguioverride: P1) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>
@@ -460,7 +460,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OverAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), draguioverride.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OverAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&draginfo.param().borrow()), core::mem::transmute_copy(&draguioverride.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LeaveAsync<P0>(&self, draginfo: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -470,7 +470,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LeaveAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LeaveAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&draginfo.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DropAsync<P0>(&self, draginfo: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>
@@ -480,7 +480,7 @@ impl ICoreDropOperationTarget {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DropAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DropAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&draginfo.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -488,17 +488,17 @@ impl windows_core::RuntimeName for ICoreDropOperationTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
 }
 pub trait ICoreDropOperationTarget_Impl: windows_core::IUnknownImpl {
-    fn EnterAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>, dragUIOverride: windows_core::Ref<CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn OverAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>, dragUIOverride: windows_core::Ref<CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn LeaveAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn DropAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn EnterAsync(&self, dragInfo: Option<&CoreDragInfo>, dragUIOverride: Option<&CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn OverAsync(&self, dragInfo: Option<&CoreDragInfo>, dragUIOverride: Option<&CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn LeaveAsync(&self, dragInfo: Option<&CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn DropAsync(&self, dragInfo: Option<&CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
 }
 impl ICoreDropOperationTarget_Vtbl {
     pub const fn new<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnterAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, draguioverride: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreDropOperationTarget_Impl::EnterAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
+                match ICoreDropOperationTarget_Impl::EnterAsync(this, windows_core::Ref::option_from_abi(&draginfo), windows_core::Ref::option_from_abi(&draguioverride)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -511,7 +511,7 @@ impl ICoreDropOperationTarget_Vtbl {
         unsafe extern "system" fn OverAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, draguioverride: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreDropOperationTarget_Impl::OverAsync(this, core::mem::transmute_copy(&draginfo), core::mem::transmute_copy(&draguioverride)) {
+                match ICoreDropOperationTarget_Impl::OverAsync(this, windows_core::Ref::option_from_abi(&draginfo), windows_core::Ref::option_from_abi(&draguioverride)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -524,7 +524,7 @@ impl ICoreDropOperationTarget_Vtbl {
         unsafe extern "system" fn LeaveAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreDropOperationTarget_Impl::LeaveAsync(this, core::mem::transmute_copy(&draginfo)) {
+                match ICoreDropOperationTarget_Impl::LeaveAsync(this, windows_core::Ref::option_from_abi(&draginfo)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -537,7 +537,7 @@ impl ICoreDropOperationTarget_Vtbl {
         unsafe extern "system" fn DropAsync<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, draginfo: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreDropOperationTarget_Impl::DropAsync(this, core::mem::transmute_copy(&draginfo)) {
+                match ICoreDropOperationTarget_Impl::DropAsync(this, windows_core::Ref::option_from_abi(&draginfo)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

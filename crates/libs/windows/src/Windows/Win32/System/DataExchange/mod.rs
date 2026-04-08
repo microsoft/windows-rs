@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn AddAtomA(lpstring : windows_core::PCSTR) -> u16);
-    unsafe { AddAtomA(lpstring.param().abi()) }
+    unsafe { AddAtomA(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn AddAtomW<P0>(lpstring: P0) -> u16
@@ -12,7 +12,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn AddAtomW(lpstring : windows_core::PCWSTR) -> u16);
-    unsafe { AddAtomW(lpstring.param().abi()) }
+    unsafe { AddAtomW(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn AddClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
@@ -82,7 +82,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn DdeCreateStringHandleA(idinst : u32, psz : windows_core::PCSTR, icodepage : i32) -> HSZ);
-    unsafe { DdeCreateStringHandleA(idinst, psz.param().abi(), icodepage) }
+    unsafe { DdeCreateStringHandleA(idinst, core::mem::transmute_copy(&psz.param().borrow()), icodepage) }
 }
 #[inline]
 pub unsafe fn DdeCreateStringHandleW<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
@@ -90,7 +90,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn DdeCreateStringHandleW(idinst : u32, psz : windows_core::PCWSTR, icodepage : i32) -> HSZ);
-    unsafe { DdeCreateStringHandleW(idinst, psz.param().abi(), icodepage) }
+    unsafe { DdeCreateStringHandleW(idinst, core::mem::transmute_copy(&psz.param().borrow()), icodepage) }
 }
 #[inline]
 pub unsafe fn DdeDisconnect(hconv: HCONV) -> windows_core::BOOL {
@@ -225,7 +225,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindAtomA(lpstring : windows_core::PCSTR) -> u16);
-    unsafe { FindAtomA(lpstring.param().abi()) }
+    unsafe { FindAtomA(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn FindAtomW<P0>(lpstring: P0) -> u16
@@ -233,7 +233,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindAtomW(lpstring : windows_core::PCWSTR) -> u16);
-    unsafe { FindAtomW(lpstring.param().abi()) }
+    unsafe { FindAtomW(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> windows_core::BOOL {
@@ -305,7 +305,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GlobalAddAtomA(lpstring : windows_core::PCSTR) -> u16);
-    unsafe { GlobalAddAtomA(lpstring.param().abi()) }
+    unsafe { GlobalAddAtomA(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GlobalAddAtomExA<P0>(lpstring: P0, flags: u32) -> u16
@@ -313,7 +313,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GlobalAddAtomExA(lpstring : windows_core::PCSTR, flags : u32) -> u16);
-    unsafe { GlobalAddAtomExA(lpstring.param().abi(), flags) }
+    unsafe { GlobalAddAtomExA(core::mem::transmute_copy(&lpstring.param().borrow()), flags) }
 }
 #[inline]
 pub unsafe fn GlobalAddAtomExW<P0>(lpstring: P0, flags: u32) -> u16
@@ -321,7 +321,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GlobalAddAtomExW(lpstring : windows_core::PCWSTR, flags : u32) -> u16);
-    unsafe { GlobalAddAtomExW(lpstring.param().abi(), flags) }
+    unsafe { GlobalAddAtomExW(core::mem::transmute_copy(&lpstring.param().borrow()), flags) }
 }
 #[inline]
 pub unsafe fn GlobalAddAtomW<P0>(lpstring: P0) -> u16
@@ -329,7 +329,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GlobalAddAtomW(lpstring : windows_core::PCWSTR) -> u16);
-    unsafe { GlobalAddAtomW(lpstring.param().abi()) }
+    unsafe { GlobalAddAtomW(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
@@ -342,7 +342,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GlobalFindAtomA(lpstring : windows_core::PCSTR) -> u16);
-    unsafe { GlobalFindAtomA(lpstring.param().abi()) }
+    unsafe { GlobalFindAtomA(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GlobalFindAtomW<P0>(lpstring: P0) -> u16
@@ -350,7 +350,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GlobalFindAtomW(lpstring : windows_core::PCWSTR) -> u16);
-    unsafe { GlobalFindAtomW(lpstring.param().abi()) }
+    unsafe { GlobalFindAtomW(core::mem::transmute_copy(&lpstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
@@ -393,7 +393,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn RegisterClipboardFormatA(lpszformat : windows_core::PCSTR) -> u32);
-    unsafe { RegisterClipboardFormatA(lpszformat.param().abi()) }
+    unsafe { RegisterClipboardFormatA(core::mem::transmute_copy(&lpszformat.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RegisterClipboardFormatW<P0>(lpszformat: P0) -> u32
@@ -401,7 +401,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn RegisterClipboardFormatW(lpszformat : windows_core::PCWSTR) -> u32);
-    unsafe { RegisterClipboardFormatW(lpszformat.param().abi()) }
+    unsafe { RegisterClipboardFormatW(core::mem::transmute_copy(&lpszformat.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {

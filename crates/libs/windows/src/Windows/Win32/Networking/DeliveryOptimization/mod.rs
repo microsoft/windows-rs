@@ -219,7 +219,7 @@ impl IDODownloadStatusCallback {
     where
         P0: windows_core::Param<IDODownload>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), download.param().abi(), status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&download.param().borrow()), status).ok() }
     }
 }
 #[repr(C)]
@@ -229,14 +229,14 @@ pub struct IDODownloadStatusCallback_Vtbl {
     pub OnStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DO_DOWNLOAD_STATUS) -> windows_core::HRESULT,
 }
 pub trait IDODownloadStatusCallback_Impl: windows_core::IUnknownImpl {
-    fn OnStatusChange(&self, download: windows_core::Ref<IDODownload>, status: *const DO_DOWNLOAD_STATUS) -> windows_core::Result<()>;
+    fn OnStatusChange(&self, download: Option<&IDODownload>, status: *const DO_DOWNLOAD_STATUS) -> windows_core::Result<()>;
 }
 impl IDODownloadStatusCallback_Vtbl {
     pub const fn new<Identity: IDODownloadStatusCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStatusChange<Identity: IDODownloadStatusCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, download: *mut core::ffi::c_void, status: *const DO_DOWNLOAD_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDODownloadStatusCallback_Impl::OnStatusChange(this, core::mem::transmute_copy(&download), core::mem::transmute_copy(&status)).into()
+                IDODownloadStatusCallback_Impl::OnStatusChange(this, windows_core::Ref::option_from_abi(&download), core::mem::transmute_copy(&status)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnStatusChange: OnStatusChange::<Identity, OFFSET> }

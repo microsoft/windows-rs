@@ -32,7 +32,7 @@ impl AppListEntry {
         let this = &windows_core::Interface::cast::<IAppListEntry3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppInfo(&self) -> windows_core::Result<super::AppInfo> {
@@ -84,7 +84,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Suspending)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Suspending)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveSuspending(token: i64) -> windows_core::Result<()> {
@@ -96,7 +96,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Resuming)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Resuming)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveResuming(token: i64) -> windows_core::Result<()> {
@@ -119,13 +119,13 @@ impl CoreApplication {
     where
         P0: windows_core::Param<IFrameworkViewSource>,
     {
-        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), viewsource.param().abi()).ok() })
+        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&viewsource.param().borrow())).ok() })
     }
     pub fn RunWithActivationFactories<P0>(activationfactorycallback: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IGetActivationFactory>,
     {
-        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).RunWithActivationFactories)(windows_core::Interface::as_raw(this), activationfactorycallback.param().abi()).ok() })
+        Self::ICoreApplication(|this| unsafe { (windows_core::Interface::vtable(this).RunWithActivationFactories)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&activationfactorycallback.param().borrow())).ok() })
     }
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn BackgroundActivated<P0>(handler: P0) -> windows_core::Result<i64>
@@ -134,7 +134,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveBackgroundActivated(token: i64) -> windows_core::Result<()> {
@@ -146,7 +146,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LeavingBackground)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LeavingBackground)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveLeavingBackground(token: i64) -> windows_core::Result<()> {
@@ -158,7 +158,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnteredBackground)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnteredBackground)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveEnteredBackground(token: i64) -> windows_core::Result<()> {
@@ -180,7 +180,7 @@ impl CoreApplication {
     {
         Self::ICoreApplication3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestRestartForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(launcharguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestRestartForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(launcharguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Exit() -> windows_core::Result<()> {
@@ -192,7 +192,7 @@ impl CoreApplication {
     {
         Self::ICoreApplicationExit(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Exiting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Exiting)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveExiting(token: i64) -> windows_core::Result<()> {
@@ -204,7 +204,7 @@ impl CoreApplication {
     {
         Self::ICoreApplicationUnhandledError(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveUnhandledErrorDetected(token: i64) -> windows_core::Result<()> {
@@ -246,7 +246,7 @@ impl CoreApplication {
     {
         Self::ICoreImmersiveApplication3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateNewViewWithViewSource)(windows_core::Interface::as_raw(this), viewsource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateNewViewWithViewSource)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&viewsource.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ICoreApplication<R, F: FnOnce(&ICoreApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -310,7 +310,7 @@ impl CoreApplicationView {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveActivated(&self, token: i64) -> windows_core::Result<()> {
@@ -360,7 +360,7 @@ impl CoreApplicationView {
         let this = &windows_core::Interface::cast::<ICoreApplicationView3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HostedViewClosing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HostedViewClosing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHostedViewClosing(&self, token: i64) -> windows_core::Result<()> {
@@ -438,7 +438,7 @@ impl CoreApplicationViewTitleBar {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LayoutMetricsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LayoutMetricsChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveLayoutMetricsChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -459,7 +459,7 @@ impl CoreApplicationViewTitleBar {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsVisibleChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsVisibleChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveIsVisibleChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -625,7 +625,7 @@ impl ICoreApplicationUnhandledError {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnhandledErrorDetected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUnhandledErrorDetected(&self, token: i64) -> windows_core::Result<()> {
@@ -637,7 +637,7 @@ impl windows_core::RuntimeName for ICoreApplicationUnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError";
 }
 pub trait ICoreApplicationUnhandledError_Impl: windows_core::IUnknownImpl {
-    fn UnhandledErrorDetected(&self, handler: windows_core::Ref<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<i64>;
+    fn UnhandledErrorDetected(&self, handler: Option<&super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveUnhandledErrorDetected(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreApplicationUnhandledError_Vtbl {
@@ -645,7 +645,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
         unsafe extern "system" fn UnhandledErrorDetected<Identity: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, core::mem::transmute_copy(&handler)) {
+                match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, windows_core::Ref::option_from_abi(&handler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -822,7 +822,7 @@ impl IFrameworkView {
         P0: windows_core::Param<CoreApplicationView>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), applicationview.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Initialize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&applicationview.param().borrow())).ok() }
     }
     #[cfg(feature = "UI_Core")]
     pub fn SetWindow<P0>(&self, window: P0) -> windows_core::Result<()>
@@ -830,7 +830,7 @@ impl IFrameworkView {
         P0: windows_core::Param<super::super::UI::Core::CoreWindow>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWindow)(windows_core::Interface::as_raw(this), window.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWindow)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&window.param().borrow())).ok() }
     }
     pub fn Load(&self, entrypoint: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -851,8 +851,8 @@ impl windows_core::RuntimeName for IFrameworkView {
 }
 #[cfg(feature = "UI_Core")]
 pub trait IFrameworkView_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, applicationView: windows_core::Ref<CoreApplicationView>) -> windows_core::Result<()>;
-    fn SetWindow(&self, window: windows_core::Ref<super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
+    fn Initialize(&self, applicationView: Option<&CoreApplicationView>) -> windows_core::Result<()>;
+    fn SetWindow(&self, window: Option<&super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
     fn Load(&self, entryPoint: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Run(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
@@ -863,13 +863,13 @@ impl IFrameworkView_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, applicationview: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFrameworkView_Impl::Initialize(this, core::mem::transmute_copy(&applicationview)).into()
+                IFrameworkView_Impl::Initialize(this, windows_core::Ref::option_from_abi(&applicationview)).into()
             }
         }
         unsafe extern "system" fn SetWindow<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFrameworkView_Impl::SetWindow(this, core::mem::transmute_copy(&window)).into()
+                IFrameworkView_Impl::SetWindow(this, windows_core::Ref::option_from_abi(&window)).into()
             }
         }
         unsafe extern "system" fn Load<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrypoint: *mut core::ffi::c_void) -> windows_core::HRESULT {

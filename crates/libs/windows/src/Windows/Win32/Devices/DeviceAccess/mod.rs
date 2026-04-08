@@ -6,7 +6,7 @@ where
     windows_core::link!("deviceaccess.dll" "system" fn CreateDeviceAccessInstance(deviceinterfacepath : windows_core::PCWSTR, desiredaccess : u32, createasync : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateDeviceAccessInstance(deviceinterfacepath.param().abi(), desiredaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateDeviceAccessInstance(core::mem::transmute_copy(&deviceinterfacepath.param().borrow()), desiredaccess, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 pub const CLSID_DeviceIoControl: windows_core::GUID = windows_core::GUID::from_u128(0x12d3e372_874b_457d_9fdf_73977778686c);
@@ -146,7 +146,7 @@ impl IDeviceIoControl {
                 inputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 core::mem::transmute(outputbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
                 outputbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                requestcompletioncallback.param().abi(),
+                core::mem::transmute_copy(&requestcompletioncallback.param().borrow()),
                 cancelcontext.unwrap_or(core::mem::zeroed()) as _,
             )
             .ok()
@@ -166,7 +166,7 @@ pub struct IDeviceIoControl_Vtbl {
 }
 pub trait IDeviceIoControl_Impl: windows_core::IUnknownImpl {
     fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
-    fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: windows_core::Ref<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> windows_core::Result<()>;
+    fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: Option<&IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> windows_core::Result<()>;
     fn CancelOperation(&self, cancelcontext: usize) -> windows_core::Result<()>;
 }
 impl IDeviceIoControl_Vtbl {
@@ -180,7 +180,7 @@ impl IDeviceIoControl_Vtbl {
         unsafe extern "system" fn DeviceIoControlAsync<Identity: IDeviceIoControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: *mut core::ffi::c_void, cancelcontext: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDeviceIoControl_Impl::DeviceIoControlAsync(this, core::mem::transmute_copy(&iocontrolcode), core::mem::transmute_copy(&inputbuffer), core::mem::transmute_copy(&inputbuffersize), core::mem::transmute_copy(&outputbuffer), core::mem::transmute_copy(&outputbuffersize), core::mem::transmute_copy(&requestcompletioncallback), core::mem::transmute_copy(&cancelcontext)).into()
+                IDeviceIoControl_Impl::DeviceIoControlAsync(this, core::mem::transmute_copy(&iocontrolcode), core::mem::transmute_copy(&inputbuffer), core::mem::transmute_copy(&inputbuffersize), core::mem::transmute_copy(&outputbuffer), core::mem::transmute_copy(&outputbuffersize), windows_core::Ref::option_from_abi(&requestcompletioncallback), core::mem::transmute_copy(&cancelcontext)).into()
             }
         }
         unsafe extern "system" fn CancelOperation<Identity: IDeviceIoControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancelcontext: usize) -> windows_core::HRESULT {

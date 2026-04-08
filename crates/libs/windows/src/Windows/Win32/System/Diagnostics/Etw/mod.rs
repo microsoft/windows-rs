@@ -9,7 +9,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn ControlTraceA(traceid : u64, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> windows_core:: WIN32_ERROR);
-    unsafe { ControlTraceA(traceid, instancename.param().abi(), properties as _, controlcode) }
+    unsafe { ControlTraceA(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _, controlcode) }
 }
 #[inline]
 pub unsafe fn ControlTraceW<P1>(traceid: u64, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> windows_core::WIN32_ERROR
@@ -17,7 +17,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn ControlTraceW(traceid : u64, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> windows_core:: WIN32_ERROR);
-    unsafe { ControlTraceW(traceid, instancename.param().abi(), properties as _, controlcode) }
+    unsafe { ControlTraceW(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _, controlcode) }
 }
 #[inline]
 pub unsafe fn CreateTraceInstanceId(reghandle: super::super::super::Foundation::HANDLE, instinfo: *mut EVENT_INSTANCE_INFO) -> windows_core::WIN32_ERROR {
@@ -31,7 +31,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn CveEventWrite(cveid : windows_core::PCWSTR, additionaldetails : windows_core::PCWSTR) -> i32);
-    unsafe { CveEventWrite(cveid.param().abi(), additionaldetails.param().abi()) }
+    unsafe { CveEventWrite(core::mem::transmute_copy(&cveid.param().borrow()), core::mem::transmute_copy(&additionaldetails.param().borrow())) }
 }
 #[inline]
 pub unsafe fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const windows_core::GUID, traceid: u64) -> windows_core::WIN32_ERROR {
@@ -121,7 +121,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_core::PCWSTR) -> u32);
-    unsafe { EventWriteString(reghandle, level, keyword, string.param().abi()) }
+    unsafe { EventWriteString(reghandle, level, keyword, core::mem::transmute_copy(&string.param().borrow())) }
 }
 #[inline]
 pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
@@ -134,7 +134,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn FlushTraceA(traceid : u64, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { FlushTraceA(traceid, instancename.param().abi(), properties as _) }
+    unsafe { FlushTraceA(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn FlushTraceW<P1>(traceid: u64, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -142,7 +142,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn FlushTraceW(traceid : u64, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { FlushTraceW(traceid, instancename.param().abi(), properties as _) }
+    unsafe { FlushTraceW(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn GetTraceEnableFlags(tracehandle: u64) -> u32 {
@@ -179,7 +179,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenTraceFromFile(logfilename : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
-    unsafe { OpenTraceFromFile(logfilename.param().abi(), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OpenTraceFromFile(core::mem::transmute_copy(&logfilename.param().borrow()), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
@@ -188,7 +188,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
-    unsafe { OpenTraceFromRealTimeLogger(loggername.param().abi(), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OpenTraceFromRealTimeLogger(core::mem::transmute_copy(&loggername.param().borrow()), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
@@ -197,7 +197,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> PROCESSTRACE_HANDLE);
-    unsafe { OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.param().abi(), options, allocationsize, memorypartitionhandle.unwrap_or(core::mem::zeroed()) as _, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OpenTraceFromRealTimeLoggerWithAllocationOptions(core::mem::transmute_copy(&loggername.param().borrow()), options, allocationsize, memorypartitionhandle.unwrap_or(core::mem::zeroed()) as _, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
@@ -242,7 +242,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn QueryTraceA(traceid : u64, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { QueryTraceA(traceid, instancename.param().abi(), properties as _) }
+    unsafe { QueryTraceA(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: Option<*const core::ffi::c_void>, inbuffersize: u32, outbuffer: Option<*mut core::ffi::c_void>, outbuffersize: u32, returnlength: *mut u32) -> windows_core::WIN32_ERROR {
@@ -255,7 +255,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn QueryTraceW(traceid : u64, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { QueryTraceW(traceid, instancename.param().abi(), properties as _) }
+    unsafe { QueryTraceW(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn RegisterTraceGuidsA<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
@@ -264,7 +264,7 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCSTR, mofresourcename : windows_core::PCSTR, registrationhandle : *mut u64) -> u32);
-    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute_copy(&mofimagepath.param().borrow()), core::mem::transmute_copy(&mofresourcename.param().borrow()), registrationhandle as _) }
 }
 #[inline]
 pub unsafe fn RegisterTraceGuidsW<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
@@ -273,7 +273,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCWSTR, mofresourcename : windows_core::PCWSTR, registrationhandle : *mut u64) -> u32);
-    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute_copy(&mofimagepath.param().borrow()), core::mem::transmute_copy(&mofresourcename.param().borrow()), registrationhandle as _) }
 }
 #[inline]
 pub unsafe fn RemoveTraceCallback(pguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
@@ -291,7 +291,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn StartTraceA(traceid : *mut u64, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { StartTraceA(traceid as _, instancename.param().abi(), properties as _) }
+    unsafe { StartTraceA(traceid as _, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn StartTraceW<P1>(traceid: *mut u64, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -299,7 +299,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn StartTraceW(traceid : *mut u64, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { StartTraceW(traceid as _, instancename.param().abi(), properties as _) }
+    unsafe { StartTraceW(traceid as _, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn StopTraceA<P1>(traceid: u64, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -307,7 +307,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn StopTraceA(traceid : u64, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { StopTraceA(traceid, instancename.param().abi(), properties as _) }
+    unsafe { StopTraceA(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn StopTraceW<P1>(traceid: u64, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -315,7 +315,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn StopTraceW(traceid : u64, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { StopTraceW(traceid, instancename.param().abi(), properties as _) }
+    unsafe { StopTraceW(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: Option<*const bool>, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
@@ -388,7 +388,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("tdh.dll" "system" fn TdhGetEventMapInformation(pevent : *const EVENT_RECORD, pmapname : windows_core::PCWSTR, pbuffer : *mut EVENT_MAP_INFO, pbuffersize : *mut u32) -> u32);
-    unsafe { TdhGetEventMapInformation(pevent, pmapname.param().abi(), pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
+    unsafe { TdhGetEventMapInformation(pevent, core::mem::transmute_copy(&pmapname.param().borrow()), pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
 pub unsafe fn TdhGetManifestEventInformation(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: Option<*mut TRACE_EVENT_INFO>, buffersize: *mut u32) -> u32 {
@@ -416,7 +416,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("tdh.dll" "system" fn TdhGetWppProperty(handle : TDH_HANDLE, eventrecord : *const EVENT_RECORD, propertyname : windows_core::PCWSTR, buffersize : *mut u32, buffer : *mut u8) -> u32);
-    unsafe { TdhGetWppProperty(handle, eventrecord, propertyname.param().abi(), buffersize as _, buffer as _) }
+    unsafe { TdhGetWppProperty(handle, eventrecord, core::mem::transmute_copy(&propertyname.param().borrow()), buffersize as _, buffer as _) }
 }
 #[inline]
 pub unsafe fn TdhLoadManifest<P0>(manifest: P0) -> u32
@@ -424,7 +424,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("tdh.dll" "system" fn TdhLoadManifest(manifest : windows_core::PCWSTR) -> u32);
-    unsafe { TdhLoadManifest(manifest.param().abi()) }
+    unsafe { TdhLoadManifest(core::mem::transmute_copy(&manifest.param().borrow())) }
 }
 #[inline]
 pub unsafe fn TdhLoadManifestFromBinary<P0>(binarypath: P0) -> u32
@@ -432,7 +432,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("tdh.dll" "system" fn TdhLoadManifestFromBinary(binarypath : windows_core::PCWSTR) -> u32);
-    unsafe { TdhLoadManifestFromBinary(binarypath.param().abi()) }
+    unsafe { TdhLoadManifestFromBinary(core::mem::transmute_copy(&binarypath.param().borrow())) }
 }
 #[inline]
 pub unsafe fn TdhLoadManifestFromMemory(pdata: *const core::ffi::c_void, cbdata: u32) -> u32 {
@@ -460,7 +460,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("tdh.dll" "system" fn TdhUnloadManifest(manifest : windows_core::PCWSTR) -> u32);
-    unsafe { TdhUnloadManifest(manifest.param().abi()) }
+    unsafe { TdhUnloadManifest(core::mem::transmute_copy(&manifest.param().borrow())) }
 }
 #[inline]
 pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const core::ffi::c_void, cbdata: u32) -> u32 {
@@ -513,7 +513,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn UpdateTraceA(traceid : u64, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { UpdateTraceA(traceid, instancename.param().abi(), properties as _) }
+    unsafe { UpdateTraceA(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 #[inline]
 pub unsafe fn UpdateTraceW<P1>(traceid: u64, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -521,7 +521,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn UpdateTraceW(traceid : u64, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> windows_core:: WIN32_ERROR);
-    unsafe { UpdateTraceW(traceid, instancename.param().abi(), properties as _) }
+    unsafe { UpdateTraceW(traceid, core::mem::transmute_copy(&instancename.param().borrow()), properties as _) }
 }
 pub const ALPCGuid: windows_core::GUID = windows_core::GUID::from_u128(0x45d8cccd_539f_4b72_a8b7_5c683142609a);
 #[repr(C)]
@@ -2140,20 +2140,20 @@ impl ITraceEventCallback {
         P0: windows_core::Param<ITraceEvent>,
         P1: windows_core::Param<ITraceRelogger>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnBeginProcessTrace)(windows_core::Interface::as_raw(self), headerevent.param().abi(), relogger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnBeginProcessTrace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&headerevent.param().borrow()), core::mem::transmute_copy(&relogger.param().borrow())).ok() }
     }
     pub unsafe fn OnFinalizeProcessTrace<P0>(&self, relogger: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITraceRelogger>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnFinalizeProcessTrace)(windows_core::Interface::as_raw(self), relogger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnFinalizeProcessTrace)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&relogger.param().borrow())).ok() }
     }
     pub unsafe fn OnEvent<P0, P1>(&self, event: P0, relogger: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITraceEvent>,
         P1: windows_core::Param<ITraceRelogger>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), event.param().abi(), relogger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&event.param().borrow()), core::mem::transmute_copy(&relogger.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2165,28 +2165,28 @@ pub struct ITraceEventCallback_Vtbl {
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITraceEventCallback_Impl: windows_core::IUnknownImpl {
-    fn OnBeginProcessTrace(&self, headerevent: windows_core::Ref<ITraceEvent>, relogger: windows_core::Ref<ITraceRelogger>) -> windows_core::Result<()>;
-    fn OnFinalizeProcessTrace(&self, relogger: windows_core::Ref<ITraceRelogger>) -> windows_core::Result<()>;
-    fn OnEvent(&self, event: windows_core::Ref<ITraceEvent>, relogger: windows_core::Ref<ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnBeginProcessTrace(&self, headerevent: Option<&ITraceEvent>, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnFinalizeProcessTrace(&self, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
+    fn OnEvent(&self, event: Option<&ITraceEvent>, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
 }
 impl ITraceEventCallback_Vtbl {
     pub const fn new<Identity: ITraceEventCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnBeginProcessTrace<Identity: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headerevent: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceEventCallback_Impl::OnBeginProcessTrace(this, core::mem::transmute_copy(&headerevent), core::mem::transmute_copy(&relogger)).into()
+                ITraceEventCallback_Impl::OnBeginProcessTrace(this, windows_core::Ref::option_from_abi(&headerevent), windows_core::Ref::option_from_abi(&relogger)).into()
             }
         }
         unsafe extern "system" fn OnFinalizeProcessTrace<Identity: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceEventCallback_Impl::OnFinalizeProcessTrace(this, core::mem::transmute_copy(&relogger)).into()
+                ITraceEventCallback_Impl::OnFinalizeProcessTrace(this, windows_core::Ref::option_from_abi(&relogger)).into()
             }
         }
         unsafe extern "system" fn OnEvent<Identity: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceEventCallback_Impl::OnEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&relogger)).into()
+                ITraceEventCallback_Impl::OnEvent(this, windows_core::Ref::option_from_abi(&event), windows_core::Ref::option_from_abi(&relogger)).into()
             }
         }
         Self {
@@ -2220,13 +2220,13 @@ impl ITraceRelogger {
     where
         P0: windows_core::Param<ITraceEventCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), callback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&callback.param().borrow())).ok() }
     }
     pub unsafe fn Inject<P0>(&self, event: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITraceEvent>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Inject)(windows_core::Interface::as_raw(self), event.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Inject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&event.param().borrow())).ok() }
     }
     pub unsafe fn CreateEventInstance(&self, tracestreamid: u64, flags: u32) -> windows_core::Result<ITraceEvent> {
         unsafe {
@@ -2264,8 +2264,8 @@ pub struct ITraceRelogger_Vtbl {
 pub trait ITraceRelogger_Impl: windows_core::IUnknownImpl {
     fn AddLogfileTraceStream(&self, logfilename: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<u64>;
     fn AddRealtimeTraceStream(&self, loggername: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<u64>;
-    fn RegisterCallback(&self, callback: windows_core::Ref<ITraceEventCallback>) -> windows_core::Result<()>;
-    fn Inject(&self, event: windows_core::Ref<ITraceEvent>) -> windows_core::Result<()>;
+    fn RegisterCallback(&self, callback: Option<&ITraceEventCallback>) -> windows_core::Result<()>;
+    fn Inject(&self, event: Option<&ITraceEvent>) -> windows_core::Result<()>;
     fn CreateEventInstance(&self, tracestreamid: u64, flags: u32) -> windows_core::Result<ITraceEvent>;
     fn ProcessTrace(&self) -> windows_core::Result<()>;
     fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2301,13 +2301,13 @@ impl ITraceRelogger_Vtbl {
         unsafe extern "system" fn RegisterCallback<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceRelogger_Impl::RegisterCallback(this, core::mem::transmute_copy(&callback)).into()
+                ITraceRelogger_Impl::RegisterCallback(this, windows_core::Ref::option_from_abi(&callback)).into()
             }
         }
         unsafe extern "system" fn Inject<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceRelogger_Impl::Inject(this, core::mem::transmute_copy(&event)).into()
+                ITraceRelogger_Impl::Inject(this, windows_core::Ref::option_from_abi(&event)).into()
             }
         }
         unsafe extern "system" fn CreateEventInstance<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tracestreamid: u64, flags: u32, event: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

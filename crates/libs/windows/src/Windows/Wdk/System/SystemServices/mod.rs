@@ -415,7 +415,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "C" fn DbgPrint(format : windows_core::PCSTR) -> u32);
-    unsafe { DbgPrint(format.param().abi()) }
+    unsafe { DbgPrint(core::mem::transmute_copy(&format.param().borrow())) }
 }
 #[inline]
 pub unsafe fn DbgPrintEx<P2>(componentid: u32, level: u32, format: P2) -> u32
@@ -423,7 +423,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "C" fn DbgPrintEx(componentid : u32, level : u32, format : windows_core::PCSTR) -> u32);
-    unsafe { DbgPrintEx(componentid, level, format.param().abi()) }
+    unsafe { DbgPrintEx(componentid, level, core::mem::transmute_copy(&format.param().borrow())) }
 }
 #[inline]
 pub unsafe fn DbgPrintReturnControlC<P0>(format: P0) -> u32
@@ -431,7 +431,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "C" fn DbgPrintReturnControlC(format : windows_core::PCSTR) -> u32);
-    unsafe { DbgPrintReturnControlC(format.param().abi()) }
+    unsafe { DbgPrintReturnControlC(core::mem::transmute_copy(&format.param().borrow())) }
 }
 #[inline]
 pub unsafe fn DbgPrompt<P0>(prompt: P0, response: &mut [u8]) -> u32
@@ -439,7 +439,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn DbgPrompt(prompt : windows_core::PCSTR, response : windows_core::PSTR, length : u32) -> u32);
-    unsafe { DbgPrompt(prompt.param().abi(), core::mem::transmute(response.as_ptr()), response.len().try_into().unwrap()) }
+    unsafe { DbgPrompt(core::mem::transmute_copy(&prompt.param().borrow()), core::mem::transmute(response.as_ptr()), response.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn DbgQueryDebugFilterState(componentid: u32, level: u32) -> windows_core::NTSTATUS {
@@ -511,7 +511,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntoskrnl.exe" "system" fn EtwWriteString(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, level : u8, keyword : u64, activityid : *const windows_core::GUID, string : windows_core::PCWSTR) -> windows_core:: NTSTATUS);
-    unsafe { EtwWriteString(reghandle, level, keyword, activityid.unwrap_or(core::mem::zeroed()) as _, string.param().abi()) }
+    unsafe { EtwWriteString(reghandle, level, keyword, activityid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&string.param().borrow())) }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
@@ -1288,7 +1288,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntoskrnl.exe" "system" fn IoAcquireRemoveLockEx(removelock : *mut IO_REMOVE_LOCK, tag : *const core::ffi::c_void, file : windows_core::PCSTR, line : u32, remlocksize : u32) -> windows_core:: NTSTATUS);
-    unsafe { IoAcquireRemoveLockEx(removelock as _, tag.unwrap_or(core::mem::zeroed()) as _, file.param().abi(), line, remlocksize) }
+    unsafe { IoAcquireRemoveLockEx(removelock as _, tag.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&file.param().borrow()), line, remlocksize) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_IscsiDisc", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -4953,7 +4953,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeToString(destination : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, source : windows_core::PCWSTR) -> windows_core:: NTSTATUS);
-    unsafe { RtlAppendUnicodeToString(destination as _, source.param().abi()) }
+    unsafe { RtlAppendUnicodeToString(destination as _, core::mem::transmute_copy(&source.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RtlAreBitsClear(bitmapheader: *const RTL_BITMAP, startingindex: u32, length: u32) -> bool {
@@ -4971,7 +4971,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlAssert(voidfailedassertion : *const core::ffi::c_void, voidfilename : *const core::ffi::c_void, linenumber : u32, mutablemessage : windows_core::PCSTR));
-    unsafe { RtlAssert(voidfailedassertion, voidfilename, linenumber, mutablemessage.param().abi()) }
+    unsafe { RtlAssert(voidfailedassertion, voidfilename, linenumber, core::mem::transmute_copy(&mutablemessage.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RtlCheckRegistryKey<P1>(relativeto: u32, path: P1) -> windows_core::NTSTATUS
@@ -4979,7 +4979,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlCheckRegistryKey(relativeto : u32, path : windows_core::PCWSTR) -> windows_core:: NTSTATUS);
-    unsafe { RtlCheckRegistryKey(relativeto, path.param().abi()) }
+    unsafe { RtlCheckRegistryKey(relativeto, core::mem::transmute_copy(&path.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RtlClearAllBits(bitmapheader: *const RTL_BITMAP) {
@@ -5059,7 +5059,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlCreateRegistryKey(relativeto : u32, path : windows_core::PCWSTR) -> windows_core:: NTSTATUS);
-    unsafe { RtlCreateRegistryKey(relativeto, path.param().abi()) }
+    unsafe { RtlCreateRegistryKey(relativeto, core::mem::transmute_copy(&path.param().borrow())) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -5107,7 +5107,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlDeleteRegistryValue(relativeto : u32, path : windows_core::PCWSTR, valuename : windows_core::PCWSTR) -> windows_core:: NTSTATUS);
-    unsafe { RtlDeleteRegistryValue(relativeto, path.param().abi(), valuename.param().abi()) }
+    unsafe { RtlDeleteRegistryValue(relativeto, core::mem::transmute_copy(&path.param().borrow()), core::mem::transmute_copy(&valuename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RtlDowncaseUnicodeChar(sourcecharacter: u16) -> u16 {
@@ -5318,7 +5318,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlGetPersistedStateLocation(sourceid : windows_core::PCWSTR, customvalue : windows_core::PCWSTR, defaultpath : windows_core::PCWSTR, statelocationtype : STATE_LOCATION_TYPE, targetpath : windows_core::PWSTR, bufferlengthin : u32, bufferlengthout : *mut u32) -> windows_core:: NTSTATUS);
-    unsafe { RtlGetPersistedStateLocation(sourceid.param().abi(), customvalue.param().abi(), defaultpath.param().abi(), statelocationtype, targetpath.unwrap_or(core::mem::zeroed()) as _, bufferlengthin, bufferlengthout.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlGetPersistedStateLocation(core::mem::transmute_copy(&sourceid.param().borrow()), core::mem::transmute_copy(&customvalue.param().borrow()), core::mem::transmute_copy(&defaultpath.param().borrow()), statelocationtype, targetpath.unwrap_or(core::mem::zeroed()) as _, bufferlengthin, bufferlengthout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlGetSuiteMask() -> u32 {
@@ -5436,7 +5436,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIsApiSetImplemented(apisetname : windows_core::PCSTR) -> windows_core:: NTSTATUS);
-    unsafe { RtlIsApiSetImplemented(apisetname.param().abi()) }
+    unsafe { RtlIsApiSetImplemented(core::mem::transmute_copy(&apisetname.param().borrow())) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -5587,7 +5587,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlQueryRegistryValues(relativeto : u32, path : windows_core::PCWSTR, querytable : *mut RTL_QUERY_REGISTRY_TABLE, context : *const core::ffi::c_void, environment : *const core::ffi::c_void) -> windows_core:: NTSTATUS);
-    unsafe { RtlQueryRegistryValues(relativeto, path.param().abi(), querytable as _, context.unwrap_or(core::mem::zeroed()) as _, environment.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlQueryRegistryValues(relativeto, core::mem::transmute_copy(&path.param().borrow()), querytable as _, context.unwrap_or(core::mem::zeroed()) as _, environment.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlQueryValidationRunlevel(componentname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> u32 {
@@ -5814,7 +5814,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlWriteRegistryValue(relativeto : u32, path : windows_core::PCWSTR, valuename : windows_core::PCWSTR, valuetype : u32, valuedata : *const core::ffi::c_void, valuelength : u32) -> windows_core:: NTSTATUS);
-    unsafe { RtlWriteRegistryValue(relativeto, path.param().abi(), valuename.param().abi(), valuetype, valuedata.unwrap_or(core::mem::zeroed()) as _, valuelength) }
+    unsafe { RtlWriteRegistryValue(relativeto, core::mem::transmute_copy(&path.param().borrow()), core::mem::transmute_copy(&valuename.param().borrow()), valuetype, valuedata.unwrap_or(core::mem::zeroed()) as _, valuelength) }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -6214,7 +6214,7 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntoskrnl.exe" "system" fn WheaReportHwErrorDeviceDriver(errorsourceid : u32, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, errordata : *const u8, errordatalength : u32, sectiontypeguid : *const windows_core::GUID, errorseverity : WHEA_ERROR_SEVERITY, devicefriendlyname : windows_core::PCSTR) -> windows_core:: NTSTATUS);
-    unsafe { WheaReportHwErrorDeviceDriver(errorsourceid, deviceobject, core::mem::transmute(errordata.as_ptr()), errordata.len().try_into().unwrap(), sectiontypeguid, errorseverity, devicefriendlyname.param().abi()) }
+    unsafe { WheaReportHwErrorDeviceDriver(errorsourceid, deviceobject, core::mem::transmute(errordata.as_ptr()), errordata.len().try_into().unwrap(), sectiontypeguid, errorseverity, core::mem::transmute_copy(&devicefriendlyname.param().borrow())) }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
@@ -6552,7 +6552,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn vDbgPrintEx(componentid : u32, level : u32, format : windows_core::PCSTR, arglist : *const i8) -> u32);
-    unsafe { vDbgPrintEx(componentid, level, format.param().abi(), arglist) }
+    unsafe { vDbgPrintEx(componentid, level, core::mem::transmute_copy(&format.param().borrow()), arglist) }
 }
 #[inline]
 pub unsafe fn vDbgPrintExWithPrefix<P0, P3>(prefix: P0, componentid: u32, level: u32, format: P3, arglist: *const i8) -> u32
@@ -6561,7 +6561,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : windows_core::PCSTR, componentid : u32, level : u32, format : windows_core::PCSTR, arglist : *const i8) -> u32);
-    unsafe { vDbgPrintExWithPrefix(prefix.param().abi(), componentid, level, format.param().abi(), arglist) }
+    unsafe { vDbgPrintExWithPrefix(core::mem::transmute_copy(&prefix.param().borrow()), componentid, level, core::mem::transmute_copy(&format.param().borrow()), arglist) }
 }
 pub const ACPIBus: INTERFACE_TYPE = INTERFACE_TYPE(17i32);
 #[repr(C)]

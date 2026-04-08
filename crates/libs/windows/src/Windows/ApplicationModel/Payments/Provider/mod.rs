@@ -87,7 +87,7 @@ impl PaymentAppCanMakePaymentTriggerDetails {
         P0: windows_core::Param<super::PaymentCanMakePaymentResult>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportCanMakePaymentResult)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReportCanMakePaymentResult)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for PaymentAppCanMakePaymentTriggerDetails {
@@ -114,7 +114,7 @@ impl PaymentAppManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterAsync)(windows_core::Interface::as_raw(this), supportedpaymentmethodids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&supportedpaymentmethodids.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UnregisterAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -199,7 +199,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(windows_core::Interface::as_raw(this), shippingaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&shippingaddress.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateSelectedShippingOptionAsync<P0>(&self, selectedshippingoption: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::PaymentRequestChangedResult>>
@@ -209,7 +209,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(windows_core::Interface::as_raw(this), selectedshippingoption.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&selectedshippingoption.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AcceptAsync<P0>(&self, paymenttoken: P0) -> windows_core::Result<windows_future::IAsyncOperation<PaymentTransactionAcceptResult>>
@@ -219,7 +219,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceptAsync)(windows_core::Interface::as_raw(this), paymenttoken.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AcceptAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&paymenttoken.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Reject(&self) -> windows_core::Result<()> {

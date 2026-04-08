@@ -10,7 +10,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateJobObjectA(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi()) };
+    let result__ = unsafe { CreateJobObjectA(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -20,7 +20,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateJobObjectW(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi()) };
+    let result__ = unsafe { CreateJobObjectW(lpjobattributes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -44,7 +44,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenJobObjectA(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenJobObjectA(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -53,7 +53,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : windows_core::BOOL, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.param().abi()) };
+    let result__ = unsafe { OpenJobObjectW(dwdesiredaccess, binherithandle.into(), core::mem::transmute_copy(&lpname.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -67,7 +67,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn QueryIoRateControlInformationJobObject(hjob : super::super::Foundation:: HANDLE, volumename : windows_core::PCWSTR, infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount : *mut u32) -> u32);
-    unsafe { QueryIoRateControlInformationJobObject(hjob.unwrap_or(core::mem::zeroed()) as _, volumename.param().abi(), infoblocks as _, infoblockcount as _) }
+    unsafe { QueryIoRateControlInformationJobObject(hjob.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&volumename.param().borrow()), infoblocks as _, infoblockcount as _) }
 }
 #[inline]
 pub unsafe fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_core::Result<()> {

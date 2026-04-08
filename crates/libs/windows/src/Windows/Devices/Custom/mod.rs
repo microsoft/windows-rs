@@ -29,7 +29,7 @@ impl CustomDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendIOControlAsync)(windows_core::Interface::as_raw(this), iocontrolcode.param().abi(), inputbuffer.param().abi(), outputbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendIOControlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&iocontrolcode.param().borrow()), core::mem::transmute_copy(&inputbuffer.param().borrow()), core::mem::transmute_copy(&outputbuffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -42,7 +42,7 @@ impl CustomDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySendIOControlAsync)(windows_core::Interface::as_raw(this), iocontrolcode.param().abi(), inputbuffer.param().abi(), outputbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySendIOControlAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&iocontrolcode.param().borrow()), core::mem::transmute_copy(&inputbuffer.param().borrow()), core::mem::transmute_copy(&outputbuffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeviceSelector(classguid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING> {

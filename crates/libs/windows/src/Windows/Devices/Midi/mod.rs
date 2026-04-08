@@ -231,7 +231,7 @@ impl IMidiOutPort {
         P0: windows_core::Param<IMidiMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&midimessage.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
@@ -239,7 +239,7 @@ impl IMidiOutPort {
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mididata.param().borrow())).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -259,8 +259,8 @@ impl windows_core::RuntimeName for IMidiOutPort {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IMidiOutPort_Impl: super::super::Foundation::IClosable_Impl {
-    fn SendMessage(&self, midiMessage: windows_core::Ref<IMidiMessage>) -> windows_core::Result<()>;
-    fn SendBuffer(&self, midiData: windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
+    fn SendMessage(&self, midiMessage: Option<&IMidiMessage>) -> windows_core::Result<()>;
+    fn SendBuffer(&self, midiData: Option<&super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
     fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 #[cfg(feature = "Storage_Streams")]
@@ -269,13 +269,13 @@ impl IMidiOutPort_Vtbl {
         unsafe extern "system" fn SendMessage<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midimessage: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMidiOutPort_Impl::SendMessage(this, core::mem::transmute_copy(&midimessage)).into()
+                IMidiOutPort_Impl::SendMessage(this, windows_core::Ref::option_from_abi(&midimessage)).into()
             }
         }
         unsafe extern "system" fn SendBuffer<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mididata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMidiOutPort_Impl::SendBuffer(this, core::mem::transmute_copy(&mididata)).into()
+                IMidiOutPort_Impl::SendBuffer(this, windows_core::Ref::option_from_abi(&mididata)).into()
             }
         }
         unsafe extern "system" fn DeviceId<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -743,7 +743,7 @@ impl MidiInPort {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -1001,7 +1001,7 @@ impl MidiOutPort {
         P0: windows_core::Param<IMidiMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&midimessage.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
@@ -1009,7 +1009,7 @@ impl MidiOutPort {
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mididata.param().borrow())).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1474,7 +1474,7 @@ impl MidiSynthesizer {
         P0: windows_core::Param<IMidiMessage>,
     {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&midimessage.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
@@ -1482,7 +1482,7 @@ impl MidiSynthesizer {
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mididata.param().borrow())).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
@@ -1523,7 +1523,7 @@ impl MidiSynthesizer {
     {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), audiodevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&audiodevice.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
@@ -1533,7 +1533,7 @@ impl MidiSynthesizer {
     {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), mididevice.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mididevice.param().borrow()), &mut result__).map(|| result__)
         })
     }
     fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1587,7 +1587,7 @@ impl MidiSystemExclusiveMessage {
     {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&rawdata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

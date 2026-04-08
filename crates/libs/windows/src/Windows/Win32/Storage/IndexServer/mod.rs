@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
+    unsafe { BindIFilterFromStorage(core::mem::transmute_copy(&pstg.param().borrow()), core::mem::transmute_copy(&punkouter.param().borrow()), ppiunk as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -16,7 +16,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
+    unsafe { BindIFilterFromStream(core::mem::transmute_copy(&pstm.param().borrow()), core::mem::transmute_copy(&punkouter.param().borrow()), ppiunk as _).ok() }
 }
 #[inline]
 pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -25,7 +25,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
+    unsafe { LoadIFilter(core::mem::transmute_copy(&pwcspath.param().borrow()), core::mem::transmute_copy(&punkouter.param().borrow()), ppiunk as _).ok() }
 }
 #[inline]
 pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -33,7 +33,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk as _).ok() }
+    unsafe { LoadIFilterEx(core::mem::transmute_copy(&pwcspath.param().borrow()), dwflags, riid, ppiunk as _).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -403,13 +403,13 @@ impl IPhraseSink {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwcnoun.param().borrow()), cwcnoun, core::mem::transmute_copy(&pwcmodifier.param().borrow()), cwcmodifier, ulattachmenttype).ok() }
     }
     pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwcphrase.param().borrow()), cwcphrase).ok() }
     }
 }
 #[repr(C)]

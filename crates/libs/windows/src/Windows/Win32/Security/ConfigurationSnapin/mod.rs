@@ -10,7 +10,7 @@ impl ISceSvcAttachmentData {
     where
         P2: windows_core::Param<ISceSvcAttachmentPersistInfo>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpservicename as _, lptemplatename as _, lpscesvcpersistinfo.param().abi(), pscesvchandle as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), lpservicename as _, lptemplatename as _, core::mem::transmute_copy(&lpscesvcpersistinfo.param().borrow()), pscesvchandle as _).ok() }
     }
     pub unsafe fn FreeBuffer(&self, pvdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self), pvdata as _).ok() }
@@ -30,7 +30,7 @@ pub struct ISceSvcAttachmentData_Vtbl {
 }
 pub trait ISceSvcAttachmentData_Impl: windows_core::IUnknownImpl {
     fn GetData(&self, scesvchandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut core::ffi::c_void, psceenumhandle: *mut u32) -> windows_core::Result<()>;
-    fn Initialize(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: windows_core::Ref<ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Initialize(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Option<&ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn FreeBuffer(&self, pvdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CloseHandle(&self, scesvchandle: *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -45,7 +45,7 @@ impl ISceSvcAttachmentData_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ISceSvcAttachmentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: *mut core::ffi::c_void, pscesvchandle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISceSvcAttachmentData_Impl::Initialize(this, core::mem::transmute_copy(&lpservicename), core::mem::transmute_copy(&lptemplatename), core::mem::transmute_copy(&lpscesvcpersistinfo), core::mem::transmute_copy(&pscesvchandle)).into()
+                ISceSvcAttachmentData_Impl::Initialize(this, core::mem::transmute_copy(&lpservicename), core::mem::transmute_copy(&lptemplatename), windows_core::Ref::option_from_abi(&lpscesvcpersistinfo), core::mem::transmute_copy(&pscesvchandle)).into()
             }
         }
         unsafe extern "system" fn FreeBuffer<Identity: ISceSvcAttachmentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -200,7 +200,7 @@ impl ISmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CalculateLength<P0>(&self, message: P0) -> windows_core::Result<SmsEncodedLength>
@@ -210,7 +210,7 @@ impl ISmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -248,7 +248,7 @@ impl ISmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SmsMessageReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SmsMessageReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSmsMessageReceived(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -262,7 +262,7 @@ impl ISmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -274,15 +274,15 @@ impl windows_core::RuntimeName for ISmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsDevice";
 }
 pub trait ISmsDevice_Impl: windows_core::IUnknownImpl {
-    fn SendMessageAsync(&self, message: windows_core::Ref<ISmsMessage>) -> windows_core::Result<SendSmsMessageOperation>;
-    fn CalculateLength(&self, message: windows_core::Ref<SmsTextMessage>) -> windows_core::Result<SmsEncodedLength>;
+    fn SendMessageAsync(&self, message: Option<&ISmsMessage>) -> windows_core::Result<SendSmsMessageOperation>;
+    fn CalculateLength(&self, message: Option<&SmsTextMessage>) -> windows_core::Result<SmsEncodedLength>;
     fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn CellularClass(&self) -> windows_core::Result<CellularClass>;
     fn MessageStore(&self) -> windows_core::Result<SmsDeviceMessageStore>;
     fn DeviceStatus(&self) -> windows_core::Result<SmsDeviceStatus>;
-    fn SmsMessageReceived(&self, eventHandler: windows_core::Ref<SmsMessageReceivedEventHandler>) -> windows_core::Result<i64>;
+    fn SmsMessageReceived(&self, eventHandler: Option<&SmsMessageReceivedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveSmsMessageReceived(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn SmsDeviceStatusChanged(&self, eventHandler: windows_core::Ref<SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
+    fn SmsDeviceStatusChanged(&self, eventHandler: Option<&SmsDeviceStatusChangedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveSmsDeviceStatusChanged(&self, eventCookie: i64) -> windows_core::Result<()>;
 }
 impl ISmsDevice_Vtbl {
@@ -290,7 +290,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn SendMessageAsync<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISmsDevice_Impl::SendMessageAsync(this, core::mem::transmute_copy(&message)) {
+                match ISmsDevice_Impl::SendMessageAsync(this, windows_core::Ref::option_from_abi(&message)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -303,7 +303,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn CalculateLength<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, result__: *mut SmsEncodedLength) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISmsDevice_Impl::CalculateLength(this, core::mem::transmute_copy(&message)) {
+                match ISmsDevice_Impl::CalculateLength(this, windows_core::Ref::option_from_abi(&message)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -365,7 +365,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn SmsMessageReceived<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISmsDevice_Impl::SmsMessageReceived(this, core::mem::transmute_copy(&eventhandler)) {
+                match ISmsDevice_Impl::SmsMessageReceived(this, windows_core::Ref::option_from_abi(&eventhandler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -383,7 +383,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn SmsDeviceStatusChanged<Identity: ISmsDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISmsDevice_Impl::SmsDeviceStatusChanged(this, core::mem::transmute_copy(&eventhandler)) {
+                match ISmsDevice_Impl::SmsDeviceStatusChanged(this, windows_core::Ref::option_from_abi(&eventhandler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -1376,7 +1376,7 @@ impl SmsAppMessage {
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBinaryBody)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBinaryBody)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MessageType(&self) -> windows_core::Result<SmsMessageType> {
         let this = &windows_core::Interface::cast::<ISmsMessageBase>(self)?;
@@ -1666,7 +1666,7 @@ impl SmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CalculateLength<P0>(&self, message: P0) -> windows_core::Result<SmsEncodedLength>
@@ -1676,7 +1676,7 @@ impl SmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn AccountPhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1714,7 +1714,7 @@ impl SmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SmsMessageReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SmsMessageReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSmsMessageReceived(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1728,7 +1728,7 @@ impl SmsDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1836,7 +1836,7 @@ impl SmsDevice2 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CalculateLength)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SendMessageAndGetResultAsync<P0>(&self, message: P0) -> windows_core::Result<windows_future::IAsyncOperation<SmsSendMessageResult>>
@@ -1846,7 +1846,7 @@ impl SmsDevice2 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendMessageAndGetResultAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendMessageAndGetResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeviceStatusChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
@@ -1856,7 +1856,7 @@ impl SmsDevice2 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceStatusChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DeviceStatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDeviceStatusChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1977,7 +1977,7 @@ impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SmsDeviceStatusChangedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsDeviceStatusChangedEventHandlerBox { vtable: &SmsDeviceStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1986,7 +1986,7 @@ impl SmsDeviceStatusChangedEventHandler {
         P0: windows_core::Param<SmsDevice>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1996,12 +1996,12 @@ pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct SmsDeviceStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static> {
+struct SmsDeviceStatusChangedEventHandlerBox<F: Fn(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SmsDeviceStatusChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
+impl<F: Fn(Option<&SmsDevice>) -> windows_core::Result<()> + Send + 'static> SmsDeviceStatusChangedEventHandlerBox<F> {
     const VTABLE: SmsDeviceStatusChangedEventHandler_Vtbl = SmsDeviceStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2044,7 +2044,7 @@ impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 's
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender)).into()
         }
     }
 }
@@ -2348,7 +2348,7 @@ impl windows_core::RuntimeType for SmsMessageReceivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SmsMessageReceivedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SmsMessageReceivedEventHandlerBox { vtable: &SmsMessageReceivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2358,7 +2358,7 @@ impl SmsMessageReceivedEventHandler {
         P1: windows_core::Param<SmsMessageReceivedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&e.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2368,12 +2368,12 @@ pub struct SmsMessageReceivedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct SmsMessageReceivedEventHandlerBox<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct SmsMessageReceivedEventHandlerBox<F: Fn(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SmsMessageReceivedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
+impl<F: Fn(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windows_core::Result<()> + Send + 'static> SmsMessageReceivedEventHandlerBox<F> {
     const VTABLE: SmsMessageReceivedEventHandler_Vtbl = SmsMessageReceivedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2416,7 +2416,7 @@ impl<F: Fn(windows_core::Ref<SmsDevice>, windows_core::Ref<SmsMessageReceivedEve
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&e)).into()
         }
     }
 }
@@ -2518,7 +2518,7 @@ impl SmsMessageRegistration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageReceived(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -2537,7 +2537,7 @@ impl SmsMessageRegistration {
     {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(&filterrules.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISmsMessageRegistrationStatics<R, F: FnOnce(&ISmsMessageRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2924,7 +2924,7 @@ impl SmsTextMessage {
     {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromBinaryMessage)(windows_core::Interface::as_raw(this), binarymessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromBinaryMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&binarymessage.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromBinaryData(format: SmsDataFormat, value: &[u8]) -> windows_core::Result<SmsTextMessage> {

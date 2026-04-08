@@ -21,7 +21,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORCreateKey(keyhandle : ORHKEY, lpsubkey : windows_core::PCWSTR, lpclass : windows_core::PCWSTR, dwoptions : u32, psecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, phkresult : *mut ORHKEY, pdwdisposition : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { ORCreateKey(keyhandle, lpsubkey.param().abi(), lpclass.param().abi(), dwoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, phkresult as _, pdwdisposition.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ORCreateKey(keyhandle, core::mem::transmute_copy(&lpsubkey.param().borrow()), core::mem::transmute_copy(&lpclass.param().borrow()), dwoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, phkresult as _, pdwdisposition.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ORDeleteKey<P1>(handle: ORHKEY, lpsubkey: P1) -> windows_core::WIN32_ERROR
@@ -29,7 +29,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORDeleteKey(handle : ORHKEY, lpsubkey : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { ORDeleteKey(handle, lpsubkey.param().abi()) }
+    unsafe { ORDeleteKey(handle, core::mem::transmute_copy(&lpsubkey.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ORDeleteValue<P1>(handle: ORHKEY, lpvaluename: P1) -> windows_core::WIN32_ERROR
@@ -37,7 +37,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORDeleteValue(handle : ORHKEY, lpvaluename : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { ORDeleteValue(handle, lpvaluename.param().abi()) }
+    unsafe { ORDeleteValue(handle, core::mem::transmute_copy(&lpvaluename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn OREnumKey(handle: ORHKEY, dwindex: u32, lpname: windows_core::PWSTR, lpcname: *mut u32, lpclass: Option<windows_core::PWSTR>, lpcclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::super::super::Win32::Foundation::FILETIME>) -> windows_core::WIN32_ERROR {
@@ -62,7 +62,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORGetValue(handle : ORHKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { ORGetValue(handle, lpsubkey.param().abi(), lpvalue.param().abi(), pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ORGetValue(handle, core::mem::transmute_copy(&lpsubkey.param().borrow()), core::mem::transmute_copy(&lpvalue.param().borrow()), pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ORGetVersion(pdwmajorversion: *mut u32, pdwminorversion: *mut u32) -> windows_core::WIN32_ERROR {
@@ -85,7 +85,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn OROpenHive(filepath : windows_core::PCWSTR, horkey : *mut ORHKEY) -> windows_core:: WIN32_ERROR);
-    unsafe { OROpenHive(filepath.param().abi(), horkey as _) }
+    unsafe { OROpenHive(core::mem::transmute_copy(&filepath.param().borrow()), horkey as _) }
 }
 #[inline]
 pub unsafe fn OROpenHiveByHandle(filehandle: super::super::super::Win32::Foundation::HANDLE, horkey: *mut ORHKEY) -> windows_core::WIN32_ERROR {
@@ -98,7 +98,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn OROpenKey(handle : ORHKEY, lpsubkey : windows_core::PCWSTR, phkresult : *mut ORHKEY) -> windows_core:: WIN32_ERROR);
-    unsafe { OROpenKey(handle, lpsubkey.param().abi(), phkresult as _) }
+    unsafe { OROpenKey(handle, core::mem::transmute_copy(&lpsubkey.param().borrow()), phkresult as _) }
 }
 #[inline]
 pub unsafe fn ORQueryInfoKey(handle: ORHKEY, lpclass: Option<windows_core::PWSTR>, lpcclass: Option<*mut u32>, lpcsubkeys: Option<*mut u32>, lpcmaxsubkeylen: Option<*mut u32>, lpcmaxclasslen: Option<*mut u32>, lpcvalues: Option<*mut u32>, lpcmaxvaluenamelen: Option<*mut u32>, lpcmaxvaluelen: Option<*mut u32>, lpcbsecuritydescriptor: Option<*mut u32>, lpftlastwritetime: Option<*mut super::super::super::Win32::Foundation::FILETIME>) -> windows_core::WIN32_ERROR {
@@ -125,7 +125,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORRenameKey(handle : ORHKEY, lpnewname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { ORRenameKey(handle, lpnewname.param().abi()) }
+    unsafe { ORRenameKey(handle, core::mem::transmute_copy(&lpnewname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ORSaveHive<P1>(horkey: ORHKEY, hivepath: P1, osmajorversion: u32, osminorversion: u32) -> windows_core::WIN32_ERROR
@@ -133,7 +133,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORSaveHive(horkey : ORHKEY, hivepath : windows_core::PCWSTR, osmajorversion : u32, osminorversion : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { ORSaveHive(horkey, hivepath.param().abi(), osmajorversion, osminorversion) }
+    unsafe { ORSaveHive(horkey, core::mem::transmute_copy(&hivepath.param().borrow()), osmajorversion, osminorversion) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -147,7 +147,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORSetValue(handle : ORHKEY, lpvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { ORSetValue(handle, lpvaluename.param().abi(), dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ORSetValue(handle, core::mem::transmute_copy(&lpvaluename.param().borrow()), dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ORSetVirtualFlags(handle: ORHKEY, dwflags: u32) -> windows_core::WIN32_ERROR {

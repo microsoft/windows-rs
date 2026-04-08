@@ -94,7 +94,7 @@ impl BadgeNotification {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -110,7 +110,7 @@ impl BadgeNotification {
     {
         Self::IBadgeNotificationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateBadgeNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateBadgeNotification)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -177,7 +177,7 @@ impl BadgeUpdateManager {
     {
         Self::IBadgeUpdateManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -249,7 +249,7 @@ impl BadgeUpdater {
         P0: windows_core::Param<BadgeNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&notification.param().borrow())).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = self;
@@ -260,14 +260,14 @@ impl BadgeUpdater {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), badgecontent.param().abi(), requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&badgecontent.param().borrow()), requestedinterval).ok() }
     }
     pub fn StartPeriodicUpdateAtTime<P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), badgecontent.param().abi(), starttime, requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&badgecontent.param().borrow()), starttime, requestedinterval).ok() }
     }
     pub fn StopPeriodicUpdate(&self) -> windows_core::Result<()> {
         let this = self;
@@ -1471,7 +1471,7 @@ impl Notification {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Visual(&self) -> windows_core::Result<NotificationVisual> {
         let this = self;
@@ -1485,7 +1485,7 @@ impl Notification {
         P0: windows_core::Param<NotificationVisual>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetVisual)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetVisual)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for Notification {
@@ -1590,7 +1590,7 @@ impl NotificationData {
     {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateNotificationDataWithValuesAndSequenceNumber)(windows_core::Interface::as_raw(this), initialvalues.param().abi(), sequencenumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateNotificationDataWithValuesAndSequenceNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&initialvalues.param().borrow()), sequencenumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateNotificationDataWithValues<P0>(initialvalues: P0) -> windows_core::Result<NotificationData>
@@ -1599,7 +1599,7 @@ impl NotificationData {
     {
         Self::INotificationDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateNotificationDataWithValues)(windows_core::Interface::as_raw(this), initialvalues.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateNotificationDataWithValues)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&initialvalues.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn INotificationDataFactory<R, F: FnOnce(&INotificationDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1792,7 +1792,7 @@ impl ScheduledTileNotification {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1830,7 +1830,7 @@ impl ScheduledTileNotification {
     {
         Self::IScheduledTileNotificationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateScheduledTileNotification)(windows_core::Interface::as_raw(this), content.param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateScheduledTileNotification)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IScheduledTileNotificationFactory<R, F: FnOnce(&IScheduledTileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1962,7 +1962,7 @@ impl ScheduledToastNotification {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> windows_core::Result<ScheduledToastNotification>
@@ -1971,7 +1971,7 @@ impl ScheduledToastNotification {
     {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateScheduledToastNotification)(windows_core::Interface::as_raw(this), content.param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateScheduledToastNotification)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -1981,7 +1981,7 @@ impl ScheduledToastNotification {
     {
         Self::IScheduledToastNotificationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateScheduledToastNotificationRecurring)(windows_core::Interface::as_raw(this), content.param().abi(), deliverytime, snoozeinterval, maximumsnoozecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateScheduledToastNotificationRecurring)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), deliverytime, snoozeinterval, maximumsnoozecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IScheduledToastNotificationFactory<R, F: FnOnce(&IScheduledToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2087,7 +2087,7 @@ impl TileFlyoutNotification {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -2103,7 +2103,7 @@ impl TileFlyoutNotification {
     {
         Self::ITileFlyoutNotificationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTileFlyoutNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTileFlyoutNotification)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ITileFlyoutNotificationFactory<R, F: FnOnce(&ITileFlyoutNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2180,7 +2180,7 @@ impl TileFlyoutUpdater {
         P0: windows_core::Param<TileFlyoutNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&notification.param().borrow())).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2191,14 +2191,14 @@ impl TileFlyoutUpdater {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), tileflyoutcontent.param().abi(), requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tileflyoutcontent.param().borrow()), requestedinterval).ok() }
     }
     pub fn StartPeriodicUpdateAtTime<P0>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), tileflyoutcontent.param().abi(), starttime, requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tileflyoutcontent.param().borrow()), starttime, requestedinterval).ok() }
     }
     pub fn StopPeriodicUpdate(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2240,7 +2240,7 @@ impl TileNotification {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -2267,7 +2267,7 @@ impl TileNotification {
     {
         Self::ITileNotificationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTileNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTileNotification)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ITileNotificationFactory<R, F: FnOnce(&ITileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2458,7 +2458,7 @@ impl TileUpdateManager {
     {
         Self::ITileUpdateManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ITileUpdateManagerStatics<R, F: FnOnce(&ITileUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2530,7 +2530,7 @@ impl TileUpdater {
         P0: windows_core::Param<TileNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&notification.param().borrow())).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2552,14 +2552,14 @@ impl TileUpdater {
         P0: windows_core::Param<ScheduledTileNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddToSchedule)(windows_core::Interface::as_raw(this), scheduledtile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddToSchedule)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&scheduledtile.param().borrow())).ok() }
     }
     pub fn RemoveFromSchedule<P0>(&self, scheduledtile: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ScheduledTileNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), scheduledtile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&scheduledtile.param().borrow())).ok() }
     }
     pub fn GetScheduledTileNotifications(&self) -> windows_core::Result<windows_collections::IVectorView<ScheduledTileNotification>> {
         let this = self;
@@ -2573,14 +2573,14 @@ impl TileUpdater {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), tilecontent.param().abi(), requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tilecontent.param().borrow()), requestedinterval).ok() }
     }
     pub fn StartPeriodicUpdateAtTime<P0>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), tilecontent.param().abi(), starttime, requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tilecontent.param().borrow()), starttime, requestedinterval).ok() }
     }
     pub fn StopPeriodicUpdate(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2591,14 +2591,14 @@ impl TileUpdater {
         P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatch)(windows_core::Interface::as_raw(this), tilecontents.param().abi(), requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatch)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tilecontents.param().borrow()), requestedinterval).ok() }
     }
     pub fn StartPeriodicUpdateBatchAtTime<P0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatchAtTime)(windows_core::Interface::as_raw(this), tilecontents.param().abi(), starttime, requestedinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatchAtTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tilecontents.param().borrow()), starttime, requestedinterval).ok() }
     }
     pub fn EnableNotificationQueueForSquare150x150(&self, enable: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ITileUpdater2>(self)?;
@@ -2702,7 +2702,7 @@ impl ToastCollection {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CreateInstance<P3>(collectionid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, launchargs: &windows_core::HSTRING, iconuri: P3) -> windows_core::Result<ToastCollection>
     where
@@ -2710,7 +2710,7 @@ impl ToastCollection {
     {
         Self::IToastCollectionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(launchargs), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(launchargs), core::mem::transmute_copy(&iconuri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IToastCollectionFactory<R, F: FnOnce(&IToastCollectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2742,7 +2742,7 @@ impl ToastCollectionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveToastCollectionAsync)(windows_core::Interface::as_raw(this), collection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveToastCollectionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&collection.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FindAllToastCollectionsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ToastCollection>>> {
@@ -2898,7 +2898,7 @@ impl ToastNotification {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -2914,7 +2914,7 @@ impl ToastNotification {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dismissed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Dismissed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDismissed(&self, token: i64) -> windows_core::Result<()> {
@@ -2928,7 +2928,7 @@ impl ToastNotification {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveActivated(&self, token: i64) -> windows_core::Result<()> {
@@ -2942,7 +2942,7 @@ impl ToastNotification {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFailed(&self, token: i64) -> windows_core::Result<()> {
@@ -3016,7 +3016,7 @@ impl ToastNotification {
         P0: windows_core::Param<NotificationData>,
     {
         let this = &windows_core::Interface::cast::<IToastNotification4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Priority(&self) -> windows_core::Result<ToastNotificationPriority> {
         let this = &windows_core::Interface::cast::<IToastNotification4>(self)?;
@@ -3047,7 +3047,7 @@ impl ToastNotification {
     {
         Self::IToastNotificationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateToastNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateToastNotification)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&content.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IToastNotificationFactory<R, F: FnOnce(&IToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3220,7 +3220,7 @@ impl ToastNotificationManager {
     {
         Self::IToastNotificationManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ConfigureNotificationMirroring(value: NotificationMirroring) -> windows_core::Result<()> {
@@ -3328,7 +3328,7 @@ impl ToastNotificationManagerForUser {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotificationModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NotificationModeChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNotificationModeChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -3385,14 +3385,14 @@ impl ToastNotifier {
         P0: windows_core::Param<ToastNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&notification.param().borrow())).ok() }
     }
     pub fn Hide<P0>(&self, notification: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ToastNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&notification.param().borrow())).ok() }
     }
     pub fn Setting(&self) -> windows_core::Result<NotificationSetting> {
         let this = self;
@@ -3406,14 +3406,14 @@ impl ToastNotifier {
         P0: windows_core::Param<ScheduledToastNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddToSchedule)(windows_core::Interface::as_raw(this), scheduledtoast.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddToSchedule)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&scheduledtoast.param().borrow())).ok() }
     }
     pub fn RemoveFromSchedule<P0>(&self, scheduledtoast: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ScheduledToastNotification>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), scheduledtoast.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&scheduledtoast.param().borrow())).ok() }
     }
     pub fn GetScheduledToastNotifications(&self) -> windows_core::Result<windows_collections::IVectorView<ScheduledToastNotification>> {
         let this = self;
@@ -3429,7 +3429,7 @@ impl ToastNotifier {
         let this = &windows_core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateWithTagAndGroup)(windows_core::Interface::as_raw(this), data.param().abi(), core::mem::transmute_copy(tag), core::mem::transmute_copy(group), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UpdateWithTagAndGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(tag), core::mem::transmute_copy(group), &mut result__).map(|| result__)
         }
     }
     pub fn UpdateWithTag<P0>(&self, data: P0, tag: &windows_core::HSTRING) -> windows_core::Result<NotificationUpdateResult>
@@ -3439,7 +3439,7 @@ impl ToastNotifier {
         let this = &windows_core::Interface::cast::<IToastNotifier2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateWithTag)(windows_core::Interface::as_raw(this), data.param().abi(), core::mem::transmute_copy(tag), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UpdateWithTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(tag), &mut result__).map(|| result__)
         }
     }
     pub fn ScheduledToastNotificationShowing<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -3449,7 +3449,7 @@ impl ToastNotifier {
         let this = &windows_core::Interface::cast::<IToastNotifier3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScheduledToastNotificationShowing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScheduledToastNotificationShowing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScheduledToastNotificationShowing(&self, token: i64) -> windows_core::Result<()> {

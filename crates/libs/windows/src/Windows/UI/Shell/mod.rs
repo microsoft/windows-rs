@@ -91,7 +91,7 @@ impl FocusSessionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsFocusActiveChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsFocusActiveChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveIsFocusActiveChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -553,7 +553,7 @@ impl SecurityAppManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), detailsuri.param().abi(), registerperuser, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), core::mem::transmute_copy(&detailsuri.param().borrow()), registerperuser, &mut result__).map(|| result__)
         }
     }
     pub fn Unregister(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID) -> windows_core::Result<()> {
@@ -565,7 +565,7 @@ impl SecurityAppManager {
         P4: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateState)(windows_core::Interface::as_raw(this), kind, guidregistration, state, substatus, detailsuri.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateState)(windows_core::Interface::as_raw(this), kind, guidregistration, state, substatus, core::mem::transmute_copy(&detailsuri.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for SecurityAppManager {
@@ -682,7 +682,7 @@ impl ShareWindowCommandSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommandRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CommandRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCommandRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -696,7 +696,7 @@ impl ShareWindowCommandSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommandInvoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CommandInvoked)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCommandInvoked(&self, token: i64) -> windows_core::Result<()> {
@@ -760,7 +760,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&applistentry.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -778,7 +778,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&applistentry.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -796,7 +796,7 @@ impl TaskbarManager {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), secondarytile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&secondarytile.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -853,7 +853,7 @@ impl WindowTab {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -878,7 +878,7 @@ impl WindowTab {
         P0: windows_core::Param<WindowTabIcon>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn TreatAsSecondaryTileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -903,7 +903,7 @@ impl WindowTab {
         P0: windows_core::Param<WindowTabGroup>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ReportThumbnailAvailable(&self) -> windows_core::Result<()> {
         let this = self;
@@ -988,7 +988,7 @@ impl WindowTabCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -996,14 +996,14 @@ impl WindowTabCollection {
         P1: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
@@ -1014,7 +1014,7 @@ impl WindowTabCollection {
         P0: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
@@ -1040,7 +1040,7 @@ impl WindowTabCollection {
         P0: windows_core::Param<WindowTab>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).MoveTab)(windows_core::Interface::as_raw(this), tab.param().abi(), index).ok() }
+        unsafe { (windows_core::Interface::vtable(this).MoveTab)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tab.param().borrow()), index).ok() }
     }
 }
 impl windows_core::RuntimeType for WindowTabCollection {
@@ -1104,7 +1104,7 @@ impl WindowTabGroup {
         P0: windows_core::Param<WindowTabIcon>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for WindowTabGroup {
@@ -1136,7 +1136,7 @@ impl WindowTabIcon {
     {
         Self::IWindowTabIconStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), core::mem::transmute_copy(&fonturi.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1146,7 +1146,7 @@ impl WindowTabIcon {
     {
         Self::IWindowTabIconStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromImage)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromImage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&image.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWindowTabIconStatics<R, F: FnOnce(&IWindowTabIconStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1183,7 +1183,7 @@ impl WindowTabManager {
         P0: windows_core::Param<WindowTab>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetActiveTab)(windows_core::Interface::as_raw(this), tab.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetActiveTab)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tab.param().borrow())).ok() }
     }
     pub fn TabSwitchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -1192,7 +1192,7 @@ impl WindowTabManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabSwitchRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabSwitchRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabSwitchRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1206,7 +1206,7 @@ impl WindowTabManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabCloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabCloseRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabCloseRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1220,7 +1220,7 @@ impl WindowTabManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabTearOutRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabTearOutRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabTearOutRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1234,7 +1234,7 @@ impl WindowTabManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TabThumbnailRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TabThumbnailRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTabThumbnailRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1378,7 +1378,7 @@ impl WindowTabThumbnailRequestedEventArgs {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;

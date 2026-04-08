@@ -106,7 +106,7 @@ impl DepthMediaFrame {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateCoordinateMapper)(windows_core::Interface::as_raw(this), cameraintrinsics.param().abi(), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateCoordinateMapper)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&cameraintrinsics.param().borrow()), core::mem::transmute_copy(&coordinatesystem.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MaxReliableDepth(&self) -> windows_core::Result<u32> {
@@ -709,7 +709,7 @@ impl MediaFrameReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFrameArrived(&self, token: i64) -> windows_core::Result<()> {
@@ -917,7 +917,7 @@ impl MediaFrameSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetFormatAsync)(windows_core::Interface::as_raw(this), format.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetFormatAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&format.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FormatChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -927,7 +927,7 @@ impl MediaFrameSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FormatChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FormatChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFormatChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -942,7 +942,7 @@ impl MediaFrameSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetCameraIntrinsics)(windows_core::Interface::as_raw(this), format.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetCameraIntrinsics)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&format.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -977,7 +977,7 @@ impl MediaFrameSourceController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), core::mem::transmute_copy(&propertyvalue.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Devices")]
@@ -995,7 +995,7 @@ impl MediaFrameSourceController {
         let this = &windows_core::Interface::cast::<IMediaFrameSourceController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), core::mem::transmute_copy(&maxpropertyvaluesize.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {
@@ -1214,7 +1214,7 @@ impl MediaFrameSourceInfo {
         let this = &windows_core::Interface::cast::<IMediaFrameSourceInfo3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRelativePanel)(windows_core::Interface::as_raw(this), displayregion.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetRelativePanel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&displayregion.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn IsShareable(&self) -> windows_core::Result<bool> {
@@ -1306,7 +1306,7 @@ impl MultiSourceMediaFrameReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameArrived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFrameArrived(&self, token: i64) -> windows_core::Result<()> {

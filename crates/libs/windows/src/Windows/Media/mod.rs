@@ -156,7 +156,7 @@ impl AudioFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -170,7 +170,7 @@ impl AudioFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -184,7 +184,7 @@ impl AudioFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -376,7 +376,7 @@ impl IMediaExtension {
         P0: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -385,7 +385,7 @@ impl windows_core::RuntimeName for IMediaExtension {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaExtension_Impl: windows_core::IUnknownImpl {
-    fn SetProperties(&self, configuration: windows_core::Ref<super::Foundation::Collections::IPropertySet>) -> windows_core::Result<()>;
+    fn SetProperties(&self, configuration: Option<&super::Foundation::Collections::IPropertySet>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaExtension_Vtbl {
@@ -393,7 +393,7 @@ impl IMediaExtension_Vtbl {
         unsafe extern "system" fn SetProperties<Identity: IMediaExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, configuration: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaExtension_Impl::SetProperties(this, core::mem::transmute_copy(&configuration)).into()
+                IMediaExtension_Impl::SetProperties(this, windows_core::Ref::option_from_abi(&configuration)).into()
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, OFFSET> }
@@ -489,7 +489,7 @@ impl IMediaFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
@@ -503,7 +503,7 @@ impl IMediaFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
@@ -517,7 +517,7 @@ impl IMediaFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = self;
@@ -558,11 +558,11 @@ impl windows_core::RuntimeName for IMediaFrame {
 pub trait IMediaFrame_Impl: super::Foundation::IClosable_Impl {
     fn Type(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn IsReadOnly(&self) -> windows_core::Result<bool>;
-    fn SetRelativeTime(&self, value: windows_core::Ref<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetRelativeTime(&self, value: Option<&super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn RelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetSystemRelativeTime(&self, value: windows_core::Ref<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetSystemRelativeTime(&self, value: Option<&super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn SystemRelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetDuration(&self, value: windows_core::Ref<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetDuration(&self, value: Option<&super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn Duration(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
     fn SetIsDiscontinuous(&self, value: bool) -> windows_core::Result<()>;
     fn IsDiscontinuous(&self) -> windows_core::Result<bool>;
@@ -599,7 +599,7 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn SetRelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaFrame_Impl::SetRelativeTime(this, core::mem::transmute_copy(&value)).into()
+                IMediaFrame_Impl::SetRelativeTime(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn RelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -618,7 +618,7 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn SetSystemRelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaFrame_Impl::SetSystemRelativeTime(this, core::mem::transmute_copy(&value)).into()
+                IMediaFrame_Impl::SetSystemRelativeTime(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn SystemRelativeTime<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -637,7 +637,7 @@ impl IMediaFrame_Vtbl {
         unsafe extern "system" fn SetDuration<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaFrame_Impl::SetDuration(this, core::mem::transmute_copy(&value)).into()
+                IMediaFrame_Impl::SetDuration(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn Duration<Identity: IMediaFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1301,7 +1301,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveSoundLevelChanged(cookie: i64) -> windows_core::Result<()> {
@@ -1313,7 +1313,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlayPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PlayPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemovePlayPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1325,7 +1325,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PausePressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PausePressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemovePausePressed(cookie: i64) -> windows_core::Result<()> {
@@ -1337,7 +1337,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StopPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StopPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveStopPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1349,7 +1349,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlayPauseTogglePressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PlayPauseTogglePressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemovePlayPauseTogglePressed(cookie: i64) -> windows_core::Result<()> {
@@ -1361,7 +1361,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RecordPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveRecordPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1373,7 +1373,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NextTrackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NextTrackPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveNextTrackPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1385,7 +1385,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreviousTrackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PreviousTrackPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemovePreviousTrackPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1397,7 +1397,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FastForwardPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FastForwardPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveFastForwardPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1409,7 +1409,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RewindPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RewindPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveRewindPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1421,7 +1421,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelUpPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ChannelUpPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveChannelUpPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1433,7 +1433,7 @@ impl MediaControl {
     {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ChannelDownPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ChannelDownPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveChannelDownPressed(cookie: i64) -> windows_core::Result<()> {
@@ -1476,7 +1476,7 @@ impl MediaControl {
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
-        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).SetAlbumArt)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).SetAlbumArt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() })
     }
     pub fn AlbumArt() -> windows_core::Result<super::Foundation::Uri> {
         Self::IMediaControl(|this| unsafe {
@@ -1514,7 +1514,7 @@ impl MediaExtensionManager {
         P2: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(scheme), configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(scheme), core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     pub fn RegisterByteStreamHandler(&self, activatableclassid: &windows_core::HSTRING, fileextension: &windows_core::HSTRING, mimetype: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -1526,7 +1526,7 @@ impl MediaExtensionManager {
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(fileextension), core::mem::transmute_copy(mimetype), configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(fileextension), core::mem::transmute_copy(mimetype), core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     pub fn RegisterAudioDecoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
         let this = self;
@@ -1538,7 +1538,7 @@ impl MediaExtensionManager {
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     pub fn RegisterAudioEncoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
         let this = self;
@@ -1550,7 +1550,7 @@ impl MediaExtensionManager {
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     pub fn RegisterVideoDecoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
         let this = self;
@@ -1562,7 +1562,7 @@ impl MediaExtensionManager {
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     pub fn RegisterVideoEncoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
         let this = self;
@@ -1574,7 +1574,7 @@ impl MediaExtensionManager {
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
     pub fn RegisterMediaExtensionForAppService<P0, P1>(&self, extension: P0, connection: P1) -> windows_core::Result<()>
@@ -1583,7 +1583,7 @@ impl MediaExtensionManager {
         P1: windows_core::Param<super::ApplicationModel::AppService::AppServiceConnection>,
     {
         let this = &windows_core::Interface::cast::<IMediaExtensionManager2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RegisterMediaExtensionForAppService)(windows_core::Interface::as_raw(this), extension.param().abi(), connection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterMediaExtensionForAppService)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&extension.param().borrow()), core::mem::transmute_copy(&connection.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for MediaExtensionManager {
@@ -1757,7 +1757,7 @@ impl MediaTimelineController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PositionChanged)(windows_core::Interface::as_raw(this), positionchangedeventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PositionChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&positionchangedeventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePositionChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1771,7 +1771,7 @@ impl MediaTimelineController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), statechangedeventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statechangedeventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1790,7 +1790,7 @@ impl MediaTimelineController {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IsLoopingEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -1810,7 +1810,7 @@ impl MediaTimelineController {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFailed(&self, token: i64) -> windows_core::Result<()> {
@@ -1824,7 +1824,7 @@ impl MediaTimelineController {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ended)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Ended)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnded(&self, token: i64) -> windows_core::Result<()> {
@@ -2222,7 +2222,7 @@ impl SystemMediaTransportControls {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonPressed(&self, token: i64) -> windows_core::Result<()> {
@@ -2236,7 +2236,7 @@ impl SystemMediaTransportControls {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PropertyChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PropertyChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePropertyChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2281,7 +2281,7 @@ impl SystemMediaTransportControls {
         P0: windows_core::Param<SystemMediaTransportControlsTimelineProperties>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).UpdateTimelineProperties)(windows_core::Interface::as_raw(this), timelineproperties.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateTimelineProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&timelineproperties.param().borrow())).ok() }
     }
     pub fn PlaybackPositionChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -2290,7 +2290,7 @@ impl SystemMediaTransportControls {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlaybackPositionChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PlaybackPositionChangeRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePlaybackPositionChangeRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -2304,7 +2304,7 @@ impl SystemMediaTransportControls {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PlaybackRateChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PlaybackRateChangeRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePlaybackRateChangeRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -2318,7 +2318,7 @@ impl SystemMediaTransportControls {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShuffleEnabledChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShuffleEnabledChangeRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShuffleEnabledChangeRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -2332,7 +2332,7 @@ impl SystemMediaTransportControls {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutoRepeatModeChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AutoRepeatModeChangeRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAutoRepeatModeChangeRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -2449,7 +2449,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
         P0: windows_core::Param<super::Storage::Streams::RandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MusicProperties(&self) -> windows_core::Result<MusicDisplayProperties> {
         let this = self;
@@ -2480,7 +2480,7 @@ impl SystemMediaTransportControlsDisplayUpdater {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyFromFileAsync)(windows_core::Interface::as_raw(this), r#type, source.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyFromFileAsync)(windows_core::Interface::as_raw(this), r#type, core::mem::transmute_copy(&source.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearAll(&self) -> windows_core::Result<()> {
@@ -2713,7 +2713,7 @@ impl VideoFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -2727,7 +2727,7 @@ impl VideoFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -2741,7 +2741,7 @@ impl VideoFrame {
         P0: windows_core::Param<super::Foundation::IReference<super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -2784,7 +2784,7 @@ impl VideoFrame {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyToAsync)(windows_core::Interface::as_raw(this), frame.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyToAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&frame.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -2805,7 +2805,7 @@ impl VideoFrame {
         let this = &windows_core::Interface::cast::<IVideoFrame2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(windows_core::Interface::as_raw(this), frame.param().abi(), sourcebounds.param().abi(), destinationbounds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&frame.param().borrow()), core::mem::transmute_copy(&sourcebounds.param().borrow()), core::mem::transmute_copy(&destinationbounds.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -2836,7 +2836,7 @@ impl VideoFrame {
     {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(windows_core::Interface::as_raw(this), format, width, height, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(windows_core::Interface::as_raw(this), format, width, height, core::mem::transmute_copy(&device.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -2846,7 +2846,7 @@ impl VideoFrame {
     {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithSoftwareBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithSoftwareBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -2856,7 +2856,7 @@ impl VideoFrame {
     {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithDirect3D11Surface)(windows_core::Interface::as_raw(this), surface.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithDirect3D11Surface)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&surface.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IVideoFrameFactory<R, F: FnOnce(&IVideoFrameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

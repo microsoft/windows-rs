@@ -310,7 +310,7 @@ impl LowLevelDevicesAggregateProvider {
     {
         Self::ILowLevelDevicesAggregateProviderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), adc.param().abi(), pwm.param().abi(), gpio.param().abi(), i2c.param().abi(), spi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&adc.param().borrow()), core::mem::transmute_copy(&pwm.param().borrow()), core::mem::transmute_copy(&gpio.param().borrow()), core::mem::transmute_copy(&i2c.param().borrow()), core::mem::transmute_copy(&spi.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -345,7 +345,7 @@ impl LowLevelDevicesController {
     where
         P0: windows_core::Param<ILowLevelDevicesAggregateProvider>,
     {
-        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultProvider)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
+        Self::ILowLevelDevicesControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() })
     }
     fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LowLevelDevicesController, ILowLevelDevicesControllerStatics> = windows_core::imp::FactoryCache::new();

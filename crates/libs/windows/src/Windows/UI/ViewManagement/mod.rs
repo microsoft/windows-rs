@@ -33,7 +33,7 @@ impl AccessibilitySettings {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HighContrastChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HighContrastChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHighContrastChanged(&self, cookie: i64) -> windows_core::Result<()> {
@@ -168,7 +168,7 @@ impl ApplicationView {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Consolidated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Consolidated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConsolidated(&self, token: i64) -> windows_core::Result<()> {
@@ -200,7 +200,7 @@ impl ApplicationView {
         let this = &windows_core::Interface::cast::<IApplicationView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibleBoundsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisibleBoundsChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVisibleBoundsChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -300,7 +300,7 @@ impl ApplicationView {
         let this = &windows_core::Interface::cast::<IApplicationView4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewmode, viewmodepreferences.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewmode, core::mem::transmute_copy(&viewmodepreferences.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryConsolidateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -350,7 +350,7 @@ impl ApplicationView {
     {
         Self::IApplicationViewInteropStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetApplicationViewIdForWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetApplicationViewIdForWindow)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&window.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn Value() -> windows_core::Result<ApplicationViewState> {
@@ -628,7 +628,7 @@ impl ApplicationViewSwitcher {
     {
         Self::IApplicationViewSwitcherStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewid, viewmode, viewmodepreferences.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(windows_core::Interface::as_raw(this), viewid, viewmode, core::mem::transmute_copy(&viewmodepreferences.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IApplicationViewSwitcherStatics<R, F: FnOnce(&IApplicationViewSwitcherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -704,7 +704,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -718,7 +718,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn BackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -732,7 +732,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonForegroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -746,7 +746,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonBackgroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -760,7 +760,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -774,7 +774,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -788,7 +788,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -802,7 +802,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -816,7 +816,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInactiveForegroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -830,7 +830,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -844,7 +844,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -858,7 +858,7 @@ impl ApplicationViewTitleBar {
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1579,7 +1579,7 @@ impl InputPane {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShowing(&self, token: i64) -> windows_core::Result<()> {
@@ -1593,7 +1593,7 @@ impl InputPane {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Hiding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Hiding)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHiding(&self, token: i64) -> windows_core::Result<()> {
@@ -1644,7 +1644,7 @@ impl InputPane {
     {
         Self::IInputPaneStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&context.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IInputPaneStatics<R, F: FnOnce(&IInputPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1732,7 +1732,7 @@ impl ProjectionManager {
     {
         Self::IProjectionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProjectionDisplayAvailableChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveProjectionDisplayAvailableChanged(token: i64) -> windows_core::Result<()> {
@@ -1745,7 +1745,7 @@ impl ProjectionManager {
     {
         Self::IProjectionManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProjectingWithDeviceInfoAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, displaydeviceinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProjectingWithDeviceInfoAsync)(windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, core::mem::transmute_copy(&displaydeviceinfo.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestStartProjectingAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -1967,7 +1967,7 @@ impl UISettings {
         let this = &windows_core::Interface::cast::<IUISettings2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TextScaleFactorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TextScaleFactorChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTextScaleFactorChanged(&self, cookie: i64) -> windows_core::Result<()> {
@@ -1988,7 +1988,7 @@ impl UISettings {
         let this = &windows_core::Interface::cast::<IUISettings3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ColorValuesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ColorValuesChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveColorValuesChanged(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2009,7 +2009,7 @@ impl UISettings {
         let this = &windows_core::Interface::cast::<IUISettings4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdvancedEffectsEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AdvancedEffectsEnabledChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdvancedEffectsEnabledChanged(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2030,7 +2030,7 @@ impl UISettings {
         let this = &windows_core::Interface::cast::<IUISettings5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AutoHideScrollBarsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AutoHideScrollBarsChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAutoHideScrollBarsChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2044,7 +2044,7 @@ impl UISettings {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnimationsEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AnimationsEnabledChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAnimationsEnabledChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2058,7 +2058,7 @@ impl UISettings {
         let this = &windows_core::Interface::cast::<IUISettings6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageDurationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MessageDurationChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageDurationChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2155,7 +2155,7 @@ impl UIViewSettings {
         let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePreferredInteractionModeChanged(&self, token: i64) -> windows_core::Result<()> {

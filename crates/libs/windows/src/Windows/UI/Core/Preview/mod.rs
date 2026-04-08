@@ -10,7 +10,7 @@ impl CoreAppWindowPreview {
     {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIdFromWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetIdFromWindow)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&window.param().borrow()), &mut result__).map(|| result__)
         })
     }
     fn ICoreAppWindowPreviewStatics<R, F: FnOnce(&ICoreAppWindowPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -133,7 +133,7 @@ impl SystemNavigationManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCloseRequested(&self, token: i64) -> windows_core::Result<()> {

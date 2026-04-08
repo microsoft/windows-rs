@@ -7,7 +7,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xpsprint.dll" "system" fn StartXpsPrintJob(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::super::super::Foundation:: HANDLE, completionevent : super::super::super::Foundation:: HANDLE, printablepageson : *const u8, printablepagesoncount : u32, xpsprintjob : *mut * mut core::ffi::c_void, documentstream : *mut * mut core::ffi::c_void, printticketstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StartXpsPrintJob(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, core::mem::transmute(printablepageson.as_ptr()), printablepageson.len().try_into().unwrap(), core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), core::mem::transmute(printticketstream)).ok() }
+    unsafe { StartXpsPrintJob(core::mem::transmute_copy(&printername.param().borrow()), core::mem::transmute_copy(&jobname.param().borrow()), core::mem::transmute_copy(&outputfilename.param().borrow()), progressevent, completionevent, core::mem::transmute(printablepageson.as_ptr()), printablepageson.len().try_into().unwrap(), core::mem::transmute(xpsprintjob), core::mem::transmute(documentstream), core::mem::transmute(printticketstream)).ok() }
 }
 #[inline]
 pub unsafe fn StartXpsPrintJob1<P0, P1, P2>(printername: P0, jobname: P1, outputfilename: P2, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, xpsprintjob: *mut Option<IXpsPrintJob>, printcontentreceiver: *mut Option<super::IXpsOMPackageTarget>) -> windows_core::Result<()>
@@ -17,7 +17,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("xpsprint.dll" "system" fn StartXpsPrintJob1(printername : windows_core::PCWSTR, jobname : windows_core::PCWSTR, outputfilename : windows_core::PCWSTR, progressevent : super::super::super::Foundation:: HANDLE, completionevent : super::super::super::Foundation:: HANDLE, xpsprintjob : *mut * mut core::ffi::c_void, printcontentreceiver : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StartXpsPrintJob1(printername.param().abi(), jobname.param().abi(), outputfilename.param().abi(), progressevent, completionevent, core::mem::transmute(xpsprintjob), core::mem::transmute(printcontentreceiver)).ok() }
+    unsafe { StartXpsPrintJob1(core::mem::transmute_copy(&printername.param().borrow()), core::mem::transmute_copy(&jobname.param().borrow()), core::mem::transmute_copy(&outputfilename.param().borrow()), progressevent, completionevent, core::mem::transmute(xpsprintjob), core::mem::transmute(printcontentreceiver)).ok() }
 }
 pub const ID_DOCUMENTPACKAGETARGET_MSXPS: windows_core::GUID = windows_core::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: windows_core::GUID = windows_core::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);
@@ -204,7 +204,7 @@ impl IPrintDocumentPackageTargetFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(windows_core::Interface::as_raw(self), printername.param().abi(), jobname.param().abi(), joboutputstream.param().abi(), jobprintticketstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&printername.param().borrow()), core::mem::transmute_copy(&jobname.param().borrow()), core::mem::transmute_copy(&joboutputstream.param().borrow()), core::mem::transmute_copy(&jobprintticketstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -219,7 +219,7 @@ pub struct IPrintDocumentPackageTargetFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageTargetFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &windows_core::PCWSTR, jobname: &windows_core::PCWSTR, joboutputstream: windows_core::Ref<super::super::super::System::Com::IStream>, jobprintticketstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IPrintDocumentPackageTarget>;
+    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &windows_core::PCWSTR, jobname: &windows_core::PCWSTR, joboutputstream: Option<&super::super::super::System::Com::IStream>, jobprintticketstream: Option<&super::super::super::System::Com::IStream>) -> windows_core::Result<IPrintDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintDocumentPackageTargetFactory_Vtbl {
@@ -227,7 +227,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
         unsafe extern "system" fn CreateDocumentPackageTargetForPrintJob<Identity: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printername: windows_core::PCWSTR, jobname: windows_core::PCWSTR, joboutputstream: *mut core::ffi::c_void, jobprintticketstream: *mut core::ffi::c_void, docpackagetarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPrintDocumentPackageTargetFactory_Impl::CreateDocumentPackageTargetForPrintJob(this, core::mem::transmute(&printername), core::mem::transmute(&jobname), core::mem::transmute_copy(&joboutputstream), core::mem::transmute_copy(&jobprintticketstream)) {
+                match IPrintDocumentPackageTargetFactory_Impl::CreateDocumentPackageTargetForPrintJob(this, core::mem::transmute(&printername), core::mem::transmute(&jobname), windows_core::Ref::option_from_abi(&joboutputstream), windows_core::Ref::option_from_abi(&jobprintticketstream)) {
                     Ok(ok__) => {
                         docpackagetarget.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

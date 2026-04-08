@@ -38,7 +38,7 @@ impl ApplicationLanguages {
     {
         Self::IApplicationLanguagesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLanguagesForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetLanguagesForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IApplicationLanguagesStatics<R, F: FnOnce(&IApplicationLanguagesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -603,7 +603,7 @@ impl Calendar {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compare)(windows_core::Interface::as_raw(this), other.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Compare)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&other.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn CompareDateTime(&self, other: super::Foundation::DateTime) -> windows_core::Result<i32> {
@@ -618,7 +618,7 @@ impl Calendar {
         P0: windows_core::Param<Calendar>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).CopyTo)(windows_core::Interface::as_raw(this), other.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).CopyTo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&other.param().borrow())).ok() }
     }
     pub fn FirstMinuteInThisHour(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -682,7 +682,7 @@ impl Calendar {
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateCalendar<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<Calendar>
@@ -691,7 +691,7 @@ impl Calendar {
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow()), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateCalendarWithTimeZone<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING, timezoneid: &windows_core::HSTRING) -> windows_core::Result<Calendar>
@@ -700,7 +700,7 @@ impl Calendar {
     {
         Self::ICalendarFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), core::mem::transmute_copy(timezoneid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow()), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), core::mem::transmute_copy(timezoneid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetTimeZone(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2805,7 +2805,7 @@ impl Language {
     {
         Self::ILanguageStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languagetags.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ILanguageFactory<R, F: FnOnce(&ILanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

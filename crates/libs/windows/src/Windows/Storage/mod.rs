@@ -89,7 +89,7 @@ impl AppDataPaths {
     {
         Self::IAppDataPathsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefault() -> windows_core::Result<AppDataPaths> {
@@ -135,7 +135,7 @@ impl ApplicationData {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetVersionAsync)(windows_core::Interface::as_raw(this), desiredversion, handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetVersionAsync)(windows_core::Interface::as_raw(this), desiredversion, core::mem::transmute_copy(&handler.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearAllAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -197,7 +197,7 @@ impl ApplicationData {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DataChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDataChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -259,7 +259,7 @@ impl ApplicationData {
     {
         Self::IApplicationDataStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -346,7 +346,7 @@ impl ApplicationDataCompositeValue {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -364,7 +364,7 @@ impl ApplicationDataCompositeValue {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -520,7 +520,7 @@ impl ApplicationDataContainerSettings {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -538,7 +538,7 @@ impl ApplicationDataContainerSettings {
         let this = &windows_core::Interface::cast::<super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -613,7 +613,7 @@ impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ApplicationDataSetVersionHandler {
-    pub fn new<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ApplicationDataSetVersionHandlerBox { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -622,7 +622,7 @@ impl ApplicationDataSetVersionHandler {
         P0: windows_core::Param<SetVersionRequest>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), setversionrequest.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&setversionrequest.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -632,12 +632,12 @@ pub struct ApplicationDataSetVersionHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ApplicationDataSetVersionHandlerBox<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct ApplicationDataSetVersionHandlerBox<F: Fn(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const ApplicationDataSetVersionHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
+impl<F: Fn(Option<&SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
     const VTABLE: ApplicationDataSetVersionHandler_Vtbl = ApplicationDataSetVersionHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -680,7 +680,7 @@ impl<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + S
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&setversionrequest)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&setversionrequest)).into()
         }
     }
 }
@@ -691,7 +691,7 @@ impl CachedFileManager {
     where
         P0: windows_core::Param<IStorageFile>,
     {
-        Self::ICachedFileManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).DeferUpdates)(windows_core::Interface::as_raw(this), file.param().abi()).ok() })
+        Self::ICachedFileManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).DeferUpdates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow())).ok() })
     }
     #[cfg(all(feature = "Storage_Provider", feature = "Storage_Streams"))]
     pub fn CompleteUpdatesAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Provider::FileUpdateStatus>>
@@ -700,7 +700,7 @@ impl CachedFileManager {
     {
         Self::ICachedFileManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CompleteUpdatesAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CompleteUpdatesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ICachedFileManagerStatics<R, F: FnOnce(&ICachedFileManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -763,7 +763,7 @@ impl DownloadsFolder {
     {
         Self::IDownloadsFolderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Storage_Search", feature = "System"))]
@@ -773,7 +773,7 @@ impl DownloadsFolder {
     {
         Self::IDownloadsFolderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFolderForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(desiredname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Storage_Streams", feature = "System"))]
@@ -783,7 +783,7 @@ impl DownloadsFolder {
     {
         Self::IDownloadsFolderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileForUserWithCollisionOptionAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileForUserWithCollisionOptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Storage_Search", feature = "System"))]
@@ -793,7 +793,7 @@ impl DownloadsFolder {
     {
         Self::IDownloadsFolderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderForUserWithCollisionOptionAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFolderForUserWithCollisionOptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(desiredname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IDownloadsFolderStatics<R, F: FnOnce(&IDownloadsFolderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -880,7 +880,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadTextAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -890,7 +890,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadTextWithEncodingAsync)(windows_core::Interface::as_raw(this), file.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -900,7 +900,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteTextAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -910,7 +910,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteTextWithEncodingAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -920,7 +920,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendTextAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(contents), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -930,7 +930,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendTextWithEncodingAsync)(windows_core::Interface::as_raw(this), file.param().abi(), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendTextWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(contents), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -940,7 +940,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadLinesAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -950,7 +950,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), file.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -961,7 +961,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteLinesAsync)(windows_core::Interface::as_raw(this), file.param().abi(), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&lines.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -972,7 +972,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), file.param().abi(), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&lines.param().borrow()), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -983,7 +983,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendLinesAsync)(windows_core::Interface::as_raw(this), file.param().abi(), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&lines.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -994,7 +994,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), file.param().abi(), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&lines.param().borrow()), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1004,7 +1004,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadBufferAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1015,7 +1015,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteBufferAsync)(windows_core::Interface::as_raw(this), file.param().abi(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1025,7 +1025,7 @@ impl FileIO {
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteBytesAsync)(windows_core::Interface::as_raw(this), file.param().abi(), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteBytesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IFileIOStatics<R, F: FnOnce(&IFileIOStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1552,7 +1552,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -1562,7 +1562,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -1572,7 +1572,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1582,7 +1582,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&filetoreplace.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1592,7 +1592,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1602,7 +1602,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1612,7 +1612,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1622,7 +1622,7 @@ impl IStorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&filetoreplace.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenSequentialReadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<Streams::IInputStream>> {
@@ -1721,14 +1721,14 @@ pub trait IStorageFile_Impl: Streams::IInputStreamReference_Impl + Streams::IRan
     fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn OpenAsync(&self, accessMode: FileAccessMode) -> windows_core::Result<windows_future::IAsyncOperation<Streams::IRandomAccessStream>>;
     fn OpenTransactedWriteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<StorageStreamTransaction>>;
-    fn CopyOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
-    fn CopyOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
-    fn CopyOverload(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
-    fn CopyAndReplaceAsync(&self, fileToReplace: windows_core::Ref<IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveOverload(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveAndReplaceAsync(&self, fileToReplace: windows_core::Ref<IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn CopyOverloadDefaultNameAndOptions(&self, destinationFolder: Option<&IStorageFolder>) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
+    fn CopyOverloadDefaultOptions(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
+    fn CopyOverload(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
+    fn CopyAndReplaceAsync(&self, fileToReplace: Option<&IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveOverloadDefaultNameAndOptions(&self, destinationFolder: Option<&IStorageFolder>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveOverloadDefaultOptions(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveOverload(&self, destinationFolder: Option<&IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveAndReplaceAsync(&self, fileToReplace: Option<&IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl IStorageFile_Vtbl {
@@ -1788,7 +1788,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn CopyOverloadDefaultNameAndOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::CopyOverloadDefaultNameAndOptions(this, core::mem::transmute_copy(&destinationfolder)) {
+                match IStorageFile_Impl::CopyOverloadDefaultNameAndOptions(this, windows_core::Ref::option_from_abi(&destinationfolder)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1801,7 +1801,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn CopyOverloadDefaultOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::CopyOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname)) {
+                match IStorageFile_Impl::CopyOverloadDefaultOptions(this, windows_core::Ref::option_from_abi(&destinationfolder), core::mem::transmute(&desirednewname)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1814,7 +1814,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn CopyOverload<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::CopyOverload(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname), option) {
+                match IStorageFile_Impl::CopyOverload(this, windows_core::Ref::option_from_abi(&destinationfolder), core::mem::transmute(&desirednewname), option) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1827,7 +1827,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn CopyAndReplaceAsync<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetoreplace: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::CopyAndReplaceAsync(this, core::mem::transmute_copy(&filetoreplace)) {
+                match IStorageFile_Impl::CopyAndReplaceAsync(this, windows_core::Ref::option_from_abi(&filetoreplace)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1840,7 +1840,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn MoveOverloadDefaultNameAndOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::MoveOverloadDefaultNameAndOptions(this, core::mem::transmute_copy(&destinationfolder)) {
+                match IStorageFile_Impl::MoveOverloadDefaultNameAndOptions(this, windows_core::Ref::option_from_abi(&destinationfolder)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1853,7 +1853,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn MoveOverloadDefaultOptions<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::MoveOverloadDefaultOptions(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname)) {
+                match IStorageFile_Impl::MoveOverloadDefaultOptions(this, windows_core::Ref::option_from_abi(&destinationfolder), core::mem::transmute(&desirednewname)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1866,7 +1866,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn MoveOverload<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationfolder: *mut core::ffi::c_void, desirednewname: *mut core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::MoveOverload(this, core::mem::transmute_copy(&destinationfolder), core::mem::transmute(&desirednewname), option) {
+                match IStorageFile_Impl::MoveOverload(this, windows_core::Ref::option_from_abi(&destinationfolder), core::mem::transmute(&desirednewname), option) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1879,7 +1879,7 @@ impl IStorageFile_Vtbl {
         unsafe extern "system" fn MoveAndReplaceAsync<Identity: IStorageFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetoreplace: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageFile_Impl::MoveAndReplaceAsync(this, core::mem::transmute_copy(&filetoreplace)) {
+                match IStorageFile_Impl::MoveAndReplaceAsync(this, windows_core::Ref::option_from_abi(&filetoreplace)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2832,7 +2832,7 @@ impl IStorageItem2 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -2914,7 +2914,7 @@ impl windows_core::RuntimeName for IStorageItem2 {
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
 pub trait IStorageItem2_Impl: IStorageItem_Impl {
     fn GetParentAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<StorageFolder>>;
-    fn IsEqual(&self, item: windows_core::Ref<IStorageItem>) -> windows_core::Result<bool>;
+    fn IsEqual(&self, item: Option<&IStorageItem>) -> windows_core::Result<bool>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
 impl IStorageItem2_Vtbl {
@@ -2935,7 +2935,7 @@ impl IStorageItem2_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: IStorageItem2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItem2_Impl::IsEqual(this, core::mem::transmute_copy(&item)) {
+                match IStorageItem2_Impl::IsEqual(this, windows_core::Ref::option_from_abi(&item)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -3989,7 +3989,7 @@ impl KnownFolders {
     {
         Self::IKnownFoldersStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFolderForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFolderForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestAccessAsync(folderid: KnownFolderId) -> windows_core::Result<windows_future::IAsyncOperation<KnownFoldersAccessStatus>> {
@@ -4005,7 +4005,7 @@ impl KnownFolders {
     {
         Self::IKnownFoldersStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), folderid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Search")]
@@ -4153,7 +4153,7 @@ impl PathIO {
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(&lines.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4163,7 +4163,7 @@ impl PathIO {
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(&lines.param().borrow()), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AppendLinesAsync<P1>(absolutepath: &windows_core::HSTRING, lines: P1) -> windows_core::Result<windows_future::IAsyncAction>
@@ -4172,7 +4172,7 @@ impl PathIO {
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendLinesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(&lines.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4182,7 +4182,7 @@ impl PathIO {
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), lines.param().abi(), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendLinesWithEncodingAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(&lines.param().borrow()), encoding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4199,7 +4199,7 @@ impl PathIO {
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteBufferAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(absolutepath), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn WriteBytesAsync(absolutepath: &windows_core::HSTRING, buffer: &[u8]) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -4349,7 +4349,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -4359,7 +4359,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -4369,7 +4369,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyOverload)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -4379,7 +4379,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyAndReplaceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&filetoreplace.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverloadDefaultNameAndOptions<P0>(&self, destinationfolder: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -4389,7 +4389,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultNameAndOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverloadDefaultOptions<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>
@@ -4399,7 +4399,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverloadDefaultOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveOverload<P0>(&self, destinationfolder: P0, desirednewname: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncAction>
@@ -4409,7 +4409,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), destinationfolder.param().abi(), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveOverload)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destinationfolder.param().borrow()), core::mem::transmute_copy(desirednewname), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MoveAndReplaceAsync<P0>(&self, filetoreplace: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -4419,7 +4419,7 @@ impl StorageFile {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MoveAndReplaceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&filetoreplace.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenWithOptionsAsync(&self, accessmode: FileAccessMode, options: StorageOpenOptions) -> windows_core::Result<windows_future::IAsyncOperation<Streams::IRandomAccessStream>> {
@@ -4455,7 +4455,7 @@ impl StorageFile {
     {
         Self::IStorageFileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileFromApplicationUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFileFromApplicationUriAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateStreamedFileAsync<P1, P2>(displaynamewithextension: &windows_core::HSTRING, datarequested: P1, thumbnail: P2) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -4465,7 +4465,7 @@ impl StorageFile {
     {
         Self::IStorageFileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStreamedFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), datarequested.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStreamedFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), core::mem::transmute_copy(&datarequested.param().borrow()), core::mem::transmute_copy(&thumbnail.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ReplaceWithStreamedFileAsync<P0, P1, P2>(filetoreplace: P0, datarequested: P1, thumbnail: P2) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -4476,7 +4476,7 @@ impl StorageFile {
     {
         Self::IStorageFileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), datarequested.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&filetoreplace.param().borrow()), core::mem::transmute_copy(&datarequested.param().borrow()), core::mem::transmute_copy(&thumbnail.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateStreamedFileFromUriAsync<P1, P2>(displaynamewithextension: &windows_core::HSTRING, uri: P1, thumbnail: P2) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -4486,7 +4486,7 @@ impl StorageFile {
     {
         Self::IStorageFileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), uri.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaynamewithextension), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(&thumbnail.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ReplaceWithStreamedFileFromUriAsync<P0, P1, P2>(filetoreplace: P0, uri: P1, thumbnail: P2) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>
@@ -4497,7 +4497,7 @@ impl StorageFile {
     {
         Self::IStorageFileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), filetoreplace.param().abi(), uri.param().abi(), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReplaceWithStreamedFileFromUriAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&filetoreplace.param().borrow()), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(&thumbnail.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -4507,7 +4507,7 @@ impl StorageFile {
     {
         Self::IStorageFileStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileFromPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFileFromPathForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -4596,7 +4596,7 @@ impl StorageFile {
         let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_FileProperties")]
@@ -4831,7 +4831,7 @@ impl StorageFolder {
         let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileQueryWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&queryoptions.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateFolderQueryOverloadDefault(&self) -> windows_core::Result<Search::StorageFolderQueryResult> {
@@ -4855,7 +4855,7 @@ impl StorageFolder {
         let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFolderQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFolderQueryWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&queryoptions.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateItemQuery(&self) -> windows_core::Result<Search::StorageItemQueryResult> {
@@ -4872,7 +4872,7 @@ impl StorageFolder {
         let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateItemQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateItemQueryWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&queryoptions.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -4919,7 +4919,7 @@ impl StorageFolder {
         let this = &windows_core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AreQueryOptionsSupported)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AreQueryOptionsSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&queryoptions.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn IsCommonFolderQuerySupported(&self, query: Search::CommonFolderQuery) -> windows_core::Result<bool> {
@@ -4949,7 +4949,7 @@ impl StorageFolder {
     {
         Self::IStorageFolderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFolderFromPathForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFolderFromPathForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -5037,7 +5037,7 @@ impl StorageFolder {
         let this = &windows_core::Interface::cast::<IStorageItem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
@@ -5214,7 +5214,7 @@ impl StorageLibrary {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestRemoveFolderAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestRemoveFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&folder.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
@@ -5240,7 +5240,7 @@ impl StorageLibrary {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefinitionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DefinitionChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDefinitionChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -5274,7 +5274,7 @@ impl StorageLibrary {
     {
         Self::IStorageLibraryStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLibraryForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), libraryid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetLibraryForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), libraryid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IStorageLibraryStatics<R, F: FnOnce(&IStorageLibraryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -5413,7 +5413,7 @@ impl StorageLibraryChangeTracker {
         P0: windows_core::Param<StorageLibraryChangeTrackerOptions>,
     {
         let this = &windows_core::Interface::cast::<IStorageLibraryChangeTracker2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow())).ok() }
     }
     pub fn Disable(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IStorageLibraryChangeTracker2>(self)?;
@@ -5658,7 +5658,7 @@ impl StreamedFileDataRequest {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -5694,7 +5694,7 @@ impl windows_core::RuntimeType for StreamedFileDataRequestedHandler {
 }
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequestedHandler {
-    pub fn new<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = StreamedFileDataRequestedHandlerBox { vtable: &StreamedFileDataRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -5703,7 +5703,7 @@ impl StreamedFileDataRequestedHandler {
         P0: windows_core::Param<StreamedFileDataRequest>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), stream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stream.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -5715,13 +5715,13 @@ pub struct StreamedFileDataRequestedHandler_Vtbl {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
-struct StreamedFileDataRequestedHandlerBox<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct StreamedFileDataRequestedHandlerBox<F: Fn(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const StreamedFileDataRequestedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "Storage_Streams")]
-impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> StreamedFileDataRequestedHandlerBox<F> {
+impl<F: Fn(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> StreamedFileDataRequestedHandlerBox<F> {
     const VTABLE: StreamedFileDataRequestedHandler_Vtbl = StreamedFileDataRequestedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -5764,7 +5764,7 @@ impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<(
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, stream: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&stream)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&stream)).into()
         }
     }
 }
@@ -6484,7 +6484,7 @@ impl UserDataPaths {
     {
         Self::IUserDataPathsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefault() -> windows_core::Result<UserDataPaths> {

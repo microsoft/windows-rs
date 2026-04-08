@@ -1527,7 +1527,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentReading)(windows_core::Interface::as_raw(self), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentReading)(windows_core::Interface::as_raw(self), inputkind, core::mem::transmute_copy(&device.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNextReading<P0, P2>(&self, referencereading: P0, inputkind: GameInputKind, device: P2) -> windows_core::Result<IGameInputReading>
@@ -1537,7 +1537,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNextReading)(windows_core::Interface::as_raw(self), referencereading.param().abi(), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNextReading)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&referencereading.param().borrow()), inputkind, core::mem::transmute_copy(&device.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPreviousReading<P0, P2>(&self, referencereading: P0, inputkind: GameInputKind, device: P2) -> windows_core::Result<IGameInputReading>
@@ -1547,7 +1547,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreviousReading)(windows_core::Interface::as_raw(self), referencereading.param().abi(), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreviousReading)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&referencereading.param().borrow()), inputkind, core::mem::transmute_copy(&device.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetTemporalReading<P1>(&self, timestamp: u64, device: P1) -> windows_core::Result<IGameInputReading>
@@ -1556,32 +1556,32 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTemporalReading)(windows_core::Interface::as_raw(self), timestamp, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTemporalReading)(windows_core::Interface::as_raw(self), timestamp, core::mem::transmute_copy(&device.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RegisterReadingCallback<P0>(&self, device: P0, inputkind: GameInputKind, analogthreshold: f32, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputReadingCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterReadingCallback)(windows_core::Interface::as_raw(self), device.param().abi(), inputkind, analogthreshold, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterReadingCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&device.param().borrow()), inputkind, analogthreshold, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn RegisterDeviceCallback<P0>(&self, device: P0, inputkind: GameInputKind, statusfilter: GameInputDeviceStatus, enumerationkind: GameInputEnumerationKind, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputDeviceCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterDeviceCallback)(windows_core::Interface::as_raw(self), device.param().abi(), inputkind, statusfilter, enumerationkind, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterDeviceCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&device.param().borrow()), inputkind, statusfilter, enumerationkind, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn RegisterSystemButtonCallback<P0>(&self, device: P0, buttonfilter: GameInputSystemButtons, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputSystemButtonCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterSystemButtonCallback)(windows_core::Interface::as_raw(self), device.param().abi(), buttonfilter, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterSystemButtonCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&device.param().borrow()), buttonfilter, context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn RegisterKeyboardLayoutCallback<P0>(&self, device: P0, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputKeyboardLayoutCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IGameInputDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterKeyboardLayoutCallback)(windows_core::Interface::as_raw(self), device.param().abi(), context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterKeyboardLayoutCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&device.param().borrow()), context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn StopCallback(&self, callbacktoken: u64) {
         unsafe { (windows_core::Interface::vtable(self).StopCallback)(windows_core::Interface::as_raw(self), callbacktoken) }
@@ -1613,7 +1613,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDeviceFromObject)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindDeviceFromObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindDeviceFromPlatformHandle(&self, value: super::super::super::Foundation::HANDLE) -> windows_core::Result<IGameInputDevice> {
@@ -1628,7 +1628,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDeviceFromPlatformString)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindDeviceFromPlatformString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnableOemDeviceSupport(&self, vendorid: u16, productid: u16, interfacenumber: u8, collectionnumber: u8) -> windows_core::Result<()> {
@@ -1664,20 +1664,20 @@ pub struct IGameInput_Vtbl {
 }
 pub trait IGameInput_Impl: windows_core::IUnknownImpl {
     fn GetCurrentTimestamp(&self) -> u64;
-    fn GetCurrentReading(&self, inputkind: GameInputKind, device: windows_core::Ref<IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
-    fn GetNextReading(&self, referencereading: windows_core::Ref<IGameInputReading>, inputkind: GameInputKind, device: windows_core::Ref<IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
-    fn GetPreviousReading(&self, referencereading: windows_core::Ref<IGameInputReading>, inputkind: GameInputKind, device: windows_core::Ref<IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
-    fn GetTemporalReading(&self, timestamp: u64, device: windows_core::Ref<IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
-    fn RegisterReadingCallback(&self, device: windows_core::Ref<IGameInputDevice>, inputkind: GameInputKind, analogthreshold: f32, context: *const core::ffi::c_void, callbackfunc: GameInputReadingCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
-    fn RegisterDeviceCallback(&self, device: windows_core::Ref<IGameInputDevice>, inputkind: GameInputKind, statusfilter: GameInputDeviceStatus, enumerationkind: GameInputEnumerationKind, context: *const core::ffi::c_void, callbackfunc: GameInputDeviceCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
-    fn RegisterSystemButtonCallback(&self, device: windows_core::Ref<IGameInputDevice>, buttonfilter: GameInputSystemButtons, context: *const core::ffi::c_void, callbackfunc: GameInputSystemButtonCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
-    fn RegisterKeyboardLayoutCallback(&self, device: windows_core::Ref<IGameInputDevice>, context: *const core::ffi::c_void, callbackfunc: GameInputKeyboardLayoutCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
+    fn GetCurrentReading(&self, inputkind: GameInputKind, device: Option<&IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
+    fn GetNextReading(&self, referencereading: Option<&IGameInputReading>, inputkind: GameInputKind, device: Option<&IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
+    fn GetPreviousReading(&self, referencereading: Option<&IGameInputReading>, inputkind: GameInputKind, device: Option<&IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
+    fn GetTemporalReading(&self, timestamp: u64, device: Option<&IGameInputDevice>) -> windows_core::Result<IGameInputReading>;
+    fn RegisterReadingCallback(&self, device: Option<&IGameInputDevice>, inputkind: GameInputKind, analogthreshold: f32, context: *const core::ffi::c_void, callbackfunc: GameInputReadingCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
+    fn RegisterDeviceCallback(&self, device: Option<&IGameInputDevice>, inputkind: GameInputKind, statusfilter: GameInputDeviceStatus, enumerationkind: GameInputEnumerationKind, context: *const core::ffi::c_void, callbackfunc: GameInputDeviceCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
+    fn RegisterSystemButtonCallback(&self, device: Option<&IGameInputDevice>, buttonfilter: GameInputSystemButtons, context: *const core::ffi::c_void, callbackfunc: GameInputSystemButtonCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
+    fn RegisterKeyboardLayoutCallback(&self, device: Option<&IGameInputDevice>, context: *const core::ffi::c_void, callbackfunc: GameInputKeyboardLayoutCallback, callbacktoken: *mut u64) -> windows_core::Result<()>;
     fn StopCallback(&self, callbacktoken: u64);
     fn UnregisterCallback(&self, callbacktoken: u64, timeoutinmicroseconds: u64) -> bool;
     fn CreateDispatcher(&self) -> windows_core::Result<IGameInputDispatcher>;
     fn CreateAggregateDevice(&self, inputkind: GameInputKind) -> windows_core::Result<IGameInputDevice>;
     fn FindDeviceFromId(&self, value: *const super::super::super::Foundation::APP_LOCAL_DEVICE_ID) -> windows_core::Result<IGameInputDevice>;
-    fn FindDeviceFromObject(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IGameInputDevice>;
+    fn FindDeviceFromObject(&self, value: Option<&windows_core::IUnknown>) -> windows_core::Result<IGameInputDevice>;
     fn FindDeviceFromPlatformHandle(&self, value: super::super::super::Foundation::HANDLE) -> windows_core::Result<IGameInputDevice>;
     fn FindDeviceFromPlatformString(&self, value: &windows_core::PCWSTR) -> windows_core::Result<IGameInputDevice>;
     fn EnableOemDeviceSupport(&self, vendorid: u16, productid: u16, interfacenumber: u8, collectionnumber: u8) -> windows_core::Result<()>;
@@ -1694,7 +1694,7 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn GetCurrentReading<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputkind: GameInputKind, device: *mut core::ffi::c_void, reading: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameInput_Impl::GetCurrentReading(this, core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&device)) {
+                match IGameInput_Impl::GetCurrentReading(this, core::mem::transmute_copy(&inputkind), windows_core::Ref::option_from_abi(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1706,7 +1706,7 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn GetNextReading<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, referencereading: *mut core::ffi::c_void, inputkind: GameInputKind, device: *mut core::ffi::c_void, reading: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameInput_Impl::GetNextReading(this, core::mem::transmute_copy(&referencereading), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&device)) {
+                match IGameInput_Impl::GetNextReading(this, windows_core::Ref::option_from_abi(&referencereading), core::mem::transmute_copy(&inputkind), windows_core::Ref::option_from_abi(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1718,7 +1718,7 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn GetPreviousReading<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, referencereading: *mut core::ffi::c_void, inputkind: GameInputKind, device: *mut core::ffi::c_void, reading: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameInput_Impl::GetPreviousReading(this, core::mem::transmute_copy(&referencereading), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&device)) {
+                match IGameInput_Impl::GetPreviousReading(this, windows_core::Ref::option_from_abi(&referencereading), core::mem::transmute_copy(&inputkind), windows_core::Ref::option_from_abi(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1730,7 +1730,7 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn GetTemporalReading<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timestamp: u64, device: *mut core::ffi::c_void, reading: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameInput_Impl::GetTemporalReading(this, core::mem::transmute_copy(&timestamp), core::mem::transmute_copy(&device)) {
+                match IGameInput_Impl::GetTemporalReading(this, core::mem::transmute_copy(&timestamp), windows_core::Ref::option_from_abi(&device)) {
                     Ok(ok__) => {
                         reading.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1742,25 +1742,25 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn RegisterReadingCallback<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void, inputkind: GameInputKind, analogthreshold: f32, context: *const core::ffi::c_void, callbackfunc: GameInputReadingCallback, callbacktoken: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInput_Impl::RegisterReadingCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&analogthreshold), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
+                IGameInput_Impl::RegisterReadingCallback(this, windows_core::Ref::option_from_abi(&device), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&analogthreshold), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
         unsafe extern "system" fn RegisterDeviceCallback<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void, inputkind: GameInputKind, statusfilter: GameInputDeviceStatus, enumerationkind: GameInputEnumerationKind, context: *const core::ffi::c_void, callbackfunc: GameInputDeviceCallback, callbacktoken: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInput_Impl::RegisterDeviceCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&statusfilter), core::mem::transmute_copy(&enumerationkind), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
+                IGameInput_Impl::RegisterDeviceCallback(this, windows_core::Ref::option_from_abi(&device), core::mem::transmute_copy(&inputkind), core::mem::transmute_copy(&statusfilter), core::mem::transmute_copy(&enumerationkind), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
         unsafe extern "system" fn RegisterSystemButtonCallback<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void, buttonfilter: GameInputSystemButtons, context: *const core::ffi::c_void, callbackfunc: GameInputSystemButtonCallback, callbacktoken: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInput_Impl::RegisterSystemButtonCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&buttonfilter), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
+                IGameInput_Impl::RegisterSystemButtonCallback(this, windows_core::Ref::option_from_abi(&device), core::mem::transmute_copy(&buttonfilter), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
         unsafe extern "system" fn RegisterKeyboardLayoutCallback<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void, context: *const core::ffi::c_void, callbackfunc: GameInputKeyboardLayoutCallback, callbacktoken: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInput_Impl::RegisterKeyboardLayoutCallback(this, core::mem::transmute_copy(&device), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
+                IGameInput_Impl::RegisterKeyboardLayoutCallback(this, windows_core::Ref::option_from_abi(&device), core::mem::transmute_copy(&context), core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbacktoken)).into()
             }
         }
         unsafe extern "system" fn StopCallback<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbacktoken: u64) {
@@ -1814,7 +1814,7 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn FindDeviceFromObject<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, device: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameInput_Impl::FindDeviceFromObject(this, core::mem::transmute_copy(&value)) {
+                match IGameInput_Impl::FindDeviceFromObject(this, windows_core::Ref::option_from_abi(&value)) {
                     Ok(ok__) => {
                         device.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1942,13 +1942,13 @@ impl IGameInputDevice {
     where
         P0: windows_core::Param<IGameInputRawDeviceReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRawDeviceFeature)(windows_core::Interface::as_raw(self), report.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRawDeviceFeature)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&report.param().borrow())).ok() }
     }
     pub unsafe fn SendRawDeviceOutput<P0>(&self, report: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IGameInputRawDeviceReport>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SendRawDeviceOutput)(windows_core::Interface::as_raw(self), report.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SendRawDeviceOutput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&report.param().borrow())).ok() }
     }
     pub unsafe fn SendRawDeviceOutputWithResponse<P0>(&self, requestreport: P0) -> windows_core::Result<IGameInputRawDeviceReport>
     where
@@ -1956,7 +1956,7 @@ impl IGameInputDevice {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendRawDeviceOutputWithResponse)(windows_core::Interface::as_raw(self), requestreport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendRawDeviceOutputWithResponse)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&requestreport.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn ExecuteRawDeviceIoControl(&self, controlcode: u32, inputbuffersize: usize, inputbuffer: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: Option<*mut core::ffi::c_void>, outputsize: Option<*mut usize>) -> windows_core::Result<()> {
@@ -2007,9 +2007,9 @@ pub trait IGameInputDevice_Impl: windows_core::IUnknownImpl {
     fn PowerOff(&self);
     fn CreateRawDeviceReport(&self, reportid: u32, reportkind: GameInputRawDeviceReportKind) -> windows_core::Result<IGameInputRawDeviceReport>;
     fn GetRawDeviceFeature(&self, reportid: u32) -> windows_core::Result<IGameInputRawDeviceReport>;
-    fn SetRawDeviceFeature(&self, report: windows_core::Ref<IGameInputRawDeviceReport>) -> windows_core::Result<()>;
-    fn SendRawDeviceOutput(&self, report: windows_core::Ref<IGameInputRawDeviceReport>) -> windows_core::Result<()>;
-    fn SendRawDeviceOutputWithResponse(&self, requestreport: windows_core::Ref<IGameInputRawDeviceReport>) -> windows_core::Result<IGameInputRawDeviceReport>;
+    fn SetRawDeviceFeature(&self, report: Option<&IGameInputRawDeviceReport>) -> windows_core::Result<()>;
+    fn SendRawDeviceOutput(&self, report: Option<&IGameInputRawDeviceReport>) -> windows_core::Result<()>;
+    fn SendRawDeviceOutputWithResponse(&self, requestreport: Option<&IGameInputRawDeviceReport>) -> windows_core::Result<IGameInputRawDeviceReport>;
     fn ExecuteRawDeviceIoControl(&self, controlcode: u32, inputbuffersize: usize, inputbuffer: *const core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void, outputsize: *mut usize) -> windows_core::Result<()>;
     fn AcquireExclusiveRawDeviceAccess(&self, timeoutinmicroseconds: u64) -> bool;
     fn ReleaseExclusiveRawDeviceAccess(&self);
@@ -2115,19 +2115,19 @@ impl IGameInputDevice_Vtbl {
         unsafe extern "system" fn SetRawDeviceFeature<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, report: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::SetRawDeviceFeature(this, core::mem::transmute_copy(&report)).into()
+                IGameInputDevice_Impl::SetRawDeviceFeature(this, windows_core::Ref::option_from_abi(&report)).into()
             }
         }
         unsafe extern "system" fn SendRawDeviceOutput<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, report: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::SendRawDeviceOutput(this, core::mem::transmute_copy(&report)).into()
+                IGameInputDevice_Impl::SendRawDeviceOutput(this, windows_core::Ref::option_from_abi(&report)).into()
             }
         }
         unsafe extern "system" fn SendRawDeviceOutputWithResponse<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestreport: *mut core::ffi::c_void, responsereport: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameInputDevice_Impl::SendRawDeviceOutputWithResponse(this, core::mem::transmute_copy(&requestreport)) {
+                match IGameInputDevice_Impl::SendRawDeviceOutputWithResponse(this, windows_core::Ref::option_from_abi(&requestreport)) {
                     Ok(ok__) => {
                         responsereport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

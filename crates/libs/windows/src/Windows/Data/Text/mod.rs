@@ -327,7 +327,7 @@ impl windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SelectableWordSegmentsTokenizingHandler {
-    pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&windows_collections::IIterable<SelectableWordSegment>>, Option<&windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SelectableWordSegmentsTokenizingHandlerBox { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -337,7 +337,7 @@ impl SelectableWordSegmentsTokenizingHandler {
         P1: windows_core::Param<windows_collections::IIterable<SelectableWordSegment>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), precedingwords.param().abi(), words.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&precedingwords.param().borrow()), core::mem::transmute_copy(&words.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -347,12 +347,12 @@ pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct SelectableWordSegmentsTokenizingHandlerBox<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> {
+struct SelectableWordSegmentsTokenizingHandlerBox<F: Fn(Option<&windows_collections::IIterable<SelectableWordSegment>>, Option<&windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SelectableWordSegmentsTokenizingHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>, windows_core::Ref<windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
+impl<F: Fn(Option<&windows_collections::IIterable<SelectableWordSegment>>, Option<&windows_collections::IIterable<SelectableWordSegment>>) -> windows_core::Result<()> + Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: SelectableWordSegmentsTokenizingHandler_Vtbl = SelectableWordSegmentsTokenizingHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -395,7 +395,7 @@ impl<F: Fn(windows_core::Ref<windows_collections::IIterable<SelectableWordSegmen
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&precedingwords), core::mem::transmute_copy(&words)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&precedingwords), windows_core::Ref::option_from_abi(&words)).into()
         }
     }
 }
@@ -430,7 +430,7 @@ impl SelectableWordsSegmenter {
         P2: windows_core::Param<SelectableWordSegmentsTokenizingHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<SelectableWordsSegmenter> {
         Self::ISelectableWordsSegmenterFactory(|this| unsafe {
@@ -631,7 +631,7 @@ impl TextPredictionGenerator {
         let this = &windows_core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCandidatesWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCandidatesWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), maxcandidates, predictionoptions, core::mem::transmute_copy(&previousstrings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNextWordCandidatesAsync<P1>(&self, maxcandidates: u32, previousstrings: P1) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>>
@@ -641,7 +641,7 @@ impl TextPredictionGenerator {
         let this = &windows_core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNextWordCandidatesAsync)(windows_core::Interface::as_raw(this), maxcandidates, previousstrings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNextWordCandidatesAsync)(windows_core::Interface::as_raw(this), maxcandidates, core::mem::transmute_copy(&previousstrings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text_Core")]
@@ -1004,7 +1004,7 @@ impl windows_core::RuntimeType for WordSegmentsTokenizingHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl WordSegmentsTokenizingHandler {
-    pub fn new<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&windows_collections::IIterable<WordSegment>>, Option<&windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = WordSegmentsTokenizingHandlerBox { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1014,7 +1014,7 @@ impl WordSegmentsTokenizingHandler {
         P1: windows_core::Param<windows_collections::IIterable<WordSegment>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), precedingwords.param().abi(), words.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&precedingwords.param().borrow()), core::mem::transmute_copy(&words.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1024,12 +1024,12 @@ pub struct WordSegmentsTokenizingHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct WordSegmentsTokenizingHandlerBox<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> {
+struct WordSegmentsTokenizingHandlerBox<F: Fn(Option<&windows_collections::IIterable<WordSegment>>, Option<&windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const WordSegmentsTokenizingHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windows_core::Ref<windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
+impl<F: Fn(Option<&windows_collections::IIterable<WordSegment>>, Option<&windows_collections::IIterable<WordSegment>>) -> windows_core::Result<()> + Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
     const VTABLE: WordSegmentsTokenizingHandler_Vtbl = WordSegmentsTokenizingHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1072,7 +1072,7 @@ impl<F: Fn(windows_core::Ref<windows_collections::IIterable<WordSegment>>, windo
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, precedingwords: *mut core::ffi::c_void, words: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&precedingwords), core::mem::transmute_copy(&words)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&precedingwords), windows_core::Ref::option_from_abi(&words)).into()
         }
     }
 }
@@ -1107,7 +1107,7 @@ impl WordsSegmenter {
         P2: windows_core::Param<WordSegmentsTokenizingHandler>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Tokenize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), startindex, core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub fn CreateWithLanguage(language: &windows_core::HSTRING) -> windows_core::Result<WordsSegmenter> {
         Self::IWordsSegmenterFactory(|this| unsafe {

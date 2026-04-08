@@ -37,7 +37,7 @@ impl windows_core::RuntimeType for ComponentLoadFailedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ComponentLoadFailedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&MediaProtectionManager>, Option<&ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ComponentLoadFailedEventHandlerBox { vtable: &ComponentLoadFailedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -47,7 +47,7 @@ impl ComponentLoadFailedEventHandler {
         P1: windows_core::Param<ComponentLoadFailedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&e.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -57,12 +57,12 @@ pub struct ComponentLoadFailedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ComponentLoadFailedEventHandlerBox<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct ComponentLoadFailedEventHandlerBox<F: Fn(Option<&MediaProtectionManager>, Option<&ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const ComponentLoadFailedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> ComponentLoadFailedEventHandlerBox<F> {
+impl<F: Fn(Option<&MediaProtectionManager>, Option<&ComponentLoadFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> ComponentLoadFailedEventHandlerBox<F> {
     const VTABLE: ComponentLoadFailedEventHandler_Vtbl = ComponentLoadFailedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -105,7 +105,7 @@ impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<Componen
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&e)).into()
         }
     }
 }
@@ -117,7 +117,7 @@ impl ComponentRenewal {
     {
         Self::IComponentRenewalStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), information.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&information.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IComponentRenewalStatics<R, F: FnOnce(&IComponentRenewalStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -204,7 +204,7 @@ impl HdcpSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProtectionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProtectionChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProtectionChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -477,7 +477,7 @@ impl MediaProtectionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ServiceRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveServiceRequested(&self, cookie: i64) -> windows_core::Result<()> {
@@ -491,7 +491,7 @@ impl MediaProtectionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RebootNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RebootNeeded)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRebootNeeded(&self, cookie: i64) -> windows_core::Result<()> {
@@ -505,7 +505,7 @@ impl MediaProtectionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ComponentLoadFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ComponentLoadFailed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveComponentLoadFailed(&self, cookie: i64) -> windows_core::Result<()> {
@@ -553,7 +553,7 @@ impl MediaProtectionPMPServer {
     {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), pproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePMPServer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMediaProtectionPMPServerFactory<R, F: FnOnce(&IMediaProtectionPMPServerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -646,7 +646,7 @@ impl windows_core::RuntimeType for RebootNeededEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl RebootNeededEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = RebootNeededEventHandlerBox { vtable: &RebootNeededEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -655,7 +655,7 @@ impl RebootNeededEventHandler {
         P0: windows_core::Param<MediaProtectionManager>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -665,12 +665,12 @@ pub struct RebootNeededEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct RebootNeededEventHandlerBox<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static> {
+struct RebootNeededEventHandlerBox<F: Fn(Option<&MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const RebootNeededEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static> RebootNeededEventHandlerBox<F> {
+impl<F: Fn(Option<&MediaProtectionManager>) -> windows_core::Result<()> + Send + 'static> RebootNeededEventHandlerBox<F> {
     const VTABLE: RebootNeededEventHandler_Vtbl = RebootNeededEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -713,7 +713,7 @@ impl<F: Fn(windows_core::Ref<MediaProtectionManager>) -> windows_core::Result<()
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender)).into()
         }
     }
 }
@@ -915,7 +915,7 @@ impl windows_core::RuntimeType for ServiceRequestedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ServiceRequestedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&MediaProtectionManager>, Option<&ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ServiceRequestedEventHandlerBox { vtable: &ServiceRequestedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -925,7 +925,7 @@ impl ServiceRequestedEventHandler {
         P1: windows_core::Param<ServiceRequestedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&e.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -935,12 +935,12 @@ pub struct ServiceRequestedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ServiceRequestedEventHandlerBox<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct ServiceRequestedEventHandlerBox<F: Fn(Option<&MediaProtectionManager>, Option<&ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const ServiceRequestedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> ServiceRequestedEventHandlerBox<F> {
+impl<F: Fn(Option<&MediaProtectionManager>, Option<&ServiceRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> ServiceRequestedEventHandlerBox<F> {
     const VTABLE: ServiceRequestedEventHandler_Vtbl = ServiceRequestedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -983,7 +983,7 @@ impl<F: Fn(windows_core::Ref<MediaProtectionManager>, windows_core::Ref<ServiceR
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&e)).into()
         }
     }
 }

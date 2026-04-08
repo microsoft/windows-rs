@@ -131,7 +131,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -152,7 +152,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         let this = &windows_core::Interface::cast::<windows_collections::IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -169,7 +169,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         let this = &windows_core::Interface::cast::<windows_collections::IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<K, V>> {
@@ -187,7 +187,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         let this = &windows_core::Interface::cast::<windows_collections::IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key.param().abi(), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove<P0>(&self, key: P0) -> windows_core::Result<()>
@@ -195,7 +195,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         P0: windows_core::Param<K>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<K, V>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), key.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow())).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<K, V>>(self)?;
@@ -224,7 +224,7 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn MapChanged(&self, vhnd: windows_core::Ref<MapChangedEventHandler<K, V>>) -> windows_core::Result<i64>;
+    fn MapChanged(&self, vhnd: Option<&MapChangedEventHandler<K, V>>) -> windows_core::Result<i64>;
     fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IObservableMap_Vtbl<K, V> {
@@ -232,7 +232,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe extern "system" fn MapChanged<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IObservableMap_Impl::MapChanged(this, core::mem::transmute_copy(&vhnd)) {
+                match IObservableMap_Impl::MapChanged(this, windows_core::Ref::option_from_abi(&vhnd)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -300,7 +300,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VectorChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VectorChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -342,7 +342,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<T>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -350,14 +350,14 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
         P1: windows_core::Param<T>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<T>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<T>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<T>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<T>>(self)?;
@@ -368,7 +368,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
         P0: windows_core::Param<T>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<T>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<T>>(self)?;
@@ -411,7 +411,7 @@ pub trait IObservableVector_Impl<T>: windows_collections::IIterable_Impl<T> + wi
 where
     T: windows_core::RuntimeType + 'static,
 {
-    fn VectorChanged(&self, vhnd: windows_core::Ref<VectorChangedEventHandler<T>>) -> windows_core::Result<i64>;
+    fn VectorChanged(&self, vhnd: Option<&VectorChangedEventHandler<T>>) -> windows_core::Result<i64>;
     fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
@@ -419,7 +419,7 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
         unsafe extern "system" fn VectorChanged<T: windows_core::RuntimeType + 'static, Identity: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, vhnd: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IObservableVector_Impl::VectorChanged(this, core::mem::transmute_copy(&vhnd)) {
+                match IObservableVector_Impl::VectorChanged(this, windows_core::Ref::option_from_abi(&vhnd)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -505,7 +505,7 @@ impl IPropertySet {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -523,7 +523,7 @@ impl IPropertySet {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -647,7 +647,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({179517f3-94ee-41f8-bddc-768a895544f3}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
-    pub fn new<F: Fn(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&IObservableMap<K, V>>, Option<&IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MapChangedEventHandlerBox { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -657,7 +657,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         P1: windows_core::Param<IMapChangedEventArgs<K>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), event.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&event.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -673,7 +673,7 @@ where
     V: core::marker::PhantomData<V>,
 }
 #[repr(C)]
-struct MapChangedEventHandlerBox<K, V, F: Fn(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>
+struct MapChangedEventHandlerBox<K, V, F: Fn(Option<&IObservableMap<K, V>>, Option<&IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static>
 where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
@@ -682,7 +682,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<IObservableMap<K, V>>, windows_core::Ref<IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static> MapChangedEventHandlerBox<K, V, F> {
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, F: Fn(Option<&IObservableMap<K, V>>, Option<&IMapChangedEventArgs<K>>) -> windows_core::Result<()> + Send + 'static> MapChangedEventHandlerBox<K, V, F> {
     const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -730,7 +730,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&event)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&event)).into()
         }
     }
 }
@@ -789,7 +789,7 @@ impl PropertySet {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -807,7 +807,7 @@ impl PropertySet {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -911,7 +911,7 @@ impl StringMap {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1000,7 +1000,7 @@ impl ValueSet {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1018,7 +1018,7 @@ impl ValueSet {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1065,7 +1065,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Vecto
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({0c051752-9fbf-4c70-aa0c-0e4c82d9a761}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
-    pub fn new<F: Fn(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&IObservableVector<T>>, Option<&IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = VectorChangedEventHandlerBox { vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1075,7 +1075,7 @@ impl<T: windows_core::RuntimeType + 'static> VectorChangedEventHandler<T> {
         P1: windows_core::Param<IVectorChangedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), event.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&event.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1089,7 +1089,7 @@ where
     T: core::marker::PhantomData<T>,
 }
 #[repr(C)]
-struct VectorChangedEventHandlerBox<T, F: Fn(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>
+struct VectorChangedEventHandlerBox<T, F: Fn(Option<&IObservableVector<T>>, Option<&IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -1097,7 +1097,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<IObservableVector<T>>, windows_core::Ref<IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> VectorChangedEventHandlerBox<T, F> {
+impl<T: windows_core::RuntimeType + 'static, F: Fn(Option<&IObservableVector<T>>, Option<&IVectorChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> VectorChangedEventHandlerBox<T, F> {
     const VTABLE: VectorChangedEventHandler_Vtbl<T> = VectorChangedEventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -1144,7 +1144,7 @@ impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<IObservable
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&event)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&event)).into()
         }
     }
 }

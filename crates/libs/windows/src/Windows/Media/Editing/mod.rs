@@ -97,7 +97,7 @@ impl BackgroundAudioTrack {
     {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(windows_core::Interface::as_raw(this), embeddedaudiotrack.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&embeddedaudiotrack.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -107,7 +107,7 @@ impl BackgroundAudioTrack {
     {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -550,7 +550,7 @@ impl MediaClip {
     {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -560,7 +560,7 @@ impl MediaClip {
     {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromImageFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromImageFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -570,7 +570,7 @@ impl MediaClip {
     {
         Self::IMediaClipStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), surface.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&surface.param().borrow()), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMediaClipStatics<R, F: FnOnce(&IMediaClipStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -649,7 +649,7 @@ impl MediaComposition {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Graphics_Imaging", feature = "Storage_Streams"))]
@@ -668,7 +668,7 @@ impl MediaComposition {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailsAsync)(windows_core::Interface::as_raw(this), timesfromstart.param().abi(), scaledwidth, scaledheight, frameprecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetThumbnailsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&timesfromstart.param().borrow()), scaledwidth, scaledheight, frameprecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage_Streams"))]
@@ -679,7 +679,7 @@ impl MediaComposition {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage_Streams"))]
@@ -690,7 +690,7 @@ impl MediaComposition {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingpreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), trimmingpreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage_Streams"))]
@@ -702,7 +702,7 @@ impl MediaComposition {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileWithProfileAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingpreference, encodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileWithProfileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), trimmingpreference, core::mem::transmute_copy(&encodingprofile.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -729,7 +729,7 @@ impl MediaComposition {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&encodingprofile.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Core")]
@@ -754,7 +754,7 @@ impl MediaComposition {
     {
         Self::IMediaCompositionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMediaCompositionStatics<R, F: FnOnce(&IMediaCompositionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -843,7 +843,7 @@ impl MediaOverlay {
     {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), clip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&clip.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithPositionAndOpacity<P0>(clip: P0, position: super::super::Foundation::Rect, opacity: f64) -> windows_core::Result<MediaOverlay>
@@ -852,7 +852,7 @@ impl MediaOverlay {
     {
         Self::IMediaOverlayFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithPositionAndOpacity)(windows_core::Interface::as_raw(this), clip.param().abi(), position, opacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithPositionAndOpacity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&clip.param().borrow()), position, opacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMediaOverlayFactory<R, F: FnOnce(&IMediaOverlayFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -913,7 +913,7 @@ impl MediaOverlayLayer {
     {
         Self::IMediaOverlayLayerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), compositordefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&compositordefinition.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMediaOverlayLayerFactory<R, F: FnOnce(&IMediaOverlayLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

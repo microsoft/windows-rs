@@ -83,7 +83,7 @@ impl GameControllerProviderInfo {
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetParentProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetParentProviderId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&provider.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
@@ -93,7 +93,7 @@ impl GameControllerProviderInfo {
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetProviderId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&provider.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -330,7 +330,7 @@ impl LegacyGipGameControllerProvider {
         P2: windows_core::Param<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, remapping.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), previous, core::mem::transmute_copy(&remapping.param().borrow())).ok() }
     }
     #[cfg(feature = "System")]
     pub fn GetStandardControllerButtonRemapping<P0>(&self, user: P0, previous: bool) -> windows_core::Result<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>
@@ -340,7 +340,7 @@ impl LegacyGipGameControllerProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), previous, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FromGameController<P0>(controller: P0) -> windows_core::Result<LegacyGipGameControllerProvider>
@@ -349,7 +349,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), controller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&controller.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
@@ -359,7 +359,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromGameControllerProvider)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromGameControllerProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&provider.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -367,14 +367,14 @@ impl LegacyGipGameControllerProvider {
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
-        Self::ILegacyGipGameControllerProviderStatics(|this| unsafe { (windows_core::Interface::vtable(this).PairPilotToCopilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(pilotcontrollerproviderid), core::mem::transmute_copy(copilotcontrollerproviderid)).ok() })
+        Self::ILegacyGipGameControllerProviderStatics(|this| unsafe { (windows_core::Interface::vtable(this).PairPilotToCopilot)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(pilotcontrollerproviderid), core::mem::transmute_copy(copilotcontrollerproviderid)).ok() })
     }
     #[cfg(feature = "System")]
     pub fn ClearPairing<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
-        Self::ILegacyGipGameControllerProviderStatics(|this| unsafe { (windows_core::Interface::vtable(this).ClearPairing)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid)).ok() })
+        Self::ILegacyGipGameControllerProviderStatics(|this| unsafe { (windows_core::Interface::vtable(this).ClearPairing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(controllerproviderid)).ok() })
     }
     #[cfg(feature = "System")]
     pub fn IsPilot<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>
@@ -383,7 +383,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsPilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IsPilot)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(controllerproviderid), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -393,7 +393,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCopilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IsCopilot)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(controllerproviderid), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     fn ILegacyGipGameControllerProviderStatics<R, F: FnOnce(&ILegacyGipGameControllerProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

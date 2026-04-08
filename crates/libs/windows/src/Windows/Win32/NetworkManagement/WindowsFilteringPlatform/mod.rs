@@ -153,7 +153,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : windows_core::PCWSTR, authnservice : u32, authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const FWPM_SESSION0, enginehandle : *mut FWPM_ENGINE_HANDLE) -> u32);
-    unsafe { FwpmEngineOpen0(servername.param().abi(), authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
+    unsafe { FwpmEngineOpen0(core::mem::transmute_copy(&servername.param().borrow()), authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -252,7 +252,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmGetAppIdFromFileName0(filename : windows_core::PCWSTR, appid : *mut *mut FWP_BYTE_BLOB) -> u32);
-    unsafe { FwpmGetAppIdFromFileName0(filename.param().abi(), appid as _) }
+    unsafe { FwpmGetAppIdFromFileName0(core::mem::transmute_copy(&filename.param().borrow()), appid as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]

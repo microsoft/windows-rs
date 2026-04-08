@@ -105,7 +105,7 @@ impl AppBroadcastTrigger {
         P0: windows_core::Param<AppBroadcastTriggerProviderInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProviderInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProviderInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProviderInfo(&self) -> windows_core::Result<AppBroadcastTriggerProviderInfo> {
         let this = self;
@@ -249,7 +249,7 @@ impl ApplicationTrigger {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&arguments.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -464,14 +464,14 @@ impl BackgroundTaskBuilder {
         P0: windows_core::Param<IBackgroundTrigger>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTrigger)(windows_core::Interface::as_raw(this), trigger.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTrigger)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&trigger.param().borrow())).ok() }
     }
     pub fn AddCondition<P0>(&self, condition: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IBackgroundCondition>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddCondition)(windows_core::Interface::as_raw(this), condition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddCondition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&condition.param().borrow())).ok() }
     }
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -525,7 +525,7 @@ impl BackgroundTaskBuilder {
         P0: windows_core::Param<BackgroundTaskRegistrationGroup>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetTaskGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTaskGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SetTaskEntryPointClsid(&self, taskentrypoint: windows_core::GUID) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBackgroundTaskBuilder5>(self)?;
@@ -582,7 +582,7 @@ impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCanceledEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCanceledEventHandlerBox { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -591,7 +591,7 @@ impl BackgroundTaskCanceledEventHandler {
         P0: windows_core::Param<IBackgroundTaskInstance>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), reason).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), reason).ok() }
     }
 }
 #[repr(C)]
@@ -601,12 +601,12 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskCanceledEventHandlerBox<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskCanceledEventHandlerBox<F: Fn(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskCanceledEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
+impl<F: Fn(Option<&IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -649,7 +649,7 @@ impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellatio
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), reason).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), reason).into()
         }
     }
 }
@@ -710,7 +710,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCompletedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCompletedEventHandlerBox { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -720,7 +720,7 @@ impl BackgroundTaskCompletedEventHandler {
         P1: windows_core::Param<BackgroundTaskCompletedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&args.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -730,12 +730,12 @@ pub struct BackgroundTaskCompletedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskCompletedEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskCompletedEventHandlerBox<F: Fn(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskCompletedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
+impl<F: Fn(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -778,7 +778,7 @@ impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<Back
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&args)).into()
         }
     }
 }
@@ -841,7 +841,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskProgressEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskProgressEventHandlerBox { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -851,7 +851,7 @@ impl BackgroundTaskProgressEventHandler {
         P1: windows_core::Param<BackgroundTaskProgressEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), args.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&args.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -861,12 +861,12 @@ pub struct BackgroundTaskProgressEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskProgressEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskProgressEventHandlerBox<F: Fn(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskProgressEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
+impl<F: Fn(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
     const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -909,7 +909,7 @@ impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<Back
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&args)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&args)).into()
         }
     }
 }
@@ -940,7 +940,7 @@ impl BackgroundTaskRegistration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()> {
@@ -954,7 +954,7 @@ impl BackgroundTaskRegistration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()> {
@@ -1059,7 +1059,7 @@ impl BackgroundTaskRegistrationGroup {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BackgroundActivated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBackgroundActivated(&self, token: i64) -> windows_core::Result<()> {
@@ -1201,7 +1201,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
         P0: windows_core::Param<super::super::Foundation::IReference<i16>>,
     {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn UseExtendedFormat(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
@@ -1330,7 +1330,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         P0: windows_core::Param<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSignalStrengthFilter)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSignalStrengthFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn AdvertisementFilter(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter> {
@@ -1346,7 +1346,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         P0: windows_core::Param<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdvertisementFilter)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAdvertisementFilter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AllowExtendedAdvertisements(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger2>(self)?;
@@ -1395,7 +1395,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         P0: windows_core::Param<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementScanParameters>,
     {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetScanParameters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetScanParameters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
@@ -1975,7 +1975,7 @@ impl GattCharacteristicNotificationTrigger {
     {
         Self::IGattCharacteristicNotificationTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), characteristic.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&characteristic.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
@@ -1985,7 +1985,7 @@ impl GattCharacteristicNotificationTrigger {
     {
         Self::IGattCharacteristicNotificationTriggerFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithEventTriggeringMode)(windows_core::Interface::as_raw(this), characteristic.param().abi(), eventtriggeringmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithEventTriggeringMode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&characteristic.param().borrow()), eventtriggeringmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IGattCharacteristicNotificationTriggerFactory<R, F: FnOnce(&IGattCharacteristicNotificationTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2036,7 +2036,7 @@ impl GattServiceProviderTrigger {
         P0: windows_core::Param<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdvertisingParameters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAdvertisingParameters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn AdvertisingParameters(&self) -> windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters> {
@@ -2329,21 +2329,21 @@ impl IBackgroundTask {
         P0: windows_core::Param<IBackgroundTaskInstance>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), taskinstance.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Run)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&taskinstance.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
 }
 pub trait IBackgroundTask_Impl: windows_core::IUnknownImpl {
-    fn Run(&self, taskInstance: windows_core::Ref<IBackgroundTaskInstance>) -> windows_core::Result<()>;
+    fn Run(&self, taskInstance: Option<&IBackgroundTaskInstance>) -> windows_core::Result<()>;
 }
 impl IBackgroundTask_Vtbl {
     pub const fn new<Identity: IBackgroundTask_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Run<Identity: IBackgroundTask_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, taskinstance: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTask_Impl::Run(this, core::mem::transmute_copy(&taskinstance)).into()
+                IBackgroundTask_Impl::Run(this, windows_core::Ref::option_from_abi(&taskinstance)).into()
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IBackgroundTask, OFFSET>(), Run: Run::<Identity, OFFSET> }
@@ -2506,7 +2506,7 @@ impl IBackgroundTaskInstance {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&cancelhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2537,7 +2537,7 @@ pub trait IBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
     fn Progress(&self) -> windows_core::Result<u32>;
     fn SetProgress(&self, value: u32) -> windows_core::Result<()>;
     fn TriggerDetails(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn Canceled(&self, cancelHandler: windows_core::Ref<BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
+    fn Canceled(&self, cancelHandler: Option<&BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
     fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()>;
     fn SuspendedCount(&self) -> windows_core::Result<u32>;
     fn GetDeferral(&self) -> windows_core::Result<BackgroundTaskDeferral>;
@@ -2603,7 +2603,7 @@ impl IBackgroundTaskInstance_Vtbl {
         unsafe extern "system" fn Canceled<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancelhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundTaskInstance_Impl::Canceled(this, core::mem::transmute_copy(&cancelhandler)) {
+                match IBackgroundTaskInstance_Impl::Canceled(this, windows_core::Ref::option_from_abi(&cancelhandler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -2727,7 +2727,7 @@ impl IBackgroundTaskInstance2 {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&cancelhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2838,7 +2838,7 @@ impl IBackgroundTaskInstance4 {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&cancelhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2937,7 +2937,7 @@ impl IBackgroundTaskRegistration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2951,7 +2951,7 @@ impl IBackgroundTaskRegistration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2969,9 +2969,9 @@ impl windows_core::RuntimeName for IBackgroundTaskRegistration {
 pub trait IBackgroundTaskRegistration_Impl: windows_core::IUnknownImpl {
     fn TaskId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Progress(&self, handler: windows_core::Ref<BackgroundTaskProgressEventHandler>) -> windows_core::Result<i64>;
+    fn Progress(&self, handler: Option<&BackgroundTaskProgressEventHandler>) -> windows_core::Result<i64>;
     fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()>;
-    fn Completed(&self, handler: windows_core::Ref<BackgroundTaskCompletedEventHandler>) -> windows_core::Result<i64>;
+    fn Completed(&self, handler: Option<&BackgroundTaskCompletedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()>;
     fn Unregister(&self, cancelTask: bool) -> windows_core::Result<()>;
 }
@@ -3005,7 +3005,7 @@ impl IBackgroundTaskRegistration_Vtbl {
         unsafe extern "system" fn Progress<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundTaskRegistration_Impl::Progress(this, core::mem::transmute_copy(&handler)) {
+                match IBackgroundTaskRegistration_Impl::Progress(this, windows_core::Ref::option_from_abi(&handler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -3023,7 +3023,7 @@ impl IBackgroundTaskRegistration_Vtbl {
         unsafe extern "system" fn Completed<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundTaskRegistration_Impl::Completed(this, core::mem::transmute_copy(&handler)) {
+                match IBackgroundTaskRegistration_Impl::Completed(this, windows_core::Ref::option_from_abi(&handler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -3106,7 +3106,7 @@ impl IBackgroundTaskRegistration2 {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3120,7 +3120,7 @@ impl IBackgroundTaskRegistration2 {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3200,7 +3200,7 @@ impl IBackgroundTaskRegistration3 {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3214,7 +3214,7 @@ impl IBackgroundTaskRegistration3 {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()> {
@@ -4278,7 +4278,7 @@ impl MediaProcessingTrigger {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAsyncWithArguments)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&arguments.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4713,7 +4713,7 @@ impl RfcommConnectionTrigger {
         P0: windows_core::Param<super::super::Networking::HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for RfcommConnectionTrigger {
@@ -4765,7 +4765,7 @@ impl SensorDataThresholdTrigger {
     {
         Self::ISensorDataThresholdTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), threshold.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&threshold.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISensorDataThresholdTriggerFactory<R, F: FnOnce(&ISensorDataThresholdTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4833,7 +4833,7 @@ impl SmsMessageReceivedTrigger {
     {
         Self::ISmsMessageReceivedTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), filterrules.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&filterrules.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISmsMessageReceivedTriggerFactory<R, F: FnOnce(&ISmsMessageReceivedTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4897,7 +4897,7 @@ impl StorageLibraryChangeTrackerTrigger {
     {
         Self::IStorageLibraryChangeTrackerTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), tracker.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&tracker.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IStorageLibraryChangeTrackerTriggerFactory<R, F: FnOnce(&IStorageLibraryChangeTrackerTriggerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4930,7 +4930,7 @@ impl StorageLibraryContentChangedTrigger {
     {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), storagelibrary.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&storagelibrary.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
@@ -4940,7 +4940,7 @@ impl StorageLibraryContentChangedTrigger {
     {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromLibraries)(windows_core::Interface::as_raw(this), storagelibraries.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromLibraries)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&storagelibraries.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IStorageLibraryContentChangedTriggerStatics<R, F: FnOnce(&IStorageLibraryContentChangedTriggerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

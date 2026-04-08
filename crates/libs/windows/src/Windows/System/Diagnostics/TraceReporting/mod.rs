@@ -69,7 +69,7 @@ impl PlatformDiagnosticActions {
     {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryEscalateScenario)(windows_core::Interface::as_raw(this), scenarioid, escalationtype, core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, triggers.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TryEscalateScenario)(windows_core::Interface::as_raw(this), scenarioid, escalationtype, core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, core::mem::transmute_copy(&triggers.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn DownloadLatestSettingsForNamespace(partner: &windows_core::HSTRING, feature: &windows_core::HSTRING, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> windows_core::Result<PlatformDiagnosticActionState> {

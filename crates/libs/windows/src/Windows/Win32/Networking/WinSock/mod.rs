@@ -42,7 +42,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, dwnamespace : u32, lpnspid : *const windows_core::GUID, hints : *const ADDRINFOEXA, ppresult : *mut *mut ADDRINFOEXA, timeout : *const TIMEVAL, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::super::Foundation:: HANDLE) -> i32);
-    unsafe { GetAddrInfoExA(pname.param().abi(), pservicename.param().abi(), dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, hints.unwrap_or(core::mem::zeroed()) as _, ppresult as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetAddrInfoExA(core::mem::transmute_copy(&pname.param().borrow()), core::mem::transmute_copy(&pservicename.param().borrow()), dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, hints.unwrap_or(core::mem::zeroed()) as _, ppresult as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32 {
@@ -63,7 +63,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoExW(pname : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, dwnamespace : u32, lpnspid : *const windows_core::GUID, hints : *const ADDRINFOEXW, ppresult : *mut *mut ADDRINFOEXW, timeout : *const TIMEVAL, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle : *mut super::super::Foundation:: HANDLE) -> i32);
-    unsafe { GetAddrInfoExW(pname.param().abi(), pservicename.param().abi(), dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, hints.unwrap_or(core::mem::zeroed()) as _, ppresult as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lphandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetAddrInfoExW(core::mem::transmute_copy(&pname.param().borrow()), core::mem::transmute_copy(&pservicename.param().borrow()), dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, hints.unwrap_or(core::mem::zeroed()) as _, ppresult as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lphandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetAddrInfoW<P0, P1>(pnodename: P0, pservicename: P1, phints: Option<*const ADDRINFOW>, ppresult: *mut *mut ADDRINFOW) -> i32
@@ -72,7 +72,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn GetAddrInfoW(pnodename : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, phints : *const ADDRINFOW, ppresult : *mut *mut ADDRINFOW) -> i32);
-    unsafe { GetAddrInfoW(pnodename.param().abi(), pservicename.param().abi(), phints.unwrap_or(core::mem::zeroed()) as _, ppresult as _) }
+    unsafe { GetAddrInfoW(core::mem::transmute_copy(&pnodename.param().borrow()), core::mem::transmute_copy(&pservicename.param().borrow()), phints.unwrap_or(core::mem::zeroed()) as _, ppresult as _) }
 }
 #[inline]
 pub unsafe fn GetAddressByNameA<P2>(dwnamespace: u32, lpservicetype: *const windows_core::GUID, lpservicename: P2, lpiprotocols: Option<*const i32>, dwresolution: u32, lpserviceasyncinfo: Option<*const SERVICE_ASYNC_INFO>, lpcsaddrbuffer: *mut core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: Option<windows_core::PSTR>, lpdwaliasbufferlength: *mut u32) -> i32
@@ -80,7 +80,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mswsock.dll" "system" fn GetAddressByNameA(dwnamespace : u32, lpservicetype : *const windows_core::GUID, lpservicename : windows_core::PCSTR, lpiprotocols : *const i32, dwresolution : u32, lpserviceasyncinfo : *const SERVICE_ASYNC_INFO, lpcsaddrbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32, lpaliasbuffer : windows_core::PSTR, lpdwaliasbufferlength : *mut u32) -> i32);
-    unsafe { GetAddressByNameA(dwnamespace, lpservicetype, lpservicename.param().abi(), lpiprotocols.unwrap_or(core::mem::zeroed()) as _, dwresolution, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _, lpcsaddrbuffer as _, lpdwbufferlength as _, lpaliasbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwaliasbufferlength as _) }
+    unsafe { GetAddressByNameA(dwnamespace, lpservicetype, core::mem::transmute_copy(&lpservicename.param().borrow()), lpiprotocols.unwrap_or(core::mem::zeroed()) as _, dwresolution, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _, lpcsaddrbuffer as _, lpdwbufferlength as _, lpaliasbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwaliasbufferlength as _) }
 }
 #[inline]
 pub unsafe fn GetAddressByNameW<P2>(dwnamespace: u32, lpservicetype: *const windows_core::GUID, lpservicename: P2, lpiprotocols: Option<*const i32>, dwresolution: u32, lpserviceasyncinfo: Option<*const SERVICE_ASYNC_INFO>, lpcsaddrbuffer: *mut core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: Option<windows_core::PWSTR>, lpdwaliasbufferlength: *mut u32) -> i32
@@ -88,7 +88,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mswsock.dll" "system" fn GetAddressByNameW(dwnamespace : u32, lpservicetype : *const windows_core::GUID, lpservicename : windows_core::PCWSTR, lpiprotocols : *const i32, dwresolution : u32, lpserviceasyncinfo : *const SERVICE_ASYNC_INFO, lpcsaddrbuffer : *mut core::ffi::c_void, lpdwbufferlength : *mut u32, lpaliasbuffer : windows_core::PWSTR, lpdwaliasbufferlength : *mut u32) -> i32);
-    unsafe { GetAddressByNameW(dwnamespace, lpservicetype, lpservicename.param().abi(), lpiprotocols.unwrap_or(core::mem::zeroed()) as _, dwresolution, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _, lpcsaddrbuffer as _, lpdwbufferlength as _, lpaliasbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwaliasbufferlength as _) }
+    unsafe { GetAddressByNameW(dwnamespace, lpservicetype, core::mem::transmute_copy(&lpservicename.param().borrow()), lpiprotocols.unwrap_or(core::mem::zeroed()) as _, dwresolution, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _, lpcsaddrbuffer as _, lpdwbufferlength as _, lpaliasbuffer.unwrap_or(core::mem::zeroed()) as _, lpdwaliasbufferlength as _) }
 }
 #[inline]
 pub unsafe fn GetHostNameW(name: &mut [u16]) -> i32 {
@@ -116,7 +116,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mswsock.dll" "system" fn GetServiceA(dwnamespace : u32, lpguid : *const windows_core::GUID, lpservicename : windows_core::PCSTR, dwproperties : u32, lpbuffer : *mut core::ffi::c_void, lpdwbuffersize : *mut u32, lpserviceasyncinfo : *const SERVICE_ASYNC_INFO) -> i32);
-    unsafe { GetServiceA(dwnamespace, lpguid, lpservicename.param().abi(), dwproperties, lpbuffer as _, lpdwbuffersize as _, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetServiceA(dwnamespace, lpguid, core::mem::transmute_copy(&lpservicename.param().borrow()), dwproperties, lpbuffer as _, lpdwbuffersize as _, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetServiceW<P2>(dwnamespace: u32, lpguid: *const windows_core::GUID, lpservicename: P2, dwproperties: u32, lpbuffer: *mut core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: Option<*const SERVICE_ASYNC_INFO>) -> i32
@@ -124,7 +124,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mswsock.dll" "system" fn GetServiceW(dwnamespace : u32, lpguid : *const windows_core::GUID, lpservicename : windows_core::PCWSTR, dwproperties : u32, lpbuffer : *mut core::ffi::c_void, lpdwbuffersize : *mut u32, lpserviceasyncinfo : *const SERVICE_ASYNC_INFO) -> i32);
-    unsafe { GetServiceW(dwnamespace, lpguid, lpservicename.param().abi(), dwproperties, lpbuffer as _, lpdwbuffersize as _, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetServiceW(dwnamespace, lpguid, core::mem::transmute_copy(&lpservicename.param().borrow()), dwproperties, lpbuffer as _, lpdwbuffersize as _, lpserviceasyncinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetTypeByNameA<P0>(lpservicename: P0, lpservicetype: *mut windows_core::GUID) -> i32
@@ -132,7 +132,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mswsock.dll" "system" fn GetTypeByNameA(lpservicename : windows_core::PCSTR, lpservicetype : *mut windows_core::GUID) -> i32);
-    unsafe { GetTypeByNameA(lpservicename.param().abi(), lpservicetype as _) }
+    unsafe { GetTypeByNameA(core::mem::transmute_copy(&lpservicename.param().borrow()), lpservicetype as _) }
 }
 #[inline]
 pub unsafe fn GetTypeByNameW<P0>(lpservicename: P0, lpservicetype: *mut windows_core::GUID) -> i32
@@ -140,7 +140,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mswsock.dll" "system" fn GetTypeByNameW(lpservicename : windows_core::PCWSTR, lpservicetype : *mut windows_core::GUID) -> i32);
-    unsafe { GetTypeByNameW(lpservicename.param().abi(), lpservicetype as _) }
+    unsafe { GetTypeByNameW(core::mem::transmute_copy(&lpservicename.param().borrow()), lpservicetype as _) }
 }
 #[inline]
 pub unsafe fn InetNtopW(family: i32, paddr: *const core::ffi::c_void, pstringbuf: &mut [u16]) -> windows_core::PCWSTR {
@@ -153,7 +153,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn InetPtonW(family : i32, pszaddrstring : windows_core::PCWSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
-    unsafe { InetPtonW(family, pszaddrstring.param().abi(), paddrbuf as _) }
+    unsafe { InetPtonW(family, core::mem::transmute_copy(&pszaddrstring.param().borrow()), paddrbuf as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -177,7 +177,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressA(s : windows_core::PCSTR, terminator : *mut windows_core::PCSTR, addr : *mut DL_EUI48) -> i32);
-    unsafe { RtlEthernetStringToAddressA(s.param().abi(), terminator as _, addr as _) }
+    unsafe { RtlEthernetStringToAddressA(core::mem::transmute_copy(&s.param().borrow()), terminator as _, addr as _) }
 }
 #[inline]
 pub unsafe fn RtlEthernetStringToAddressW<P0>(s: P0, terminator: *mut windows_core::PCWSTR, addr: *mut DL_EUI48) -> i32
@@ -185,7 +185,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressW(s : windows_core::PCWSTR, terminator : *mut windows_core::PCWSTR, addr : *mut DL_EUI48) -> i32);
-    unsafe { RtlEthernetStringToAddressW(s.param().abi(), terminator as _, addr as _) }
+    unsafe { RtlEthernetStringToAddressW(core::mem::transmute_copy(&s.param().borrow()), terminator as _, addr as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: &mut [u8; 16]) -> windows_core::PSTR {
@@ -213,7 +213,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_core::PCSTR, strict : bool, terminator : *mut windows_core::PCSTR, addr : *mut IN_ADDR) -> i32);
-    unsafe { RtlIpv4StringToAddressA(s.param().abi(), strict, terminator as _, addr as _) }
+    unsafe { RtlIpv4StringToAddressA(core::mem::transmute_copy(&s.param().borrow()), strict, terminator as _, addr as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressExA<P0>(addressstring: P0, strict: bool, address: *mut IN_ADDR, port: *mut u16) -> i32
@@ -221,7 +221,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_core::PCSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
-    unsafe { RtlIpv4StringToAddressExA(addressstring.param().abi(), strict, address as _, port as _) }
+    unsafe { RtlIpv4StringToAddressExA(core::mem::transmute_copy(&addressstring.param().borrow()), strict, address as _, port as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressExW<P0>(addressstring: P0, strict: bool, address: *mut IN_ADDR, port: *mut u16) -> i32
@@ -229,7 +229,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_core::PCWSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
-    unsafe { RtlIpv4StringToAddressExW(addressstring.param().abi(), strict, address as _, port as _) }
+    unsafe { RtlIpv4StringToAddressExW(core::mem::transmute_copy(&addressstring.param().borrow()), strict, address as _, port as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressW<P0>(s: P0, strict: bool, terminator: *mut windows_core::PCWSTR, addr: *mut IN_ADDR) -> i32
@@ -237,7 +237,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_core::PCWSTR, strict : bool, terminator : *mut windows_core::PCWSTR, addr : *mut IN_ADDR) -> i32);
-    unsafe { RtlIpv4StringToAddressW(s.param().abi(), strict, terminator as _, addr as _) }
+    unsafe { RtlIpv4StringToAddressW(core::mem::transmute_copy(&s.param().borrow()), strict, terminator as _, addr as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: &mut [u8; 46]) -> windows_core::PSTR {
@@ -265,7 +265,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressA(s : windows_core::PCSTR, terminator : *mut windows_core::PCSTR, addr : *mut IN6_ADDR) -> i32);
-    unsafe { RtlIpv6StringToAddressA(s.param().abi(), terminator as _, addr as _) }
+    unsafe { RtlIpv6StringToAddressA(core::mem::transmute_copy(&s.param().borrow()), terminator as _, addr as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv6StringToAddressExA<P0>(addressstring: P0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32
@@ -273,7 +273,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExA(addressstring : windows_core::PCSTR, address : *mut IN6_ADDR, scopeid : *mut u32, port : *mut u16) -> i32);
-    unsafe { RtlIpv6StringToAddressExA(addressstring.param().abi(), address as _, scopeid as _, port as _) }
+    unsafe { RtlIpv6StringToAddressExA(core::mem::transmute_copy(&addressstring.param().borrow()), address as _, scopeid as _, port as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv6StringToAddressExW<P0>(addressstring: P0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32
@@ -281,7 +281,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExW(addressstring : windows_core::PCWSTR, address : *mut IN6_ADDR, scopeid : *mut u32, port : *mut u16) -> i32);
-    unsafe { RtlIpv6StringToAddressExW(addressstring.param().abi(), address as _, scopeid as _, port as _) }
+    unsafe { RtlIpv6StringToAddressExW(core::mem::transmute_copy(&addressstring.param().borrow()), address as _, scopeid as _, port as _) }
 }
 #[inline]
 pub unsafe fn RtlIpv6StringToAddressW<P0>(s: P0, terminator: *mut windows_core::PCWSTR, addr: *mut IN6_ADDR) -> i32
@@ -289,7 +289,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressW(s : windows_core::PCWSTR, terminator : *mut windows_core::PCWSTR, addr : *mut IN6_ADDR) -> i32);
-    unsafe { RtlIpv6StringToAddressW(s.param().abi(), terminator as _, addr as _) }
+    unsafe { RtlIpv6StringToAddressW(core::mem::transmute_copy(&s.param().borrow()), terminator as _, addr as _) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
@@ -299,7 +299,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_core::PCSTR, pservicename : windows_core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::super::System::Com:: BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_core::GUID, timeout : *const TIMEVAL, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::super::Foundation:: HANDLE) -> i32);
-    unsafe { SetAddrInfoExA(pname.param().abi(), pservicename.param().abi(), paddresses.unwrap_or(core::mem::zeroed()) as _, dwaddresscount, lpblob.unwrap_or(core::mem::zeroed()) as _, dwflags, dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetAddrInfoExA(core::mem::transmute_copy(&pname.param().borrow()), core::mem::transmute_copy(&pservicename.param().borrow()), paddresses.unwrap_or(core::mem::zeroed()) as _, dwaddresscount, lpblob.unwrap_or(core::mem::zeroed()) as _, dwflags, dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
@@ -309,7 +309,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn SetAddrInfoExW(pname : windows_core::PCWSTR, pservicename : windows_core::PCWSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::super::System::Com:: BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_core::GUID, timeout : *const TIMEVAL, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::super::Foundation:: HANDLE) -> i32);
-    unsafe { SetAddrInfoExW(pname.param().abi(), pservicename.param().abi(), paddresses.unwrap_or(core::mem::zeroed()) as _, dwaddresscount, lpblob.unwrap_or(core::mem::zeroed()) as _, dwflags, dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetAddrInfoExW(core::mem::transmute_copy(&pname.param().borrow()), core::mem::transmute_copy(&pservicename.param().borrow()), paddresses.unwrap_or(core::mem::zeroed()) as _, dwaddresscount, lpblob.unwrap_or(core::mem::zeroed()) as _, dwflags, dwnamespace, lpnspid.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine, lpnamehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -374,7 +374,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { WSAAsyncGetHostByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
+    let result__ = unsafe { WSAAsyncGetHostByName(hwnd, wmsg, core::mem::transmute_copy(&name.param().borrow()), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -383,7 +383,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { WSAAsyncGetProtoByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
+    let result__ = unsafe { WSAAsyncGetProtoByName(hwnd, wmsg, core::mem::transmute_copy(&name.param().borrow()), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -399,7 +399,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetServByName(hwnd : super::super::Foundation:: HWND, wmsg : u32, name : windows_core::PCSTR, proto : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { WSAAsyncGetServByName(hwnd, wmsg, name.param().abi(), proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
+    let result__ = unsafe { WSAAsyncGetServByName(hwnd, wmsg, core::mem::transmute_copy(&name.param().borrow()), core::mem::transmute_copy(&proto.param().borrow()), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -408,7 +408,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetServByPort(hwnd : super::super::Foundation:: HWND, wmsg : u32, port : i32, proto : windows_core::PCSTR, buf : windows_core::PSTR, buflen : i32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { WSAAsyncGetServByPort(hwnd, wmsg, port, proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
+    let result__ = unsafe { WSAAsyncGetServByPort(hwnd, wmsg, port, core::mem::transmute_copy(&proto.param().borrow()), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -455,7 +455,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAConnectByNameA(s : SOCKET, nodename : windows_core::PCSTR, servicename : windows_core::PCSTR, localaddresslength : *mut u32, localaddress : *mut SOCKADDR, remoteaddresslength : *mut u32, remoteaddress : *mut SOCKADDR, timeout : *const TIMEVAL, reserved : *const super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
-    unsafe { WSAConnectByNameA(s, nodename.param().abi(), servicename.param().abi(), localaddresslength.unwrap_or(core::mem::zeroed()) as _, localaddress.unwrap_or(core::mem::zeroed()) as _, remoteaddresslength.unwrap_or(core::mem::zeroed()) as _, remoteaddress.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WSAConnectByNameA(s, core::mem::transmute_copy(&nodename.param().borrow()), core::mem::transmute_copy(&servicename.param().borrow()), localaddresslength.unwrap_or(core::mem::zeroed()) as _, localaddress.unwrap_or(core::mem::zeroed()) as _, remoteaddresslength.unwrap_or(core::mem::zeroed()) as _, remoteaddress.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -465,7 +465,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAConnectByNameW(s : SOCKET, nodename : windows_core::PCWSTR, servicename : windows_core::PCWSTR, localaddresslength : *mut u32, localaddress : *mut SOCKADDR, remoteaddresslength : *mut u32, remoteaddress : *mut SOCKADDR, timeout : *const TIMEVAL, reserved : *const super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
-    unsafe { WSAConnectByNameW(s, nodename.param().abi(), servicename.param().abi(), localaddresslength.unwrap_or(core::mem::zeroed()) as _, localaddress.unwrap_or(core::mem::zeroed()) as _, remoteaddresslength.unwrap_or(core::mem::zeroed()) as _, remoteaddress.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WSAConnectByNameW(s, core::mem::transmute_copy(&nodename.param().borrow()), core::mem::transmute_copy(&servicename.param().borrow()), localaddresslength.unwrap_or(core::mem::zeroed()) as _, localaddress.unwrap_or(core::mem::zeroed()) as _, remoteaddresslength.unwrap_or(core::mem::zeroed()) as _, remoteaddress.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WSACreateEvent() -> windows_core::Result<WSAEVENT> {
@@ -798,7 +798,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAStringToAddressA(addressstring : windows_core::PCSTR, addressfamily : i32, lpprotocolinfo : *const WSAPROTOCOL_INFOA, lpaddress : *mut SOCKADDR, lpaddresslength : *mut i32) -> i32);
-    unsafe { WSAStringToAddressA(addressstring.param().abi(), addressfamily, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpaddress as _, lpaddresslength as _) }
+    unsafe { WSAStringToAddressA(core::mem::transmute_copy(&addressstring.param().borrow()), addressfamily, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpaddress as _, lpaddresslength as _) }
 }
 #[inline]
 pub unsafe fn WSAStringToAddressW<P0>(addressstring: P0, addressfamily: i32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOW>, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32
@@ -806,7 +806,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAStringToAddressW(addressstring : windows_core::PCWSTR, addressfamily : i32, lpprotocolinfo : *const WSAPROTOCOL_INFOW, lpaddress : *mut SOCKADDR, lpaddresslength : *mut i32) -> i32);
-    unsafe { WSAStringToAddressW(addressstring.param().abi(), addressfamily, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpaddress as _, lpaddresslength as _) }
+    unsafe { WSAStringToAddressW(core::mem::transmute_copy(&addressstring.param().borrow()), addressfamily, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpaddress as _, lpaddresslength as _) }
 }
 #[inline]
 pub unsafe fn WSAUnadvertiseProvider(puuidproviderid: *const windows_core::GUID) -> i32 {
@@ -903,7 +903,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCInstallNameSpace(lpszidentifier : windows_core::PCWSTR, lpszpathname : windows_core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_core::GUID) -> i32);
-    unsafe { WSCInstallNameSpace(lpszidentifier.param().abi(), lpszpathname.param().abi(), dwnamespace, dwversion, lpproviderid) }
+    unsafe { WSCInstallNameSpace(core::mem::transmute_copy(&lpszidentifier.param().borrow()), core::mem::transmute_copy(&lpszpathname.param().borrow()), dwnamespace, dwversion, lpproviderid) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -913,7 +913,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCInstallNameSpace32(lpszidentifier : windows_core::PCWSTR, lpszpathname : windows_core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_core::GUID) -> i32);
-    unsafe { WSCInstallNameSpace32(lpszidentifier.param().abi(), lpszpathname.param().abi(), dwnamespace, dwversion, lpproviderid) }
+    unsafe { WSCInstallNameSpace32(core::mem::transmute_copy(&lpszidentifier.param().borrow()), core::mem::transmute_copy(&lpszpathname.param().borrow()), dwnamespace, dwversion, lpproviderid) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -923,7 +923,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCInstallNameSpaceEx(lpszidentifier : windows_core::PCWSTR, lpszpathname : windows_core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_core::GUID, lpproviderspecific : *const super::super::System::Com:: BLOB) -> i32);
-    unsafe { WSCInstallNameSpaceEx(lpszidentifier.param().abi(), lpszpathname.param().abi(), dwnamespace, dwversion, lpproviderid, lpproviderspecific) }
+    unsafe { WSCInstallNameSpaceEx(core::mem::transmute_copy(&lpszidentifier.param().borrow()), core::mem::transmute_copy(&lpszpathname.param().borrow()), dwnamespace, dwversion, lpproviderid, lpproviderspecific) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -934,7 +934,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCInstallNameSpaceEx32(lpszidentifier : windows_core::PCWSTR, lpszpathname : windows_core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const windows_core::GUID, lpproviderspecific : *const super::super::System::Com:: BLOB) -> i32);
-    unsafe { WSCInstallNameSpaceEx32(lpszidentifier.param().abi(), lpszpathname.param().abi(), dwnamespace, dwversion, lpproviderid, lpproviderspecific) }
+    unsafe { WSCInstallNameSpaceEx32(core::mem::transmute_copy(&lpszidentifier.param().borrow()), core::mem::transmute_copy(&lpszpathname.param().borrow()), dwnamespace, dwversion, lpproviderid, lpproviderspecific) }
 }
 #[inline]
 pub unsafe fn WSCInstallProvider<P1>(lpproviderid: *const windows_core::GUID, lpszproviderdllpath: P1, lpprotocolinfolist: &[WSAPROTOCOL_INFOW], lperrno: *mut i32) -> i32
@@ -942,7 +942,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCInstallProvider(lpproviderid : *const windows_core::GUID, lpszproviderdllpath : windows_core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
-    unsafe { WSCInstallProvider(lpproviderid, lpszproviderdllpath.param().abi(), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
+    unsafe { WSCInstallProvider(lpproviderid, core::mem::transmute_copy(&lpszproviderdllpath.param().borrow()), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -951,7 +951,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCInstallProvider64_32(lpproviderid : *const windows_core::GUID, lpszproviderdllpath : windows_core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
-    unsafe { WSCInstallProvider64_32(lpproviderid, lpszproviderdllpath.param().abi(), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
+    unsafe { WSCInstallProvider64_32(lpproviderid, core::mem::transmute_copy(&lpszproviderdllpath.param().borrow()), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -962,7 +962,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCInstallProviderAndChains64_32(lpproviderid : *const windows_core::GUID, lpszproviderdllpath : windows_core::PCWSTR, lpszproviderdllpath32 : windows_core::PCWSTR, lpszlspname : windows_core::PCWSTR, dwserviceflags : u32, lpprotocolinfolist : *mut WSAPROTOCOL_INFOW, dwnumberofentries : u32, lpdwcatalogentryid : *mut u32, lperrno : *mut i32) -> i32);
-    unsafe { WSCInstallProviderAndChains64_32(lpproviderid, lpszproviderdllpath.param().abi(), lpszproviderdllpath32.param().abi(), lpszlspname.param().abi(), dwserviceflags, core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lpdwcatalogentryid.unwrap_or(core::mem::zeroed()) as _, lperrno as _) }
+    unsafe { WSCInstallProviderAndChains64_32(lpproviderid, core::mem::transmute_copy(&lpszproviderdllpath.param().borrow()), core::mem::transmute_copy(&lpszproviderdllpath32.param().borrow()), core::mem::transmute_copy(&lpszlspname.param().borrow()), dwserviceflags, core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lpdwcatalogentryid.unwrap_or(core::mem::zeroed()) as _, lperrno as _) }
 }
 #[inline]
 pub unsafe fn WSCSetApplicationCategory(path: &[u16], extra: Option<&[u16]>, permittedlspcategories: u32, pprevpermlspcat: Option<*mut u32>, lperrno: *mut i32) -> i32 {
@@ -997,7 +997,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCUpdateProvider(lpproviderid : *const windows_core::GUID, lpszproviderdllpath : windows_core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
-    unsafe { WSCUpdateProvider(lpproviderid, lpszproviderdllpath.param().abi(), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
+    unsafe { WSCUpdateProvider(lpproviderid, core::mem::transmute_copy(&lpszproviderdllpath.param().borrow()), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -1006,7 +1006,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSCUpdateProvider32(lpproviderid : *const windows_core::GUID, lpszproviderdllpath : windows_core::PCWSTR, lpprotocolinfolist : *const WSAPROTOCOL_INFOW, dwnumberofentries : u32, lperrno : *mut i32) -> i32);
-    unsafe { WSCUpdateProvider32(lpproviderid, lpszproviderdllpath.param().abi(), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
+    unsafe { WSCUpdateProvider32(lpproviderid, core::mem::transmute_copy(&lpszproviderdllpath.param().borrow()), core::mem::transmute(lpprotocolinfolist.as_ptr()), lpprotocolinfolist.len().try_into().unwrap(), lperrno as _) }
 }
 #[inline]
 pub unsafe fn WSCWriteNameSpaceOrder(lpproviderid: *mut windows_core::GUID, dwnumberofentries: u32) -> i32 {
@@ -1068,7 +1068,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn getaddrinfo(pnodename : windows_core::PCSTR, pservicename : windows_core::PCSTR, phints : *const ADDRINFOA, ppresult : *mut *mut ADDRINFOA) -> i32);
-    unsafe { getaddrinfo(pnodename.param().abi(), pservicename.param().abi(), phints.unwrap_or(core::mem::zeroed()) as _, ppresult as _) }
+    unsafe { getaddrinfo(core::mem::transmute_copy(&pnodename.param().borrow()), core::mem::transmute_copy(&pservicename.param().borrow()), phints.unwrap_or(core::mem::zeroed()) as _, ppresult as _) }
 }
 #[inline]
 pub unsafe fn gethostbyaddr(addr: &[u8], r#type: i32) -> *mut HOSTENT {
@@ -1081,7 +1081,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn gethostbyname(name : windows_core::PCSTR) -> *mut HOSTENT);
-    unsafe { gethostbyname(name.param().abi()) }
+    unsafe { gethostbyname(core::mem::transmute_copy(&name.param().borrow())) }
 }
 #[inline]
 pub unsafe fn gethostname(name: &mut [u8]) -> i32 {
@@ -1104,7 +1104,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn getprotobyname(name : windows_core::PCSTR) -> *mut PROTOENT);
-    unsafe { getprotobyname(name.param().abi()) }
+    unsafe { getprotobyname(core::mem::transmute_copy(&name.param().borrow())) }
 }
 #[inline]
 pub unsafe fn getprotobynumber(number: i32) -> *mut PROTOENT {
@@ -1118,7 +1118,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn getservbyname(name : windows_core::PCSTR, proto : windows_core::PCSTR) -> *mut SERVENT);
-    unsafe { getservbyname(name.param().abi(), proto.param().abi()) }
+    unsafe { getservbyname(core::mem::transmute_copy(&name.param().borrow()), core::mem::transmute_copy(&proto.param().borrow())) }
 }
 #[inline]
 pub unsafe fn getservbyport<P1>(port: i32, proto: P1) -> *mut SERVENT
@@ -1126,7 +1126,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn getservbyport(port : i32, proto : windows_core::PCSTR) -> *mut SERVENT);
-    unsafe { getservbyport(port, proto.param().abi()) }
+    unsafe { getservbyport(port, core::mem::transmute_copy(&proto.param().borrow())) }
 }
 #[inline]
 pub unsafe fn getsockname(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32) -> i32 {
@@ -1154,7 +1154,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn inet_addr(cp : windows_core::PCSTR) -> u32);
-    unsafe { inet_addr(cp.param().abi()) }
+    unsafe { inet_addr(core::mem::transmute_copy(&cp.param().borrow())) }
 }
 #[inline]
 pub unsafe fn inet_ntoa(r#in: IN_ADDR) -> windows_core::PSTR {
@@ -1172,7 +1172,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn inet_pton(family : i32, pszaddrstring : windows_core::PCSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
-    unsafe { inet_pton(family, pszaddrstring.param().abi(), paddrbuf as _) }
+    unsafe { inet_pton(family, core::mem::transmute_copy(&pszaddrstring.param().borrow()), paddrbuf as _) }
 }
 #[inline]
 pub unsafe fn ioctlsocket(s: SOCKET, cmd: i32, argp: *mut u32) -> i32 {

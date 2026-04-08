@@ -42,7 +42,7 @@ impl CurrencyFormatter {
     {
         Self::ICurrencyFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCurrencyFormatterCodeContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currencycode), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCurrencyFormatterCodeContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(currencycode), core::mem::transmute_copy(&languages.param().borrow()), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -203,7 +203,7 @@ impl CurrencyFormatter {
         P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ISignedZeroOption>(self)?;
@@ -276,7 +276,7 @@ impl DecimalFormatter {
     {
         Self::IDecimalFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDecimalFormatter)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDecimalFormatter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow()), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING> {
@@ -437,7 +437,7 @@ impl DecimalFormatter {
         P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ISignedZeroOption>(self)?;
@@ -1295,7 +1295,7 @@ impl INumberRounderOption {
         P0: windows_core::Param<INumberRounder>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeName for INumberRounderOption {
@@ -1303,7 +1303,7 @@ impl windows_core::RuntimeName for INumberRounderOption {
 }
 pub trait INumberRounderOption_Impl: windows_core::IUnknownImpl {
     fn NumberRounder(&self) -> windows_core::Result<INumberRounder>;
-    fn SetNumberRounder(&self, value: windows_core::Ref<INumberRounder>) -> windows_core::Result<()>;
+    fn SetNumberRounder(&self, value: Option<&INumberRounder>) -> windows_core::Result<()>;
 }
 impl INumberRounderOption_Vtbl {
     pub const fn new<Identity: INumberRounderOption_Impl, const OFFSET: isize>() -> Self {
@@ -1323,7 +1323,7 @@ impl INumberRounderOption_Vtbl {
         unsafe extern "system" fn SetNumberRounder<Identity: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INumberRounderOption_Impl::SetNumberRounder(this, core::mem::transmute_copy(&value)).into()
+                INumberRounderOption_Impl::SetNumberRounder(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         Self {
@@ -1663,7 +1663,7 @@ impl NumeralSystemTranslator {
     {
         Self::INumeralSystemTranslatorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn INumeralSystemTranslatorFactory<R, F: FnOnce(&INumeralSystemTranslatorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1854,7 +1854,7 @@ impl PercentFormatter {
         P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CreatePercentFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PercentFormatter>
     where
@@ -1862,7 +1862,7 @@ impl PercentFormatter {
     {
         Self::IPercentFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePercentFormatter)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePercentFormatter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow()), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {
@@ -2075,7 +2075,7 @@ impl PermilleFormatter {
         P0: windows_core::Param<INumberRounder>,
     {
         let this = &windows_core::Interface::cast::<INumberRounderOption>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNumberRounder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CreatePermilleFormatter<P0>(languages: P0, geographicregion: &windows_core::HSTRING) -> windows_core::Result<PermilleFormatter>
     where
@@ -2083,7 +2083,7 @@ impl PermilleFormatter {
     {
         Self::IPermilleFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePermilleFormatter)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePermilleFormatter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow()), core::mem::transmute_copy(geographicregion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsZeroSigned(&self) -> windows_core::Result<bool> {

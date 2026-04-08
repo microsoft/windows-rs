@@ -2700,7 +2700,7 @@ impl IDXGIFactory {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSwapChain)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pdesc, core::mem::transmute(ppswapchain)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateSwapChain)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), pdesc, core::mem::transmute(ppswapchain)) }
     }
     pub unsafe fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HMODULE) -> windows_core::Result<IDXGIAdapter> {
         unsafe {
@@ -2729,7 +2729,7 @@ pub trait IDXGIFactory_Impl: IDXGIObject_Impl {
     fn EnumAdapters(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter>;
     fn MakeWindowAssociation(&self, windowhandle: super::super::Foundation::HWND, flags: DXGI_MWA_FLAGS) -> windows_core::Result<()>;
     fn GetWindowAssociation(&self) -> windows_core::Result<super::super::Foundation::HWND>;
-    fn CreateSwapChain(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: windows_core::OutRef<IDXGISwapChain>) -> windows_core::HRESULT;
+    fn CreateSwapChain(&self, pdevice: Option<&windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: windows_core::OutRef<IDXGISwapChain>) -> windows_core::HRESULT;
     fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HMODULE) -> windows_core::Result<IDXGIAdapter>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2768,7 +2768,7 @@ impl IDXGIFactory_Vtbl {
         unsafe extern "system" fn CreateSwapChain<Identity: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pdesc: *const DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIFactory_Impl::CreateSwapChain(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppswapchain))
+                IDXGIFactory_Impl::CreateSwapChain(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&ppswapchain))
             }
         }
         unsafe extern "system" fn CreateSoftwareAdapter<Identity: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, module: super::super::Foundation::HMODULE, ppadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2880,7 +2880,7 @@ impl IDXGIFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSwapChainForHwnd)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hwnd, pdesc, pfullscreendesc.unwrap_or(core::mem::zeroed()) as _, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSwapChainForHwnd)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), hwnd, pdesc, pfullscreendesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&prestricttooutput.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2892,7 +2892,7 @@ impl IDXGIFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSwapChainForCoreWindow)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pwindow.param().abi(), pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSwapChainForCoreWindow)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), core::mem::transmute_copy(&pwindow.param().borrow()), pdesc, core::mem::transmute_copy(&prestricttooutput.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetSharedResourceAdapterLuid(&self, hresource: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::LUID> {
@@ -2939,7 +2939,7 @@ impl IDXGIFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSwapChainForComposition)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSwapChainForComposition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), pdesc, core::mem::transmute_copy(&prestricttooutput.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2973,8 +2973,8 @@ unsafe impl Sync for IDXGIFactory2 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
     fn IsWindowedStereoEnabled(&self) -> windows_core::BOOL;
-    fn CreateSwapChainForHwnd(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
-    fn CreateSwapChainForCoreWindow(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pwindow: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateSwapChainForHwnd(&self, pdevice: Option<&windows_core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Option<&IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateSwapChainForCoreWindow(&self, pdevice: Option<&windows_core::IUnknown>, pwindow: Option<&windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Option<&IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
     fn GetSharedResourceAdapterLuid(&self, hresource: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::LUID>;
     fn RegisterStereoStatusWindow(&self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> windows_core::Result<u32>;
     fn RegisterStereoStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
@@ -2982,7 +2982,7 @@ pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
     fn RegisterOcclusionStatusWindow(&self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> windows_core::Result<u32>;
     fn RegisterOcclusionStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<u32>;
     fn UnregisterOcclusionStatus(&self, dwcookie: u32);
-    fn CreateSwapChainForComposition(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateSwapChainForComposition(&self, pdevice: Option<&windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Option<&IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGIFactory2_Vtbl {
@@ -2996,7 +2996,7 @@ impl IDXGIFactory2_Vtbl {
         unsafe extern "system" fn CreateSwapChainForHwnd<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIFactory2_Impl::CreateSwapChainForHwnd(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pfullscreendesc), core::mem::transmute_copy(&prestricttooutput)) {
+                match IDXGIFactory2_Impl::CreateSwapChainForHwnd(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pfullscreendesc), windows_core::Ref::option_from_abi(&prestricttooutput)) {
                     Ok(ok__) => {
                         ppswapchain.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3008,7 +3008,7 @@ impl IDXGIFactory2_Vtbl {
         unsafe extern "system" fn CreateSwapChainForCoreWindow<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pwindow: *mut core::ffi::c_void, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIFactory2_Impl::CreateSwapChainForCoreWindow(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pwindow), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&prestricttooutput)) {
+                match IDXGIFactory2_Impl::CreateSwapChainForCoreWindow(this, windows_core::Ref::option_from_abi(&pdevice), windows_core::Ref::option_from_abi(&pwindow), core::mem::transmute_copy(&pdesc), windows_core::Ref::option_from_abi(&prestricttooutput)) {
                     Ok(ok__) => {
                         ppswapchain.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3092,7 +3092,7 @@ impl IDXGIFactory2_Vtbl {
         unsafe extern "system" fn CreateSwapChainForComposition<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIFactory2_Impl::CreateSwapChainForComposition(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&prestricttooutput)) {
+                match IDXGIFactory2_Impl::CreateSwapChainForComposition(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&pdesc), windows_core::Ref::option_from_abi(&prestricttooutput)) {
                     Ok(ok__) => {
                         ppswapchain.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3394,7 +3394,7 @@ impl IDXGIFactoryMedia {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface.unwrap_or(core::mem::zeroed()) as _, pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), hsurface.unwrap_or(core::mem::zeroed()) as _, pdesc, core::mem::transmute_copy(&prestricttooutput.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<P0, P3, P4>(&self, pdevice: P0, hsurface: Option<super::super::Foundation::HANDLE>, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: P3, prestricttooutput: P4) -> windows_core::Result<IDXGIDecodeSwapChain>
@@ -3405,7 +3405,7 @@ impl IDXGIFactoryMedia {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface.unwrap_or(core::mem::zeroed()) as _, pdesc, pyuvdecodebuffers.param().abi(), prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), hsurface.unwrap_or(core::mem::zeroed()) as _, pdesc, core::mem::transmute_copy(&pyuvdecodebuffers.param().borrow()), core::mem::transmute_copy(&prestricttooutput.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3423,8 +3423,8 @@ unsafe impl Send for IDXGIFactoryMedia {}
 unsafe impl Sync for IDXGIFactoryMedia {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGIFactoryMedia_Impl: windows_core::IUnknownImpl {
-    fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
-    fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: windows_core::Ref<IDXGIResource>, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGIDecodeSwapChain>;
+    fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: Option<&windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Option<&IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
+    fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pdevice: Option<&windows_core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: Option<&IDXGIResource>, prestricttooutput: Option<&IDXGIOutput>) -> windows_core::Result<IDXGIDecodeSwapChain>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGIFactoryMedia_Vtbl {
@@ -3432,7 +3432,7 @@ impl IDXGIFactoryMedia_Vtbl {
         unsafe extern "system" fn CreateSwapChainForCompositionSurfaceHandle<Identity: IDXGIFactoryMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIFactoryMedia_Impl::CreateSwapChainForCompositionSurfaceHandle(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hsurface), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&prestricttooutput)) {
+                match IDXGIFactoryMedia_Impl::CreateSwapChainForCompositionSurfaceHandle(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&hsurface), core::mem::transmute_copy(&pdesc), windows_core::Ref::option_from_abi(&prestricttooutput)) {
                     Ok(ok__) => {
                         ppswapchain.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3444,7 +3444,7 @@ impl IDXGIFactoryMedia_Vtbl {
         unsafe extern "system" fn CreateDecodeSwapChainForCompositionSurfaceHandle<Identity: IDXGIFactoryMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: *mut core::ffi::c_void, prestricttooutput: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIFactoryMedia_Impl::CreateDecodeSwapChainForCompositionSurfaceHandle(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hsurface), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pyuvdecodebuffers), core::mem::transmute_copy(&prestricttooutput)) {
+                match IDXGIFactoryMedia_Impl::CreateDecodeSwapChainForCompositionSurfaceHandle(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&hsurface), core::mem::transmute_copy(&pdesc), windows_core::Ref::option_from_abi(&pyuvdecodebuffers), windows_core::Ref::option_from_abi(&prestricttooutput)) {
                     Ok(ok__) => {
                         ppswapchain.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3553,13 +3553,13 @@ impl IDXGIInfoQueue {
     where
         P4: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), category, severity, id, pdescription.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), category, severity, id, core::mem::transmute_copy(&pdescription.param().borrow())).ok() }
     }
     pub unsafe fn AddApplicationMessage<P1>(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, pdescription.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, core::mem::transmute_copy(&pdescription.param().borrow())).ok() }
     }
     pub unsafe fn SetBreakOnCategory(&self, producer: windows_core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), category, benable.into()).ok() }
@@ -4003,7 +4003,7 @@ impl IDXGIObject {
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), name, punknown.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), name, core::mem::transmute_copy(&punknown.param().borrow())).ok() }
     }
     pub unsafe fn GetPrivateData(&self, name: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), name, pdatasize as _, pdata as _).ok() }
@@ -4029,7 +4029,7 @@ unsafe impl Send for IDXGIObject {}
 unsafe impl Sync for IDXGIObject {}
 pub trait IDXGIObject_Impl: windows_core::IUnknownImpl {
     fn SetPrivateData(&self, name: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, name: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetPrivateDataInterface(&self, name: *const windows_core::GUID, punknown: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPrivateData(&self, name: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetParent(&self, riid: *const windows_core::GUID, ppparent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
@@ -4044,7 +4044,7 @@ impl IDXGIObject_Vtbl {
         unsafe extern "system" fn SetPrivateDataInterface<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const windows_core::GUID, punknown: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIObject_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&name), core::mem::transmute_copy(&punknown)).into()
+                IDXGIObject_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&name), windows_core::Ref::option_from_abi(&punknown)).into()
             }
         }
         unsafe extern "system" fn GetPrivateData<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4097,7 +4097,7 @@ impl IDXGIOutput {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindClosestMatchingMode)(windows_core::Interface::as_raw(self), pmodetomatch, pclosestmatch as _, pconcerneddevice.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindClosestMatchingMode)(windows_core::Interface::as_raw(self), pmodetomatch, pclosestmatch as _, core::mem::transmute_copy(&pconcerneddevice.param().borrow())).ok() }
     }
     pub unsafe fn WaitForVBlank(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WaitForVBlank)(windows_core::Interface::as_raw(self)).ok() }
@@ -4106,7 +4106,7 @@ impl IDXGIOutput {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), pdevice.param().abi(), exclusive.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), exclusive.into()).ok() }
     }
     pub unsafe fn ReleaseOwnership(&self) {
         unsafe { (windows_core::Interface::vtable(self).ReleaseOwnership)(windows_core::Interface::as_raw(self)) }
@@ -4127,13 +4127,13 @@ impl IDXGIOutput {
     where
         P0: windows_core::Param<IDXGISurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDisplaySurface)(windows_core::Interface::as_raw(self), pscanoutsurface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDisplaySurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pscanoutsurface.param().borrow())).ok() }
     }
     pub unsafe fn GetDisplaySurfaceData<P0>(&self, pdestination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDXGISurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplaySurfaceData)(windows_core::Interface::as_raw(self), pdestination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplaySurfaceData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdestination.param().borrow())).ok() }
     }
     pub unsafe fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), pstats as _).ok() }
@@ -4180,15 +4180,15 @@ unsafe impl Sync for IDXGIOutput {}
 pub trait IDXGIOutput_Impl: IDXGIObject_Impl {
     fn GetDesc(&self) -> windows_core::Result<DXGI_OUTPUT_DESC>;
     fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> windows_core::Result<()>;
-    fn FindClosestMatchingMode(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn FindClosestMatchingMode(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn WaitForVBlank(&self) -> windows_core::Result<()>;
-    fn TakeOwnership(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, exclusive: windows_core::BOOL) -> windows_core::Result<()>;
+    fn TakeOwnership(&self, pdevice: Option<&windows_core::IUnknown>, exclusive: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReleaseOwnership(&self);
     fn GetGammaControlCapabilities(&self, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::Result<()>;
     fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> windows_core::Result<()>;
     fn GetGammaControl(&self, parray: *mut Common::DXGI_GAMMA_CONTROL) -> windows_core::Result<()>;
-    fn SetDisplaySurface(&self, pscanoutsurface: windows_core::Ref<IDXGISurface>) -> windows_core::Result<()>;
-    fn GetDisplaySurfaceData(&self, pdestination: windows_core::Ref<IDXGISurface>) -> windows_core::Result<()>;
+    fn SetDisplaySurface(&self, pscanoutsurface: Option<&IDXGISurface>) -> windows_core::Result<()>;
+    fn GetDisplaySurfaceData(&self, pdestination: Option<&IDXGISurface>) -> windows_core::Result<()>;
     fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
@@ -4215,7 +4215,7 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn FindClosestMatchingMode<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput_Impl::FindClosestMatchingMode(this, core::mem::transmute_copy(&pmodetomatch), core::mem::transmute_copy(&pclosestmatch), core::mem::transmute_copy(&pconcerneddevice)).into()
+                IDXGIOutput_Impl::FindClosestMatchingMode(this, core::mem::transmute_copy(&pmodetomatch), core::mem::transmute_copy(&pclosestmatch), windows_core::Ref::option_from_abi(&pconcerneddevice)).into()
             }
         }
         unsafe extern "system" fn WaitForVBlank<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4227,7 +4227,7 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn TakeOwnership<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, exclusive: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput_Impl::TakeOwnership(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&exclusive)).into()
+                IDXGIOutput_Impl::TakeOwnership(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&exclusive)).into()
             }
         }
         unsafe extern "system" fn ReleaseOwnership<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -4257,13 +4257,13 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn SetDisplaySurface<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pscanoutsurface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput_Impl::SetDisplaySurface(this, core::mem::transmute_copy(&pscanoutsurface)).into()
+                IDXGIOutput_Impl::SetDisplaySurface(this, windows_core::Ref::option_from_abi(&pscanoutsurface)).into()
             }
         }
         unsafe extern "system" fn GetDisplaySurfaceData<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput_Impl::GetDisplaySurfaceData(this, core::mem::transmute_copy(&pdestination)).into()
+                IDXGIOutput_Impl::GetDisplaySurfaceData(this, windows_core::Ref::option_from_abi(&pdestination)).into()
             }
         }
         unsafe extern "system" fn GetFrameStatistics<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT {
@@ -4312,13 +4312,13 @@ impl IDXGIOutput1 {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindClosestMatchingMode1)(windows_core::Interface::as_raw(self), pmodetomatch, pclosestmatch as _, pconcerneddevice.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).FindClosestMatchingMode1)(windows_core::Interface::as_raw(self), pmodetomatch, pclosestmatch as _, core::mem::transmute_copy(&pconcerneddevice.param().borrow())).ok() }
     }
     pub unsafe fn GetDisplaySurfaceData1<P0>(&self, pdestination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDXGIResource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplaySurfaceData1)(windows_core::Interface::as_raw(self), pdestination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplaySurfaceData1)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdestination.param().borrow())).ok() }
     }
     pub unsafe fn DuplicateOutput<P0>(&self, pdevice: P0) -> windows_core::Result<IDXGIOutputDuplication>
     where
@@ -4326,7 +4326,7 @@ impl IDXGIOutput1 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateOutput)(windows_core::Interface::as_raw(self), pdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateOutput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4350,9 +4350,9 @@ unsafe impl Sync for IDXGIOutput1 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput1_Impl: IDXGIOutput_Impl {
     fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::Result<()>;
-    fn FindClosestMatchingMode1(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetDisplaySurfaceData1(&self, pdestination: windows_core::Ref<IDXGIResource>) -> windows_core::Result<()>;
-    fn DuplicateOutput(&self, pdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDXGIOutputDuplication>;
+    fn FindClosestMatchingMode1(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetDisplaySurfaceData1(&self, pdestination: Option<&IDXGIResource>) -> windows_core::Result<()>;
+    fn DuplicateOutput(&self, pdevice: Option<&windows_core::IUnknown>) -> windows_core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput1_Vtbl {
@@ -4366,19 +4366,19 @@ impl IDXGIOutput1_Vtbl {
         unsafe extern "system" fn FindClosestMatchingMode1<Identity: IDXGIOutput1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput1_Impl::FindClosestMatchingMode1(this, core::mem::transmute_copy(&pmodetomatch), core::mem::transmute_copy(&pclosestmatch), core::mem::transmute_copy(&pconcerneddevice)).into()
+                IDXGIOutput1_Impl::FindClosestMatchingMode1(this, core::mem::transmute_copy(&pmodetomatch), core::mem::transmute_copy(&pclosestmatch), windows_core::Ref::option_from_abi(&pconcerneddevice)).into()
             }
         }
         unsafe extern "system" fn GetDisplaySurfaceData1<Identity: IDXGIOutput1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput1_Impl::GetDisplaySurfaceData1(this, core::mem::transmute_copy(&pdestination)).into()
+                IDXGIOutput1_Impl::GetDisplaySurfaceData1(this, windows_core::Ref::option_from_abi(&pdestination)).into()
             }
         }
         unsafe extern "system" fn DuplicateOutput<Identity: IDXGIOutput1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, ppoutputduplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIOutput1_Impl::DuplicateOutput(this, core::mem::transmute_copy(&pdevice)) {
+                match IDXGIOutput1_Impl::DuplicateOutput(this, windows_core::Ref::option_from_abi(&pdevice)) {
                     Ok(ok__) => {
                         ppoutputduplication.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4459,7 +4459,7 @@ impl IDXGIOutput3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CheckOverlaySupport)(windows_core::Interface::as_raw(self), enumformat, pconcerneddevice.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CheckOverlaySupport)(windows_core::Interface::as_raw(self), enumformat, core::mem::transmute_copy(&pconcerneddevice.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -4476,7 +4476,7 @@ unsafe impl Send for IDXGIOutput3 {}
 unsafe impl Sync for IDXGIOutput3 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput3_Impl: IDXGIOutput2_Impl {
-    fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Option<&windows_core::IUnknown>) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput3_Vtbl {
@@ -4484,7 +4484,7 @@ impl IDXGIOutput3_Vtbl {
         unsafe extern "system" fn CheckOverlaySupport<Identity: IDXGIOutput3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: Common::DXGI_FORMAT, pconcerneddevice: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIOutput3_Impl::CheckOverlaySupport(this, core::mem::transmute_copy(&enumformat), core::mem::transmute_copy(&pconcerneddevice)) {
+                match IDXGIOutput3_Impl::CheckOverlaySupport(this, core::mem::transmute_copy(&enumformat), windows_core::Ref::option_from_abi(&pconcerneddevice)) {
                     Ok(ok__) => {
                         pflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4517,7 +4517,7 @@ impl IDXGIOutput4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(windows_core::Interface::as_raw(self), format, colorspace, pconcerneddevice.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(windows_core::Interface::as_raw(self), format, colorspace, core::mem::transmute_copy(&pconcerneddevice.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -4534,7 +4534,7 @@ unsafe impl Send for IDXGIOutput4 {}
 unsafe impl Sync for IDXGIOutput4 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput4_Impl: IDXGIOutput3_Impl {
-    fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Option<&windows_core::IUnknown>) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput4_Vtbl {
@@ -4542,7 +4542,7 @@ impl IDXGIOutput4_Vtbl {
         unsafe extern "system" fn CheckOverlayColorSpaceSupport<Identity: IDXGIOutput4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIOutput4_Impl::CheckOverlayColorSpaceSupport(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&colorspace), core::mem::transmute_copy(&pconcerneddevice)) {
+                match IDXGIOutput4_Impl::CheckOverlayColorSpaceSupport(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&colorspace), windows_core::Ref::option_from_abi(&pconcerneddevice)) {
                     Ok(ok__) => {
                         pflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4575,7 +4575,7 @@ impl IDXGIOutput5 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateOutput1)(windows_core::Interface::as_raw(self), pdevice.param().abi(), flags, psupportedformats.len().try_into().unwrap(), core::mem::transmute(psupportedformats.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateOutput1)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), flags, psupportedformats.len().try_into().unwrap(), core::mem::transmute(psupportedformats.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4592,7 +4592,7 @@ unsafe impl Send for IDXGIOutput5 {}
 unsafe impl Sync for IDXGIOutput5 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput5_Impl: IDXGIOutput4_Impl {
-    fn DuplicateOutput1(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>;
+    fn DuplicateOutput1(&self, pdevice: Option<&windows_core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput5_Vtbl {
@@ -4600,7 +4600,7 @@ impl IDXGIOutput5_Vtbl {
         unsafe extern "system" fn DuplicateOutput1<Identity: IDXGIOutput5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT, ppoutputduplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIOutput5_Impl::DuplicateOutput1(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&supportedformatscount), core::mem::transmute_copy(&psupportedformats)) {
+                match IDXGIOutput5_Impl::DuplicateOutput1(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&supportedformatscount), core::mem::transmute_copy(&psupportedformats)) {
                     Ok(ok__) => {
                         ppoutputduplication.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4969,7 +4969,7 @@ impl IDXGIResource1 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pattributes.unwrap_or(core::mem::zeroed()) as _, dwaccess, lpname.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pattributes.unwrap_or(core::mem::zeroed()) as _, dwaccess, core::mem::transmute_copy(&lpname.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -5246,7 +5246,7 @@ impl IDXGISwapChain {
     where
         P1: windows_core::Param<IDXGIOutput>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetFullscreenState)(windows_core::Interface::as_raw(self), fullscreen.into(), ptarget.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetFullscreenState)(windows_core::Interface::as_raw(self), fullscreen.into(), core::mem::transmute_copy(&ptarget.param().borrow())).ok() }
     }
     pub unsafe fn GetFullscreenState(&self, pfullscreen: Option<*mut windows_core::BOOL>, pptarget: Option<*mut Option<IDXGIOutput>>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFullscreenState)(windows_core::Interface::as_raw(self), pfullscreen.unwrap_or(core::mem::zeroed()) as _, pptarget.unwrap_or(core::mem::zeroed()) as _).ok() }
@@ -5312,7 +5312,7 @@ unsafe impl Sync for IDXGISwapChain {}
 pub trait IDXGISwapChain_Impl: IDXGIDeviceSubObject_Impl {
     fn Present(&self, syncinterval: u32, flags: DXGI_PRESENT) -> windows_core::HRESULT;
     fn GetBuffer(&self, buffer: u32, riid: *const windows_core::GUID, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetFullscreenState(&self, fullscreen: windows_core::BOOL, ptarget: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<()>;
+    fn SetFullscreenState(&self, fullscreen: windows_core::BOOL, ptarget: Option<&IDXGIOutput>) -> windows_core::Result<()>;
     fn GetFullscreenState(&self, pfullscreen: *mut windows_core::BOOL, pptarget: windows_core::OutRef<IDXGIOutput>) -> windows_core::Result<()>;
     fn GetDesc(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_DESC>;
     fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: &DXGI_SWAP_CHAIN_FLAG) -> windows_core::Result<()>;
@@ -5339,7 +5339,7 @@ impl IDXGISwapChain_Vtbl {
         unsafe extern "system" fn SetFullscreenState<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreen: windows_core::BOOL, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGISwapChain_Impl::SetFullscreenState(this, core::mem::transmute_copy(&fullscreen), core::mem::transmute_copy(&ptarget)).into()
+                IDXGISwapChain_Impl::SetFullscreenState(this, core::mem::transmute_copy(&fullscreen), windows_core::Ref::option_from_abi(&ptarget)).into()
             }
         }
         unsafe extern "system" fn GetFullscreenState<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfullscreen: *mut windows_core::BOOL, pptarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

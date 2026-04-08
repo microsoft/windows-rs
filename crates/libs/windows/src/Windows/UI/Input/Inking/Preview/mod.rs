@@ -41,7 +41,7 @@ impl PalmRejectionDelayZonePreview {
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), inputpanelvisual.param().abi(), inputpanelrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForVisual)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inputpanelvisual.param().borrow()), inputpanelrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Composition")]
@@ -52,7 +52,7 @@ impl PalmRejectionDelayZonePreview {
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForVisualWithViewportClip)(windows_core::Interface::as_raw(this), inputpanelvisual.param().abi(), inputpanelrect, viewportvisual.param().abi(), viewportrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForVisualWithViewportClip)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inputpanelvisual.param().borrow()), inputpanelrect, core::mem::transmute_copy(&viewportvisual.param().borrow()), viewportrect, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPalmRejectionDelayZonePreviewStatics<R, F: FnOnce(&IPalmRejectionDelayZonePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

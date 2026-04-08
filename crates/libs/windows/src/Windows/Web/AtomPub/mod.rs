@@ -22,7 +22,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveServiceDocumentAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveServiceDocumentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -33,7 +33,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveMediaResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveMediaResourceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RetrieveResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>
@@ -43,7 +43,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveResourceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateResourceAsync<P0, P2>(&self, uri: P0, description: &windows_core::HSTRING, item: P2) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
@@ -54,7 +54,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(description), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateResourceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(description), core::mem::transmute_copy(&item.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -66,7 +66,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMediaResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(mediatype), core::mem::transmute_copy(description), mediastream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMediaResourceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(mediatype), core::mem::transmute_copy(description), core::mem::transmute_copy(&mediastream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -78,7 +78,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateMediaResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(mediatype), mediastream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateMediaResourceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(mediatype), core::mem::transmute_copy(&mediastream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateResourceAsync<P0, P1>(&self, uri: P0, item: P1) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
@@ -89,7 +89,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateResourceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), core::mem::transmute_copy(&item.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
@@ -99,7 +99,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateResourceItemAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateResourceItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeleteResourceAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
@@ -109,7 +109,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteResourceAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteResourceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeleteResourceItemAsync<P0>(&self, item: P0) -> windows_core::Result<windows_future::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
@@ -119,7 +119,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteResourceItemAsync)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteResourceItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&item.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CancelAsyncOperations(&self) -> windows_core::Result<()> {
@@ -133,7 +133,7 @@ impl AtomPubClient {
     {
         Self::IAtomPubClientFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAtomPubClientWithCredentials)(windows_core::Interface::as_raw(this), servercredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAtomPubClientWithCredentials)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&servercredential.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Credentials")]
@@ -150,7 +150,7 @@ impl AtomPubClient {
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -166,7 +166,7 @@ impl AtomPubClient {
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxResponseBufferSize(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
@@ -212,7 +212,7 @@ impl AtomPubClient {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveFeedAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveFeedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     fn IAtomPubClientFactory<R, F: FnOnce(&IAtomPubClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -419,7 +419,7 @@ impl ResourceCollection {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
@@ -534,7 +534,7 @@ impl ServiceDocument {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
@@ -642,7 +642,7 @@ impl Workspace {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBaseUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AttributeExtensions(&self) -> windows_core::Result<windows_collections::IVector<super::Syndication::SyndicationAttribute>> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;

@@ -96,7 +96,7 @@ impl DnssdServiceInstance {
         P0: windows_core::Param<super::super::HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetHostName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Port(&self) -> windows_core::Result<u16> {
         let this = self;
@@ -146,7 +146,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterStreamSocketListenerAsync)(windows_core::Interface::as_raw(this), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterStreamSocketListenerAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&socket.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
@@ -158,7 +158,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterStreamSocketListenerAsync2)(windows_core::Interface::as_raw(this), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterStreamSocketListenerAsync2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&socket.param().borrow()), core::mem::transmute_copy(&adapter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking_Sockets")]
@@ -169,7 +169,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterDatagramSocketAsync)(windows_core::Interface::as_raw(this), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterDatagramSocketAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&socket.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
@@ -181,7 +181,7 @@ impl DnssdServiceInstance {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterDatagramSocketAsync2)(windows_core::Interface::as_raw(this), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterDatagramSocketAsync2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&socket.param().borrow()), core::mem::transmute_copy(&adapter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Create<P1>(dnssdserviceinstancename: &windows_core::HSTRING, hostname: P1, port: u16) -> windows_core::Result<DnssdServiceInstance>
@@ -190,7 +190,7 @@ impl DnssdServiceInstance {
     {
         Self::IDnssdServiceInstanceFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(dnssdserviceinstancename), hostname.param().abi(), port, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(dnssdserviceinstancename), core::mem::transmute_copy(&hostname.param().borrow()), port, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -251,7 +251,7 @@ impl DnssdServiceInstanceCollection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<DnssdServiceInstance>]) -> windows_core::Result<u32> {
@@ -300,7 +300,7 @@ impl DnssdServiceWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
@@ -314,7 +314,7 @@ impl DnssdServiceWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -328,7 +328,7 @@ impl DnssdServiceWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {

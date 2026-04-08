@@ -61,7 +61,7 @@ where
     P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
 {
     windows_core::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsCreateContext(runtime, debugapplication.param().abi(), newcontext as _) }
+    unsafe { JsCreateContext(runtime, core::mem::transmute_copy(&debugapplication.param().borrow()), newcontext as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
@@ -71,7 +71,7 @@ where
     P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
     windows_core::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsCreateContext(runtime, debugapplication.param().abi(), newcontext as _) }
+    unsafe { JsCreateContext(runtime, core::mem::transmute_copy(&debugapplication.param().borrow()), newcontext as _) }
 }
 #[inline]
 pub unsafe fn JsCreateError(message: *const core::ffi::c_void, error: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -230,7 +230,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("chakra.dll" "system" fn JsGetPropertyIdFromName(name : windows_core::PCWSTR, propertyid : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsGetPropertyIdFromName(name.param().abi(), propertyid as _) }
+    unsafe { JsGetPropertyIdFromName(core::mem::transmute_copy(&name.param().borrow()), propertyid as _) }
 }
 #[inline]
 pub unsafe fn JsGetPropertyNameFromId(propertyid: *const core::ffi::c_void, name: *mut *mut u16) -> JsErrorCode {
@@ -329,7 +329,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("chakra.dll" "system" fn JsParseScript(script : windows_core::PCWSTR, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsParseScript(script.param().abi(), sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsParseScript(core::mem::transmute_copy(&script.param().borrow()), sourcecontext, core::mem::transmute_copy(&sourceurl.param().borrow()), result as _) }
 }
 #[inline]
 pub unsafe fn JsParseSerializedScript<P0, P3>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P3, result: *mut *mut core::ffi::c_void) -> JsErrorCode
@@ -338,7 +338,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("chakra.dll" "system" fn JsParseSerializedScript(script : windows_core::PCWSTR, buffer : *const u8, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsParseSerializedScript(script.param().abi(), buffer, sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsParseSerializedScript(core::mem::transmute_copy(&script.param().borrow()), buffer, sourcecontext, core::mem::transmute_copy(&sourceurl.param().borrow()), result as _) }
 }
 #[inline]
 pub unsafe fn JsPointerToString(stringvalue: &[u16], value: *mut *mut core::ffi::c_void) -> JsErrorCode {
@@ -362,7 +362,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("chakra.dll" "system" fn JsRunScript(script : windows_core::PCWSTR, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsRunScript(script.param().abi(), sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsRunScript(core::mem::transmute_copy(&script.param().borrow()), sourcecontext, core::mem::transmute_copy(&sourceurl.param().borrow()), result as _) }
 }
 #[inline]
 pub unsafe fn JsRunSerializedScript<P0, P3>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P3, result: *mut *mut core::ffi::c_void) -> JsErrorCode
@@ -371,7 +371,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("chakra.dll" "system" fn JsRunSerializedScript(script : windows_core::PCWSTR, buffer : *const u8, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsRunSerializedScript(script.param().abi(), buffer, sourcecontext, sourceurl.param().abi(), result as _) }
+    unsafe { JsRunSerializedScript(core::mem::transmute_copy(&script.param().borrow()), buffer, sourcecontext, core::mem::transmute_copy(&sourceurl.param().borrow()), result as _) }
 }
 #[inline]
 pub unsafe fn JsSerializeScript<P0>(script: P0, buffer: Option<*mut u8>, buffersize: *mut u32) -> JsErrorCode
@@ -379,7 +379,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("chakra.dll" "system" fn JsSerializeScript(script : windows_core::PCWSTR, buffer : *mut u8, buffersize : *mut u32) -> JsErrorCode);
-    unsafe { JsSerializeScript(script.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
+    unsafe { JsSerializeScript(core::mem::transmute_copy(&script.param().borrow()), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
 pub unsafe fn JsSetCurrentContext(context: *const core::ffi::c_void) -> JsErrorCode {
@@ -434,7 +434,7 @@ where
     P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
 {
     windows_core::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsStartDebugging(debugapplication.param().abi()) }
+    unsafe { JsStartDebugging(core::mem::transmute_copy(&debugapplication.param().borrow())) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
@@ -444,7 +444,7 @@ where
     P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
     windows_core::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
-    unsafe { JsStartDebugging(debugapplication.param().abi()) }
+    unsafe { JsStartDebugging(core::mem::transmute_copy(&debugapplication.param().borrow())) }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
@@ -453,7 +453,7 @@ where
     P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerCallback>,
 {
     windows_core::link!("chakra.dll" "system" fn JsStartProfiling(callback : * mut core::ffi::c_void, eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
-    unsafe { JsStartProfiling(callback.param().abi(), eventmask, context) }
+    unsafe { JsStartProfiling(core::mem::transmute_copy(&callback.param().borrow()), eventmask, context) }
 }
 #[inline]
 pub unsafe fn JsStopProfiling(reason: windows_core::HRESULT) -> JsErrorCode {

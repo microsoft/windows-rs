@@ -33,7 +33,7 @@ impl Buffer {
     {
         Self::IBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(windows_core::Interface::as_raw(this), input.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&input.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateMemoryBufferOverIBuffer<P0>(input: P0) -> windows_core::Result<super::super::Foundation::MemoryBuffer>
@@ -42,7 +42,7 @@ impl Buffer {
     {
         Self::IBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(windows_core::Interface::as_raw(this), input.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&input.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IBufferFactory<R, F: FnOnce(&IBufferFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -265,7 +265,7 @@ impl DataReader {
     {
         Self::IDataReaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDataReader)(windows_core::Interface::as_raw(this), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDataReader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromBuffer<P0>(buffer: P0) -> windows_core::Result<DataReader>
@@ -274,7 +274,7 @@ impl DataReader {
     {
         Self::IDataReaderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IDataReaderFactory<R, F: FnOnce(&IDataReaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -358,14 +358,14 @@ impl DataWriter {
         P0: windows_core::Param<IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).WriteBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).WriteBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow())).ok() }
     }
     pub fn WriteBufferRange<P0>(&self, buffer: P0, start: u32, count: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).WriteBufferRange)(windows_core::Interface::as_raw(this), buffer.param().abi(), start, count).ok() }
+        unsafe { (windows_core::Interface::vtable(this).WriteBufferRange)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), start, count).ok() }
     }
     pub fn WriteBoolean(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
@@ -463,7 +463,7 @@ impl DataWriter {
     {
         Self::IDataWriterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDataWriter)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDataWriter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&outputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IDataWriterFactory<R, F: FnOnce(&IDataWriterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -501,7 +501,7 @@ impl FileInputStream {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -550,7 +550,7 @@ impl FileOutputStream {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -614,7 +614,7 @@ impl FileRandomAccessStream {
     {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(filepath), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(filepath), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -624,7 +624,7 @@ impl FileRandomAccessStream {
     {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenForUserWithOptionsAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(filepath), accessmode, sharingoptions, opendisposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenForUserWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(filepath), accessmode, sharingoptions, opendisposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -634,7 +634,7 @@ impl FileRandomAccessStream {
     {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenTransactedWriteForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(filepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenTransactedWriteForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(filepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -644,7 +644,7 @@ impl FileRandomAccessStream {
     {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenTransactedWriteForUserWithOptionsAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(filepath), openoptions, opendisposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenTransactedWriteForUserWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(filepath), openoptions, opendisposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<IBuffer, u32>>
@@ -654,7 +654,7 @@ impl FileRandomAccessStream {
         let this = &windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
@@ -664,7 +664,7 @@ impl FileRandomAccessStream {
         let this = &windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -1536,14 +1536,14 @@ impl IDataWriter {
         P0: windows_core::Param<IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).WriteBuffer)(windows_core::Interface::as_raw(this), buffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).WriteBuffer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow())).ok() }
     }
     pub fn WriteBufferRange<P0>(&self, buffer: P0, start: u32, count: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).WriteBufferRange)(windows_core::Interface::as_raw(this), buffer.param().abi(), start, count).ok() }
+        unsafe { (windows_core::Interface::vtable(this).WriteBufferRange)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), start, count).ok() }
     }
     pub fn WriteBoolean(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
@@ -1647,8 +1647,8 @@ pub trait IDataWriter_Impl: windows_core::IUnknownImpl {
     fn SetByteOrder(&self, value: ByteOrder) -> windows_core::Result<()>;
     fn WriteByte(&self, value: u8) -> windows_core::Result<()>;
     fn WriteBytes(&self, value: &[u8]) -> windows_core::Result<()>;
-    fn WriteBuffer(&self, buffer: windows_core::Ref<IBuffer>) -> windows_core::Result<()>;
-    fn WriteBufferRange(&self, buffer: windows_core::Ref<IBuffer>, start: u32, count: u32) -> windows_core::Result<()>;
+    fn WriteBuffer(&self, buffer: Option<&IBuffer>) -> windows_core::Result<()>;
+    fn WriteBufferRange(&self, buffer: Option<&IBuffer>, start: u32, count: u32) -> windows_core::Result<()>;
     fn WriteBoolean(&self, value: bool) -> windows_core::Result<()>;
     fn WriteGuid(&self, value: &windows_core::GUID) -> windows_core::Result<()>;
     fn WriteInt16(&self, value: i16) -> windows_core::Result<()>;
@@ -1733,13 +1733,13 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteBuffer<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataWriter_Impl::WriteBuffer(this, core::mem::transmute_copy(&buffer)).into()
+                IDataWriter_Impl::WriteBuffer(this, windows_core::Ref::option_from_abi(&buffer)).into()
             }
         }
         unsafe extern "system" fn WriteBufferRange<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, start: u32, count: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataWriter_Impl::WriteBufferRange(this, core::mem::transmute_copy(&buffer), start, count).into()
+                IDataWriter_Impl::WriteBufferRange(this, windows_core::Ref::option_from_abi(&buffer), start, count).into()
             }
         }
         unsafe extern "system" fn WriteBoolean<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
@@ -2010,7 +2010,7 @@ impl IInputStream {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -2022,14 +2022,14 @@ impl windows_core::RuntimeName for IInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.IInputStream";
 }
 pub trait IInputStream_Impl: super::super::Foundation::IClosable_Impl {
-    fn ReadAsync(&self, buffer: windows_core::Ref<IBuffer>, count: u32, options: InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<IBuffer, u32>>;
+    fn ReadAsync(&self, buffer: Option<&IBuffer>, count: u32, options: InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<IBuffer, u32>>;
 }
 impl IInputStream_Vtbl {
     pub const fn new<Identity: IInputStream_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReadAsync<Identity: IInputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, count: u32, options: InputStreamOptions, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInputStream_Impl::ReadAsync(this, core::mem::transmute_copy(&buffer), count, options) {
+                match IInputStream_Impl::ReadAsync(this, windows_core::Ref::option_from_abi(&buffer), count, options) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2115,7 +2115,7 @@ impl IOutputStream {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2134,7 +2134,7 @@ impl windows_core::RuntimeName for IOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.IOutputStream";
 }
 pub trait IOutputStream_Impl: super::super::Foundation::IClosable_Impl {
-    fn WriteAsync(&self, buffer: windows_core::Ref<IBuffer>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>;
+    fn WriteAsync(&self, buffer: Option<&IBuffer>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>;
     fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>>;
 }
 impl IOutputStream_Vtbl {
@@ -2142,7 +2142,7 @@ impl IOutputStream_Vtbl {
         unsafe extern "system" fn WriteAsync<Identity: IOutputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IOutputStream_Impl::WriteAsync(this, core::mem::transmute_copy(&buffer)) {
+                match IOutputStream_Impl::WriteAsync(this, windows_core::Ref::option_from_abi(&buffer)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2196,7 +2196,7 @@ impl IPropertySetSerializer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Serialize)(windows_core::Interface::as_raw(this), propertyset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Serialize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertyset.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2206,7 +2206,7 @@ impl IPropertySetSerializer {
         P1: windows_core::Param<IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Deserialize)(windows_core::Interface::as_raw(this), propertyset.param().abi(), buffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Deserialize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertyset.param().borrow()), core::mem::transmute_copy(&buffer.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2215,8 +2215,8 @@ impl windows_core::RuntimeName for IPropertySetSerializer {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPropertySetSerializer_Impl: windows_core::IUnknownImpl {
-    fn Serialize(&self, propertySet: windows_core::Ref<super::super::Foundation::Collections::IPropertySet>) -> windows_core::Result<IBuffer>;
-    fn Deserialize(&self, propertySet: windows_core::Ref<super::super::Foundation::Collections::IPropertySet>, buffer: windows_core::Ref<IBuffer>) -> windows_core::Result<()>;
+    fn Serialize(&self, propertySet: Option<&super::super::Foundation::Collections::IPropertySet>) -> windows_core::Result<IBuffer>;
+    fn Deserialize(&self, propertySet: Option<&super::super::Foundation::Collections::IPropertySet>, buffer: Option<&IBuffer>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IPropertySetSerializer_Vtbl {
@@ -2224,7 +2224,7 @@ impl IPropertySetSerializer_Vtbl {
         unsafe extern "system" fn Serialize<Identity: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyset: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPropertySetSerializer_Impl::Serialize(this, core::mem::transmute_copy(&propertyset)) {
+                match IPropertySetSerializer_Impl::Serialize(this, windows_core::Ref::option_from_abi(&propertyset)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2237,7 +2237,7 @@ impl IPropertySetSerializer_Vtbl {
         unsafe extern "system" fn Deserialize<Identity: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyset: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPropertySetSerializer_Impl::Deserialize(this, core::mem::transmute_copy(&propertyset), core::mem::transmute_copy(&buffer)).into()
+                IPropertySetSerializer_Impl::Deserialize(this, windows_core::Ref::option_from_abi(&propertyset), windows_core::Ref::option_from_abi(&buffer)).into()
             }
         }
         Self {
@@ -2338,7 +2338,7 @@ impl IRandomAccessStream {
         let this = &windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
@@ -2348,7 +2348,7 @@ impl IRandomAccessStream {
         let this = &windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2604,7 +2604,7 @@ impl IRandomAccessStreamWithContentType {
         let this = &windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
@@ -2614,7 +2614,7 @@ impl IRandomAccessStreamWithContentType {
         let this = &windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2723,7 +2723,7 @@ impl InMemoryRandomAccessStream {
         let this = &windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
@@ -2733,7 +2733,7 @@ impl InMemoryRandomAccessStream {
         let this = &windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2877,7 +2877,7 @@ impl InputStreamOverStream {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2910,7 +2910,7 @@ impl OutputStreamOverStream {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2942,7 +2942,7 @@ impl RandomAccessStream {
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow()), core::mem::transmute_copy(&destination.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CopySizeAsync<P0, P1>(source: P0, destination: P1, bytestocopy: u64) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
@@ -2952,7 +2952,7 @@ impl RandomAccessStream {
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopySizeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), bytestocopy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopySizeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow()), core::mem::transmute_copy(&destination.param().borrow()), bytestocopy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CopyAndCloseAsync<P0, P1>(source: P0, destination: P1) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u64, u64>>
@@ -2962,7 +2962,7 @@ impl RandomAccessStream {
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyAndCloseAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyAndCloseAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow()), core::mem::transmute_copy(&destination.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRandomAccessStreamStatics<R, F: FnOnce(&IRandomAccessStreamStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2990,7 +2990,7 @@ impl RandomAccessStreamOverStream {
         let this = &windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
@@ -3000,7 +3000,7 @@ impl RandomAccessStreamOverStream {
         let this = &windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -3098,7 +3098,7 @@ impl RandomAccessStreamReference {
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFile)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromUri<P0>(uri: P0) -> windows_core::Result<RandomAccessStreamReference>
@@ -3107,7 +3107,7 @@ impl RandomAccessStreamReference {
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromUri)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromStream<P0>(stream: P0) -> windows_core::Result<RandomAccessStreamReference>
@@ -3116,7 +3116,7 @@ impl RandomAccessStreamReference {
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromStream)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromStream)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRandomAccessStreamReferenceStatics<R, F: FnOnce(&IRandomAccessStreamReferenceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

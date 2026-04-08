@@ -988,7 +988,7 @@ impl PrintManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintTaskRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrintTaskRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrintTaskRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1551,7 +1551,7 @@ impl PrintTask {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Previewing)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Previewing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePreviewing(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1565,7 +1565,7 @@ impl PrintTask {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Submitting)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Submitting)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSubmitting(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1579,7 +1579,7 @@ impl PrintTask {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Progressing)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Progressing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProgressing(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1593,7 +1593,7 @@ impl PrintTask {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -1711,7 +1711,7 @@ impl PrintTaskOptions {
         let this = &windows_core::Interface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPagePrintTicket)(windows_core::Interface::as_raw(this), printpageinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPagePrintTicket)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&printpageinfo.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PageRangeOptions(&self) -> windows_core::Result<PrintPageRangeOptions> {
@@ -1934,7 +1934,7 @@ impl PrintTaskRequest {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePrintTask)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePrintTask)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskRequestedDeferral> {
@@ -2021,7 +2021,7 @@ impl PrintTaskSourceRequestedArgs {
         P0: windows_core::Param<IPrintDocumentSource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow())).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskSourceRequestedDeferral> {
         let this = self;
@@ -2070,7 +2070,7 @@ impl windows_core::RuntimeType for PrintTaskSourceRequestedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl PrintTaskSourceRequestedHandler {
-    pub fn new<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = PrintTaskSourceRequestedHandlerBox { vtable: &PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2079,7 +2079,7 @@ impl PrintTaskSourceRequestedHandler {
         P0: windows_core::Param<PrintTaskSourceRequestedArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), args.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&args.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2089,12 +2089,12 @@ pub struct PrintTaskSourceRequestedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct PrintTaskSourceRequestedHandlerBox<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct PrintTaskSourceRequestedHandlerBox<F: Fn(Option<&PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const PrintTaskSourceRequestedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static> PrintTaskSourceRequestedHandlerBox<F> {
+impl<F: Fn(Option<&PrintTaskSourceRequestedArgs>) -> windows_core::Result<()> + Send + 'static> PrintTaskSourceRequestedHandlerBox<F> {
     const VTABLE: PrintTaskSourceRequestedHandler_Vtbl = PrintTaskSourceRequestedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2137,7 +2137,7 @@ impl<F: Fn(windows_core::Ref<PrintTaskSourceRequestedArgs>) -> windows_core::Res
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&args)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&args)).into()
         }
     }
 }

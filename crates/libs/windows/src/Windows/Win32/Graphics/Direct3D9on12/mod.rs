@@ -36,14 +36,14 @@ impl IDirect3DDevice9On12 {
         P0: windows_core::Param<super::Direct3D9::IDirect3DResource9>,
         P1: windows_core::Param<super::Direct3D12::ID3D12CommandQueue>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pcommandqueue.param().abi(), riid, ppvresource12 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnwrapUnderlyingResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow()), core::mem::transmute_copy(&pcommandqueue.param().borrow()), riid, ppvresource12 as _).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn ReturnUnderlyingResource<P0>(&self, presource: P0, numsync: u32, psignalvalues: *mut u64, ppfences: *mut Option<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Direct3D9::IDirect3DResource9>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), presource.param().abi(), numsync, psignalvalues as _, core::mem::transmute(ppfences)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReturnUnderlyingResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presource.param().borrow()), numsync, psignalvalues as _, core::mem::transmute(ppfences)).ok() }
     }
 }
 #[repr(C)]
@@ -63,8 +63,8 @@ pub struct IDirect3DDevice9On12_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IDirect3DDevice9On12_Impl: windows_core::IUnknownImpl {
     fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn UnwrapUnderlyingResource(&self, presource: windows_core::Ref<super::Direct3D9::IDirect3DResource9>, pcommandqueue: windows_core::Ref<super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ReturnUnderlyingResource(&self, presource: windows_core::Ref<super::Direct3D9::IDirect3DResource9>, numsync: u32, psignalvalues: *mut u64, ppfences: windows_core::OutRef<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>;
+    fn UnwrapUnderlyingResource(&self, presource: Option<&super::Direct3D9::IDirect3DResource9>, pcommandqueue: Option<&super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ReturnUnderlyingResource(&self, presource: Option<&super::Direct3D9::IDirect3DResource9>, numsync: u32, psignalvalues: *mut u64, ppfences: windows_core::OutRef<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirect3DDevice9On12_Vtbl {
@@ -78,13 +78,13 @@ impl IDirect3DDevice9On12_Vtbl {
         unsafe extern "system" fn UnwrapUnderlyingResource<Identity: IDirect3DDevice9On12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pcommandqueue: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDevice9On12_Impl::UnwrapUnderlyingResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pcommandqueue), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource12)).into()
+                IDirect3DDevice9On12_Impl::UnwrapUnderlyingResource(this, windows_core::Ref::option_from_abi(&presource), windows_core::Ref::option_from_abi(&pcommandqueue), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource12)).into()
             }
         }
         unsafe extern "system" fn ReturnUnderlyingResource<Identity: IDirect3DDevice9On12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, numsync: u32, psignalvalues: *mut u64, ppfences: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDevice9On12_Impl::ReturnUnderlyingResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&numsync), core::mem::transmute_copy(&psignalvalues), core::mem::transmute_copy(&ppfences)).into()
+                IDirect3DDevice9On12_Impl::ReturnUnderlyingResource(this, windows_core::Ref::option_from_abi(&presource), core::mem::transmute_copy(&numsync), core::mem::transmute_copy(&psignalvalues), core::mem::transmute_copy(&ppfences)).into()
             }
         }
         Self {

@@ -166,7 +166,7 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetBounds)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetBounds)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> windows_core::Result<windows_future::IAsyncOperation<SpatialSurfaceMesh>> {
@@ -183,7 +183,7 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -431,14 +431,14 @@ impl SpatialSurfaceObserver {
         P0: windows_core::Param<super::SpatialBoundingVolume>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolume)(windows_core::Interface::as_raw(this), bounds.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolume)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bounds.param().borrow())).ok() }
     }
     pub fn SetBoundingVolumes<P0>(&self, bounds: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::SpatialBoundingVolume>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolumes)(windows_core::Interface::as_raw(this), bounds.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBoundingVolumes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bounds.param().borrow())).ok() }
     }
     pub fn ObservedSurfacesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -447,7 +447,7 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveObservedSurfacesChanged(&self, token: i64) -> windows_core::Result<()> {

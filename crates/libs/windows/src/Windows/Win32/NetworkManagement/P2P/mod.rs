@@ -34,7 +34,7 @@ where
     windows_core::link!("drtprov.dll" "system" fn DrtCreateDnsBootstrapResolver(port : u16, pwszaddress : windows_core::PCWSTR, ppmodule : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DrtCreateDnsBootstrapResolver(port, pwszaddress.param().abi(), &mut result__).map(|| result__)
+        DrtCreateDnsBootstrapResolver(port, core::mem::transmute_copy(&pwszaddress.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -60,7 +60,7 @@ where
     windows_core::link!("drtprov.dll" "system" fn DrtCreatePnrpBootstrapResolver(fpublish : windows_core::BOOL, pwzpeername : windows_core::PCWSTR, pwzcloudname : windows_core::PCWSTR, pwzpublishingidentity : windows_core::PCWSTR, ppresolver : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DrtCreatePnrpBootstrapResolver(fpublish.into(), pwzpeername.param().abi(), pwzcloudname.param().abi(), pwzpublishingidentity.param().abi(), &mut result__).map(|| result__)
+        DrtCreatePnrpBootstrapResolver(fpublish.into(), core::mem::transmute_copy(&pwzpeername.param().borrow()), core::mem::transmute_copy(&pwzcloudname.param().borrow()), core::mem::transmute_copy(&pwzpublishingidentity.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -178,7 +178,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerCollabAddContact(pwzcontactdata : windows_core::PCWSTR, ppcontact : *mut *mut PEER_CONTACT) -> windows_core::HRESULT);
-    unsafe { PeerCollabAddContact(pwzcontactdata.param().abi(), ppcontact.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PeerCollabAddContact(core::mem::transmute_copy(&pwzcontactdata.param().borrow()), ppcontact.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -208,7 +208,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerCollabDeleteContact(pwzpeername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerCollabDeleteContact(pwzpeername.param().abi()).ok() }
+    unsafe { PeerCollabDeleteContact(core::mem::transmute_copy(&pwzpeername.param().borrow())).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -261,7 +261,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerCollabExportContact(pwzpeername : windows_core::PCWSTR, ppwzcontactdata : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerCollabExportContact(pwzpeername.param().abi(), &mut result__).map(|| result__)
+        PeerCollabExportContact(core::mem::transmute_copy(&pwzpeername.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -289,7 +289,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerCollabGetContact(pwzpeername : windows_core::PCWSTR, ppcontact : *mut *mut PEER_CONTACT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerCollabGetContact(pwzpeername.param().abi(), &mut result__).map(|| result__)
+        PeerCollabGetContact(core::mem::transmute_copy(&pwzpeername.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -360,7 +360,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerCollabParseContact(pwzcontactdata : windows_core::PCWSTR, ppcontact : *mut *mut PEER_CONTACT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerCollabParseContact(pwzcontactdata.param().abi(), &mut result__).map(|| result__)
+        PeerCollabParseContact(core::mem::transmute_copy(&pwzcontactdata.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -394,7 +394,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerCollabSetEndpointName(pwzendpointname : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerCollabSetEndpointName(pwzendpointname.param().abi()).ok() }
+    unsafe { PeerCollabSetEndpointName(core::mem::transmute_copy(&pwzendpointname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerCollabSetObject(pcobject: *const PEER_OBJECT) -> windows_core::Result<()> {
@@ -462,7 +462,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerCreatePeerName(pwzidentity : windows_core::PCWSTR, pwzclassifier : windows_core::PCWSTR, ppwzpeername : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerCreatePeerName(pwzidentity.param().abi(), pwzclassifier.param().abi(), &mut result__).map(|| result__)
+        PeerCreatePeerName(core::mem::transmute_copy(&pwzidentity.param().borrow()), core::mem::transmute_copy(&pwzclassifier.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_IO")]
@@ -630,7 +630,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerEnumGroups(pwzidentity : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerEnumGroups(pwzidentity.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerEnumGroups(core::mem::transmute_copy(&pwzidentity.param().borrow()), phpeerenum as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerEnumIdentities(phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -682,7 +682,7 @@ where
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphConnect(hgraph : *const core::ffi::c_void, pwzpeerid : windows_core::PCWSTR, paddress : *const PEER_ADDRESS, pullconnectionid : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerGraphConnect(hgraph, pwzpeerid.param().abi(), paddress, &mut result__).map(|| result__)
+        PeerGraphConnect(hgraph, core::mem::transmute_copy(&pwzpeerid.param().borrow()), paddress, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -691,7 +691,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphCreate(pgraphproperties : *const PEER_GRAPH_PROPERTIES, pwzdatabasename : windows_core::PCWSTR, psecurityinterface : *const PEER_SECURITY_INTERFACE, phgraph : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphCreate(pgraphproperties, pwzdatabasename.param().abi(), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, phgraph as _).ok() }
+    unsafe { PeerGraphCreate(pgraphproperties, core::mem::transmute_copy(&pwzdatabasename.param().borrow()), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, phgraph as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphDelete<P0, P1, P2>(pwzgraphid: P0, pwzpeerid: P1, pwzdatabasename: P2) -> windows_core::Result<()>
@@ -701,7 +701,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphDelete(pwzgraphid : windows_core::PCWSTR, pwzpeerid : windows_core::PCWSTR, pwzdatabasename : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphDelete(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi()).ok() }
+    unsafe { PeerGraphDelete(core::mem::transmute_copy(&pwzgraphid.param().borrow()), core::mem::transmute_copy(&pwzpeerid.param().borrow()), core::mem::transmute_copy(&pwzdatabasename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphDeleteRecord(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: bool) -> windows_core::Result<()> {
@@ -724,7 +724,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphEnumNodes(hgraph : *const core::ffi::c_void, pwzpeerid : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphEnumNodes(hgraph, pwzpeerid.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGraphEnumNodes(hgraph, core::mem::transmute_copy(&pwzpeerid.param().borrow()), phpeerenum as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphEnumRecords<P2>(hgraph: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, pwzpeerid: P2, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -732,7 +732,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphEnumRecords(hgraph : *const core::ffi::c_void, precordtype : *const windows_core::GUID, pwzpeerid : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphEnumRecords(hgraph, precordtype.unwrap_or(core::mem::zeroed()) as _, pwzpeerid.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGraphEnumRecords(hgraph, precordtype.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pwzpeerid.param().borrow()), phpeerenum as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphExportDatabase<P1>(hgraph: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
@@ -740,7 +740,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphExportDatabase(hgraph : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphExportDatabase(hgraph, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGraphExportDatabase(hgraph, core::mem::transmute_copy(&pwzfilepath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphFreeData(pvdata: *const core::ffi::c_void) {
@@ -807,7 +807,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphImportDatabase(hgraph : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphImportDatabase(hgraph, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGraphImportDatabase(hgraph, core::mem::transmute_copy(&pwzfilepath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphListen(hgraph: *const core::ffi::c_void, dwscope: Option<u32>, dwscopeid: Option<u32>, wport: Option<u16>) -> windows_core::Result<()> {
@@ -822,7 +822,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphOpen(pwzgraphid : windows_core::PCWSTR, pwzpeerid : windows_core::PCWSTR, pwzdatabasename : windows_core::PCWSTR, psecurityinterface : *const PEER_SECURITY_INTERFACE, crecordtypesyncprecedence : u32, precordtypesyncprecedence : *const windows_core::GUID, phgraph : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphOpen(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi(), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, precordtypesyncprecedence.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(precordtypesyncprecedence.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), phgraph as _).ok() }
+    unsafe { PeerGraphOpen(core::mem::transmute_copy(&pwzgraphid.param().borrow()), core::mem::transmute_copy(&pwzpeerid.param().borrow()), core::mem::transmute_copy(&pwzdatabasename.param().borrow()), psecurityinterface.unwrap_or(core::mem::zeroed()) as _, precordtypesyncprecedence.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(precordtypesyncprecedence.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), phgraph as _).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -833,7 +833,7 @@ where
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphOpenDirectConnection(hgraph : *const core::ffi::c_void, pwzpeerid : windows_core::PCWSTR, paddress : *const PEER_ADDRESS, pullconnectionid : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerGraphOpenDirectConnection(hgraph, pwzpeerid.param().abi(), paddress, &mut result__).map(|| result__)
+        PeerGraphOpenDirectConnection(hgraph, core::mem::transmute_copy(&pwzpeerid.param().borrow()), paddress, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -855,7 +855,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphSearchRecords(hgraph : *const core::ffi::c_void, pwzcriteria : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGraphSearchRecords(hgraph, pwzcriteria.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGraphSearchRecords(hgraph, core::mem::transmute_copy(&pwzcriteria.param().borrow()), phpeerenum as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphSendData(hgraph: *const core::ffi::c_void, ullconnectionid: u64, ptype: *const windows_core::GUID, cbdata: u32, pvdata: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -868,7 +868,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2pgraph.dll" "system" fn PeerGraphSetNodeAttributes(hgraph : *const core::ffi::c_void, pwzattributes : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGraphSetNodeAttributes(hgraph, pwzattributes.param().abi()).ok() }
+    unsafe { PeerGraphSetNodeAttributes(hgraph, core::mem::transmute_copy(&pwzattributes.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerGraphSetPresence(hgraph: *const core::ffi::c_void, fpresent: bool) -> windows_core::Result<()> {
@@ -958,7 +958,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerGroupCreateInvitation(hgroup : *const core::ffi::c_void, pwzidentityinfo : windows_core::PCWSTR, pftexpiration : *const super::super::Foundation:: FILETIME, croles : u32, proles : *const windows_core::GUID, ppwzinvitation : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerGroupCreateInvitation(hgroup, pwzidentityinfo.param().abi(), pftexpiration.unwrap_or(core::mem::zeroed()) as _, proles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(proles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+        PeerGroupCreateInvitation(hgroup, core::mem::transmute_copy(&pwzidentityinfo.param().borrow()), pftexpiration.unwrap_or(core::mem::zeroed()) as _, proles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(proles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -976,7 +976,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupDelete(pwzidentity : windows_core::PCWSTR, pwzgrouppeername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupDelete(pwzidentity.param().abi(), pwzgrouppeername.param().abi()).ok() }
+    unsafe { PeerGroupDelete(core::mem::transmute_copy(&pwzidentity.param().borrow()), core::mem::transmute_copy(&pwzgrouppeername.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupDeleteRecord(hgroup: *const core::ffi::c_void, precordid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -994,7 +994,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupEnumMembers(hgroup : *const core::ffi::c_void, dwflags : u32, pwzidentity : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupEnumMembers(hgroup, dwflags, pwzidentity.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGroupEnumMembers(hgroup, dwflags, core::mem::transmute_copy(&pwzidentity.param().borrow()), phpeerenum as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupEnumRecords(hgroup: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -1009,7 +1009,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerGroupExportConfig(hgroup : *const core::ffi::c_void, pwzpassword : windows_core::PCWSTR, ppwzxml : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerGroupExportConfig(hgroup, pwzpassword.param().abi(), &mut result__).map(|| result__)
+        PeerGroupExportConfig(hgroup, core::mem::transmute_copy(&pwzpassword.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1018,7 +1018,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupExportDatabase(hgroup : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupExportDatabase(hgroup, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGroupExportDatabase(hgroup, core::mem::transmute_copy(&pwzfilepath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupGetEventData(hpeerevent: *const core::ffi::c_void) -> windows_core::Result<*mut PEER_GROUP_EVENT_DATA> {
@@ -1059,7 +1059,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupImportConfig(pwzxml : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, foverwrite : windows_core::BOOL, ppwzidentity : *mut windows_core::PWSTR, ppwzgroup : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupImportConfig(pwzxml.param().abi(), pwzpassword.param().abi(), foverwrite.into(), ppwzidentity as _, ppwzgroup as _).ok() }
+    unsafe { PeerGroupImportConfig(core::mem::transmute_copy(&pwzxml.param().borrow()), core::mem::transmute_copy(&pwzpassword.param().borrow()), foverwrite.into(), ppwzidentity as _, ppwzgroup as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupImportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
@@ -1067,7 +1067,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupImportDatabase(hgroup : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupImportDatabase(hgroup, pwzfilepath.param().abi()).ok() }
+    unsafe { PeerGroupImportDatabase(hgroup, core::mem::transmute_copy(&pwzfilepath.param().borrow())).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
@@ -1076,7 +1076,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupIssueCredentials(hgroup : *const core::ffi::c_void, pwzsubjectidentity : windows_core::PCWSTR, pcredentialinfo : *const PEER_CREDENTIAL_INFO, dwflags : u32, ppwzinvitation : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { PeerGroupIssueCredentials(hgroup, pwzsubjectidentity.param().abi(), pcredentialinfo.unwrap_or(core::mem::zeroed()) as _, dwflags, ppwzinvitation.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { PeerGroupIssueCredentials(hgroup, core::mem::transmute_copy(&pwzsubjectidentity.param().borrow()), pcredentialinfo.unwrap_or(core::mem::zeroed()) as _, dwflags, ppwzinvitation.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupJoin<P0, P1, P2>(pwzidentity: P0, pwzinvitation: P1, pwzcloud: P2, phgroup: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1086,7 +1086,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupJoin(pwzidentity : windows_core::PCWSTR, pwzinvitation : windows_core::PCWSTR, pwzcloud : windows_core::PCWSTR, phgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupJoin(pwzidentity.param().abi(), pwzinvitation.param().abi(), pwzcloud.param().abi(), phgroup as _).ok() }
+    unsafe { PeerGroupJoin(core::mem::transmute_copy(&pwzidentity.param().borrow()), core::mem::transmute_copy(&pwzinvitation.param().borrow()), core::mem::transmute_copy(&pwzcloud.param().borrow()), phgroup as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupOpen<P0, P1, P2>(pwzidentity: P0, pwzgrouppeername: P1, pwzcloud: P2, phgroup: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1096,7 +1096,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupOpen(pwzidentity : windows_core::PCWSTR, pwzgrouppeername : windows_core::PCWSTR, pwzcloud : windows_core::PCWSTR, phgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupOpen(pwzidentity.param().abi(), pwzgrouppeername.param().abi(), pwzcloud.param().abi(), phgroup as _).ok() }
+    unsafe { PeerGroupOpen(core::mem::transmute_copy(&pwzidentity.param().borrow()), core::mem::transmute_copy(&pwzgrouppeername.param().borrow()), core::mem::transmute_copy(&pwzcloud.param().borrow()), phgroup as _).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1107,7 +1107,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerGroupOpenDirectConnection(hgroup : *const core::ffi::c_void, pwzidentity : windows_core::PCWSTR, paddress : *const PEER_ADDRESS, pullconnectionid : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerGroupOpenDirectConnection(hgroup, pwzidentity.param().abi(), paddress, &mut result__).map(|| result__)
+        PeerGroupOpenDirectConnection(hgroup, core::mem::transmute_copy(&pwzidentity.param().borrow()), paddress, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1119,7 +1119,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerGroupParseInvitation(pwzinvitation : windows_core::PCWSTR, ppinvitationinfo : *mut *mut PEER_INVITATION_INFO) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerGroupParseInvitation(pwzinvitation.param().abi(), &mut result__).map(|| result__)
+        PeerGroupParseInvitation(core::mem::transmute_copy(&pwzinvitation.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1131,7 +1131,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupPasswordJoin(pwzidentity : windows_core::PCWSTR, pwzinvitation : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, pwzcloud : windows_core::PCWSTR, phgroup : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupPasswordJoin(pwzidentity.param().abi(), pwzinvitation.param().abi(), pwzpassword.param().abi(), pwzcloud.param().abi(), phgroup as _).ok() }
+    unsafe { PeerGroupPasswordJoin(core::mem::transmute_copy(&pwzidentity.param().borrow()), core::mem::transmute_copy(&pwzinvitation.param().borrow()), core::mem::transmute_copy(&pwzpassword.param().borrow()), core::mem::transmute_copy(&pwzcloud.param().borrow()), phgroup as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupPeerTimeToUniversalTime(hgroup: *const core::ffi::c_void, pftpeertime: *const super::super::Foundation::FILETIME) -> windows_core::Result<super::super::Foundation::FILETIME> {
@@ -1157,7 +1157,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerGroupSearchRecords(hgroup : *const core::ffi::c_void, pwzcriteria : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerGroupSearchRecords(hgroup, pwzcriteria.param().abi(), phpeerenum as _).ok() }
+    unsafe { PeerGroupSearchRecords(hgroup, core::mem::transmute_copy(&pwzcriteria.param().borrow()), phpeerenum as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerGroupSendData(hgroup: *const core::ffi::c_void, ullconnectionid: u64, ptype: *const windows_core::GUID, cbdata: u32, pvdata: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -1208,7 +1208,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerHostNameToPeerName(pwzhostname : windows_core::PCWSTR, ppwzpeername : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerHostNameToPeerName(pwzhostname.param().abi(), &mut result__).map(|| result__)
+        PeerHostNameToPeerName(core::mem::transmute_copy(&pwzhostname.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1220,7 +1220,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerIdentityCreate(pwzclassifier : windows_core::PCWSTR, pwzfriendlyname : windows_core::PCWSTR, hcryptprov : usize, ppwzidentity : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerIdentityCreate(pwzclassifier.param().abi(), pwzfriendlyname.param().abi(), hcryptprov.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        PeerIdentityCreate(core::mem::transmute_copy(&pwzclassifier.param().borrow()), core::mem::transmute_copy(&pwzfriendlyname.param().borrow()), hcryptprov.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1229,7 +1229,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerIdentityDelete(pwzidentity : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerIdentityDelete(pwzidentity.param().abi()).ok() }
+    unsafe { PeerIdentityDelete(core::mem::transmute_copy(&pwzidentity.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerIdentityExport<P0, P1>(pwzidentity: P0, pwzpassword: P1) -> windows_core::Result<windows_core::PWSTR>
@@ -1240,7 +1240,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerIdentityExport(pwzidentity : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, ppwzexportxml : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerIdentityExport(pwzidentity.param().abi(), pwzpassword.param().abi(), &mut result__).map(|| result__)
+        PeerIdentityExport(core::mem::transmute_copy(&pwzidentity.param().borrow()), core::mem::transmute_copy(&pwzpassword.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1251,7 +1251,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerIdentityGetCryptKey(pwzidentity : windows_core::PCWSTR, phcryptprov : *mut usize) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerIdentityGetCryptKey(pwzidentity.param().abi(), &mut result__).map(|| result__)
+        PeerIdentityGetCryptKey(core::mem::transmute_copy(&pwzidentity.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1270,7 +1270,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerIdentityGetFriendlyName(pwzidentity : windows_core::PCWSTR, ppwzfriendlyname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerIdentityGetFriendlyName(pwzidentity.param().abi(), &mut result__).map(|| result__)
+        PeerIdentityGetFriendlyName(core::mem::transmute_copy(&pwzidentity.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1281,7 +1281,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerIdentityGetXML(pwzidentity : windows_core::PCWSTR, ppwzidentityxml : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerIdentityGetXML(pwzidentity.param().abi(), &mut result__).map(|| result__)
+        PeerIdentityGetXML(core::mem::transmute_copy(&pwzidentity.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1293,7 +1293,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerIdentityImport(pwzimportxml : windows_core::PCWSTR, pwzpassword : windows_core::PCWSTR, ppwzidentity : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerIdentityImport(pwzimportxml.param().abi(), pwzpassword.param().abi(), &mut result__).map(|| result__)
+        PeerIdentityImport(core::mem::transmute_copy(&pwzimportxml.param().borrow()), core::mem::transmute_copy(&pwzpassword.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1303,7 +1303,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerIdentitySetFriendlyName(pwzidentity : windows_core::PCWSTR, pwzfriendlyname : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { PeerIdentitySetFriendlyName(pwzidentity.param().abi(), pwzfriendlyname.param().abi()).ok() }
+    unsafe { PeerIdentitySetFriendlyName(core::mem::transmute_copy(&pwzidentity.param().borrow()), core::mem::transmute_copy(&pwzfriendlyname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn PeerNameToPeerHostName<P0>(pwzpeername: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -1313,7 +1313,7 @@ where
     windows_core::link!("p2p.dll" "system" fn PeerNameToPeerHostName(pwzpeername : windows_core::PCWSTR, ppwzhostname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PeerNameToPeerHostName(pwzpeername.param().abi(), &mut result__).map(|| result__)
+        PeerNameToPeerHostName(core::mem::transmute_copy(&pwzpeername.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -1342,7 +1342,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpRegister(pcwzpeername : windows_core::PCWSTR, pregistrationinfo : *const PEER_PNRP_REGISTRATION_INFO, phregistration : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerPnrpRegister(pcwzpeername.param().abi(), pregistrationinfo.unwrap_or(core::mem::zeroed()) as _, phregistration as _).ok() }
+    unsafe { PeerPnrpRegister(core::mem::transmute_copy(&pcwzpeername.param().borrow()), pregistrationinfo.unwrap_or(core::mem::zeroed()) as _, phregistration as _).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1352,7 +1352,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpResolve(pcwzpeername : windows_core::PCWSTR, pcwzcloudname : windows_core::PCWSTR, pcendpoints : *mut u32, ppendpoints : *mut *mut PEER_PNRP_ENDPOINT_INFO) -> windows_core::HRESULT);
-    unsafe { PeerPnrpResolve(pcwzpeername.param().abi(), pcwzcloudname.param().abi(), pcendpoints as _, ppendpoints as _).ok() }
+    unsafe { PeerPnrpResolve(core::mem::transmute_copy(&pcwzpeername.param().borrow()), core::mem::transmute_copy(&pcwzcloudname.param().borrow()), pcendpoints as _, ppendpoints as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerPnrpShutdown() -> windows_core::Result<()> {
@@ -1366,7 +1366,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("p2p.dll" "system" fn PeerPnrpStartResolve(pcwzpeername : windows_core::PCWSTR, pcwzcloudname : windows_core::PCWSTR, cmaxendpoints : u32, hevent : super::super::Foundation:: HANDLE, phresolve : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PeerPnrpStartResolve(pcwzpeername.param().abi(), pcwzcloudname.param().abi(), cmaxendpoints.unwrap_or(core::mem::zeroed()) as _, hevent, phresolve as _).ok() }
+    unsafe { PeerPnrpStartResolve(core::mem::transmute_copy(&pcwzpeername.param().borrow()), core::mem::transmute_copy(&pcwzcloudname.param().borrow()), cmaxendpoints.unwrap_or(core::mem::zeroed()) as _, hevent, phresolve as _).ok() }
 }
 #[inline]
 pub unsafe fn PeerPnrpStartup(wversionrequested: u16) -> windows_core::Result<()> {

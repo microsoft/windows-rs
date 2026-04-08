@@ -34,7 +34,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn RegisterApplicationRestart(pwzcommandline : windows_core::PCWSTR, dwflags : REGISTER_APPLICATION_RESTART_FLAGS) -> windows_core::HRESULT);
-    unsafe { RegisterApplicationRestart(pwzcommandline.param().abi(), dwflags).ok() }
+    unsafe { RegisterApplicationRestart(core::mem::transmute_copy(&pwzcommandline.param().borrow()), dwflags).ok() }
 }
 #[inline]
 pub unsafe fn UnregisterApplicationRecoveryCallback() -> windows_core::Result<()> {

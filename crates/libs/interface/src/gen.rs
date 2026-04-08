@@ -415,20 +415,18 @@ impl InterfaceMethod {
             .collect::<Vec<_>>()
     }
 
-    /// Generates generic parameter declarations for `Ref<T>` caller-side wrappers.
+    /// Generates generic parameter declarations for `Ref<T>` / `OutRef<T>` caller-side wrappers.
     pub(crate) fn gen_consume_generics(&self) -> Vec<proc_macro2::TokenStream> {
         self.args
             .iter()
             .enumerate()
             .filter_map(|(generic_index, a)| {
                 if let Some((ty, ident)) = a.borrow_type() {
+                    let generic_ident = quote::format_ident!("P{generic_index}");
                     if ident == "Ref" {
-                        let generic_ident = quote::format_ident!("P{generic_index}");
                         Some(quote! { #generic_ident: ::windows_core::Param<#ty> })
                     } else {
-                        // OutRef<T> params use a concrete type in the caller signature rather than
-                        // a generic, so no generic constraint is needed here.
-                        None
+                        Some(quote! { #generic_ident: ::windows_core::OutParam<#ty> })
                     }
                 } else {
                     None
@@ -437,8 +435,8 @@ impl InterfaceMethod {
             .collect::<Vec<_>>()
     }
 
-    /// Generates parameter declarations for the caller-side method, replacing `Ref<T>` arguments
-    /// with their corresponding generic parameter types and keeping `OutRef<T>` as concrete types.
+    /// Generates parameter declarations for the caller-side method, replacing `Ref<T>` /
+    /// `OutRef<T>` arguments with their corresponding generic parameter types.
     pub(crate) fn gen_consume_params(&self) -> Vec<proc_macro2::TokenStream> {
         self.args
             .iter()
@@ -446,13 +444,9 @@ impl InterfaceMethod {
             .map(|(generic_index, a)| {
                 let pat = &a.pat;
 
-                if let Some((ty, ident)) = a.borrow_type() {
-                    if ident == "Ref" {
-                        let generic_ident = quote::format_ident!("P{generic_index}");
-                        quote! { #pat: #generic_ident }
-                    } else {
-                        quote! { #pat: ::windows_core::OutRef<'_, #ty> }
-                    }
+                if a.borrow_type().is_some() {
+                    let generic_ident = quote::format_ident!("P{generic_index}");
+                    quote! { #pat: #generic_ident }
                 } else {
                     let ty = &a.ty;
                     quote! { #pat: #ty }
@@ -473,7 +467,7 @@ impl InterfaceMethod {
                     if ident == "Ref" {
                         quote! { #pat.param().borrow() }
                     } else {
-                        quote! { #pat }
+                        quote! { #pat.borrow_mut() }
                     }
                 } else {
                     quote! { #pat }

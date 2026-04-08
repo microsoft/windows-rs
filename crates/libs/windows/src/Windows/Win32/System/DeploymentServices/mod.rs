@@ -119,7 +119,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdspxe.dll" "system" fn PxeProviderQueryIndex(pszprovidername : windows_core::PCWSTR, puindex : *mut u32) -> u32);
-    unsafe { PxeProviderQueryIndex(pszprovidername.param().abi(), puindex as _) }
+    unsafe { PxeProviderQueryIndex(core::mem::transmute_copy(&pszprovidername.param().borrow()), puindex as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -129,7 +129,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdspxe.dll" "system" fn PxeProviderRegister(pszprovidername : windows_core::PCWSTR, pszmodulepath : windows_core::PCWSTR, index : u32, biscritical : windows_core::BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
-    unsafe { PxeProviderRegister(pszprovidername.param().abi(), pszmodulepath.param().abi(), index, biscritical.into(), phproviderkey.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PxeProviderRegister(core::mem::transmute_copy(&pszprovidername.param().borrow()), core::mem::transmute_copy(&pszmodulepath.param().borrow()), index, biscritical.into(), phproviderkey.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const core::ffi::c_void, uparamlen: u32) -> u32 {
@@ -142,7 +142,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdspxe.dll" "system" fn PxeProviderUnRegister(pszprovidername : windows_core::PCWSTR) -> u32);
-    unsafe { PxeProviderUnRegister(pszprovidername.param().abi()) }
+    unsafe { PxeProviderUnRegister(core::mem::transmute_copy(&pszprovidername.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const core::ffi::c_void, pcontext: Option<*const core::ffi::c_void>) -> u32 {
@@ -160,7 +160,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdspxe.dll" "C" fn PxeTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : windows_core::PCWSTR) -> u32);
-    unsafe { PxeTrace(hprovider, severity, pszformat.param().abi()) }
+    unsafe { PxeTrace(hprovider, severity, core::mem::transmute_copy(&pszformat.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PxeTraceV<P2>(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: P2, params: *const i8) -> u32
@@ -168,7 +168,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdspxe.dll" "system" fn PxeTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pszformat : windows_core::PCWSTR, params : *const i8) -> u32);
-    unsafe { PxeTraceV(hprovider, severity, pszformat.param().abi(), params) }
+    unsafe { PxeTraceV(hprovider, severity, core::mem::transmute_copy(&pszformat.param().borrow()), params) }
 }
 #[inline]
 pub unsafe fn WdsBpAddOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *const core::ffi::c_void) -> u32 {
@@ -228,7 +228,7 @@ where
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliCreateSession(pwszserver : windows_core::PCWSTR, pcred : *const WDS_CLI_CRED, phsession : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliCreateSession(pwszserver.param().abi(), pcred.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        WdsCliCreateSession(core::mem::transmute_copy(&pwszserver.param().borrow()), pcred.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -257,7 +257,7 @@ where
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliGetDriverQueryXml(pwszwindirpath : windows_core::PCWSTR, ppwszdriverquery : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliGetDriverQueryXml(pwszwindirpath.param().abi(), &mut result__).map(|| result__)
+        WdsCliGetDriverQueryXml(core::mem::transmute_copy(&pwszwindirpath.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -418,7 +418,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliInitializeLog(hsession : super::super::Foundation:: HANDLE, ulclientarchitecture : CPU_ARCHITECTURE, pwszclientid : windows_core::PCWSTR, pwszclientaddress : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WdsCliInitializeLog(hsession, ulclientarchitecture, pwszclientid.param().abi(), pwszclientaddress.param().abi()).ok() }
+    unsafe { WdsCliInitializeLog(hsession, ulclientarchitecture, core::mem::transmute_copy(&pwszclientid.param().borrow()), core::mem::transmute_copy(&pwszclientaddress.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> windows_core::Result<()> {
@@ -436,7 +436,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliObtainDriverPackagesEx(hsession : super::super::Foundation:: HANDLE, pwszmachineinfo : windows_core::PCWSTR, ppwszservername : *mut windows_core::PWSTR, pppwszdriverpackages : *mut *mut windows_core::PWSTR, pulcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WdsCliObtainDriverPackagesEx(hsession, pwszmachineinfo.param().abi(), ppwszservername as _, pppwszdriverpackages as _, pulcount as _).ok() }
+    unsafe { WdsCliObtainDriverPackagesEx(hsession, core::mem::transmute_copy(&pwszmachineinfo.param().borrow()), ppwszservername as _, pppwszdriverpackages as _, pulcount as _).ok() }
 }
 #[inline]
 pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> windows_core::Result<()> {
@@ -459,7 +459,7 @@ where
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliTransferFile(pwszserver : windows_core::PCWSTR, pwsznamespace : windows_core::PCWSTR, pwszremotefilepath : windows_core::PCWSTR, pwszlocalfilepath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferFile(pwszserver.param().abi(), pwsznamespace.param().abi(), pwszremotefilepath.param().abi(), pwszlocalfilepath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        WdsCliTransferFile(core::mem::transmute_copy(&pwszserver.param().borrow()), core::mem::transmute_copy(&pwsznamespace.param().borrow()), core::mem::transmute_copy(&pwszremotefilepath.param().borrow()), core::mem::transmute_copy(&pwszlocalfilepath.param().borrow()), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -470,7 +470,7 @@ where
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliTransferImage(himage : super::super::Foundation:: HANDLE, pwszlocalpath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferImage(himage, pwszlocalpath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        WdsCliTransferImage(himage, core::mem::transmute_copy(&pwszlocalpath.param().borrow()), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -569,7 +569,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsmc.dll" "C" fn WdsTransportServerTrace(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WdsTransportServerTrace(hprovider, severity, pwszformat.param().abi()).ok() }
+    unsafe { WdsTransportServerTrace(hprovider, severity, core::mem::transmute_copy(&pwszformat.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WdsTransportServerTraceV<P2>(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: P2, params: *const i8) -> windows_core::Result<()>
@@ -577,7 +577,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsmc.dll" "system" fn WdsTransportServerTraceV(hprovider : super::super::Foundation:: HANDLE, severity : u32, pwszformat : windows_core::PCWSTR, params : *const i8) -> windows_core::HRESULT);
-    unsafe { WdsTransportServerTraceV(hprovider, severity, pwszformat.param().abi(), params).ok() }
+    unsafe { WdsTransportServerTraceV(hprovider, severity, core::mem::transmute_copy(&pwszformat.param().borrow()), params).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

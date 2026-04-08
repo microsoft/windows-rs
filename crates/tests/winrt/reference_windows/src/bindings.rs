@@ -71,10 +71,7 @@ pub trait ITest_Impl: windows_core::IUnknownImpl {
         c: Option<&windows_collections::IVector<i32>>,
     ) -> windows_core::Result<()>;
     fn Async(&self) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn Windows(
-        &self,
-        s: Option<&windows::Foundation::IStringable>,
-    ) -> windows_core::Result<()>;
+    fn Windows(&self, s: Option<&windows::Foundation::IStringable>) -> windows_core::Result<()>;
 }
 impl ITest_Vtbl {
     pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {

@@ -118,7 +118,7 @@ impl IGpioPinProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -184,7 +184,7 @@ impl windows_core::RuntimeName for IGpioPinProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProvider";
 }
 pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
-    fn ValueChanged(&self, handler: windows_core::Ref<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn ValueChanged(&self, handler: Option<&super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()>;
     fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
     fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
@@ -201,7 +201,7 @@ impl IGpioPinProvider_Vtbl {
         unsafe extern "system" fn ValueChanged<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGpioPinProvider_Impl::ValueChanged(this, core::mem::transmute_copy(&handler)) {
+                match IGpioPinProvider_Impl::ValueChanged(this, windows_core::Ref::option_from_abi(&handler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)

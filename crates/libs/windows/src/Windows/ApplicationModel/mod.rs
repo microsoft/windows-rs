@@ -224,7 +224,7 @@ impl AppInfo {
     {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromAppUserModelIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromAppUserModelIdForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IAppInfoStatics<R, F: FnOnce(&IAppInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1291,7 +1291,7 @@ impl IPackageCatalogStatics2 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&package.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1299,14 +1299,14 @@ impl windows_core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
 }
 pub trait IPackageCatalogStatics2_Impl: windows_core::IUnknownImpl {
-    fn OpenForPackage(&self, package: windows_core::Ref<Package>) -> windows_core::Result<PackageCatalog>;
+    fn OpenForPackage(&self, package: Option<&Package>) -> windows_core::Result<PackageCatalog>;
 }
 impl IPackageCatalogStatics2_Vtbl {
     pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenForPackage<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPackageCatalogStatics2_Impl::OpenForPackage(this, core::mem::transmute_copy(&package)) {
+                match IPackageCatalogStatics2_Impl::OpenForPackage(this, windows_core::Ref::option_from_abi(&package)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1954,7 +1954,7 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StageContentGroupsAsync)(windows_core::Interface::as_raw(this), names.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StageContentGroupsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&names.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StageContentGroupsWithPriorityAsync<P0>(&self, names: P0, movetoheadofqueue: bool) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<PackageContentGroup>>>
@@ -1964,7 +1964,7 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(windows_core::Interface::as_raw(this), names.param().abi(), movetoheadofqueue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&names.param().borrow()), movetoheadofqueue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetInUseAsync(&self, inuse: bool) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2100,7 +2100,7 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackage9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindRelatedPackages)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindRelatedPackages)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SourceUriSchemeName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2164,7 +2164,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageStaging)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageStaging(&self, token: i64) -> windows_core::Result<()> {
@@ -2178,7 +2178,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageInstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageInstalling)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageInstalling(&self, token: i64) -> windows_core::Result<()> {
@@ -2192,7 +2192,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageUpdating)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageUpdating)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageUpdating(&self, token: i64) -> windows_core::Result<()> {
@@ -2206,7 +2206,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageUninstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageUninstalling)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageUninstalling(&self, token: i64) -> windows_core::Result<()> {
@@ -2220,7 +2220,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageStatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageStatusChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2234,7 +2234,7 @@ impl PackageCatalog {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageContentGroupStaging(&self, token: i64) -> windows_core::Result<()> {
@@ -2255,7 +2255,7 @@ impl PackageCatalog {
         let this = &windows_core::Interface::cast::<IPackageCatalog3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveOptionalPackagesAsync)(windows_core::Interface::as_raw(this), optionalpackagefamilynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveOptionalPackagesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&optionalpackagefamilynames.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AddResourcePackageAsync(&self, resourcepackagefamilyname: &windows_core::HSTRING, resourceid: &windows_core::HSTRING, options: AddResourcePackageOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
@@ -2272,7 +2272,7 @@ impl PackageCatalog {
         let this = &windows_core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveResourcePackagesAsync)(windows_core::Interface::as_raw(this), resourcepackages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveResourcePackagesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&resourcepackages.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenForCurrentPackage() -> windows_core::Result<PackageCatalog> {
@@ -2293,7 +2293,7 @@ impl PackageCatalog {
     {
         Self::IPackageCatalogStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&package.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPackageCatalogStatics<R, F: FnOnce(&IPackageCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

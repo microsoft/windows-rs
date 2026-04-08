@@ -76,7 +76,7 @@ impl HttpBaseProtocolFilter {
         P0: windows_core::Param<super::super::super::Security::Cryptography::Certificates::Certificate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetClientCertificate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetClientCertificate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
@@ -111,7 +111,7 @@ impl HttpBaseProtocolFilter {
         P0: windows_core::Param<super::super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
@@ -127,7 +127,7 @@ impl HttpBaseProtocolFilter {
         P0: windows_core::Param<super::super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn UseProxy(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -169,7 +169,7 @@ impl HttpBaseProtocolFilter {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveServerCustomValidationRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -195,7 +195,7 @@ impl HttpBaseProtocolFilter {
     {
         Self::IHttpBaseProtocolFilterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
@@ -205,7 +205,7 @@ impl HttpBaseProtocolFilter {
         let this = &windows_core::Interface::cast::<IHttpFilter>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     fn IHttpBaseProtocolFilterStatics<R, F: FnOnce(&IHttpBaseProtocolFilterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -510,7 +510,7 @@ impl IHttpFilter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -522,14 +522,14 @@ impl windows_core::RuntimeName for IHttpFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.IHttpFilter";
 }
 pub trait IHttpFilter_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn SendRequestAsync(&self, request: windows_core::Ref<super::HttpRequestMessage>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
+    fn SendRequestAsync(&self, request: Option<&super::HttpRequestMessage>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
 impl IHttpFilter_Vtbl {
     pub const fn new<Identity: IHttpFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SendRequestAsync<Identity: IHttpFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IHttpFilter_Impl::SendRequestAsync(this, core::mem::transmute_copy(&request)) {
+                match IHttpFilter_Impl::SendRequestAsync(this, windows_core::Ref::option_from_abi(&request)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

@@ -151,7 +151,7 @@ impl OnlineIdAuthenticator {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateUserAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AuthenticateUserAsyncAdvanced<P0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> windows_core::Result<UserAuthenticationOperation>
@@ -161,7 +161,7 @@ impl OnlineIdAuthenticator {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(windows_core::Interface::as_raw(this), requests.param().abi(), credentialprompttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&requests.param().borrow()), credentialprompttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SignOutUserAsync(&self) -> windows_core::Result<SignOutUserOperation> {
@@ -311,7 +311,7 @@ impl OnlineIdSystemAuthenticator {
     {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IOnlineIdSystemAuthenticatorStatics<R, F: FnOnce(&IOnlineIdSystemAuthenticatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -334,7 +334,7 @@ impl OnlineIdSystemAuthenticatorForUser {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTicketAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetTicketAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&request.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetApplicationId(&self, value: windows_core::GUID) -> windows_core::Result<()> {

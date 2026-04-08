@@ -34,7 +34,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : windows_core::PCWSTR, setflags : u32, setdata : *const core::ffi::c_void) -> u32);
-    unsafe { DevicePowerSetDeviceState(devicedescription.param().abi(), setflags, setdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DevicePowerSetDeviceState(core::mem::transmute_copy(&devicedescription.param().borrow()), setflags, setdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::super::Foundation::LPARAM) -> bool {
@@ -176,7 +176,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("powrprof.dll" "system" fn PowerImportPowerScheme(rootpowerkey : super::Registry:: HKEY, importfilenamepath : windows_core::PCWSTR, destinationschemeguid : *mut *mut windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerImportPowerScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, importfilenamepath.param().abi(), destinationschemeguid as _) }
+    unsafe { PowerImportPowerScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&importfilenamepath.param().borrow()), destinationschemeguid as _) }
 }
 #[inline]
 pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core::GUID>, settingguid: Option<*const windows_core::GUID>) -> bool {
@@ -560,7 +560,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : windows_core::PCWSTR, lpszdescription : windows_core::PCWSTR, lpscheme : *const POWER_POLICY) -> bool);
-    unsafe { WritePwrScheme(puiid, lpszschemename.param().abi(), lpszdescription.param().abi(), lpscheme) }
+    unsafe { WritePwrScheme(puiid, core::mem::transmute_copy(&lpszschemename.param().borrow()), core::mem::transmute_copy(&lpszdescription.param().borrow()), lpscheme) }
 }
 pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27i32);
 pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(19i32);

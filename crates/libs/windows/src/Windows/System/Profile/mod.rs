@@ -20,7 +20,7 @@ impl AnalyticsInfo {
     {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&attributenames.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -82,7 +82,7 @@ impl AppApplicability {
     {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(windows_core::Interface::as_raw(this), capabilities.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&capabilities.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -118,7 +118,7 @@ impl HardwareIdentification {
     {
         Self::IHardwareIdentificationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPackageSpecificToken)(windows_core::Interface::as_raw(this), nonce.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPackageSpecificToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&nonce.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -628,7 +628,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CollectionLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CollectionLevelChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveCollectionLevelChanged(token: i64) -> windows_core::Result<()> {
@@ -710,7 +710,7 @@ impl SmartAppControlPolicy {
     {
         Self::ISmartAppControlPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveChanged(token: i64) -> windows_core::Result<()> {
@@ -738,7 +738,7 @@ impl SystemIdentification {
     {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSystemIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetSystemIdForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -825,7 +825,7 @@ impl SystemSetupInfo {
     {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveOutOfBoxExperienceStateChanged(token: i64) -> windows_core::Result<()> {
@@ -949,7 +949,7 @@ impl WindowsIntegrityPolicy {
     {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PolicyChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PolicyChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemovePolicyChanged(token: i64) -> windows_core::Result<()> {

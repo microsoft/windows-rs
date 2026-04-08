@@ -85,7 +85,7 @@ impl OcrEngine {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Globalization")]
@@ -116,7 +116,7 @@ impl OcrEngine {
     {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsLanguageSupported)(windows_core::Interface::as_raw(this), language.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsLanguageSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&language.param().borrow()), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Globalization")]
@@ -126,7 +126,7 @@ impl OcrEngine {
     {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromLanguage)(windows_core::Interface::as_raw(this), language.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&language.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn TryCreateFromUserProfileLanguages() -> windows_core::Result<OcrEngine> {

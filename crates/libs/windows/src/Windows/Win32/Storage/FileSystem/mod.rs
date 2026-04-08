@@ -4,7 +4,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clfsw32.dll" "system" fn AddLogContainer(hlog : super::super::Foundation:: HANDLE, pcbcontainer : *const u64, pwszcontainerpath : windows_core::PCWSTR, preserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { AddLogContainer(hlog, pcbcontainer.unwrap_or(core::mem::zeroed()) as _, pwszcontainerpath.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { AddLogContainer(hlog, pcbcontainer.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pwszcontainerpath.param().borrow()), preserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn AddLogContainerSet(hlog: super::super::Foundation::HANDLE, pcbcontainer: Option<*const u64>, rgwszcontainerpath: &[windows_core::PCWSTR], preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
@@ -18,7 +18,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : windows_core::PCWSTR, pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST) -> u32);
-    unsafe { AddUsersToEncryptedFile(lpfilename.param().abi(), pencryptioncertificates) }
+    unsafe { AddUsersToEncryptedFile(core::mem::transmute_copy(&lpfilename.param().borrow()), pencryptioncertificates) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -107,7 +107,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CheckNameLegalDOS8Dot3A(lpname : windows_core::PCSTR, lpoemname : windows_core::PSTR, oemnamesize : u32, pbnamecontainsspaces : *mut windows_core::BOOL, pbnamelegal : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { CheckNameLegalDOS8Dot3A(lpname.param().abi(), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbnamecontainsspaces.unwrap_or(core::mem::zeroed()) as _, pbnamelegal as _).ok() }
+    unsafe { CheckNameLegalDOS8Dot3A(core::mem::transmute_copy(&lpname.param().borrow()), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbnamecontainsspaces.unwrap_or(core::mem::zeroed()) as _, pbnamelegal as _).ok() }
 }
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3W<P0>(lpname: P0, lpoemname: Option<&mut [u8]>, pbnamecontainsspaces: Option<*mut windows_core::BOOL>, pbnamelegal: *mut windows_core::BOOL) -> windows_core::Result<()>
@@ -115,7 +115,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CheckNameLegalDOS8Dot3W(lpname : windows_core::PCWSTR, lpoemname : windows_core::PSTR, oemnamesize : u32, pbnamecontainsspaces : *mut windows_core::BOOL, pbnamelegal : *mut windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { CheckNameLegalDOS8Dot3W(lpname.param().abi(), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbnamecontainsspaces.unwrap_or(core::mem::zeroed()) as _, pbnamelegal as _).ok() }
+    unsafe { CheckNameLegalDOS8Dot3W(core::mem::transmute_copy(&lpname.param().borrow()), core::mem::transmute(lpoemname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbnamecontainsspaces.unwrap_or(core::mem::zeroed()) as _, pbnamelegal as _).ok() }
 }
 #[inline]
 pub unsafe fn CloseAndResetLogFile(hlog: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -164,7 +164,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFile2(pwszexistingfilename : windows_core::PCWSTR, pwsznewfilename : windows_core::PCWSTR, pextendedparameters : *const COPYFILE2_EXTENDED_PARAMETERS) -> windows_core::HRESULT);
-    unsafe { CopyFile2(pwszexistingfilename.param().abi(), pwsznewfilename.param().abi(), pextendedparameters.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CopyFile2(core::mem::transmute_copy(&pwszexistingfilename.param().borrow()), core::mem::transmute_copy(&pwsznewfilename.param().borrow()), pextendedparameters.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::Result<()>
@@ -173,7 +173,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFileA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, bfailifexists : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { CopyFileA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into()).ok() }
+    unsafe { CopyFileA(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), bfailifexists.into()).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut windows_core::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
@@ -182,7 +182,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut windows_core::BOOL, dwcopyflags : COPYFILE_FLAGS) -> windows_core::BOOL);
-    unsafe { CopyFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
+    unsafe { CopyFileExA(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut windows_core::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
@@ -191,7 +191,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut windows_core::BOOL, dwcopyflags : COPYFILE_FLAGS) -> windows_core::BOOL);
-    unsafe { CopyFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
+    unsafe { CopyFileExW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileFromAppW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::BOOL
@@ -200,7 +200,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CopyFileFromAppW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, bfailifexists : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { CopyFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into()) }
+    unsafe { CopyFileFromAppW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), bfailifexists.into()) }
 }
 #[inline]
 pub unsafe fn CopyFileTransactedA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const windows_core::BOOL>, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -209,7 +209,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFileTransactedA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const windows_core::BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CopyFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
+    unsafe { CopyFileTransactedA(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileTransactedW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*const windows_core::BOOL>, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -218,7 +218,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFileTransactedW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const windows_core::BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CopyFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
+    unsafe { CopyFileTransactedW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, pbcancel.unwrap_or(core::mem::zeroed()) as _, dwcopyflags, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn CopyFileW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: bool) -> windows_core::Result<()>
@@ -227,7 +227,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CopyFileW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, bfailifexists : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { CopyFileW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.into()).ok() }
+    unsafe { CopyFileW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), bfailifexists.into()).ok() }
 }
 #[inline]
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
@@ -241,7 +241,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bindfltapi.dll" "system" fn CreateBindLink(virtualpath : windows_core::PCWSTR, backingpath : windows_core::PCWSTR, createbindlinkflags : CREATE_BIND_LINK_FLAGS, exceptioncount : u32, exceptionpaths : *const windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { CreateBindLink(virtualpath.param().abi(), backingpath.param().abi(), createbindlinkflags, exceptionpaths.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(exceptionpaths.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    unsafe { CreateBindLink(core::mem::transmute_copy(&virtualpath.param().borrow()), core::mem::transmute_copy(&backingpath.param().borrow()), createbindlinkflags, exceptionpaths.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(exceptionpaths.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -250,7 +250,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectory2A(lppathname : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateDirectory2A(lppathname.param().abi(), dwdesiredaccess, dwsharemode, directoryflags, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateDirectory2A(core::mem::transmute_copy(&lppathname.param().borrow()), dwdesiredaccess, dwsharemode, directoryflags, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -259,7 +259,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectory2W(lppathname : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateDirectory2W(lppathname.param().abi(), dwdesiredaccess, dwsharemode, directoryflags, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateDirectory2W(core::mem::transmute_copy(&lppathname.param().borrow()), dwdesiredaccess, dwsharemode, directoryflags, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -268,7 +268,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectoryA(lppathname : windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { CreateDirectoryA(lppathname.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CreateDirectoryA(core::mem::transmute_copy(&lppathname.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -278,7 +278,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectoryExA(lptemplatedirectory : windows_core::PCSTR, lpnewdirectory : windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { CreateDirectoryExA(lptemplatedirectory.param().abi(), lpnewdirectory.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CreateDirectoryExA(core::mem::transmute_copy(&lptemplatedirectory.param().borrow()), core::mem::transmute_copy(&lpnewdirectory.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -288,7 +288,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectoryExW(lptemplatedirectory : windows_core::PCWSTR, lpnewdirectory : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { CreateDirectoryExW(lptemplatedirectory.param().abi(), lpnewdirectory.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CreateDirectoryExW(core::mem::transmute_copy(&lptemplatedirectory.param().borrow()), core::mem::transmute_copy(&lpnewdirectory.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -297,7 +297,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateDirectoryFromAppW(lppathname : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { CreateDirectoryFromAppW(lppathname.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateDirectoryFromAppW(core::mem::transmute_copy(&lppathname.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -307,7 +307,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectoryTransactedA(lptemplatedirectory : windows_core::PCSTR, lpnewdirectory : windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CreateDirectoryTransactedA(lptemplatedirectory.param().abi(), lpnewdirectory.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
+    unsafe { CreateDirectoryTransactedA(core::mem::transmute_copy(&lptemplatedirectory.param().borrow()), core::mem::transmute_copy(&lpnewdirectory.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -317,7 +317,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectoryTransactedW(lptemplatedirectory : windows_core::PCWSTR, lpnewdirectory : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CreateDirectoryTransactedW(lptemplatedirectory.param().abi(), lpnewdirectory.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
+    unsafe { CreateDirectoryTransactedW(core::mem::transmute_copy(&lptemplatedirectory.param().borrow()), core::mem::transmute_copy(&lpnewdirectory.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -326,7 +326,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateDirectoryW(lppathname : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { CreateDirectoryW(lppathname.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CreateDirectoryW(core::mem::transmute_copy(&lppathname.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -342,7 +342,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateFile2(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, dwcreationdisposition : FILE_CREATION_DISPOSITION, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateFile2(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { CreateFile2(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -352,7 +352,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFile2FromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateFile2FromAppW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateFile2FromAppW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -361,7 +361,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateFile3(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE3_EXTENDED_PARAMETERS) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateFile3(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateFile3(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, dwcreationdisposition, pcreateexparams.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -370,7 +370,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateFileA(lpfilename : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateFileA(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { CreateFileA(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -380,7 +380,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFileFromAppW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    unsafe { CreateFileFromAppW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CreateFileFromAppW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -389,7 +389,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateFileTransactedA(lpfilename : windows_core::PCSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE, htransaction : super::super::Foundation:: HANDLE, pusminiversion : *const TXFS_MINIVERSION, lpextendedparameter : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateFileTransactedA(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _, htransaction, pusminiversion.unwrap_or(core::mem::zeroed()) as _, lpextendedparameter.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { CreateFileTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _, htransaction, pusminiversion.unwrap_or(core::mem::zeroed()) as _, lpextendedparameter.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -399,7 +399,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateFileTransactedW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE, htransaction : super::super::Foundation:: HANDLE, pusminiversion : *const TXFS_MINIVERSION, lpextendedparameter : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateFileTransactedW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _, htransaction, pusminiversion.unwrap_or(core::mem::zeroed()) as _, lpextendedparameter.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { CreateFileTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _, htransaction, pusminiversion.unwrap_or(core::mem::zeroed()) as _, lpextendedparameter.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -409,7 +409,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateFileW(lpfilename : windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateFileW(lpfilename.param().abi(), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { CreateFileW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwcreationdisposition, dwflagsandattributes, htemplatefile.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -420,7 +420,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateHardLinkA(lpfilename : windows_core::PCSTR, lpexistingfilename : windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { CreateHardLinkA(lpfilename.param().abi(), lpexistingfilename.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CreateHardLinkA(core::mem::transmute_copy(&lpfilename.param().borrow()), core::mem::transmute_copy(&lpexistingfilename.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -430,7 +430,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateHardLinkTransactedA(lpfilename : windows_core::PCSTR, lpexistingfilename : windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CreateHardLinkTransactedA(lpfilename.param().abi(), lpexistingfilename.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
+    unsafe { CreateHardLinkTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), core::mem::transmute_copy(&lpexistingfilename.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -440,7 +440,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateHardLinkTransactedW(lpfilename : windows_core::PCWSTR, lpexistingfilename : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { CreateHardLinkTransactedW(lpfilename.param().abi(), lpexistingfilename.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
+    unsafe { CreateHardLinkTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), core::mem::transmute_copy(&lpexistingfilename.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, htransaction).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -450,7 +450,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateHardLinkW(lpfilename : windows_core::PCWSTR, lpexistingfilename : windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { CreateHardLinkW(lpfilename.param().abi(), lpexistingfilename.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { CreateHardLinkW(core::mem::transmute_copy(&lpfilename.param().borrow()), core::mem::transmute_copy(&lpexistingfilename.param().borrow()), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> windows_core::Result<HIORING> {
@@ -473,7 +473,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clfsw32.dll" "system" fn CreateLogFile(pszlogfilename : windows_core::PCWSTR, fdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES, fcreatedisposition : FILE_CREATION_DISPOSITION, fflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateLogFile(pszlogfilename.param().abi(), fdesiredaccess, dwsharemode, psalogfile as _, fcreatedisposition, fflagsandattributes) };
+    let result__ = unsafe { CreateLogFile(core::mem::transmute_copy(&pszlogfilename.param().borrow()), fdesiredaccess, dwsharemode, psalogfile as _, fcreatedisposition, fflagsandattributes) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -488,7 +488,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ktmw32.dll" "system" fn CreateResourceManager(lpresourcemanagerattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, resourcemanagerid : *mut windows_core::GUID, createoptions : u32, tmhandle : super::super::Foundation:: HANDLE, description : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateResourceManager(lpresourcemanagerattributes as _, resourcemanagerid as _, createoptions, tmhandle, description.param().abi()) };
+    let result__ = unsafe { CreateResourceManager(lpresourcemanagerattributes as _, resourcemanagerid as _, createoptions, tmhandle, core::mem::transmute_copy(&description.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -498,7 +498,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSymbolicLinkA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
-    unsafe { CreateSymbolicLinkA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags) }
+    unsafe { CreateSymbolicLinkA(core::mem::transmute_copy(&lpsymlinkfilename.param().borrow()), core::mem::transmute_copy(&lptargetfilename.param().borrow()), dwflags) }
 }
 #[inline]
 pub unsafe fn CreateSymbolicLinkTransactedA<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> bool
@@ -507,7 +507,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedA(lpsymlinkfilename : windows_core::PCSTR, lptargetfilename : windows_core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> bool);
-    unsafe { CreateSymbolicLinkTransactedA(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags, htransaction) }
+    unsafe { CreateSymbolicLinkTransactedA(core::mem::transmute_copy(&lpsymlinkfilename.param().borrow()), core::mem::transmute_copy(&lptargetfilename.param().borrow()), dwflags, htransaction) }
 }
 #[inline]
 pub unsafe fn CreateSymbolicLinkTransactedW<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> bool
@@ -516,7 +516,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> bool);
-    unsafe { CreateSymbolicLinkTransactedW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags, htransaction) }
+    unsafe { CreateSymbolicLinkTransactedW(core::mem::transmute_copy(&lpsymlinkfilename.param().borrow()), core::mem::transmute_copy(&lptargetfilename.param().borrow()), dwflags, htransaction) }
 }
 #[inline]
 pub unsafe fn CreateSymbolicLinkW<P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> bool
@@ -525,7 +525,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn CreateSymbolicLinkW(lpsymlinkfilename : windows_core::PCWSTR, lptargetfilename : windows_core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
-    unsafe { CreateSymbolicLinkW(lpsymlinkfilename.param().abi(), lptargetfilename.param().abi(), dwflags) }
+    unsafe { CreateSymbolicLinkW(core::mem::transmute_copy(&lpsymlinkfilename.param().borrow()), core::mem::transmute_copy(&lptargetfilename.param().borrow()), dwflags) }
 }
 #[inline]
 pub unsafe fn CreateTapePartition(hdevice: super::super::Foundation::HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32 {
@@ -539,7 +539,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ktmw32.dll" "system" fn CreateTransaction(lptransactionattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, uow : *const windows_core::GUID, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : u32, description : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateTransaction(lptransactionattributes.unwrap_or(core::mem::zeroed()) as _, uow.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, description.param().abi()) };
+    let result__ = unsafe { CreateTransaction(lptransactionattributes.unwrap_or(core::mem::zeroed()) as _, uow.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&description.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
@@ -549,7 +549,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ktmw32.dll" "system" fn CreateTransactionManager(lptransactionattributes : *mut super::super::Security:: SECURITY_ATTRIBUTES, logfilename : windows_core::PCWSTR, createoptions : u32, commitstrength : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { CreateTransactionManager(lptransactionattributes as _, logfilename.param().abi(), createoptions, commitstrength) };
+    let result__ = unsafe { CreateTransactionManager(lptransactionattributes as _, core::mem::transmute_copy(&logfilename.param().borrow()), createoptions, commitstrength) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -558,7 +558,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn DecryptFileA(lpfilename : windows_core::PCSTR, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { DecryptFileA(lpfilename.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { DecryptFileA(core::mem::transmute_copy(&lpfilename.param().borrow()), dwreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn DecryptFileW<P0>(lpfilename: P0, dwreserved: Option<u32>) -> windows_core::Result<()>
@@ -566,7 +566,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn DecryptFileW(lpfilename : windows_core::PCWSTR, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { DecryptFileW(lpfilename.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { DecryptFileW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn DefineDosDeviceA<P1, P2>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P1, lptargetpath: P2) -> windows_core::Result<()>
@@ -575,7 +575,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DefineDosDeviceA(dwflags : DEFINE_DOS_DEVICE_FLAGS, lpdevicename : windows_core::PCSTR, lptargetpath : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { DefineDosDeviceA(dwflags, lpdevicename.param().abi(), lptargetpath.param().abi()).ok() }
+    unsafe { DefineDosDeviceA(dwflags, core::mem::transmute_copy(&lpdevicename.param().borrow()), core::mem::transmute_copy(&lptargetpath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DefineDosDeviceW<P1, P2>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P1, lptargetpath: P2) -> windows_core::Result<()>
@@ -584,7 +584,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DefineDosDeviceW(dwflags : DEFINE_DOS_DEVICE_FLAGS, lpdevicename : windows_core::PCWSTR, lptargetpath : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { DefineDosDeviceW(dwflags, lpdevicename.param().abi(), lptargetpath.param().abi()).ok() }
+    unsafe { DefineDosDeviceW(dwflags, core::mem::transmute_copy(&lpdevicename.param().borrow()), core::mem::transmute_copy(&lptargetpath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DeleteFile2A<P0>(lpfilename: P0, flags: u32) -> windows_core::BOOL
@@ -592,7 +592,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteFile2A(lpfilename : windows_core::PCSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { DeleteFile2A(lpfilename.param().abi(), flags) }
+    unsafe { DeleteFile2A(core::mem::transmute_copy(&lpfilename.param().borrow()), flags) }
 }
 #[inline]
 pub unsafe fn DeleteFile2W<P0>(lpfilename: P0, flags: u32) -> windows_core::BOOL
@@ -600,7 +600,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteFile2W(lpfilename : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { DeleteFile2W(lpfilename.param().abi(), flags) }
+    unsafe { DeleteFile2W(core::mem::transmute_copy(&lpfilename.param().borrow()), flags) }
 }
 #[inline]
 pub unsafe fn DeleteFileA<P0>(lpfilename: P0) -> windows_core::Result<()>
@@ -608,7 +608,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteFileA(lpfilename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { DeleteFileA(lpfilename.param().abi()).ok() }
+    unsafe { DeleteFileA(core::mem::transmute_copy(&lpfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DeleteFileFromAppW<P0>(lpfilename: P0) -> windows_core::BOOL
@@ -616,7 +616,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn DeleteFileFromAppW(lpfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { DeleteFileFromAppW(lpfilename.param().abi()) }
+    unsafe { DeleteFileFromAppW(core::mem::transmute_copy(&lpfilename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn DeleteFileTransactedA<P0>(lpfilename: P0, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -624,7 +624,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteFileTransactedA(lpfilename : windows_core::PCSTR, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { DeleteFileTransactedA(lpfilename.param().abi(), htransaction).ok() }
+    unsafe { DeleteFileTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), htransaction).ok() }
 }
 #[inline]
 pub unsafe fn DeleteFileTransactedW<P0>(lpfilename: P0, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -632,7 +632,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteFileTransactedW(lpfilename : windows_core::PCWSTR, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { DeleteFileTransactedW(lpfilename.param().abi(), htransaction).ok() }
+    unsafe { DeleteFileTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), htransaction).ok() }
 }
 #[inline]
 pub unsafe fn DeleteFileW<P0>(lpfilename: P0) -> windows_core::Result<()>
@@ -640,7 +640,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteFileW(lpfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { DeleteFileW(lpfilename.param().abi()).ok() }
+    unsafe { DeleteFileW(core::mem::transmute_copy(&lpfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DeleteLogByHandle(hlog: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -653,7 +653,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clfsw32.dll" "system" fn DeleteLogFile(pszlogfilename : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { DeleteLogFile(pszlogfilename.param().abi(), pvreserved as _).ok() }
+    unsafe { DeleteLogFile(core::mem::transmute_copy(&pszlogfilename.param().borrow()), pvreserved as _).ok() }
 }
 #[inline]
 pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -666,7 +666,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteVolumeMountPointA(lpszvolumemountpoint : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { DeleteVolumeMountPointA(lpszvolumemountpoint.param().abi()).ok() }
+    unsafe { DeleteVolumeMountPointA(core::mem::transmute_copy(&lpszvolumemountpoint.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DeleteVolumeMountPointW<P0>(lpszvolumemountpoint: P0) -> windows_core::Result<()>
@@ -674,7 +674,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn DeleteVolumeMountPointW(lpszvolumemountpoint : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { DeleteVolumeMountPointW(lpszvolumemountpoint.param().abi()).ok() }
+    unsafe { DeleteVolumeMountPointW(core::mem::transmute_copy(&lpszvolumemountpoint.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DeregisterManageableLogClient(hlog: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -689,7 +689,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn DuplicateEncryptionInfoFile(srcfilename : windows_core::PCWSTR, dstfilename : windows_core::PCWSTR, dwcreationdistribution : u32, dwattributes : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> u32);
-    unsafe { DuplicateEncryptionInfoFile(srcfilename.param().abi(), dstfilename.param().abi(), dwcreationdistribution, dwattributes, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DuplicateEncryptionInfoFile(core::mem::transmute_copy(&srcfilename.param().borrow()), core::mem::transmute_copy(&dstfilename.param().borrow()), dwcreationdistribution, dwattributes, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn EncryptFileA<P0>(lpfilename: P0) -> windows_core::Result<()>
@@ -697,7 +697,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn EncryptFileA(lpfilename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { EncryptFileA(lpfilename.param().abi()).ok() }
+    unsafe { EncryptFileA(core::mem::transmute_copy(&lpfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn EncryptFileW<P0>(lpfilename: P0) -> windows_core::Result<()>
@@ -705,7 +705,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn EncryptFileW(lpfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { EncryptFileW(lpfilename.param().abi()).ok() }
+    unsafe { EncryptFileW(core::mem::transmute_copy(&lpfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn EncryptionDisable<P0>(dirpath: P0, disable: bool) -> windows_core::Result<()>
@@ -713,7 +713,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn EncryptionDisable(dirpath : windows_core::PCWSTR, disable : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { EncryptionDisable(dirpath.param().abi(), disable.into()).ok() }
+    unsafe { EncryptionDisable(core::mem::transmute_copy(&dirpath.param().borrow()), disable.into()).ok() }
 }
 #[inline]
 pub unsafe fn EraseTape(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: bool) -> u32 {
@@ -726,7 +726,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn FileEncryptionStatusA(lpfilename : windows_core::PCSTR, lpstatus : *mut u32) -> windows_core::BOOL);
-    unsafe { FileEncryptionStatusA(lpfilename.param().abi(), lpstatus as _).ok() }
+    unsafe { FileEncryptionStatusA(core::mem::transmute_copy(&lpfilename.param().borrow()), lpstatus as _).ok() }
 }
 #[inline]
 pub unsafe fn FileEncryptionStatusW<P0>(lpfilename: P0, lpstatus: *mut u32) -> windows_core::Result<()>
@@ -734,7 +734,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn FileEncryptionStatusW(lpfilename : windows_core::PCWSTR, lpstatus : *mut u32) -> windows_core::BOOL);
-    unsafe { FileEncryptionStatusW(lpfilename.param().abi(), lpstatus as _).ok() }
+    unsafe { FileEncryptionStatusW(core::mem::transmute_copy(&lpfilename.param().borrow()), lpstatus as _).ok() }
 }
 #[inline]
 pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundation::FILETIME, lplocalfiletime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
@@ -757,7 +757,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstChangeNotificationA(lppathname : windows_core::PCSTR, bwatchsubtree : windows_core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstChangeNotificationA(lppathname.param().abi(), bwatchsubtree.into(), dwnotifyfilter) };
+    let result__ = unsafe { FindFirstChangeNotificationA(core::mem::transmute_copy(&lppathname.param().borrow()), bwatchsubtree.into(), dwnotifyfilter) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -766,7 +766,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstChangeNotificationW(lppathname : windows_core::PCWSTR, bwatchsubtree : windows_core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstChangeNotificationW(lppathname.param().abi(), bwatchsubtree.into(), dwnotifyfilter) };
+    let result__ = unsafe { FindFirstChangeNotificationW(core::mem::transmute_copy(&lppathname.param().borrow()), bwatchsubtree.into(), dwnotifyfilter) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -775,7 +775,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileA(lpfilename : windows_core::PCSTR, lpfindfiledata : *mut WIN32_FIND_DATAA) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileA(lpfilename.param().abi(), lpfindfiledata as _) };
+    let result__ = unsafe { FindFirstFileA(core::mem::transmute_copy(&lpfilename.param().borrow()), lpfindfiledata as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -784,7 +784,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileExA(lpfilename : windows_core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileExA(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) };
+    let result__ = unsafe { FindFirstFileExA(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -793,7 +793,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn FindFirstFileExFromAppW(lpfilename : windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32) -> super::super::Foundation:: HANDLE);
-    unsafe { FindFirstFileExFromAppW(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) }
+    unsafe { FindFirstFileExFromAppW(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) }
 }
 #[inline]
 pub unsafe fn FindFirstFileExW<P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: Option<*const core::ffi::c_void>, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -801,7 +801,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileExW(lpfilename : windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileExW(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) };
+    let result__ = unsafe { FindFirstFileExW(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -810,7 +810,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileNameTransactedW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_core::PWSTR, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileNameTransactedW(lpfilename.param().abi(), dwflags, stringlength as _, core::mem::transmute(linkname), htransaction.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { FindFirstFileNameTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwflags, stringlength as _, core::mem::transmute(linkname), htransaction.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -819,7 +819,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileNameW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_core::PWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileNameW(lpfilename.param().abi(), dwflags, stringlength as _, core::mem::transmute(linkname)) };
+    let result__ = unsafe { FindFirstFileNameW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwflags, stringlength as _, core::mem::transmute(linkname)) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -828,7 +828,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileTransactedA(lpfilename : windows_core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileTransactedA(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags, htransaction) };
+    let result__ = unsafe { FindFirstFileTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags, htransaction) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -837,7 +837,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileTransactedW(lpfilename : windows_core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileTransactedW(lpfilename.param().abi(), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags, htransaction) };
+    let result__ = unsafe { FindFirstFileTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfindfiledata as _, fsearchop, lpsearchfilter.unwrap_or(core::mem::zeroed()) as _, dwadditionalflags, htransaction) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -846,7 +846,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileW(lpfilename : windows_core::PCWSTR, lpfindfiledata : *mut WIN32_FIND_DATAW) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstFileW(lpfilename.param().abi(), lpfindfiledata as _) };
+    let result__ = unsafe { FindFirstFileW(core::mem::transmute_copy(&lpfilename.param().borrow()), lpfindfiledata as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -855,7 +855,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstStreamTransactedW(lpfilename : windows_core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut core::ffi::c_void, dwflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstStreamTransactedW(lpfilename.param().abi(), infolevel, lpfindstreamdata as _, dwflags.unwrap_or(core::mem::zeroed()) as _, htransaction) };
+    let result__ = unsafe { FindFirstStreamTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), infolevel, lpfindstreamdata as _, dwflags.unwrap_or(core::mem::zeroed()) as _, htransaction) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -864,7 +864,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstStreamW(lpfilename : windows_core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut core::ffi::c_void, dwflags : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstStreamW(lpfilename.param().abi(), infolevel, lpfindstreamdata as _, dwflags.unwrap_or(core::mem::zeroed()) as _) };
+    let result__ = unsafe { FindFirstStreamW(core::mem::transmute_copy(&lpfilename.param().borrow()), infolevel, lpfindstreamdata as _, dwflags.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -879,7 +879,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstVolumeMountPointA(lpszrootpathname : windows_core::PCSTR, lpszvolumemountpoint : windows_core::PSTR, cchbufferlength : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstVolumeMountPointA(lpszrootpathname.param().abi(), core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len().try_into().unwrap()) };
+    let result__ = unsafe { FindFirstVolumeMountPointA(core::mem::transmute_copy(&lpszrootpathname.param().borrow()), core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len().try_into().unwrap()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -888,7 +888,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstVolumeMountPointW(lpszrootpathname : windows_core::PCWSTR, lpszvolumemountpoint : windows_core::PWSTR, cchbufferlength : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { FindFirstVolumeMountPointW(lpszrootpathname.param().abi(), core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len().try_into().unwrap()) };
+    let result__ = unsafe { FindFirstVolumeMountPointW(core::mem::transmute_copy(&lpszrootpathname.param().borrow()), core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len().try_into().unwrap()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -991,7 +991,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetBinaryTypeA(lpapplicationname : windows_core::PCSTR, lpbinarytype : *mut u32) -> windows_core::BOOL);
-    unsafe { GetBinaryTypeA(lpapplicationname.param().abi(), lpbinarytype as _).ok() }
+    unsafe { GetBinaryTypeA(core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpbinarytype as _).ok() }
 }
 #[inline]
 pub unsafe fn GetBinaryTypeW<P0>(lpapplicationname: P0, lpbinarytype: *mut u32) -> windows_core::Result<()>
@@ -999,7 +999,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetBinaryTypeW(lpapplicationname : windows_core::PCWSTR, lpbinarytype : *mut u32) -> windows_core::BOOL);
-    unsafe { GetBinaryTypeW(lpapplicationname.param().abi(), lpbinarytype as _).ok() }
+    unsafe { GetBinaryTypeW(core::mem::transmute_copy(&lpapplicationname.param().borrow()), lpbinarytype as _).ok() }
 }
 #[inline]
 pub unsafe fn GetCompressedFileSizeA<P0>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>) -> u32
@@ -1007,7 +1007,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeA(lpfilename : windows_core::PCSTR, lpfilesizehigh : *mut u32) -> u32);
-    unsafe { GetCompressedFileSizeA(lpfilename.param().abi(), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetCompressedFileSizeA(core::mem::transmute_copy(&lpfilename.param().borrow()), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetCompressedFileSizeTransactedA<P0>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>, htransaction: super::super::Foundation::HANDLE) -> u32
@@ -1015,7 +1015,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeTransactedA(lpfilename : windows_core::PCSTR, lpfilesizehigh : *mut u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
-    unsafe { GetCompressedFileSizeTransactedA(lpfilename.param().abi(), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _, htransaction) }
+    unsafe { GetCompressedFileSizeTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _, htransaction) }
 }
 #[inline]
 pub unsafe fn GetCompressedFileSizeTransactedW<P0>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>, htransaction: super::super::Foundation::HANDLE) -> u32
@@ -1023,7 +1023,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeTransactedW(lpfilename : windows_core::PCWSTR, lpfilesizehigh : *mut u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
-    unsafe { GetCompressedFileSizeTransactedW(lpfilename.param().abi(), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _, htransaction) }
+    unsafe { GetCompressedFileSizeTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _, htransaction) }
 }
 #[inline]
 pub unsafe fn GetCompressedFileSizeW<P0>(lpfilename: P0, lpfilesizehigh: Option<*mut u32>) -> u32
@@ -1031,7 +1031,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetCompressedFileSizeW(lpfilename : windows_core::PCWSTR, lpfilesizehigh : *mut u32) -> u32);
-    unsafe { GetCompressedFileSizeW(lpfilename.param().abi(), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetCompressedFileSizeW(core::mem::transmute_copy(&lpfilename.param().borrow()), lpfilesizehigh.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetCurrentClockTransactionManager(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_core::Result<()> {
@@ -1044,7 +1044,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceA(lprootpathname : windows_core::PCSTR, lpsectorspercluster : *mut u32, lpbytespersector : *mut u32, lpnumberoffreeclusters : *mut u32, lptotalnumberofclusters : *mut u32) -> windows_core::BOOL);
-    unsafe { GetDiskFreeSpaceA(lprootpathname.param().abi(), lpsectorspercluster.unwrap_or(core::mem::zeroed()) as _, lpbytespersector.unwrap_or(core::mem::zeroed()) as _, lpnumberoffreeclusters.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofclusters.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GetDiskFreeSpaceA(core::mem::transmute_copy(&lprootpathname.param().borrow()), lpsectorspercluster.unwrap_or(core::mem::zeroed()) as _, lpbytespersector.unwrap_or(core::mem::zeroed()) as _, lpnumberoffreeclusters.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofclusters.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDiskFreeSpaceExA<P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: Option<*mut u64>, lptotalnumberofbytes: Option<*mut u64>, lptotalnumberoffreebytes: Option<*mut u64>) -> windows_core::Result<()>
@@ -1052,7 +1052,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExA(lpdirectoryname : windows_core::PCSTR, lpfreebytesavailabletocaller : *mut u64, lptotalnumberofbytes : *mut u64, lptotalnumberoffreebytes : *mut u64) -> windows_core::BOOL);
-    unsafe { GetDiskFreeSpaceExA(lpdirectoryname.param().abi(), lpfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, lptotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GetDiskFreeSpaceExA(core::mem::transmute_copy(&lpdirectoryname.param().borrow()), lpfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, lptotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDiskFreeSpaceExW<P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: Option<*mut u64>, lptotalnumberofbytes: Option<*mut u64>, lptotalnumberoffreebytes: Option<*mut u64>) -> windows_core::Result<()>
@@ -1060,7 +1060,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExW(lpdirectoryname : windows_core::PCWSTR, lpfreebytesavailabletocaller : *mut u64, lptotalnumberofbytes : *mut u64, lptotalnumberoffreebytes : *mut u64) -> windows_core::BOOL);
-    unsafe { GetDiskFreeSpaceExW(lpdirectoryname.param().abi(), lpfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, lptotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GetDiskFreeSpaceExW(core::mem::transmute_copy(&lpdirectoryname.param().borrow()), lpfreebytesavailabletocaller.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofbytes.unwrap_or(core::mem::zeroed()) as _, lptotalnumberoffreebytes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDiskFreeSpaceW<P0>(lprootpathname: P0, lpsectorspercluster: Option<*mut u32>, lpbytespersector: Option<*mut u32>, lpnumberoffreeclusters: Option<*mut u32>, lptotalnumberofclusters: Option<*mut u32>) -> windows_core::Result<()>
@@ -1068,7 +1068,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskFreeSpaceW(lprootpathname : windows_core::PCWSTR, lpsectorspercluster : *mut u32, lpbytespersector : *mut u32, lpnumberoffreeclusters : *mut u32, lptotalnumberofclusters : *mut u32) -> windows_core::BOOL);
-    unsafe { GetDiskFreeSpaceW(lprootpathname.param().abi(), lpsectorspercluster.unwrap_or(core::mem::zeroed()) as _, lpbytespersector.unwrap_or(core::mem::zeroed()) as _, lpnumberoffreeclusters.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofclusters.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { GetDiskFreeSpaceW(core::mem::transmute_copy(&lprootpathname.param().borrow()), lpsectorspercluster.unwrap_or(core::mem::zeroed()) as _, lpbytespersector.unwrap_or(core::mem::zeroed()) as _, lpnumberoffreeclusters.unwrap_or(core::mem::zeroed()) as _, lptotalnumberofclusters.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDiskSpaceInformationA<P0>(rootpath: P0, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_core::Result<()>
@@ -1076,7 +1076,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskSpaceInformationA(rootpath : windows_core::PCSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT);
-    unsafe { GetDiskSpaceInformationA(rootpath.param().abi(), diskspaceinfo as _).ok() }
+    unsafe { GetDiskSpaceInformationA(core::mem::transmute_copy(&rootpath.param().borrow()), diskspaceinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDiskSpaceInformationW<P0>(rootpath: P0, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_core::Result<()>
@@ -1084,7 +1084,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDiskSpaceInformationW(rootpath : windows_core::PCWSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_core::HRESULT);
-    unsafe { GetDiskSpaceInformationW(rootpath.param().abi(), diskspaceinfo as _).ok() }
+    unsafe { GetDiskSpaceInformationW(core::mem::transmute_copy(&rootpath.param().borrow()), diskspaceinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDriveTypeA<P0>(lprootpathname: P0) -> u32
@@ -1092,7 +1092,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDriveTypeA(lprootpathname : windows_core::PCSTR) -> u32);
-    unsafe { GetDriveTypeA(lprootpathname.param().abi()) }
+    unsafe { GetDriveTypeA(core::mem::transmute_copy(&lprootpathname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GetDriveTypeW<P0>(lprootpathname: P0) -> u32
@@ -1100,7 +1100,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetDriveTypeW(lprootpathname : windows_core::PCWSTR) -> u32);
-    unsafe { GetDriveTypeW(lprootpathname.param().abi()) }
+    unsafe { GetDriveTypeW(core::mem::transmute_copy(&lprootpathname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GetEncryptedFileMetadata<P0>(lpfilename: P0, pcbmetadata: *mut u32, ppbmetadata: *mut *mut u8) -> u32
@@ -1108,7 +1108,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn GetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pcbmetadata : *mut u32, ppbmetadata : *mut *mut u8) -> u32);
-    unsafe { GetEncryptedFileMetadata(lpfilename.param().abi(), pcbmetadata as _, ppbmetadata as _) }
+    unsafe { GetEncryptedFileMetadata(core::mem::transmute_copy(&lpfilename.param().borrow()), pcbmetadata as _, ppbmetadata as _) }
 }
 #[inline]
 pub unsafe fn GetEnlistmentId(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentid: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -1126,7 +1126,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetExpandedNameA(lpszsource : windows_core::PCSTR, lpszbuffer : windows_core::PSTR) -> i32);
-    unsafe { GetExpandedNameA(lpszsource.param().abi(), core::mem::transmute(lpszbuffer.as_ptr())) }
+    unsafe { GetExpandedNameA(core::mem::transmute_copy(&lpszsource.param().borrow()), core::mem::transmute(lpszbuffer.as_ptr())) }
 }
 #[inline]
 pub unsafe fn GetExpandedNameW<P0>(lpszsource: P0, lpszbuffer: &mut [u16; 260]) -> i32
@@ -1134,7 +1134,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetExpandedNameW(lpszsource : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR) -> i32);
-    unsafe { GetExpandedNameW(lpszsource.param().abi(), core::mem::transmute(lpszbuffer.as_ptr())) }
+    unsafe { GetExpandedNameW(core::mem::transmute_copy(&lpszsource.param().borrow()), core::mem::transmute(lpszbuffer.as_ptr())) }
 }
 #[inline]
 pub unsafe fn GetFileAttributesA<P0>(lpfilename: P0) -> u32
@@ -1142,7 +1142,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFileAttributesA(lpfilename : windows_core::PCSTR) -> u32);
-    unsafe { GetFileAttributesA(lpfilename.param().abi()) }
+    unsafe { GetFileAttributesA(core::mem::transmute_copy(&lpfilename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GetFileAttributesExA<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1150,7 +1150,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFileAttributesExA(lpfilename : windows_core::PCSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { GetFileAttributesExA(lpfilename.param().abi(), finfolevelid, lpfileinformation as _).ok() }
+    unsafe { GetFileAttributesExA(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfileinformation as _).ok() }
 }
 #[inline]
 pub unsafe fn GetFileAttributesExFromAppW<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> windows_core::BOOL
@@ -1158,7 +1158,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn GetFileAttributesExFromAppW(lpfilename : windows_core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { GetFileAttributesExFromAppW(lpfilename.param().abi(), finfolevelid, lpfileinformation as _) }
+    unsafe { GetFileAttributesExFromAppW(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfileinformation as _) }
 }
 #[inline]
 pub unsafe fn GetFileAttributesExW<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1166,7 +1166,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFileAttributesExW(lpfilename : windows_core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { GetFileAttributesExW(lpfilename.param().abi(), finfolevelid, lpfileinformation as _).ok() }
+    unsafe { GetFileAttributesExW(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfileinformation as _).ok() }
 }
 #[inline]
 pub unsafe fn GetFileAttributesTransactedA<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -1174,7 +1174,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFileAttributesTransactedA(lpfilename : windows_core::PCSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { GetFileAttributesTransactedA(lpfilename.param().abi(), finfolevelid, lpfileinformation as _, htransaction).ok() }
+    unsafe { GetFileAttributesTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfileinformation as _, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn GetFileAttributesTransactedW<P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -1182,7 +1182,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFileAttributesTransactedW(lpfilename : windows_core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { GetFileAttributesTransactedW(lpfilename.param().abi(), finfolevelid, lpfileinformation as _, htransaction).ok() }
+    unsafe { GetFileAttributesTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), finfolevelid, lpfileinformation as _, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn GetFileAttributesW<P0>(lpfilename: P0) -> u32
@@ -1190,7 +1190,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFileAttributesW(lpfilename : windows_core::PCWSTR) -> u32);
-    unsafe { GetFileAttributesW(lpfilename.param().abi()) }
+    unsafe { GetFileAttributesW(core::mem::transmute_copy(&lpfilename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn GetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut windows_core::BOOL, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_core::Result<()> {
@@ -1213,7 +1213,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFileInformationByName(filename : windows_core::PCWSTR, fileinformationclass : FILE_INFO_BY_NAME_CLASS, fileinfobuffer : *mut core::ffi::c_void, fileinfobuffersize : u32) -> windows_core::BOOL);
-    unsafe { GetFileInformationByName(filename.param().abi(), fileinformationclass, fileinfobuffer as _, fileinfobuffersize) }
+    unsafe { GetFileInformationByName(core::mem::transmute_copy(&filename.param().borrow()), fileinformationclass, fileinfobuffer as _, fileinfobuffersize) }
 }
 #[inline]
 pub unsafe fn GetFileSize(hfile: super::super::Foundation::HANDLE, lpfilesizehigh: Option<*mut u32>) -> u32 {
@@ -1241,7 +1241,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoA(lptstrfilename : windows_core::PCSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { GetFileVersionInfoA(lptstrfilename.param().abi(), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
+    unsafe { GetFileVersionInfoA(core::mem::transmute_copy(&lptstrfilename.param().borrow()), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoExA<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, dwhandle: Option<u32>, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1249,7 +1249,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoExA(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { GetFileVersionInfoExA(dwflags, lpwstrfilename.param().abi(), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
+    unsafe { GetFileVersionInfoExA(dwflags, core::mem::transmute_copy(&lpwstrfilename.param().borrow()), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoExW<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, dwhandle: Option<u32>, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1257,7 +1257,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoExW(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCWSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { GetFileVersionInfoExW(dwflags, lpwstrfilename.param().abi(), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
+    unsafe { GetFileVersionInfoExW(dwflags, core::mem::transmute_copy(&lpwstrfilename.param().borrow()), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeA<P0>(lptstrfilename: P0, lpdwhandle: Option<*mut u32>) -> u32
@@ -1265,7 +1265,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoSizeA(lptstrfilename : windows_core::PCSTR, lpdwhandle : *mut u32) -> u32);
-    unsafe { GetFileVersionInfoSizeA(lptstrfilename.param().abi(), lpdwhandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetFileVersionInfoSizeA(core::mem::transmute_copy(&lptstrfilename.param().borrow()), lpdwhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeExA<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, lpdwhandle: *mut u32) -> u32
@@ -1273,7 +1273,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoSizeExA(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCSTR, lpdwhandle : *mut u32) -> u32);
-    unsafe { GetFileVersionInfoSizeExA(dwflags, lpwstrfilename.param().abi(), lpdwhandle as _) }
+    unsafe { GetFileVersionInfoSizeExA(dwflags, core::mem::transmute_copy(&lpwstrfilename.param().borrow()), lpdwhandle as _) }
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeExW<P1>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P1, lpdwhandle: *mut u32) -> u32
@@ -1281,7 +1281,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoSizeExW(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_core::PCWSTR, lpdwhandle : *mut u32) -> u32);
-    unsafe { GetFileVersionInfoSizeExW(dwflags, lpwstrfilename.param().abi(), lpdwhandle as _) }
+    unsafe { GetFileVersionInfoSizeExW(dwflags, core::mem::transmute_copy(&lpwstrfilename.param().borrow()), lpdwhandle as _) }
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeW<P0>(lptstrfilename: P0, lpdwhandle: Option<*mut u32>) -> u32
@@ -1289,7 +1289,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoSizeW(lptstrfilename : windows_core::PCWSTR, lpdwhandle : *mut u32) -> u32);
-    unsafe { GetFileVersionInfoSizeW(lptstrfilename.param().abi(), lpdwhandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetFileVersionInfoSizeW(core::mem::transmute_copy(&lptstrfilename.param().borrow()), lpdwhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetFileVersionInfoW<P0>(lptstrfilename: P0, dwhandle: Option<u32>, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1297,7 +1297,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn GetFileVersionInfoW(lptstrfilename : windows_core::PCWSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { GetFileVersionInfoW(lptstrfilename.param().abi(), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
+    unsafe { GetFileVersionInfoW(core::mem::transmute_copy(&lptstrfilename.param().borrow()), dwhandle.unwrap_or(core::mem::zeroed()) as _, dwlen, lpdata as _).ok() }
 }
 #[inline]
 pub unsafe fn GetFinalPathNameByHandleA(hfile: super::super::Foundation::HANDLE, lpszfilepath: &mut [u8], dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32 {
@@ -1315,7 +1315,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFullPathNameA(lpfilename : windows_core::PCSTR, nbufferlength : u32, lpbuffer : windows_core::PSTR, lpfilepart : *mut windows_core::PSTR) -> u32);
-    unsafe { GetFullPathNameA(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetFullPathNameA(core::mem::transmute_copy(&lpfilename.param().borrow()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetFullPathNameTransactedA<P0>(lpfilename: P0, lpbuffer: Option<&mut [u8]>, lpfilepart: Option<*mut windows_core::PSTR>, htransaction: super::super::Foundation::HANDLE) -> u32
@@ -1323,7 +1323,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFullPathNameTransactedA(lpfilename : windows_core::PCSTR, nbufferlength : u32, lpbuffer : windows_core::PSTR, lpfilepart : *mut windows_core::PSTR, htransaction : super::super::Foundation:: HANDLE) -> u32);
-    unsafe { GetFullPathNameTransactedA(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _, htransaction) }
+    unsafe { GetFullPathNameTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _, htransaction) }
 }
 #[inline]
 pub unsafe fn GetFullPathNameTransactedW<P0>(lpfilename: P0, lpbuffer: Option<&mut [u16]>, lpfilepart: Option<*mut windows_core::PWSTR>, htransaction: super::super::Foundation::HANDLE) -> u32
@@ -1331,7 +1331,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFullPathNameTransactedW(lpfilename : windows_core::PCWSTR, nbufferlength : u32, lpbuffer : windows_core::PWSTR, lpfilepart : *mut windows_core::PWSTR, htransaction : super::super::Foundation:: HANDLE) -> u32);
-    unsafe { GetFullPathNameTransactedW(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _, htransaction) }
+    unsafe { GetFullPathNameTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _, htransaction) }
 }
 #[inline]
 pub unsafe fn GetFullPathNameW<P0>(lpfilename: P0, lpbuffer: Option<&mut [u16]>, lpfilepart: Option<*mut windows_core::PWSTR>) -> u32
@@ -1339,7 +1339,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetFullPathNameW(lpfilename : windows_core::PCWSTR, nbufferlength : u32, lpbuffer : windows_core::PWSTR, lpfilepart : *mut windows_core::PWSTR) -> u32);
-    unsafe { GetFullPathNameW(lpfilename.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetFullPathNameW(core::mem::transmute_copy(&lpfilename.param().borrow()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetIoRingInfo(ioring: HIORING, info: *mut IORING_INFO) -> windows_core::Result<()> {
@@ -1352,7 +1352,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clfsw32.dll" "system" fn GetLogContainerName(hlog : super::super::Foundation:: HANDLE, cidlogicalcontainer : u32, pwstrcontainername : windows_core::PCWSTR, clencontainername : u32, pcactuallencontainername : *mut u32) -> windows_core::BOOL);
-    unsafe { GetLogContainerName(hlog, cidlogicalcontainer, pwstrcontainername.param().abi(), clencontainername, pcactuallencontainername as _).ok() }
+    unsafe { GetLogContainerName(hlog, cidlogicalcontainer, core::mem::transmute_copy(&pwstrcontainername.param().borrow()), clencontainername, pcactuallencontainername as _).ok() }
 }
 #[inline]
 pub unsafe fn GetLogFileInformation(hlog: super::super::Foundation::HANDLE, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> windows_core::Result<()> {
@@ -1390,7 +1390,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetLongPathNameA(lpszshortpath : windows_core::PCSTR, lpszlongpath : windows_core::PSTR, cchbuffer : u32) -> u32);
-    unsafe { GetLongPathNameA(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetLongPathNameA(core::mem::transmute_copy(&lpszshortpath.param().borrow()), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetLongPathNameTransactedA<P0>(lpszshortpath: P0, lpszlongpath: Option<&mut [u8]>, htransaction: super::super::Foundation::HANDLE) -> u32
@@ -1398,7 +1398,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetLongPathNameTransactedA(lpszshortpath : windows_core::PCSTR, lpszlongpath : windows_core::PSTR, cchbuffer : u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
-    unsafe { GetLongPathNameTransactedA(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), htransaction) }
+    unsafe { GetLongPathNameTransactedA(core::mem::transmute_copy(&lpszshortpath.param().borrow()), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), htransaction) }
 }
 #[inline]
 pub unsafe fn GetLongPathNameTransactedW<P0>(lpszshortpath: P0, lpszlongpath: Option<&mut [u16]>, htransaction: super::super::Foundation::HANDLE) -> u32
@@ -1406,7 +1406,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetLongPathNameTransactedW(lpszshortpath : windows_core::PCWSTR, lpszlongpath : windows_core::PWSTR, cchbuffer : u32, htransaction : super::super::Foundation:: HANDLE) -> u32);
-    unsafe { GetLongPathNameTransactedW(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), htransaction) }
+    unsafe { GetLongPathNameTransactedW(core::mem::transmute_copy(&lpszshortpath.param().borrow()), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), htransaction) }
 }
 #[inline]
 pub unsafe fn GetLongPathNameW<P0>(lpszshortpath: P0, lpszlongpath: Option<&mut [u16]>) -> u32
@@ -1414,7 +1414,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetLongPathNameW(lpszshortpath : windows_core::PCWSTR, lpszlongpath : windows_core::PWSTR, cchbuffer : u32) -> u32);
-    unsafe { GetLongPathNameW(lpszshortpath.param().abi(), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetLongPathNameW(core::mem::transmute_copy(&lpszshortpath.param().borrow()), core::mem::transmute(lpszlongpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> windows_core::Result<()> {
@@ -1438,7 +1438,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetShortPathNameA(lpszlongpath : windows_core::PCSTR, lpszshortpath : windows_core::PSTR, cchbuffer : u32) -> u32);
-    unsafe { GetShortPathNameA(lpszlongpath.param().abi(), core::mem::transmute(lpszshortpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetShortPathNameA(core::mem::transmute_copy(&lpszlongpath.param().borrow()), core::mem::transmute(lpszshortpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetShortPathNameW<P0>(lpszlongpath: P0, lpszshortpath: Option<&mut [u16]>) -> u32
@@ -1446,7 +1446,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetShortPathNameW(lpszlongpath : windows_core::PCWSTR, lpszshortpath : windows_core::PWSTR, cchbuffer : u32) -> u32);
-    unsafe { GetShortPathNameW(lpszlongpath.param().abi(), core::mem::transmute(lpszshortpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetShortPathNameW(core::mem::transmute_copy(&lpszlongpath.param().borrow()), core::mem::transmute(lpszshortpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut core::ffi::c_void) -> u32 {
@@ -1470,7 +1470,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetTempFileNameA(lppathname : windows_core::PCSTR, lpprefixstring : windows_core::PCSTR, uunique : u32, lptempfilename : windows_core::PSTR) -> u32);
-    unsafe { GetTempFileNameA(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, core::mem::transmute(lptempfilename.as_ptr())) }
+    unsafe { GetTempFileNameA(core::mem::transmute_copy(&lppathname.param().borrow()), core::mem::transmute_copy(&lpprefixstring.param().borrow()), uunique, core::mem::transmute(lptempfilename.as_ptr())) }
 }
 #[inline]
 pub unsafe fn GetTempFileNameW<P0, P1>(lppathname: P0, lpprefixstring: P1, uunique: u32, lptempfilename: &mut [u16; 260]) -> u32
@@ -1479,7 +1479,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetTempFileNameW(lppathname : windows_core::PCWSTR, lpprefixstring : windows_core::PCWSTR, uunique : u32, lptempfilename : windows_core::PWSTR) -> u32);
-    unsafe { GetTempFileNameW(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, core::mem::transmute(lptempfilename.as_ptr())) }
+    unsafe { GetTempFileNameW(core::mem::transmute_copy(&lppathname.param().borrow()), core::mem::transmute_copy(&lpprefixstring.param().borrow()), uunique, core::mem::transmute(lptempfilename.as_ptr())) }
 }
 #[inline]
 pub unsafe fn GetTempPath2A(buffer: Option<&mut [u8]>) -> u32 {
@@ -1524,7 +1524,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationA(lprootpathname : windows_core::PCSTR, lpvolumenamebuffer : windows_core::PSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
     unsafe {
         GetVolumeInformationA(
-            lprootpathname.param().abi(),
+            core::mem::transmute_copy(&lprootpathname.param().borrow()),
             core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             lpvolumenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _,
@@ -1561,7 +1561,7 @@ where
     windows_core::link!("kernel32.dll" "system" fn GetVolumeInformationW(lprootpathname : windows_core::PCWSTR, lpvolumenamebuffer : windows_core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_core::PWSTR, nfilesystemnamesize : u32) -> windows_core::BOOL);
     unsafe {
         GetVolumeInformationW(
-            lprootpathname.param().abi(),
+            core::mem::transmute_copy(&lprootpathname.param().borrow()),
             core::mem::transmute(lpvolumenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
             lpvolumenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             lpvolumeserialnumber.unwrap_or(core::mem::zeroed()) as _,
@@ -1579,7 +1579,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint : windows_core::PCSTR, lpszvolumename : windows_core::PSTR, cchbufferlength : u32) -> windows_core::BOOL);
-    unsafe { GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint.param().abi(), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok() }
+    unsafe { GetVolumeNameForVolumeMountPointA(core::mem::transmute_copy(&lpszvolumemountpoint.param().borrow()), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn GetVolumeNameForVolumeMountPointW<P0>(lpszvolumemountpoint: P0, lpszvolumename: &mut [u16]) -> windows_core::Result<()>
@@ -1587,7 +1587,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint : windows_core::PCWSTR, lpszvolumename : windows_core::PWSTR, cchbufferlength : u32) -> windows_core::BOOL);
-    unsafe { GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.param().abi(), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok() }
+    unsafe { GetVolumeNameForVolumeMountPointW(core::mem::transmute_copy(&lpszvolumemountpoint.param().borrow()), core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn GetVolumePathNameA<P0>(lpszfilename: P0, lpszvolumepathname: &mut [u8]) -> windows_core::Result<()>
@@ -1595,7 +1595,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNameA(lpszfilename : windows_core::PCSTR, lpszvolumepathname : windows_core::PSTR, cchbufferlength : u32) -> windows_core::BOOL);
-    unsafe { GetVolumePathNameA(lpszfilename.param().abi(), core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len().try_into().unwrap()).ok() }
+    unsafe { GetVolumePathNameA(core::mem::transmute_copy(&lpszfilename.param().borrow()), core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn GetVolumePathNameW<P0>(lpszfilename: P0, lpszvolumepathname: &mut [u16]) -> windows_core::Result<()>
@@ -1603,7 +1603,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNameW(lpszfilename : windows_core::PCWSTR, lpszvolumepathname : windows_core::PWSTR, cchbufferlength : u32) -> windows_core::BOOL);
-    unsafe { GetVolumePathNameW(lpszfilename.param().abi(), core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len().try_into().unwrap()).ok() }
+    unsafe { GetVolumePathNameW(core::mem::transmute_copy(&lpszfilename.param().borrow()), core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameA<P0>(lpszvolumename: P0, lpszvolumepathnames: Option<&mut [u8]>, lpcchreturnlength: *mut u32) -> windows_core::Result<()>
@@ -1611,7 +1611,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameA(lpszvolumename : windows_core::PCSTR, lpszvolumepathnames : windows_core::PSTR, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> windows_core::BOOL);
-    unsafe { GetVolumePathNamesForVolumeNameA(lpszvolumename.param().abi(), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchreturnlength as _).ok() }
+    unsafe { GetVolumePathNamesForVolumeNameA(core::mem::transmute_copy(&lpszvolumename.param().borrow()), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchreturnlength as _).ok() }
 }
 #[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameW<P0>(lpszvolumename: P0, lpszvolumepathnames: Option<&mut [u16]>, lpcchreturnlength: *mut u32) -> windows_core::Result<()>
@@ -1619,7 +1619,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameW(lpszvolumename : windows_core::PCWSTR, lpszvolumepathnames : windows_core::PWSTR, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> windows_core::BOOL);
-    unsafe { GetVolumePathNamesForVolumeNameW(lpszvolumename.param().abi(), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchreturnlength as _).ok() }
+    unsafe { GetVolumePathNamesForVolumeNameW(core::mem::transmute_copy(&lpszvolumename.param().borrow()), core::mem::transmute(lpszvolumepathnames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchreturnlength as _).ok() }
 }
 #[inline]
 pub unsafe fn HandleLogFull(hlog: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -1662,7 +1662,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn LZOpenFileA(lpfilename : windows_core::PCSTR, lpreopenbuf : *mut OFSTRUCT, wstyle : LZOPENFILE_STYLE) -> i32);
-    unsafe { LZOpenFileA(lpfilename.param().abi(), lpreopenbuf as _, wstyle) }
+    unsafe { LZOpenFileA(core::mem::transmute_copy(&lpfilename.param().borrow()), lpreopenbuf as _, wstyle) }
 }
 #[inline]
 pub unsafe fn LZOpenFileW<P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
@@ -1670,7 +1670,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn LZOpenFileW(lpfilename : windows_core::PCWSTR, lpreopenbuf : *mut OFSTRUCT, wstyle : LZOPENFILE_STYLE) -> i32);
-    unsafe { LZOpenFileW(lpfilename.param().abi(), lpreopenbuf as _, wstyle) }
+    unsafe { LZOpenFileW(core::mem::transmute_copy(&lpfilename.param().borrow()), lpreopenbuf as _, wstyle) }
 }
 #[inline]
 pub unsafe fn LZRead(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
@@ -1765,7 +1765,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { MoveFileA(lpexistingfilename.param().abi(), lpnewfilename.param().abi()).ok() }
+    unsafe { MoveFileA(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
@@ -1774,7 +1774,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileExA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, dwflags : MOVE_FILE_FLAGS) -> windows_core::BOOL);
-    unsafe { MoveFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), dwflags).ok() }
+    unsafe { MoveFileExA(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), dwflags).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
@@ -1783,7 +1783,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileExW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, dwflags : MOVE_FILE_FLAGS) -> windows_core::BOOL);
-    unsafe { MoveFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), dwflags).ok() }
+    unsafe { MoveFileExW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), dwflags).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileFromAppW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> windows_core::BOOL
@@ -1792,7 +1792,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn MoveFileFromAppW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { MoveFileFromAppW(lpexistingfilename.param().abi(), lpnewfilename.param().abi()) }
+    unsafe { MoveFileFromAppW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MoveFileTransactedA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -1801,7 +1801,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileTransactedA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { MoveFileTransactedA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
+    unsafe { MoveFileTransactedA(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileTransactedW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -1810,7 +1810,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileTransactedW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { MoveFileTransactedW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
+    unsafe { MoveFileTransactedW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> windows_core::Result<()>
@@ -1819,7 +1819,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { MoveFileW(lpexistingfilename.param().abi(), lpnewfilename.param().abi()).ok() }
+    unsafe { MoveFileW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileWithProgressA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
@@ -1828,7 +1828,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileWithProgressA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> windows_core::BOOL);
-    unsafe { MoveFileWithProgressA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
+    unsafe { MoveFileWithProgressA(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn MoveFileWithProgressW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, dwflags: MOVE_FILE_FLAGS) -> windows_core::Result<()>
@@ -1837,7 +1837,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn MoveFileWithProgressW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> windows_core::BOOL);
-    unsafe { MoveFileWithProgressW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
+    unsafe { MoveFileWithProgressW(core::mem::transmute_copy(&lpexistingfilename.param().borrow()), core::mem::transmute_copy(&lpnewfilename.param().borrow()), lpprogressroutine, lpdata.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn NetConnectionEnum<P0, P1>(servername: P0, qualifier: P1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -1846,7 +1846,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_core::PCWSTR, qualifier : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    unsafe { NetConnectionEnum(servername.param().abi(), qualifier.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetConnectionEnum(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&qualifier.param().borrow()), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetFileClose<P0>(servername: P0, fileid: u32) -> u32
@@ -1854,7 +1854,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_core::PCWSTR, fileid : u32) -> u32);
-    unsafe { NetFileClose(servername.param().abi(), fileid) }
+    unsafe { NetFileClose(core::mem::transmute_copy(&servername.param().borrow()), fileid) }
 }
 #[inline]
 pub unsafe fn NetFileEnum<P0, P1, P2>(servername: P0, basepath: P1, username: P2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut usize>) -> u32
@@ -1864,7 +1864,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_core::PCWSTR, basepath : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
-    unsafe { NetFileEnum(servername.param().abi(), basepath.param().abi(), username.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetFileEnum(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&basepath.param().borrow()), core::mem::transmute_copy(&username.param().borrow()), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetFileGetInfo<P0>(servername: P0, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32
@@ -1872,7 +1872,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_core::PCWSTR, fileid : u32, level : u32, bufptr : *mut *mut u8) -> u32);
-    unsafe { NetFileGetInfo(servername.param().abi(), fileid, level, bufptr as _) }
+    unsafe { NetFileGetInfo(core::mem::transmute_copy(&servername.param().borrow()), fileid, level, bufptr as _) }
 }
 #[inline]
 pub unsafe fn NetServerAliasAdd<P0>(servername: P0, level: u32, buf: *const u8) -> u32
@@ -1880,7 +1880,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_core::PCWSTR, level : u32, buf : *const u8) -> u32);
-    unsafe { NetServerAliasAdd(servername.param().abi(), level, buf) }
+    unsafe { NetServerAliasAdd(core::mem::transmute_copy(&servername.param().borrow()), level, buf) }
 }
 #[inline]
 pub unsafe fn NetServerAliasDel<P0>(servername: P0, level: u32, buf: *const u8) -> u32
@@ -1888,7 +1888,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_core::PCWSTR, level : u32, buf : *const u8) -> u32);
-    unsafe { NetServerAliasDel(servername.param().abi(), level, buf) }
+    unsafe { NetServerAliasDel(core::mem::transmute_copy(&servername.param().borrow()), level, buf) }
 }
 #[inline]
 pub unsafe fn NetServerAliasEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: Option<*mut u32>) -> u32
@@ -1896,7 +1896,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
-    unsafe { NetServerAliasEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetServerAliasEnum(core::mem::transmute_copy(&servername.param().borrow()), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resumehandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetSessionDel<P0, P1, P2>(servername: P0, uncclientname: P1, username: P2) -> u32
@@ -1906,7 +1906,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetSessionDel(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR) -> u32);
-    unsafe { NetSessionDel(servername.param().abi(), uncclientname.param().abi(), username.param().abi()) }
+    unsafe { NetSessionDel(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&uncclientname.param().borrow()), core::mem::transmute_copy(&username.param().borrow())) }
 }
 #[inline]
 pub unsafe fn NetSessionEnum<P0, P1, P2>(servername: P0, uncclientname: P1, username: P2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -1916,7 +1916,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    unsafe { NetSessionEnum(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetSessionEnum(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&uncclientname.param().borrow()), core::mem::transmute_copy(&username.param().borrow()), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetSessionGetInfo<P0, P1, P2>(servername: P0, uncclientname: P1, username: P2, level: u32, bufptr: *mut *mut u8) -> u32
@@ -1926,7 +1926,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_core::PCWSTR, uncclientname : windows_core::PCWSTR, username : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
-    unsafe { NetSessionGetInfo(servername.param().abi(), uncclientname.param().abi(), username.param().abi(), level, bufptr as _) }
+    unsafe { NetSessionGetInfo(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&uncclientname.param().borrow()), core::mem::transmute_copy(&username.param().borrow()), level, bufptr as _) }
 }
 #[inline]
 pub unsafe fn NetShareAdd<P0>(servername: P0, level: u32, buf: *const u8, parm_err: Option<*mut u32>) -> u32
@@ -1934,7 +1934,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-    unsafe { NetShareAdd(servername.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetShareAdd(core::mem::transmute_copy(&servername.param().borrow()), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetShareCheck<P0, P1>(servername: P0, device: P1, r#type: *mut u32) -> u32
@@ -1943,7 +1943,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_core::PCWSTR, device : windows_core::PCWSTR, r#type : *mut u32) -> u32);
-    unsafe { NetShareCheck(servername.param().abi(), device.param().abi(), r#type as _) }
+    unsafe { NetShareCheck(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&device.param().borrow()), r#type as _) }
 }
 #[inline]
 pub unsafe fn NetShareDel<P0, P1>(servername: P0, netname: P1, reserved: Option<u32>) -> u32
@@ -1952,7 +1952,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, reserved : u32) -> u32);
-    unsafe { NetShareDel(servername.param().abi(), netname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetShareDel(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&netname.param().borrow()), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetShareDelEx<P0>(servername: P0, level: u32, buf: *const u8) -> u32
@@ -1960,7 +1960,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_core::PCWSTR, level : u32, buf : *const u8) -> u32);
-    unsafe { NetShareDelEx(servername.param().abi(), level, buf) }
+    unsafe { NetShareDelEx(core::mem::transmute_copy(&servername.param().borrow()), level, buf) }
 }
 #[inline]
 pub unsafe fn NetShareDelSticky<P0, P1>(servername: P0, netname: P1, reserved: Option<u32>) -> u32
@@ -1969,7 +1969,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareDelSticky(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, reserved : u32) -> u32);
-    unsafe { NetShareDelSticky(servername.param().abi(), netname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetShareDelSticky(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&netname.param().borrow()), reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetShareEnum<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -1977,7 +1977,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    unsafe { NetShareEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetShareEnum(core::mem::transmute_copy(&servername.param().borrow()), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetShareEnumSticky<P0>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: Option<*mut u32>) -> u32
@@ -1985,7 +1985,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
-    unsafe { NetShareEnumSticky(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetShareEnumSticky(core::mem::transmute_copy(&servername.param().borrow()), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetShareGetInfo<P0, P1>(servername: P0, netname: P1, level: u32, bufptr: *mut *mut u8) -> u32
@@ -1994,7 +1994,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
-    unsafe { NetShareGetInfo(servername.param().abi(), netname.param().abi(), level, bufptr as _) }
+    unsafe { NetShareGetInfo(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&netname.param().borrow()), level, bufptr as _) }
 }
 #[inline]
 pub unsafe fn NetShareSetInfo<P0, P1>(servername: P0, netname: P1, level: u32, buf: *const u8, parm_err: Option<*mut u32>) -> u32
@@ -2003,7 +2003,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_core::PCWSTR, netname : windows_core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
-    unsafe { NetShareSetInfo(servername.param().abi(), netname.param().abi(), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetShareSetInfo(core::mem::transmute_copy(&servername.param().borrow()), core::mem::transmute_copy(&netname.param().borrow()), level, buf, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32 {
@@ -2016,7 +2016,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenEncryptedFileRawA(lpfilename : windows_core::PCSTR, ulflags : u32, pvcontext : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { OpenEncryptedFileRawA(lpfilename.param().abi(), ulflags, pvcontext as _) }
+    unsafe { OpenEncryptedFileRawA(core::mem::transmute_copy(&lpfilename.param().borrow()), ulflags, pvcontext as _) }
 }
 #[inline]
 pub unsafe fn OpenEncryptedFileRawW<P0>(lpfilename: P0, ulflags: u32, pvcontext: *mut *mut core::ffi::c_void) -> u32
@@ -2024,7 +2024,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenEncryptedFileRawW(lpfilename : windows_core::PCWSTR, ulflags : u32, pvcontext : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { OpenEncryptedFileRawW(lpfilename.param().abi(), ulflags, pvcontext as _) }
+    unsafe { OpenEncryptedFileRawW(core::mem::transmute_copy(&lpfilename.param().borrow()), ulflags, pvcontext as _) }
 }
 #[inline]
 pub unsafe fn OpenEnlistment(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut windows_core::GUID) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -2038,7 +2038,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn OpenFile(lpfilename : windows_core::PCSTR, lpreopenbuff : *mut OFSTRUCT, ustyle : u32) -> i32);
-    unsafe { OpenFile(lpfilename.param().abi(), lpreopenbuff as _, ustyle) }
+    unsafe { OpenFile(core::mem::transmute_copy(&lpfilename.param().borrow()), lpreopenbuff as _, ustyle) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2065,7 +2065,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ktmw32.dll" "system" fn OpenTransactionManager(logfilename : windows_core::PCWSTR, desiredaccess : u32, openoptions : u32) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenTransactionManager(logfilename.param().abi(), desiredaccess, openoptions) };
+    let result__ = unsafe { OpenTransactionManager(core::mem::transmute_copy(&logfilename.param().borrow()), desiredaccess, openoptions) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -2115,7 +2115,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn QueryDosDeviceA(lpdevicename : windows_core::PCSTR, lptargetpath : windows_core::PSTR, ucchmax : u32) -> u32);
-    unsafe { QueryDosDeviceA(lpdevicename.param().abi(), core::mem::transmute(lptargetpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { QueryDosDeviceA(core::mem::transmute_copy(&lpdevicename.param().borrow()), core::mem::transmute(lptargetpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn QueryDosDeviceW<P0>(lpdevicename: P0, lptargetpath: Option<&mut [u16]>) -> u32
@@ -2123,7 +2123,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn QueryDosDeviceW(lpdevicename : windows_core::PCWSTR, lptargetpath : windows_core::PWSTR, ucchmax : u32) -> u32);
-    unsafe { QueryDosDeviceW(lpdevicename.param().abi(), core::mem::transmute(lptargetpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { QueryDosDeviceW(core::mem::transmute_copy(&lpdevicename.param().borrow()), core::mem::transmute(lptargetpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn QueryIoRingCapabilities() -> windows_core::Result<IORING_CAPABILITIES> {
@@ -2145,7 +2145,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn QueryRecoveryAgentsOnEncryptedFile(lpfilename : windows_core::PCWSTR, precoveryagents : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    unsafe { QueryRecoveryAgentsOnEncryptedFile(lpfilename.param().abi(), precoveryagents as _) }
+    unsafe { QueryRecoveryAgentsOnEncryptedFile(core::mem::transmute_copy(&lpfilename.param().borrow()), precoveryagents as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2154,7 +2154,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn QueryUsersOnEncryptedFile(lpfilename : windows_core::PCWSTR, pusers : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    unsafe { QueryUsersOnEncryptedFile(lpfilename.param().abi(), pusers as _) }
+    unsafe { QueryUsersOnEncryptedFile(core::mem::transmute_copy(&lpfilename.param().borrow()), pusers as _) }
 }
 #[inline]
 pub unsafe fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -2268,7 +2268,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bindfltapi.dll" "system" fn RemoveBindLink(virtualpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { RemoveBindLink(virtualpath.param().abi()).ok() }
+    unsafe { RemoveBindLink(core::mem::transmute_copy(&virtualpath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RemoveDirectory2A<P0>(lppathname: P0, directoryflags: DIRECTORY_FLAGS) -> windows_core::BOOL
@@ -2276,7 +2276,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn RemoveDirectory2A(lppathname : windows_core::PCSTR, directoryflags : DIRECTORY_FLAGS) -> windows_core::BOOL);
-    unsafe { RemoveDirectory2A(lppathname.param().abi(), directoryflags) }
+    unsafe { RemoveDirectory2A(core::mem::transmute_copy(&lppathname.param().borrow()), directoryflags) }
 }
 #[inline]
 pub unsafe fn RemoveDirectory2W<P0>(lppathname: P0, directoryflags: DIRECTORY_FLAGS) -> windows_core::BOOL
@@ -2284,7 +2284,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn RemoveDirectory2W(lppathname : windows_core::PCWSTR, directoryflags : DIRECTORY_FLAGS) -> windows_core::BOOL);
-    unsafe { RemoveDirectory2W(lppathname.param().abi(), directoryflags) }
+    unsafe { RemoveDirectory2W(core::mem::transmute_copy(&lppathname.param().borrow()), directoryflags) }
 }
 #[inline]
 pub unsafe fn RemoveDirectoryA<P0>(lppathname: P0) -> windows_core::Result<()>
@@ -2292,7 +2292,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn RemoveDirectoryA(lppathname : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { RemoveDirectoryA(lppathname.param().abi()).ok() }
+    unsafe { RemoveDirectoryA(core::mem::transmute_copy(&lppathname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RemoveDirectoryFromAppW<P0>(lppathname: P0) -> windows_core::BOOL
@@ -2300,7 +2300,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn RemoveDirectoryFromAppW(lppathname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { RemoveDirectoryFromAppW(lppathname.param().abi()) }
+    unsafe { RemoveDirectoryFromAppW(core::mem::transmute_copy(&lppathname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RemoveDirectoryTransactedA<P0>(lppathname: P0, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -2308,7 +2308,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn RemoveDirectoryTransactedA(lppathname : windows_core::PCSTR, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { RemoveDirectoryTransactedA(lppathname.param().abi(), htransaction).ok() }
+    unsafe { RemoveDirectoryTransactedA(core::mem::transmute_copy(&lppathname.param().borrow()), htransaction).ok() }
 }
 #[inline]
 pub unsafe fn RemoveDirectoryTransactedW<P0>(lppathname: P0, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -2316,7 +2316,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn RemoveDirectoryTransactedW(lppathname : windows_core::PCWSTR, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { RemoveDirectoryTransactedW(lppathname.param().abi(), htransaction).ok() }
+    unsafe { RemoveDirectoryTransactedW(core::mem::transmute_copy(&lppathname.param().borrow()), htransaction).ok() }
 }
 #[inline]
 pub unsafe fn RemoveDirectoryW<P0>(lppathname: P0) -> windows_core::Result<()>
@@ -2324,7 +2324,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn RemoveDirectoryW(lppathname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { RemoveDirectoryW(lppathname.param().abi()).ok() }
+    unsafe { RemoveDirectoryW(core::mem::transmute_copy(&lppathname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RemoveLogContainer<P1>(hlog: super::super::Foundation::HANDLE, pwszcontainerpath: P1, fforce: bool, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()>
@@ -2332,7 +2332,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clfsw32.dll" "system" fn RemoveLogContainer(hlog : super::super::Foundation:: HANDLE, pwszcontainerpath : windows_core::PCWSTR, fforce : windows_core::BOOL, preserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { RemoveLogContainer(hlog, pwszcontainerpath.param().abi(), fforce.into(), preserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { RemoveLogContainer(hlog, core::mem::transmute_copy(&pwszcontainerpath.param().borrow()), fforce.into(), preserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RemoveLogContainerSet(hlog: super::super::Foundation::HANDLE, rgwszcontainerpath: &[windows_core::PCWSTR], fforce: bool, preserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
@@ -2351,7 +2351,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RemoveUsersFromEncryptedFile(lpfilename : windows_core::PCWSTR, phashes : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    unsafe { RemoveUsersFromEncryptedFile(lpfilename.param().abi(), phashes) }
+    unsafe { RemoveUsersFromEncryptedFile(core::mem::transmute_copy(&lpfilename.param().borrow()), phashes) }
 }
 #[inline]
 pub unsafe fn RenameTransactionManager<P0>(logfilename: P0, existingtransactionmanagerguid: *mut windows_core::GUID) -> windows_core::Result<()>
@@ -2359,7 +2359,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ktmw32.dll" "system" fn RenameTransactionManager(logfilename : windows_core::PCWSTR, existingtransactionmanagerguid : *mut windows_core::GUID) -> windows_core::BOOL);
-    unsafe { RenameTransactionManager(logfilename.param().abi(), existingtransactionmanagerguid as _).ok() }
+    unsafe { RenameTransactionManager(core::mem::transmute_copy(&logfilename.param().borrow()), existingtransactionmanagerguid as _).ok() }
 }
 #[inline]
 pub unsafe fn ReplaceFileA<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: Option<*const core::ffi::c_void>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2369,7 +2369,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn ReplaceFileA(lpreplacedfilename : windows_core::PCSTR, lpreplacementfilename : windows_core::PCSTR, lpbackupfilename : windows_core::PCSTR, dwreplaceflags : REPLACE_FILE_FLAGS, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ReplaceFileA(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), dwreplaceflags, lpexclude.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { ReplaceFileA(core::mem::transmute_copy(&lpreplacedfilename.param().borrow()), core::mem::transmute_copy(&lpreplacementfilename.param().borrow()), core::mem::transmute_copy(&lpbackupfilename.param().borrow()), dwreplaceflags, lpexclude.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn ReplaceFileFromAppW<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: u32, lpexclude: Option<*const core::ffi::c_void>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
@@ -2379,7 +2379,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn ReplaceFileFromAppW(lpreplacedfilename : windows_core::PCWSTR, lpreplacementfilename : windows_core::PCWSTR, lpbackupfilename : windows_core::PCWSTR, dwreplaceflags : u32, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ReplaceFileFromAppW(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), dwreplaceflags, lpexclude.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ReplaceFileFromAppW(core::mem::transmute_copy(&lpreplacedfilename.param().borrow()), core::mem::transmute_copy(&lpreplacementfilename.param().borrow()), core::mem::transmute_copy(&lpbackupfilename.param().borrow()), dwreplaceflags, lpexclude.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ReplaceFileW<P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: Option<*const core::ffi::c_void>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2389,7 +2389,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn ReplaceFileW(lpreplacedfilename : windows_core::PCWSTR, lpreplacementfilename : windows_core::PCWSTR, lpbackupfilename : windows_core::PCWSTR, dwreplaceflags : REPLACE_FILE_FLAGS, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { ReplaceFileW(lpreplacedfilename.param().abi(), lpreplacementfilename.param().abi(), lpbackupfilename.param().abi(), dwreplaceflags, lpexclude.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { ReplaceFileW(core::mem::transmute_copy(&lpreplacedfilename.param().borrow()), core::mem::transmute_copy(&lpreplacementfilename.param().borrow()), core::mem::transmute_copy(&lpbackupfilename.param().borrow()), dwreplaceflags, lpexclude.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -2441,7 +2441,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SearchPathA(lppath : windows_core::PCSTR, lpfilename : windows_core::PCSTR, lpextension : windows_core::PCSTR, nbufferlength : u32, lpbuffer : windows_core::PSTR, lpfilepart : *mut windows_core::PSTR) -> u32);
-    unsafe { SearchPathA(lppath.param().abi(), lpfilename.param().abi(), lpextension.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SearchPathA(core::mem::transmute_copy(&lppath.param().borrow()), core::mem::transmute_copy(&lpfilename.param().borrow()), core::mem::transmute_copy(&lpextension.param().borrow()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SearchPathW<P0, P1, P2>(lppath: P0, lpfilename: P1, lpextension: P2, lpbuffer: Option<&mut [u16]>, lpfilepart: Option<*mut windows_core::PWSTR>) -> u32
@@ -2451,7 +2451,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SearchPathW(lppath : windows_core::PCWSTR, lpfilename : windows_core::PCWSTR, lpextension : windows_core::PCWSTR, nbufferlength : u32, lpbuffer : windows_core::PWSTR, lpfilepart : *mut windows_core::PWSTR) -> u32);
-    unsafe { SearchPathW(lppath.param().abi(), lpfilename.param().abi(), lpextension.param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SearchPathW(core::mem::transmute_copy(&lppath.param().borrow()), core::mem::transmute_copy(&lpfilename.param().borrow()), core::mem::transmute_copy(&lpextension.param().borrow()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpfilepart.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2460,7 +2460,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn SetEncryptedFileMetadata(lpfilename : windows_core::PCWSTR, pboldmetadata : *const u8, pbnewmetadata : *const u8, pownerhash : *const ENCRYPTION_CERTIFICATE_HASH, dwoperation : u32, pcertificatesadded : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
-    unsafe { SetEncryptedFileMetadata(lpfilename.param().abi(), pboldmetadata.unwrap_or(core::mem::zeroed()) as _, pbnewmetadata, pownerhash, dwoperation, pcertificatesadded.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SetEncryptedFileMetadata(core::mem::transmute_copy(&lpfilename.param().borrow()), pboldmetadata.unwrap_or(core::mem::zeroed()) as _, pbnewmetadata, pownerhash, dwoperation, pcertificatesadded.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetEndOfFile(hfile: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -2494,7 +2494,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetFileAttributesA(lpfilename : windows_core::PCSTR, dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { SetFileAttributesA(lpfilename.param().abi(), dwfileattributes).ok() }
+    unsafe { SetFileAttributesA(core::mem::transmute_copy(&lpfilename.param().borrow()), dwfileattributes).ok() }
 }
 #[inline]
 pub unsafe fn SetFileAttributesFromAppW<P0>(lpfilename: P0, dwfileattributes: u32) -> windows_core::BOOL
@@ -2502,7 +2502,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn SetFileAttributesFromAppW(lpfilename : windows_core::PCWSTR, dwfileattributes : u32) -> windows_core::BOOL);
-    unsafe { SetFileAttributesFromAppW(lpfilename.param().abi(), dwfileattributes) }
+    unsafe { SetFileAttributesFromAppW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwfileattributes) }
 }
 #[inline]
 pub unsafe fn SetFileAttributesTransactedA<P0>(lpfilename: P0, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -2510,7 +2510,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetFileAttributesTransactedA(lpfilename : windows_core::PCSTR, dwfileattributes : u32, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { SetFileAttributesTransactedA(lpfilename.param().abi(), dwfileattributes, htransaction).ok() }
+    unsafe { SetFileAttributesTransactedA(core::mem::transmute_copy(&lpfilename.param().borrow()), dwfileattributes, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn SetFileAttributesTransactedW<P0>(lpfilename: P0, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> windows_core::Result<()>
@@ -2518,7 +2518,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetFileAttributesTransactedW(lpfilename : windows_core::PCWSTR, dwfileattributes : u32, htransaction : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { SetFileAttributesTransactedW(lpfilename.param().abi(), dwfileattributes, htransaction).ok() }
+    unsafe { SetFileAttributesTransactedW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwfileattributes, htransaction).ok() }
 }
 #[inline]
 pub unsafe fn SetFileAttributesW<P0>(lpfilename: P0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> windows_core::Result<()>
@@ -2526,7 +2526,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetFileAttributesW(lpfilename : windows_core::PCWSTR, dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { SetFileAttributesW(lpfilename.param().abi(), dwfileattributes).ok() }
+    unsafe { SetFileAttributesW(core::mem::transmute_copy(&lpfilename.param().borrow()), dwfileattributes).ok() }
 }
 #[inline]
 pub unsafe fn SetFileBandwidthReservation(hfile: super::super::Foundation::HANDLE, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: bool, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_core::Result<()> {
@@ -2564,7 +2564,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetFileShortNameA(hfile : super::super::Foundation:: HANDLE, lpshortname : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { SetFileShortNameA(hfile, lpshortname.param().abi()).ok() }
+    unsafe { SetFileShortNameA(hfile, core::mem::transmute_copy(&lpshortname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn SetFileShortNameW<P1>(hfile: super::super::Foundation::HANDLE, lpshortname: P1) -> windows_core::Result<()>
@@ -2572,7 +2572,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetFileShortNameW(hfile : super::super::Foundation:: HANDLE, lpshortname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SetFileShortNameW(hfile, lpshortname.param().abi()).ok() }
+    unsafe { SetFileShortNameW(hfile, core::mem::transmute_copy(&lpshortname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn SetFileTime(hfile: super::super::Foundation::HANDLE, lpcreationtime: Option<*const super::super::Foundation::FILETIME>, lplastaccesstime: Option<*const super::super::Foundation::FILETIME>, lplastwritetime: Option<*const super::super::Foundation::FILETIME>) -> windows_core::Result<()> {
@@ -2630,7 +2630,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ktmw32.dll" "system" fn SetTransactionInformation(transactionhandle : super::super::Foundation:: HANDLE, isolationlevel : u32, isolationflags : u32, timeout : u32, description : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SetTransactionInformation(transactionhandle, isolationlevel, isolationflags, timeout, description.param().abi()).ok() }
+    unsafe { SetTransactionInformation(transactionhandle, isolationlevel, isolationflags, timeout, core::mem::transmute_copy(&description.param().borrow())).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2651,7 +2651,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetVolumeLabelA(lprootpathname : windows_core::PCSTR, lpvolumename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { SetVolumeLabelA(lprootpathname.param().abi(), lpvolumename.param().abi()).ok() }
+    unsafe { SetVolumeLabelA(core::mem::transmute_copy(&lprootpathname.param().borrow()), core::mem::transmute_copy(&lpvolumename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn SetVolumeLabelW<P0, P1>(lprootpathname: P0, lpvolumename: P1) -> windows_core::Result<()>
@@ -2660,7 +2660,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetVolumeLabelW(lprootpathname : windows_core::PCWSTR, lpvolumename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SetVolumeLabelW(lprootpathname.param().abi(), lpvolumename.param().abi()).ok() }
+    unsafe { SetVolumeLabelW(core::mem::transmute_copy(&lprootpathname.param().borrow()), core::mem::transmute_copy(&lpvolumename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn SetVolumeMountPointA<P0, P1>(lpszvolumemountpoint: P0, lpszvolumename: P1) -> windows_core::Result<()>
@@ -2669,7 +2669,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetVolumeMountPointA(lpszvolumemountpoint : windows_core::PCSTR, lpszvolumename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { SetVolumeMountPointA(lpszvolumemountpoint.param().abi(), lpszvolumename.param().abi()).ok() }
+    unsafe { SetVolumeMountPointA(core::mem::transmute_copy(&lpszvolumemountpoint.param().borrow()), core::mem::transmute_copy(&lpszvolumename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn SetVolumeMountPointW<P0, P1>(lpszvolumemountpoint: P0, lpszvolumename: P1) -> windows_core::Result<()>
@@ -2678,7 +2678,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn SetVolumeMountPointW(lpszvolumemountpoint : windows_core::PCWSTR, lpszvolumename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SetVolumeMountPointW(lpszvolumemountpoint.param().abi(), lpszvolumename.param().abi()).ok() }
+    unsafe { SetVolumeMountPointW(core::mem::transmute_copy(&lpszvolumemountpoint.param().borrow()), core::mem::transmute_copy(&lpszvolumename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn SinglePhaseReject(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_core::Result<()> {
@@ -2721,7 +2721,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("txfw32.dll" "system" fn TxfLogCreateFileReadContext(logpath : windows_core::PCWSTR, beginninglsn : CLS_LSN, endinglsn : CLS_LSN, txffileid : *const TXF_ID, txflogcontext : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { TxfLogCreateFileReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), txffileid, txflogcontext as _).ok() }
+    unsafe { TxfLogCreateFileReadContext(core::mem::transmute_copy(&logpath.param().borrow()), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), txffileid, txflogcontext as _).ok() }
 }
 #[inline]
 pub unsafe fn TxfLogCreateRangeReadContext<P0>(logpath: P0, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut core::ffi::c_void) -> windows_core::BOOL
@@ -2729,7 +2729,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("txfw32.dll" "system" fn TxfLogCreateRangeReadContext(logpath : windows_core::PCWSTR, beginninglsn : CLS_LSN, endinglsn : CLS_LSN, beginningvirtualclock : *const i64, endingvirtualclock : *const i64, recordtypemask : u32, txflogcontext : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { TxfLogCreateRangeReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), beginningvirtualclock, endingvirtualclock, recordtypemask, txflogcontext as _) }
+    unsafe { TxfLogCreateRangeReadContext(core::mem::transmute_copy(&logpath.param().borrow()), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), beginningvirtualclock, endingvirtualclock, recordtypemask, txflogcontext as _) }
 }
 #[inline]
 pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -2779,7 +2779,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clfsw32.dll" "system" fn ValidateLog(pszlogfilename : windows_core::PCWSTR, psalogfile : *mut super::super::Security:: SECURITY_ATTRIBUTES, pinfobuffer : *mut CLS_INFORMATION, pcbbuffer : *mut u32) -> windows_core::BOOL);
-    unsafe { ValidateLog(pszlogfilename.param().abi(), psalogfile as _, pinfobuffer as _, pcbbuffer as _).ok() }
+    unsafe { ValidateLog(core::mem::transmute_copy(&pszlogfilename.param().borrow()), psalogfile as _, pinfobuffer as _, pcbbuffer as _).ok() }
 }
 #[inline]
 pub unsafe fn VerFindFileA<P1, P2, P3>(uflags: VER_FIND_FILE_FLAGS, szfilename: P1, szwindir: P2, szappdir: P3, szcurdir: windows_core::PSTR, pucurdirlen: *mut u32, szdestdir: windows_core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
@@ -2789,7 +2789,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerFindFileA(uflags : VER_FIND_FILE_FLAGS, szfilename : windows_core::PCSTR, szwindir : windows_core::PCSTR, szappdir : windows_core::PCSTR, szcurdir : windows_core::PSTR, pucurdirlen : *mut u32, szdestdir : windows_core::PSTR, pudestdirlen : *mut u32) -> VER_FIND_FILE_STATUS);
-    unsafe { VerFindFileA(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), pucurdirlen as _, core::mem::transmute(szdestdir), pudestdirlen as _) }
+    unsafe { VerFindFileA(uflags, core::mem::transmute_copy(&szfilename.param().borrow()), core::mem::transmute_copy(&szwindir.param().borrow()), core::mem::transmute_copy(&szappdir.param().borrow()), core::mem::transmute(szcurdir), pucurdirlen as _, core::mem::transmute(szdestdir), pudestdirlen as _) }
 }
 #[inline]
 pub unsafe fn VerFindFileW<P1, P2, P3>(uflags: VER_FIND_FILE_FLAGS, szfilename: P1, szwindir: P2, szappdir: P3, szcurdir: windows_core::PWSTR, pucurdirlen: *mut u32, szdestdir: windows_core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
@@ -2799,7 +2799,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerFindFileW(uflags : VER_FIND_FILE_FLAGS, szfilename : windows_core::PCWSTR, szwindir : windows_core::PCWSTR, szappdir : windows_core::PCWSTR, szcurdir : windows_core::PWSTR, pucurdirlen : *mut u32, szdestdir : windows_core::PWSTR, pudestdirlen : *mut u32) -> VER_FIND_FILE_STATUS);
-    unsafe { VerFindFileW(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), pucurdirlen as _, core::mem::transmute(szdestdir), pudestdirlen as _) }
+    unsafe { VerFindFileW(uflags, core::mem::transmute_copy(&szfilename.param().borrow()), core::mem::transmute_copy(&szwindir.param().borrow()), core::mem::transmute_copy(&szappdir.param().borrow()), core::mem::transmute(szcurdir), pucurdirlen as _, core::mem::transmute(szdestdir), pudestdirlen as _) }
 }
 #[inline]
 pub unsafe fn VerInstallFileA<P1, P2, P3, P4, P5>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: windows_core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
@@ -2811,7 +2811,7 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerInstallFileA(uflags : VER_INSTALL_FILE_FLAGS, szsrcfilename : windows_core::PCSTR, szdestfilename : windows_core::PCSTR, szsrcdir : windows_core::PCSTR, szdestdir : windows_core::PCSTR, szcurdir : windows_core::PCSTR, sztmpfile : windows_core::PSTR, putmpfilelen : *mut u32) -> VER_INSTALL_FILE_STATUS);
-    unsafe { VerInstallFileA(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), putmpfilelen as _) }
+    unsafe { VerInstallFileA(uflags, core::mem::transmute_copy(&szsrcfilename.param().borrow()), core::mem::transmute_copy(&szdestfilename.param().borrow()), core::mem::transmute_copy(&szsrcdir.param().borrow()), core::mem::transmute_copy(&szdestdir.param().borrow()), core::mem::transmute_copy(&szcurdir.param().borrow()), core::mem::transmute(sztmpfile), putmpfilelen as _) }
 }
 #[inline]
 pub unsafe fn VerInstallFileW<P1, P2, P3, P4, P5>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: windows_core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
@@ -2823,7 +2823,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerInstallFileW(uflags : VER_INSTALL_FILE_FLAGS, szsrcfilename : windows_core::PCWSTR, szdestfilename : windows_core::PCWSTR, szsrcdir : windows_core::PCWSTR, szdestdir : windows_core::PCWSTR, szcurdir : windows_core::PCWSTR, sztmpfile : windows_core::PWSTR, putmpfilelen : *mut u32) -> VER_INSTALL_FILE_STATUS);
-    unsafe { VerInstallFileW(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), putmpfilelen as _) }
+    unsafe { VerInstallFileW(uflags, core::mem::transmute_copy(&szsrcfilename.param().borrow()), core::mem::transmute_copy(&szdestfilename.param().borrow()), core::mem::transmute_copy(&szsrcdir.param().borrow()), core::mem::transmute_copy(&szdestdir.param().borrow()), core::mem::transmute_copy(&szcurdir.param().borrow()), core::mem::transmute(sztmpfile), putmpfilelen as _) }
 }
 #[inline]
 pub unsafe fn VerLanguageNameA(wlang: u32, szlang: &mut [u8]) -> u32 {
@@ -2841,7 +2841,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerQueryValueA(pblock : *const core::ffi::c_void, lpsubblock : windows_core::PCSTR, lplpbuffer : *mut *mut core::ffi::c_void, pulen : *mut u32) -> windows_core::BOOL);
-    unsafe { VerQueryValueA(pblock, lpsubblock.param().abi(), lplpbuffer as _, pulen as _) }
+    unsafe { VerQueryValueA(pblock, core::mem::transmute_copy(&lpsubblock.param().borrow()), lplpbuffer as _, pulen as _) }
 }
 #[inline]
 pub unsafe fn VerQueryValueW<P1>(pblock: *const core::ffi::c_void, lpsubblock: P1, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> windows_core::BOOL
@@ -2849,7 +2849,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerQueryValueW(pblock : *const core::ffi::c_void, lpsubblock : windows_core::PCWSTR, lplpbuffer : *mut *mut core::ffi::c_void, pulen : *mut u32) -> windows_core::BOOL);
-    unsafe { VerQueryValueW(pblock, lpsubblock.param().abi(), lplpbuffer as _, pulen as _) }
+    unsafe { VerQueryValueW(pblock, core::mem::transmute_copy(&lpsubblock.param().borrow()), lplpbuffer as _, pulen as _) }
 }
 #[inline]
 pub unsafe fn WofEnumEntries<P0>(volumename: P0, provider: u32, enumproc: WofEnumEntryProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2857,7 +2857,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofEnumEntries(volumename : windows_core::PCWSTR, provider : u32, enumproc : WofEnumEntryProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WofEnumEntries(volumename.param().abi(), provider, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofEnumEntries(core::mem::transmute_copy(&volumename.param().borrow()), provider, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WofFileEnumFiles<P0>(volumename: P0, algorithm: u32, enumproc: WofEnumFilesProc, userdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2865,7 +2865,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofFileEnumFiles(volumename : windows_core::PCWSTR, algorithm : u32, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WofFileEnumFiles(volumename.param().abi(), algorithm, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofFileEnumFiles(core::mem::transmute_copy(&volumename.param().borrow()), algorithm, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WofGetDriverVersion(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32) -> windows_core::Result<u32> {
@@ -2881,7 +2881,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofIsExternalFile(filepath : windows_core::PCWSTR, isexternalfile : *mut windows_core::BOOL, provider : *mut u32, externalfileinfo : *mut core::ffi::c_void, bufferlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { WofIsExternalFile(filepath.param().abi(), isexternalfile.unwrap_or(core::mem::zeroed()) as _, provider.unwrap_or(core::mem::zeroed()) as _, externalfileinfo.unwrap_or(core::mem::zeroed()) as _, bufferlength.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofIsExternalFile(core::mem::transmute_copy(&filepath.param().borrow()), isexternalfile.unwrap_or(core::mem::zeroed()) as _, provider.unwrap_or(core::mem::zeroed()) as _, externalfileinfo.unwrap_or(core::mem::zeroed()) as _, bufferlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WofSetFileDataLocation(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const core::ffi::c_void, length: u32) -> windows_core::Result<()> {
@@ -2894,7 +2894,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofShouldCompressBinaries(volume : windows_core::PCWSTR, algorithm : *mut u32) -> windows_core::BOOL);
-    unsafe { WofShouldCompressBinaries(volume.param().abi(), algorithm as _) }
+    unsafe { WofShouldCompressBinaries(core::mem::transmute_copy(&volume.param().borrow()), algorithm as _) }
 }
 #[inline]
 pub unsafe fn WofWimAddEntry<P0, P1>(volumename: P0, wimpath: P1, wimtype: u32, wimindex: u32) -> windows_core::Result<i64>
@@ -2905,7 +2905,7 @@ where
     windows_core::link!("wofutil.dll" "system" fn WofWimAddEntry(volumename : windows_core::PCWSTR, wimpath : windows_core::PCWSTR, wimtype : u32, wimindex : u32, datasourceid : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WofWimAddEntry(volumename.param().abi(), wimpath.param().abi(), wimtype, wimindex, &mut result__).map(|| result__)
+        WofWimAddEntry(core::mem::transmute_copy(&volumename.param().borrow()), core::mem::transmute_copy(&wimpath.param().borrow()), wimtype, wimindex, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -2914,7 +2914,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimEnumFiles(volumename : windows_core::PCWSTR, datasourceid : i64, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WofWimEnumFiles(volumename.param().abi(), datasourceid, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WofWimEnumFiles(core::mem::transmute_copy(&volumename.param().borrow()), datasourceid, enumproc, userdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WofWimRemoveEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::Result<()>
@@ -2922,7 +2922,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimRemoveEntry(volumename : windows_core::PCWSTR, datasourceid : i64) -> windows_core::HRESULT);
-    unsafe { WofWimRemoveEntry(volumename.param().abi(), datasourceid).ok() }
+    unsafe { WofWimRemoveEntry(core::mem::transmute_copy(&volumename.param().borrow()), datasourceid).ok() }
 }
 #[inline]
 pub unsafe fn WofWimSuspendEntry<P0>(volumename: P0, datasourceid: i64) -> windows_core::Result<()>
@@ -2930,7 +2930,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimSuspendEntry(volumename : windows_core::PCWSTR, datasourceid : i64) -> windows_core::HRESULT);
-    unsafe { WofWimSuspendEntry(volumename.param().abi(), datasourceid).ok() }
+    unsafe { WofWimSuspendEntry(core::mem::transmute_copy(&volumename.param().borrow()), datasourceid).ok() }
 }
 #[inline]
 pub unsafe fn WofWimUpdateEntry<P0, P2>(volumename: P0, datasourceid: i64, newwimpath: P2) -> windows_core::Result<()>
@@ -2939,7 +2939,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wofutil.dll" "system" fn WofWimUpdateEntry(volumename : windows_core::PCWSTR, datasourceid : i64, newwimpath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WofWimUpdateEntry(volumename.param().abi(), datasourceid, newwimpath.param().abi()).ok() }
+    unsafe { WofWimUpdateEntry(core::mem::transmute_copy(&volumename.param().borrow()), datasourceid, core::mem::transmute_copy(&newwimpath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -5102,7 +5102,7 @@ impl IDiskQuotaControl {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszpath.param().abi(), breadwrite.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszpath.param().borrow()), breadwrite.into()).ok() }
     }
     pub unsafe fn SetQuotaState(&self, dwstate: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetQuotaState)(windows_core::Interface::as_raw(self), dwstate).ok() }
@@ -5126,7 +5126,7 @@ impl IDiskQuotaControl {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaThresholdText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psztext.param().borrow()), cchtext).ok() }
     }
     pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultQuotaLimit)(windows_core::Interface::as_raw(self), lllimit).ok() }
@@ -5138,7 +5138,7 @@ impl IDiskQuotaControl {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultQuotaLimitText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psztext.param().borrow()), cchtext).ok() }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn AddUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser> {
@@ -5153,14 +5153,14 @@ impl IDiskQuotaControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddUserName)(windows_core::Interface::as_raw(self), pszlogonname.param().abi(), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszlogonname.param().borrow()), fnameresolution, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteUser<P0>(&self, puser: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteUser)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&puser.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn FindUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser> {
@@ -5175,7 +5175,7 @@ impl IDiskQuotaControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindUserName)(windows_core::Interface::as_raw(self), pszlogonname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszlogonname.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Security")]
@@ -5195,7 +5195,7 @@ impl IDiskQuotaControl {
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GiveUserNameResolutionPriority)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GiveUserNameResolutionPriority)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&puser.param().borrow())).ok() }
     }
     pub unsafe fn ShutdownNameResolution(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ShutdownNameResolution)(windows_core::Interface::as_raw(self)).ok() }
@@ -5252,13 +5252,13 @@ pub trait IDiskQuotaControl_Impl: super::super::System::Com::IConnectionPointCon
     fn GetDefaultQuotaLimitText(&self, psztext: &windows_core::PCWSTR, cchtext: u32) -> windows_core::Result<()>;
     fn AddUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>;
     fn AddUserName(&self, pszlogonname: &windows_core::PCWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>;
-    fn DeleteUser(&self, puser: windows_core::Ref<IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn DeleteUser(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
     fn FindUserSid(&self, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> windows_core::Result<IDiskQuotaUser>;
     fn FindUserName(&self, pszlogonname: &windows_core::PCWSTR) -> windows_core::Result<IDiskQuotaUser>;
     fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Security::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: windows_core::OutRef<IEnumDiskQuotaUsers>) -> windows_core::Result<()>;
     fn CreateUserBatch(&self) -> windows_core::Result<IDiskQuotaUserBatch>;
     fn InvalidateSidNameCache(&self) -> windows_core::Result<()>;
-    fn GiveUserNameResolutionPriority(&self, puser: windows_core::Ref<IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn GiveUserNameResolutionPriority(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
     fn ShutdownNameResolution(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]
@@ -5357,7 +5357,7 @@ impl IDiskQuotaControl_Vtbl {
         unsafe extern "system" fn DeleteUser<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiskQuotaControl_Impl::DeleteUser(this, core::mem::transmute_copy(&puser)).into()
+                IDiskQuotaControl_Impl::DeleteUser(this, windows_core::Ref::option_from_abi(&puser)).into()
             }
         }
         unsafe extern "system" fn FindUserSid<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pusersid: super::super::Security::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5411,7 +5411,7 @@ impl IDiskQuotaControl_Vtbl {
         unsafe extern "system" fn GiveUserNameResolutionPriority<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiskQuotaControl_Impl::GiveUserNameResolutionPriority(this, core::mem::transmute_copy(&puser)).into()
+                IDiskQuotaControl_Impl::GiveUserNameResolutionPriority(this, windows_core::Ref::option_from_abi(&puser)).into()
             }
         }
         unsafe extern "system" fn ShutdownNameResolution<Identity: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5458,7 +5458,7 @@ impl IDiskQuotaEvents {
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnUserNameChanged)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnUserNameChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&puser.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -5468,14 +5468,14 @@ pub struct IDiskQuotaEvents_Vtbl {
     pub OnUserNameChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDiskQuotaEvents_Impl: windows_core::IUnknownImpl {
-    fn OnUserNameChanged(&self, puser: windows_core::Ref<IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn OnUserNameChanged(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
 }
 impl IDiskQuotaEvents_Vtbl {
     pub const fn new<Identity: IDiskQuotaEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnUserNameChanged<Identity: IDiskQuotaEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiskQuotaEvents_Impl::OnUserNameChanged(this, core::mem::transmute_copy(&puser)).into()
+                IDiskQuotaEvents_Impl::OnUserNameChanged(this, windows_core::Ref::option_from_abi(&puser)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, OFFSET> }
@@ -5497,7 +5497,7 @@ impl IDiskQuotaUser {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pszaccountcontainer.param().abi(), cchaccountcontainer, pszlogonname.param().abi(), cchlogonname, pszdisplayname.param().abi(), cchdisplayname).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszaccountcontainer.param().borrow()), cchaccountcontainer, core::mem::transmute_copy(&pszlogonname.param().borrow()), cchlogonname, core::mem::transmute_copy(&pszdisplayname.param().borrow()), cchdisplayname).ok() }
     }
     pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSidLength)(windows_core::Interface::as_raw(self), pdwlength as _).ok() }
@@ -5512,7 +5512,7 @@ impl IDiskQuotaUser {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaThresholdText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaThresholdText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psztext.param().borrow()), cchtext).ok() }
     }
     pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetQuotaLimit)(windows_core::Interface::as_raw(self), plllimit as _).ok() }
@@ -5521,7 +5521,7 @@ impl IDiskQuotaUser {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaLimitText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaLimitText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psztext.param().borrow()), cchtext).ok() }
     }
     pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetQuotaUsed)(windows_core::Interface::as_raw(self), pllused as _).ok() }
@@ -5530,7 +5530,7 @@ impl IDiskQuotaUser {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetQuotaUsedText)(windows_core::Interface::as_raw(self), psztext.param().abi(), cchtext).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetQuotaUsedText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psztext.param().borrow()), cchtext).ok() }
     }
     pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut core::ffi::c_void, cbquotainfo: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetQuotaInformation)(windows_core::Interface::as_raw(self), pbquotainfo as _, cbquotainfo).ok() }
@@ -5708,13 +5708,13 @@ impl IDiskQuotaUserBatch {
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&puser.param().borrow())).ok() }
     }
     pub unsafe fn Remove<P0>(&self, puser: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDiskQuotaUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), puser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&puser.param().borrow())).ok() }
     }
     pub unsafe fn RemoveAll(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAll)(windows_core::Interface::as_raw(self)).ok() }
@@ -5733,8 +5733,8 @@ pub struct IDiskQuotaUserBatch_Vtbl {
     pub FlushToDisk: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDiskQuotaUserBatch_Impl: windows_core::IUnknownImpl {
-    fn Add(&self, puser: windows_core::Ref<IDiskQuotaUser>) -> windows_core::Result<()>;
-    fn Remove(&self, puser: windows_core::Ref<IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn Add(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
+    fn Remove(&self, puser: Option<&IDiskQuotaUser>) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
     fn FlushToDisk(&self) -> windows_core::Result<()>;
 }
@@ -5743,13 +5743,13 @@ impl IDiskQuotaUserBatch_Vtbl {
         unsafe extern "system" fn Add<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiskQuotaUserBatch_Impl::Add(this, core::mem::transmute_copy(&puser)).into()
+                IDiskQuotaUserBatch_Impl::Add(this, windows_core::Ref::option_from_abi(&puser)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDiskQuotaUserBatch_Impl::Remove(this, core::mem::transmute_copy(&puser)).into()
+                IDiskQuotaUserBatch_Impl::Remove(this, windows_core::Ref::option_from_abi(&puser)).into()
             }
         }
         unsafe extern "system" fn RemoveAll<Identity: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -64,7 +64,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ber_next_element(pberelement : *mut BerElement, plen : *mut u32, opaque : windows_core::PCSTR) -> u32);
-    unsafe { ber_next_element(pberelement as _, plen as _, opaque.param().abi()) }
+    unsafe { ber_next_element(pberelement as _, plen as _, core::mem::transmute_copy(&opaque.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ber_peek_tag(pberelement: *mut BerElement, plen: *mut u32) -> u32 {
@@ -77,7 +77,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ber_printf(pberelement : *mut BerElement, fmt : windows_core::PCSTR) -> i32);
-    unsafe { ber_printf(pberelement as _, fmt.param().abi()) }
+    unsafe { ber_printf(pberelement as _, core::mem::transmute_copy(&fmt.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ber_scanf<P1>(pberelement: *mut BerElement, fmt: P1) -> u32
@@ -85,7 +85,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ber_scanf(pberelement : *mut BerElement, fmt : windows_core::PCSTR) -> u32);
-    unsafe { ber_scanf(pberelement as _, fmt.param().abi()) }
+    unsafe { ber_scanf(pberelement as _, core::mem::transmute_copy(&fmt.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ber_skip_tag(pberelement: *mut BerElement, plen: *mut u32) -> u32 {
@@ -98,7 +98,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn cldap_open(hostname : windows_core::PCSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { cldap_open(hostname.param().abi(), portnumber) }
+    unsafe { cldap_open(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn cldap_openA<P0>(hostname: P0, portnumber: u32) -> *mut LDAP
@@ -106,7 +106,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn cldap_openA(hostname : windows_core::PCSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { cldap_openA(hostname.param().abi(), portnumber) }
+    unsafe { cldap_openA(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn cldap_openW<P0>(hostname: P0, portnumber: u32) -> *mut LDAP
@@ -114,7 +114,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn cldap_openW(hostname : windows_core::PCWSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { cldap_openW(hostname.param().abi(), portnumber) }
+    unsafe { cldap_openW(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn ldap_abandon(ld: *mut LDAP, msgid: u32) -> u32 {
@@ -127,7 +127,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_add(ld as _, dn.param().abi(), attrs as _) }
+    unsafe { ldap_add(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _) }
 }
 #[inline]
 pub unsafe fn ldap_addA<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModA) -> u32
@@ -135,7 +135,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_addA(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_addA(ld as _, dn.param().abi(), attrs as _) }
+    unsafe { ldap_addA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _) }
 }
 #[inline]
 pub unsafe fn ldap_addW<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModW) -> u32
@@ -143,7 +143,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_addW(ld : *mut LDAP, dn : windows_core::PCWSTR, attrs : *mut *mut LDAPModW) -> u32);
-    unsafe { ldap_addW(ld as _, dn.param().abi(), attrs as _) }
+    unsafe { ldap_addW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_ext<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -151,7 +151,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_ext(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_add_ext(ld as _, dn.param().abi(), attrs as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_add_ext(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_extA<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -159,7 +159,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_extA(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_add_extA(ld as _, dn.param().abi(), attrs as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_add_extA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_extW<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModW, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, messagenumber: *mut u32) -> u32
@@ -167,7 +167,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_extW(ld : *mut LDAP, dn : windows_core::PCWSTR, attrs : *mut *mut LDAPModW, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_add_extW(ld as _, dn.param().abi(), attrs as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_add_extW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_ext_s<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -175,7 +175,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_ext_s(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_add_ext_s(ld as _, dn.param().abi(), attrs as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_add_ext_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_ext_sA<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -183,7 +183,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_ext_sA(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_add_ext_sA(ld as _, dn.param().abi(), attrs as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_add_ext_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_ext_sW<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModW, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW) -> u32
@@ -191,7 +191,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_ext_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, attrs : *mut *mut LDAPModW, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
-    unsafe { ldap_add_ext_sW(ld as _, dn.param().abi(), attrs as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_add_ext_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_s<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModA) -> u32
@@ -199,7 +199,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_s(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_add_s(ld as _, dn.param().abi(), attrs as _) }
+    unsafe { ldap_add_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_sA<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModA) -> u32
@@ -207,7 +207,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_sA(ld : *mut LDAP, dn : windows_core::PCSTR, attrs : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_add_sA(ld as _, dn.param().abi(), attrs as _) }
+    unsafe { ldap_add_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _) }
 }
 #[inline]
 pub unsafe fn ldap_add_sW<P1>(ld: *mut LDAP, dn: P1, attrs: *mut *mut LDAPModW) -> u32
@@ -215,7 +215,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_add_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, attrs : *mut *mut LDAPModW) -> u32);
-    unsafe { ldap_add_sW(ld as _, dn.param().abi(), attrs as _) }
+    unsafe { ldap_add_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), attrs as _) }
 }
 #[inline]
 pub unsafe fn ldap_bind<P1, P2>(ld: *mut LDAP, dn: P1, cred: P2, method: u32) -> u32
@@ -224,7 +224,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_bind(ld : *mut LDAP, dn : windows_core::PCSTR, cred : windows_core::PCSTR, method : u32) -> u32);
-    unsafe { ldap_bind(ld as _, dn.param().abi(), cred.param().abi(), method) }
+    unsafe { ldap_bind(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&cred.param().borrow()), method) }
 }
 #[inline]
 pub unsafe fn ldap_bindA<P1, P2>(ld: *mut LDAP, dn: P1, cred: P2, method: u32) -> u32
@@ -233,7 +233,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_bindA(ld : *mut LDAP, dn : windows_core::PCSTR, cred : windows_core::PCSTR, method : u32) -> u32);
-    unsafe { ldap_bindA(ld as _, dn.param().abi(), cred.param().abi(), method) }
+    unsafe { ldap_bindA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&cred.param().borrow()), method) }
 }
 #[inline]
 pub unsafe fn ldap_bindW<P1, P2>(ld: *mut LDAP, dn: P1, cred: P2, method: u32) -> u32
@@ -242,7 +242,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_bindW(ld : *mut LDAP, dn : windows_core::PCWSTR, cred : windows_core::PCWSTR, method : u32) -> u32);
-    unsafe { ldap_bindW(ld as _, dn.param().abi(), cred.param().abi(), method) }
+    unsafe { ldap_bindW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&cred.param().borrow()), method) }
 }
 #[inline]
 pub unsafe fn ldap_bind_s<P1, P2>(ld: *mut LDAP, dn: P1, cred: P2, method: u32) -> u32
@@ -251,7 +251,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_bind_s(ld : *mut LDAP, dn : windows_core::PCSTR, cred : windows_core::PCSTR, method : u32) -> u32);
-    unsafe { ldap_bind_s(ld as _, dn.param().abi(), cred.param().abi(), method) }
+    unsafe { ldap_bind_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&cred.param().borrow()), method) }
 }
 #[inline]
 pub unsafe fn ldap_bind_sA<P1, P2>(ld: *mut LDAP, dn: P1, cred: P2, method: u32) -> u32
@@ -260,7 +260,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_bind_sA(ld : *mut LDAP, dn : windows_core::PCSTR, cred : windows_core::PCSTR, method : u32) -> u32);
-    unsafe { ldap_bind_sA(ld as _, dn.param().abi(), cred.param().abi(), method) }
+    unsafe { ldap_bind_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&cred.param().borrow()), method) }
 }
 #[inline]
 pub unsafe fn ldap_bind_sW<P1, P2>(ld: *mut LDAP, dn: P1, cred: P2, method: u32) -> u32
@@ -269,7 +269,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_bind_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, cred : windows_core::PCWSTR, method : u32) -> u32);
-    unsafe { ldap_bind_sW(ld as _, dn.param().abi(), cred.param().abi(), method) }
+    unsafe { ldap_bind_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&cred.param().borrow()), method) }
 }
 #[inline]
 pub unsafe fn ldap_check_filterA<P1>(ld: *mut LDAP, searchfilter: P1) -> u32
@@ -277,7 +277,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_check_filterA(ld : *mut LDAP, searchfilter : windows_core::PCSTR) -> u32);
-    unsafe { ldap_check_filterA(ld as _, searchfilter.param().abi()) }
+    unsafe { ldap_check_filterA(ld as _, core::mem::transmute_copy(&searchfilter.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_check_filterW<P1>(ld: *mut LDAP, searchfilter: P1) -> u32
@@ -285,7 +285,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_check_filterW(ld : *mut LDAP, searchfilter : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_check_filterW(ld as _, searchfilter.param().abi()) }
+    unsafe { ldap_check_filterW(ld as _, core::mem::transmute_copy(&searchfilter.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_cleanup(hinstance: super::super::Foundation::HANDLE) -> u32 {
@@ -305,7 +305,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR) -> u32);
-    unsafe { ldap_compare(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi()) }
+    unsafe { ldap_compare(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_compareA<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3) -> u32
@@ -315,7 +315,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compareA(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR) -> u32);
-    unsafe { ldap_compareA(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi()) }
+    unsafe { ldap_compareA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_compareW<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3) -> u32
@@ -325,7 +325,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compareW(ld : *mut LDAP, dn : windows_core::PCWSTR, attr : windows_core::PCWSTR, value : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_compareW(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi()) }
+    unsafe { ldap_compareW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_compare_ext<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3, data: *mut LDAP_BERVAL, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -335,7 +335,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_ext(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_compare_ext(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi(), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_compare_ext(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow()), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_compare_extA<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3, data: Option<*const LDAP_BERVAL>, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -345,7 +345,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_extA(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_compare_extA(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi(), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_compare_extA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow()), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_compare_extW<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3, data: Option<*const LDAP_BERVAL>, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, messagenumber: *mut u32) -> u32
@@ -355,7 +355,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_extW(ld : *mut LDAP, dn : windows_core::PCWSTR, attr : windows_core::PCWSTR, value : windows_core::PCWSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_compare_extW(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi(), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_compare_extW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow()), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_compare_ext_s<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3, data: *mut LDAP_BERVAL, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -365,7 +365,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_ext_s(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_compare_ext_s(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi(), data as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_compare_ext_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow()), data as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_compare_ext_sA<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3, data: Option<*const LDAP_BERVAL>, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -375,7 +375,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_ext_sA(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_compare_ext_sA(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi(), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_compare_ext_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow()), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_compare_ext_sW<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3, data: Option<*const LDAP_BERVAL>, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW) -> u32
@@ -385,7 +385,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_ext_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, attr : windows_core::PCWSTR, value : windows_core::PCWSTR, data : *const LDAP_BERVAL, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
-    unsafe { ldap_compare_ext_sW(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi(), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_compare_ext_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow()), data.unwrap_or(core::mem::zeroed()) as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_compare_s<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3) -> u32
@@ -395,7 +395,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_s(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR) -> u32);
-    unsafe { ldap_compare_s(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi()) }
+    unsafe { ldap_compare_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_compare_sA<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3) -> u32
@@ -405,7 +405,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_sA(ld : *mut LDAP, dn : windows_core::PCSTR, attr : windows_core::PCSTR, value : windows_core::PCSTR) -> u32);
-    unsafe { ldap_compare_sA(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi()) }
+    unsafe { ldap_compare_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_compare_sW<P1, P2, P3>(ld: *mut LDAP, dn: P1, attr: P2, value: P3) -> u32
@@ -415,7 +415,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_compare_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, attr : windows_core::PCWSTR, value : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_compare_sW(ld as _, dn.param().abi(), attr.param().abi(), value.param().abi()) }
+    unsafe { ldap_compare_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&attr.param().borrow()), core::mem::transmute_copy(&value.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_conn_from_msg(primaryconn: *mut LDAP, res: *mut LDAPMessage) -> *mut LDAP {
@@ -533,7 +533,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete(ld : *mut LDAP, dn : windows_core::PCSTR) -> u32);
-    unsafe { ldap_delete(ld as _, dn.param().abi()) }
+    unsafe { ldap_delete(ld as _, core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_deleteA<P1>(ld: *mut LDAP, dn: P1) -> u32
@@ -541,7 +541,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_deleteA(ld : *mut LDAP, dn : windows_core::PCSTR) -> u32);
-    unsafe { ldap_deleteA(ld as _, dn.param().abi()) }
+    unsafe { ldap_deleteA(ld as _, core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_deleteW<P1>(ld: *mut LDAP, dn: P1) -> u32
@@ -549,7 +549,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_deleteW(ld : *mut LDAP, dn : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_deleteW(ld as _, dn.param().abi()) }
+    unsafe { ldap_deleteW(ld as _, core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_delete_ext<P1>(ld: *mut LDAP, dn: P1, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -557,7 +557,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_ext(ld : *mut LDAP, dn : windows_core::PCSTR, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_delete_ext(ld as _, dn.param().abi(), servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_delete_ext(ld as _, core::mem::transmute_copy(&dn.param().borrow()), servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_delete_extA<P1>(ld: *mut LDAP, dn: P1, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -565,7 +565,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_extA(ld : *mut LDAP, dn : windows_core::PCSTR, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_delete_extA(ld as _, dn.param().abi(), servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_delete_extA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_delete_extW<P1>(ld: *mut LDAP, dn: P1, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, messagenumber: *mut u32) -> u32
@@ -573,7 +573,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_extW(ld : *mut LDAP, dn : windows_core::PCWSTR, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_delete_extW(ld as _, dn.param().abi(), servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_delete_extW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_delete_ext_s<P1>(ld: *mut LDAP, dn: P1, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -581,7 +581,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_ext_s(ld : *mut LDAP, dn : windows_core::PCSTR, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_delete_ext_s(ld as _, dn.param().abi(), servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_delete_ext_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_delete_ext_sA<P1>(ld: *mut LDAP, dn: P1, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -589,7 +589,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_ext_sA(ld : *mut LDAP, dn : windows_core::PCSTR, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_delete_ext_sA(ld as _, dn.param().abi(), servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_delete_ext_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_delete_ext_sW<P1>(ld: *mut LDAP, dn: P1, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW) -> u32
@@ -597,7 +597,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_ext_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
-    unsafe { ldap_delete_ext_sW(ld as _, dn.param().abi(), servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_delete_ext_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_delete_s<P1>(ld: *mut LDAP, dn: P1) -> u32
@@ -605,7 +605,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_s(ld : *mut LDAP, dn : windows_core::PCSTR) -> u32);
-    unsafe { ldap_delete_s(ld as _, dn.param().abi()) }
+    unsafe { ldap_delete_s(ld as _, core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_delete_sA<P1>(ld: *mut LDAP, dn: P1) -> u32
@@ -613,7 +613,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_sA(ld : *mut LDAP, dn : windows_core::PCSTR) -> u32);
-    unsafe { ldap_delete_sA(ld as _, dn.param().abi()) }
+    unsafe { ldap_delete_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_delete_sW<P1>(ld: *mut LDAP, dn: P1) -> u32
@@ -621,7 +621,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_delete_sW(ld : *mut LDAP, dn : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_delete_sW(ld as _, dn.param().abi()) }
+    unsafe { ldap_delete_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_dn2ufn<P0>(dn: P0) -> windows_core::PSTR
@@ -629,7 +629,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_dn2ufn(dn : windows_core::PCSTR) -> windows_core::PSTR);
-    unsafe { ldap_dn2ufn(dn.param().abi()) }
+    unsafe { ldap_dn2ufn(core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_dn2ufnA<P0>(dn: P0) -> windows_core::PSTR
@@ -637,7 +637,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_dn2ufnA(dn : windows_core::PCSTR) -> windows_core::PSTR);
-    unsafe { ldap_dn2ufnA(dn.param().abi()) }
+    unsafe { ldap_dn2ufnA(core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_dn2ufnW<P0>(dn: P0) -> windows_core::PWSTR
@@ -645,7 +645,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_dn2ufnW(dn : windows_core::PCWSTR) -> windows_core::PWSTR);
-    unsafe { ldap_dn2ufnW(dn.param().abi()) }
+    unsafe { ldap_dn2ufnW(core::mem::transmute_copy(&dn.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_encode_sort_controlA(externalhandle: *mut LDAP, sortkeys: *mut *mut LDAPSortKeyA, control: *mut LDAPControlA, criticality: bool) -> u32 {
@@ -693,7 +693,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_explode_dn(dn : windows_core::PCSTR, notypes : u32) -> *mut windows_core::PSTR);
-    unsafe { ldap_explode_dn(dn.param().abi(), notypes) }
+    unsafe { ldap_explode_dn(core::mem::transmute_copy(&dn.param().borrow()), notypes) }
 }
 #[inline]
 pub unsafe fn ldap_explode_dnA<P0>(dn: P0, notypes: u32) -> *mut windows_core::PSTR
@@ -701,7 +701,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_explode_dnA(dn : windows_core::PCSTR, notypes : u32) -> *mut windows_core::PSTR);
-    unsafe { ldap_explode_dnA(dn.param().abi(), notypes) }
+    unsafe { ldap_explode_dnA(core::mem::transmute_copy(&dn.param().borrow()), notypes) }
 }
 #[inline]
 pub unsafe fn ldap_explode_dnW<P0>(dn: P0, notypes: u32) -> *mut windows_core::PWSTR
@@ -709,7 +709,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_explode_dnW(dn : windows_core::PCWSTR, notypes : u32) -> *mut windows_core::PWSTR);
-    unsafe { ldap_explode_dnW(dn.param().abi(), notypes) }
+    unsafe { ldap_explode_dnW(core::mem::transmute_copy(&dn.param().borrow()), notypes) }
 }
 #[inline]
 pub unsafe fn ldap_extended_operation<P1>(ld: *mut LDAP, oid: P1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -717,7 +717,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_extended_operation(ld : *mut LDAP, oid : windows_core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_extended_operation(ld as _, oid.param().abi(), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_extended_operation(ld as _, core::mem::transmute_copy(&oid.param().borrow()), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_extended_operationA<P1>(ld: *mut LDAP, oid: P1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -725,7 +725,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_extended_operationA(ld : *mut LDAP, oid : windows_core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_extended_operationA(ld as _, oid.param().abi(), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_extended_operationA(ld as _, core::mem::transmute_copy(&oid.param().borrow()), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_extended_operationW<P1>(ld: *mut LDAP, oid: P1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, messagenumber: *mut u32) -> u32
@@ -733,7 +733,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_extended_operationW(ld : *mut LDAP, oid : windows_core::PCWSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_extended_operationW(ld as _, oid.param().abi(), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_extended_operationW(ld as _, core::mem::transmute_copy(&oid.param().borrow()), data as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_extended_operation_sA<P1>(externalhandle: *mut LDAP, oid: P1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, returnedoid: *mut windows_core::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32
@@ -741,7 +741,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_extended_operation_sA(externalhandle : *mut LDAP, oid : windows_core::PCSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, returnedoid : *mut windows_core::PSTR, returneddata : *mut *mut LDAP_BERVAL) -> u32);
-    unsafe { ldap_extended_operation_sA(externalhandle as _, oid.param().abi(), data as _, servercontrols as _, clientcontrols as _, returnedoid as _, returneddata as _) }
+    unsafe { ldap_extended_operation_sA(externalhandle as _, core::mem::transmute_copy(&oid.param().borrow()), data as _, servercontrols as _, clientcontrols as _, returnedoid as _, returneddata as _) }
 }
 #[inline]
 pub unsafe fn ldap_extended_operation_sW<P1>(externalhandle: *mut LDAP, oid: P1, data: *mut LDAP_BERVAL, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, returnedoid: *mut windows_core::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32
@@ -749,7 +749,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_extended_operation_sW(externalhandle : *mut LDAP, oid : windows_core::PCWSTR, data : *mut LDAP_BERVAL, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, returnedoid : *mut windows_core::PWSTR, returneddata : *mut *mut LDAP_BERVAL) -> u32);
-    unsafe { ldap_extended_operation_sW(externalhandle as _, oid.param().abi(), data as _, servercontrols as _, clientcontrols as _, returnedoid as _, returneddata as _) }
+    unsafe { ldap_extended_operation_sW(externalhandle as _, core::mem::transmute_copy(&oid.param().borrow()), data as _, servercontrols as _, clientcontrols as _, returnedoid as _, returneddata as _) }
 }
 #[inline]
 pub unsafe fn ldap_first_attribute(ld: *mut LDAP, entry: *mut LDAPMessage, ptr: *mut *mut BerElement) -> windows_core::PSTR {
@@ -837,7 +837,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_get_values(ld : *mut LDAP, entry : *mut LDAPMessage, attr : windows_core::PCSTR) -> *mut windows_core::PSTR);
-    unsafe { ldap_get_values(ld as _, entry as _, attr.param().abi()) }
+    unsafe { ldap_get_values(ld as _, entry as _, core::mem::transmute_copy(&attr.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_get_valuesA<P2>(ld: *mut LDAP, entry: *mut LDAPMessage, attr: P2) -> *mut windows_core::PSTR
@@ -845,7 +845,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_get_valuesA(ld : *mut LDAP, entry : *mut LDAPMessage, attr : windows_core::PCSTR) -> *mut windows_core::PSTR);
-    unsafe { ldap_get_valuesA(ld as _, entry as _, attr.param().abi()) }
+    unsafe { ldap_get_valuesA(ld as _, entry as _, core::mem::transmute_copy(&attr.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_get_valuesW<P2>(ld: *mut LDAP, entry: *mut LDAPMessage, attr: P2) -> *mut windows_core::PWSTR
@@ -853,7 +853,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_get_valuesW(ld : *mut LDAP, entry : *mut LDAPMessage, attr : windows_core::PCWSTR) -> *mut windows_core::PWSTR);
-    unsafe { ldap_get_valuesW(ld as _, entry as _, attr.param().abi()) }
+    unsafe { ldap_get_valuesW(ld as _, entry as _, core::mem::transmute_copy(&attr.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_get_values_len<P2>(externalhandle: *mut LDAP, message: *mut LDAPMessage, attr: P2) -> *mut *mut LDAP_BERVAL
@@ -861,7 +861,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_get_values_len(externalhandle : *mut LDAP, message : *mut LDAPMessage, attr : windows_core::PCSTR) -> *mut *mut LDAP_BERVAL);
-    unsafe { ldap_get_values_len(externalhandle as _, message as _, attr.param().abi()) }
+    unsafe { ldap_get_values_len(externalhandle as _, message as _, core::mem::transmute_copy(&attr.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_get_values_lenA<P2>(externalhandle: *mut LDAP, message: *mut LDAPMessage, attr: P2) -> *mut *mut LDAP_BERVAL
@@ -869,7 +869,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_get_values_lenA(externalhandle : *mut LDAP, message : *mut LDAPMessage, attr : windows_core::PCSTR) -> *mut *mut LDAP_BERVAL);
-    unsafe { ldap_get_values_lenA(externalhandle as _, message as _, attr.param().abi()) }
+    unsafe { ldap_get_values_lenA(externalhandle as _, message as _, core::mem::transmute_copy(&attr.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_get_values_lenW<P2>(externalhandle: *mut LDAP, message: *mut LDAPMessage, attr: P2) -> *mut *mut LDAP_BERVAL
@@ -877,7 +877,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_get_values_lenW(externalhandle : *mut LDAP, message : *mut LDAPMessage, attr : windows_core::PCWSTR) -> *mut *mut LDAP_BERVAL);
-    unsafe { ldap_get_values_lenW(externalhandle as _, message as _, attr.param().abi()) }
+    unsafe { ldap_get_values_lenW(externalhandle as _, message as _, core::mem::transmute_copy(&attr.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_init<P0>(hostname: P0, portnumber: u32) -> *mut LDAP
@@ -885,7 +885,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_init(hostname : windows_core::PCSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { ldap_init(hostname.param().abi(), portnumber) }
+    unsafe { ldap_init(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn ldap_initA<P0>(hostname: P0, portnumber: u32) -> *mut LDAP
@@ -893,7 +893,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_initA(hostname : windows_core::PCSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { ldap_initA(hostname.param().abi(), portnumber) }
+    unsafe { ldap_initA(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn ldap_initW<P0>(hostname: P0, portnumber: u32) -> *mut LDAP
@@ -901,7 +901,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_initW(hostname : windows_core::PCWSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { ldap_initW(hostname.param().abi(), portnumber) }
+    unsafe { ldap_initW(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn ldap_memfree<P0>(block: P0)
@@ -909,7 +909,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_memfree(block : windows_core::PCSTR));
-    unsafe { ldap_memfree(block.param().abi()) }
+    unsafe { ldap_memfree(core::mem::transmute_copy(&block.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_memfreeA<P0>(block: P0)
@@ -917,7 +917,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_memfreeA(block : windows_core::PCSTR));
-    unsafe { ldap_memfreeA(block.param().abi()) }
+    unsafe { ldap_memfreeA(core::mem::transmute_copy(&block.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_memfreeW<P0>(block: P0)
@@ -925,7 +925,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_memfreeW(block : windows_core::PCWSTR));
-    unsafe { ldap_memfreeW(block.param().abi()) }
+    unsafe { ldap_memfreeW(core::mem::transmute_copy(&block.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_modify<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA) -> u32
@@ -933,7 +933,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_modify(ld as _, dn.param().abi(), mods as _) }
+    unsafe { ldap_modify(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _) }
 }
 #[inline]
 pub unsafe fn ldap_modifyA<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA) -> u32
@@ -941,7 +941,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modifyA(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_modifyA(ld as _, dn.param().abi(), mods as _) }
+    unsafe { ldap_modifyA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _) }
 }
 #[inline]
 pub unsafe fn ldap_modifyW<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModW) -> u32
@@ -949,7 +949,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modifyW(ld : *mut LDAP, dn : windows_core::PCWSTR, mods : *mut *mut LDAPModW) -> u32);
-    unsafe { ldap_modifyW(ld as _, dn.param().abi(), mods as _) }
+    unsafe { ldap_modifyW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_ext<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -957,7 +957,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_ext(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_modify_ext(ld as _, dn.param().abi(), mods as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_modify_ext(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_extA<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -965,7 +965,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_extA(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_modify_extA(ld as _, dn.param().abi(), mods as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_modify_extA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_extW<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModW, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, messagenumber: *mut u32) -> u32
@@ -973,7 +973,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_extW(ld : *mut LDAP, dn : windows_core::PCWSTR, mods : *mut *mut LDAPModW, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_modify_extW(ld as _, dn.param().abi(), mods as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_modify_extW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_ext_s<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -981,7 +981,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_ext_s(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_modify_ext_s(ld as _, dn.param().abi(), mods as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_modify_ext_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_ext_sA<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -989,7 +989,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_ext_sA(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_modify_ext_sA(ld as _, dn.param().abi(), mods as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_modify_ext_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_ext_sW<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModW, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW) -> u32
@@ -997,7 +997,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_ext_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, mods : *mut *mut LDAPModW, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
-    unsafe { ldap_modify_ext_sW(ld as _, dn.param().abi(), mods as _, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_modify_ext_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_s<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA) -> u32
@@ -1005,7 +1005,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_s(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_modify_s(ld as _, dn.param().abi(), mods as _) }
+    unsafe { ldap_modify_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_sA<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModA) -> u32
@@ -1013,7 +1013,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_sA(ld : *mut LDAP, dn : windows_core::PCSTR, mods : *mut *mut LDAPModA) -> u32);
-    unsafe { ldap_modify_sA(ld as _, dn.param().abi(), mods as _) }
+    unsafe { ldap_modify_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _) }
 }
 #[inline]
 pub unsafe fn ldap_modify_sW<P1>(ld: *mut LDAP, dn: P1, mods: *mut *mut LDAPModW) -> u32
@@ -1021,7 +1021,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modify_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, mods : *mut *mut LDAPModW) -> u32);
-    unsafe { ldap_modify_sW(ld as _, dn.param().abi(), mods as _) }
+    unsafe { ldap_modify_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), mods as _) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2) -> u32
@@ -1030,7 +1030,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR) -> u32);
-    unsafe { ldap_modrdn(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi()) }
+    unsafe { ldap_modrdn(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn2<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2, deleteoldrdn: i32) -> u32
@@ -1039,7 +1039,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn2(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR, deleteoldrdn : i32) -> u32);
-    unsafe { ldap_modrdn2(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi(), deleteoldrdn) }
+    unsafe { ldap_modrdn2(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow()), deleteoldrdn) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn2A<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2, deleteoldrdn: i32) -> u32
@@ -1048,7 +1048,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn2A(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR, deleteoldrdn : i32) -> u32);
-    unsafe { ldap_modrdn2A(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi(), deleteoldrdn) }
+    unsafe { ldap_modrdn2A(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow()), deleteoldrdn) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn2W<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2, deleteoldrdn: i32) -> u32
@@ -1057,7 +1057,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn2W(externalhandle : *mut LDAP, distinguishedname : windows_core::PCWSTR, newdistinguishedname : windows_core::PCWSTR, deleteoldrdn : i32) -> u32);
-    unsafe { ldap_modrdn2W(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi(), deleteoldrdn) }
+    unsafe { ldap_modrdn2W(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow()), deleteoldrdn) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn2_s<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2, deleteoldrdn: i32) -> u32
@@ -1066,7 +1066,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn2_s(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR, deleteoldrdn : i32) -> u32);
-    unsafe { ldap_modrdn2_s(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi(), deleteoldrdn) }
+    unsafe { ldap_modrdn2_s(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow()), deleteoldrdn) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn2_sA<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2, deleteoldrdn: i32) -> u32
@@ -1075,7 +1075,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn2_sA(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR, deleteoldrdn : i32) -> u32);
-    unsafe { ldap_modrdn2_sA(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi(), deleteoldrdn) }
+    unsafe { ldap_modrdn2_sA(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow()), deleteoldrdn) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn2_sW<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2, deleteoldrdn: i32) -> u32
@@ -1084,7 +1084,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn2_sW(externalhandle : *mut LDAP, distinguishedname : windows_core::PCWSTR, newdistinguishedname : windows_core::PCWSTR, deleteoldrdn : i32) -> u32);
-    unsafe { ldap_modrdn2_sW(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi(), deleteoldrdn) }
+    unsafe { ldap_modrdn2_sW(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow()), deleteoldrdn) }
 }
 #[inline]
 pub unsafe fn ldap_modrdnA<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2) -> u32
@@ -1093,7 +1093,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdnA(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR) -> u32);
-    unsafe { ldap_modrdnA(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi()) }
+    unsafe { ldap_modrdnA(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_modrdnW<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2) -> u32
@@ -1102,7 +1102,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdnW(externalhandle : *mut LDAP, distinguishedname : windows_core::PCWSTR, newdistinguishedname : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_modrdnW(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi()) }
+    unsafe { ldap_modrdnW(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn_s<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2) -> u32
@@ -1111,7 +1111,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn_s(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR) -> u32);
-    unsafe { ldap_modrdn_s(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi()) }
+    unsafe { ldap_modrdn_s(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn_sA<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2) -> u32
@@ -1120,7 +1120,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn_sA(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, newdistinguishedname : windows_core::PCSTR) -> u32);
-    unsafe { ldap_modrdn_sA(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi()) }
+    unsafe { ldap_modrdn_sA(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_modrdn_sW<P1, P2>(externalhandle: *mut LDAP, distinguishedname: P1, newdistinguishedname: P2) -> u32
@@ -1129,7 +1129,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_modrdn_sW(externalhandle : *mut LDAP, distinguishedname : windows_core::PCWSTR, newdistinguishedname : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_modrdn_sW(externalhandle as _, distinguishedname.param().abi(), newdistinguishedname.param().abi()) }
+    unsafe { ldap_modrdn_sW(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), core::mem::transmute_copy(&newdistinguishedname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_msgfree(res: *mut LDAPMessage) -> u32 {
@@ -1167,7 +1167,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_open(hostname : windows_core::PCSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { ldap_open(hostname.param().abi(), portnumber) }
+    unsafe { ldap_open(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn ldap_openA<P0>(hostname: P0, portnumber: u32) -> *mut LDAP
@@ -1175,7 +1175,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_openA(hostname : windows_core::PCSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { ldap_openA(hostname.param().abi(), portnumber) }
+    unsafe { ldap_openA(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn ldap_openW<P0>(hostname: P0, portnumber: u32) -> *mut LDAP
@@ -1183,7 +1183,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_openW(hostname : windows_core::PCWSTR, portnumber : u32) -> *mut LDAP);
-    unsafe { ldap_openW(hostname.param().abi(), portnumber) }
+    unsafe { ldap_openW(core::mem::transmute_copy(&hostname.param().borrow()), portnumber) }
 }
 #[inline]
 pub unsafe fn ldap_parse_extended_resultA(connection: *mut LDAP, resultmessage: *mut LDAPMessage, resultoid: Option<*mut windows_core::PSTR>, resultdata: *mut *mut LDAP_BERVAL, freeit: bool) -> u32 {
@@ -1271,7 +1271,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_perror(ld : *mut LDAP, msg : windows_core::PCSTR));
-    unsafe { ldap_perror(ld as _, msg.param().abi()) }
+    unsafe { ldap_perror(ld as _, core::mem::transmute_copy(&msg.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_rename_ext<P1, P2, P3>(ld: *mut LDAP, dn: P1, newrdn: P2, newparent: P3, deleteoldrdn: i32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -1281,7 +1281,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_rename_ext(ld : *mut LDAP, dn : windows_core::PCSTR, newrdn : windows_core::PCSTR, newparent : windows_core::PCSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_rename_ext(ld as _, dn.param().abi(), newrdn.param().abi(), newparent.param().abi(), deleteoldrdn, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_rename_ext(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&newrdn.param().borrow()), core::mem::transmute_copy(&newparent.param().borrow()), deleteoldrdn, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_rename_extA<P1, P2, P3>(ld: *mut LDAP, dn: P1, newrdn: P2, newparent: P3, deleteoldrdn: i32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, messagenumber: *mut u32) -> u32
@@ -1291,7 +1291,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_rename_extA(ld : *mut LDAP, dn : windows_core::PCSTR, newrdn : windows_core::PCSTR, newparent : windows_core::PCSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_rename_extA(ld as _, dn.param().abi(), newrdn.param().abi(), newparent.param().abi(), deleteoldrdn, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_rename_extA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&newrdn.param().borrow()), core::mem::transmute_copy(&newparent.param().borrow()), deleteoldrdn, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_rename_extW<P1, P2, P3>(ld: *mut LDAP, dn: P1, newrdn: P2, newparent: P3, deleteoldrdn: i32, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, messagenumber: *mut u32) -> u32
@@ -1301,7 +1301,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_rename_extW(ld : *mut LDAP, dn : windows_core::PCWSTR, newrdn : windows_core::PCWSTR, newparent : windows_core::PCWSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_rename_extW(ld as _, dn.param().abi(), newrdn.param().abi(), newparent.param().abi(), deleteoldrdn, servercontrols as _, clientcontrols as _, messagenumber as _) }
+    unsafe { ldap_rename_extW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&newrdn.param().borrow()), core::mem::transmute_copy(&newparent.param().borrow()), deleteoldrdn, servercontrols as _, clientcontrols as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_rename_ext_s<P1, P2, P3>(ld: *mut LDAP, dn: P1, newrdn: P2, newparent: P3, deleteoldrdn: i32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -1311,7 +1311,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_rename_ext_s(ld : *mut LDAP, dn : windows_core::PCSTR, newrdn : windows_core::PCSTR, newparent : windows_core::PCSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_rename_ext_s(ld as _, dn.param().abi(), newrdn.param().abi(), newparent.param().abi(), deleteoldrdn, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_rename_ext_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&newrdn.param().borrow()), core::mem::transmute_copy(&newparent.param().borrow()), deleteoldrdn, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_rename_ext_sA<P1, P2, P3>(ld: *mut LDAP, dn: P1, newrdn: P2, newparent: P3, deleteoldrdn: i32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32
@@ -1321,7 +1321,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_rename_ext_sA(ld : *mut LDAP, dn : windows_core::PCSTR, newrdn : windows_core::PCSTR, newparent : windows_core::PCSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
-    unsafe { ldap_rename_ext_sA(ld as _, dn.param().abi(), newrdn.param().abi(), newparent.param().abi(), deleteoldrdn, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_rename_ext_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&newrdn.param().borrow()), core::mem::transmute_copy(&newparent.param().borrow()), deleteoldrdn, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_rename_ext_sW<P1, P2, P3>(ld: *mut LDAP, dn: P1, newrdn: P2, newparent: P3, deleteoldrdn: i32, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW) -> u32
@@ -1331,7 +1331,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_rename_ext_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, newrdn : windows_core::PCWSTR, newparent : windows_core::PCWSTR, deleteoldrdn : i32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
-    unsafe { ldap_rename_ext_sW(ld as _, dn.param().abi(), newrdn.param().abi(), newparent.param().abi(), deleteoldrdn, servercontrols as _, clientcontrols as _) }
+    unsafe { ldap_rename_ext_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&newrdn.param().borrow()), core::mem::transmute_copy(&newparent.param().borrow()), deleteoldrdn, servercontrols as _, clientcontrols as _) }
 }
 #[inline]
 pub unsafe fn ldap_result(ld: *mut LDAP, msgid: u32, all: u32, timeout: Option<*const LDAP_TIMEVAL>, res: *mut *mut LDAPMessage) -> u32 {
@@ -1350,7 +1350,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_sasl_bindA(externalhandle : *mut LDAP, distname : windows_core::PCSTR, authmechanism : windows_core::PCSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlA, clientctrls : *mut *mut LDAPControlA, messagenumber : *mut i32) -> i32);
-    unsafe { ldap_sasl_bindA(externalhandle as _, distname.param().abi(), authmechanism.param().abi(), cred, serverctrls as _, clientctrls as _, messagenumber as _) }
+    unsafe { ldap_sasl_bindA(externalhandle as _, core::mem::transmute_copy(&distname.param().borrow()), core::mem::transmute_copy(&authmechanism.param().borrow()), cred, serverctrls as _, clientctrls as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_sasl_bindW<P1, P2>(externalhandle: *mut LDAP, distname: P1, authmechanism: P2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut LDAPControlW, clientctrls: *mut *mut LDAPControlW, messagenumber: *mut i32) -> i32
@@ -1359,7 +1359,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_sasl_bindW(externalhandle : *mut LDAP, distname : windows_core::PCWSTR, authmechanism : windows_core::PCWSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlW, clientctrls : *mut *mut LDAPControlW, messagenumber : *mut i32) -> i32);
-    unsafe { ldap_sasl_bindW(externalhandle as _, distname.param().abi(), authmechanism.param().abi(), cred, serverctrls as _, clientctrls as _, messagenumber as _) }
+    unsafe { ldap_sasl_bindW(externalhandle as _, core::mem::transmute_copy(&distname.param().borrow()), core::mem::transmute_copy(&authmechanism.param().borrow()), cred, serverctrls as _, clientctrls as _, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_sasl_bind_sA<P1, P2>(externalhandle: *mut LDAP, distname: P1, authmechanism: P2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut LDAPControlA, clientctrls: *mut *mut LDAPControlA, serverdata: *mut *mut LDAP_BERVAL) -> i32
@@ -1368,7 +1368,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_sasl_bind_sA(externalhandle : *mut LDAP, distname : windows_core::PCSTR, authmechanism : windows_core::PCSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlA, clientctrls : *mut *mut LDAPControlA, serverdata : *mut *mut LDAP_BERVAL) -> i32);
-    unsafe { ldap_sasl_bind_sA(externalhandle as _, distname.param().abi(), authmechanism.param().abi(), cred, serverctrls as _, clientctrls as _, serverdata as _) }
+    unsafe { ldap_sasl_bind_sA(externalhandle as _, core::mem::transmute_copy(&distname.param().borrow()), core::mem::transmute_copy(&authmechanism.param().borrow()), cred, serverctrls as _, clientctrls as _, serverdata as _) }
 }
 #[inline]
 pub unsafe fn ldap_sasl_bind_sW<P1, P2>(externalhandle: *mut LDAP, distname: P1, authmechanism: P2, cred: *const LDAP_BERVAL, serverctrls: *mut *mut LDAPControlW, clientctrls: *mut *mut LDAPControlW, serverdata: *mut *mut LDAP_BERVAL) -> i32
@@ -1377,7 +1377,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_sasl_bind_sW(externalhandle : *mut LDAP, distname : windows_core::PCWSTR, authmechanism : windows_core::PCWSTR, cred : *const LDAP_BERVAL, serverctrls : *mut *mut LDAPControlW, clientctrls : *mut *mut LDAPControlW, serverdata : *mut *mut LDAP_BERVAL) -> i32);
-    unsafe { ldap_sasl_bind_sW(externalhandle as _, distname.param().abi(), authmechanism.param().abi(), cred, serverctrls as _, clientctrls as _, serverdata as _) }
+    unsafe { ldap_sasl_bind_sW(externalhandle as _, core::mem::transmute_copy(&distname.param().borrow()), core::mem::transmute_copy(&authmechanism.param().borrow()), cred, serverctrls as _, clientctrls as _, serverdata as _) }
 }
 #[inline]
 pub unsafe fn ldap_search<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32) -> u32
@@ -1386,7 +1386,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32) -> u32);
-    unsafe { ldap_search(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly) }
+    unsafe { ldap_search(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly) }
 }
 #[inline]
 pub unsafe fn ldap_searchA<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32) -> u32
@@ -1395,7 +1395,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_searchA(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32) -> u32);
-    unsafe { ldap_searchA(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly) }
+    unsafe { ldap_searchA(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly) }
 }
 #[inline]
 pub unsafe fn ldap_searchW<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const u16, attrsonly: u32) -> u32
@@ -1404,7 +1404,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_searchW(ld : *mut LDAP, base : windows_core::PCWSTR, scope : u32, filter : windows_core::PCWSTR, attrs : *const *const u16, attrsonly : u32) -> u32);
-    unsafe { ldap_searchW(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly) }
+    unsafe { ldap_searchW(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly) }
 }
 #[inline]
 pub unsafe fn ldap_search_abandon_page(externalhandle: *mut LDAP, searchblock: PLDAPSearch) -> u32 {
@@ -1418,7 +1418,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_ext(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_search_ext(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timelimit, sizelimit, messagenumber as _) }
+    unsafe { ldap_search_ext(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timelimit, sizelimit, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_extA<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32, servercontrols: Option<*const *const LDAPControlA>, clientcontrols: Option<*const *const LDAPControlA>, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32
@@ -1427,7 +1427,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_extA(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_search_extA(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timelimit, sizelimit, messagenumber as _) }
+    unsafe { ldap_search_extA(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timelimit, sizelimit, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_extW<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const u16, attrsonly: u32, servercontrols: Option<*const *const LDAPControlW>, clientcontrols: Option<*const *const LDAPControlW>, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32
@@ -1436,7 +1436,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_extW(ld : *mut LDAP, base : windows_core::PCWSTR, scope : u32, filter : windows_core::PCWSTR, attrs : *const *const u16, attrsonly : u32, servercontrols : *const *const LDAPControlW, clientcontrols : *const *const LDAPControlW, timelimit : u32, sizelimit : u32, messagenumber : *mut u32) -> u32);
-    unsafe { ldap_search_extW(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timelimit, sizelimit, messagenumber as _) }
+    unsafe { ldap_search_extW(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timelimit, sizelimit, messagenumber as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_ext_s<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32, servercontrols: Option<*const *const LDAPControlA>, clientcontrols: Option<*const *const LDAPControlA>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
@@ -1445,7 +1445,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_ext_s(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_ext_s(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timeout as _, sizelimit, res as _) }
+    unsafe { ldap_search_ext_s(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timeout as _, sizelimit, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_ext_sA<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32, servercontrols: Option<*const *const LDAPControlA>, clientcontrols: Option<*const *const LDAPControlA>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
@@ -1454,7 +1454,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_ext_sA(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, servercontrols : *const *const LDAPControlA, clientcontrols : *const *const LDAPControlA, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_ext_sA(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timeout as _, sizelimit, res as _) }
+    unsafe { ldap_search_ext_sA(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timeout as _, sizelimit, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_ext_sW<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const u16, attrsonly: u32, servercontrols: Option<*const *const LDAPControlW>, clientcontrols: Option<*const *const LDAPControlW>, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32
@@ -1463,7 +1463,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_ext_sW(ld : *mut LDAP, base : windows_core::PCWSTR, scope : u32, filter : windows_core::PCWSTR, attrs : *const *const u16, attrsonly : u32, servercontrols : *const *const LDAPControlW, clientcontrols : *const *const LDAPControlW, timeout : *mut LDAP_TIMEVAL, sizelimit : u32, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_ext_sW(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timeout as _, sizelimit, res as _) }
+    unsafe { ldap_search_ext_sW(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, servercontrols.unwrap_or(core::mem::zeroed()) as _, clientcontrols.unwrap_or(core::mem::zeroed()) as _, timeout as _, sizelimit, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_init_page<P1, P3>(externalhandle: *mut LDAP, distinguishedname: P1, scopeofsearch: u32, searchfilter: P3, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyA) -> PLDAPSearch
@@ -1472,7 +1472,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_init_page(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, scopeofsearch : u32, searchfilter : windows_core::PCSTR, attributelist : *mut *mut i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> PLDAPSearch);
-    unsafe { ldap_search_init_page(externalhandle as _, distinguishedname.param().abi(), scopeofsearch, searchfilter.param().abi(), attributelist as _, attributesonly, servercontrols as _, clientcontrols as _, pagetimelimit, totalsizelimit, sortkeys as _) }
+    unsafe { ldap_search_init_page(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), scopeofsearch, core::mem::transmute_copy(&searchfilter.param().borrow()), attributelist as _, attributesonly, servercontrols as _, clientcontrols as _, pagetimelimit, totalsizelimit, sortkeys as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_init_pageA<P1, P3>(externalhandle: *mut LDAP, distinguishedname: P1, scopeofsearch: u32, searchfilter: P3, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyA) -> PLDAPSearch
@@ -1481,7 +1481,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_init_pageA(externalhandle : *mut LDAP, distinguishedname : windows_core::PCSTR, scopeofsearch : u32, searchfilter : windows_core::PCSTR, attributelist : *const *const i8, attributesonly : u32, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyA) -> PLDAPSearch);
-    unsafe { ldap_search_init_pageA(externalhandle as _, distinguishedname.param().abi(), scopeofsearch, searchfilter.param().abi(), attributelist, attributesonly, servercontrols as _, clientcontrols as _, pagetimelimit, totalsizelimit, sortkeys as _) }
+    unsafe { ldap_search_init_pageA(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), scopeofsearch, core::mem::transmute_copy(&searchfilter.param().borrow()), attributelist, attributesonly, servercontrols as _, clientcontrols as _, pagetimelimit, totalsizelimit, sortkeys as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_init_pageW<P1, P3>(externalhandle: *mut LDAP, distinguishedname: P1, scopeofsearch: u32, searchfilter: P3, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut LDAPControlW, clientcontrols: *mut *mut LDAPControlW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut LDAPSortKeyW) -> PLDAPSearch
@@ -1490,7 +1490,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_init_pageW(externalhandle : *mut LDAP, distinguishedname : windows_core::PCWSTR, scopeofsearch : u32, searchfilter : windows_core::PCWSTR, attributelist : *const *const u16, attributesonly : u32, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW, pagetimelimit : u32, totalsizelimit : u32, sortkeys : *mut *mut LDAPSortKeyW) -> PLDAPSearch);
-    unsafe { ldap_search_init_pageW(externalhandle as _, distinguishedname.param().abi(), scopeofsearch, searchfilter.param().abi(), attributelist, attributesonly, servercontrols as _, clientcontrols as _, pagetimelimit, totalsizelimit, sortkeys as _) }
+    unsafe { ldap_search_init_pageW(externalhandle as _, core::mem::transmute_copy(&distinguishedname.param().borrow()), scopeofsearch, core::mem::transmute_copy(&searchfilter.param().borrow()), attributelist, attributesonly, servercontrols as _, clientcontrols as _, pagetimelimit, totalsizelimit, sortkeys as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_s<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
@@ -1499,7 +1499,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_s(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_s(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, res as _) }
+    unsafe { ldap_search_s(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_sA<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
@@ -1508,7 +1508,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_sA(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_sA(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, res as _) }
+    unsafe { ldap_search_sA(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_sW<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32
@@ -1517,7 +1517,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_sW(ld : *mut LDAP, base : windows_core::PCWSTR, scope : u32, filter : windows_core::PCWSTR, attrs : *const *const u16, attrsonly : u32, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_sW(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, res as _) }
+    unsafe { ldap_search_sW(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_st<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
@@ -1526,7 +1526,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_st(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_st(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, timeout as _, res as _) }
+    unsafe { ldap_search_st(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, timeout as _, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_stA<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
@@ -1535,7 +1535,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_stA(ld : *mut LDAP, base : windows_core::PCSTR, scope : u32, filter : windows_core::PCSTR, attrs : *const *const i8, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_stA(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, timeout as _, res as _) }
+    unsafe { ldap_search_stA(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, timeout as _, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_search_stW<P1, P3>(ld: *mut LDAP, base: P1, scope: u32, filter: P3, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32
@@ -1544,7 +1544,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_search_stW(ld : *mut LDAP, base : windows_core::PCWSTR, scope : u32, filter : windows_core::PCWSTR, attrs : *const *const u16, attrsonly : u32, timeout : *mut LDAP_TIMEVAL, res : *mut *mut LDAPMessage) -> u32);
-    unsafe { ldap_search_stW(ld as _, base.param().abi(), scope, filter.param().abi(), attrs, attrsonly, timeout as _, res as _) }
+    unsafe { ldap_search_stW(ld as _, core::mem::transmute_copy(&base.param().borrow()), scope, core::mem::transmute_copy(&filter.param().borrow()), attrs, attrsonly, timeout as _, res as _) }
 }
 #[inline]
 pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
@@ -1573,7 +1573,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_simple_bind(ld : *mut LDAP, dn : windows_core::PCSTR, passwd : windows_core::PCSTR) -> u32);
-    unsafe { ldap_simple_bind(ld as _, dn.param().abi(), passwd.param().abi()) }
+    unsafe { ldap_simple_bind(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&passwd.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_simple_bindA<P1, P2>(ld: *mut LDAP, dn: P1, passwd: P2) -> u32
@@ -1582,7 +1582,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_simple_bindA(ld : *mut LDAP, dn : windows_core::PCSTR, passwd : windows_core::PCSTR) -> u32);
-    unsafe { ldap_simple_bindA(ld as _, dn.param().abi(), passwd.param().abi()) }
+    unsafe { ldap_simple_bindA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&passwd.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_simple_bindW<P1, P2>(ld: *mut LDAP, dn: P1, passwd: P2) -> u32
@@ -1591,7 +1591,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_simple_bindW(ld : *mut LDAP, dn : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_simple_bindW(ld as _, dn.param().abi(), passwd.param().abi()) }
+    unsafe { ldap_simple_bindW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&passwd.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_simple_bind_s<P1, P2>(ld: *mut LDAP, dn: P1, passwd: P2) -> u32
@@ -1600,7 +1600,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_simple_bind_s(ld : *mut LDAP, dn : windows_core::PCSTR, passwd : windows_core::PCSTR) -> u32);
-    unsafe { ldap_simple_bind_s(ld as _, dn.param().abi(), passwd.param().abi()) }
+    unsafe { ldap_simple_bind_s(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&passwd.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_simple_bind_sA<P1, P2>(ld: *mut LDAP, dn: P1, passwd: P2) -> u32
@@ -1609,7 +1609,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_simple_bind_sA(ld : *mut LDAP, dn : windows_core::PCSTR, passwd : windows_core::PCSTR) -> u32);
-    unsafe { ldap_simple_bind_sA(ld as _, dn.param().abi(), passwd.param().abi()) }
+    unsafe { ldap_simple_bind_sA(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&passwd.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_simple_bind_sW<P1, P2>(ld: *mut LDAP, dn: P1, passwd: P2) -> u32
@@ -1618,7 +1618,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_simple_bind_sW(ld : *mut LDAP, dn : windows_core::PCWSTR, passwd : windows_core::PCWSTR) -> u32);
-    unsafe { ldap_simple_bind_sW(ld as _, dn.param().abi(), passwd.param().abi()) }
+    unsafe { ldap_simple_bind_sW(ld as _, core::mem::transmute_copy(&dn.param().borrow()), core::mem::transmute_copy(&passwd.param().borrow())) }
 }
 #[inline]
 pub unsafe fn ldap_sslinit<P0>(hostname: P0, portnumber: u32, secure: i32) -> *mut LDAP
@@ -1626,7 +1626,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_sslinit(hostname : windows_core::PCSTR, portnumber : u32, secure : i32) -> *mut LDAP);
-    unsafe { ldap_sslinit(hostname.param().abi(), portnumber, secure) }
+    unsafe { ldap_sslinit(core::mem::transmute_copy(&hostname.param().borrow()), portnumber, secure) }
 }
 #[inline]
 pub unsafe fn ldap_sslinitA<P0>(hostname: P0, portnumber: u32, secure: i32) -> *mut LDAP
@@ -1634,7 +1634,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_sslinitA(hostname : windows_core::PCSTR, portnumber : u32, secure : i32) -> *mut LDAP);
-    unsafe { ldap_sslinitA(hostname.param().abi(), portnumber, secure) }
+    unsafe { ldap_sslinitA(core::mem::transmute_copy(&hostname.param().borrow()), portnumber, secure) }
 }
 #[inline]
 pub unsafe fn ldap_sslinitW<P0>(hostname: P0, portnumber: u32, secure: i32) -> *mut LDAP
@@ -1642,7 +1642,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_sslinitW(hostname : windows_core::PCWSTR, portnumber : u32, secure : i32) -> *mut LDAP);
-    unsafe { ldap_sslinitW(hostname.param().abi(), portnumber, secure) }
+    unsafe { ldap_sslinitW(core::mem::transmute_copy(&hostname.param().borrow()), portnumber, secure) }
 }
 #[inline]
 pub unsafe fn ldap_start_tls_sA(externalhandle: *mut LDAP, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut LDAPControlA, clientcontrols: *mut *mut LDAPControlA) -> u32 {
@@ -1670,7 +1670,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_ufn2dn(ufn : windows_core::PCSTR, pdn : *mut windows_core::PSTR) -> u32);
-    unsafe { ldap_ufn2dn(ufn.param().abi(), pdn as _) }
+    unsafe { ldap_ufn2dn(core::mem::transmute_copy(&ufn.param().borrow()), pdn as _) }
 }
 #[inline]
 pub unsafe fn ldap_ufn2dnA<P0>(ufn: P0, pdn: *mut windows_core::PSTR) -> u32
@@ -1678,7 +1678,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_ufn2dnA(ufn : windows_core::PCSTR, pdn : *mut windows_core::PSTR) -> u32);
-    unsafe { ldap_ufn2dnA(ufn.param().abi(), pdn as _) }
+    unsafe { ldap_ufn2dnA(core::mem::transmute_copy(&ufn.param().borrow()), pdn as _) }
 }
 #[inline]
 pub unsafe fn ldap_ufn2dnW<P0>(ufn: P0, pdn: *mut windows_core::PWSTR) -> u32
@@ -1686,7 +1686,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wldap32.dll" "C" fn ldap_ufn2dnW(ufn : windows_core::PCWSTR, pdn : *mut windows_core::PWSTR) -> u32);
-    unsafe { ldap_ufn2dnW(ufn.param().abi(), pdn as _) }
+    unsafe { ldap_ufn2dnW(core::mem::transmute_copy(&ufn.param().borrow()), pdn as _) }
 }
 #[inline]
 pub unsafe fn ldap_unbind(ld: *mut LDAP) -> u32 {

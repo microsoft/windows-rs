@@ -8,7 +8,7 @@ impl windows_core::RuntimeType for AttestationChallengeHandler {
 }
 #[cfg(feature = "Storage_Streams")]
 impl AttestationChallengeHandler {
-    pub fn new<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static>(invoke: F) -> Self {
         let com = AttestationChallengeHandlerBox { vtable: &AttestationChallengeHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -19,7 +19,7 @@ impl AttestationChallengeHandler {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), challenge.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&challenge.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -32,13 +32,13 @@ pub struct AttestationChallengeHandler_Vtbl {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
-struct AttestationChallengeHandlerBox<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static> {
+struct AttestationChallengeHandlerBox<F: Fn(Option<&super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static> {
     vtable: *const AttestationChallengeHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "Storage_Streams")]
-impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static> AttestationChallengeHandlerBox<F> {
+impl<F: Fn(Option<&super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static> AttestationChallengeHandlerBox<F> {
     const VTABLE: AttestationChallengeHandler_Vtbl = AttestationChallengeHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -81,7 +81,7 @@ impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> window
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, challenge: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            match (this.invoke)(core::mem::transmute_copy(&challenge)) {
+            match (this.invoke)(windows_core::Ref::option_from_abi(&challenge)) {
                 Ok(ok__) => {
                     result__.write(core::mem::transmute_copy(&ok__));
                     core::mem::forget(ok__);
@@ -569,7 +569,7 @@ impl KeyCredential {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSignAsync)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSignAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAttestationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<KeyCredentialAttestationResult>> {
@@ -587,7 +587,7 @@ impl KeyCredential {
         let this = &windows_core::Interface::cast::<IKeyCredential2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDeriveSharedSecretAsync)(windows_core::Interface::as_raw(this), windowid, core::mem::transmute_copy(message), encryptedrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDeriveSharedSecretAsync)(windows_core::Interface::as_raw(this), windowid, core::mem::transmute_copy(message), core::mem::transmute_copy(&encryptedrequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -598,7 +598,7 @@ impl KeyCredential {
         let this = &windows_core::Interface::cast::<IKeyCredential2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveAuthorizationContext)(windows_core::Interface::as_raw(this), encryptedrequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveAuthorizationContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&encryptedrequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
@@ -609,7 +609,7 @@ impl KeyCredential {
         let this = &windows_core::Interface::cast::<IKeyCredentialWithWindow>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSignForWindowAsync)(windows_core::Interface::as_raw(this), window, data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSignForWindowAsync)(windows_core::Interface::as_raw(this), window, core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -804,7 +804,7 @@ impl KeyCredentialManager {
     {
         Self::IKeyCredentialManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, core::mem::transmute_copy(algorithm), core::mem::transmute_copy(message), cacheconfiguration.param().abi(), windowid, callbacktype, attestationcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestCreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), option, core::mem::transmute_copy(algorithm), core::mem::transmute_copy(message), core::mem::transmute_copy(&cacheconfiguration.param().borrow()), windowid, callbacktype, core::mem::transmute_copy(&attestationcallback.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -814,7 +814,7 @@ impl KeyCredentialManager {
     {
         Self::IKeyCredentialManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), callbacktype, attestationcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), callbacktype, core::mem::transmute_copy(&attestationcallback.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1063,7 +1063,7 @@ impl PasswordCredentialPropertyStore {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1081,7 +1081,7 @@ impl PasswordCredentialPropertyStore {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1139,14 +1139,14 @@ impl PasswordVault {
         P0: windows_core::Param<PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Add)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&credential.param().borrow())).ok() }
     }
     pub fn Remove<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&credential.param().borrow())).ok() }
     }
     pub fn Retrieve(&self, resource: &windows_core::HSTRING, username: &windows_core::HSTRING) -> windows_core::Result<PasswordCredential> {
         let this = self;
@@ -1257,7 +1257,7 @@ impl WebAccount {
     {
         Self::IWebAccountFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWebAccount)(windows_core::Interface::as_raw(this), webaccountprovider.param().abi(), core::mem::transmute_copy(username), state, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWebAccount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&webaccountprovider.param().borrow()), core::mem::transmute_copy(username), state, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWebAccountFactory<R, F: FnOnce(&IWebAccountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1353,7 +1353,7 @@ impl WebAccountProvider {
     {
         Self::IWebAccountProviderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWebAccountProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWebAccountProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), core::mem::transmute_copy(&iconuri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWebAccountProviderFactory<R, F: FnOnce(&IWebAccountProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

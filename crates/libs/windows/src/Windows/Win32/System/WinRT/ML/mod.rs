@@ -8,7 +8,7 @@ impl ILearningModelDeviceFactoryNative {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFromD3D12CommandQueue)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFromD3D12CommandQueue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -23,7 +23,7 @@ pub struct ILearningModelDeviceFactoryNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ILearningModelDeviceFactoryNative_Impl: windows_core::IUnknownImpl {
-    fn CreateFromD3D12CommandQueue(&self, value: windows_core::Ref<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateFromD3D12CommandQueue(&self, value: Option<&super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ILearningModelDeviceFactoryNative_Vtbl {
@@ -31,7 +31,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
         unsafe extern "system" fn CreateFromD3D12CommandQueue<Identity: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ILearningModelDeviceFactoryNative_Impl::CreateFromD3D12CommandQueue(this, core::mem::transmute_copy(&value)) {
+                match ILearningModelDeviceFactoryNative_Impl::CreateFromD3D12CommandQueue(this, windows_core::Ref::option_from_abi(&value)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -227,7 +227,7 @@ impl ITensorStaticsNative {
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), value.param().abi(), shape as _, shapecount, core::mem::transmute(result)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateFromD3D12Resource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&value.param().borrow()), shape as _, shapecount, core::mem::transmute(result)).ok() }
     }
 }
 #[repr(C)]
@@ -241,7 +241,7 @@ pub struct ITensorStaticsNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorStaticsNative_Impl: windows_core::IUnknownImpl {
-    fn CreateFromD3D12Resource(&self, value: windows_core::Ref<super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateFromD3D12Resource(&self, value: Option<&super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorStaticsNative_Vtbl {
@@ -249,7 +249,7 @@ impl ITensorStaticsNative_Vtbl {
         unsafe extern "system" fn CreateFromD3D12Resource<Identity: ITensorStaticsNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, shape: *mut i64, shapecount: i32, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITensorStaticsNative_Impl::CreateFromD3D12Resource(this, core::mem::transmute_copy(&value), core::mem::transmute_copy(&shape), core::mem::transmute_copy(&shapecount), core::mem::transmute_copy(&result)).into()
+                ITensorStaticsNative_Impl::CreateFromD3D12Resource(this, windows_core::Ref::option_from_abi(&value), core::mem::transmute_copy(&shape), core::mem::transmute_copy(&shapecount), core::mem::transmute_copy(&result)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateFromD3D12Resource: CreateFromD3D12Resource::<Identity, OFFSET> }

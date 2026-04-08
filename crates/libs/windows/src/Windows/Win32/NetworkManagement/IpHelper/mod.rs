@@ -43,7 +43,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceAliasToLuid(interfacealias : windows_core::PCWSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceAliasToLuid(interfacealias.param().abi(), interfaceluid as _) }
+    unsafe { ConvertInterfaceAliasToLuid(core::mem::transmute_copy(&interfacealias.param().borrow()), interfaceluid as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -94,7 +94,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidA(interfacename : windows_core::PCSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceNameToLuidA(interfacename.param().abi(), interfaceluid as _) }
+    unsafe { ConvertInterfaceNameToLuidA(core::mem::transmute_copy(&interfacename.param().borrow()), interfaceluid as _) }
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -103,7 +103,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidW(interfacename : windows_core::PCWSTR, interfaceluid : *mut super::Ndis:: NET_LUID_LH) -> windows_core:: WIN32_ERROR);
-    unsafe { ConvertInterfaceNameToLuidW(interfacename.param().abi(), interfaceluid as _) }
+    unsafe { ConvertInterfaceNameToLuidW(core::mem::transmute_copy(&interfacename.param().borrow()), interfaceluid as _) }
 }
 #[inline]
 pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> windows_core::WIN32_ERROR {
@@ -288,7 +288,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("iphlpapi.dll" "system" fn GetAdapterIndex(adaptername : windows_core::PCWSTR, ifindex : *mut u32) -> u32);
-    unsafe { GetAdapterIndex(adaptername.param().abi(), ifindex as _) }
+    unsafe { GetAdapterIndex(core::mem::transmute_copy(&adaptername.param().borrow()), ifindex as _) }
 }
 #[inline]
 pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
@@ -931,7 +931,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("iphlpapi.dll" "system" fn ParseNetworkString(networkstring : windows_core::PCWSTR, types : u32, addressinfo : *mut NET_ADDRESS_INFO, portnumber : *mut u16, prefixlength : *mut u8) -> u32);
-    unsafe { ParseNetworkString(networkstring.param().abi(), types, addressinfo.unwrap_or(core::mem::zeroed()) as _, portnumber.unwrap_or(core::mem::zeroed()) as _, prefixlength.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ParseNetworkString(core::mem::transmute_copy(&networkstring.param().borrow()), types, addressinfo.unwrap_or(core::mem::zeroed()) as _, portnumber.unwrap_or(core::mem::zeroed()) as _, prefixlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PfAddFiltersToInterface(ih: *mut core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut core::ffi::c_void) -> u32 {
@@ -1130,7 +1130,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const windows_core::GUID, compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID, networkname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { SetNetworkInformation(networkguid, compartmentid, networkname.param().abi()) }
+    unsafe { SetNetworkInformation(networkguid, compartmentid, core::mem::transmute_copy(&networkname.param().borrow())) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1182,7 +1182,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("iphlpapi.dll" "system" fn if_nametoindex(interfacename : windows_core::PCSTR) -> u32);
-    unsafe { if_nametoindex(interfacename.param().abi()) }
+    unsafe { if_nametoindex(core::mem::transmute_copy(&interfacename.param().borrow())) }
 }
 pub const ANY_SIZE: u32 = 1u32;
 #[repr(C)]

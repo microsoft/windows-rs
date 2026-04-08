@@ -2027,7 +2027,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : windows_core::PCSTR) -> super::super::Foundation:: PROC);
-    unsafe { wglGetProcAddress(param0.param().abi()) }
+    unsafe { wglGetProcAddress(core::mem::transmute_copy(&param0.param().borrow())) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]

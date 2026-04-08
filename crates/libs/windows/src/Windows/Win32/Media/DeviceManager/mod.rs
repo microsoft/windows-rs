@@ -271,7 +271,7 @@ impl IMDSPDevice2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszstoragename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -371,7 +371,7 @@ impl IMDSPDevice3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszpropname.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -379,7 +379,7 @@ impl IMDSPDevice3 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), core::mem::transmute(pvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszpropname.param().borrow()), core::mem::transmute(pvalue)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY> {
@@ -397,7 +397,7 @@ impl IMDSPDevice3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, core::mem::transmute_copy(&pwszuniqueid.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -650,7 +650,7 @@ impl IMDSPDirectTransfer {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TransferToDevice)(windows_core::Interface::as_raw(self), pwszsourcefilepath.param().abi(), psourceoperation.param().abi(), fuflags, pwszdestinationname.param().abi(), psourcemetadata.param().abi(), ptransferprogress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TransferToDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszsourcefilepath.param().borrow()), core::mem::transmute_copy(&psourceoperation.param().borrow()), fuflags, core::mem::transmute_copy(&pwszdestinationname.param().borrow()), core::mem::transmute_copy(&psourcemetadata.param().borrow()), core::mem::transmute_copy(&ptransferprogress.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -661,14 +661,14 @@ pub struct IMDSPDirectTransfer_Vtbl {
     pub TransferToDevice: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPDirectTransfer_Impl: windows_core::IUnknownImpl {
-    fn TransferToDevice(&self, pwszsourcefilepath: &windows_core::PCWSTR, psourceoperation: windows_core::Ref<IWMDMOperation>, fuflags: u32, pwszdestinationname: &windows_core::PCWSTR, psourcemetadata: windows_core::Ref<IWMDMMetaData>, ptransferprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<IMDSPStorage>;
+    fn TransferToDevice(&self, pwszsourcefilepath: &windows_core::PCWSTR, psourceoperation: Option<&IWMDMOperation>, fuflags: u32, pwszdestinationname: &windows_core::PCWSTR, psourcemetadata: Option<&IWMDMMetaData>, ptransferprogress: Option<&IWMDMProgress>) -> windows_core::Result<IMDSPStorage>;
 }
 impl IMDSPDirectTransfer_Vtbl {
     pub const fn new<Identity: IMDSPDirectTransfer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TransferToDevice<Identity: IMDSPDirectTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszsourcefilepath: windows_core::PCWSTR, psourceoperation: *mut core::ffi::c_void, fuflags: u32, pwszdestinationname: windows_core::PCWSTR, psourcemetadata: *mut core::ffi::c_void, ptransferprogress: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMDSPDirectTransfer_Impl::TransferToDevice(this, core::mem::transmute(&pwszsourcefilepath), core::mem::transmute_copy(&psourceoperation), core::mem::transmute_copy(&fuflags), core::mem::transmute(&pwszdestinationname), core::mem::transmute_copy(&psourcemetadata), core::mem::transmute_copy(&ptransferprogress)) {
+                match IMDSPDirectTransfer_Impl::TransferToDevice(this, core::mem::transmute(&pwszsourcefilepath), windows_core::Ref::option_from_abi(&psourceoperation), core::mem::transmute_copy(&fuflags), core::mem::transmute(&pwszdestinationname), windows_core::Ref::option_from_abi(&psourcemetadata), windows_core::Ref::option_from_abi(&ptransferprogress)) {
                     Ok(ok__) => {
                         ppnewobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -876,7 +876,7 @@ impl IMDSPObject {
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pprogress.param().borrow())).ok() }
     }
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), fuflags, dwoffset).ok() }
@@ -886,14 +886,14 @@ impl IMDSPObject {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWMDMProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), pwsznewname.param().abi(), pprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwsznewname.param().borrow()), core::mem::transmute_copy(&pprogress.param().borrow())).ok() }
     }
     pub unsafe fn Move<P1, P2>(&self, fumode: u32, pprogress: P1, ptarget: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMDMProgress>,
         P2: windows_core::Param<IMDSPStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi(), ptarget.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pprogress.param().borrow()), core::mem::transmute_copy(&ptarget.param().borrow())).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -916,10 +916,10 @@ pub trait IMDSPObject_Impl: windows_core::IUnknownImpl {
     fn Open(&self, fumode: u32) -> windows_core::Result<()>;
     fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
     fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn Delete(&self, fumode: u32, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<()>;
+    fn Delete(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
     fn Seek(&self, fuflags: u32, dwoffset: u32) -> windows_core::Result<()>;
-    fn Rename(&self, pwsznewname: &windows_core::PCWSTR, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<()>;
-    fn Move(&self, fumode: u32, pprogress: windows_core::Ref<IWMDMProgress>, ptarget: windows_core::Ref<IMDSPStorage>) -> windows_core::Result<()>;
+    fn Rename(&self, pwsznewname: &windows_core::PCWSTR, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn Move(&self, fumode: u32, pprogress: Option<&IWMDMProgress>, ptarget: Option<&IMDSPStorage>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IMDSPObject_Vtbl {
@@ -945,7 +945,7 @@ impl IMDSPObject_Vtbl {
         unsafe extern "system" fn Delete<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDSPObject_Impl::Delete(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
+                IMDSPObject_Impl::Delete(this, core::mem::transmute_copy(&fumode), windows_core::Ref::option_from_abi(&pprogress)).into()
             }
         }
         unsafe extern "system" fn Seek<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, dwoffset: u32) -> windows_core::HRESULT {
@@ -957,13 +957,13 @@ impl IMDSPObject_Vtbl {
         unsafe extern "system" fn Rename<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsznewname: windows_core::PCWSTR, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDSPObject_Impl::Rename(this, core::mem::transmute(&pwsznewname), core::mem::transmute_copy(&pprogress)).into()
+                IMDSPObject_Impl::Rename(this, core::mem::transmute(&pwsznewname), windows_core::Ref::option_from_abi(&pprogress)).into()
             }
         }
         unsafe extern "system" fn Move<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDSPObject_Impl::Move(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&ptarget)).into()
+                IMDSPObject_Impl::Move(this, core::mem::transmute_copy(&fumode), windows_core::Ref::option_from_abi(&pprogress), windows_core::Ref::option_from_abi(&ptarget)).into()
             }
         }
         unsafe extern "system" fn Close<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1262,7 +1262,7 @@ impl IMDSPStorage {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _, pwszname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pwszname.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage> {
@@ -1434,7 +1434,7 @@ impl IMDSPStorage2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszstoragename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -1444,7 +1444,7 @@ impl IMDSPStorage2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStorage2)(windows_core::Interface::as_raw(self), dwattributes, dwattributesex, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _, pwszname.param().abi(), qwfilesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStorage2)(windows_core::Interface::as_raw(self), dwattributes, dwattributesex, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pwszname.param().borrow()), qwfilesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -1547,13 +1547,13 @@ impl IMDSPStorage3 {
     where
         P0: windows_core::Param<IWMDMMetaData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), pmetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pmetadata.param().borrow())).ok() }
     }
     pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWMDMMetaData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMetadata)(windows_core::Interface::as_raw(self), pmetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pmetadata.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1565,8 +1565,8 @@ pub struct IMDSPStorage3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage3_Impl: IMDSPStorage2_Impl {
-    fn GetMetadata(&self, pmetadata: windows_core::Ref<IWMDMMetaData>) -> windows_core::Result<()>;
-    fn SetMetadata(&self, pmetadata: windows_core::Ref<IWMDMMetaData>) -> windows_core::Result<()>;
+    fn GetMetadata(&self, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
+    fn SetMetadata(&self, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IMDSPStorage3_Vtbl {
@@ -1574,13 +1574,13 @@ impl IMDSPStorage3_Vtbl {
         unsafe extern "system" fn GetMetadata<Identity: IMDSPStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDSPStorage3_Impl::GetMetadata(this, core::mem::transmute_copy(&pmetadata)).into()
+                IMDSPStorage3_Impl::GetMetadata(this, windows_core::Ref::option_from_abi(&pmetadata)).into()
             }
         }
         unsafe extern "system" fn SetMetadata<Identity: IMDSPStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDSPStorage3_Impl::SetMetadata(this, core::mem::transmute_copy(&pmetadata)).into()
+                IMDSPStorage3_Impl::SetMetadata(this, windows_core::Ref::option_from_abi(&pmetadata)).into()
             }
         }
         Self {
@@ -1617,14 +1617,14 @@ impl IMDSPStorage4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStorageWithMetadata)(windows_core::Interface::as_raw(self), dwattributes, pwszname.param().abi(), pmetadata.param().abi(), qwfilesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStorageWithMetadata)(windows_core::Interface::as_raw(self), dwattributes, core::mem::transmute_copy(&pwszname.param().borrow()), core::mem::transmute_copy(&pmetadata.param().borrow()), qwfilesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetSpecifiedMetadata<P2>(&self, ppwszpropnames: &[windows_core::PCWSTR], pmetadata: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IWMDMMetaData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecifiedMetadata)(windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), core::mem::transmute(ppwszpropnames.as_ptr()), pmetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecifiedMetadata)(windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), core::mem::transmute(ppwszpropnames.as_ptr()), core::mem::transmute_copy(&pmetadata.param().borrow())).ok() }
     }
     pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> windows_core::Result<IMDSPStorage>
     where
@@ -1632,7 +1632,7 @@ impl IMDSPStorage4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, core::mem::transmute_copy(&pwszuniqueid.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<IMDSPStorage> {
@@ -1657,8 +1657,8 @@ pub struct IMDSPStorage4_Vtbl {
 pub trait IMDSPStorage4_Impl: IMDSPStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppispstorage: *const Option<IMDSPStorage>) -> windows_core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> windows_core::Result<()>;
-    fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: &windows_core::PCWSTR, pmetadata: windows_core::Ref<IWMDMMetaData>, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>;
-    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, pmetadata: windows_core::Ref<IWMDMMetaData>) -> windows_core::Result<()>;
+    fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: &windows_core::PCWSTR, pmetadata: Option<&IWMDMMetaData>, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
     fn GetParent(&self) -> windows_core::Result<IMDSPStorage>;
 }
@@ -1680,7 +1680,7 @@ impl IMDSPStorage4_Vtbl {
         unsafe extern "system" fn CreateStorageWithMetadata<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, pwszname: windows_core::PCWSTR, pmetadata: *mut core::ffi::c_void, qwfilesize: u64, ppnewstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMDSPStorage4_Impl::CreateStorageWithMetadata(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute(&pwszname), core::mem::transmute_copy(&pmetadata), core::mem::transmute_copy(&qwfilesize)) {
+                match IMDSPStorage4_Impl::CreateStorageWithMetadata(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute(&pwszname), windows_core::Ref::option_from_abi(&pmetadata), core::mem::transmute_copy(&qwfilesize)) {
                     Ok(ok__) => {
                         ppnewstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1692,7 +1692,7 @@ impl IMDSPStorage4_Vtbl {
         unsafe extern "system" fn GetSpecifiedMetadata<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDSPStorage4_Impl::GetSpecifiedMetadata(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppwszpropnames), core::mem::transmute_copy(&pmetadata)).into()
+                IMDSPStorage4_Impl::GetSpecifiedMetadata(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppwszpropnames), windows_core::Ref::option_from_abi(&pmetadata)).into()
             }
         }
         unsafe extern "system" fn FindStorage<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1766,7 +1766,7 @@ impl IMDSPStorageGlobals {
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pprogress.param().borrow())).ok() }
     }
     pub unsafe fn GetDevice(&self) -> windows_core::Result<IMDSPDevice> {
         unsafe {
@@ -1802,7 +1802,7 @@ pub trait IMDSPStorageGlobals_Impl: windows_core::IUnknownImpl {
     fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()>;
     fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()>;
     fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn Initialize(&self, fumode: u32, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<()>;
+    fn Initialize(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
     fn GetDevice(&self) -> windows_core::Result<IMDSPDevice>;
     fn GetRootStorage(&self) -> windows_core::Result<IMDSPStorage>;
 }
@@ -1859,7 +1859,7 @@ impl IMDSPStorageGlobals_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMDSPStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
+                IMDSPStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), windows_core::Ref::option_from_abi(&pprogress)).into()
             }
         }
         unsafe extern "system" fn GetDevice<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1981,7 +1981,7 @@ impl IMDServiceProvider2 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), pwszdevicepath.param().abi(), pdwcount as _, pppdevicearray as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszdevicepath.param().borrow()), pdwcount as _, pppdevicearray as _).ok() }
     }
 }
 #[repr(C)]
@@ -2203,7 +2203,7 @@ impl ISCPSecureExchange2 {
     where
         P2: windows_core::Param<IWMDMProgress3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TransferContainerData2)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pprogresscallback.param().abi(), pfureadyflags as _, core::mem::transmute(abmac.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TransferContainerData2)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute_copy(&pprogresscallback.param().borrow()), pfureadyflags as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
 }
 #[repr(C)]
@@ -2213,14 +2213,14 @@ pub struct ISCPSecureExchange2_Vtbl {
     pub TransferContainerData2: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureExchange2_Impl: ISCPSecureExchange_Impl {
-    fn TransferContainerData2(&self, pdata: *const u8, dwsize: u32, pprogresscallback: windows_core::Ref<IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn TransferContainerData2(&self, pdata: *const u8, dwsize: u32, pprogresscallback: Option<&IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
 }
 impl ISCPSecureExchange2_Vtbl {
     pub const fn new<Identity: ISCPSecureExchange2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TransferContainerData2<Identity: ISCPSecureExchange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pprogresscallback: *mut core::ffi::c_void, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISCPSecureExchange2_Impl::TransferContainerData2(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pprogresscallback), core::mem::transmute_copy(&pfureadyflags), core::mem::transmute_copy(&abmac)).into()
+                ISCPSecureExchange2_Impl::TransferContainerData2(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), windows_core::Ref::option_from_abi(&pprogresscallback), core::mem::transmute_copy(&pfureadyflags), core::mem::transmute_copy(&abmac)).into()
             }
         }
         Self { base__: ISCPSecureExchange_Vtbl::new::<Identity, OFFSET>(), TransferContainerData2: TransferContainerData2::<Identity, OFFSET> }
@@ -2246,20 +2246,20 @@ impl ISCPSecureExchange3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TransferContainerDataOnClearChannel)(windows_core::Interface::as_raw(self), pdevice.param().abi(), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pprogresscallback.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).TransferContainerDataOnClearChannel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute_copy(&pprogresscallback.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetObjectDataOnClearChannel<P0>(&self, pdevice: P0, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMDSPDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectDataOnClearChannel)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pdata as _, pdwsize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObjectDataOnClearChannel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), pdata as _, pdwsize as _).ok() }
     }
     pub unsafe fn TransferCompleteForDevice<P0>(&self, pdevice: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMDSPDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TransferCompleteForDevice)(windows_core::Interface::as_raw(self), pdevice.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TransferCompleteForDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2271,16 +2271,16 @@ pub struct ISCPSecureExchange3_Vtbl {
     pub TransferCompleteForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureExchange3_Impl: ISCPSecureExchange2_Impl {
-    fn TransferContainerDataOnClearChannel(&self, pdevice: windows_core::Ref<IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: windows_core::Ref<IWMDMProgress3>) -> windows_core::Result<u32>;
-    fn GetObjectDataOnClearChannel(&self, pdevice: windows_core::Ref<IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
-    fn TransferCompleteForDevice(&self, pdevice: windows_core::Ref<IMDSPDevice>) -> windows_core::Result<()>;
+    fn TransferContainerDataOnClearChannel(&self, pdevice: Option<&IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: Option<&IWMDMProgress3>) -> windows_core::Result<u32>;
+    fn GetObjectDataOnClearChannel(&self, pdevice: Option<&IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+    fn TransferCompleteForDevice(&self, pdevice: Option<&IMDSPDevice>) -> windows_core::Result<()>;
 }
 impl ISCPSecureExchange3_Vtbl {
     pub const fn new<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TransferContainerDataOnClearChannel<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pprogresscallback: *mut core::ffi::c_void, pfureadyflags: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISCPSecureExchange3_Impl::TransferContainerDataOnClearChannel(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pprogresscallback)) {
+                match ISCPSecureExchange3_Impl::TransferContainerDataOnClearChannel(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), windows_core::Ref::option_from_abi(&pprogresscallback)) {
                     Ok(ok__) => {
                         pfureadyflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2292,13 +2292,13 @@ impl ISCPSecureExchange3_Vtbl {
         unsafe extern "system" fn GetObjectDataOnClearChannel<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISCPSecureExchange3_Impl::GetObjectDataOnClearChannel(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
+                ISCPSecureExchange3_Impl::GetObjectDataOnClearChannel(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
             }
         }
         unsafe extern "system" fn TransferCompleteForDevice<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISCPSecureExchange3_Impl::TransferCompleteForDevice(this, core::mem::transmute_copy(&pdevice)).into()
+                ISCPSecureExchange3_Impl::TransferCompleteForDevice(this, windows_core::Ref::option_from_abi(&pdevice)).into()
             }
         }
         Self {
@@ -2323,19 +2323,19 @@ impl ISCPSecureQuery {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExamineData)(windows_core::Interface::as_raw(self), fuflags, pwszextension.param().abi(), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(abmac.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExamineData)(windows_core::Interface::as_raw(self), fuflags, core::mem::transmute_copy(&pwszextension.param().borrow()), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(abmac.as_ptr())).ok() }
     }
     pub unsafe fn MakeDecision<P6>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, ppexchange: *mut Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> windows_core::Result<()>
     where
         P6: windows_core::Param<IMDSPStorageGlobals>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MakeDecision)(windows_core::Interface::as_raw(self), fuflags, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), dwappsec, core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstorageglobals.param().abi(), core::mem::transmute(ppexchange), core::mem::transmute(abmac.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MakeDecision)(windows_core::Interface::as_raw(self), fuflags, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), dwappsec, core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), core::mem::transmute_copy(&pstorageglobals.param().borrow()), core::mem::transmute(ppexchange), core::mem::transmute(abmac.as_ptr())).ok() }
     }
     pub unsafe fn GetRights<P4>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()>
     where
         P4: windows_core::Param<IMDSPStorageGlobals>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetRights)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstgglobals.param().abi(), pprights as _, pnrightscount as _, core::mem::transmute(abmac.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRights)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), core::mem::transmute_copy(&pstgglobals.param().borrow()), pprights as _, pnrightscount as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
 }
 #[repr(C)]
@@ -2350,8 +2350,8 @@ pub struct ISCPSecureQuery_Vtbl {
 pub trait ISCPSecureQuery_Impl: windows_core::IUnknownImpl {
     fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
     fn ExamineData(&self, fuflags: u32, pwszextension: &windows_core::PCWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn MakeDecision(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<IMDSPStorageGlobals>, ppexchange: windows_core::OutRef<ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
-    fn GetRights(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: windows_core::Ref<IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn MakeDecision(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Option<&IMDSPStorageGlobals>, ppexchange: windows_core::OutRef<ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
+    fn GetRights(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Option<&IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
 }
 impl ISCPSecureQuery_Vtbl {
     pub const fn new<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>() -> Self {
@@ -2370,13 +2370,13 @@ impl ISCPSecureQuery_Vtbl {
         unsafe extern "system" fn MakeDecision<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: *mut core::ffi::c_void, ppexchange: *mut *mut core::ffi::c_void, abmac: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISCPSecureQuery_Impl::MakeDecision(this, core::mem::transmute_copy(&fuflags), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&dwappsec), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), core::mem::transmute_copy(&pstorageglobals), core::mem::transmute_copy(&ppexchange), core::mem::transmute_copy(&abmac)).into()
+                ISCPSecureQuery_Impl::MakeDecision(this, core::mem::transmute_copy(&fuflags), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&dwappsec), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), windows_core::Ref::option_from_abi(&pstorageglobals), core::mem::transmute_copy(&ppexchange), core::mem::transmute_copy(&abmac)).into()
             }
         }
         unsafe extern "system" fn GetRights<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISCPSecureQuery_Impl::GetRights(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), core::mem::transmute_copy(&pstgglobals), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
+                ISCPSecureQuery_Impl::GetRights(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), windows_core::Ref::option_from_abi(&pstgglobals), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
             }
         }
         Self {
@@ -2415,7 +2415,7 @@ impl ISCPSecureQuery2 {
                 dwappsec,
                 core::mem::transmute(pbspsessionkey.as_ptr()),
                 pbspsessionkey.len().try_into().unwrap(),
-                pstorageglobals.param().abi(),
+                core::mem::transmute_copy(&pstorageglobals.param().borrow()),
                 core::mem::transmute(pappcertapp.as_ptr()),
                 pappcertapp.len().try_into().unwrap(),
                 core::mem::transmute(pappcertsp.as_ptr()),
@@ -2424,7 +2424,7 @@ impl ISCPSecureQuery2 {
                 pdwrevocationurllen as _,
                 pdwrevocationbitflag as _,
                 pqwfilesize.unwrap_or(core::mem::zeroed()) as _,
-                punknown.param().abi(),
+                core::mem::transmute_copy(&punknown.param().borrow()),
                 core::mem::transmute(ppexchange),
                 core::mem::transmute(abmac.as_ptr()),
             )
@@ -2439,7 +2439,7 @@ pub struct ISCPSecureQuery2_Vtbl {
     pub MakeDecision2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8, u32, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut windows_core::PWSTR, *mut u32, *mut u32, *mut u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureQuery2_Impl: ISCPSecureQuery_Impl {
-    fn MakeDecision2(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: windows_core::Ref<windows_core::IUnknown>, ppexchange: windows_core::OutRef<ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
+    fn MakeDecision2(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Option<&IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Option<&windows_core::IUnknown>, ppexchange: windows_core::OutRef<ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
 }
 impl ISCPSecureQuery2_Vtbl {
     pub const fn new<Identity: ISCPSecureQuery2_Impl, const OFFSET: isize>() -> Self {
@@ -2454,7 +2454,7 @@ impl ISCPSecureQuery2_Vtbl {
                     core::mem::transmute_copy(&dwappsec),
                     core::mem::transmute_copy(&pbspsessionkey),
                     core::mem::transmute_copy(&dwsessionkeylen),
-                    core::mem::transmute_copy(&pstorageglobals),
+                    windows_core::Ref::option_from_abi(&pstorageglobals),
                     core::mem::transmute_copy(&pappcertapp),
                     core::mem::transmute_copy(&dwappcertapplen),
                     core::mem::transmute_copy(&pappcertsp),
@@ -2463,7 +2463,7 @@ impl ISCPSecureQuery2_Vtbl {
                     core::mem::transmute_copy(&pdwrevocationurllen),
                     core::mem::transmute_copy(&pdwrevocationbitflag),
                     core::mem::transmute_copy(&pqwfilesize),
-                    core::mem::transmute_copy(&punknown),
+                    windows_core::Ref::option_from_abi(&punknown),
                     core::mem::transmute_copy(&ppexchange),
                     core::mem::transmute_copy(&abmac),
                 )
@@ -2491,7 +2491,7 @@ impl ISCPSecureQuery3 {
         P4: windows_core::Param<IMDSPStorageGlobals>,
         P5: windows_core::Param<IWMDMProgress3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetRightsOnClearChannel)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstgglobals.param().abi(), pprogresscallback.param().abi(), pprights as _, pnrightscount as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRightsOnClearChannel)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), core::mem::transmute_copy(&pstgglobals.param().borrow()), core::mem::transmute_copy(&pprogresscallback.param().borrow()), pprights as _, pnrightscount as _).ok() }
     }
     pub unsafe fn MakeDecisionOnClearChannel<P6, P7, P16>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, pprogresscallback: P7, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: Option<*mut u64>, punknown: P16, ppexchange: *mut Option<ISCPSecureExchange>) -> windows_core::Result<()>
     where
@@ -2508,8 +2508,8 @@ impl ISCPSecureQuery3 {
                 dwappsec,
                 core::mem::transmute(pbspsessionkey.as_ptr()),
                 pbspsessionkey.len().try_into().unwrap(),
-                pstorageglobals.param().abi(),
-                pprogresscallback.param().abi(),
+                core::mem::transmute_copy(&pstorageglobals.param().borrow()),
+                core::mem::transmute_copy(&pprogresscallback.param().borrow()),
                 core::mem::transmute(pappcertapp.as_ptr()),
                 pappcertapp.len().try_into().unwrap(),
                 core::mem::transmute(pappcertsp.as_ptr()),
@@ -2518,7 +2518,7 @@ impl ISCPSecureQuery3 {
                 pdwrevocationurllen as _,
                 pdwrevocationbitflag as _,
                 pqwfilesize.unwrap_or(core::mem::zeroed()) as _,
-                punknown.param().abi(),
+                core::mem::transmute_copy(&punknown.param().borrow()),
                 core::mem::transmute(ppexchange),
             )
             .ok()
@@ -2533,15 +2533,15 @@ pub struct ISCPSecureQuery3_Vtbl {
     pub MakeDecisionOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut windows_core::PWSTR, *mut u32, *mut u32, *mut u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureQuery3_Impl: ISCPSecureQuery2_Impl {
-    fn GetRightsOnClearChannel(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: windows_core::Ref<IMDSPStorageGlobals>, pprogresscallback: windows_core::Ref<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
-    fn MakeDecisionOnClearChannel(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<IMDSPStorageGlobals>, pprogresscallback: windows_core::Ref<IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: windows_core::Ref<windows_core::IUnknown>, ppexchange: windows_core::OutRef<ISCPSecureExchange>) -> windows_core::Result<()>;
+    fn GetRightsOnClearChannel(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Option<&IMDSPStorageGlobals>, pprogresscallback: Option<&IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
+    fn MakeDecisionOnClearChannel(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Option<&IMDSPStorageGlobals>, pprogresscallback: Option<&IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Option<&windows_core::IUnknown>, ppexchange: windows_core::OutRef<ISCPSecureExchange>) -> windows_core::Result<()>;
 }
 impl ISCPSecureQuery3_Vtbl {
     pub const fn new<Identity: ISCPSecureQuery3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetRightsOnClearChannel<Identity: ISCPSecureQuery3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: *mut core::ffi::c_void, pprogresscallback: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISCPSecureQuery3_Impl::GetRightsOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), core::mem::transmute_copy(&pstgglobals), core::mem::transmute_copy(&pprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
+                ISCPSecureQuery3_Impl::GetRightsOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), windows_core::Ref::option_from_abi(&pstgglobals), windows_core::Ref::option_from_abi(&pprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
             }
         }
         unsafe extern "system" fn MakeDecisionOnClearChannel<Identity: ISCPSecureQuery3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: *mut core::ffi::c_void, pprogresscallback: *mut core::ffi::c_void, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut core::ffi::c_void, ppexchange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2555,8 +2555,8 @@ impl ISCPSecureQuery3_Vtbl {
                     core::mem::transmute_copy(&dwappsec),
                     core::mem::transmute_copy(&pbspsessionkey),
                     core::mem::transmute_copy(&dwsessionkeylen),
-                    core::mem::transmute_copy(&pstorageglobals),
-                    core::mem::transmute_copy(&pprogresscallback),
+                    windows_core::Ref::option_from_abi(&pstorageglobals),
+                    windows_core::Ref::option_from_abi(&pprogresscallback),
                     core::mem::transmute_copy(&pappcertapp),
                     core::mem::transmute_copy(&dwappcertapplen),
                     core::mem::transmute_copy(&pappcertsp),
@@ -2565,7 +2565,7 @@ impl ISCPSecureQuery3_Vtbl {
                     core::mem::transmute_copy(&pdwrevocationurllen),
                     core::mem::transmute_copy(&pdwrevocationbitflag),
                     core::mem::transmute_copy(&pqwfilesize),
-                    core::mem::transmute_copy(&punknown),
+                    windows_core::Ref::option_from_abi(&punknown),
                     core::mem::transmute_copy(&ppexchange),
                 )
                 .into()
@@ -2589,7 +2589,7 @@ impl ISCPSession {
     where
         P0: windows_core::Param<IMDSPDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginSession)(windows_core::Interface::as_raw(self), pidevice.param().abi(), core::mem::transmute(pctx.as_ptr()), pctx.len().try_into().unwrap()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BeginSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pidevice.param().borrow()), core::mem::transmute(pctx.as_ptr()), pctx.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn EndSession(&self, pctx: &[u8]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndSession)(windows_core::Interface::as_raw(self), core::mem::transmute(pctx.as_ptr()), pctx.len().try_into().unwrap()).ok() }
@@ -2610,7 +2610,7 @@ pub struct ISCPSession_Vtbl {
     pub GetSecureQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSession_Impl: windows_core::IUnknownImpl {
-    fn BeginSession(&self, pidevice: windows_core::Ref<IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
+    fn BeginSession(&self, pidevice: Option<&IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
     fn EndSession(&self, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
     fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery>;
 }
@@ -2619,7 +2619,7 @@ impl ISCPSession_Vtbl {
         unsafe extern "system" fn BeginSession<Identity: ISCPSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidevice: *mut core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISCPSession_Impl::BeginSession(this, core::mem::transmute_copy(&pidevice), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
+                ISCPSession_Impl::BeginSession(this, windows_core::Ref::option_from_abi(&pidevice), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
             }
         }
         unsafe extern "system" fn EndSession<Identity: ISCPSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> windows_core::HRESULT {
@@ -2873,7 +2873,7 @@ impl IWMDMDevice2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszstoragename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -2973,7 +2973,7 @@ impl IWMDMDevice3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszpropname.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -2981,7 +2981,7 @@ impl IWMDMDevice3 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), core::mem::transmute(pvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszpropname.param().borrow()), core::mem::transmute(pvalue)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY> {
@@ -2999,7 +2999,7 @@ impl IWMDMDevice3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, core::mem::transmute_copy(&pwszuniqueid.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3480,21 +3480,21 @@ impl IWMDMLogger {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLogFileName)(windows_core::Interface::as_raw(self), pszfilename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetLogFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszfilename.param().borrow())).ok() }
     }
     pub unsafe fn LogString<P1, P2>(&self, dwflags: u32, pszsrcname: P1, pszlog: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LogString)(windows_core::Interface::as_raw(self), dwflags, pszsrcname.param().abi(), pszlog.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LogString)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute_copy(&pszsrcname.param().borrow()), core::mem::transmute_copy(&pszlog.param().borrow())).ok() }
     }
     pub unsafe fn LogDword<P1, P2>(&self, dwflags: u32, pszsrcname: P1, pszlogformat: P2, dwlog: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LogDword)(windows_core::Interface::as_raw(self), dwflags, pszsrcname.param().abi(), pszlogformat.param().abi(), dwlog).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LogDword)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute_copy(&pszsrcname.param().borrow()), core::mem::transmute_copy(&pszlogformat.param().borrow()), dwlog).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3618,13 +3618,13 @@ impl IWMDMMetaData {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), r#type, pwsztagname.param().abi(), core::mem::transmute(pvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute_copy(&pwsztagname.param().borrow()), core::mem::transmute(pvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn QueryByName<P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryByName)(windows_core::Interface::as_raw(self), pwsztagname.param().abi(), ptype as _, pvalue as _, pcblength as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwsztagname.param().borrow()), ptype as _, pvalue as _, pcblength as _).ok() }
     }
     pub unsafe fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).QueryByIndex)(windows_core::Interface::as_raw(self), iindex, ppwszname as _, ptype as _, ppvalue as _, pcblength as _).ok() }
@@ -3703,7 +3703,7 @@ impl IWMDMNotification {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WMDMMessage)(windows_core::Interface::as_raw(self), dwmessagetype, pwszcanonicalname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WMDMMessage)(windows_core::Interface::as_raw(self), dwmessagetype, core::mem::transmute_copy(&pwszcanonicalname.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3917,7 +3917,7 @@ impl IWMDMOperation {
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self), phcompletioncode, pnewobject.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self), phcompletioncode, core::mem::transmute_copy(&pnewobject.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3952,7 +3952,7 @@ pub trait IWMDMOperation_Impl: windows_core::IUnknownImpl {
     fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()>;
     fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> windows_core::Result<()>;
     fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn End(&self, phcompletioncode: *const windows_core::HRESULT, pnewobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn End(&self, phcompletioncode: *const windows_core::HRESULT, pnewobject: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMOperation_Vtbl {
@@ -4014,7 +4014,7 @@ impl IWMDMOperation_Vtbl {
         unsafe extern "system" fn End<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phcompletioncode: *const windows_core::HRESULT, pnewobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMOperation_Impl::End(this, core::mem::transmute_copy(&phcompletioncode), core::mem::transmute_copy(&pnewobject)).into()
+                IWMDMOperation_Impl::End(this, core::mem::transmute_copy(&phcompletioncode), windows_core::Ref::option_from_abi(&pnewobject)).into()
             }
         }
         Self {
@@ -4513,7 +4513,7 @@ impl IWMDMStorage2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszstoragename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -4604,7 +4604,7 @@ impl IWMDMStorage3 {
     where
         P0: windows_core::Param<IWMDMMetaData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMetadata)(windows_core::Interface::as_raw(self), pmetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pmetadata.param().borrow())).ok() }
     }
     pub unsafe fn CreateEmptyMetadataObject(&self) -> windows_core::Result<IWMDMMetaData> {
         unsafe {
@@ -4628,7 +4628,7 @@ pub struct IWMDMStorage3_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage3_Impl: IWMDMStorage2_Impl {
     fn GetMetadata(&self) -> windows_core::Result<IWMDMMetaData>;
-    fn SetMetadata(&self, pmetadata: windows_core::Ref<IWMDMMetaData>) -> windows_core::Result<()>;
+    fn SetMetadata(&self, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
     fn CreateEmptyMetadataObject(&self) -> windows_core::Result<IWMDMMetaData>;
     fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> windows_core::Result<()>;
 }
@@ -4650,7 +4650,7 @@ impl IWMDMStorage3_Vtbl {
         unsafe extern "system" fn SetMetadata<Identity: IWMDMStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorage3_Impl::SetMetadata(this, core::mem::transmute_copy(&pmetadata)).into()
+                IWMDMStorage3_Impl::SetMetadata(this, windows_core::Ref::option_from_abi(&pmetadata)).into()
             }
         }
         unsafe extern "system" fn CreateEmptyMetadataObject<Identity: IWMDMStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4704,7 +4704,7 @@ impl IWMDMStorage4 {
     where
         P0: windows_core::Param<IWMDMProgress3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetRightsWithProgress)(windows_core::Interface::as_raw(self), piprogresscallback.param().abi(), pprights as _, pnrightscount as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRightsWithProgress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&piprogresscallback.param().borrow()), pprights as _, pnrightscount as _).ok() }
     }
     pub unsafe fn GetSpecifiedMetadata(&self, ppwszpropnames: &[windows_core::PCWSTR]) -> windows_core::Result<IWMDMMetaData> {
         unsafe {
@@ -4718,7 +4718,7 @@ impl IWMDMStorage4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, core::mem::transmute_copy(&pwszuniqueid.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<IWMDMStorage> {
@@ -4743,7 +4743,7 @@ pub struct IWMDMStorage4_Vtbl {
 pub trait IWMDMStorage4_Impl: IWMDMStorage3_Impl {
     fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const Option<IWMDMStorage>) -> windows_core::Result<()>;
     fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> windows_core::Result<()>;
-    fn GetRightsWithProgress(&self, piprogresscallback: windows_core::Ref<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
+    fn GetRightsWithProgress(&self, piprogresscallback: Option<&IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
     fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR) -> windows_core::Result<IWMDMMetaData>;
     fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
     fn GetParent(&self) -> windows_core::Result<IWMDMStorage>;
@@ -4766,7 +4766,7 @@ impl IWMDMStorage4_Vtbl {
         unsafe extern "system" fn GetRightsWithProgress<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piprogresscallback: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorage4_Impl::GetRightsWithProgress(this, core::mem::transmute_copy(&piprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
+                IWMDMStorage4_Impl::GetRightsWithProgress(this, windows_core::Ref::option_from_abi(&piprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
             }
         }
         unsafe extern "system" fn GetSpecifiedMetadata<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, ppmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4832,21 +4832,21 @@ impl IWMDMStorageControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), fumode, pwszfile.param().abi(), poperation.param().abi(), pprogress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pwszfile.param().borrow()), core::mem::transmute_copy(&poperation.param().borrow()), core::mem::transmute_copy(&pprogress.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Delete<P1>(&self, fumode: u32, pprogress: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pprogress.param().borrow())).ok() }
     }
     pub unsafe fn Rename<P1, P2>(&self, fumode: u32, pwsznewname: P1, pprogress: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<IWMDMProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), fumode, pwsznewname.param().abi(), pprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pwsznewname.param().borrow()), core::mem::transmute_copy(&pprogress.param().borrow())).ok() }
     }
     pub unsafe fn Read<P1, P2, P3>(&self, fumode: u32, pwszfile: P1, pprogress: P2, poperation: P3) -> windows_core::Result<()>
     where
@@ -4854,14 +4854,14 @@ impl IWMDMStorageControl {
         P2: windows_core::Param<IWMDMProgress>,
         P3: windows_core::Param<IWMDMOperation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), fumode, pwszfile.param().abi(), pprogress.param().abi(), poperation.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pwszfile.param().borrow()), core::mem::transmute_copy(&pprogress.param().borrow()), core::mem::transmute_copy(&poperation.param().borrow())).ok() }
     }
     pub unsafe fn Move<P1, P2>(&self, fumode: u32, ptargetobject: P1, pprogress: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IWMDMStorage>,
         P2: windows_core::Param<IWMDMProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), fumode, ptargetobject.param().abi(), pprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&ptargetobject.param().borrow()), core::mem::transmute_copy(&pprogress.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -4875,18 +4875,18 @@ pub struct IWMDMStorageControl_Vtbl {
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMStorageControl_Impl: windows_core::IUnknownImpl {
-    fn Insert(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, poperation: windows_core::Ref<IWMDMOperation>, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<IWMDMStorage>;
-    fn Delete(&self, fumode: u32, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<()>;
-    fn Rename(&self, fumode: u32, pwsznewname: &windows_core::PCWSTR, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<()>;
-    fn Read(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, pprogress: windows_core::Ref<IWMDMProgress>, poperation: windows_core::Ref<IWMDMOperation>) -> windows_core::Result<()>;
-    fn Move(&self, fumode: u32, ptargetobject: windows_core::Ref<IWMDMStorage>, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<()>;
+    fn Insert(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, poperation: Option<&IWMDMOperation>, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<IWMDMStorage>;
+    fn Delete(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn Rename(&self, fumode: u32, pwsznewname: &windows_core::PCWSTR, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn Read(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, pprogress: Option<&IWMDMProgress>, poperation: Option<&IWMDMOperation>) -> windows_core::Result<()>;
+    fn Move(&self, fumode: u32, ptargetobject: Option<&IWMDMStorage>, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
 }
 impl IWMDMStorageControl_Vtbl {
     pub const fn new<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Insert<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwszfile: windows_core::PCWSTR, poperation: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMDMStorageControl_Impl::Insert(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), core::mem::transmute_copy(&poperation), core::mem::transmute_copy(&pprogress)) {
+                match IWMDMStorageControl_Impl::Insert(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), windows_core::Ref::option_from_abi(&poperation), windows_core::Ref::option_from_abi(&pprogress)) {
                     Ok(ok__) => {
                         ppnewobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4898,25 +4898,25 @@ impl IWMDMStorageControl_Vtbl {
         unsafe extern "system" fn Delete<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorageControl_Impl::Delete(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
+                IWMDMStorageControl_Impl::Delete(this, core::mem::transmute_copy(&fumode), windows_core::Ref::option_from_abi(&pprogress)).into()
             }
         }
         unsafe extern "system" fn Rename<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwsznewname: windows_core::PCWSTR, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorageControl_Impl::Rename(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwsznewname), core::mem::transmute_copy(&pprogress)).into()
+                IWMDMStorageControl_Impl::Rename(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwsznewname), windows_core::Ref::option_from_abi(&pprogress)).into()
             }
         }
         unsafe extern "system" fn Read<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwszfile: windows_core::PCWSTR, pprogress: *mut core::ffi::c_void, poperation: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorageControl_Impl::Read(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&poperation)).into()
+                IWMDMStorageControl_Impl::Read(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), windows_core::Ref::option_from_abi(&pprogress), windows_core::Ref::option_from_abi(&poperation)).into()
             }
         }
         unsafe extern "system" fn Move<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, ptargetobject: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorageControl_Impl::Move(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&ptargetobject), core::mem::transmute_copy(&pprogress)).into()
+                IWMDMStorageControl_Impl::Move(this, core::mem::transmute_copy(&fumode), windows_core::Ref::option_from_abi(&ptargetobject), windows_core::Ref::option_from_abi(&pprogress)).into()
             }
         }
         Self {
@@ -4950,7 +4950,7 @@ impl IWMDMStorageControl2 {
         P4: windows_core::Param<IWMDMProgress>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Insert2)(windows_core::Interface::as_raw(self), fumode, pwszfilesource.param().abi(), pwszfiledest.param().abi(), poperation.param().abi(), pprogress.param().abi(), punknown.param().abi(), ppnewobject.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Insert2)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pwszfilesource.param().borrow()), core::mem::transmute_copy(&pwszfiledest.param().borrow()), core::mem::transmute_copy(&poperation.param().borrow()), core::mem::transmute_copy(&pprogress.param().borrow()), core::mem::transmute_copy(&punknown.param().borrow()), ppnewobject.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -4960,14 +4960,14 @@ pub struct IWMDMStorageControl2_Vtbl {
     pub Insert2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMStorageControl2_Impl: IWMDMStorageControl_Impl {
-    fn Insert2(&self, fumode: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: windows_core::Ref<IWMDMOperation>, pprogress: windows_core::Ref<IWMDMProgress>, punknown: windows_core::Ref<windows_core::IUnknown>, ppnewobject: windows_core::OutRef<IWMDMStorage>) -> windows_core::Result<()>;
+    fn Insert2(&self, fumode: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: Option<&IWMDMOperation>, pprogress: Option<&IWMDMProgress>, punknown: Option<&windows_core::IUnknown>, ppnewobject: windows_core::OutRef<IWMDMStorage>) -> windows_core::Result<()>;
 }
 impl IWMDMStorageControl2_Vtbl {
     pub const fn new<Identity: IWMDMStorageControl2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Insert2<Identity: IWMDMStorageControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwszfilesource: windows_core::PCWSTR, pwszfiledest: windows_core::PCWSTR, poperation: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void, punknown: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorageControl2_Impl::Insert2(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), core::mem::transmute_copy(&poperation), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
+                IWMDMStorageControl2_Impl::Insert2(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), windows_core::Ref::option_from_abi(&poperation), windows_core::Ref::option_from_abi(&pprogress), windows_core::Ref::option_from_abi(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
             }
         }
         Self { base__: IWMDMStorageControl_Vtbl::new::<Identity, OFFSET>(), Insert2: Insert2::<Identity, OFFSET> }
@@ -4995,7 +4995,7 @@ impl IWMDMStorageControl3 {
         P6: windows_core::Param<IWMDMMetaData>,
         P7: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Insert3)(windows_core::Interface::as_raw(self), fumode, futype, pwszfilesource.param().abi(), pwszfiledest.param().abi(), poperation.param().abi(), pprogress.param().abi(), pmetadata.param().abi(), punknown.param().abi(), ppnewobject.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Insert3)(windows_core::Interface::as_raw(self), fumode, futype, core::mem::transmute_copy(&pwszfilesource.param().borrow()), core::mem::transmute_copy(&pwszfiledest.param().borrow()), core::mem::transmute_copy(&poperation.param().borrow()), core::mem::transmute_copy(&pprogress.param().borrow()), core::mem::transmute_copy(&pmetadata.param().borrow()), core::mem::transmute_copy(&punknown.param().borrow()), ppnewobject.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -5005,14 +5005,14 @@ pub struct IWMDMStorageControl3_Vtbl {
     pub Insert3: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMStorageControl3_Impl: IWMDMStorageControl2_Impl {
-    fn Insert3(&self, fumode: u32, futype: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: windows_core::Ref<IWMDMOperation>, pprogress: windows_core::Ref<IWMDMProgress>, pmetadata: windows_core::Ref<IWMDMMetaData>, punknown: windows_core::Ref<windows_core::IUnknown>, ppnewobject: windows_core::OutRef<IWMDMStorage>) -> windows_core::Result<()>;
+    fn Insert3(&self, fumode: u32, futype: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: Option<&IWMDMOperation>, pprogress: Option<&IWMDMProgress>, pmetadata: Option<&IWMDMMetaData>, punknown: Option<&windows_core::IUnknown>, ppnewobject: windows_core::OutRef<IWMDMStorage>) -> windows_core::Result<()>;
 }
 impl IWMDMStorageControl3_Vtbl {
     pub const fn new<Identity: IWMDMStorageControl3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Insert3<Identity: IWMDMStorageControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, futype: u32, pwszfilesource: windows_core::PCWSTR, pwszfiledest: windows_core::PCWSTR, poperation: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void, punknown: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorageControl3_Impl::Insert3(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&futype), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), core::mem::transmute_copy(&poperation), core::mem::transmute_copy(&pprogress), core::mem::transmute_copy(&pmetadata), core::mem::transmute_copy(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
+                IWMDMStorageControl3_Impl::Insert3(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&futype), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), windows_core::Ref::option_from_abi(&poperation), windows_core::Ref::option_from_abi(&pprogress), windows_core::Ref::option_from_abi(&pmetadata), windows_core::Ref::option_from_abi(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
             }
         }
         Self { base__: IWMDMStorageControl2_Vtbl::new::<Identity, OFFSET>(), Insert3: Insert3::<Identity, OFFSET> }
@@ -5053,7 +5053,7 @@ impl IWMDMStorageGlobals {
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fumode, core::mem::transmute_copy(&pprogress.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -5075,7 +5075,7 @@ pub trait IWMDMStorageGlobals_Impl: windows_core::IUnknownImpl {
     fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()>;
     fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()>;
     fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn Initialize(&self, fumode: u32, pprogress: windows_core::Ref<IWMDMProgress>) -> windows_core::Result<()>;
+    fn Initialize(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
 }
 impl IWMDMStorageGlobals_Vtbl {
     pub const fn new<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>() -> Self {
@@ -5130,7 +5130,7 @@ impl IWMDMStorageGlobals_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMDMStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&pprogress)).into()
+                IWMDMStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), windows_core::Ref::option_from_abi(&pprogress)).into()
             }
         }
         Self {
@@ -5249,7 +5249,7 @@ impl IWMDeviceManager2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceFromCanonicalName)(windows_core::Interface::as_raw(self), pwszcanonicalname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeviceFromCanonicalName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwszcanonicalname.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumDevices2(&self) -> windows_core::Result<IWMDMEnumDevice> {

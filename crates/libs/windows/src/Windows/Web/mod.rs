@@ -20,7 +20,7 @@ impl IUriToStreamResolver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UriToStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UriToStreamAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -30,7 +30,7 @@ impl windows_core::RuntimeName for IUriToStreamResolver {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IUriToStreamResolver_Impl: windows_core::IUnknownImpl {
-    fn UriToStreamAsync(&self, uri: windows_core::Ref<super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>;
+    fn UriToStreamAsync(&self, uri: Option<&super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IUriToStreamResolver_Vtbl {
@@ -38,7 +38,7 @@ impl IUriToStreamResolver_Vtbl {
         unsafe extern "system" fn UriToStreamAsync<Identity: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUriToStreamResolver_Impl::UriToStreamAsync(this, core::mem::transmute_copy(&uri)) {
+                match IUriToStreamResolver_Impl::UriToStreamAsync(this, windows_core::Ref::option_from_abi(&uri)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

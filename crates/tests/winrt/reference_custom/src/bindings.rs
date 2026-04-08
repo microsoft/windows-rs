@@ -646,10 +646,7 @@ pub trait ITest_Impl: windows_core::IUnknownImpl {
     fn Numerics(&self, n: &Vector2) -> windows_core::Result<()>;
     fn Collections(&self, c: Option<&IVector<i32>>) -> windows_core::Result<()>;
     fn Async(&self) -> windows_core::Result<IAsyncAction>;
-    fn Windows(
-        &self,
-        s: Option<&windows::Foundation::IStringable>,
-    ) -> windows_core::Result<()>;
+    fn Windows(&self, s: Option<&windows::Foundation::IStringable>) -> windows_core::Result<()>;
 }
 impl ITest_Vtbl {
     pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {
@@ -1049,7 +1046,8 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::InsertAt(this, index, windows_core::Ref::option_from_abi(&value)).into()
+                IVector_Impl::InsertAt(this, index, windows_core::Ref::option_from_abi(&value))
+                    .into()
             }
         }
         unsafe extern "system" fn RemoveAt<

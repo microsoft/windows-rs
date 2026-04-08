@@ -14,7 +14,7 @@ impl AggregateContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindRawContactsAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindRawContactsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryLinkContactsAsync<P0, P1>(&self, primarycontact: P0, secondarycontact: P1) -> windows_core::Result<windows_future::IAsyncOperation<Contact>>
@@ -25,7 +25,7 @@ impl AggregateContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryLinkContactsAsync)(windows_core::Interface::as_raw(this), primarycontact.param().abi(), secondarycontact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryLinkContactsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&primarycontact.param().borrow()), core::mem::transmute_copy(&secondarycontact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UnlinkRawContactAsync<P0>(&self, contact: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -35,7 +35,7 @@ impl AggregateContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnlinkRawContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UnlinkRawContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TrySetPreferredSourceForPictureAsync<P0, P1>(&self, aggregatecontact: P0, rawcontact: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -46,7 +46,7 @@ impl AggregateContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetPreferredSourceForPictureAsync)(windows_core::Interface::as_raw(this), aggregatecontact.param().abi(), rawcontact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySetPreferredSourceForPictureAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&aggregatecontact.param().borrow()), core::mem::transmute_copy(&rawcontact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetRemoteIdentificationInformationAsync(&self, contactlistid: &windows_core::HSTRING, remotesourceid: &windows_core::HSTRING, accountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -106,7 +106,7 @@ impl Contact {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Fields(&self) -> windows_core::Result<windows_collections::IVector<IContactField>> {
         let this = self;
@@ -299,7 +299,7 @@ impl Contact {
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = &windows_core::Interface::cast::<IContact3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSourceDisplayPicture)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSourceDisplayPicture)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn TextToneToken(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IContact3>(self)?;
@@ -713,7 +713,7 @@ impl ContactAnnotationList {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySaveAnnotationAsync)(windows_core::Interface::as_raw(this), annotation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TrySaveAnnotationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&annotation.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAnnotationAsync(&self, annotationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ContactAnnotation>> {
@@ -744,7 +744,7 @@ impl ContactAnnotationList {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteAnnotationAsync)(windows_core::Interface::as_raw(this), annotation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteAnnotationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&annotation.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -838,7 +838,7 @@ impl ContactAnnotationStore {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindAnnotationsForContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindAnnotationsForContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisableAnnotationAsync<P0>(&self, annotation: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -848,7 +848,7 @@ impl ContactAnnotationStore {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisableAnnotationAsync)(windows_core::Interface::as_raw(this), annotation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisableAnnotationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&annotation.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateAnnotationListAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ContactAnnotationList>> {
@@ -973,7 +973,7 @@ impl ContactCardDelayedDataLoader {
         P0: windows_core::Param<Contact>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), contact.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for ContactCardDelayedDataLoader {
@@ -1119,7 +1119,7 @@ impl ContactChangeReader {
         P0: windows_core::Param<ContactChange>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AcceptChangesThrough)(windows_core::Interface::as_raw(this), lastchangetoaccept.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AcceptChangesThrough)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&lastchangetoaccept.param().borrow())).ok() }
     }
     pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ContactChange>>> {
         let this = self;
@@ -1314,7 +1314,7 @@ impl ContactDate {
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDay)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDay)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Month(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -1328,7 +1328,7 @@ impl ContactDate {
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMonth)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMonth)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Year(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -1342,7 +1342,7 @@ impl ContactDate {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetYear)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetYear)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Kind(&self) -> windows_core::Result<ContactDateKind> {
         let this = self;
@@ -1605,7 +1605,7 @@ impl ContactFieldFactory {
         let this = &windows_core::Interface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstantMessage_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, core::mem::transmute_copy(service), core::mem::transmute_copy(displaytext), verb.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstantMessage_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, core::mem::transmute_copy(service), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(&verb.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateLocation_Default(&self, unstructuredaddress: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField> {
@@ -1835,7 +1835,7 @@ impl ContactInstantMessageField {
     {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstantMessage_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, core::mem::transmute_copy(service), core::mem::transmute_copy(displaytext), verb.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstantMessage_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, core::mem::transmute_copy(service), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(&verb.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IContactInstantMessageFieldFactory<R, F: FnOnce(&IContactInstantMessageFieldFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2106,7 +2106,7 @@ impl ContactList {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContactChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveContactChanged(&self, value: i64) -> windows_core::Result<()> {
@@ -2155,7 +2155,7 @@ impl ContactList {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetContactReaderWithOptions)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetContactReaderWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SaveContactAsync<P0>(&self, contact: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2165,7 +2165,7 @@ impl ContactList {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeleteContactAsync<P0>(&self, contact: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2175,7 +2175,7 @@ impl ContactList {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetContactAsync(&self, contactid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Contact>> {
@@ -2242,7 +2242,7 @@ impl ContactListLimitedWriteOperations {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateOrUpdateContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateOrUpdateContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryDeleteContactAsync(&self, contactid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2322,7 +2322,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxHomePhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxHomePhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxMobilePhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2336,7 +2336,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxMobilePhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxMobilePhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxWorkPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2350,7 +2350,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxWorkPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxWorkPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxOtherPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2364,7 +2364,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxPagerPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2378,7 +2378,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxPagerPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxPagerPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxBusinessFaxPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2392,7 +2392,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxBusinessFaxPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxBusinessFaxPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxHomeFaxPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2406,7 +2406,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxHomeFaxPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxHomeFaxPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxCompanyPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2420,7 +2420,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxCompanyPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxCompanyPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxAssistantPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2434,7 +2434,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxAssistantPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxAssistantPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxRadioPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2448,7 +2448,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxRadioPhoneNumbers)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxRadioPhoneNumbers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxPersonalEmailAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2462,7 +2462,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxPersonalEmailAddresses)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxPersonalEmailAddresses)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxWorkEmailAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2476,7 +2476,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxWorkEmailAddresses)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxWorkEmailAddresses)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxOtherEmailAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2490,7 +2490,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherEmailAddresses)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherEmailAddresses)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxHomeAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2504,7 +2504,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxHomeAddresses)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxHomeAddresses)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxWorkAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2518,7 +2518,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxWorkAddresses)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxWorkAddresses)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxOtherAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2532,7 +2532,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherAddresses)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherAddresses)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxBirthdayDates(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2546,7 +2546,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxBirthdayDates)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxBirthdayDates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxAnniversaryDates(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2560,7 +2560,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxAnniversaryDates)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxAnniversaryDates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxOtherDates(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2574,7 +2574,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherDates)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherDates)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxOtherRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2588,7 +2588,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherRelationships)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxOtherRelationships)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxSpouseRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2602,7 +2602,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxSpouseRelationships)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxSpouseRelationships)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxPartnerRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2616,7 +2616,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxPartnerRelationships)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxPartnerRelationships)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxSiblingRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2630,7 +2630,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxSiblingRelationships)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxSiblingRelationships)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxParentRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2644,7 +2644,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxParentRelationships)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxParentRelationships)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxChildRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2658,7 +2658,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxChildRelationships)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxChildRelationships)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxJobInfo(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2672,7 +2672,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxJobInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxJobInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxWebsites(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2686,7 +2686,7 @@ impl ContactListSyncConstraints {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxWebsites)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxWebsites)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for ContactListSyncConstraints {
@@ -2741,7 +2741,7 @@ impl ContactListSyncManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SyncStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SyncStatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSyncStatusChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2908,14 +2908,14 @@ impl ContactManager {
     where
         P0: windows_core::Param<Contact>,
     {
-        Self::IContactManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowContactCard)(windows_core::Interface::as_raw(this), contact.param().abi(), selection).ok() })
+        Self::IContactManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowContactCard)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), selection).ok() })
     }
     #[cfg(feature = "UI_Popups")]
     pub fn ShowContactCardWithPlacement<P0>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Contact>,
     {
-        Self::IContactManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowContactCardWithPlacement)(windows_core::Interface::as_raw(this), contact.param().abi(), selection, preferredplacement).ok() })
+        Self::IContactManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowContactCardWithPlacement)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), selection, preferredplacement).ok() })
     }
     #[cfg(feature = "UI_Popups")]
     pub fn ShowDelayLoadedContactCard<P0>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<ContactCardDelayedDataLoader>
@@ -2924,7 +2924,7 @@ impl ContactManager {
     {
         Self::IContactManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowDelayLoadedContactCard)(windows_core::Interface::as_raw(this), contact.param().abi(), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShowDelayLoadedContactCard)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestStoreAsync() -> windows_core::Result<windows_future::IAsyncOperation<ContactStore>> {
@@ -2940,7 +2940,7 @@ impl ContactManager {
     {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2950,7 +2950,7 @@ impl ContactManager {
     {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(windows_core::Interface::as_raw(this), contact.param().abi(), maxbytes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), maxbytes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2960,7 +2960,7 @@ impl ContactManager {
     {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertVCardToContactAsync)(windows_core::Interface::as_raw(this), vcard.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertVCardToContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vcard.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestStoreAsyncWithAccessType(accesstype: ContactStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<ContactStore>> {
@@ -2987,7 +2987,7 @@ impl ContactManager {
         P0: windows_core::Param<Contact>,
         P3: windows_core::Param<ContactCardOptions>,
     {
-        Self::IContactManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowContactCardWithOptions)(windows_core::Interface::as_raw(this), contact.param().abi(), selection, preferredplacement, contactcardoptions.param().abi()).ok() })
+        Self::IContactManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowContactCardWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), selection, preferredplacement, core::mem::transmute_copy(&contactcardoptions.param().borrow())).ok() })
     }
     pub fn IsShowDelayLoadedContactCardSupported() -> windows_core::Result<bool> {
         Self::IContactManagerStatics3(|this| unsafe {
@@ -3003,7 +3003,7 @@ impl ContactManager {
     {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowDelayLoadedContactCardWithOptions)(windows_core::Interface::as_raw(this), contact.param().abi(), selection, preferredplacement, contactcardoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShowDelayLoadedContactCardWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), selection, preferredplacement, core::mem::transmute_copy(&contactcardoptions.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn ShowFullContactCard<P0, P1>(contact: P0, fullcontactcardoptions: P1) -> windows_core::Result<()>
@@ -3011,7 +3011,7 @@ impl ContactManager {
         P0: windows_core::Param<Contact>,
         P1: windows_core::Param<FullContactCardOptions>,
     {
-        Self::IContactManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowFullContactCard)(windows_core::Interface::as_raw(this), contact.param().abi(), fullcontactcardoptions.param().abi()).ok() })
+        Self::IContactManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowFullContactCard)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), core::mem::transmute_copy(&fullcontactcardoptions.param().borrow())).ok() })
     }
     pub fn SystemDisplayNameOrder() -> windows_core::Result<ContactNameOrder> {
         Self::IContactManagerStatics3(|this| unsafe {
@@ -3038,7 +3038,7 @@ impl ContactManager {
     {
         Self::IContactManagerStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsShowFullContactCardSupportedAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -3093,7 +3093,7 @@ impl ContactManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3104,7 +3104,7 @@ impl ContactManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(windows_core::Interface::as_raw(this), contact.param().abi(), maxbytes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), maxbytes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -3115,7 +3115,7 @@ impl ContactManagerForUser {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertVCardToContactAsync)(windows_core::Interface::as_raw(this), vcard.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertVCardToContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vcard.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestStoreAsync(&self, accesstype: ContactStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<ContactStore>> {
@@ -3168,7 +3168,7 @@ impl ContactManagerForUser {
         P1: windows_core::Param<FullContactCardOptions>,
     {
         let this = &windows_core::Interface::cast::<IContactManagerForUser2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ShowFullContactCard)(windows_core::Interface::as_raw(this), contact.param().abi(), fullcontactcardoptions.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowFullContactCard)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), core::mem::transmute_copy(&fullcontactcardoptions.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for ContactManagerForUser {
@@ -3276,7 +3276,7 @@ impl ContactPanel {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::UI::Color>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHeaderColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetHeaderColor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn LaunchFullAppRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -3285,7 +3285,7 @@ impl ContactPanel {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFullAppRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LaunchFullAppRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveLaunchFullAppRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -3299,7 +3299,7 @@ impl ContactPanel {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosing(&self, token: i64) -> windows_core::Result<()> {
@@ -3543,7 +3543,7 @@ impl ContactPicker {
     {
         Self::IContactPickerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupportedAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -3842,7 +3842,7 @@ impl ContactReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMatchingPropertiesWithMatchReason)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetMatchingPropertiesWithMatchReason)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3986,7 +3986,7 @@ impl ContactStore {
         let this = &windows_core::Interface::cast::<IContactStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContactChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveContactChanged(&self, value: i64) -> windows_core::Result<()> {
@@ -4042,7 +4042,7 @@ impl ContactStore {
         let this = &windows_core::Interface::cast::<IContactStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetContactReaderWithOptions)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetContactReaderWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&options.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateContactListInAccountAsync(&self, displayname: &windows_core::HSTRING, userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ContactList>> {
@@ -4127,7 +4127,7 @@ impl ContactWebsite {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -4854,7 +4854,7 @@ impl IContactInstantMessageFieldFactory {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstantMessage_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, core::mem::transmute_copy(service), core::mem::transmute_copy(displaytext), verb.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstantMessage_All)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, core::mem::transmute_copy(service), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(&verb.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4864,7 +4864,7 @@ impl windows_core::RuntimeName for IContactInstantMessageFieldFactory {
 pub trait IContactInstantMessageFieldFactory_Impl: windows_core::IUnknownImpl {
     fn CreateInstantMessage_Default(&self, userName: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_Category(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_All(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displayText: &windows_core::HSTRING, verb: windows_core::Ref<super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_All(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displayText: &windows_core::HSTRING, verb: Option<&super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
 }
 impl IContactInstantMessageFieldFactory_Vtbl {
     pub const fn new<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>() -> Self {
@@ -4897,7 +4897,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
         unsafe extern "system" fn CreateInstantMessage_All<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, category: ContactFieldCategory, service: *mut core::ffi::c_void, displaytext: *mut core::ffi::c_void, verb: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_All(this, core::mem::transmute(&username), category, core::mem::transmute(&service), core::mem::transmute(&displaytext), core::mem::transmute_copy(&verb)) {
+                match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_All(this, core::mem::transmute(&username), category, core::mem::transmute(&service), core::mem::transmute(&displaytext), windows_core::Ref::option_from_abi(&verb)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -5850,7 +5850,7 @@ impl PinnedContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsContactPinned)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsContactPinned)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), surface, &mut result__).map(|| result__)
         }
     }
     pub fn RequestPinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -5860,7 +5860,7 @@ impl PinnedContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPinContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestPinContactsAsync<P0>(&self, contacts: P0, surface: PinnedContactSurface) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -5870,7 +5870,7 @@ impl PinnedContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestPinContactsAsync)(windows_core::Interface::as_raw(this), contacts.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestPinContactsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contacts.param().borrow()), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestUnpinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -5880,7 +5880,7 @@ impl PinnedContactManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestUnpinContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestUnpinContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), surface, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SignalContactActivity<P0>(&self, contact: P0) -> windows_core::Result<()>
@@ -5888,7 +5888,7 @@ impl PinnedContactManager {
         P0: windows_core::Param<Contact>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SignalContactActivity)(windows_core::Interface::as_raw(this), contact.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SignalContactActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow())).ok() }
     }
     pub fn GetPinnedContactIdsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PinnedContactIdsQueryResult>> {
         let this = self;
@@ -5910,7 +5910,7 @@ impl PinnedContactManager {
     {
         Self::IPinnedContactManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {

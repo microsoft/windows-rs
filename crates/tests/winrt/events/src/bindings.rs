@@ -253,7 +253,10 @@ impl IClassStatics_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IClassStatics_Impl::StaticEvent(this, windows_core::Ref::option_from_abi(&handler)) {
+                match IClassStatics_Impl::StaticEvent(
+                    this,
+                    windows_core::Ref::option_from_abi(&handler),
+                ) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)

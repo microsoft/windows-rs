@@ -10,7 +10,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { AddWordsToWordList(hwl, pwcwords.param().abi()).ok() }
+    unsafe { AddWordsToWordList(hwl, core::mem::transmute_copy(&pwcwords.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: bool) -> windows_core::Result<()> {
@@ -133,7 +133,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("inkobjcore.dll" "system" fn IsStringSupported(hrc : HRECOCONTEXT, wcstring : u32, pwcstring : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { IsStringSupported(hrc, wcstring, pwcstring.param().abi()).ok() }
+    unsafe { IsStringSupported(hrc, wcstring, core::mem::transmute_copy(&pwcstring.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *mut RECO_ATTRS) -> windows_core::Result<()> {
@@ -146,7 +146,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("inkobjcore.dll" "system" fn MakeWordList(hrec : HRECOGNIZER, pbuffer : windows_core::PCWSTR, phwl : *mut HRECOWORDLIST) -> windows_core::HRESULT);
-    unsafe { MakeWordList(hrec, pbuffer.param().abi(), phwl as _).ok() }
+    unsafe { MakeWordList(hrec, core::mem::transmute_copy(&pbuffer.param().borrow()), phwl as _).ok() }
 }
 #[inline]
 pub unsafe fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut windows_core::BOOL) -> windows_core::Result<()> {
@@ -179,7 +179,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("inkobjcore.dll" "system" fn SetFactoid(hrc : HRECOCONTEXT, cwcfactoid : u32, pwcfactoid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { SetFactoid(hrc, cwcfactoid, pwcfactoid.param().abi()).ok() }
+    unsafe { SetFactoid(hrc, cwcfactoid, core::mem::transmute_copy(&pwcfactoid.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> windows_core::Result<()> {
@@ -1352,7 +1352,7 @@ impl IDynamicRenderer {
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), pida.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pida.param().borrow())).ok() }
     }
     pub unsafe fn DataCacheEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1410,7 +1410,7 @@ pub trait IDynamicRenderer_Impl: windows_core::IUnknownImpl {
     fn ClipRegion(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR>;
     fn SetClipRegion(&self, hcliprgn: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>;
     fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, pida: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn putref_DrawingAttributes(&self, pida: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn DataCacheEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetDataCacheEnabled(&self, fcachedata: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReleaseCachedData(&self, strokeid: u32) -> windows_core::Result<()>;
@@ -1507,7 +1507,7 @@ impl IDynamicRenderer_Vtbl {
         unsafe extern "system" fn putref_DrawingAttributes<Identity: IDynamicRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pida: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDynamicRenderer_Impl::putref_DrawingAttributes(this, core::mem::transmute_copy(&pida)).into()
+                IDynamicRenderer_Impl::putref_DrawingAttributes(this, windows_core::Ref::option_from_abi(&pida)).into()
             }
         }
         unsafe extern "system" fn DataCacheEnabled<Identity: IDynamicRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcachedata: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -1746,7 +1746,7 @@ impl IHandwrittenTextInsertion {
     where
         P0: windows_core::Param<IInkRecognitionResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InsertInkRecognitionResult)(windows_core::Interface::as_raw(self), piinkrecoresult.param().abi(), locale, falternatecontainsautospacinginformation.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertInkRecognitionResult)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&piinkrecoresult.param().borrow()), locale, falternatecontainsautospacinginformation.into()).ok() }
     }
 }
 #[repr(C)]
@@ -1765,7 +1765,7 @@ pub struct IHandwrittenTextInsertion_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHandwrittenTextInsertion_Impl: windows_core::IUnknownImpl {
     fn InsertRecognitionResultsArray(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::Result<()>;
-    fn InsertInkRecognitionResult(&self, piinkrecoresult: windows_core::Ref<IInkRecognitionResult>, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::Result<()>;
+    fn InsertInkRecognitionResult(&self, piinkrecoresult: Option<&IInkRecognitionResult>, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IHandwrittenTextInsertion_Vtbl {
@@ -1779,7 +1779,7 @@ impl IHandwrittenTextInsertion_Vtbl {
         unsafe extern "system" fn InsertInkRecognitionResult<Identity: IHandwrittenTextInsertion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piinkrecoresult: *mut core::ffi::c_void, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHandwrittenTextInsertion_Impl::InsertInkRecognitionResult(this, core::mem::transmute_copy(&piinkrecoresult), core::mem::transmute_copy(&locale), core::mem::transmute_copy(&falternatecontainsautospacinginformation)).into()
+                IHandwrittenTextInsertion_Impl::InsertInkRecognitionResult(this, windows_core::Ref::option_from_abi(&piinkrecoresult), core::mem::transmute_copy(&locale), core::mem::transmute_copy(&falternatecontainsautospacinginformation)).into()
             }
         }
         Self {
@@ -1865,7 +1865,7 @@ impl IInkCollector {
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newattributes.param().borrow())).ok() }
     }
     pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
         unsafe {
@@ -1877,7 +1877,7 @@ impl IInkCollector {
     where
         P0: windows_core::Param<IInkRenderer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinkrenderer.param().borrow())).ok() }
     }
     pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
@@ -1889,7 +1889,7 @@ impl IInkCollector {
     where
         P0: windows_core::Param<IInkDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newink.param().borrow())).ok() }
     }
     pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -1947,14 +1947,14 @@ impl IInkCollector {
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
         unsafe {
@@ -2020,7 +2020,7 @@ impl IInkCollector {
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&windowinputrectangle.param().borrow())).ok() }
     }
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput).ok() }
@@ -2029,7 +2029,7 @@ impl IInkCollector {
     where
         P0: windows_core::Param<IInkTablet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), tablet.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&tablet.param().borrow())).ok() }
     }
     pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -2109,11 +2109,11 @@ pub trait IInkCollector_Impl: super::super::System::Com::IDispatch_Impl {
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn putref_DefaultDrawingAttributes(&self, newattributes: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
-    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
+    fn putref_Renderer(&self, newinkrenderer: Option<&IInkRenderer>) -> windows_core::Result<()>;
     fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
+    fn putref_Ink(&self, newink: Option<&IInkDisp>) -> windows_core::Result<()>;
     fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2124,8 +2124,8 @@ pub trait IInkCollector_Impl: super::super::System::Com::IDispatch_Impl {
     fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn SetMouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
     fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
     fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
     fn Cursors(&self) -> windows_core::Result<IInkCursors>;
@@ -2139,9 +2139,9 @@ pub trait IInkCollector_Impl: super::super::System::Com::IDispatch_Impl {
     fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn SetWindowInputRectangle(&self, windowinputrectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
+    fn SetSingleTabletIntegratedMode(&self, tablet: Option<&IInkTablet>) -> windows_core::Result<()>;
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
@@ -2199,7 +2199,7 @@ impl IInkCollector_Vtbl {
         unsafe extern "system" fn putref_DefaultDrawingAttributes<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::putref_DefaultDrawingAttributes(this, core::mem::transmute_copy(&newattributes)).into()
+                IInkCollector_Impl::putref_DefaultDrawingAttributes(this, windows_core::Ref::option_from_abi(&newattributes)).into()
             }
         }
         unsafe extern "system" fn Renderer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2217,7 +2217,7 @@ impl IInkCollector_Vtbl {
         unsafe extern "system" fn putref_Renderer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinkrenderer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::putref_Renderer(this, core::mem::transmute_copy(&newinkrenderer)).into()
+                IInkCollector_Impl::putref_Renderer(this, windows_core::Ref::option_from_abi(&newinkrenderer)).into()
             }
         }
         unsafe extern "system" fn Ink<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2235,7 +2235,7 @@ impl IInkCollector_Vtbl {
         unsafe extern "system" fn putref_Ink<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::putref_Ink(this, core::mem::transmute_copy(&newink)).into()
+                IInkCollector_Impl::putref_Ink(this, windows_core::Ref::option_from_abi(&newink)).into()
             }
         }
         unsafe extern "system" fn AutoRedraw<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2337,13 +2337,13 @@ impl IInkCollector_Vtbl {
         unsafe extern "system" fn SetMouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetMouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkCollector_Impl::SetMouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn putref_MouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::putref_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkCollector_Impl::putref_MouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn MousePointer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
@@ -2469,7 +2469,7 @@ impl IInkCollector_Vtbl {
         unsafe extern "system" fn SetWindowInputRectangle<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowinputrectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetWindowInputRectangle(this, core::mem::transmute_copy(&windowinputrectangle)).into()
+                IInkCollector_Impl::SetWindowInputRectangle(this, windows_core::Ref::option_from_abi(&windowinputrectangle)).into()
             }
         }
         unsafe extern "system" fn SetAllTabletsMode<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2481,7 +2481,7 @@ impl IInkCollector_Vtbl {
         unsafe extern "system" fn SetSingleTabletIntegratedMode<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tablet: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetSingleTabletIntegratedMode(this, core::mem::transmute_copy(&tablet)).into()
+                IInkCollector_Impl::SetSingleTabletIntegratedMode(this, windows_core::Ref::option_from_abi(&tablet)).into()
             }
         }
         unsafe extern "system" fn GetEventInterest<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -2593,7 +2593,7 @@ impl IInkCursor {
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), attributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&attributes.param().borrow())).ok() }
     }
     pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
         unsafe {
@@ -2627,7 +2627,7 @@ pub trait IInkCursor_Impl: super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> windows_core::Result<i32>;
     fn Inverted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, attributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn putref_DrawingAttributes(&self, attributes: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn Tablet(&self) -> windows_core::Result<IInkTablet>;
     fn Buttons(&self) -> windows_core::Result<IInkCursorButtons>;
 }
@@ -2685,7 +2685,7 @@ impl IInkCursor_Vtbl {
         unsafe extern "system" fn putref_DrawingAttributes<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCursor_Impl::putref_DrawingAttributes(this, core::mem::transmute_copy(&attributes)).into()
+                IInkCursor_Impl::putref_DrawingAttributes(this, windows_core::Ref::option_from_abi(&attributes)).into()
             }
         }
         unsafe extern "system" fn Tablet<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3066,7 +3066,7 @@ impl IInkCustomStrokes {
     where
         P1: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), strokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(&strokes.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -3099,7 +3099,7 @@ pub trait IInkCustomStrokes_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokes>;
-    fn Add(&self, name: &windows_core::BSTR, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn Add(&self, name: &windows_core::BSTR, strokes: Option<&IInkStrokes>) -> windows_core::Result<()>;
     fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
@@ -3145,7 +3145,7 @@ impl IInkCustomStrokes_Vtbl {
         unsafe extern "system" fn Add<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCustomStrokes_Impl::Add(this, core::mem::transmute(&name), core::mem::transmute_copy(&strokes)).into()
+                IInkCustomStrokes_Impl::Add(this, core::mem::transmute(&name), windows_core::Ref::option_from_abi(&strokes)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
@@ -3226,13 +3226,13 @@ impl IInkDisp {
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteStrokes)(windows_core::Interface::as_raw(self), strokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteStrokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow())).ok() }
     }
     pub unsafe fn DeleteStroke<P0>(&self, stroke: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkStrokeDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteStroke)(windows_core::Interface::as_raw(self), stroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteStroke)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&stroke.param().borrow())).ok() }
     }
     pub unsafe fn ExtractStrokes<P0>(&self, strokes: P0, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>
     where
@@ -3240,7 +3240,7 @@ impl IInkDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExtractStrokes)(windows_core::Interface::as_raw(self), strokes.param().abi(), extractflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExtractStrokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow()), extractflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn ExtractWithRectangle<P0>(&self, rectangle: P0, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>
@@ -3249,14 +3249,14 @@ impl IInkDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExtractWithRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi(), extractflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ExtractWithRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow()), extractflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow())).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
@@ -3276,7 +3276,7 @@ impl IInkDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HitTestWithRectangle)(windows_core::Interface::as_raw(self), selectionrectangle.param().abi(), intersectpercent, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HitTestWithRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&selectionrectangle.param().borrow()), intersectpercent, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3298,7 +3298,7 @@ impl IInkDisp {
         P0: windows_core::Param<IInkStrokes>,
         P1: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddStrokesAtRectangle)(windows_core::Interface::as_raw(self), sourcestrokes.param().abi(), targetrectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStrokesAtRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sourcestrokes.param().borrow()), core::mem::transmute_copy(&targetrectangle.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> windows_core::Result<super::super::System::Variant::VARIANT> {
@@ -3324,7 +3324,7 @@ impl IInkDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ClipboardCopyWithRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi(), clipboardformats, clipboardmodes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ClipboardCopyWithRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow()), clipboardformats, clipboardmodes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn ClipboardCopy<P0>(&self, strokes: P0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>
@@ -3333,7 +3333,7 @@ impl IInkDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ClipboardCopy)(windows_core::Interface::as_raw(self), strokes.param().abi(), clipboardformats, clipboardmodes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ClipboardCopy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow()), clipboardformats, clipboardmodes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CanPaste<P0>(&self, dataobject: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
@@ -3342,7 +3342,7 @@ impl IInkDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), dataobject.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&dataobject.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn ClipboardPaste<P2>(&self, x: i32, y: i32, dataobject: P2) -> windows_core::Result<IInkStrokes>
@@ -3351,7 +3351,7 @@ impl IInkDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ClipboardPaste)(windows_core::Interface::as_raw(self), x, y, dataobject.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ClipboardPaste)(windows_core::Interface::as_raw(self), x, y, core::mem::transmute_copy(&dataobject.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3409,25 +3409,25 @@ pub trait IInkDisp_Impl: super::super::System::Com::IDispatch_Impl {
     fn SetDirty(&self, dirty: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes>;
     fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
-    fn DeleteStrokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn DeleteStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn ExtractStrokes(&self, strokes: windows_core::Ref<IInkStrokes>, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>;
-    fn ExtractWithRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>;
-    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn DeleteStrokes(&self, strokes: Option<&IInkStrokes>) -> windows_core::Result<()>;
+    fn DeleteStroke(&self, stroke: Option<&IInkStrokeDisp>) -> windows_core::Result<()>;
+    fn ExtractStrokes(&self, strokes: Option<&IInkStrokes>, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>;
+    fn ExtractWithRectangle(&self, rectangle: Option<&IInkRectangle>, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>;
+    fn Clip(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IInkDisp>;
     fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_core::Result<IInkStrokes>;
-    fn HitTestWithRectangle(&self, selectionrectangle: windows_core::Ref<IInkRectangle>, intersectpercent: f32) -> windows_core::Result<IInkStrokes>;
+    fn HitTestWithRectangle(&self, selectionrectangle: Option<&IInkRectangle>, intersectpercent: f32) -> windows_core::Result<IInkStrokes>;
     fn HitTestWithLasso(&self, points: &super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Variant::VARIANT, strokes: windows_core::OutRef<IInkStrokes>) -> windows_core::Result<()>;
     fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: windows_core::OutRef<IInkStrokeDisp>) -> windows_core::Result<()>;
     fn CreateStrokes(&self, strokeids: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokes>;
-    fn AddStrokesAtRectangle(&self, sourcestrokes: windows_core::Ref<IInkStrokes>, targetrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn AddStrokesAtRectangle(&self, sourcestrokes: Option<&IInkStrokes>, targetrectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Load(&self, data: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn CreateStroke(&self, packetdata: &super::super::System::Variant::VARIANT, packetdescription: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokeDisp>;
-    fn ClipboardCopyWithRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>;
-    fn ClipboardCopy(&self, strokes: windows_core::Ref<IInkStrokes>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>;
-    fn CanPaste(&self, dataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ClipboardPaste(&self, x: i32, y: i32, dataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<IInkStrokes>;
+    fn ClipboardCopyWithRectangle(&self, rectangle: Option<&IInkRectangle>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>;
+    fn ClipboardCopy(&self, strokes: Option<&IInkStrokes>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>;
+    fn CanPaste(&self, dataobject: Option<&super::super::System::Com::IDataObject>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn ClipboardPaste(&self, x: i32, y: i32, dataobject: Option<&super::super::System::Com::IDataObject>) -> windows_core::Result<IInkStrokes>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDisp_Vtbl {
@@ -3501,19 +3501,19 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn DeleteStrokes<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDisp_Impl::DeleteStrokes(this, core::mem::transmute_copy(&strokes)).into()
+                IInkDisp_Impl::DeleteStrokes(this, windows_core::Ref::option_from_abi(&strokes)).into()
             }
         }
         unsafe extern "system" fn DeleteStroke<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stroke: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDisp_Impl::DeleteStroke(this, core::mem::transmute_copy(&stroke)).into()
+                IInkDisp_Impl::DeleteStroke(this, windows_core::Ref::option_from_abi(&stroke)).into()
             }
         }
         unsafe extern "system" fn ExtractStrokes<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void, extractflags: InkExtractFlags, extractedink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::ExtractStrokes(this, core::mem::transmute_copy(&strokes), core::mem::transmute_copy(&extractflags)) {
+                match IInkDisp_Impl::ExtractStrokes(this, windows_core::Ref::option_from_abi(&strokes), core::mem::transmute_copy(&extractflags)) {
                     Ok(ok__) => {
                         extractedink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3525,7 +3525,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn ExtractWithRectangle<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void, extractflags: InkExtractFlags, extractedink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::ExtractWithRectangle(this, core::mem::transmute_copy(&rectangle), core::mem::transmute_copy(&extractflags)) {
+                match IInkDisp_Impl::ExtractWithRectangle(this, windows_core::Ref::option_from_abi(&rectangle), core::mem::transmute_copy(&extractflags)) {
                     Ok(ok__) => {
                         extractedink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3537,7 +3537,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn Clip<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDisp_Impl::Clip(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkDisp_Impl::Clip(this, windows_core::Ref::option_from_abi(&rectangle)).into()
             }
         }
         unsafe extern "system" fn Clone<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3567,7 +3567,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn HitTestWithRectangle<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selectionrectangle: *mut core::ffi::c_void, intersectpercent: f32, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::HitTestWithRectangle(this, core::mem::transmute_copy(&selectionrectangle), core::mem::transmute_copy(&intersectpercent)) {
+                match IInkDisp_Impl::HitTestWithRectangle(this, windows_core::Ref::option_from_abi(&selectionrectangle), core::mem::transmute_copy(&intersectpercent)) {
                     Ok(ok__) => {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3603,7 +3603,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn AddStrokesAtRectangle<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestrokes: *mut core::ffi::c_void, targetrectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDisp_Impl::AddStrokesAtRectangle(this, core::mem::transmute_copy(&sourcestrokes), core::mem::transmute_copy(&targetrectangle)).into()
+                IInkDisp_Impl::AddStrokesAtRectangle(this, windows_core::Ref::option_from_abi(&sourcestrokes), windows_core::Ref::option_from_abi(&targetrectangle)).into()
             }
         }
         unsafe extern "system" fn Save<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode, data: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
@@ -3639,7 +3639,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn ClipboardCopyWithRectangle<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes, dataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::ClipboardCopyWithRectangle(this, core::mem::transmute_copy(&rectangle), core::mem::transmute_copy(&clipboardformats), core::mem::transmute_copy(&clipboardmodes)) {
+                match IInkDisp_Impl::ClipboardCopyWithRectangle(this, windows_core::Ref::option_from_abi(&rectangle), core::mem::transmute_copy(&clipboardformats), core::mem::transmute_copy(&clipboardmodes)) {
                     Ok(ok__) => {
                         dataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3651,7 +3651,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn ClipboardCopy<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes, dataobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::ClipboardCopy(this, core::mem::transmute_copy(&strokes), core::mem::transmute_copy(&clipboardformats), core::mem::transmute_copy(&clipboardmodes)) {
+                match IInkDisp_Impl::ClipboardCopy(this, windows_core::Ref::option_from_abi(&strokes), core::mem::transmute_copy(&clipboardformats), core::mem::transmute_copy(&clipboardmodes)) {
                     Ok(ok__) => {
                         dataobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3663,7 +3663,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn CanPaste<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataobject: *mut core::ffi::c_void, canpaste: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::CanPaste(this, core::mem::transmute_copy(&dataobject)) {
+                match IInkDisp_Impl::CanPaste(this, windows_core::Ref::option_from_abi(&dataobject)) {
                     Ok(ok__) => {
                         canpaste.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3675,7 +3675,7 @@ impl IInkDisp_Vtbl {
         unsafe extern "system" fn ClipboardPaste<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, dataobject: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::ClipboardPaste(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&dataobject)) {
+                match IInkDisp_Impl::ClipboardPaste(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), windows_core::Ref::option_from_abi(&dataobject)) {
                     Ok(ok__) => {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3742,7 +3742,7 @@ impl IInkDivider {
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Strokes)(windows_core::Interface::as_raw(self), strokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Strokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow())).ok() }
     }
     pub unsafe fn RecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext> {
         unsafe {
@@ -3754,7 +3754,7 @@ impl IInkDivider {
     where
         P0: windows_core::Param<IInkRecognizerContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_RecognizerContext)(windows_core::Interface::as_raw(self), recognizercontext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_RecognizerContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&recognizercontext.param().borrow())).ok() }
     }
     pub unsafe fn LineHeight(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -3788,9 +3788,9 @@ pub struct IInkDivider_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivider_Impl: super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn putref_Strokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn putref_Strokes(&self, strokes: Option<&IInkStrokes>) -> windows_core::Result<()>;
     fn RecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext>;
-    fn putref_RecognizerContext(&self, recognizercontext: windows_core::Ref<IInkRecognizerContext>) -> windows_core::Result<()>;
+    fn putref_RecognizerContext(&self, recognizercontext: Option<&IInkRecognizerContext>) -> windows_core::Result<()>;
     fn LineHeight(&self) -> windows_core::Result<i32>;
     fn SetLineHeight(&self, lineheight: i32) -> windows_core::Result<()>;
     fn Divide(&self) -> windows_core::Result<IInkDivisionResult>;
@@ -3813,7 +3813,7 @@ impl IInkDivider_Vtbl {
         unsafe extern "system" fn putref_Strokes<Identity: IInkDivider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDivider_Impl::putref_Strokes(this, core::mem::transmute_copy(&strokes)).into()
+                IInkDivider_Impl::putref_Strokes(this, windows_core::Ref::option_from_abi(&strokes)).into()
             }
         }
         unsafe extern "system" fn RecognizerContext<Identity: IInkDivider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizercontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3831,7 +3831,7 @@ impl IInkDivider_Vtbl {
         unsafe extern "system" fn putref_RecognizerContext<Identity: IInkDivider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizercontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDivider_Impl::putref_RecognizerContext(this, core::mem::transmute_copy(&recognizercontext)).into()
+                IInkDivider_Impl::putref_RecognizerContext(this, windows_core::Ref::option_from_abi(&recognizercontext)).into()
             }
         }
         unsafe extern "system" fn LineHeight<Identity: IInkDivider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineheight: *mut i32) -> windows_core::HRESULT {
@@ -4609,7 +4609,7 @@ impl IInkEdit {
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), newval.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newval.param().borrow())).ok() }
     }
     pub unsafe fn RecognitionTimeout(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -4630,7 +4630,7 @@ impl IInkEdit {
     where
         P0: windows_core::Param<IInkRecognizer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Recognizer)(windows_core::Interface::as_raw(self), newval.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Recognizer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newval.param().borrow())).ok() }
     }
     pub unsafe fn Factoid(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -4719,7 +4719,7 @@ impl IInkEdit {
     where
         P0: windows_core::Param<super::super::System::Ole::IFontDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), ppfont.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ppfont.param().borrow())).ok() }
     }
     pub unsafe fn Text(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -4742,14 +4742,14 @@ impl IInkEdit {
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
         unsafe {
@@ -5116,11 +5116,11 @@ pub trait IInkEdit_Impl: super::super::System::Com::IDispatch_Impl {
     fn InkInsertMode(&self) -> windows_core::Result<InkInsertMode>;
     fn SetInkInsertMode(&self, newval: InkInsertMode) -> windows_core::Result<()>;
     fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, newval: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn putref_DrawingAttributes(&self, newval: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn RecognitionTimeout(&self) -> windows_core::Result<i32>;
     fn SetRecognitionTimeout(&self, newval: i32) -> windows_core::Result<()>;
     fn Recognizer(&self) -> windows_core::Result<IInkRecognizer>;
-    fn putref_Recognizer(&self, newval: windows_core::Ref<IInkRecognizer>) -> windows_core::Result<()>;
+    fn putref_Recognizer(&self, newval: Option<&IInkRecognizer>) -> windows_core::Result<()>;
     fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetFactoid(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SelInks(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -5138,12 +5138,12 @@ pub trait IInkEdit_Impl: super::super::System::Com::IDispatch_Impl {
     fn SetBorderStyle(&self, pborderstyle: BorderStyleConstants) -> windows_core::Result<()>;
     fn Hwnd(&self) -> windows_core::Result<super::super::System::Ole::OLE_HANDLE>;
     fn Font(&self) -> windows_core::Result<super::super::System::Ole::IFontDisp>;
-    fn putref_Font(&self, ppfont: windows_core::Ref<super::super::System::Ole::IFontDisp>) -> windows_core::Result<()>;
+    fn putref_Font(&self, ppfont: Option<&super::super::System::Ole::IFontDisp>) -> windows_core::Result<()>;
     fn Text(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetText(&self, pbstrtext: &windows_core::BSTR) -> windows_core::Result<()>;
     fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn SetMouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
     fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
     fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
     fn Locked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -5270,7 +5270,7 @@ impl IInkEdit_Vtbl {
         unsafe extern "system" fn putref_DrawingAttributes<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkEdit_Impl::putref_DrawingAttributes(this, core::mem::transmute_copy(&newval)).into()
+                IInkEdit_Impl::putref_DrawingAttributes(this, windows_core::Ref::option_from_abi(&newval)).into()
             }
         }
         unsafe extern "system" fn RecognitionTimeout<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
@@ -5306,7 +5306,7 @@ impl IInkEdit_Vtbl {
         unsafe extern "system" fn putref_Recognizer<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newval: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkEdit_Impl::putref_Recognizer(this, core::mem::transmute_copy(&newval)).into()
+                IInkEdit_Impl::putref_Recognizer(this, windows_core::Ref::option_from_abi(&newval)).into()
             }
         }
         unsafe extern "system" fn Factoid<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5468,7 +5468,7 @@ impl IInkEdit_Vtbl {
         unsafe extern "system" fn putref_Font<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppfont: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkEdit_Impl::putref_Font(this, core::mem::transmute_copy(&ppfont)).into()
+                IInkEdit_Impl::putref_Font(this, windows_core::Ref::option_from_abi(&ppfont)).into()
             }
         }
         unsafe extern "system" fn Text<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5504,13 +5504,13 @@ impl IInkEdit_Vtbl {
         unsafe extern "system" fn SetMouseIcon<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkEdit_Impl::SetMouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkEdit_Impl::SetMouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn putref_MouseIcon<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkEdit_Impl::putref_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkEdit_Impl::putref_MouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn MousePointer<Identity: IInkEdit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
@@ -6347,13 +6347,13 @@ impl IInkLineInfo {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, pwcrecogword.param().abi(), pcwcrecogword, dwflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, core::mem::transmute_copy(&pwcrecogword.param().borrow()), pcwcrecogword, dwflags).ok() }
     }
     pub unsafe fn SetCandidate<P1>(&self, ncandidatenum: u32, strrecogword: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, strrecogword.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, core::mem::transmute_copy(&strrecogword.param().borrow())).ok() }
     }
     pub unsafe fn Recognize(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Recognize)(windows_core::Interface::as_raw(self)).ok() }
@@ -6472,7 +6472,7 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newattributes.param().borrow())).ok() }
     }
     pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
         unsafe {
@@ -6484,7 +6484,7 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<IInkRenderer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinkrenderer.param().borrow())).ok() }
     }
     pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
@@ -6496,7 +6496,7 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<IInkDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newink.param().borrow())).ok() }
     }
     pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -6554,14 +6554,14 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
         unsafe {
@@ -6591,7 +6591,7 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), selection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&selection.param().borrow())).ok() }
     }
     pub unsafe fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
         unsafe {
@@ -6678,7 +6678,7 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), rect.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rect.param().borrow())).ok() }
     }
     pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), gesture, listen).ok() }
@@ -6696,7 +6696,7 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&windowinputrectangle.param().borrow())).ok() }
     }
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput).ok() }
@@ -6705,7 +6705,7 @@ impl IInkOverlay {
     where
         P0: windows_core::Param<IInkTablet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), tablet.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&tablet.param().borrow())).ok() }
     }
     pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -6799,11 +6799,11 @@ pub trait IInkOverlay_Impl: super::super::System::Com::IDispatch_Impl {
     fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn putref_DefaultDrawingAttributes(&self, newattributes: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
-    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
+    fn putref_Renderer(&self, newinkrenderer: Option<&IInkRenderer>) -> windows_core::Result<()>;
     fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
+    fn putref_Ink(&self, newink: Option<&IInkDisp>) -> windows_core::Result<()>;
     fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -6814,14 +6814,14 @@ pub trait IInkOverlay_Impl: super::super::System::Com::IDispatch_Impl {
     fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn SetMouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
     fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
     fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
     fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
     fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
     fn Selection(&self) -> windows_core::Result<IInkStrokes>;
-    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn SetSelection(&self, selection: Option<&IInkStrokes>) -> windows_core::Result<()>;
     fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
     fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
     fn EraserWidth(&self) -> windows_core::Result<i32>;
@@ -6839,13 +6839,13 @@ pub trait IInkOverlay_Impl: super::super::System::Com::IDispatch_Impl {
     fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult>;
-    fn Draw(&self, rect: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn Draw(&self, rect: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn SetWindowInputRectangle(&self, windowinputrectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
+    fn SetSingleTabletIntegratedMode(&self, tablet: Option<&IInkTablet>) -> windows_core::Result<()>;
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
@@ -6903,7 +6903,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn putref_DefaultDrawingAttributes<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::putref_DefaultDrawingAttributes(this, core::mem::transmute_copy(&newattributes)).into()
+                IInkOverlay_Impl::putref_DefaultDrawingAttributes(this, windows_core::Ref::option_from_abi(&newattributes)).into()
             }
         }
         unsafe extern "system" fn Renderer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6921,7 +6921,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn putref_Renderer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinkrenderer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::putref_Renderer(this, core::mem::transmute_copy(&newinkrenderer)).into()
+                IInkOverlay_Impl::putref_Renderer(this, windows_core::Ref::option_from_abi(&newinkrenderer)).into()
             }
         }
         unsafe extern "system" fn Ink<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6939,7 +6939,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn putref_Ink<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::putref_Ink(this, core::mem::transmute_copy(&newink)).into()
+                IInkOverlay_Impl::putref_Ink(this, windows_core::Ref::option_from_abi(&newink)).into()
             }
         }
         unsafe extern "system" fn AutoRedraw<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7041,13 +7041,13 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn SetMouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetMouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkOverlay_Impl::SetMouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn putref_MouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::putref_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkOverlay_Impl::putref_MouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn MousePointer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
@@ -7101,7 +7101,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn SetSelection<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetSelection(this, core::mem::transmute_copy(&selection)).into()
+                IInkOverlay_Impl::SetSelection(this, windows_core::Ref::option_from_abi(&selection)).into()
             }
         }
         unsafe extern "system" fn EraserMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> windows_core::HRESULT {
@@ -7269,7 +7269,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn Draw<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::Draw(this, core::mem::transmute_copy(&rect)).into()
+                IInkOverlay_Impl::Draw(this, windows_core::Ref::option_from_abi(&rect)).into()
             }
         }
         unsafe extern "system" fn SetGestureStatus<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7299,7 +7299,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn SetWindowInputRectangle<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowinputrectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetWindowInputRectangle(this, core::mem::transmute_copy(&windowinputrectangle)).into()
+                IInkOverlay_Impl::SetWindowInputRectangle(this, windows_core::Ref::option_from_abi(&windowinputrectangle)).into()
             }
         }
         unsafe extern "system" fn SetAllTabletsMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7311,7 +7311,7 @@ impl IInkOverlay_Vtbl {
         unsafe extern "system" fn SetSingleTabletIntegratedMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tablet: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetSingleTabletIntegratedMode(this, core::mem::transmute_copy(&tablet)).into()
+                IInkOverlay_Impl::SetSingleTabletIntegratedMode(this, windows_core::Ref::option_from_abi(&tablet)).into()
             }
         }
         unsafe extern "system" fn GetEventInterest<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -7425,7 +7425,7 @@ impl IInkPicture {
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newattributes.param().borrow())).ok() }
     }
     pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
         unsafe {
@@ -7437,7 +7437,7 @@ impl IInkPicture {
     where
         P0: windows_core::Param<IInkRenderer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinkrenderer.param().borrow())).ok() }
     }
     pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
@@ -7449,7 +7449,7 @@ impl IInkPicture {
     where
         P0: windows_core::Param<IInkDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newink.param().borrow())).ok() }
     }
     pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -7507,14 +7507,14 @@ impl IInkPicture {
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mouseicon.param().borrow())).ok() }
     }
     pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
         unsafe {
@@ -7544,7 +7544,7 @@ impl IInkPicture {
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), selection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&selection.param().borrow())).ok() }
     }
     pub unsafe fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
         unsafe {
@@ -7569,14 +7569,14 @@ impl IInkPicture {
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Picture)(windows_core::Interface::as_raw(self), ppicture.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Picture)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ppicture.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn SetPicture<P0>(&self, ppicture: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPicture)(windows_core::Interface::as_raw(self), ppicture.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPicture)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ppicture.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn Picture(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp> {
@@ -7673,7 +7673,7 @@ impl IInkPicture {
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&windowinputrectangle.param().borrow())).ok() }
     }
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput).ok() }
@@ -7682,7 +7682,7 @@ impl IInkPicture {
     where
         P0: windows_core::Param<IInkTablet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), tablet.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&tablet.param().borrow())).ok() }
     }
     pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -7805,11 +7805,11 @@ pub struct IInkPicture_Vtbl {
 pub trait IInkPicture_Impl: super::super::System::Com::IDispatch_Impl {
     fn hWnd(&self) -> windows_core::Result<isize>;
     fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn putref_DefaultDrawingAttributes(&self, newattributes: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
-    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
+    fn putref_Renderer(&self, newinkrenderer: Option<&IInkRenderer>) -> windows_core::Result<()>;
     fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
+    fn putref_Ink(&self, newink: Option<&IInkDisp>) -> windows_core::Result<()>;
     fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -7820,20 +7820,20 @@ pub trait IInkPicture_Impl: super::super::System::Com::IDispatch_Impl {
     fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn SetMouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
     fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
     fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
     fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
     fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
     fn Selection(&self) -> windows_core::Result<IInkStrokes>;
-    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn SetSelection(&self, selection: Option<&IInkStrokes>) -> windows_core::Result<()>;
     fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
     fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
     fn EraserWidth(&self) -> windows_core::Result<i32>;
     fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()>;
-    fn putref_Picture(&self, ppicture: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn SetPicture(&self, ppicture: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn putref_Picture(&self, ppicture: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn SetPicture(&self, ppicture: Option<&super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
     fn Picture(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
     fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_core::Result<()>;
     fn SizeMode(&self) -> windows_core::Result<InkPictureSizeMode>;
@@ -7853,9 +7853,9 @@ pub trait IInkPicture_Impl: super::super::System::Com::IDispatch_Impl {
     fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn SetWindowInputRectangle(&self, windowinputrectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
+    fn SetSingleTabletIntegratedMode(&self, tablet: Option<&IInkTablet>) -> windows_core::Result<()>;
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn InkEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -7893,7 +7893,7 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn putref_DefaultDrawingAttributes<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::putref_DefaultDrawingAttributes(this, core::mem::transmute_copy(&newattributes)).into()
+                IInkPicture_Impl::putref_DefaultDrawingAttributes(this, windows_core::Ref::option_from_abi(&newattributes)).into()
             }
         }
         unsafe extern "system" fn Renderer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7911,7 +7911,7 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn putref_Renderer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinkrenderer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::putref_Renderer(this, core::mem::transmute_copy(&newinkrenderer)).into()
+                IInkPicture_Impl::putref_Renderer(this, windows_core::Ref::option_from_abi(&newinkrenderer)).into()
             }
         }
         unsafe extern "system" fn Ink<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7929,7 +7929,7 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn putref_Ink<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::putref_Ink(this, core::mem::transmute_copy(&newink)).into()
+                IInkPicture_Impl::putref_Ink(this, windows_core::Ref::option_from_abi(&newink)).into()
             }
         }
         unsafe extern "system" fn AutoRedraw<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8031,13 +8031,13 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn SetMouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetMouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkPicture_Impl::SetMouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn putref_MouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::putref_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkPicture_Impl::putref_MouseIcon(this, windows_core::Ref::option_from_abi(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn MousePointer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
@@ -8091,7 +8091,7 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn SetSelection<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetSelection(this, core::mem::transmute_copy(&selection)).into()
+                IInkPicture_Impl::SetSelection(this, windows_core::Ref::option_from_abi(&selection)).into()
             }
         }
         unsafe extern "system" fn EraserMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> windows_core::HRESULT {
@@ -8133,13 +8133,13 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn putref_Picture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::putref_Picture(this, core::mem::transmute_copy(&ppicture)).into()
+                IInkPicture_Impl::putref_Picture(this, windows_core::Ref::option_from_abi(&ppicture)).into()
             }
         }
         unsafe extern "system" fn SetPicture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetPicture(this, core::mem::transmute_copy(&ppicture)).into()
+                IInkPicture_Impl::SetPicture(this, windows_core::Ref::option_from_abi(&ppicture)).into()
             }
         }
         unsafe extern "system" fn Picture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppicture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8325,7 +8325,7 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn SetWindowInputRectangle<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowinputrectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetWindowInputRectangle(this, core::mem::transmute_copy(&windowinputrectangle)).into()
+                IInkPicture_Impl::SetWindowInputRectangle(this, windows_core::Ref::option_from_abi(&windowinputrectangle)).into()
             }
         }
         unsafe extern "system" fn SetAllTabletsMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8337,7 +8337,7 @@ impl IInkPicture_Vtbl {
         unsafe extern "system" fn SetSingleTabletIntegratedMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tablet: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetSingleTabletIntegratedMode(this, core::mem::transmute_copy(&tablet)).into()
+                IInkPicture_Impl::SetSingleTabletIntegratedMode(this, windows_core::Ref::option_from_abi(&tablet)).into()
             }
         }
         unsafe extern "system" fn GetEventInterest<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -8546,7 +8546,7 @@ impl IInkRecognitionAlternate {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStrokesFromStrokeRanges)(windows_core::Interface::as_raw(self), strokes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStrokesFromStrokeRanges)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: *mut Option<IInkStrokes>) -> windows_core::Result<()> {
@@ -8556,7 +8556,7 @@ impl IInkRecognitionAlternate {
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetTextRangeFromStrokes)(windows_core::Interface::as_raw(self), strokes.param().abi(), selectionstart as _, selectionlength as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetTextRangeFromStrokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow()), selectionstart as _, selectionlength as _).ok() }
     }
     pub unsafe fn AlternatesWithConstantPropertyValues(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<IInkRecognitionAlternates> {
         unsafe {
@@ -8620,9 +8620,9 @@ pub trait IInkRecognitionAlternate_Impl: super::super::System::Com::IDispatch_Im
     fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
     fn LineAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
     fn ConfidenceAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
-    fn GetStrokesFromStrokeRanges(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<IInkStrokes>;
+    fn GetStrokesFromStrokeRanges(&self, strokes: Option<&IInkStrokes>) -> windows_core::Result<IInkStrokes>;
     fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: windows_core::OutRef<IInkStrokes>) -> windows_core::Result<()>;
-    fn GetTextRangeFromStrokes(&self, strokes: windows_core::Ref<IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_core::Result<()>;
+    fn GetTextRangeFromStrokes(&self, strokes: Option<&IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_core::Result<()>;
     fn AlternatesWithConstantPropertyValues(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<IInkRecognitionAlternates>;
     fn GetPropertyValue(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
@@ -8752,7 +8752,7 @@ impl IInkRecognitionAlternate_Vtbl {
         unsafe extern "system" fn GetStrokesFromStrokeRanges<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void, getstrokesfromstrokeranges: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::GetStrokesFromStrokeRanges(this, core::mem::transmute_copy(&strokes)) {
+                match IInkRecognitionAlternate_Impl::GetStrokesFromStrokeRanges(this, windows_core::Ref::option_from_abi(&strokes)) {
                     Ok(ok__) => {
                         getstrokesfromstrokeranges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8770,7 +8770,7 @@ impl IInkRecognitionAlternate_Vtbl {
         unsafe extern "system" fn GetTextRangeFromStrokes<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognitionAlternate_Impl::GetTextRangeFromStrokes(this, core::mem::transmute_copy(&strokes), core::mem::transmute_copy(&selectionstart), core::mem::transmute_copy(&selectionlength)).into()
+                IInkRecognitionAlternate_Impl::GetTextRangeFromStrokes(this, windows_core::Ref::option_from_abi(&strokes), core::mem::transmute_copy(&selectionstart), core::mem::transmute_copy(&selectionlength)).into()
             }
         }
         unsafe extern "system" fn AlternatesWithConstantPropertyValues<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertytype: *mut core::ffi::c_void, alternateswithconstantpropertyvalues: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8989,7 +8989,7 @@ impl IInkRecognitionResult {
     where
         P0: windows_core::Param<IInkRecognitionAlternate>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ModifyTopAlternate)(windows_core::Interface::as_raw(self), alternate.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ModifyTopAlternate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&alternate.param().borrow())).ok() }
     }
     pub unsafe fn SetResultOnStrokes(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResultOnStrokes)(windows_core::Interface::as_raw(self)).ok() }
@@ -9015,7 +9015,7 @@ pub trait IInkRecognitionResult_Impl: super::super::System::Com::IDispatch_Impl 
     fn TopConfidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
     fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
     fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> windows_core::Result<IInkRecognitionAlternates>;
-    fn ModifyTopAlternate(&self, alternate: windows_core::Ref<IInkRecognitionAlternate>) -> windows_core::Result<()>;
+    fn ModifyTopAlternate(&self, alternate: Option<&IInkRecognitionAlternate>) -> windows_core::Result<()>;
     fn SetResultOnStrokes(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9084,7 +9084,7 @@ impl IInkRecognitionResult_Vtbl {
         unsafe extern "system" fn ModifyTopAlternate<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alternate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognitionResult_Impl::ModifyTopAlternate(this, core::mem::transmute_copy(&alternate)).into()
+                IInkRecognitionResult_Impl::ModifyTopAlternate(this, windows_core::Ref::option_from_abi(&alternate)).into()
             }
         }
         unsafe extern "system" fn SetResultOnStrokes<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9410,7 +9410,7 @@ impl IInkRecognizerContext {
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Strokes)(windows_core::Interface::as_raw(self), strokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Strokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow())).ok() }
     }
     pub unsafe fn CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode> {
         unsafe {
@@ -9440,7 +9440,7 @@ impl IInkRecognizerContext {
     where
         P0: windows_core::Param<IInkRecognizerGuide>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Guide)(windows_core::Interface::as_raw(self), recognizerguide.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Guide)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&recognizerguide.param().borrow())).ok() }
     }
     pub unsafe fn PrefixText(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -9479,7 +9479,7 @@ impl IInkRecognizerContext {
     where
         P0: windows_core::Param<IInkWordList>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_WordList)(windows_core::Interface::as_raw(self), wordlist.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_WordList)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wordlist.param().borrow())).ok() }
     }
     pub unsafe fn Recognizer(&self) -> windows_core::Result<IInkRecognizer> {
         unsafe {
@@ -9556,13 +9556,13 @@ pub struct IInkRecognizerContext_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerContext_Impl: super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn putref_Strokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn putref_Strokes(&self, strokes: Option<&IInkStrokes>) -> windows_core::Result<()>;
     fn CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode>;
     fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::Result<()>;
     fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Guide(&self) -> windows_core::Result<IInkRecognizerGuide>;
-    fn putref_Guide(&self, recognizerguide: windows_core::Ref<IInkRecognizerGuide>) -> windows_core::Result<()>;
+    fn putref_Guide(&self, recognizerguide: Option<&IInkRecognizerGuide>) -> windows_core::Result<()>;
     fn PrefixText(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetPrefixText(&self, prefix: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SuffixText(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -9570,7 +9570,7 @@ pub trait IInkRecognizerContext_Impl: super::super::System::Com::IDispatch_Impl 
     fn RecognitionFlags(&self) -> windows_core::Result<InkRecognitionModes>;
     fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> windows_core::Result<()>;
     fn WordList(&self) -> windows_core::Result<IInkWordList>;
-    fn putref_WordList(&self, wordlist: windows_core::Ref<IInkWordList>) -> windows_core::Result<()>;
+    fn putref_WordList(&self, wordlist: Option<&IInkWordList>) -> windows_core::Result<()>;
     fn Recognizer(&self) -> windows_core::Result<IInkRecognizer>;
     fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: windows_core::OutRef<IInkRecognitionResult>) -> windows_core::Result<()>;
     fn StopBackgroundRecognition(&self) -> windows_core::Result<()>;
@@ -9598,7 +9598,7 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn putref_Strokes<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::putref_Strokes(this, core::mem::transmute_copy(&strokes)).into()
+                IInkRecognizerContext_Impl::putref_Strokes(this, windows_core::Ref::option_from_abi(&strokes)).into()
             }
         }
         unsafe extern "system" fn CharacterAutoCompletionMode<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT {
@@ -9652,7 +9652,7 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn putref_Guide<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizerguide: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::putref_Guide(this, core::mem::transmute_copy(&recognizerguide)).into()
+                IInkRecognizerContext_Impl::putref_Guide(this, windows_core::Ref::option_from_abi(&recognizerguide)).into()
             }
         }
         unsafe extern "system" fn PrefixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9724,7 +9724,7 @@ impl IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn putref_WordList<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wordlist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::putref_WordList(this, core::mem::transmute_copy(&wordlist)).into()
+                IInkRecognizerContext_Impl::putref_WordList(this, windows_core::Ref::option_from_abi(&wordlist)).into()
             }
         }
         unsafe extern "system" fn Recognizer<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9927,7 +9927,7 @@ impl IInkRecognizerGuide {
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWritingBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWritingBox)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow())).ok() }
     }
     pub unsafe fn DrawnBox(&self) -> windows_core::Result<IInkRectangle> {
         unsafe {
@@ -9939,7 +9939,7 @@ impl IInkRecognizerGuide {
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDrawnBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDrawnBox)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow())).ok() }
     }
     pub unsafe fn Rows(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -9996,9 +9996,9 @@ pub struct IInkRecognizerGuide_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerGuide_Impl: super::super::System::Com::IDispatch_Impl {
     fn WritingBox(&self) -> windows_core::Result<IInkRectangle>;
-    fn SetWritingBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn SetWritingBox(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn DrawnBox(&self) -> windows_core::Result<IInkRectangle>;
-    fn SetDrawnBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn SetDrawnBox(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn Rows(&self) -> windows_core::Result<i32>;
     fn SetRows(&self, units: i32) -> windows_core::Result<()>;
     fn Columns(&self) -> windows_core::Result<i32>;
@@ -10026,7 +10026,7 @@ impl IInkRecognizerGuide_Vtbl {
         unsafe extern "system" fn SetWritingBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetWritingBox(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkRecognizerGuide_Impl::SetWritingBox(this, windows_core::Ref::option_from_abi(&rectangle)).into()
             }
         }
         unsafe extern "system" fn DrawnBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10044,7 +10044,7 @@ impl IInkRecognizerGuide_Vtbl {
         unsafe extern "system" fn SetDrawnBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetDrawnBox(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkRecognizerGuide_Impl::SetDrawnBox(this, windows_core::Ref::option_from_abi(&rectangle)).into()
             }
         }
         unsafe extern "system" fn Rows<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
@@ -10497,38 +10497,38 @@ impl IInkRenderer {
     where
         P0: windows_core::Param<IInkTransform>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetViewTransform)(windows_core::Interface::as_raw(self), viewtransform.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetViewTransform)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&viewtransform.param().borrow())).ok() }
     }
     pub unsafe fn SetViewTransform<P0>(&self, viewtransform: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetViewTransform)(windows_core::Interface::as_raw(self), viewtransform.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetViewTransform)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&viewtransform.param().borrow())).ok() }
     }
     pub unsafe fn GetObjectTransform<P0>(&self, objecttransform: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectTransform)(windows_core::Interface::as_raw(self), objecttransform.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObjectTransform)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&objecttransform.param().borrow())).ok() }
     }
     pub unsafe fn SetObjectTransform<P0>(&self, objecttransform: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetObjectTransform)(windows_core::Interface::as_raw(self), objecttransform.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetObjectTransform)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&objecttransform.param().borrow())).ok() }
     }
     pub unsafe fn Draw<P1>(&self, hdc: isize, strokes: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), hdc, strokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), hdc, core::mem::transmute_copy(&strokes.param().borrow())).ok() }
     }
     pub unsafe fn DrawStroke<P1, P2>(&self, hdc: isize, stroke: P1, drawingattributes: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IInkStrokeDisp>,
         P2: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DrawStroke)(windows_core::Interface::as_raw(self), hdc, stroke.param().abi(), drawingattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DrawStroke)(windows_core::Interface::as_raw(self), hdc, core::mem::transmute_copy(&stroke.param().borrow()), core::mem::transmute_copy(&drawingattributes.param().borrow())).ok() }
     }
     pub unsafe fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PixelToInkSpace)(windows_core::Interface::as_raw(self), hdc, x as _, y as _).ok() }
@@ -10550,7 +10550,7 @@ impl IInkRenderer {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Measure)(windows_core::Interface::as_raw(self), strokes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Measure)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn MeasureStroke<P0, P1>(&self, stroke: P0, drawingattributes: P1) -> windows_core::Result<IInkRectangle>
@@ -10560,7 +10560,7 @@ impl IInkRenderer {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MeasureStroke)(windows_core::Interface::as_raw(self), stroke.param().abi(), drawingattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MeasureStroke)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&stroke.param().borrow()), core::mem::transmute_copy(&drawingattributes.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
@@ -10602,18 +10602,18 @@ pub struct IInkRenderer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRenderer_Impl: super::super::System::Com::IDispatch_Impl {
-    fn GetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn SetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn GetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn SetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn Draw(&self, hdc: isize, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn DrawStroke(&self, hdc: isize, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn GetViewTransform(&self, viewtransform: Option<&IInkTransform>) -> windows_core::Result<()>;
+    fn SetViewTransform(&self, viewtransform: Option<&IInkTransform>) -> windows_core::Result<()>;
+    fn GetObjectTransform(&self, objecttransform: Option<&IInkTransform>) -> windows_core::Result<()>;
+    fn SetObjectTransform(&self, objecttransform: Option<&IInkTransform>) -> windows_core::Result<()>;
+    fn Draw(&self, hdc: isize, strokes: Option<&IInkStrokes>) -> windows_core::Result<()>;
+    fn DrawStroke(&self, hdc: isize, stroke: Option<&IInkStrokeDisp>, drawingattributes: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
     fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
     fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Measure(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<IInkRectangle>;
-    fn MeasureStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<IInkRectangle>;
+    fn Measure(&self, strokes: Option<&IInkStrokes>) -> windows_core::Result<IInkRectangle>;
+    fn MeasureStroke(&self, stroke: Option<&IInkStrokeDisp>, drawingattributes: Option<&IInkDrawingAttributes>) -> windows_core::Result<IInkRectangle>;
     fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
     fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
     fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -10624,37 +10624,37 @@ impl IInkRenderer_Vtbl {
         unsafe extern "system" fn GetViewTransform<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewtransform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRenderer_Impl::GetViewTransform(this, core::mem::transmute_copy(&viewtransform)).into()
+                IInkRenderer_Impl::GetViewTransform(this, windows_core::Ref::option_from_abi(&viewtransform)).into()
             }
         }
         unsafe extern "system" fn SetViewTransform<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewtransform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRenderer_Impl::SetViewTransform(this, core::mem::transmute_copy(&viewtransform)).into()
+                IInkRenderer_Impl::SetViewTransform(this, windows_core::Ref::option_from_abi(&viewtransform)).into()
             }
         }
         unsafe extern "system" fn GetObjectTransform<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objecttransform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRenderer_Impl::GetObjectTransform(this, core::mem::transmute_copy(&objecttransform)).into()
+                IInkRenderer_Impl::GetObjectTransform(this, windows_core::Ref::option_from_abi(&objecttransform)).into()
             }
         }
         unsafe extern "system" fn SetObjectTransform<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objecttransform: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRenderer_Impl::SetObjectTransform(this, core::mem::transmute_copy(&objecttransform)).into()
+                IInkRenderer_Impl::SetObjectTransform(this, windows_core::Ref::option_from_abi(&objecttransform)).into()
             }
         }
         unsafe extern "system" fn Draw<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRenderer_Impl::Draw(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&strokes)).into()
+                IInkRenderer_Impl::Draw(this, core::mem::transmute_copy(&hdc), windows_core::Ref::option_from_abi(&strokes)).into()
             }
         }
         unsafe extern "system" fn DrawStroke<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, stroke: *mut core::ffi::c_void, drawingattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRenderer_Impl::DrawStroke(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&stroke), core::mem::transmute_copy(&drawingattributes)).into()
+                IInkRenderer_Impl::DrawStroke(this, core::mem::transmute_copy(&hdc), windows_core::Ref::option_from_abi(&stroke), windows_core::Ref::option_from_abi(&drawingattributes)).into()
             }
         }
         unsafe extern "system" fn PixelToInkSpace<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
@@ -10684,7 +10684,7 @@ impl IInkRenderer_Vtbl {
         unsafe extern "system" fn Measure<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRenderer_Impl::Measure(this, core::mem::transmute_copy(&strokes)) {
+                match IInkRenderer_Impl::Measure(this, windows_core::Ref::option_from_abi(&strokes)) {
                     Ok(ok__) => {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -10696,7 +10696,7 @@ impl IInkRenderer_Vtbl {
         unsafe extern "system" fn MeasureStroke<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stroke: *mut core::ffi::c_void, drawingattributes: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRenderer_Impl::MeasureStroke(this, core::mem::transmute_copy(&stroke), core::mem::transmute_copy(&drawingattributes)) {
+                match IInkRenderer_Impl::MeasureStroke(this, windows_core::Ref::option_from_abi(&stroke), windows_core::Ref::option_from_abi(&drawingattributes)) {
                     Ok(ok__) => {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -10784,7 +10784,7 @@ impl IInkStrokeDisp {
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), drawattrs.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&drawattrs.param().borrow())).ok() }
     }
     pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
@@ -10857,7 +10857,7 @@ impl IInkStrokeDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindIntersections)(windows_core::Interface::as_raw(self), strokes.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).FindIntersections)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strokes.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10867,14 +10867,14 @@ impl IInkStrokeDisp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRectangleIntersections)(windows_core::Interface::as_raw(self), rectangle.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetRectangleIntersections)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow())).ok() }
     }
     pub unsafe fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
@@ -10940,13 +10940,13 @@ impl IInkStrokeDisp {
     where
         P0: windows_core::Param<IInkTransform>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), applyonpenwidth).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&transform.param().borrow()), applyonpenwidth).ok() }
     }
     pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ScaleToRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ScaleToRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow())).ok() }
     }
     pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), horizontalcomponent, verticalcomponent).ok() }
@@ -11044,7 +11044,7 @@ pub trait IInkStrokeDisp_Impl: super::super::System::Com::IDispatch_Impl {
     fn ID(&self) -> windows_core::Result<i32>;
     fn BezierPoints(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, drawattrs: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn putref_DrawingAttributes(&self, drawattrs: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn Ink(&self) -> windows_core::Result<IInkDisp>;
     fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
     fn PolylineCusps(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -11055,9 +11055,9 @@ pub trait IInkStrokeDisp_Impl: super::super::System::Com::IDispatch_Impl {
     fn PacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Deleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
-    fn FindIntersections(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetRectangleIntersections(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn FindIntersections(&self, strokes: Option<&IInkStrokes>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetRectangleIntersections(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Clip(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn NearestPoint(&self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> windows_core::Result<()>;
     fn Split(&self, splitat: f32) -> windows_core::Result<IInkStrokeDisp>;
@@ -11068,8 +11068,8 @@ pub trait IInkStrokeDisp_Impl: super::super::System::Com::IDispatch_Impl {
     fn GetPacketValuesByProperty(&self, propertyname: &windows_core::BSTR, index: i32, count: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetPacketValuesByProperty(&self, bstrpropertyname: &windows_core::BSTR, packetvalues: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_core::Result<i32>;
     fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Transform(&self, transform: windows_core::Ref<IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ScaleToRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn Transform(&self, transform: Option<&IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn ScaleToRectangle(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
     fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
     fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
@@ -11117,7 +11117,7 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn putref_DrawingAttributes<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawattrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokeDisp_Impl::putref_DrawingAttributes(this, core::mem::transmute_copy(&drawattrs)).into()
+                IInkStrokeDisp_Impl::putref_DrawingAttributes(this, windows_core::Ref::option_from_abi(&drawattrs)).into()
             }
         }
         unsafe extern "system" fn Ink<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11243,7 +11243,7 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn FindIntersections<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut core::ffi::c_void, intersections: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::FindIntersections(this, core::mem::transmute_copy(&strokes)) {
+                match IInkStrokeDisp_Impl::FindIntersections(this, windows_core::Ref::option_from_abi(&strokes)) {
                     Ok(ok__) => {
                         intersections.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -11255,7 +11255,7 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn GetRectangleIntersections<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void, intersections: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::GetRectangleIntersections(this, core::mem::transmute_copy(&rectangle)) {
+                match IInkStrokeDisp_Impl::GetRectangleIntersections(this, windows_core::Ref::option_from_abi(&rectangle)) {
                     Ok(ok__) => {
                         intersections.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -11267,7 +11267,7 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn Clip<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokeDisp_Impl::Clip(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkStrokeDisp_Impl::Clip(this, windows_core::Ref::option_from_abi(&rectangle)).into()
             }
         }
         unsafe extern "system" fn HitTestCircle<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, radius: f32, intersects: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -11381,13 +11381,13 @@ impl IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn Transform<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokeDisp_Impl::Transform(this, core::mem::transmute_copy(&transform), core::mem::transmute_copy(&applyonpenwidth)).into()
+                IInkStrokeDisp_Impl::Transform(this, windows_core::Ref::option_from_abi(&transform), core::mem::transmute_copy(&applyonpenwidth)).into()
             }
         }
         unsafe extern "system" fn ScaleToRectangle<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokeDisp_Impl::ScaleToRectangle(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkStrokeDisp_Impl::ScaleToRectangle(this, windows_core::Ref::option_from_abi(&rectangle)).into()
             }
         }
         unsafe extern "system" fn Move<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::HRESULT {
@@ -11510,31 +11510,31 @@ impl IInkStrokes {
     where
         P0: windows_core::Param<IInkStrokeDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), inkstroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inkstroke.param().borrow())).ok() }
     }
     pub unsafe fn AddStrokes<P0>(&self, inkstrokes: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddStrokes)(windows_core::Interface::as_raw(self), inkstrokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStrokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inkstrokes.param().borrow())).ok() }
     }
     pub unsafe fn Remove<P0>(&self, inkstroke: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkStrokeDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), inkstroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inkstroke.param().borrow())).ok() }
     }
     pub unsafe fn RemoveStrokes<P0>(&self, inkstrokes: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStrokes)(windows_core::Interface::as_raw(self), inkstrokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveStrokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inkstrokes.param().borrow())).ok() }
     }
     pub unsafe fn ModifyDrawingAttributes<P0>(&self, drawattrs: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ModifyDrawingAttributes)(windows_core::Interface::as_raw(self), drawattrs.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ModifyDrawingAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&drawattrs.param().borrow())).ok() }
     }
     pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle> {
         unsafe {
@@ -11546,13 +11546,13 @@ impl IInkStrokes {
     where
         P0: windows_core::Param<IInkTransform>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), applyonpenwidth).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&transform.param().borrow()), applyonpenwidth).ok() }
     }
     pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ScaleToRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ScaleToRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow())).ok() }
     }
     pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), horizontalcomponent, verticalcomponent).ok() }
@@ -11570,7 +11570,7 @@ impl IInkStrokes {
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&rectangle.param().borrow())).ok() }
     }
     pub unsafe fn RemoveRecognitionResult(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveRecognitionResult)(windows_core::Interface::as_raw(self)).ok() }
@@ -11610,19 +11610,19 @@ pub trait IInkStrokes_Impl: super::super::System::Com::IDispatch_Impl {
     fn RecognitionResult(&self) -> windows_core::Result<IInkRecognitionResult>;
     fn ToString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Item(&self, index: i32) -> windows_core::Result<IInkStrokeDisp>;
-    fn Add(&self, inkstroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn AddStrokes(&self, inkstrokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn Remove(&self, inkstroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn RemoveStrokes(&self, inkstrokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn ModifyDrawingAttributes(&self, drawattrs: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn Add(&self, inkstroke: Option<&IInkStrokeDisp>) -> windows_core::Result<()>;
+    fn AddStrokes(&self, inkstrokes: Option<&IInkStrokes>) -> windows_core::Result<()>;
+    fn Remove(&self, inkstroke: Option<&IInkStrokeDisp>) -> windows_core::Result<()>;
+    fn RemoveStrokes(&self, inkstrokes: Option<&IInkStrokes>) -> windows_core::Result<()>;
+    fn ModifyDrawingAttributes(&self, drawattrs: Option<&IInkDrawingAttributes>) -> windows_core::Result<()>;
     fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
-    fn Transform(&self, transform: windows_core::Ref<IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ScaleToRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn Transform(&self, transform: Option<&IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn ScaleToRectangle(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
     fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
     fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
     fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
-    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn Clip(&self, rectangle: Option<&IInkRectangle>) -> windows_core::Result<()>;
     fn RemoveRecognitionResult(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11703,31 +11703,31 @@ impl IInkStrokes_Vtbl {
         unsafe extern "system" fn Add<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkstroke: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::Add(this, core::mem::transmute_copy(&inkstroke)).into()
+                IInkStrokes_Impl::Add(this, windows_core::Ref::option_from_abi(&inkstroke)).into()
             }
         }
         unsafe extern "system" fn AddStrokes<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkstrokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::AddStrokes(this, core::mem::transmute_copy(&inkstrokes)).into()
+                IInkStrokes_Impl::AddStrokes(this, windows_core::Ref::option_from_abi(&inkstrokes)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkstroke: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::Remove(this, core::mem::transmute_copy(&inkstroke)).into()
+                IInkStrokes_Impl::Remove(this, windows_core::Ref::option_from_abi(&inkstroke)).into()
             }
         }
         unsafe extern "system" fn RemoveStrokes<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkstrokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::RemoveStrokes(this, core::mem::transmute_copy(&inkstrokes)).into()
+                IInkStrokes_Impl::RemoveStrokes(this, windows_core::Ref::option_from_abi(&inkstrokes)).into()
             }
         }
         unsafe extern "system" fn ModifyDrawingAttributes<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawattrs: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::ModifyDrawingAttributes(this, core::mem::transmute_copy(&drawattrs)).into()
+                IInkStrokes_Impl::ModifyDrawingAttributes(this, windows_core::Ref::option_from_abi(&drawattrs)).into()
             }
         }
         unsafe extern "system" fn GetBoundingBox<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, boundingboxmode: InkBoundingBoxMode, boundingbox: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11745,13 +11745,13 @@ impl IInkStrokes_Vtbl {
         unsafe extern "system" fn Transform<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, transform: *mut core::ffi::c_void, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::Transform(this, core::mem::transmute_copy(&transform), core::mem::transmute_copy(&applyonpenwidth)).into()
+                IInkStrokes_Impl::Transform(this, windows_core::Ref::option_from_abi(&transform), core::mem::transmute_copy(&applyonpenwidth)).into()
             }
         }
         unsafe extern "system" fn ScaleToRectangle<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::ScaleToRectangle(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkStrokes_Impl::ScaleToRectangle(this, windows_core::Ref::option_from_abi(&rectangle)).into()
             }
         }
         unsafe extern "system" fn Move<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::HRESULT {
@@ -11781,7 +11781,7 @@ impl IInkStrokes_Vtbl {
         unsafe extern "system" fn Clip<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokes_Impl::Clip(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkStrokes_Impl::Clip(this, windows_core::Ref::option_from_abi(&rectangle)).into()
             }
         }
         unsafe extern "system" fn RemoveRecognitionResult<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12631,7 +12631,7 @@ impl IInkWordList {
     where
         P0: windows_core::Param<IInkWordList>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), mergewordlist.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mergewordlist.param().borrow())).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12647,7 +12647,7 @@ pub struct IInkWordList_Vtbl {
 pub trait IInkWordList_Impl: super::super::System::Com::IDispatch_Impl {
     fn AddWord(&self, newword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RemoveWord(&self, removeword: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Merge(&self, mergewordlist: windows_core::Ref<IInkWordList>) -> windows_core::Result<()>;
+    fn Merge(&self, mergewordlist: Option<&IInkWordList>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkWordList_Vtbl {
@@ -12667,7 +12667,7 @@ impl IInkWordList_Vtbl {
         unsafe extern "system" fn Merge<Identity: IInkWordList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mergewordlist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkWordList_Impl::Merge(this, core::mem::transmute_copy(&mergewordlist)).into()
+                IInkWordList_Impl::Merge(this, windows_core::Ref::option_from_abi(&mergewordlist)).into()
             }
         }
         Self {
@@ -12885,7 +12885,7 @@ impl IMathInputControl {
     where
         P0: windows_core::Param<IInkDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadInk)(windows_core::Interface::as_raw(self), ink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LoadInk)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ink.param().borrow())).ok() }
     }
     pub unsafe fn SetOwnerWindow(&self, ownerwindow: isize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOwnerWindow)(windows_core::Interface::as_raw(self), ownerwindow).ok() }
@@ -12955,7 +12955,7 @@ pub trait IMathInputControl_Impl: super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> windows_core::Result<()>;
     fn SetCustomPaint(&self, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetCaptionText(&self, captiontext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LoadInk(&self, ink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
+    fn LoadInk(&self, ink: Option<&IInkDisp>) -> windows_core::Result<()>;
     fn SetOwnerWindow(&self, ownerwindow: isize) -> windows_core::Result<()>;
     fn EnableExtendedButtons(&self, extended: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetPreviewHeight(&self) -> windows_core::Result<i32>;
@@ -13025,7 +13025,7 @@ impl IMathInputControl_Vtbl {
         unsafe extern "system" fn LoadInk<Identity: IMathInputControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMathInputControl_Impl::LoadInk(this, core::mem::transmute_copy(&ink)).into()
+                IMathInputControl_Impl::LoadInk(this, windows_core::Ref::option_from_abi(&ink)).into()
             }
         }
         unsafe extern "system" fn SetOwnerWindow<Identity: IMathInputControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ownerwindow: isize) -> windows_core::HRESULT {
@@ -13715,7 +13715,7 @@ impl IRealTimeStylus {
     where
         P1: windows_core::Param<IStylusSyncPlugin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddStylusSyncPlugin)(windows_core::Interface::as_raw(self), iindex, piplugin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStylusSyncPlugin)(windows_core::Interface::as_raw(self), iindex, core::mem::transmute_copy(&piplugin.param().borrow())).ok() }
     }
     pub unsafe fn RemoveStylusSyncPlugin(&self, iindex: u32, ppiplugin: *mut Option<IStylusSyncPlugin>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStylusSyncPlugin)(windows_core::Interface::as_raw(self), iindex, core::mem::transmute(ppiplugin)).ok() }
@@ -13739,7 +13739,7 @@ impl IRealTimeStylus {
     where
         P1: windows_core::Param<IStylusAsyncPlugin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddStylusAsyncPlugin)(windows_core::Interface::as_raw(self), iindex, piplugin.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStylusAsyncPlugin)(windows_core::Interface::as_raw(self), iindex, core::mem::transmute_copy(&piplugin.param().borrow())).ok() }
     }
     pub unsafe fn RemoveStylusAsyncPlugin(&self, iindex: u32, ppiplugin: *mut Option<IStylusAsyncPlugin>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStylusAsyncPlugin)(windows_core::Interface::as_raw(self), iindex, core::mem::transmute(ppiplugin)).ok() }
@@ -13769,7 +13769,7 @@ impl IRealTimeStylus {
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_ChildRealTimeStylusPlugin)(windows_core::Interface::as_raw(self), pirts.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_ChildRealTimeStylusPlugin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirts.param().borrow())).ok() }
     }
     pub unsafe fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const windows_core::GUID, pbdata: Option<&[u8]>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddCustomStylusDataToQueue)(windows_core::Interface::as_raw(self), sq, pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
@@ -13785,7 +13785,7 @@ impl IRealTimeStylus {
     where
         P0: windows_core::Param<IInkTablet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletMode)(windows_core::Interface::as_raw(self), pitablet.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSingleTabletMode)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pitablet.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTablet(&self) -> windows_core::Result<IInkTablet> {
@@ -13801,7 +13801,7 @@ impl IRealTimeStylus {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTabletContextIdFromTablet)(windows_core::Interface::as_raw(self), pitablet.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetTabletContextIdFromTablet)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pitablet.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -13900,24 +13900,24 @@ pub trait IRealTimeStylus_Impl: windows_core::IUnknownImpl {
     fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>;
     fn WindowInputRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
     fn SetWindowInputRectangle(&self, prcwndinputrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn AddStylusSyncPlugin(&self, iindex: u32, piplugin: windows_core::Ref<IStylusSyncPlugin>) -> windows_core::Result<()>;
+    fn AddStylusSyncPlugin(&self, iindex: u32, piplugin: Option<&IStylusSyncPlugin>) -> windows_core::Result<()>;
     fn RemoveStylusSyncPlugin(&self, iindex: u32, ppiplugin: windows_core::OutRef<IStylusSyncPlugin>) -> windows_core::Result<()>;
     fn RemoveAllStylusSyncPlugins(&self) -> windows_core::Result<()>;
     fn GetStylusSyncPlugin(&self, iindex: u32) -> windows_core::Result<IStylusSyncPlugin>;
     fn GetStylusSyncPluginCount(&self) -> windows_core::Result<u32>;
-    fn AddStylusAsyncPlugin(&self, iindex: u32, piplugin: windows_core::Ref<IStylusAsyncPlugin>) -> windows_core::Result<()>;
+    fn AddStylusAsyncPlugin(&self, iindex: u32, piplugin: Option<&IStylusAsyncPlugin>) -> windows_core::Result<()>;
     fn RemoveStylusAsyncPlugin(&self, iindex: u32, ppiplugin: windows_core::OutRef<IStylusAsyncPlugin>) -> windows_core::Result<()>;
     fn RemoveAllStylusAsyncPlugins(&self) -> windows_core::Result<()>;
     fn GetStylusAsyncPlugin(&self, iindex: u32) -> windows_core::Result<IStylusAsyncPlugin>;
     fn GetStylusAsyncPluginCount(&self) -> windows_core::Result<u32>;
     fn ChildRealTimeStylusPlugin(&self) -> windows_core::Result<IRealTimeStylus>;
-    fn putref_ChildRealTimeStylusPlugin(&self, pirts: windows_core::Ref<IRealTimeStylus>) -> windows_core::Result<()>;
+    fn putref_ChildRealTimeStylusPlugin(&self, pirts: Option<&IRealTimeStylus>) -> windows_core::Result<()>;
     fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_core::Result<()>;
     fn ClearStylusQueues(&self) -> windows_core::Result<()>;
     fn SetAllTabletsMode(&self, fusemouseforinput: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletMode(&self, pitablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
+    fn SetSingleTabletMode(&self, pitablet: Option<&IInkTablet>) -> windows_core::Result<()>;
     fn GetTablet(&self) -> windows_core::Result<IInkTablet>;
-    fn GetTabletContextIdFromTablet(&self, pitablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<u32>;
+    fn GetTabletContextIdFromTablet(&self, pitablet: Option<&IInkTablet>) -> windows_core::Result<u32>;
     fn GetTabletFromTabletContextId(&self, tcid: u32) -> windows_core::Result<IInkTablet>;
     fn GetAllTabletContextIds(&self, pctcidcount: *mut u32, pptcids: *mut *mut u32) -> windows_core::Result<()>;
     fn GetStyluses(&self) -> windows_core::Result<IInkCursors>;
@@ -13986,7 +13986,7 @@ impl IRealTimeStylus_Vtbl {
         unsafe extern "system" fn AddStylusSyncPlugin<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32, piplugin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRealTimeStylus_Impl::AddStylusSyncPlugin(this, core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&piplugin)).into()
+                IRealTimeStylus_Impl::AddStylusSyncPlugin(this, core::mem::transmute_copy(&iindex), windows_core::Ref::option_from_abi(&piplugin)).into()
             }
         }
         unsafe extern "system" fn RemoveStylusSyncPlugin<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32, ppiplugin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14028,7 +14028,7 @@ impl IRealTimeStylus_Vtbl {
         unsafe extern "system" fn AddStylusAsyncPlugin<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32, piplugin: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRealTimeStylus_Impl::AddStylusAsyncPlugin(this, core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&piplugin)).into()
+                IRealTimeStylus_Impl::AddStylusAsyncPlugin(this, core::mem::transmute_copy(&iindex), windows_core::Ref::option_from_abi(&piplugin)).into()
             }
         }
         unsafe extern "system" fn RemoveStylusAsyncPlugin<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32, ppiplugin: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14082,7 +14082,7 @@ impl IRealTimeStylus_Vtbl {
         unsafe extern "system" fn putref_ChildRealTimeStylusPlugin<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirts: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRealTimeStylus_Impl::putref_ChildRealTimeStylusPlugin(this, core::mem::transmute_copy(&pirts)).into()
+                IRealTimeStylus_Impl::putref_ChildRealTimeStylusPlugin(this, windows_core::Ref::option_from_abi(&pirts)).into()
             }
         }
         unsafe extern "system" fn AddCustomStylusDataToQueue<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sq: StylusQueue, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_core::HRESULT {
@@ -14106,7 +14106,7 @@ impl IRealTimeStylus_Vtbl {
         unsafe extern "system" fn SetSingleTabletMode<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitablet: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRealTimeStylus_Impl::SetSingleTabletMode(this, core::mem::transmute_copy(&pitablet)).into()
+                IRealTimeStylus_Impl::SetSingleTabletMode(this, windows_core::Ref::option_from_abi(&pitablet)).into()
             }
         }
         unsafe extern "system" fn GetTablet<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppisingletablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14124,7 +14124,7 @@ impl IRealTimeStylus_Vtbl {
         unsafe extern "system" fn GetTabletContextIdFromTablet<Identity: IRealTimeStylus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitablet: *mut core::ffi::c_void, ptcid: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRealTimeStylus_Impl::GetTabletContextIdFromTablet(this, core::mem::transmute_copy(&pitablet)) {
+                match IRealTimeStylus_Impl::GetTabletContextIdFromTablet(this, windows_core::Ref::option_from_abi(&pitablet)) {
                     Ok(ok__) => {
                         ptcid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -14462,7 +14462,7 @@ impl IStrokeBuilder {
     where
         P0: windows_core::Param<IInkDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), piinkobj.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&piinkobj.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -14498,7 +14498,7 @@ pub trait IStrokeBuilder_Impl: windows_core::IUnknownImpl {
     fn AppendPackets(&self, tcid: u32, sid: u32, cpktbufflength: u32, ppackets: *const i32) -> windows_core::Result<()>;
     fn EndStroke(&self, tcid: u32, sid: u32, ppiinkstroke: windows_core::OutRef<IInkStrokeDisp>, pdirtyrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, piinkobj: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
+    fn putref_Ink(&self, piinkobj: Option<&IInkDisp>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStrokeBuilder_Vtbl {
@@ -14542,7 +14542,7 @@ impl IStrokeBuilder_Vtbl {
         unsafe extern "system" fn putref_Ink<Identity: IStrokeBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piinkobj: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStrokeBuilder_Impl::putref_Ink(this, core::mem::transmute_copy(&piinkobj)).into()
+                IStrokeBuilder_Impl::putref_Ink(this, windows_core::Ref::option_from_abi(&piinkobj)).into()
             }
         }
         Self {
@@ -14594,73 +14594,73 @@ impl IStylusPlugin {
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RealTimeStylusEnabled)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), ptcids.len().try_into().unwrap(), core::mem::transmute(ptcids.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RealTimeStylusEnabled)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), ptcids.len().try_into().unwrap(), core::mem::transmute(ptcids.as_ptr())).ok() }
     }
     pub unsafe fn RealTimeStylusDisabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RealTimeStylusDisabled)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), ptcids.len().try_into().unwrap(), core::mem::transmute(ptcids.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RealTimeStylusDisabled)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), ptcids.len().try_into().unwrap(), core::mem::transmute(ptcids.as_ptr())).ok() }
     }
     pub unsafe fn StylusInRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StylusInRange)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), tcid, sid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StylusInRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), tcid, sid).ok() }
     }
     pub unsafe fn StylusOutOfRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StylusOutOfRange)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), tcid, sid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StylusOutOfRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), tcid, sid).ok() }
     }
     pub unsafe fn StylusDown<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StylusDown)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), core::mem::transmute(ppacket.as_ptr()), ppinoutpkt as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StylusDown)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), pstylusinfo, ppacket.len().try_into().unwrap(), core::mem::transmute(ppacket.as_ptr()), ppinoutpkt as _).ok() }
     }
     pub unsafe fn StylusUp<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StylusUp)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), core::mem::transmute(ppacket.as_ptr()), ppinoutpkt as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StylusUp)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), pstylusinfo, ppacket.len().try_into().unwrap(), core::mem::transmute(ppacket.as_ptr()), ppinoutpkt as _).ok() }
     }
     pub unsafe fn StylusButtonDown<P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StylusButtonDown)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), sid, pguidstylusbutton, pstyluspos as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StylusButtonDown)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), sid, pguidstylusbutton, pstyluspos as _).ok() }
     }
     pub unsafe fn StylusButtonUp<P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StylusButtonUp)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), sid, pguidstylusbutton, pstyluspos as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).StylusButtonUp)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), sid, pguidstylusbutton, pstyluspos as _).ok() }
     }
     pub unsafe fn InAirPackets<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InAirPackets)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr()), pcinoutpkts as _, ppinoutpkts as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InAirPackets)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr()), pcinoutpkts as _, ppinoutpkts as _).ok() }
     }
     pub unsafe fn Packets<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Packets)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr()), pcinoutpkts as _, ppinoutpkts as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Packets)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr()), pcinoutpkts as _, ppinoutpkts as _).ok() }
     }
     pub unsafe fn CustomStylusDataAdded<P0>(&self, pirtssrc: P0, pguidid: *const windows_core::GUID, pbdata: Option<&[u8]>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CustomStylusDataAdded)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CustomStylusDataAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn SystemEvent<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SystemEvent)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), tcid, sid, event, core::mem::transmute(eventdata)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SystemEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), tcid, sid, event, core::mem::transmute(eventdata)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TabletAdded<P0, P1>(&self, pirtssrc: P0, pitablet: P1) -> windows_core::Result<()>
@@ -14668,26 +14668,26 @@ impl IStylusPlugin {
         P0: windows_core::Param<IRealTimeStylus>,
         P1: windows_core::Param<IInkTablet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TabletAdded)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pitablet.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TabletAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), core::mem::transmute_copy(&pitablet.param().borrow())).ok() }
     }
     pub unsafe fn TabletRemoved<P0>(&self, pirtssrc: P0, itabletindex: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TabletRemoved)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), itabletindex).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TabletRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), itabletindex).ok() }
     }
     pub unsafe fn Error<P0, P1>(&self, pirtssrc: P0, piplugin: P1, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
         P1: windows_core::Param<IStylusPlugin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), piplugin.param().abi(), datainterest, hrerrorcode, lptrkey as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow()), core::mem::transmute_copy(&piplugin.param().borrow()), datainterest, hrerrorcode, lptrkey as _).ok() }
     }
     pub unsafe fn UpdateMapping<P0>(&self, pirtssrc: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateMapping)(windows_core::Interface::as_raw(self), pirtssrc.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pirtssrc.param().borrow())).ok() }
     }
     pub unsafe fn DataInterest(&self) -> windows_core::Result<RealTimeStylusDataInterest> {
         unsafe {
@@ -14723,22 +14723,22 @@ pub struct IStylusPlugin_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStylusPlugin_Impl: windows_core::IUnknownImpl {
-    fn RealTimeStylusEnabled(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_core::Result<()>;
-    fn RealTimeStylusDisabled(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_core::Result<()>;
-    fn StylusInRange(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32) -> windows_core::Result<()>;
-    fn StylusOutOfRange(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32) -> windows_core::Result<()>;
-    fn StylusDown(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>;
-    fn StylusUp(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>;
-    fn StylusButtonDown(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>;
-    fn StylusButtonUp(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>;
-    fn InAirPackets(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>;
-    fn Packets(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>;
-    fn CustomStylusDataAdded(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_core::Result<()>;
-    fn SystemEvent(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32, event: u16, eventdata: &SYSTEM_EVENT_DATA) -> windows_core::Result<()>;
-    fn TabletAdded(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pitablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
-    fn TabletRemoved(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, itabletindex: i32) -> windows_core::Result<()>;
-    fn Error(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, piplugin: windows_core::Ref<IStylusPlugin>, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_core::Result<()>;
-    fn UpdateMapping(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>) -> windows_core::Result<()>;
+    fn RealTimeStylusEnabled(&self, pirtssrc: Option<&IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_core::Result<()>;
+    fn RealTimeStylusDisabled(&self, pirtssrc: Option<&IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_core::Result<()>;
+    fn StylusInRange(&self, pirtssrc: Option<&IRealTimeStylus>, tcid: u32, sid: u32) -> windows_core::Result<()>;
+    fn StylusOutOfRange(&self, pirtssrc: Option<&IRealTimeStylus>, tcid: u32, sid: u32) -> windows_core::Result<()>;
+    fn StylusDown(&self, pirtssrc: Option<&IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>;
+    fn StylusUp(&self, pirtssrc: Option<&IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>;
+    fn StylusButtonDown(&self, pirtssrc: Option<&IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>;
+    fn StylusButtonUp(&self, pirtssrc: Option<&IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>;
+    fn InAirPackets(&self, pirtssrc: Option<&IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>;
+    fn Packets(&self, pirtssrc: Option<&IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>;
+    fn CustomStylusDataAdded(&self, pirtssrc: Option<&IRealTimeStylus>, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_core::Result<()>;
+    fn SystemEvent(&self, pirtssrc: Option<&IRealTimeStylus>, tcid: u32, sid: u32, event: u16, eventdata: &SYSTEM_EVENT_DATA) -> windows_core::Result<()>;
+    fn TabletAdded(&self, pirtssrc: Option<&IRealTimeStylus>, pitablet: Option<&IInkTablet>) -> windows_core::Result<()>;
+    fn TabletRemoved(&self, pirtssrc: Option<&IRealTimeStylus>, itabletindex: i32) -> windows_core::Result<()>;
+    fn Error(&self, pirtssrc: Option<&IRealTimeStylus>, piplugin: Option<&IStylusPlugin>, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_core::Result<()>;
+    fn UpdateMapping(&self, pirtssrc: Option<&IRealTimeStylus>) -> windows_core::Result<()>;
     fn DataInterest(&self) -> windows_core::Result<RealTimeStylusDataInterest>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14747,97 +14747,97 @@ impl IStylusPlugin_Vtbl {
         unsafe extern "system" fn RealTimeStylusEnabled<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, ctcidcount: u32, ptcids: *const u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::RealTimeStylusEnabled(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&ctcidcount), core::mem::transmute_copy(&ptcids)).into()
+                IStylusPlugin_Impl::RealTimeStylusEnabled(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&ctcidcount), core::mem::transmute_copy(&ptcids)).into()
             }
         }
         unsafe extern "system" fn RealTimeStylusDisabled<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, ctcidcount: u32, ptcids: *const u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::RealTimeStylusDisabled(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&ctcidcount), core::mem::transmute_copy(&ptcids)).into()
+                IStylusPlugin_Impl::RealTimeStylusDisabled(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&ctcidcount), core::mem::transmute_copy(&ptcids)).into()
             }
         }
         unsafe extern "system" fn StylusInRange<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, tcid: u32, sid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::StylusInRange(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&tcid), core::mem::transmute_copy(&sid)).into()
+                IStylusPlugin_Impl::StylusInRange(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&tcid), core::mem::transmute_copy(&sid)).into()
             }
         }
         unsafe extern "system" fn StylusOutOfRange<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, tcid: u32, sid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::StylusOutOfRange(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&tcid), core::mem::transmute_copy(&sid)).into()
+                IStylusPlugin_Impl::StylusOutOfRange(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&tcid), core::mem::transmute_copy(&sid)).into()
             }
         }
         unsafe extern "system" fn StylusDown<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::StylusDown(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpropcountperpkt), core::mem::transmute_copy(&ppacket), core::mem::transmute_copy(&ppinoutpkt)).into()
+                IStylusPlugin_Impl::StylusDown(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpropcountperpkt), core::mem::transmute_copy(&ppacket), core::mem::transmute_copy(&ppinoutpkt)).into()
             }
         }
         unsafe extern "system" fn StylusUp<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::StylusUp(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpropcountperpkt), core::mem::transmute_copy(&ppacket), core::mem::transmute_copy(&ppinoutpkt)).into()
+                IStylusPlugin_Impl::StylusUp(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpropcountperpkt), core::mem::transmute_copy(&ppacket), core::mem::transmute_copy(&ppinoutpkt)).into()
             }
         }
         unsafe extern "system" fn StylusButtonDown<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::StylusButtonDown(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&sid), core::mem::transmute_copy(&pguidstylusbutton), core::mem::transmute_copy(&pstyluspos)).into()
+                IStylusPlugin_Impl::StylusButtonDown(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&sid), core::mem::transmute_copy(&pguidstylusbutton), core::mem::transmute_copy(&pstyluspos)).into()
             }
         }
         unsafe extern "system" fn StylusButtonUp<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::StylusButtonUp(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&sid), core::mem::transmute_copy(&pguidstylusbutton), core::mem::transmute_copy(&pstyluspos)).into()
+                IStylusPlugin_Impl::StylusButtonUp(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&sid), core::mem::transmute_copy(&pguidstylusbutton), core::mem::transmute_copy(&pstyluspos)).into()
             }
         }
         unsafe extern "system" fn InAirPackets<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::InAirPackets(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpktcount), core::mem::transmute_copy(&cpktbufflength), core::mem::transmute_copy(&ppackets), core::mem::transmute_copy(&pcinoutpkts), core::mem::transmute_copy(&ppinoutpkts)).into()
+                IStylusPlugin_Impl::InAirPackets(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpktcount), core::mem::transmute_copy(&cpktbufflength), core::mem::transmute_copy(&ppackets), core::mem::transmute_copy(&pcinoutpkts), core::mem::transmute_copy(&ppinoutpkts)).into()
             }
         }
         unsafe extern "system" fn Packets<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::Packets(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpktcount), core::mem::transmute_copy(&cpktbufflength), core::mem::transmute_copy(&ppackets), core::mem::transmute_copy(&pcinoutpkts), core::mem::transmute_copy(&ppinoutpkts)).into()
+                IStylusPlugin_Impl::Packets(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&pstylusinfo), core::mem::transmute_copy(&cpktcount), core::mem::transmute_copy(&cpktbufflength), core::mem::transmute_copy(&ppackets), core::mem::transmute_copy(&pcinoutpkts), core::mem::transmute_copy(&ppinoutpkts)).into()
             }
         }
         unsafe extern "system" fn CustomStylusDataAdded<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::CustomStylusDataAdded(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&pguidid), core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&pbdata)).into()
+                IStylusPlugin_Impl::CustomStylusDataAdded(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&pguidid), core::mem::transmute_copy(&cbdata), core::mem::transmute_copy(&pbdata)).into()
             }
         }
         unsafe extern "system" fn SystemEvent<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::SystemEvent(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&tcid), core::mem::transmute_copy(&sid), core::mem::transmute_copy(&event), core::mem::transmute(&eventdata)).into()
+                IStylusPlugin_Impl::SystemEvent(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&tcid), core::mem::transmute_copy(&sid), core::mem::transmute_copy(&event), core::mem::transmute(&eventdata)).into()
             }
         }
         unsafe extern "system" fn TabletAdded<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, pitablet: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::TabletAdded(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&pitablet)).into()
+                IStylusPlugin_Impl::TabletAdded(this, windows_core::Ref::option_from_abi(&pirtssrc), windows_core::Ref::option_from_abi(&pitablet)).into()
             }
         }
         unsafe extern "system" fn TabletRemoved<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, itabletindex: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::TabletRemoved(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&itabletindex)).into()
+                IStylusPlugin_Impl::TabletRemoved(this, windows_core::Ref::option_from_abi(&pirtssrc), core::mem::transmute_copy(&itabletindex)).into()
             }
         }
         unsafe extern "system" fn Error<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void, piplugin: *mut core::ffi::c_void, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::Error(this, core::mem::transmute_copy(&pirtssrc), core::mem::transmute_copy(&piplugin), core::mem::transmute_copy(&datainterest), core::mem::transmute_copy(&hrerrorcode), core::mem::transmute_copy(&lptrkey)).into()
+                IStylusPlugin_Impl::Error(this, windows_core::Ref::option_from_abi(&pirtssrc), windows_core::Ref::option_from_abi(&piplugin), core::mem::transmute_copy(&datainterest), core::mem::transmute_copy(&hrerrorcode), core::mem::transmute_copy(&lptrkey)).into()
             }
         }
         unsafe extern "system" fn UpdateMapping<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pirtssrc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStylusPlugin_Impl::UpdateMapping(this, core::mem::transmute_copy(&pirtssrc)).into()
+                IStylusPlugin_Impl::UpdateMapping(this, windows_core::Ref::option_from_abi(&pirtssrc)).into()
             }
         }
         unsafe extern "system" fn DataInterest<Identity: IStylusPlugin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdatainterest: *mut RealTimeStylusDataInterest) -> windows_core::HRESULT {
@@ -15020,13 +15020,13 @@ impl ITextInputPanel {
     where
         P0: windows_core::Param<ITextInputPanelEventSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventsink.param().abi(), eventmask).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&eventsink.param().borrow()), eventmask).ok() }
     }
     pub unsafe fn Unadvise<P0>(&self, eventsink: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ITextInputPanelEventSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), eventsink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&eventsink.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -15083,8 +15083,8 @@ pub trait ITextInputPanel_Impl: windows_core::IUnknownImpl {
     fn SetInPlaceVisibility(&self, visible: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetInPlacePosition(&self, xposition: i32, yposition: i32, position: CorrectionPosition) -> windows_core::Result<()>;
     fn SetInPlaceHoverTargetPosition(&self, xposition: i32, yposition: i32) -> windows_core::Result<()>;
-    fn Advise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>, eventmask: u32) -> windows_core::Result<()>;
-    fn Unadvise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>) -> windows_core::Result<()>;
+    fn Advise(&self, eventsink: Option<&ITextInputPanelEventSink>, eventmask: u32) -> windows_core::Result<()>;
+    fn Unadvise(&self, eventsink: Option<&ITextInputPanelEventSink>) -> windows_core::Result<()>;
 }
 impl ITextInputPanel_Vtbl {
     pub const fn new<Identity: ITextInputPanel_Impl, const OFFSET: isize>() -> Self {
@@ -15307,13 +15307,13 @@ impl ITextInputPanel_Vtbl {
         unsafe extern "system" fn Advise<Identity: ITextInputPanel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventsink: *mut core::ffi::c_void, eventmask: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextInputPanel_Impl::Advise(this, core::mem::transmute_copy(&eventsink), core::mem::transmute_copy(&eventmask)).into()
+                ITextInputPanel_Impl::Advise(this, windows_core::Ref::option_from_abi(&eventsink), core::mem::transmute_copy(&eventmask)).into()
             }
         }
         unsafe extern "system" fn Unadvise<Identity: ITextInputPanel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextInputPanel_Impl::Unadvise(this, core::mem::transmute_copy(&eventsink)).into()
+                ITextInputPanel_Impl::Unadvise(this, windows_core::Ref::option_from_abi(&eventsink)).into()
             }
         }
         Self {
@@ -15574,13 +15574,13 @@ impl ITipAutoCompleteClient {
     where
         P1: windows_core::Param<ITipAutoCompleteProvider>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AdviseProvider)(windows_core::Interface::as_raw(self), hwndfield, piprovider.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AdviseProvider)(windows_core::Interface::as_raw(self), hwndfield, core::mem::transmute_copy(&piprovider.param().borrow())).ok() }
     }
     pub unsafe fn UnadviseProvider<P1>(&self, hwndfield: super::super::Foundation::HWND, piprovider: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<ITipAutoCompleteProvider>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnadviseProvider)(windows_core::Interface::as_raw(self), hwndfield, piprovider.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnadviseProvider)(windows_core::Interface::as_raw(self), hwndfield, core::mem::transmute_copy(&piprovider.param().borrow())).ok() }
     }
     pub unsafe fn UserSelection(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UserSelection)(windows_core::Interface::as_raw(self)).ok() }
@@ -15606,8 +15606,8 @@ pub struct ITipAutoCompleteClient_Vtbl {
     pub RequestShowUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITipAutoCompleteClient_Impl: windows_core::IUnknownImpl {
-    fn AdviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: windows_core::Ref<ITipAutoCompleteProvider>) -> windows_core::Result<()>;
-    fn UnadviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: windows_core::Ref<ITipAutoCompleteProvider>) -> windows_core::Result<()>;
+    fn AdviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: Option<&ITipAutoCompleteProvider>) -> windows_core::Result<()>;
+    fn UnadviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: Option<&ITipAutoCompleteProvider>) -> windows_core::Result<()>;
     fn UserSelection(&self) -> windows_core::Result<()>;
     fn PreferredRects(&self, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn RequestShowUI(&self, hwndlist: super::super::Foundation::HWND) -> windows_core::Result<windows_core::BOOL>;
@@ -15617,13 +15617,13 @@ impl ITipAutoCompleteClient_Vtbl {
         unsafe extern "system" fn AdviseProvider<Identity: ITipAutoCompleteClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndfield: super::super::Foundation::HWND, piprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipAutoCompleteClient_Impl::AdviseProvider(this, core::mem::transmute_copy(&hwndfield), core::mem::transmute_copy(&piprovider)).into()
+                ITipAutoCompleteClient_Impl::AdviseProvider(this, core::mem::transmute_copy(&hwndfield), windows_core::Ref::option_from_abi(&piprovider)).into()
             }
         }
         unsafe extern "system" fn UnadviseProvider<Identity: ITipAutoCompleteClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndfield: super::super::Foundation::HWND, piprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITipAutoCompleteClient_Impl::UnadviseProvider(this, core::mem::transmute_copy(&hwndfield), core::mem::transmute_copy(&piprovider)).into()
+                ITipAutoCompleteClient_Impl::UnadviseProvider(this, core::mem::transmute_copy(&hwndfield), windows_core::Ref::option_from_abi(&piprovider)).into()
             }
         }
         unsafe extern "system" fn UserSelection<Identity: ITipAutoCompleteClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

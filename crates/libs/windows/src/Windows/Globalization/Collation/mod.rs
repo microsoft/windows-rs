@@ -84,7 +84,7 @@ impl CharacterGroupings {
         let this = &windows_core::Interface::cast::<windows_collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<CharacterGrouping>]) -> windows_core::Result<u32> {

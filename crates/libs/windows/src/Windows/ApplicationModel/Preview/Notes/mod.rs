@@ -175,7 +175,7 @@ impl NotesWindowManagerPreview {
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacement)(windows_core::Interface::as_raw(this), noteviewid, data.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacement)(windows_core::Interface::as_raw(this), noteviewid, core::mem::transmute_copy(&data.param().borrow())).ok() }
     }
     pub fn HideNote(&self, noteviewid: i32) -> windows_core::Result<()> {
         let this = self;
@@ -208,7 +208,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetNotesThumbnailAsync)(windows_core::Interface::as_raw(this), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetNotesThumbnailAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&thumbnail.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SystemLockStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -218,7 +218,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemLockStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemLockStateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemLockStateChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -232,7 +232,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotePlacementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NotePlacementChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNotePlacementChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -246,7 +246,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NoteVisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NoteVisibilityChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveNoteVisibilityChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -258,7 +258,7 @@ impl NotesWindowManagerPreview {
         P2: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
     {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ShowNoteRelativeToWithOptions)(windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid, options.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowNoteRelativeToWithOptions)(windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid, core::mem::transmute_copy(&options.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ShowNoteWithPlacementWithOptions<P1, P2>(&self, noteviewid: i32, data: P1, options: P2) -> windows_core::Result<()>
@@ -267,7 +267,7 @@ impl NotesWindowManagerPreview {
         P2: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
     {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacementWithOptions)(windows_core::Interface::as_raw(this), noteviewid, data.param().abi(), options.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacementWithOptions)(windows_core::Interface::as_raw(this), noteviewid, core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&options.param().borrow())).ok() }
     }
     pub fn SetFocusToPreviousView(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
@@ -281,7 +281,7 @@ impl NotesWindowManagerPreview {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentApp() -> windows_core::Result<NotesWindowManagerPreview> {

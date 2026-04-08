@@ -8,13 +8,13 @@ impl IXMLGraphBuilder {
         P0: windows_core::Param<super::IGraphBuilder>,
         P1: windows_core::Param<super::super::super::Data::Xml::MsXml::IXMLElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BuildFromXML)(windows_core::Interface::as_raw(self), pgraph.param().abi(), pxml.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BuildFromXML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pgraph.param().borrow()), core::mem::transmute_copy(&pxml.param().borrow())).ok() }
     }
     pub unsafe fn SaveToXML<P0>(&self, pgraph: P0, pbstrxml: *mut windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IGraphBuilder>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SaveToXML)(windows_core::Interface::as_raw(self), pgraph.param().abi(), core::mem::transmute(pbstrxml)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SaveToXML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pgraph.param().borrow()), core::mem::transmute(pbstrxml)).ok() }
     }
     pub unsafe fn BuildFromXMLFile<P0, P1, P2>(&self, pgraph: P0, wszfilename: P1, wszbaseurl: P2) -> windows_core::Result<()>
     where
@@ -22,7 +22,7 @@ impl IXMLGraphBuilder {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BuildFromXMLFile)(windows_core::Interface::as_raw(self), pgraph.param().abi(), wszfilename.param().abi(), wszbaseurl.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BuildFromXMLFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pgraph.param().borrow()), core::mem::transmute_copy(&wszfilename.param().borrow()), core::mem::transmute_copy(&wszbaseurl.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -38,9 +38,9 @@ pub struct IXMLGraphBuilder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IXMLGraphBuilder_Impl: windows_core::IUnknownImpl {
-    fn BuildFromXML(&self, pgraph: windows_core::Ref<super::IGraphBuilder>, pxml: windows_core::Ref<super::super::super::Data::Xml::MsXml::IXMLElement>) -> windows_core::Result<()>;
-    fn SaveToXML(&self, pgraph: windows_core::Ref<super::IGraphBuilder>, pbstrxml: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn BuildFromXMLFile(&self, pgraph: windows_core::Ref<super::IGraphBuilder>, wszfilename: &windows_core::PCWSTR, wszbaseurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn BuildFromXML(&self, pgraph: Option<&super::IGraphBuilder>, pxml: Option<&super::super::super::Data::Xml::MsXml::IXMLElement>) -> windows_core::Result<()>;
+    fn SaveToXML(&self, pgraph: Option<&super::IGraphBuilder>, pbstrxml: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn BuildFromXMLFile(&self, pgraph: Option<&super::IGraphBuilder>, wszfilename: &windows_core::PCWSTR, wszbaseurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IXMLGraphBuilder_Vtbl {
@@ -48,19 +48,19 @@ impl IXMLGraphBuilder_Vtbl {
         unsafe extern "system" fn BuildFromXML<Identity: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void, pxml: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLGraphBuilder_Impl::BuildFromXML(this, core::mem::transmute_copy(&pgraph), core::mem::transmute_copy(&pxml)).into()
+                IXMLGraphBuilder_Impl::BuildFromXML(this, windows_core::Ref::option_from_abi(&pgraph), windows_core::Ref::option_from_abi(&pxml)).into()
             }
         }
         unsafe extern "system" fn SaveToXML<Identity: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void, pbstrxml: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLGraphBuilder_Impl::SaveToXML(this, core::mem::transmute_copy(&pgraph), core::mem::transmute_copy(&pbstrxml)).into()
+                IXMLGraphBuilder_Impl::SaveToXML(this, windows_core::Ref::option_from_abi(&pgraph), core::mem::transmute_copy(&pbstrxml)).into()
             }
         }
         unsafe extern "system" fn BuildFromXMLFile<Identity: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgraph: *mut core::ffi::c_void, wszfilename: windows_core::PCWSTR, wszbaseurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXMLGraphBuilder_Impl::BuildFromXMLFile(this, core::mem::transmute_copy(&pgraph), core::mem::transmute(&wszfilename), core::mem::transmute(&wszbaseurl)).into()
+                IXMLGraphBuilder_Impl::BuildFromXMLFile(this, windows_core::Ref::option_from_abi(&pgraph), core::mem::transmute(&wszfilename), core::mem::transmute(&wszbaseurl)).into()
             }
         }
         Self {

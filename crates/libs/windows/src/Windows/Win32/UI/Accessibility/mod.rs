@@ -15,7 +15,7 @@ where
     P0: windows_core::Param<IAccessible>,
 {
     windows_core::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> windows_core::HRESULT);
-    unsafe { AccessibleChildren(pacccontainer.param().abi(), ichildstart, rgvarchildren.len().try_into().unwrap(), core::mem::transmute(rgvarchildren.as_ptr()), pcobtained as _).ok() }
+    unsafe { AccessibleChildren(core::mem::transmute_copy(&pacccontainer.param().borrow()), ichildstart, rgvarchildren.len().try_into().unwrap(), core::mem::transmute(rgvarchildren.as_ptr()), pcobtained as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
@@ -45,7 +45,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
+    unsafe { CreateStdAccessibleProxyA(hwnd, core::mem::transmute_copy(&pclassname.param().borrow()), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateStdAccessibleProxyW<P1>(hwnd: super::super::Foundation::HWND, pclassname: P1, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -53,7 +53,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCWSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
+    unsafe { CreateStdAccessibleProxyW(hwnd, core::mem::transmute_copy(&pclassname.param().borrow()), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> windows_core::Result<()> {
@@ -141,7 +141,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { LegacyIAccessiblePattern_SetValue(hobj, szvalue.param().abi()).ok() }
+    unsafe { LegacyIAccessiblePattern_SetValue(hobj, core::mem::transmute_copy(&szvalue.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn LresultFromObject<P2>(riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, punk: P2) -> super::super::Foundation::LRESULT
@@ -149,7 +149,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("oleacc.dll" "system" fn LresultFromObject(riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, punk : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
-    unsafe { LresultFromObject(riid, wparam, punk.param().abi()) }
+    unsafe { LresultFromObject(riid, wparam, core::mem::transmute_copy(&punk.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -401,7 +401,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaDisconnectProvider(pprovider : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { UiaDisconnectProvider(pprovider.param().abi()).ok() }
+    unsafe { UiaDisconnectProvider(core::mem::transmute_copy(&pprovider.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
@@ -506,7 +506,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
-    unsafe { UiaIAccessibleFromProvider(pprovider.param().abi(), dwflags, core::mem::transmute(ppaccessible), core::mem::transmute(pvarchild)).ok() }
+    unsafe { UiaIAccessibleFromProvider(core::mem::transmute_copy(&pprovider.param().borrow()), dwflags, core::mem::transmute(ppaccessible), core::mem::transmute(pvarchild)).ok() }
 }
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const windows_core::GUID) -> i32 {
@@ -542,7 +542,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaNodeFromProvider(pprovider : * mut core::ffi::c_void, phnode : *mut HUIANODE) -> windows_core::HRESULT);
-    unsafe { UiaNodeFromProvider(pprovider.param().abi(), phnode as _).ok() }
+    unsafe { UiaNodeFromProvider(core::mem::transmute_copy(&pprovider.param().borrow()), phnode as _).ok() }
 }
 #[inline]
 pub unsafe fn UiaNodeRelease(hnode: HUIANODE) -> windows_core::BOOL {
@@ -571,7 +571,7 @@ where
     windows_core::link!("uiautomationcore.dll" "system" fn UiaProviderFromIAccessible(paccessible : * mut core::ffi::c_void, idchild : i32, dwflags : u32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        UiaProviderFromIAccessible(paccessible.param().abi(), idchild, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        UiaProviderFromIAccessible(core::mem::transmute_copy(&paccessible.param().borrow()), idchild, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -581,7 +581,7 @@ where
     P1: windows_core::Param<ITextRangeProvider>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseActiveTextPositionChangedEvent(provider : * mut core::ffi::c_void, textrange : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { UiaRaiseActiveTextPositionChangedEvent(provider.param().abi(), textrange.param().abi()).ok() }
+    unsafe { UiaRaiseActiveTextPositionChangedEvent(core::mem::transmute_copy(&provider.param().borrow()), core::mem::transmute_copy(&textrange.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn UiaRaiseAsyncContentLoadedEvent<P0>(pprovider: P0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> windows_core::Result<()>
@@ -589,7 +589,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseAsyncContentLoadedEvent(pprovider : * mut core::ffi::c_void, asynccontentloadedstate : AsyncContentLoadedState, percentcomplete : f64) -> windows_core::HRESULT);
-    unsafe { UiaRaiseAsyncContentLoadedEvent(pprovider.param().abi(), asynccontentloadedstate, percentcomplete).ok() }
+    unsafe { UiaRaiseAsyncContentLoadedEvent(core::mem::transmute_copy(&pprovider.param().borrow()), asynccontentloadedstate, percentcomplete).ok() }
 }
 #[inline]
 pub unsafe fn UiaRaiseAutomationEvent<P0>(pprovider: P0, id: UIA_EVENT_ID) -> windows_core::Result<()>
@@ -597,7 +597,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : * mut core::ffi::c_void, id : UIA_EVENT_ID) -> windows_core::HRESULT);
-    unsafe { UiaRaiseAutomationEvent(pprovider.param().abi(), id).ok() }
+    unsafe { UiaRaiseAutomationEvent(core::mem::transmute_copy(&pprovider.param().borrow()), id).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
@@ -606,7 +606,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
-    unsafe { UiaRaiseAutomationPropertyChangedEvent(pprovider.param().abi(), id, core::mem::transmute_copy(oldvalue), core::mem::transmute_copy(newvalue)).ok() }
+    unsafe { UiaRaiseAutomationPropertyChangedEvent(core::mem::transmute_copy(&pprovider.param().borrow()), id, core::mem::transmute_copy(oldvalue), core::mem::transmute_copy(newvalue)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
@@ -615,7 +615,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseChangesEvent(pprovider : * mut core::ffi::c_void, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> windows_core::HRESULT);
-    unsafe { UiaRaiseChangesEvent(pprovider.param().abi(), eventidcount, core::mem::transmute(puiachanges)).ok() }
+    unsafe { UiaRaiseChangesEvent(core::mem::transmute_copy(&pprovider.param().borrow()), eventidcount, core::mem::transmute(puiachanges)).ok() }
 }
 #[inline]
 pub unsafe fn UiaRaiseNotificationEvent<P0>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>
@@ -623,7 +623,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseNotificationEvent(provider : * mut core::ffi::c_void, notificationkind : NotificationKind, notificationprocessing : NotificationProcessing, displaystring : * mut core::ffi::c_void, activityid : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { UiaRaiseNotificationEvent(provider.param().abi(), notificationkind, notificationprocessing, core::mem::transmute_copy(displaystring), core::mem::transmute_copy(activityid)).ok() }
+    unsafe { UiaRaiseNotificationEvent(core::mem::transmute_copy(&provider.param().borrow()), notificationkind, notificationprocessing, core::mem::transmute_copy(displaystring), core::mem::transmute_copy(activityid)).ok() }
 }
 #[inline]
 pub unsafe fn UiaRaiseStructureChangedEvent<P0>(pprovider: P0, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> windows_core::Result<()>
@@ -631,7 +631,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseStructureChangedEvent(pprovider : * mut core::ffi::c_void, structurechangetype : StructureChangeType, pruntimeid : *mut i32, cruntimeidlen : i32) -> windows_core::HRESULT);
-    unsafe { UiaRaiseStructureChangedEvent(pprovider.param().abi(), structurechangetype, pruntimeid as _, cruntimeidlen).ok() }
+    unsafe { UiaRaiseStructureChangedEvent(core::mem::transmute_copy(&pprovider.param().borrow()), structurechangetype, pruntimeid as _, cruntimeidlen).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -640,7 +640,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseTextEditTextChangedEvent(pprovider : * mut core::ffi::c_void, texteditchangetype : TextEditChangeType, pchangeddata : *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
-    unsafe { UiaRaiseTextEditTextChangedEvent(pprovider.param().abi(), texteditchangetype, pchangeddata as _).ok() }
+    unsafe { UiaRaiseTextEditTextChangedEvent(core::mem::transmute_copy(&pprovider.param().borrow()), texteditchangetype, pchangeddata as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -659,7 +659,7 @@ where
     P3: windows_core::Param<IRawElementProviderSimple>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn UiaReturnRawElementProvider(hwnd : super::super::Foundation:: HWND, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, el : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
-    unsafe { UiaReturnRawElementProvider(hwnd, wparam, lparam, el.param().abi()) }
+    unsafe { UiaReturnRawElementProvider(hwnd, wparam, lparam, core::mem::transmute_copy(&el.param().borrow())) }
 }
 #[inline]
 pub unsafe fn UiaSetFocus(hnode: HUIANODE) -> windows_core::Result<()> {
@@ -694,7 +694,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { ValuePattern_SetValue(hobj, pval.param().abi()).ok() }
+    unsafe { ValuePattern_SetValue(hobj, core::mem::transmute_copy(&pval.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
@@ -708,7 +708,7 @@ where
     P0: windows_core::Param<IAccessible>,
 {
     windows_core::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : * mut core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    unsafe { WindowFromAccessibleObject(param0.param().abi(), phwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WindowFromAccessibleObject(core::mem::transmute_copy(&param0.param().borrow()), phwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
@@ -1360,7 +1360,7 @@ impl IAccPropServices {
     where
         P4: windows_core::Param<IAccPropServer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPropServer)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPropServer)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), core::mem::transmute_copy(&pserver.param().borrow()), annoscope).ok() }
     }
     pub unsafe fn ClearProps(&self, pidstring: &[u8], paprops: &[windows_core::GUID]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearProps)(windows_core::Interface::as_raw(self), core::mem::transmute(pidstring.as_ptr()), pidstring.len().try_into().unwrap(), core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok() }
@@ -1373,13 +1373,13 @@ impl IAccPropServices {
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), str.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(&str.param().borrow())).ok() }
     }
     pub unsafe fn SetHwndPropServer<P5>(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: &[windows_core::GUID], pserver: P5, annoscope: AnnoScope) -> windows_core::Result<()>
     where
         P5: windows_core::Param<IAccPropServer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHwndPropServer)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHwndPropServer)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), core::mem::transmute_copy(&pserver.param().borrow()), annoscope).ok() }
     }
     pub unsafe fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: &[windows_core::GUID]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearHwndProps)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap()).ok() }
@@ -1399,14 +1399,14 @@ impl IAccPropServices {
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), str.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(&str.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetHmenuPropServer<P4>(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: &[windows_core::GUID], pserver: P4, annoscope: AnnoScope) -> windows_core::Result<()>
     where
         P4: windows_core::Param<IAccPropServer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropServer)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), pserver.param().abi(), annoscope).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropServer)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(paprops.as_ptr()), paprops.len().try_into().unwrap(), core::mem::transmute_copy(&pserver.param().borrow()), annoscope).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: &[windows_core::GUID]) -> windows_core::Result<()> {
@@ -1468,17 +1468,17 @@ pub struct IAccPropServices_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IAccPropServices_Impl: windows_core::IUnknownImpl {
     fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
+    fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: Option<&IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearProps(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
+    fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: Option<&IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
     fn DecomposeHwndIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::Result<()>;
     fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
+    fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: Option<&IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
     fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> windows_core::Result<()>;
@@ -1495,7 +1495,7 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetPropServer(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
+                IAccPropServices_Impl::SetPropServer(this, core::mem::transmute_copy(&pidstring), core::mem::transmute_copy(&dwidstringlen), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::Ref::option_from_abi(&pserver), core::mem::transmute_copy(&annoscope)).into()
             }
         }
         unsafe extern "system" fn ClearProps<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::HRESULT {
@@ -1519,7 +1519,7 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetHwndPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHwndPropServer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
+                IAccPropServices_Impl::SetHwndPropServer(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::Ref::option_from_abi(&pserver), core::mem::transmute_copy(&annoscope)).into()
             }
         }
         unsafe extern "system" fn ClearHwndProps<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::HRESULT {
@@ -1555,7 +1555,7 @@ impl IAccPropServices_Vtbl {
         unsafe extern "system" fn SetHmenuPropServer<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: *mut core::ffi::c_void, annoscope: AnnoScope) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccPropServices_Impl::SetHmenuPropServer(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), core::mem::transmute_copy(&pserver), core::mem::transmute_copy(&annoscope)).into()
+                IAccPropServices_Impl::SetHmenuPropServer(this, core::mem::transmute_copy(&hmenu), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&paprops), core::mem::transmute_copy(&cprops), windows_core::Ref::option_from_abi(&pserver), core::mem::transmute_copy(&annoscope)).into()
             }
         }
         unsafe extern "system" fn ClearHmenuProps<Identity: IAccPropServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::HRESULT {
@@ -2135,7 +2135,7 @@ impl IAccessibleEx {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ConvertReturnedElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2159,7 +2159,7 @@ pub trait IAccessibleEx_Impl: windows_core::IUnknownImpl {
     fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<IAccessibleEx>;
     fn GetIAccessiblePair(&self, ppacc: windows_core::OutRef<IAccessible>, pidchild: *mut i32) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ConvertReturnedElement(&self, pin: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<IAccessibleEx>;
+    fn ConvertReturnedElement(&self, pin: Option<&IRawElementProviderSimple>) -> windows_core::Result<IAccessibleEx>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleEx_Vtbl {
@@ -2197,7 +2197,7 @@ impl IAccessibleEx_Vtbl {
         unsafe extern "system" fn ConvertReturnedElement<Identity: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, ppretvalout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleEx_Impl::ConvertReturnedElement(this, core::mem::transmute_copy(&pin)) {
+                match IAccessibleEx_Impl::ConvertReturnedElement(this, windows_core::Ref::option_from_abi(&pin)) {
                     Ok(ok__) => {
                         ppretvalout.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2283,7 +2283,7 @@ impl IAccessibleHostingElementProviders {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetObjectIdForProvider)(windows_core::Interface::as_raw(self), pprovider.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetObjectIdForProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprovider.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -2300,7 +2300,7 @@ pub struct IAccessibleHostingElementProviders_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleHostingElementProviders_Impl: windows_core::IUnknownImpl {
     fn GetEmbeddedFragmentRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetObjectIdForProvider(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<i32>;
+    fn GetObjectIdForProvider(&self, pprovider: Option<&IRawElementProviderSimple>) -> windows_core::Result<i32>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleHostingElementProviders_Vtbl {
@@ -2320,7 +2320,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
         unsafe extern "system" fn GetObjectIdForProvider<Identity: IAccessibleHostingElementProviders_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, pidobject: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleHostingElementProviders_Impl::GetObjectIdForProvider(this, core::mem::transmute_copy(&pprovider)) {
+                match IAccessibleHostingElementProviders_Impl::GetObjectIdForProvider(this, windows_core::Ref::option_from_abi(&pprovider)) {
                     Ok(ok__) => {
                         pidobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2350,14 +2350,14 @@ impl IAccessibleWindowlessSite {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AcquireObjectIdRange)(windows_core::Interface::as_raw(self), rangesize, prangeowner.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AcquireObjectIdRange)(windows_core::Interface::as_raw(self), rangesize, core::mem::transmute_copy(&prangeowner.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn ReleaseObjectIdRange<P1>(&self, rangebase: i32, prangeowner: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IAccessibleHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseObjectIdRange)(windows_core::Interface::as_raw(self), rangebase, prangeowner.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ReleaseObjectIdRange)(windows_core::Interface::as_raw(self), rangebase, core::mem::transmute_copy(&prangeowner.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryObjectIdRanges<P0>(&self, prangesowner: P0) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
@@ -2366,7 +2366,7 @@ impl IAccessibleWindowlessSite {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryObjectIdRanges)(windows_core::Interface::as_raw(self), prangesowner.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).QueryObjectIdRanges)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&prangesowner.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -2394,9 +2394,9 @@ pub struct IAccessibleWindowlessSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleWindowlessSite_Impl: windows_core::IUnknownImpl {
-    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<i32>;
-    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<()>;
-    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: Option<&IAccessibleHandler>) -> windows_core::Result<i32>;
+    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: Option<&IAccessibleHandler>) -> windows_core::Result<()>;
+    fn QueryObjectIdRanges(&self, prangesowner: Option<&IAccessibleHandler>) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetParentAccessible(&self) -> windows_core::Result<IAccessible>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2405,7 +2405,7 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn AcquireObjectIdRange<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangesize: i32, prangeowner: *mut core::ffi::c_void, prangebase: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), core::mem::transmute_copy(&prangeowner)) {
+                match IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), windows_core::Ref::option_from_abi(&prangeowner)) {
                     Ok(ok__) => {
                         prangebase.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2417,13 +2417,13 @@ impl IAccessibleWindowlessSite_Vtbl {
         unsafe extern "system" fn ReleaseObjectIdRange<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rangebase: i32, prangeowner: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAccessibleWindowlessSite_Impl::ReleaseObjectIdRange(this, core::mem::transmute_copy(&rangebase), core::mem::transmute_copy(&prangeowner)).into()
+                IAccessibleWindowlessSite_Impl::ReleaseObjectIdRange(this, core::mem::transmute_copy(&rangebase), windows_core::Ref::option_from_abi(&prangeowner)).into()
             }
         }
         unsafe extern "system" fn QueryObjectIdRanges<Identity: IAccessibleWindowlessSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prangesowner: *mut core::ffi::c_void, psaranges: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, core::mem::transmute_copy(&prangesowner)) {
+                match IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, windows_core::Ref::option_from_abi(&prangesowner)) {
                     Ok(ok__) => {
                         psaranges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3190,7 +3190,7 @@ impl IItemContainerProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), pstartafter.param().abi(), propertyid, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pstartafter.param().borrow()), propertyid, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3205,7 +3205,7 @@ pub struct IItemContainerProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IItemContainerProvider_Impl: windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
+    fn FindItemByProperty(&self, pstartafter: Option<&IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IItemContainerProvider_Vtbl {
@@ -3213,7 +3213,7 @@ impl IItemContainerProvider_Vtbl {
         unsafe extern "system" fn FindItemByProperty<Identity: IItemContainerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IItemContainerProvider_Impl::FindItemByProperty(this, core::mem::transmute_copy(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
+                match IItemContainerProvider_Impl::FindItemByProperty(this, windows_core::Ref::option_from_abi(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         pfound.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3243,7 +3243,7 @@ impl ILegacyIAccessibleProvider {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&szvalue.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessible(&self) -> windows_core::Result<IAccessible> {
@@ -3684,7 +3684,7 @@ impl IProxyProviderWinEventHandler {
     where
         P4: windows_core::Param<IProxyProviderWinEventSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RespondToWinEvent)(windows_core::Interface::as_raw(self), idwinevent, hwnd, idobject, idchild, psink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RespondToWinEvent)(windows_core::Interface::as_raw(self), idwinevent, hwnd, idobject, idchild, core::mem::transmute_copy(&psink.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3694,14 +3694,14 @@ pub struct IProxyProviderWinEventHandler_Vtbl {
     pub RespondToWinEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IProxyProviderWinEventHandler_Impl: windows_core::IUnknownImpl {
-    fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: windows_core::Ref<IProxyProviderWinEventSink>) -> windows_core::Result<()>;
+    fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: Option<&IProxyProviderWinEventSink>) -> windows_core::Result<()>;
 }
 impl IProxyProviderWinEventHandler_Vtbl {
     pub const fn new<Identity: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RespondToWinEvent<Identity: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProxyProviderWinEventHandler_Impl::RespondToWinEvent(this, core::mem::transmute_copy(&idwinevent), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), core::mem::transmute_copy(&psink)).into()
+                IProxyProviderWinEventHandler_Impl::RespondToWinEvent(this, core::mem::transmute_copy(&idwinevent), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&idobject), core::mem::transmute_copy(&idchild), windows_core::Ref::option_from_abi(&psink)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RespondToWinEvent: RespondToWinEvent::<Identity, OFFSET> }
@@ -3719,20 +3719,20 @@ impl IProxyProviderWinEventSink {
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomationPropertyChangedEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), id, core::mem::transmute_copy(newvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomationPropertyChangedEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprovider.param().borrow()), id, core::mem::transmute_copy(newvalue)).ok() }
     }
     pub unsafe fn AddAutomationEvent<P0>(&self, pprovider: P0, id: UIA_EVENT_ID) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomationEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), id).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomationEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprovider.param().borrow()), id).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddStructureChangedEvent<P0>(&self, pprovider: P0, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRawElementProviderSimple>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEvent)(windows_core::Interface::as_raw(self), pprovider.param().abi(), structurechangetype, runtimeid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprovider.param().borrow()), structurechangetype, runtimeid).ok() }
     }
 }
 #[repr(C)]
@@ -3751,9 +3751,9 @@ pub struct IProxyProviderWinEventSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProxyProviderWinEventSink_Impl: windows_core::IUnknownImpl {
-    fn AddAutomationPropertyChangedEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddAutomationEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, id: UIA_EVENT_ID) -> windows_core::Result<()>;
-    fn AddStructureChangedEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn AddAutomationPropertyChangedEvent(&self, pprovider: Option<&IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn AddAutomationEvent(&self, pprovider: Option<&IRawElementProviderSimple>, id: UIA_EVENT_ID) -> windows_core::Result<()>;
+    fn AddStructureChangedEvent(&self, pprovider: Option<&IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProxyProviderWinEventSink_Vtbl {
@@ -3761,19 +3761,19 @@ impl IProxyProviderWinEventSink_Vtbl {
         unsafe extern "system" fn AddAutomationPropertyChangedEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProxyProviderWinEventSink_Impl::AddAutomationPropertyChangedEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&id), core::mem::transmute(&newvalue)).into()
+                IProxyProviderWinEventSink_Impl::AddAutomationPropertyChangedEvent(this, windows_core::Ref::option_from_abi(&pprovider), core::mem::transmute_copy(&id), core::mem::transmute(&newvalue)).into()
             }
         }
         unsafe extern "system" fn AddAutomationEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, id: UIA_EVENT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProxyProviderWinEventSink_Impl::AddAutomationEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&id)).into()
+                IProxyProviderWinEventSink_Impl::AddAutomationEvent(this, windows_core::Ref::option_from_abi(&pprovider), core::mem::transmute_copy(&id)).into()
             }
         }
         unsafe extern "system" fn AddStructureChangedEvent<Identity: IProxyProviderWinEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IProxyProviderWinEventSink_Impl::AddStructureChangedEvent(this, core::mem::transmute_copy(&pprovider), core::mem::transmute_copy(&structurechangetype), core::mem::transmute_copy(&runtimeid)).into()
+                IProxyProviderWinEventSink_Impl::AddStructureChangedEvent(this, windows_core::Ref::option_from_abi(&pprovider), core::mem::transmute_copy(&structurechangetype), core::mem::transmute_copy(&runtimeid)).into()
             }
         }
         Self {
@@ -4639,7 +4639,7 @@ impl IRicheditWindowlessAccessibility {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateProvider)(windows_core::Interface::as_raw(self), psite.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psite.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -4650,14 +4650,14 @@ pub struct IRicheditWindowlessAccessibility_Vtbl {
     pub CreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRicheditWindowlessAccessibility_Impl: windows_core::IUnknownImpl {
-    fn CreateProvider(&self, psite: windows_core::Ref<IRawElementProviderWindowlessSite>) -> windows_core::Result<IRawElementProviderSimple>;
+    fn CreateProvider(&self, psite: Option<&IRawElementProviderWindowlessSite>) -> windows_core::Result<IRawElementProviderSimple>;
 }
 impl IRicheditWindowlessAccessibility_Vtbl {
     pub const fn new<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateProvider<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psite: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRicheditWindowlessAccessibility_Impl::CreateProvider(this, core::mem::transmute_copy(&psite)) {
+                match IRicheditWindowlessAccessibility_Impl::CreateProvider(this, windows_core::Ref::option_from_abi(&psite)) {
                     Ok(ok__) => {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5288,7 +5288,7 @@ impl ISpreadsheetProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItemByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -5868,7 +5868,7 @@ impl ITextProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), childelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&childelement.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RangeFromPoint(&self, point: UiaPoint) -> windows_core::Result<ITextRangeProvider> {
@@ -5911,7 +5911,7 @@ pub struct ITextProvider_Vtbl {
 pub trait ITextProvider_Impl: windows_core::IUnknownImpl {
     fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetVisibleRanges(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn RangeFromChild(&self, childelement: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
+    fn RangeFromChild(&self, childelement: Option<&IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
     fn RangeFromPoint(&self, point: &UiaPoint) -> windows_core::Result<ITextRangeProvider>;
     fn DocumentRange(&self) -> windows_core::Result<ITextRangeProvider>;
     fn SupportedTextSelection(&self) -> windows_core::Result<SupportedTextSelection>;
@@ -5946,7 +5946,7 @@ impl ITextProvider_Vtbl {
         unsafe extern "system" fn RangeFromChild<Identity: ITextProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childelement: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextProvider_Impl::RangeFromChild(this, core::mem::transmute_copy(&childelement)) {
+                match ITextProvider_Impl::RangeFromChild(this, windows_core::Ref::option_from_abi(&childelement)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6022,7 +6022,7 @@ impl ITextProvider2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotationelement.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&annotationelement.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<ITextRangeProvider> {
@@ -6041,7 +6041,7 @@ pub struct ITextProvider2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider2_Impl: ITextProvider_Impl {
-    fn RangeFromAnnotation(&self, annotationelement: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
+    fn RangeFromAnnotation(&self, annotationelement: Option<&IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
     fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6050,7 +6050,7 @@ impl ITextProvider2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: ITextProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, annotationelement: *mut core::ffi::c_void, pretval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextProvider2_Impl::RangeFromAnnotation(this, core::mem::transmute_copy(&annotationelement)) {
+                match ITextProvider2_Impl::RangeFromAnnotation(this, windows_core::Ref::option_from_abi(&annotationelement)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6098,7 +6098,7 @@ impl ITextRangeProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&range.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CompareEndpoints<P1>(&self, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
@@ -6107,7 +6107,7 @@ impl ITextRangeProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), endpoint, core::mem::transmute_copy(&targetrange.param().borrow()), targetendpoint, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()> {
@@ -6168,7 +6168,7 @@ impl ITextRangeProvider {
     where
         P1: windows_core::Param<ITextRangeProvider>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, targetrange.param().abi(), targetendpoint).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), endpoint, core::mem::transmute_copy(&targetrange.param().borrow()), targetendpoint).ok() }
     }
     pub unsafe fn Select(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok() }
@@ -6228,8 +6228,8 @@ pub struct ITextRangeProvider_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<ITextRangeProvider>;
-    fn Compare(&self, range: windows_core::Ref<ITextRangeProvider>) -> windows_core::Result<windows_core::BOOL>;
-    fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
+    fn Compare(&self, range: Option<&ITextRangeProvider>) -> windows_core::Result<windows_core::BOOL>;
+    fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: Option<&ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()>;
     fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
     fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
@@ -6239,7 +6239,7 @@ pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByRange(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
+    fn MoveEndpointByRange(&self, endpoint: TextPatternRangeEndpoint, targetrange: Option<&ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
@@ -6264,7 +6264,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn Compare<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, pretval: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextRangeProvider_Impl::Compare(this, core::mem::transmute_copy(&range)) {
+                match ITextRangeProvider_Impl::Compare(this, windows_core::Ref::option_from_abi(&range)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6276,7 +6276,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn CompareEndpoints<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextRangeProvider_Impl::CompareEndpoints(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&targetrange), core::mem::transmute_copy(&targetendpoint)) {
+                match ITextRangeProvider_Impl::CompareEndpoints(this, core::mem::transmute_copy(&endpoint), windows_core::Ref::option_from_abi(&targetrange), core::mem::transmute_copy(&targetendpoint)) {
                     Ok(ok__) => {
                         pretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6390,7 +6390,7 @@ impl ITextRangeProvider_Vtbl {
         unsafe extern "system" fn MoveEndpointByRange<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextRangeProvider_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&targetrange), core::mem::transmute_copy(&targetendpoint)).into()
+                ITextRangeProvider_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&endpoint), windows_core::Ref::option_from_abi(&targetrange), core::mem::transmute_copy(&targetendpoint)).into()
             }
         }
         unsafe extern "system" fn Select<Identity: ITextRangeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6815,7 +6815,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompareElements)(windows_core::Interface::as_raw(self), el1.param().abi(), el2.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CompareElements)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&el1.param().borrow()), core::mem::transmute_copy(&el2.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -6855,7 +6855,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRootElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRootElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn ElementFromHandleBuildCache<P1>(&self, hwnd: super::super::Foundation::HWND, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -6864,7 +6864,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ElementFromHandleBuildCache)(windows_core::Interface::as_raw(self), hwnd, core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn ElementFromPointBuildCache<P1>(&self, pt: super::super::Foundation::POINT, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -6873,7 +6873,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
@@ -6882,7 +6882,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFocusedElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateTreeWalker<P0>(&self, pcondition: P0) -> windows_core::Result<IUIAutomationTreeWalker>
@@ -6891,7 +6891,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTreeWalker)(windows_core::Interface::as_raw(self), pcondition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTreeWalker)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcondition.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker> {
@@ -6969,7 +6969,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAndCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateAndCondition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&condition1.param().borrow()), core::mem::transmute_copy(&condition2.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -6992,7 +6992,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateOrCondition)(windows_core::Interface::as_raw(self), condition1.param().abi(), condition2.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateOrCondition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&condition1.param().borrow()), core::mem::transmute_copy(&condition2.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7014,7 +7014,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateNotCondition)(windows_core::Interface::as_raw(self), condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateNotCondition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&condition.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddAutomationEventHandler<P1, P3, P4>(&self, eventid: UIA_EVENT_ID, element: P1, scope: TreeScope, cacherequest: P3, handler: P4) -> windows_core::Result<()>
@@ -7023,14 +7023,14 @@ impl IUIAutomation {
         P3: windows_core::Param<IUIAutomationCacheRequest>,
         P4: windows_core::Param<IUIAutomationEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, core::mem::transmute_copy(&element.param().borrow()), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveAutomationEventHandler<P1, P2>(&self, eventid: UIA_EVENT_ID, element: P1, handler: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IUIAutomationElement>,
         P2: windows_core::Param<IUIAutomationEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, element.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddPropertyChangedEventHandlerNativeArray<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
@@ -7038,7 +7038,7 @@ impl IUIAutomation {
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow()), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
@@ -7047,14 +7047,14 @@ impl IUIAutomation {
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi(), propertyarray).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow()), propertyarray).ok() }
     }
     pub unsafe fn RemovePropertyChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemovePropertyChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddStructureChangedEventHandler<P0, P2, P3>(&self, element: P0, scope: TreeScope, cacherequest: P2, handler: P3) -> windows_core::Result<()>
     where
@@ -7062,27 +7062,27 @@ impl IUIAutomation {
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveStructureChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveStructureChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddFocusChangedEventHandler<P0, P1>(&self, cacherequest: P0, handler: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationCacheRequest>,
         P1: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddFocusChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveFocusChangedEventHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationFocusChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveFocusChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveAllEventHandlers(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllEventHandlers)(windows_core::Interface::as_raw(self)).ok() }
@@ -7128,7 +7128,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateProxyFactoryEntry)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&factory.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping> {
@@ -7154,14 +7154,14 @@ impl IUIAutomation {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), pelement.param().abi(), patternids as _, patternnames as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedPatterns)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pelement.param().borrow()), patternids as _, patternnames as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), pelement.param().abi(), propertyids as _, propertynames as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pelement.param().borrow()), propertyids as _, propertynames as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BOOL> {
@@ -7189,7 +7189,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ElementFromIAccessible)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ElementFromIAccessible)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&accessible.param().borrow()), childid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -7200,7 +7200,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), accessible.param().abi(), childid, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ElementFromIAccessibleBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&accessible.param().borrow()), childid, core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -7314,17 +7314,17 @@ pub struct IUIAutomation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
-    fn CompareElements(&self, el1: windows_core::Ref<IUIAutomationElement>, el2: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<windows_core::BOOL>;
+    fn CompareElements(&self, el1: Option<&IUIAutomationElement>, el2: Option<&IUIAutomationElement>) -> windows_core::Result<windows_core::BOOL>;
     fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<windows_core::BOOL>;
     fn GetRootElement(&self) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromHandle(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromPoint(&self, pt: &super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement>;
     fn GetFocusedElement(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn GetRootElementBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromHandleBuildCache(&self, hwnd: super::super::Foundation::HWND, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromPointBuildCache(&self, pt: &super::super::Foundation::POINT, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFocusedElementBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn CreateTreeWalker(&self, pcondition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationTreeWalker>;
+    fn GetRootElementBuildCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromHandleBuildCache(&self, hwnd: super::super::Foundation::HWND, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromPointBuildCache(&self, pt: &super::super::Foundation::POINT, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetFocusedElementBuildCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn CreateTreeWalker(&self, pcondition: Option<&IUIAutomationCondition>) -> windows_core::Result<IUIAutomationTreeWalker>;
     fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
     fn ContentViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
     fn RawViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
@@ -7336,39 +7336,39 @@ pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
     fn CreateFalseCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
     fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationCondition>;
     fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateAndCondition(&self, condition1: windows_core::Ref<IUIAutomationCondition>, condition2: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
+    fn CreateAndCondition(&self, condition1: Option<&IUIAutomationCondition>, condition2: Option<&IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateAndConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateOrCondition(&self, condition1: windows_core::Ref<IUIAutomationCondition>, condition2: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
+    fn CreateOrCondition(&self, condition1: Option<&IUIAutomationCondition>, condition2: Option<&IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateOrConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateNotCondition(&self, condition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
-    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn RemoveAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandlerNativeArray(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn RemovePropertyChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddStructureChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveStructureChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddFocusChangedEventHandler(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveFocusChangedEventHandler(&self, handler: windows_core::Ref<IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
+    fn CreateNotCondition(&self, condition: Option<&IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
+    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationEventHandler>) -> windows_core::Result<()>;
+    fn RemoveAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationEventHandler>) -> windows_core::Result<()>;
+    fn AddPropertyChangedEventHandlerNativeArray(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
+    fn AddPropertyChangedEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationPropertyChangedEventHandler>, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn RemovePropertyChangedEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationPropertyChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddStructureChangedEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveStructureChangedEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddFocusChangedEventHandler(&self, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveFocusChangedEventHandler(&self, handler: Option<&IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
     fn RemoveAllEventHandlers(&self) -> windows_core::Result<()>;
     fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> windows_core::Result<i32>;
     fn RectToVariant(&self, rc: &super::super::Foundation::RECT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn VariantToRect(&self, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::RECT>;
     fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32>;
-    fn CreateProxyFactoryEntry(&self, factory: windows_core::Ref<IUIAutomationProxyFactory>) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
+    fn CreateProxyFactoryEntry(&self, factory: Option<&IUIAutomationProxyFactory>) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
     fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping>;
     fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::BSTR>;
     fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> windows_core::Result<windows_core::BSTR>;
-    fn PollForPotentialSupportedPatterns(&self, pelement: windows_core::Ref<IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn PollForPotentialSupportedProperties(&self, pelement: windows_core::Ref<IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn PollForPotentialSupportedPatterns(&self, pelement: Option<&IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn PollForPotentialSupportedProperties(&self, pelement: Option<&IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BOOL>;
     fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn ReservedMixedAttributeValue(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn ElementFromIAccessible(&self, accessible: windows_core::Ref<IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromIAccessibleBuildCache(&self, accessible: windows_core::Ref<IAccessible>, childid: i32, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromIAccessible(&self, accessible: Option<&IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromIAccessibleBuildCache(&self, accessible: Option<&IAccessible>, childid: i32, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation_Vtbl {
@@ -7376,7 +7376,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CompareElements<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, el1: *mut core::ffi::c_void, el2: *mut core::ffi::c_void, aresame: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::CompareElements(this, core::mem::transmute_copy(&el1), core::mem::transmute_copy(&el2)) {
+                match IUIAutomation_Impl::CompareElements(this, windows_core::Ref::option_from_abi(&el1), windows_core::Ref::option_from_abi(&el2)) {
                     Ok(ok__) => {
                         aresame.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7448,7 +7448,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetRootElementBuildCache<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, root: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::GetRootElementBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomation_Impl::GetRootElementBuildCache(this, windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         root.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7460,7 +7460,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromHandleBuildCache<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::ElementFromHandleBuildCache(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomation_Impl::ElementFromHandleBuildCache(this, core::mem::transmute_copy(&hwnd), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7472,7 +7472,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromPointBuildCache<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pt: super::super::Foundation::POINT, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::ElementFromPointBuildCache(this, core::mem::transmute(&pt), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomation_Impl::ElementFromPointBuildCache(this, core::mem::transmute(&pt), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7484,7 +7484,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn GetFocusedElementBuildCache<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::GetFocusedElementBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomation_Impl::GetFocusedElementBuildCache(this, windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7496,7 +7496,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateTreeWalker<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcondition: *mut core::ffi::c_void, walker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::CreateTreeWalker(this, core::mem::transmute_copy(&pcondition)) {
+                match IUIAutomation_Impl::CreateTreeWalker(this, windows_core::Ref::option_from_abi(&pcondition)) {
                     Ok(ok__) => {
                         walker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7640,7 +7640,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateAndCondition<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition1: *mut core::ffi::c_void, condition2: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::CreateAndCondition(this, core::mem::transmute_copy(&condition1), core::mem::transmute_copy(&condition2)) {
+                match IUIAutomation_Impl::CreateAndCondition(this, windows_core::Ref::option_from_abi(&condition1), windows_core::Ref::option_from_abi(&condition2)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7676,7 +7676,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateOrCondition<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition1: *mut core::ffi::c_void, condition2: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::CreateOrCondition(this, core::mem::transmute_copy(&condition1), core::mem::transmute_copy(&condition2)) {
+                match IUIAutomation_Impl::CreateOrCondition(this, windows_core::Ref::option_from_abi(&condition1), windows_core::Ref::option_from_abi(&condition2)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7712,7 +7712,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateNotCondition<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, condition: *mut core::ffi::c_void, newcondition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::CreateNotCondition(this, core::mem::transmute_copy(&condition)) {
+                match IUIAutomation_Impl::CreateNotCondition(this, windows_core::Ref::option_from_abi(&condition)) {
                     Ok(ok__) => {
                         newcondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7724,55 +7724,55 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn AddAutomationEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveAutomationEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::RemoveAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation_Impl::RemoveAutomationEventHandler(this, core::mem::transmute_copy(&eventid), windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddPropertyChangedEventHandlerNativeArray<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::AddPropertyChangedEventHandlerNativeArray(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
+                IUIAutomation_Impl::AddPropertyChangedEventHandlerNativeArray(this, windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
             }
         }
         unsafe extern "system" fn AddPropertyChangedEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::AddPropertyChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler), core::mem::transmute_copy(&propertyarray)).into()
+                IUIAutomation_Impl::AddPropertyChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler), core::mem::transmute_copy(&propertyarray)).into()
             }
         }
         unsafe extern "system" fn RemovePropertyChangedEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::RemovePropertyChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation_Impl::RemovePropertyChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddStructureChangedEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::AddStructureChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation_Impl::AddStructureChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveStructureChangedEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::RemoveStructureChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation_Impl::RemoveStructureChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddFocusChangedEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::AddFocusChangedEventHandler(this, core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation_Impl::AddFocusChangedEventHandler(this, windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveFocusChangedEventHandler<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::RemoveFocusChangedEventHandler(this, core::mem::transmute_copy(&handler)).into()
+                IUIAutomation_Impl::RemoveFocusChangedEventHandler(this, windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveAllEventHandlers<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7844,7 +7844,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn CreateProxyFactoryEntry<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut core::ffi::c_void, factoryentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::CreateProxyFactoryEntry(this, core::mem::transmute_copy(&factory)) {
+                match IUIAutomation_Impl::CreateProxyFactoryEntry(this, windows_core::Ref::option_from_abi(&factory)) {
                     Ok(ok__) => {
                         factoryentry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7892,13 +7892,13 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn PollForPotentialSupportedPatterns<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelement: *mut core::ffi::c_void, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::PollForPotentialSupportedPatterns(this, core::mem::transmute_copy(&pelement), core::mem::transmute_copy(&patternids), core::mem::transmute_copy(&patternnames)).into()
+                IUIAutomation_Impl::PollForPotentialSupportedPatterns(this, windows_core::Ref::option_from_abi(&pelement), core::mem::transmute_copy(&patternids), core::mem::transmute_copy(&patternnames)).into()
             }
         }
         unsafe extern "system" fn PollForPotentialSupportedProperties<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelement: *mut core::ffi::c_void, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation_Impl::PollForPotentialSupportedProperties(this, core::mem::transmute_copy(&pelement), core::mem::transmute_copy(&propertyids), core::mem::transmute_copy(&propertynames)).into()
+                IUIAutomation_Impl::PollForPotentialSupportedProperties(this, windows_core::Ref::option_from_abi(&pelement), core::mem::transmute_copy(&propertyids), core::mem::transmute_copy(&propertynames)).into()
             }
         }
         unsafe extern "system" fn CheckNotSupported<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::System::Variant::VARIANT, isnotsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -7940,7 +7940,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromIAccessible<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessible: *mut core::ffi::c_void, childid: i32, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::ElementFromIAccessible(this, core::mem::transmute_copy(&accessible), core::mem::transmute_copy(&childid)) {
+                match IUIAutomation_Impl::ElementFromIAccessible(this, windows_core::Ref::option_from_abi(&accessible), core::mem::transmute_copy(&childid)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7952,7 +7952,7 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn ElementFromIAccessibleBuildCache<Identity: IUIAutomation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessible: *mut core::ffi::c_void, childid: i32, cacherequest: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomation_Impl::ElementFromIAccessibleBuildCache(this, core::mem::transmute_copy(&accessible), core::mem::transmute_copy(&childid), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomation_Impl::ElementFromIAccessibleBuildCache(this, windows_core::Ref::option_from_abi(&accessible), core::mem::transmute_copy(&childid), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8171,14 +8171,14 @@ impl IUIAutomation3 {
         P3: windows_core::Param<IUIAutomationCacheRequest>,
         P4: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), scope, texteditchangetype, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveTextEditTextChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -8190,8 +8190,8 @@ pub struct IUIAutomation3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation3_Impl: IUIAutomation2_Impl {
-    fn AddTextEditTextChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveTextEditTextChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddTextEditTextChangedEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveTextEditTextChangedEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation3_Vtbl {
@@ -8199,13 +8199,13 @@ impl IUIAutomation3_Vtbl {
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation3_Impl::AddTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation3_Impl::AddTextEditTextChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveTextEditTextChangedEventHandler<Identity: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation3_Impl::RemoveTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation3_Impl::RemoveTextEditTextChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         Self {
@@ -8235,14 +8235,14 @@ impl IUIAutomation4 {
         P4: windows_core::Param<IUIAutomationCacheRequest>,
         P5: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), pcacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), core::mem::transmute_copy(&pcacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveChangesEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveChangesEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -8254,8 +8254,8 @@ pub struct IUIAutomation4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation4_Impl: IUIAutomation3_Impl {
-    fn AddChangesEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
-    fn RemoveChangesEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
+    fn AddChangesEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
+    fn RemoveChangesEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation4_Vtbl {
@@ -8263,13 +8263,13 @@ impl IUIAutomation4_Vtbl {
         unsafe extern "system" fn AddChangesEventHandler<Identity: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation4_Impl::AddChangesEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), core::mem::transmute_copy(&pcacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation4_Impl::AddChangesEventHandler(this, windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), windows_core::Ref::option_from_abi(&pcacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveChangesEventHandler<Identity: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation4_Impl::RemoveChangesEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation4_Impl::RemoveChangesEventHandler(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         Self {
@@ -8299,14 +8299,14 @@ impl IUIAutomation5 {
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveNotificationEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveNotificationEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveNotificationEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -8318,8 +8318,8 @@ pub struct IUIAutomation5_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation5_Impl: IUIAutomation4_Impl {
-    fn AddNotificationEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
-    fn RemoveNotificationEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
+    fn AddNotificationEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
+    fn RemoveNotificationEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation5_Vtbl {
@@ -8327,13 +8327,13 @@ impl IUIAutomation5_Vtbl {
         unsafe extern "system" fn AddNotificationEventHandler<Identity: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation5_Impl::AddNotificationEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation5_Impl::AddNotificationEventHandler(this, windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveNotificationEventHandler<Identity: IUIAutomation5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation5_Impl::RemoveNotificationEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation5_Impl::RemoveNotificationEventHandler(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         Self {
@@ -8368,14 +8368,14 @@ impl IUIAutomation6 {
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationEventHandlerGroup>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddEventHandlerGroup)(windows_core::Interface::as_raw(self), element.param().abi(), handlergroup.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddEventHandlerGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handlergroup.param().borrow())).ok() }
     }
     pub unsafe fn RemoveEventHandlerGroup<P0, P1>(&self, element: P0, handlergroup: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationEventHandlerGroup>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveEventHandlerGroup)(windows_core::Interface::as_raw(self), element.param().abi(), handlergroup.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveEventHandlerGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handlergroup.param().borrow())).ok() }
     }
     pub unsafe fn ConnectionRecoveryBehavior(&self) -> windows_core::Result<ConnectionRecoveryBehaviorOptions> {
         unsafe {
@@ -8401,14 +8401,14 @@ impl IUIAutomation6 {
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn RemoveActiveTextPositionChangedEventHandler<P0, P1>(&self, element: P0, handler: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), element.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -8428,14 +8428,14 @@ pub struct IUIAutomation6_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation6_Impl: IUIAutomation5_Impl {
     fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup>;
-    fn AddEventHandlerGroup(&self, element: windows_core::Ref<IUIAutomationElement>, handlergroup: windows_core::Ref<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
-    fn RemoveEventHandlerGroup(&self, element: windows_core::Ref<IUIAutomationElement>, handlergroup: windows_core::Ref<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
+    fn AddEventHandlerGroup(&self, element: Option<&IUIAutomationElement>, handlergroup: Option<&IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
+    fn RemoveEventHandlerGroup(&self, element: Option<&IUIAutomationElement>, handlergroup: Option<&IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
     fn ConnectionRecoveryBehavior(&self) -> windows_core::Result<ConnectionRecoveryBehaviorOptions>;
     fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> windows_core::Result<()>;
     fn CoalesceEvents(&self) -> windows_core::Result<CoalesceEventsOptions>;
     fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> windows_core::Result<()>;
-    fn AddActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddActiveTextPositionChangedEventHandler(&self, element: Option<&IUIAutomationElement>, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveActiveTextPositionChangedEventHandler(&self, element: Option<&IUIAutomationElement>, handler: Option<&IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation6_Vtbl {
@@ -8455,13 +8455,13 @@ impl IUIAutomation6_Vtbl {
         unsafe extern "system" fn AddEventHandlerGroup<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handlergroup: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation6_Impl::AddEventHandlerGroup(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handlergroup)).into()
+                IUIAutomation6_Impl::AddEventHandlerGroup(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handlergroup)).into()
             }
         }
         unsafe extern "system" fn RemoveEventHandlerGroup<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handlergroup: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation6_Impl::RemoveEventHandlerGroup(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handlergroup)).into()
+                IUIAutomation6_Impl::RemoveEventHandlerGroup(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handlergroup)).into()
             }
         }
         unsafe extern "system" fn ConnectionRecoveryBehavior<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionrecoverybehavioroptions: *mut ConnectionRecoveryBehaviorOptions) -> windows_core::HRESULT {
@@ -8503,13 +8503,13 @@ impl IUIAutomation6_Vtbl {
         unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation6_Impl::AddActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation6_Impl::AddActiveTextPositionChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn RemoveActiveTextPositionChangedEventHandler<Identity: IUIAutomation6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomation6_Impl::RemoveActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&handler)).into()
+                IUIAutomation6_Impl::RemoveActiveTextPositionChangedEventHandler(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         Self {
@@ -8539,7 +8539,7 @@ impl IUIAutomationActiveTextPositionChangedEventHandler {
         P0: windows_core::Param<IUIAutomationElement>,
         P1: windows_core::Param<IUIAutomationTextRange>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleActiveTextPositionChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), range.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleActiveTextPositionChangedEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&range.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -8549,14 +8549,14 @@ pub struct IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub HandleActiveTextPositionChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationActiveTextPositionChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleActiveTextPositionChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, range: windows_core::Ref<IUIAutomationTextRange>) -> windows_core::Result<()>;
+    fn HandleActiveTextPositionChangedEvent(&self, sender: Option<&IUIAutomationElement>, range: Option<&IUIAutomationTextRange>) -> windows_core::Result<()>;
 }
 impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleActiveTextPositionChangedEvent<Identity: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, range: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationActiveTextPositionChangedEventHandler_Impl::HandleActiveTextPositionChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&range)).into()
+                IUIAutomationActiveTextPositionChangedEventHandler_Impl::HandleActiveTextPositionChangedEvent(this, windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&range)).into()
             }
         }
         Self {
@@ -8970,7 +8970,7 @@ impl IUIAutomationCacheRequest {
     where
         P0: windows_core::Param<IUIAutomationCondition>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTreeFilter)(windows_core::Interface::as_raw(self), filter.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTreeFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&filter.param().borrow())).ok() }
     }
     pub unsafe fn AutomationElementMode(&self) -> windows_core::Result<AutomationElementMode> {
         unsafe {
@@ -9003,7 +9003,7 @@ pub trait IUIAutomationCacheRequest_Impl: windows_core::IUnknownImpl {
     fn TreeScope(&self) -> windows_core::Result<TreeScope>;
     fn SetTreeScope(&self, scope: TreeScope) -> windows_core::Result<()>;
     fn TreeFilter(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn SetTreeFilter(&self, filter: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<()>;
+    fn SetTreeFilter(&self, filter: Option<&IUIAutomationCondition>) -> windows_core::Result<()>;
     fn AutomationElementMode(&self) -> windows_core::Result<AutomationElementMode>;
     fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> windows_core::Result<()>;
 }
@@ -9066,7 +9066,7 @@ impl IUIAutomationCacheRequest_Vtbl {
         unsafe extern "system" fn SetTreeFilter<Identity: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationCacheRequest_Impl::SetTreeFilter(this, core::mem::transmute_copy(&filter)).into()
+                IUIAutomationCacheRequest_Impl::SetTreeFilter(this, windows_core::Ref::option_from_abi(&filter)).into()
             }
         }
         unsafe extern "system" fn AutomationElementMode<Identity: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut AutomationElementMode) -> windows_core::HRESULT {
@@ -9113,7 +9113,7 @@ impl IUIAutomationChangesEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), core::mem::transmute(uiachanges.as_ptr()), uiachanges.len().try_into().unwrap()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute(uiachanges.as_ptr()), uiachanges.len().try_into().unwrap()).ok() }
     }
 }
 #[repr(C)]
@@ -9127,7 +9127,7 @@ pub struct IUIAutomationChangesEventHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationChangesEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleChangesEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::Result<()>;
+    fn HandleChangesEvent(&self, sender: Option<&IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationChangesEventHandler_Vtbl {
@@ -9135,7 +9135,7 @@ impl IUIAutomationChangesEventHandler_Vtbl {
         unsafe extern "system" fn HandleChangesEvent<Identity: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationChangesEventHandler_Impl::HandleChangesEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&uiachanges), core::mem::transmute_copy(&changescount)).into()
+                IUIAutomationChangesEventHandler_Impl::HandleChangesEvent(this, windows_core::Ref::option_from_abi(&sender), core::mem::transmute_copy(&uiachanges), core::mem::transmute_copy(&changescount)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleChangesEvent: HandleChangesEvent::<Identity, OFFSET> }
@@ -9153,13 +9153,13 @@ impl IUIAutomationClientConnectionCallback {
     where
         P0: windows_core::Param<IUIAutomationClientInfo>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnected)(windows_core::Interface::as_raw(self), clientinfo.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnected)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&clientinfo.param().borrow())).ok() }
     }
     pub unsafe fn OnDisconnected<P0>(&self, clientinfo: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IUIAutomationClientInfo>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDisconnected)(windows_core::Interface::as_raw(self), clientinfo.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDisconnected)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&clientinfo.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -9170,21 +9170,21 @@ pub struct IUIAutomationClientConnectionCallback_Vtbl {
     pub OnDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationClientConnectionCallback_Impl: windows_core::IUnknownImpl {
-    fn OnConnected(&self, clientinfo: windows_core::Ref<IUIAutomationClientInfo>) -> windows_core::Result<()>;
-    fn OnDisconnected(&self, clientinfo: windows_core::Ref<IUIAutomationClientInfo>) -> windows_core::Result<()>;
+    fn OnConnected(&self, clientinfo: Option<&IUIAutomationClientInfo>) -> windows_core::Result<()>;
+    fn OnDisconnected(&self, clientinfo: Option<&IUIAutomationClientInfo>) -> windows_core::Result<()>;
 }
 impl IUIAutomationClientConnectionCallback_Vtbl {
     pub const fn new<Identity: IUIAutomationClientConnectionCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnConnected<Identity: IUIAutomationClientConnectionCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationClientConnectionCallback_Impl::OnConnected(this, core::mem::transmute_copy(&clientinfo)).into()
+                IUIAutomationClientConnectionCallback_Impl::OnConnected(this, windows_core::Ref::option_from_abi(&clientinfo)).into()
             }
         }
         unsafe extern "system" fn OnDisconnected<Identity: IUIAutomationClientConnectionCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientinfo: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationClientConnectionCallback_Impl::OnDisconnected(this, core::mem::transmute_copy(&clientinfo)).into()
+                IUIAutomationClientConnectionCallback_Impl::OnDisconnected(this, windows_core::Ref::option_from_abi(&clientinfo)).into()
             }
         }
         Self {
@@ -9271,7 +9271,7 @@ impl IUIAutomationClientInfoSource {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterClientConnectionCallback)(windows_core::Interface::as_raw(self), callback.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).RegisterClientConnectionCallback)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&callback.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn UnregisterClientConnectionCallback(&self, handle: u64) -> windows_core::Result<()> {
@@ -9298,7 +9298,7 @@ pub struct IUIAutomationClientInfoSource_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationClientInfoSource_Impl: windows_core::IUnknownImpl {
-    fn RegisterClientConnectionCallback(&self, callback: windows_core::Ref<IUIAutomationClientConnectionCallback>) -> windows_core::Result<u64>;
+    fn RegisterClientConnectionCallback(&self, callback: Option<&IUIAutomationClientConnectionCallback>) -> windows_core::Result<u64>;
     fn UnregisterClientConnectionCallback(&self, handle: u64) -> windows_core::Result<()>;
     fn GetConnectedClients(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
@@ -9308,7 +9308,7 @@ impl IUIAutomationClientInfoSource_Vtbl {
         unsafe extern "system" fn RegisterClientConnectionCallback<Identity: IUIAutomationClientInfoSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callback: *mut core::ffi::c_void, handle: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationClientInfoSource_Impl::RegisterClientConnectionCallback(this, core::mem::transmute_copy(&callback)) {
+                match IUIAutomationClientInfoSource_Impl::RegisterClientConnectionCallback(this, windows_core::Ref::option_from_abi(&callback)) {
                     Ok(ok__) => {
                         handle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -9818,7 +9818,7 @@ impl IUIAutomationElement {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFirst)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFirst)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindAll<P1>(&self, scope: TreeScope, condition: P1) -> windows_core::Result<IUIAutomationElementArray>
@@ -9827,7 +9827,7 @@ impl IUIAutomationElement {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindAll)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindAll)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindFirstBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> windows_core::Result<IUIAutomationElement>
@@ -9837,7 +9837,7 @@ impl IUIAutomationElement {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFirstBuildCache)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindAllBuildCache<P1, P2>(&self, scope: TreeScope, condition: P1, cacherequest: P2) -> windows_core::Result<IUIAutomationElementArray>
@@ -9847,7 +9847,7 @@ impl IUIAutomationElement {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindAllBuildCache)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn BuildUpdatedCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
@@ -9856,7 +9856,7 @@ impl IUIAutomationElement {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BuildUpdatedCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BuildUpdatedCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10422,11 +10422,11 @@ pub struct IUIAutomationElement_Vtbl {
 pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
     fn SetFocus(&self) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn FindFirst(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAll(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn FindFirstBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn BuildUpdatedCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindFirst(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAll(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn FindFirstBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAllBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn BuildUpdatedCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -10527,7 +10527,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindFirst<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement_Impl::FindFirst(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition)) {
+                match IUIAutomationElement_Impl::FindFirst(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -10539,7 +10539,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindAll<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement_Impl::FindAll(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition)) {
+                match IUIAutomationElement_Impl::FindAll(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -10551,7 +10551,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindFirstBuildCache<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement_Impl::FindFirstBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationElement_Impl::FindFirstBuildCache(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -10563,7 +10563,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn FindAllBuildCache<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement_Impl::FindAllBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationElement_Impl::FindAllBuildCache(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -10575,7 +10575,7 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn BuildUpdatedCache<Identity: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, updatedelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement_Impl::BuildUpdatedCache(this, core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationElement_Impl::BuildUpdatedCache(this, windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         updatedelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -12259,7 +12259,7 @@ impl IUIAutomationElement7 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFirstWithOptions)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), traversaloptions, core::mem::transmute_copy(&root.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindAllWithOptions<P1, P3>(&self, scope: TreeScope, condition: P1, traversaloptions: TreeTraversalOptions, root: P3) -> windows_core::Result<IUIAutomationElementArray>
@@ -12269,7 +12269,7 @@ impl IUIAutomationElement7 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindAllWithOptions)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), traversaloptions, core::mem::transmute_copy(&root.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindFirstWithOptionsBuildCache<P1, P2, P4>(&self, scope: TreeScope, condition: P1, cacherequest: P2, traversaloptions: TreeTraversalOptions, root: P4) -> windows_core::Result<IUIAutomationElement>
@@ -12280,7 +12280,7 @@ impl IUIAutomationElement7 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFirstWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), traversaloptions, core::mem::transmute_copy(&root.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindAllWithOptionsBuildCache<P1, P2, P4>(&self, scope: TreeScope, condition: P1, cacherequest: P2, traversaloptions: TreeTraversalOptions, root: P4) -> windows_core::Result<IUIAutomationElementArray>
@@ -12291,7 +12291,7 @@ impl IUIAutomationElement7 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, condition.param().abi(), cacherequest.param().abi(), traversaloptions, root.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindAllWithOptionsBuildCache)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&condition.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), traversaloptions, core::mem::transmute_copy(&root.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12317,10 +12317,10 @@ pub struct IUIAutomationElement7_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement7_Impl: IUIAutomationElement6_Impl {
-    fn FindFirstWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn FindFirstWithOptions(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAllWithOptions(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: Option<&IUIAutomationCondition>, cacherequest: Option<&IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12329,7 +12329,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindFirstWithOptions<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement7_Impl::FindFirstWithOptions(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
+                match IUIAutomationElement7_Impl::FindFirstWithOptions(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition), core::mem::transmute_copy(&traversaloptions), windows_core::Ref::option_from_abi(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -12341,7 +12341,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindAllWithOptions<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement7_Impl::FindAllWithOptions(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
+                match IUIAutomationElement7_Impl::FindAllWithOptions(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition), core::mem::transmute_copy(&traversaloptions), windows_core::Ref::option_from_abi(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -12353,7 +12353,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindFirstWithOptionsBuildCache<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement7_Impl::FindFirstWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
+                match IUIAutomationElement7_Impl::FindFirstWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition), windows_core::Ref::option_from_abi(&cacherequest), core::mem::transmute_copy(&traversaloptions), windows_core::Ref::option_from_abi(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -12365,7 +12365,7 @@ impl IUIAutomationElement7_Vtbl {
         unsafe extern "system" fn FindAllWithOptionsBuildCache<Identity: IUIAutomationElement7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, condition: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut core::ffi::c_void, found: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationElement7_Impl::FindAllWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&condition), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&traversaloptions), core::mem::transmute_copy(&root)) {
+                match IUIAutomationElement7_Impl::FindAllWithOptionsBuildCache(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&condition), windows_core::Ref::option_from_abi(&cacherequest), core::mem::transmute_copy(&traversaloptions), windows_core::Ref::option_from_abi(&root)) {
                     Ok(ok__) => {
                         found.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -12614,7 +12614,7 @@ impl IUIAutomationEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleAutomationEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), eventid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleAutomationEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow()), eventid).ok() }
     }
 }
 #[repr(C)]
@@ -12624,14 +12624,14 @@ pub struct IUIAutomationEventHandler_Vtbl {
     pub HandleAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UIA_EVENT_ID) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleAutomationEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, eventid: UIA_EVENT_ID) -> windows_core::Result<()>;
+    fn HandleAutomationEvent(&self, sender: Option<&IUIAutomationElement>, eventid: UIA_EVENT_ID) -> windows_core::Result<()>;
 }
 impl IUIAutomationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleAutomationEvent<Identity: IUIAutomationEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventid: UIA_EVENT_ID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandler_Impl::HandleAutomationEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&eventid)).into()
+                IUIAutomationEventHandler_Impl::HandleAutomationEvent(this, windows_core::Ref::option_from_abi(&sender), core::mem::transmute_copy(&eventid)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleAutomationEvent: HandleAutomationEvent::<Identity, OFFSET> }
@@ -12649,49 +12649,49 @@ impl IUIAutomationEventHandlerGroup {
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationActiveTextPositionChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddAutomationEventHandler<P2, P3>(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: P2, handler: P3) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAutomationEventHandler)(windows_core::Interface::as_raw(self), eventid, scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddChangesEventHandler<P3, P4>(&self, scope: TreeScope, changetypes: &[i32], cacherequest: P3, handler: P4) -> windows_core::Result<()>
     where
         P3: windows_core::Param<IUIAutomationCacheRequest>,
         P4: windows_core::Param<IUIAutomationChangesEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddChangesEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute(changetypes.as_ptr()), changetypes.len().try_into().unwrap(), core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddNotificationEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationNotificationEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddNotificationEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddPropertyChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationPropertyChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi(), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyChangedEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow()), core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap()).ok() }
     }
     pub unsafe fn AddStructureChangedEventHandler<P1, P2>(&self, scope: TreeScope, cacherequest: P1, handler: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IUIAutomationCacheRequest>,
         P2: windows_core::Param<IUIAutomationStructureChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), scope, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddStructureChangedEventHandler)(windows_core::Interface::as_raw(self), scope, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
     pub unsafe fn AddTextEditTextChangedEventHandler<P2, P3>(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: P2, handler: P3) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IUIAutomationCacheRequest>,
         P3: windows_core::Param<IUIAutomationTextEditTextChangedEventHandler>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), scope, texteditchangetype, cacherequest.param().abi(), handler.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(windows_core::Interface::as_raw(self), scope, texteditchangetype, core::mem::transmute_copy(&cacherequest.param().borrow()), core::mem::transmute_copy(&handler.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -12707,56 +12707,56 @@ pub struct IUIAutomationEventHandlerGroup_Vtbl {
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, TextEditChangeType, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationEventHandlerGroup_Impl: windows_core::IUnknownImpl {
-    fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn AddChangesEventHandler(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
-    fn AddNotificationEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
-    fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationEventHandler>) -> windows_core::Result<()>;
+    fn AddChangesEventHandler(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
+    fn AddNotificationEventHandler(&self, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
+    fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
+    fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Option<&IUIAutomationCacheRequest>, handler: Option<&IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
 }
 impl IUIAutomationEventHandlerGroup_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandlerGroup_Impl::AddActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomationEventHandlerGroup_Impl::AddActiveTextPositionChangedEventHandler(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddAutomationEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandlerGroup_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomationEventHandlerGroup_Impl::AddAutomationEventHandler(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddChangesEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandlerGroup_Impl::AddChangesEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomationEventHandlerGroup_Impl::AddChangesEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&changetypes), core::mem::transmute_copy(&changescount), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddNotificationEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandlerGroup_Impl::AddNotificationEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomationEventHandlerGroup_Impl::AddNotificationEventHandler(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddPropertyChangedEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandlerGroup_Impl::AddPropertyChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
+                IUIAutomationEventHandlerGroup_Impl::AddPropertyChangedEventHandler(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler), core::mem::transmute_copy(&propertyarray), core::mem::transmute_copy(&propertycount)).into()
             }
         }
         unsafe extern "system" fn AddStructureChangedEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandlerGroup_Impl::AddStructureChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomationEventHandlerGroup_Impl::AddStructureChangedEventHandler(this, core::mem::transmute_copy(&scope), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut core::ffi::c_void, handler: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationEventHandlerGroup_Impl::AddTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&cacherequest), core::mem::transmute_copy(&handler)).into()
+                IUIAutomationEventHandlerGroup_Impl::AddTextEditTextChangedEventHandler(this, core::mem::transmute_copy(&scope), core::mem::transmute_copy(&texteditchangetype), windows_core::Ref::option_from_abi(&cacherequest), windows_core::Ref::option_from_abi(&handler)).into()
             }
         }
         Self {
@@ -12870,7 +12870,7 @@ impl IUIAutomationFocusChangedEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleFocusChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleFocusChangedEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -12880,14 +12880,14 @@ pub struct IUIAutomationFocusChangedEventHandler_Vtbl {
     pub HandleFocusChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationFocusChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleFocusChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<()>;
+    fn HandleFocusChangedEvent(&self, sender: Option<&IUIAutomationElement>) -> windows_core::Result<()>;
 }
 impl IUIAutomationFocusChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleFocusChangedEvent<Identity: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationFocusChangedEventHandler_Impl::HandleFocusChangedEvent(this, core::mem::transmute_copy(&sender)).into()
+                IUIAutomationFocusChangedEventHandler_Impl::HandleFocusChangedEvent(this, windows_core::Ref::option_from_abi(&sender)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleFocusChangedEvent: HandleFocusChangedEvent::<Identity, OFFSET> }
@@ -13297,7 +13297,7 @@ impl IUIAutomationItemContainerPattern {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), pstartafter.param().abi(), propertyid, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindItemByProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pstartafter.param().borrow()), propertyid, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -13312,7 +13312,7 @@ pub struct IUIAutomationItemContainerPattern_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationItemContainerPattern_Impl: windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationElement>;
+    fn FindItemByProperty(&self, pstartafter: Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationElement>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationItemContainerPattern_Vtbl {
@@ -13320,7 +13320,7 @@ impl IUIAutomationItemContainerPattern_Vtbl {
         unsafe extern "system" fn FindItemByProperty<Identity: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstartafter: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, pfound: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationItemContainerPattern_Impl::FindItemByProperty(this, core::mem::transmute_copy(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
+                match IUIAutomationItemContainerPattern_Impl::FindItemByProperty(this, windows_core::Ref::option_from_abi(&pstartafter), core::mem::transmute_copy(&propertyid), core::mem::transmute(&value)) {
                     Ok(ok__) => {
                         pfound.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -13350,7 +13350,7 @@ impl IUIAutomationLegacyIAccessiblePattern {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), szvalue.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&szvalue.param().borrow())).ok() }
     }
     pub unsafe fn CurrentChildId(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -14049,7 +14049,7 @@ impl IUIAutomationNotificationEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleNotificationEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), notificationkind, notificationprocessing, core::mem::transmute_copy(displaystring), core::mem::transmute_copy(activityid)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleNotificationEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow()), notificationkind, notificationprocessing, core::mem::transmute_copy(displaystring), core::mem::transmute_copy(activityid)).ok() }
     }
 }
 #[repr(C)]
@@ -14059,14 +14059,14 @@ pub struct IUIAutomationNotificationEventHandler_Vtbl {
     pub HandleNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, NotificationKind, NotificationProcessing, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationNotificationEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleNotificationEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn HandleNotificationEvent(&self, sender: Option<&IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IUIAutomationNotificationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HandleNotificationEvent<Identity: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: *mut core::ffi::c_void, activityid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationNotificationEventHandler_Impl::HandleNotificationEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&notificationkind), core::mem::transmute_copy(&notificationprocessing), core::mem::transmute(&displaystring), core::mem::transmute(&activityid)).into()
+                IUIAutomationNotificationEventHandler_Impl::HandleNotificationEvent(this, windows_core::Ref::option_from_abi(&sender), core::mem::transmute_copy(&notificationkind), core::mem::transmute_copy(&notificationprocessing), core::mem::transmute(&displaystring), core::mem::transmute(&activityid)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleNotificationEvent: HandleNotificationEvent::<Identity, OFFSET> }
@@ -14214,14 +14214,14 @@ impl IUIAutomationPatternHandler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), ppatterninstance.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateClientWrapper)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ppatterninstance.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Dispatch<P0>(&self, ptarget: P0, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Dispatch)(windows_core::Interface::as_raw(self), ptarget.param().abi(), index, pparams, cparams).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Dispatch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ptarget.param().borrow()), index, pparams, cparams).ok() }
     }
 }
 #[repr(C)]
@@ -14232,15 +14232,15 @@ pub struct IUIAutomationPatternHandler_Vtbl {
     pub Dispatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const UIAutomationParameter, u32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationPatternHandler_Impl: windows_core::IUnknownImpl {
-    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<IUIAutomationPatternInstance>) -> windows_core::Result<windows_core::IUnknown>;
-    fn Dispatch(&self, ptarget: windows_core::Ref<windows_core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>;
+    fn CreateClientWrapper(&self, ppatterninstance: Option<&IUIAutomationPatternInstance>) -> windows_core::Result<windows_core::IUnknown>;
+    fn Dispatch(&self, ptarget: Option<&windows_core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>;
 }
 impl IUIAutomationPatternHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateClientWrapper<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppatterninstance: *mut core::ffi::c_void, pclientwrapper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, core::mem::transmute_copy(&ppatterninstance)) {
+                match IUIAutomationPatternHandler_Impl::CreateClientWrapper(this, windows_core::Ref::option_from_abi(&ppatterninstance)) {
                     Ok(ok__) => {
                         pclientwrapper.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -14252,7 +14252,7 @@ impl IUIAutomationPatternHandler_Vtbl {
         unsafe extern "system" fn Dispatch<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationPatternHandler_Impl::Dispatch(this, core::mem::transmute_copy(&ptarget), core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
+                IUIAutomationPatternHandler_Impl::Dispatch(this, windows_core::Ref::option_from_abi(&ptarget), core::mem::transmute_copy(&index), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&cparams)).into()
             }
         }
         Self {
@@ -14320,7 +14320,7 @@ impl IUIAutomationPropertyChangedEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandlePropertyChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), propertyid, core::mem::transmute_copy(newvalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandlePropertyChangedEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow()), propertyid, core::mem::transmute_copy(newvalue)).ok() }
     }
 }
 #[repr(C)]
@@ -14334,7 +14334,7 @@ pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandlePropertyChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn HandlePropertyChangedEvent(&self, sender: Option<&IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyChangedEventHandler_Vtbl {
@@ -14342,7 +14342,7 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandlePropertyChangedEvent<Identity: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationPropertyChangedEventHandler_Impl::HandlePropertyChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&propertyid), core::mem::transmute(&newvalue)).into()
+                IUIAutomationPropertyChangedEventHandler_Impl::HandlePropertyChangedEvent(this, windows_core::Ref::option_from_abi(&sender), core::mem::transmute_copy(&propertyid), core::mem::transmute(&newvalue)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePropertyChangedEvent: HandlePropertyChangedEvent::<Identity, OFFSET> }
@@ -14558,13 +14558,13 @@ impl IUIAutomationProxyFactoryEntry {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), classname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClassName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&classname.param().borrow())).ok() }
     }
     pub unsafe fn SetImageName<P0>(&self, imagename: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), imagename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetImageName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&imagename.param().borrow())).ok() }
     }
     pub unsafe fn SetAllowSubstringMatch(&self, allowsubstringmatch: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowSubstringMatch)(windows_core::Interface::as_raw(self), allowsubstringmatch.into()).ok() }
@@ -14807,7 +14807,7 @@ impl IUIAutomationProxyFactoryMapping {
     where
         P1: windows_core::Param<IUIAutomationProxyFactoryEntry>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InsertEntry)(windows_core::Interface::as_raw(self), before, factory.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InsertEntry)(windows_core::Interface::as_raw(self), before, core::mem::transmute_copy(&factory.param().borrow())).ok() }
     }
     pub unsafe fn RemoveEntry(&self, index: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveEntry)(windows_core::Interface::as_raw(self), index).ok() }
@@ -14849,7 +14849,7 @@ pub trait IUIAutomationProxyFactoryMapping_Impl: windows_core::IUnknownImpl {
     fn GetEntry(&self, index: u32) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
     fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn InsertEntry(&self, before: u32, factory: windows_core::Ref<IUIAutomationProxyFactoryEntry>) -> windows_core::Result<()>;
+    fn InsertEntry(&self, before: u32, factory: Option<&IUIAutomationProxyFactoryEntry>) -> windows_core::Result<()>;
     fn RemoveEntry(&self, index: u32) -> windows_core::Result<()>;
     fn ClearTable(&self) -> windows_core::Result<()>;
     fn RestoreDefaultTable(&self) -> windows_core::Result<()>;
@@ -14908,7 +14908,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
         unsafe extern "system" fn InsertEntry<Identity: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, before: u32, factory: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationProxyFactoryMapping_Impl::InsertEntry(this, core::mem::transmute_copy(&before), core::mem::transmute_copy(&factory)).into()
+                IUIAutomationProxyFactoryMapping_Impl::InsertEntry(this, core::mem::transmute_copy(&before), windows_core::Ref::option_from_abi(&factory)).into()
             }
         }
         unsafe extern "system" fn RemoveEntry<Identity: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
@@ -16332,7 +16332,7 @@ impl IUIAutomationStructureChangedEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleStructureChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), changetype, runtimeid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleStructureChangedEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow()), changetype, runtimeid).ok() }
     }
 }
 #[repr(C)]
@@ -16346,7 +16346,7 @@ pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationStructureChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleStructureChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn HandleStructureChangedEvent(&self, sender: Option<&IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationStructureChangedEventHandler_Vtbl {
@@ -16354,7 +16354,7 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleStructureChangedEvent<Identity: IUIAutomationStructureChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationStructureChangedEventHandler_Impl::HandleStructureChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&runtimeid)).into()
+                IUIAutomationStructureChangedEventHandler_Impl::HandleStructureChangedEvent(this, windows_core::Ref::option_from_abi(&sender), core::mem::transmute_copy(&changetype), core::mem::transmute_copy(&runtimeid)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleStructureChangedEvent: HandleStructureChangedEvent::<Identity, OFFSET> }
@@ -17147,7 +17147,7 @@ impl IUIAutomationTextEditTextChangedEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleTextEditTextChangedEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), texteditchangetype, eventstrings).ok() }
+        unsafe { (windows_core::Interface::vtable(self).HandleTextEditTextChangedEvent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sender.param().borrow()), texteditchangetype, eventstrings).ok() }
     }
 }
 #[repr(C)]
@@ -17161,7 +17161,7 @@ pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationTextEditTextChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleTextEditTextChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn HandleTextEditTextChangedEvent(&self, sender: Option<&IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
@@ -17169,7 +17169,7 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleTextEditTextChangedEvent<Identity: IUIAutomationTextEditTextChangedEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationTextEditTextChangedEventHandler_Impl::HandleTextEditTextChangedEvent(this, core::mem::transmute_copy(&sender), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&eventstrings)).into()
+                IUIAutomationTextEditTextChangedEventHandler_Impl::HandleTextEditTextChangedEvent(this, windows_core::Ref::option_from_abi(&sender), core::mem::transmute_copy(&texteditchangetype), core::mem::transmute_copy(&eventstrings)).into()
             }
         }
         Self {
@@ -17198,7 +17198,7 @@ impl IUIAutomationTextPattern {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), child.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RangeFromChild)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&child.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray> {
@@ -17239,7 +17239,7 @@ pub struct IUIAutomationTextPattern_Vtbl {
 }
 pub trait IUIAutomationTextPattern_Impl: windows_core::IUnknownImpl {
     fn RangeFromPoint(&self, pt: &super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationTextRange>;
-    fn RangeFromChild(&self, child: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
+    fn RangeFromChild(&self, child: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
     fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray>;
     fn GetVisibleRanges(&self) -> windows_core::Result<IUIAutomationTextRangeArray>;
     fn DocumentRange(&self) -> windows_core::Result<IUIAutomationTextRange>;
@@ -17262,7 +17262,7 @@ impl IUIAutomationTextPattern_Vtbl {
         unsafe extern "system" fn RangeFromChild<Identity: IUIAutomationTextPattern_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, child: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTextPattern_Impl::RangeFromChild(this, core::mem::transmute_copy(&child)) {
+                match IUIAutomationTextPattern_Impl::RangeFromChild(this, windows_core::Ref::option_from_abi(&child)) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -17349,7 +17349,7 @@ impl IUIAutomationTextPattern2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), annotation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RangeFromAnnotation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&annotation.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange> {
@@ -17367,7 +17367,7 @@ pub struct IUIAutomationTextPattern2_Vtbl {
     pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextPattern2_Impl: IUIAutomationTextPattern_Impl {
-    fn RangeFromAnnotation(&self, annotation: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
+    fn RangeFromAnnotation(&self, annotation: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
     fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
 }
 impl IUIAutomationTextPattern2_Vtbl {
@@ -17375,7 +17375,7 @@ impl IUIAutomationTextPattern2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, annotation: *mut core::ffi::c_void, range: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTextPattern2_Impl::RangeFromAnnotation(this, core::mem::transmute_copy(&annotation)) {
+                match IUIAutomationTextPattern2_Impl::RangeFromAnnotation(this, windows_core::Ref::option_from_abi(&annotation)) {
                     Ok(ok__) => {
                         range.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -17422,7 +17422,7 @@ impl IUIAutomationTextRange {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), range.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&range.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CompareEndpoints<P1>(&self, srcendpoint: TextPatternRangeEndpoint, range: P1, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>
@@ -17431,7 +17431,7 @@ impl IUIAutomationTextRange {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CompareEndpoints)(windows_core::Interface::as_raw(self), srcendpoint, core::mem::transmute_copy(&range.param().borrow()), targetendpoint, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()> {
@@ -17492,7 +17492,7 @@ impl IUIAutomationTextRange {
     where
         P1: windows_core::Param<IUIAutomationTextRange>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, range.param().abi(), targetendpoint).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MoveEndpointByRange)(windows_core::Interface::as_raw(self), srcendpoint, core::mem::transmute_copy(&range.param().borrow()), targetendpoint).ok() }
     }
     pub unsafe fn Select(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Select)(windows_core::Interface::as_raw(self)).ok() }
@@ -17548,8 +17548,8 @@ pub struct IUIAutomationTextRange_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange>;
-    fn Compare(&self, range: windows_core::Ref<IUIAutomationTextRange>) -> windows_core::Result<windows_core::BOOL>;
-    fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
+    fn Compare(&self, range: Option<&IUIAutomationTextRange>) -> windows_core::Result<windows_core::BOOL>;
+    fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: Option<&IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()>;
     fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
     fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
@@ -17559,7 +17559,7 @@ pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByRange(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
+    fn MoveEndpointByRange(&self, srcendpoint: TextPatternRangeEndpoint, range: Option<&IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
@@ -17584,7 +17584,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn Compare<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, range: *mut core::ffi::c_void, aresame: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTextRange_Impl::Compare(this, core::mem::transmute_copy(&range)) {
+                match IUIAutomationTextRange_Impl::Compare(this, windows_core::Ref::option_from_abi(&range)) {
                     Ok(ok__) => {
                         aresame.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -17596,7 +17596,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn CompareEndpoints<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, compvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTextRange_Impl::CompareEndpoints(this, core::mem::transmute_copy(&srcendpoint), core::mem::transmute_copy(&range), core::mem::transmute_copy(&targetendpoint)) {
+                match IUIAutomationTextRange_Impl::CompareEndpoints(this, core::mem::transmute_copy(&srcendpoint), windows_core::Ref::option_from_abi(&range), core::mem::transmute_copy(&targetendpoint)) {
                     Ok(ok__) => {
                         compvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -17710,7 +17710,7 @@ impl IUIAutomationTextRange_Vtbl {
         unsafe extern "system" fn MoveEndpointByRange<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: *mut core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIAutomationTextRange_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&srcendpoint), core::mem::transmute_copy(&range), core::mem::transmute_copy(&targetendpoint)).into()
+                IUIAutomationTextRange_Impl::MoveEndpointByRange(this, core::mem::transmute_copy(&srcendpoint), windows_core::Ref::option_from_abi(&range), core::mem::transmute_copy(&targetendpoint)).into()
             }
         }
         unsafe extern "system" fn Select<Identity: IUIAutomationTextRange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17832,7 +17832,7 @@ impl IUIAutomationTextRange3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEnclosingElementBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetEnclosingElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetChildrenBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElementArray>
@@ -17841,7 +17841,7 @@ impl IUIAutomationTextRange3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChildrenBuildCache)(windows_core::Interface::as_raw(self), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetChildrenBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -17865,8 +17865,8 @@ pub struct IUIAutomationTextRange3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange3_Impl: IUIAutomationTextRange2_Impl {
-    fn GetEnclosingElementBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetChildrenBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn GetEnclosingElementBuildCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetChildrenBuildCache(&self, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetAttributeValues(&self, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -17875,7 +17875,7 @@ impl IUIAutomationTextRange3_Vtbl {
         unsafe extern "system" fn GetEnclosingElementBuildCache<Identity: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, enclosingelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTextRange3_Impl::GetEnclosingElementBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTextRange3_Impl::GetEnclosingElementBuildCache(this, windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         enclosingelement.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -17887,7 +17887,7 @@ impl IUIAutomationTextRange3_Vtbl {
         unsafe extern "system" fn GetChildrenBuildCache<Identity: IUIAutomationTextRange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, children: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTextRange3_Impl::GetChildrenBuildCache(this, core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTextRange3_Impl::GetChildrenBuildCache(this, windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         children.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18470,7 +18470,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParentElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParentElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFirstChildElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
@@ -18479,7 +18479,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFirstChildElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFirstChildElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetLastChildElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
@@ -18488,7 +18488,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLastChildElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetLastChildElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNextSiblingElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
@@ -18497,7 +18497,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNextSiblingElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNextSiblingElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPreviousSiblingElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
@@ -18506,7 +18506,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreviousSiblingElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreviousSiblingElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn NormalizeElement<P0>(&self, element: P0) -> windows_core::Result<IUIAutomationElement>
@@ -18515,7 +18515,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NormalizeElement)(windows_core::Interface::as_raw(self), element.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).NormalizeElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetParentElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -18525,7 +18525,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParentElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParentElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFirstChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -18535,7 +18535,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFirstChildElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFirstChildElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetLastChildElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -18545,7 +18545,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLastChildElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetLastChildElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNextSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -18555,7 +18555,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNextSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNextSiblingElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPreviousSiblingElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -18565,7 +18565,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreviousSiblingElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreviousSiblingElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn NormalizeElementBuildCache<P0, P1>(&self, element: P0, cacherequest: P1) -> windows_core::Result<IUIAutomationElement>
@@ -18575,7 +18575,7 @@ impl IUIAutomationTreeWalker {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NormalizeElementBuildCache)(windows_core::Interface::as_raw(self), element.param().abi(), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).NormalizeElementBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&element.param().borrow()), core::mem::transmute_copy(&cacherequest.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Condition(&self) -> windows_core::Result<IUIAutomationCondition> {
@@ -18604,18 +18604,18 @@ pub struct IUIAutomationTreeWalker_Vtbl {
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTreeWalker_Impl: windows_core::IUnknownImpl {
-    fn GetParentElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFirstChildElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetLastChildElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetNextSiblingElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetPreviousSiblingElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn NormalizeElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetParentElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFirstChildElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetLastChildElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetNextSiblingElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetPreviousSiblingElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn NormalizeElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetParentElement(&self, element: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetFirstChildElement(&self, element: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetLastChildElement(&self, element: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetNextSiblingElement(&self, element: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetPreviousSiblingElement(&self, element: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn NormalizeElement(&self, element: Option<&IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetParentElementBuildCache(&self, element: Option<&IUIAutomationElement>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetFirstChildElementBuildCache(&self, element: Option<&IUIAutomationElement>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetLastChildElementBuildCache(&self, element: Option<&IUIAutomationElement>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetNextSiblingElementBuildCache(&self, element: Option<&IUIAutomationElement>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetPreviousSiblingElementBuildCache(&self, element: Option<&IUIAutomationElement>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn NormalizeElementBuildCache(&self, element: Option<&IUIAutomationElement>, cacherequest: Option<&IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn Condition(&self) -> windows_core::Result<IUIAutomationCondition>;
 }
 impl IUIAutomationTreeWalker_Vtbl {
@@ -18623,7 +18623,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetParentElement<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetParentElement(this, core::mem::transmute_copy(&element)) {
+                match IUIAutomationTreeWalker_Impl::GetParentElement(this, windows_core::Ref::option_from_abi(&element)) {
                     Ok(ok__) => {
                         parent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18635,7 +18635,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetFirstChildElement<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, first: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetFirstChildElement(this, core::mem::transmute_copy(&element)) {
+                match IUIAutomationTreeWalker_Impl::GetFirstChildElement(this, windows_core::Ref::option_from_abi(&element)) {
                     Ok(ok__) => {
                         first.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18647,7 +18647,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetLastChildElement<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, last: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetLastChildElement(this, core::mem::transmute_copy(&element)) {
+                match IUIAutomationTreeWalker_Impl::GetLastChildElement(this, windows_core::Ref::option_from_abi(&element)) {
                     Ok(ok__) => {
                         last.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18659,7 +18659,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetNextSiblingElement<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, next: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetNextSiblingElement(this, core::mem::transmute_copy(&element)) {
+                match IUIAutomationTreeWalker_Impl::GetNextSiblingElement(this, windows_core::Ref::option_from_abi(&element)) {
                     Ok(ok__) => {
                         next.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18671,7 +18671,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetPreviousSiblingElement<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, previous: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElement(this, core::mem::transmute_copy(&element)) {
+                match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElement(this, windows_core::Ref::option_from_abi(&element)) {
                     Ok(ok__) => {
                         previous.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18683,7 +18683,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn NormalizeElement<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, normalized: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::NormalizeElement(this, core::mem::transmute_copy(&element)) {
+                match IUIAutomationTreeWalker_Impl::NormalizeElement(this, windows_core::Ref::option_from_abi(&element)) {
                     Ok(ok__) => {
                         normalized.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18695,7 +18695,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetParentElementBuildCache<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetParentElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTreeWalker_Impl::GetParentElementBuildCache(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         parent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18707,7 +18707,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetFirstChildElementBuildCache<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, first: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetFirstChildElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTreeWalker_Impl::GetFirstChildElementBuildCache(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         first.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18719,7 +18719,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetLastChildElementBuildCache<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, last: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetLastChildElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTreeWalker_Impl::GetLastChildElementBuildCache(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         last.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18731,7 +18731,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetNextSiblingElementBuildCache<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, next: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetNextSiblingElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTreeWalker_Impl::GetNextSiblingElementBuildCache(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         next.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18743,7 +18743,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetPreviousSiblingElementBuildCache<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, previous: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTreeWalker_Impl::GetPreviousSiblingElementBuildCache(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         previous.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -18755,7 +18755,7 @@ impl IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn NormalizeElementBuildCache<Identity: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut core::ffi::c_void, cacherequest: *mut core::ffi::c_void, normalized: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAutomationTreeWalker_Impl::NormalizeElementBuildCache(this, core::mem::transmute_copy(&element), core::mem::transmute_copy(&cacherequest)) {
+                match IUIAutomationTreeWalker_Impl::NormalizeElementBuildCache(this, windows_core::Ref::option_from_abi(&element), windows_core::Ref::option_from_abi(&cacherequest)) {
                     Ok(ok__) => {
                         normalized.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -19273,7 +19273,7 @@ impl IValueProvider {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), val.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&val.param().borrow())).ok() }
     }
     pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {

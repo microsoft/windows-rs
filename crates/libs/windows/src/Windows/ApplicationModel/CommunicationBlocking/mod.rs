@@ -18,7 +18,7 @@ impl CommunicationBlockingAccessManager {
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowBlockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShowBlockNumbersUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&phonenumbers.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn ShowUnblockNumbersUI<P0>(phonenumbers: P0) -> windows_core::Result<bool>
@@ -27,7 +27,7 @@ impl CommunicationBlockingAccessManager {
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&phonenumbers.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn ShowBlockedCallsUI() -> windows_core::Result<()> {

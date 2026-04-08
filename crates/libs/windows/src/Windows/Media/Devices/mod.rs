@@ -67,7 +67,7 @@ impl AdvancedPhotoControl {
         P0: windows_core::Param<AdvancedPhotoCaptureSettings>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for AdvancedPhotoControl {
@@ -157,7 +157,7 @@ impl AudioDeviceController {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, core::mem::transmute_copy(&mediaencodingproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -219,7 +219,7 @@ impl AudioDeviceModule {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendCommandAsync)(windows_core::Interface::as_raw(this), command.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendCommandAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&command.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -278,7 +278,7 @@ impl AudioDeviceModulesManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ModuleNotificationReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ModuleNotificationReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveModuleNotificationReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -390,7 +390,7 @@ impl CallControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAnswerRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -404,7 +404,7 @@ impl CallControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HangUpRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HangUpRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHangUpRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -418,7 +418,7 @@ impl CallControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DialRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DialRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDialRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -432,7 +432,7 @@ impl CallControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RedialRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RedialRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRedialRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -446,7 +446,7 @@ impl CallControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeypadPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeypadPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeypadPressed(&self, token: i64) -> windows_core::Result<()> {
@@ -460,7 +460,7 @@ impl CallControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioTransferRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioTransferRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioTransferRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -501,7 +501,7 @@ impl windows_core::RuntimeType for CallControlEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl CallControlEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&CallControl>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = CallControlEventHandlerBox { vtable: &CallControlEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -510,7 +510,7 @@ impl CallControlEventHandler {
         P0: windows_core::Param<CallControl>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -520,12 +520,12 @@ pub struct CallControlEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct CallControlEventHandlerBox<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 'static> {
+struct CallControlEventHandlerBox<F: Fn(Option<&CallControl>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const CallControlEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 'static> CallControlEventHandlerBox<F> {
+impl<F: Fn(Option<&CallControl>) -> windows_core::Result<()> + Send + 'static> CallControlEventHandlerBox<F> {
     const VTABLE: CallControlEventHandler_Vtbl = CallControlEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -568,7 +568,7 @@ impl<F: Fn(windows_core::Ref<CallControl>) -> windows_core::Result<()> + Send + 
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender)).into()
         }
     }
 }
@@ -598,7 +598,7 @@ impl CameraOcclusionInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -858,7 +858,7 @@ impl windows_core::RuntimeType for DialRequestedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DialRequestedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&CallControl>, Option<&DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DialRequestedEventHandlerBox { vtable: &DialRequestedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -868,7 +868,7 @@ impl DialRequestedEventHandler {
         P1: windows_core::Param<DialRequestedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&e.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -878,12 +878,12 @@ pub struct DialRequestedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DialRequestedEventHandlerBox<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct DialRequestedEventHandlerBox<F: Fn(Option<&CallControl>, Option<&DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const DialRequestedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> DialRequestedEventHandlerBox<F> {
+impl<F: Fn(Option<&CallControl>, Option<&DialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> DialRequestedEventHandlerBox<F> {
     const VTABLE: DialRequestedEventHandler_Vtbl = DialRequestedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -926,7 +926,7 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<DialRequestedEventA
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&e)).into()
         }
     }
 }
@@ -1090,7 +1090,7 @@ impl DigitalWindowControl {
         P1: windows_core::Param<DigitalWindowBounds>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ConfigureWithBounds)(windows_core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ConfigureWithBounds)(windows_core::Interface::as_raw(this), digitalwindowmode, core::mem::transmute_copy(&digitalwindowbounds.param().borrow())).ok() }
     }
     pub fn SupportedCapabilities(&self) -> windows_core::Result<windows_collections::IVectorView<DigitalWindowCapability>> {
         let this = self;
@@ -1548,7 +1548,7 @@ impl FocusControl {
         P0: windows_core::Param<FocusSettings>,
     {
         let this = &windows_core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for FocusControl {
@@ -1639,7 +1639,7 @@ impl FocusSettings {
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Distance(&self) -> windows_core::Result<super::super::Foundation::IReference<ManualFocusDistance>> {
         let this = self;
@@ -1653,7 +1653,7 @@ impl FocusSettings {
         P0: windows_core::Param<super::super::Foundation::IReference<ManualFocusDistance>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDistance)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDistance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn WaitForFocus(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -2525,7 +2525,7 @@ impl IMediaDeviceController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, core::mem::transmute_copy(&mediaencodingproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2537,7 +2537,7 @@ impl windows_core::RuntimeName for IMediaDeviceController {
 pub trait IMediaDeviceController_Impl: windows_core::IUnknownImpl {
     fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
     fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> windows_core::Result<super::MediaProperties::IMediaEncodingProperties>;
-    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: windows_core::Ref<super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: Option<&super::MediaProperties::IMediaEncodingProperties>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl IMediaDeviceController_Vtbl {
@@ -2571,7 +2571,7 @@ impl IMediaDeviceController_Vtbl {
         unsafe extern "system" fn SetMediaStreamPropertiesAsync<Identity: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaDeviceController_Impl::SetMediaStreamPropertiesAsync(this, mediastreamtype, core::mem::transmute_copy(&mediaencodingproperties)) {
+                match IMediaDeviceController_Impl::SetMediaStreamPropertiesAsync(this, mediastreamtype, windows_core::Ref::option_from_abi(&mediaencodingproperties)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -3121,7 +3121,7 @@ impl windows_core::RuntimeType for KeypadPressedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl KeypadPressedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&CallControl>, Option<&KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = KeypadPressedEventHandlerBox { vtable: &KeypadPressedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -3131,7 +3131,7 @@ impl KeypadPressedEventHandler {
         P1: windows_core::Param<KeypadPressedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&e.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3141,12 +3141,12 @@ pub struct KeypadPressedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct KeypadPressedEventHandlerBox<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct KeypadPressedEventHandlerBox<F: Fn(Option<&CallControl>, Option<&KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const KeypadPressedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static> KeypadPressedEventHandlerBox<F> {
+impl<F: Fn(Option<&CallControl>, Option<&KeypadPressedEventArgs>) -> windows_core::Result<()> + Send + 'static> KeypadPressedEventHandlerBox<F> {
     const VTABLE: KeypadPressedEventHandler_Vtbl = KeypadPressedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -3189,7 +3189,7 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<KeypadPressedEventA
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&e)).into()
         }
     }
 }
@@ -3206,7 +3206,7 @@ impl LowLagPhotoControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&captureproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -3326,7 +3326,7 @@ impl LowLagPhotoSequenceControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), captureproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&captureproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -3489,7 +3489,7 @@ impl MediaDevice {
     {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveDefaultAudioCaptureDeviceChanged(cookie: i64) -> windows_core::Result<()> {
@@ -3501,7 +3501,7 @@ impl MediaDevice {
     {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: i64) -> windows_core::Result<()> {
@@ -3824,7 +3824,7 @@ impl windows_core::RuntimeType for RedialRequestedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl RedialRequestedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&CallControl>, Option<&RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = RedialRequestedEventHandlerBox { vtable: &RedialRequestedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -3834,7 +3834,7 @@ impl RedialRequestedEventHandler {
         P1: windows_core::Param<RedialRequestedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sender.param().borrow()), core::mem::transmute_copy(&e.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3844,12 +3844,12 @@ pub struct RedialRequestedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct RedialRequestedEventHandlerBox<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct RedialRequestedEventHandlerBox<F: Fn(Option<&CallControl>, Option<&RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const RedialRequestedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> RedialRequestedEventHandlerBox<F> {
+impl<F: Fn(Option<&CallControl>, Option<&RedialRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> RedialRequestedEventHandlerBox<F> {
     const VTABLE: RedialRequestedEventHandler_Vtbl = RedialRequestedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -3892,7 +3892,7 @@ impl<F: Fn(windows_core::Ref<CallControl>, windows_core::Ref<RedialRequestedEven
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&sender), core::mem::transmute_copy(&e)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&sender), windows_core::Ref::option_from_abi(&e)).into()
         }
     }
 }
@@ -4030,7 +4030,7 @@ impl RegionsOfInterestControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetRegionsAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetRegionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&regions.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> windows_core::Result<windows_future::IAsyncAction>
@@ -4040,7 +4040,7 @@ impl RegionsOfInterestControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(windows_core::Interface::as_raw(this), regions.param().abi(), lockvalues, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&regions.param().borrow()), lockvalues, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearRegionsAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -4222,7 +4222,7 @@ impl VideoDeviceController {
         P1: windows_core::Param<windows_core::IInspectable>,
     {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDeviceProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDeviceProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), core::mem::transmute_copy(&propertyvalue.param().borrow())).ok() }
     }
     pub fn GetDeviceProperty(&self, propertyid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
@@ -4409,7 +4409,7 @@ impl VideoDeviceController {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), core::mem::transmute_copy(&maxpropertyvaluesize.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDevicePropertyById<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus>
@@ -4419,7 +4419,7 @@ impl VideoDeviceController {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), core::mem::transmute_copy(&propertyvalue.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn GetDevicePropertyByExtendedId<P1>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P1) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
@@ -4429,7 +4429,7 @@ impl VideoDeviceController {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), core::mem::transmute_copy(&maxpropertyvaluesize.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
@@ -4491,7 +4491,7 @@ impl VideoDeviceController {
         let this = &windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(windows_core::Interface::as_raw(this), mediastreamtype, core::mem::transmute_copy(&mediaencodingproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Brightness(&self) -> windows_core::Result<MediaDeviceControl> {
@@ -4857,7 +4857,7 @@ impl ZoomControl {
         P0: windows_core::Param<ZoomSettings>,
     {
         let this = &windows_core::Interface::cast::<IZoomControl2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Configure)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for ZoomControl {

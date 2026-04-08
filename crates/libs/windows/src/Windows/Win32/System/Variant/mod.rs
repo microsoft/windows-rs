@@ -539,7 +539,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn VariantToStringWithDefault(varin : *const VARIANT, pszdefault : windows_core::PCWSTR) -> windows_core::PCWSTR);
-    unsafe { VariantToStringWithDefault(core::mem::transmute(varin), pszdefault.param().abi()) }
+    unsafe { VariantToStringWithDefault(core::mem::transmute(varin), core::mem::transmute_copy(&pszdefault.param().borrow())) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]

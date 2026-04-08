@@ -127,7 +127,7 @@ impl MediaTranscoder {
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddAudioEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddAudioEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     pub fn AddVideoEffect(&self, activatableclassid: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -139,7 +139,7 @@ impl MediaTranscoder {
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddVideoEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddVideoEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, core::mem::transmute_copy(&configuration.param().borrow())).ok() }
     }
     pub fn ClearEffects(&self) -> windows_core::Result<()> {
         let this = self;
@@ -155,7 +155,7 @@ impl MediaTranscoder {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow()), core::mem::transmute_copy(&destination.param().borrow()), core::mem::transmute_copy(&profile.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -168,7 +168,7 @@ impl MediaTranscoder {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow()), core::mem::transmute_copy(&destination.param().borrow()), core::mem::transmute_copy(&profile.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -181,7 +181,7 @@ impl MediaTranscoder {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow()), core::mem::transmute_copy(&destination.param().borrow()), core::mem::transmute_copy(&profile.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> windows_core::Result<()> {

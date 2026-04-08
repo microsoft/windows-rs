@@ -45,7 +45,7 @@ impl ThreadPool {
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunAsync)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RunAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RunWithPriorityAsync<P0>(handler: P0, priority: WorkItemPriority) -> windows_core::Result<windows_future::IAsyncAction>
@@ -54,7 +54,7 @@ impl ThreadPool {
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunWithPriorityAsync)(windows_core::Interface::as_raw(this), handler.param().abi(), priority, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RunWithPriorityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), priority, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RunWithPriorityAndOptionsAsync<P0>(handler: P0, priority: WorkItemPriority, options: WorkItemOptions) -> windows_core::Result<windows_future::IAsyncAction>
@@ -63,7 +63,7 @@ impl ThreadPool {
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(windows_core::Interface::as_raw(this), handler.param().abi(), priority, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), priority, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IThreadPoolStatics<R, F: FnOnce(&IThreadPoolStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -103,7 +103,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePeriodicTimer)(windows_core::Interface::as_raw(this), handler.param().abi(), period, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePeriodicTimer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), period, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateTimer<P0>(handler: P0, delay: super::super::Foundation::TimeSpan) -> windows_core::Result<ThreadPoolTimer>
@@ -112,7 +112,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTimer)(windows_core::Interface::as_raw(this), handler.param().abi(), delay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTimer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), delay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreatePeriodicTimerWithCompletion<P0, P2>(handler: P0, period: super::super::Foundation::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
@@ -122,7 +122,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(windows_core::Interface::as_raw(this), handler.param().abi(), period, destroyed.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), period, core::mem::transmute_copy(&destroyed.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateTimerWithCompletion<P0, P2>(handler: P0, delay: super::super::Foundation::TimeSpan, destroyed: P2) -> windows_core::Result<ThreadPoolTimer>
@@ -132,7 +132,7 @@ impl ThreadPoolTimer {
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTimerWithCompletion)(windows_core::Interface::as_raw(this), handler.param().abi(), delay, destroyed.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTimerWithCompletion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), delay, core::mem::transmute_copy(&destroyed.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IThreadPoolTimerStatics<R, F: FnOnce(&IThreadPoolTimerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -157,7 +157,7 @@ impl windows_core::RuntimeType for TimerDestroyedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl TimerDestroyedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerDestroyedHandlerBox { vtable: &TimerDestroyedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -166,7 +166,7 @@ impl TimerDestroyedHandler {
         P0: windows_core::Param<ThreadPoolTimer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), timer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&timer.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -176,12 +176,12 @@ pub struct TimerDestroyedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct TimerDestroyedHandlerBox<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
+struct TimerDestroyedHandlerBox<F: Fn(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const TimerDestroyedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerDestroyedHandlerBox<F> {
+impl<F: Fn(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerDestroyedHandlerBox<F> {
     const VTABLE: TimerDestroyedHandler_Vtbl = TimerDestroyedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -224,7 +224,7 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&timer)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&timer)).into()
         }
     }
 }
@@ -233,7 +233,7 @@ impl windows_core::RuntimeType for TimerElapsedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl TimerElapsedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerElapsedHandlerBox { vtable: &TimerElapsedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -242,7 +242,7 @@ impl TimerElapsedHandler {
         P0: windows_core::Param<ThreadPoolTimer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), timer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&timer.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -252,12 +252,12 @@ pub struct TimerElapsedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct TimerElapsedHandlerBox<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
+struct TimerElapsedHandlerBox<F: Fn(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const TimerElapsedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerElapsedHandlerBox<F> {
+impl<F: Fn(Option<&ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerElapsedHandlerBox<F> {
     const VTABLE: TimerElapsedHandler_Vtbl = TimerElapsedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -300,7 +300,7 @@ impl<F: Fn(windows_core::Ref<ThreadPoolTimer>) -> windows_core::Result<()> + Sen
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&timer)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&timer)).into()
         }
     }
 }
@@ -309,7 +309,7 @@ impl windows_core::RuntimeType for WorkItemHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl WorkItemHandler {
-    pub fn new<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = WorkItemHandlerBox { vtable: &WorkItemHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -318,7 +318,7 @@ impl WorkItemHandler {
         P0: windows_core::Param<windows_future::IAsyncAction>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), operation.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&operation.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -328,12 +328,12 @@ pub struct WorkItemHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct WorkItemHandlerBox<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> {
+struct WorkItemHandlerBox<F: Fn(Option<&windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const WorkItemHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> WorkItemHandlerBox<F> {
+impl<F: Fn(Option<&windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> WorkItemHandlerBox<F> {
     const VTABLE: WorkItemHandler_Vtbl = WorkItemHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -376,7 +376,7 @@ impl<F: Fn(windows_core::Ref<windows_future::IAsyncAction>) -> windows_core::Res
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&operation)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&operation)).into()
         }
     }
 }

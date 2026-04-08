@@ -28,7 +28,7 @@ impl CompanionWindowCoordinator {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -94,7 +94,7 @@ impl CompanionWindowRequest {
     {
         Self::ICompanionWindowRequestStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromLaunchUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&launchuri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ICompanionWindowRequestStatics<R, F: FnOnce(&ICompanionWindowRequestStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

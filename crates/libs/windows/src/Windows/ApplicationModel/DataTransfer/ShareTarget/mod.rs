@@ -99,7 +99,7 @@ impl QuickLink {
         P0: windows_core::Param<super::super::super::Storage::Streams::RandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -177,7 +177,7 @@ impl ShareOperation {
         P0: windows_core::Param<QuickLink>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportCompletedWithQuickLink)(windows_core::Interface::as_raw(this), quicklink.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReportCompletedWithQuickLink)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&quicklink.param().borrow())).ok() }
     }
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = self;

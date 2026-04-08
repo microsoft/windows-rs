@@ -115,7 +115,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL);
-    let result__ = unsafe { LoadKeyboardLayoutA(pwszklid.param().abi(), flags) };
+    let result__ = unsafe { LoadKeyboardLayoutA(core::mem::transmute_copy(&pwszklid.param().borrow()), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -124,7 +124,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL);
-    let result__ = unsafe { LoadKeyboardLayoutW(pwszklid.param().abi(), flags) };
+    let result__ = unsafe { LoadKeyboardLayoutW(core::mem::transmute_copy(&pwszklid.param().borrow()), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]

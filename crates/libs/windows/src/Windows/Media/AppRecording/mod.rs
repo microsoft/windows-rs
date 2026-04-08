@@ -18,7 +18,7 @@ impl AppRecordingManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartRecordingToFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartRecordingToFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -29,7 +29,7 @@ impl AppRecordingManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(this), starttime, duration, file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(this), starttime, duration, core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
@@ -48,7 +48,7 @@ impl AppRecordingManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveScreenshotToFilesAsync)(windows_core::Interface::as_raw(this), folder.param().abi(), core::mem::transmute_copy(filenameprefix), option, requestedformats.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveScreenshotToFilesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&folder.param().borrow()), core::mem::transmute_copy(filenameprefix), option, core::mem::transmute_copy(&requestedformats.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<AppRecordingManager> {

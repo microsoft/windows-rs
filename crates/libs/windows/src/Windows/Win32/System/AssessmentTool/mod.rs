@@ -23,7 +23,7 @@ impl IAccessibleWinSAT {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAccessiblityData)(windows_core::Interface::as_raw(self), wsname.param().abi(), wsvalue.param().abi(), wsdesc.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetAccessiblityData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wsname.param().borrow()), core::mem::transmute_copy(&wsvalue.param().borrow()), core::mem::transmute_copy(&wsdesc.param().borrow())).ok() }
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
@@ -65,13 +65,13 @@ impl IInitiateWinSATAssessment {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWinSATInitiateEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.param().abi(), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&cmdline.param().borrow()), core::mem::transmute_copy(&pcallbacks.param().borrow()), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn InitiateFormalAssessment<P0>(&self, pcallbacks: P0, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWinSATInitiateEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcallbacks.param().borrow()), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn CancelAssessment(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CancelAssessment)(windows_core::Interface::as_raw(self)).ok() }
@@ -86,8 +86,8 @@ pub struct IInitiateWinSATAssessment_Vtbl {
     pub CancelAssessment: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInitiateWinSATAssessment_Impl: windows_core::IUnknownImpl {
-    fn InitiateAssessment(&self, cmdline: &windows_core::PCWSTR, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn InitiateFormalAssessment(&self, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn InitiateAssessment(&self, cmdline: &windows_core::PCWSTR, pcallbacks: Option<&IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn InitiateFormalAssessment(&self, pcallbacks: Option<&IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn CancelAssessment(&self) -> windows_core::Result<()>;
 }
 impl IInitiateWinSATAssessment_Vtbl {
@@ -95,13 +95,13 @@ impl IInitiateWinSATAssessment_Vtbl {
         unsafe extern "system" fn InitiateAssessment<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmdline: windows_core::PCWSTR, pcallbacks: *mut core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInitiateWinSATAssessment_Impl::InitiateAssessment(this, core::mem::transmute(&cmdline), core::mem::transmute_copy(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
+                IInitiateWinSATAssessment_Impl::InitiateAssessment(this, core::mem::transmute(&cmdline), windows_core::Ref::option_from_abi(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
             }
         }
         unsafe extern "system" fn InitiateFormalAssessment<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbacks: *mut core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInitiateWinSATAssessment_Impl::InitiateFormalAssessment(this, core::mem::transmute_copy(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
+                IInitiateWinSATAssessment_Impl::InitiateFormalAssessment(this, windows_core::Ref::option_from_abi(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
             }
         }
         unsafe extern "system" fn CancelAssessment<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -596,13 +596,13 @@ impl IWinSATInitiateEvents {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, strdescription.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, core::mem::transmute_copy(&strdescription.param().borrow())).ok() }
     }
     pub unsafe fn WinSATUpdate<P2>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).WinSATUpdate)(windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, core::mem::transmute_copy(&strcurrentstate.param().borrow())).ok() }
     }
 }
 #[repr(C)]

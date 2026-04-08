@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { AddERExcludedApplicationA(szapplication.param().abi()).ok() }
+    unsafe { AddERExcludedApplicationA(core::mem::transmute_copy(&szapplication.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn AddERExcludedApplicationW<P0>(wszapplication: P0) -> windows_core::Result<()>
@@ -12,7 +12,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { AddERExcludedApplicationW(wszapplication.param().abi()).ok() }
+    unsafe { AddERExcludedApplicationW(core::mem::transmute_copy(&wszapplication.param().borrow())).ok() }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -26,7 +26,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { WerAddExcludedApplication(pwzexename.param().abi(), ballusers.into()).ok() }
+    unsafe { WerAddExcludedApplication(core::mem::transmute_copy(&pwzexename.param().borrow()), ballusers.into()).ok() }
 }
 #[inline]
 pub unsafe fn WerFreeString<P0>(pwszstr: P0)
@@ -34,7 +34,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerFreeString(pwszstr : windows_core::PCWSTR));
-    unsafe { WerFreeString(pwszstr.param().abi()) }
+    unsafe { WerFreeString(core::mem::transmute_copy(&pwszstr.param().borrow())) }
 }
 #[inline]
 pub unsafe fn WerGetFlags(hprocess: super::super::Foundation::HANDLE) -> windows_core::Result<WER_FAULT_REPORTING> {
@@ -55,7 +55,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WerRegisterAppLocalDump(localappdatarelativepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WerRegisterAppLocalDump(localappdatarelativepath.param().abi()).ok() }
+    unsafe { WerRegisterAppLocalDump(core::mem::transmute_copy(&localappdatarelativepath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WerRegisterCustomMetadata<P0, P1>(key: P0, value: P1) -> windows_core::Result<()>
@@ -64,7 +64,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WerRegisterCustomMetadata(key : windows_core::PCWSTR, value : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WerRegisterCustomMetadata(key.param().abi(), value.param().abi()).ok() }
+    unsafe { WerRegisterCustomMetadata(core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&value.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const core::ffi::c_void, size: u32) -> windows_core::Result<()> {
@@ -77,7 +77,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WerRegisterFile(pwzfile : windows_core::PCWSTR, regfiletype : WER_REGISTER_FILE_TYPE, dwflags : WER_FILE) -> windows_core::HRESULT);
-    unsafe { WerRegisterFile(pwzfile.param().abi(), regfiletype, dwflags).ok() }
+    unsafe { WerRegisterFile(core::mem::transmute_copy(&pwzfile.param().borrow()), regfiletype, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const core::ffi::c_void, dwsize: u32) -> windows_core::Result<()> {
@@ -90,7 +90,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.param().abi(), pcontext).ok() }
+    unsafe { WerRegisterRuntimeExceptionModule(core::mem::transmute_copy(&pwszoutofprocesscallbackdll.param().borrow()), pcontext).ok() }
 }
 #[inline]
 pub unsafe fn WerRemoveExcludedApplication<P0>(pwzexename: P0, ballusers: bool) -> windows_core::Result<()>
@@ -98,7 +98,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { WerRemoveExcludedApplication(pwzexename.param().abi(), ballusers.into()).ok() }
+    unsafe { WerRemoveExcludedApplication(core::mem::transmute_copy(&pwzexename.param().borrow()), ballusers.into()).ok() }
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -112,7 +112,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerReportAddFile(hreporthandle : HREPORT, pwzpath : windows_core::PCWSTR, repfiletype : WER_FILE_TYPE, dwfileflags : WER_FILE) -> windows_core::HRESULT);
-    unsafe { WerReportAddFile(hreporthandle, pwzpath.param().abi(), repfiletype, dwfileflags).ok() }
+    unsafe { WerReportAddFile(hreporthandle, core::mem::transmute_copy(&pwzpath.param().borrow()), repfiletype, dwfileflags).ok() }
 }
 #[inline]
 pub unsafe fn WerReportCloseHandle(hreporthandle: HREPORT) -> windows_core::Result<()> {
@@ -127,7 +127,7 @@ where
     windows_core::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : windows_core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WerReportCreate(pwzeventtype.param().abi(), reptype, preportinformation.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        WerReportCreate(core::mem::transmute_copy(&pwzeventtype.param().borrow()), reptype, preportinformation.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -136,7 +136,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("faultrep.dll" "system" fn WerReportHang(hwndhungapp : super::super::Foundation:: HWND, pwzhungapplicationname : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WerReportHang(hwndhungapp, pwzhungapplicationname.param().abi()).ok() }
+    unsafe { WerReportHang(hwndhungapp, core::mem::transmute_copy(&pwzhungapplicationname.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WerReportSetParameter<P2, P3>(hreporthandle: HREPORT, dwparamid: u32, pwzname: P2, pwzvalue: P3) -> windows_core::Result<()>
@@ -145,7 +145,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerReportSetParameter(hreporthandle : HREPORT, dwparamid : u32, pwzname : windows_core::PCWSTR, pwzvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WerReportSetParameter(hreporthandle, dwparamid, pwzname.param().abi(), pwzvalue.param().abi()).ok() }
+    unsafe { WerReportSetParameter(hreporthandle, dwparamid, core::mem::transmute_copy(&pwzname.param().borrow()), core::mem::transmute_copy(&pwzvalue.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WerReportSetUIOption<P2>(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: P2) -> windows_core::Result<()>
@@ -153,7 +153,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerReportSetUIOption(hreporthandle : HREPORT, repuitypeid : WER_REPORT_UI, pwzvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WerReportSetUIOption(hreporthandle, repuitypeid, pwzvalue.param().abi()).ok() }
+    unsafe { WerReportSetUIOption(hreporthandle, repuitypeid, core::mem::transmute_copy(&pwzvalue.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: Option<*mut WER_SUBMIT_RESULT>) -> windows_core::Result<()> {
@@ -215,7 +215,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV1(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V1) -> windows_core::HRESULT);
-    unsafe { WerStoreQueryReportMetadataV1(hreportstore, pszreportkey.param().abi(), preportmetadata as _).ok() }
+    unsafe { WerStoreQueryReportMetadataV1(hreportstore, core::mem::transmute_copy(&pszreportkey.param().borrow()), preportmetadata as _).ok() }
 }
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV2<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: *mut WER_REPORT_METADATA_V2) -> windows_core::Result<()>
@@ -223,7 +223,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV2(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V2) -> windows_core::HRESULT);
-    unsafe { WerStoreQueryReportMetadataV2(hreportstore, pszreportkey.param().abi(), preportmetadata as _).ok() }
+    unsafe { WerStoreQueryReportMetadataV2(hreportstore, core::mem::transmute_copy(&pszreportkey.param().borrow()), preportmetadata as _).ok() }
 }
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV3<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, preportmetadata: *mut WER_REPORT_METADATA_V3) -> windows_core::Result<()>
@@ -231,7 +231,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerStoreQueryReportMetadataV3(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, preportmetadata : *mut WER_REPORT_METADATA_V3) -> windows_core::HRESULT);
-    unsafe { WerStoreQueryReportMetadataV3(hreportstore, pszreportkey.param().abi(), preportmetadata as _).ok() }
+    unsafe { WerStoreQueryReportMetadataV3(hreportstore, core::mem::transmute_copy(&pszreportkey.param().borrow()), preportmetadata as _).ok() }
 }
 #[inline]
 pub unsafe fn WerStoreUploadReport<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, dwflags: u32, psubmitresult: Option<*mut WER_SUBMIT_RESULT>) -> windows_core::Result<()>
@@ -239,7 +239,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, dwflags : u32, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_core::HRESULT);
-    unsafe { WerStoreUploadReport(hreportstore, pszreportkey.param().abi(), dwflags, psubmitresult.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WerStoreUploadReport(hreportstore, core::mem::transmute_copy(&pszreportkey.param().borrow()), dwflags, psubmitresult.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> windows_core::Result<()> {
@@ -257,7 +257,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WerUnregisterCustomMetadata(key : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WerUnregisterCustomMetadata(key.param().abi()).ok() }
+    unsafe { WerUnregisterCustomMetadata(core::mem::transmute_copy(&key.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WerUnregisterExcludedMemoryBlock(address: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -270,7 +270,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WerUnregisterFile(pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { WerUnregisterFile(pwzfilepath.param().abi()).ok() }
+    unsafe { WerUnregisterFile(core::mem::transmute_copy(&pwzfilepath.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -283,7 +283,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.param().abi(), pcontext).ok() }
+    unsafe { WerUnregisterRuntimeExceptionModule(core::mem::transmute_copy(&pwszoutofprocesscallbackdll.param().borrow()), pcontext).ok() }
 }
 pub const APPCRASH_EVENT: windows_core::PCWSTR = windows_core::w!("APPCRASH");
 #[repr(transparent)]

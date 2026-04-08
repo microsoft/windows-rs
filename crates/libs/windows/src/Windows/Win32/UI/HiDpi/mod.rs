@@ -111,7 +111,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("uxtheme.dll" "system" fn OpenThemeDataForDpi(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_core::PCWSTR, dpi : u32) -> super::Controls:: HTHEME);
-    unsafe { OpenThemeDataForDpi(hwnd.unwrap_or(core::mem::zeroed()) as _, pszclasslist.param().abi(), dpi) }
+    unsafe { OpenThemeDataForDpi(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pszclasslist.param().borrow()), dpi) }
 }
 #[inline]
 pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: Option<super::super::Foundation::HWND>, lppoint: *mut super::super::Foundation::POINT) -> windows_core::BOOL {

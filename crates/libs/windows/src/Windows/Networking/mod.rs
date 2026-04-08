@@ -46,7 +46,7 @@ impl EndpointPair {
         P0: windows_core::Param<HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocalHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocalHostName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn LocalServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -71,7 +71,7 @@ impl EndpointPair {
         P0: windows_core::Param<HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoteServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -91,7 +91,7 @@ impl EndpointPair {
     {
         Self::IEndpointPairFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEndpointPair)(windows_core::Interface::as_raw(this), localhostname.param().abi(), core::mem::transmute_copy(localservicename), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateEndpointPair)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&localhostname.param().borrow()), core::mem::transmute_copy(localservicename), core::mem::transmute_copy(&remotehostname.param().borrow()), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IEndpointPairFactory<R, F: FnOnce(&IEndpointPairFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -160,7 +160,7 @@ impl HostName {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), hostname.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&hostname.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn CreateHostName(hostname: &windows_core::HSTRING) -> windows_core::Result<HostName> {

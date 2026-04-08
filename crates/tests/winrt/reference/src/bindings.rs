@@ -34,7 +34,8 @@ impl IReference_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IReference_Impl::Method(this, windows_core::Ref::option_from_abi(&stringable)) {
+                match IReference_Impl::Method(this, windows_core::Ref::option_from_abi(&stringable))
+                {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

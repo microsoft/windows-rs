@@ -24,7 +24,7 @@ impl ContactPickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddContact)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), contact.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AddContact)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveContact(&self, id: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -59,7 +59,7 @@ impl ContactPickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContactRemoved)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveContactRemoved(&self, token: i64) -> windows_core::Result<()> {
@@ -73,7 +73,7 @@ impl ContactPickerUI {
         let this = &windows_core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddContact)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AddContact)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contact.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn DesiredFieldsWithContactFieldType(&self) -> windows_core::Result<windows_collections::IVector<super::ContactFieldType>> {

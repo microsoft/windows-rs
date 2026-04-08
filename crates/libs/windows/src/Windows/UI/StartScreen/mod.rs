@@ -469,7 +469,7 @@ impl JumpListItem {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CreateWithArguments(arguments: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<JumpListItem> {
         Self::IJumpListItemStatics(|this| unsafe {
@@ -588,7 +588,7 @@ impl SecondaryTile {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLogo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -602,7 +602,7 @@ impl SecondaryTile {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSmallLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSmallLogo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SmallLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -616,7 +616,7 @@ impl SecondaryTile {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWideLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWideLogo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn WideLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -630,7 +630,7 @@ impl SecondaryTile {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLockScreenBadgeLogo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLockScreenBadgeLogo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn LockScreenBadgeLogo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -784,7 +784,7 @@ impl SecondaryTile {
         let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisualElementsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VisualElementsRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVisualElementsRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -797,7 +797,7 @@ impl SecondaryTile {
     {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, core::mem::transmute_copy(&logoreference.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWideTile<P5, P6>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5, widelogoreference: P6) -> windows_core::Result<SecondaryTile>
@@ -807,7 +807,7 @@ impl SecondaryTile {
     {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWideTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, logoreference.param().abi(), widelogoreference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWideTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(shortname), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), tileoptions, core::mem::transmute_copy(&logoreference.param().borrow()), core::mem::transmute_copy(&widelogoreference.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithId(tileid: &windows_core::HSTRING) -> windows_core::Result<SecondaryTile> {
@@ -822,7 +822,7 @@ impl SecondaryTile {
     {
         Self::ISecondaryTileFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMinimalTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), square150x150logo.param().abi(), desiredsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMinimalTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(arguments), core::mem::transmute_copy(&square150x150logo.param().borrow()), desiredsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Exists(tileid: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -884,7 +884,7 @@ impl SecondaryTileVisualElements {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Square30x30Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -898,7 +898,7 @@ impl SecondaryTileVisualElements {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare70x70Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare70x70Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Square70x70Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -912,7 +912,7 @@ impl SecondaryTileVisualElements {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare150x150Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare150x150Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Square150x150Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -926,7 +926,7 @@ impl SecondaryTileVisualElements {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWide310x150Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWide310x150Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Wide310x150Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -940,7 +940,7 @@ impl SecondaryTileVisualElements {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare310x310Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare310x310Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Square310x310Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1009,7 +1009,7 @@ impl SecondaryTileVisualElements {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare71x71Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare71x71Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Square71x71Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
@@ -1023,7 +1023,7 @@ impl SecondaryTileVisualElements {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSquare44x44Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSquare44x44Logo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Square44x44Logo(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
@@ -1073,7 +1073,7 @@ impl StartScreenManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportsAppListEntry)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SupportsAppListEntry)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&applistentry.param().borrow()), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
@@ -1084,7 +1084,7 @@ impl StartScreenManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContainsAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ContainsAppListEntryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&applistentry.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
@@ -1095,7 +1095,7 @@ impl StartScreenManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAddAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAddAppListEntryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&applistentry.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ContainsSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -1125,7 +1125,7 @@ impl StartScreenManager {
     {
         Self::IStartScreenManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IStartScreenManagerStatics<R, F: FnOnce(&IStartScreenManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1155,7 +1155,7 @@ impl TileMixedRealityModel {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1170,7 +1170,7 @@ impl TileMixedRealityModel {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBoundingBox)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBoundingBox)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>> {

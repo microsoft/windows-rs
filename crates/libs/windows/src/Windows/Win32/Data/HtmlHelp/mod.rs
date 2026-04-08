@@ -4,7 +4,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    unsafe { HtmlHelpA(hwndcaller.unwrap_or(core::mem::zeroed()) as _, pszfile.param().abi(), ucommand.0 as _, dwdata) }
+    unsafe { HtmlHelpA(hwndcaller.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pszfile.param().borrow()), ucommand.0 as _, dwdata) }
 }
 #[inline]
 pub unsafe fn HtmlHelpW<P1>(hwndcaller: Option<super::super::Foundation::HWND>, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
@@ -12,7 +12,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    unsafe { HtmlHelpW(hwndcaller.unwrap_or(core::mem::zeroed()) as _, pszfile.param().abi(), ucommand.0 as _, dwdata) }
+    unsafe { HtmlHelpW(hwndcaller.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pszfile.param().borrow()), ucommand.0 as _, dwdata) }
 }
 pub const CLSID_IITCmdInt: windows_core::GUID = windows_core::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
 pub const CLSID_IITDatabase: windows_core::GUID = windows_core::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);
@@ -472,7 +472,7 @@ impl IITDatabase {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), lpszhost.param().abi(), lpszmoniker.param().abi(), dwflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpszhost.param().borrow()), core::mem::transmute_copy(&lpszmoniker.param().borrow()), dwflags).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
@@ -487,7 +487,7 @@ impl IITDatabase {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectPersistence)(windows_core::Interface::as_raw(self), lpwszobject.param().abi(), dwobjinstance, ppvpersistence as _, fstream.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetObjectPersistence)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpwszobject.param().borrow()), dwobjinstance, ppvpersistence as _, fstream.into()).ok() }
     }
 }
 #[repr(C)]
@@ -570,7 +570,7 @@ impl IITPropList {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), propid, lpszwstring.param().abi(), dwoperation).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), propid, core::mem::transmute_copy(&lpszwstring.param().borrow()), dwoperation).ok() }
     }
     pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut core::ffi::c_void, cbdata: u32, dwoperation: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Set2)(windows_core::Interface::as_raw(self), propid, lpvdata as _, cbdata, dwoperation).ok() }
@@ -618,7 +618,7 @@ impl IITPropList {
     where
         P2: windows_core::Param<super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SaveDataToStream)(windows_core::Interface::as_raw(self), lpvheader as _, dwhdrsize, pstream.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SaveDataToStream)(windows_core::Interface::as_raw(self), lpvheader as _, dwhdrsize, core::mem::transmute_copy(&pstream.param().borrow())).ok() }
     }
     pub unsafe fn LoadFromMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).LoadFromMem)(windows_core::Interface::as_raw(self), lpvdata as _, dwbufsize).ok() }
@@ -668,7 +668,7 @@ pub trait IITPropList_Impl: super::super::System::Com::IPersistStreamInit_Impl {
     fn SaveData(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
     fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> windows_core::Result<()>;
     fn GetDataSize(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> windows_core::Result<()>;
-    fn SaveDataToStream(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn SaveDataToStream(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn LoadFromMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
     fn SaveToMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
 }
@@ -768,7 +768,7 @@ impl IITPropList_Vtbl {
         unsafe extern "system" fn SaveDataToStream<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IITPropList_Impl::SaveDataToStream(this, core::mem::transmute_copy(&lpvheader), core::mem::transmute_copy(&dwhdrsize), core::mem::transmute_copy(&pstream)).into()
+                IITPropList_Impl::SaveDataToStream(this, core::mem::transmute_copy(&lpvheader), core::mem::transmute_copy(&dwhdrsize), windows_core::Ref::option_from_abi(&pstream)).into()
             }
         }
         unsafe extern "system" fn LoadFromMem<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::HRESULT {
@@ -830,7 +830,7 @@ impl IITResultSet {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add2)(windows_core::Interface::as_raw(self), propid, lpszwdefault.param().abi(), priority).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add2)(windows_core::Interface::as_raw(self), propid, core::mem::transmute_copy(&lpszwdefault.param().borrow()), priority).ok() }
     }
     pub unsafe fn Add3(&self, propid: u32, lpvdefaultdata: *mut core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Add3)(windows_core::Interface::as_raw(self), propid, lpvdefaultdata as _, cbdata, priority).ok() }
@@ -848,7 +848,7 @@ impl IITResultSet {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Set2)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, lpwstr.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Set2)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, core::mem::transmute_copy(&lpwstr.param().borrow())).ok() }
     }
     pub unsafe fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Set3)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, dwdata).ok() }
@@ -860,13 +860,13 @@ impl IITResultSet {
     where
         P0: windows_core::Param<IITResultSet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), prscopy.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&prscopy.param().borrow())).ok() }
     }
     pub unsafe fn AppendRows<P0>(&self, pressrc: P0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IITResultSet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AppendRows)(windows_core::Interface::as_raw(self), pressrc.param().abi(), lrowsrcfirst, csrcrows, lrowfirstdest as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AppendRows)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pressrc.param().borrow()), lrowsrcfirst, csrcrows, lrowfirstdest as _).ok() }
     }
     pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, prop as _).ok() }
@@ -965,8 +965,8 @@ pub trait IITResultSet_Impl: windows_core::IUnknownImpl {
     fn Set2(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> windows_core::Result<()>;
     fn Set4(&self, lrowindex: i32, lpvhdr: *mut core::ffi::c_void, lpvdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Copy(&self, prscopy: windows_core::Ref<IITResultSet>) -> windows_core::Result<()>;
-    fn AppendRows(&self, pressrc: windows_core::Ref<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>;
+    fn Copy(&self, prscopy: Option<&IITResultSet>) -> windows_core::Result<()>;
+    fn AppendRows(&self, pressrc: Option<&IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>;
     fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::Result<()>;
     fn GetKeyProp(&self, keypropid: *mut u32) -> windows_core::Result<()>;
     fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> windows_core::Result<()>;
@@ -1061,13 +1061,13 @@ impl IITResultSet_Vtbl {
         unsafe extern "system" fn Copy<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prscopy: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IITResultSet_Impl::Copy(this, core::mem::transmute_copy(&prscopy)).into()
+                IITResultSet_Impl::Copy(this, windows_core::Ref::option_from_abi(&prscopy)).into()
             }
         }
         unsafe extern "system" fn AppendRows<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pressrc: *mut core::ffi::c_void, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IITResultSet_Impl::AppendRows(this, core::mem::transmute_copy(&pressrc), core::mem::transmute_copy(&lrowsrcfirst), core::mem::transmute_copy(&csrcrows), core::mem::transmute_copy(&lrowfirstdest)).into()
+                IITResultSet_Impl::AppendRows(this, windows_core::Ref::option_from_abi(&pressrc), core::mem::transmute_copy(&lrowsrcfirst), core::mem::transmute_copy(&csrcrows), core::mem::transmute_copy(&lrowfirstdest)).into()
             }
         }
         unsafe extern "system" fn Get<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::HRESULT {
@@ -1214,13 +1214,13 @@ impl IStemSink {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutAltWord)(windows_core::Interface::as_raw(self), pwcinbuf.param().abi(), cwc).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutAltWord)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwcinbuf.param().borrow()), cwc).ok() }
     }
     pub unsafe fn PutWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutWord)(windows_core::Interface::as_raw(self), pwcinbuf.param().abi(), cwc).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PutWord)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwcinbuf.param().borrow()), cwc).ok() }
     }
 }
 #[repr(C)]
@@ -1275,7 +1275,7 @@ impl IStemmerConfig {
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadExternalStemmerData)(windows_core::Interface::as_raw(self), pstream.param().abi(), dwextdatatype).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LoadExternalStemmerData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pstream.param().borrow()), dwextdatatype).ok() }
     }
 }
 #[repr(C)]
@@ -1297,7 +1297,7 @@ pub trait IStemmerConfig_Impl: windows_core::IUnknownImpl {
     fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> windows_core::Result<()>;
     fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> windows_core::Result<()>;
     fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()>;
-    fn LoadExternalStemmerData(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
+    fn LoadExternalStemmerData(&self, pstream: Option<&super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStemmerConfig_Vtbl {
@@ -1329,7 +1329,7 @@ impl IStemmerConfig_Vtbl {
         unsafe extern "system" fn LoadExternalStemmerData<Identity: IStemmerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, dwextdatatype: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStemmerConfig_Impl::LoadExternalStemmerData(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&dwextdatatype)).into()
+                IStemmerConfig_Impl::LoadExternalStemmerData(this, windows_core::Ref::option_from_abi(&pstream), core::mem::transmute_copy(&dwextdatatype)).into()
             }
         }
         Self {
@@ -1378,14 +1378,14 @@ impl IWordBreakerConfig {
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadExternalBreakerData)(windows_core::Interface::as_raw(self), pstream.param().abi(), dwextdatatype).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LoadExternalBreakerData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pstream.param().borrow()), dwextdatatype).ok() }
     }
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn SetWordStemmer<P1>(&self, rclsid: *const windows_core::GUID, pstemmer: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::super::System::Search::IStemmer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWordStemmer)(windows_core::Interface::as_raw(self), rclsid, pstemmer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWordStemmer)(windows_core::Interface::as_raw(self), rclsid, core::mem::transmute_copy(&pstemmer.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn GetWordStemmer(&self) -> windows_core::Result<super::super::System::Search::IStemmer> {
@@ -1426,8 +1426,8 @@ pub trait IWordBreakerConfig_Impl: windows_core::IUnknownImpl {
     fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> windows_core::Result<()>;
     fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> windows_core::Result<()>;
     fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()>;
-    fn LoadExternalBreakerData(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
-    fn SetWordStemmer(&self, rclsid: *const windows_core::GUID, pstemmer: windows_core::Ref<super::super::System::Search::IStemmer>) -> windows_core::Result<()>;
+    fn LoadExternalBreakerData(&self, pstream: Option<&super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
+    fn SetWordStemmer(&self, rclsid: *const windows_core::GUID, pstemmer: Option<&super::super::System::Search::IStemmer>) -> windows_core::Result<()>;
     fn GetWordStemmer(&self) -> windows_core::Result<super::super::System::Search::IStemmer>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
@@ -1472,13 +1472,13 @@ impl IWordBreakerConfig_Vtbl {
         unsafe extern "system" fn LoadExternalBreakerData<Identity: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstream: *mut core::ffi::c_void, dwextdatatype: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWordBreakerConfig_Impl::LoadExternalBreakerData(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&dwextdatatype)).into()
+                IWordBreakerConfig_Impl::LoadExternalBreakerData(this, windows_core::Ref::option_from_abi(&pstream), core::mem::transmute_copy(&dwextdatatype)).into()
             }
         }
         unsafe extern "system" fn SetWordStemmer<Identity: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, pstemmer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWordBreakerConfig_Impl::SetWordStemmer(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&pstemmer)).into()
+                IWordBreakerConfig_Impl::SetWordStemmer(this, core::mem::transmute_copy(&rclsid), windows_core::Ref::option_from_abi(&pstemmer)).into()
             }
         }
         unsafe extern "system" fn GetWordStemmer<Identity: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstemmer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

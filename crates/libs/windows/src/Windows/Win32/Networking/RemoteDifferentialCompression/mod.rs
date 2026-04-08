@@ -507,7 +507,7 @@ impl IRdcLibrary {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateComparator)(windows_core::Interface::as_raw(self), iseedsignaturesfile.param().abi(), comparatorbuffersize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateComparator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&iseedsignaturesfile.param().borrow()), comparatorbuffersize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSignatureReader<P0>(&self, ifilereader: P0) -> windows_core::Result<IRdcSignatureReader>
@@ -516,7 +516,7 @@ impl IRdcLibrary {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSignatureReader)(windows_core::Interface::as_raw(self), ifilereader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSignatureReader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&ifilereader.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()> {
@@ -540,8 +540,8 @@ pub trait IRdcLibrary_Impl: windows_core::IUnknownImpl {
     fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> windows_core::Result<IRdcGeneratorParameters>;
     fn OpenGeneratorParameters(&self, size: u32, parametersblob: *const u8) -> windows_core::Result<IRdcGeneratorParameters>;
     fn CreateGenerator(&self, depth: u32, igeneratorparametersarray: *const Option<IRdcGeneratorParameters>) -> windows_core::Result<IRdcGenerator>;
-    fn CreateComparator(&self, iseedsignaturesfile: windows_core::Ref<IRdcFileReader>, comparatorbuffersize: u32) -> windows_core::Result<IRdcComparator>;
-    fn CreateSignatureReader(&self, ifilereader: windows_core::Ref<IRdcFileReader>) -> windows_core::Result<IRdcSignatureReader>;
+    fn CreateComparator(&self, iseedsignaturesfile: Option<&IRdcFileReader>, comparatorbuffersize: u32) -> windows_core::Result<IRdcComparator>;
+    fn CreateSignatureReader(&self, ifilereader: Option<&IRdcFileReader>) -> windows_core::Result<IRdcSignatureReader>;
     fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()>;
 }
 impl IRdcLibrary_Vtbl {
@@ -597,7 +597,7 @@ impl IRdcLibrary_Vtbl {
         unsafe extern "system" fn CreateComparator<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iseedsignaturesfile: *mut core::ffi::c_void, comparatorbuffersize: u32, icomparator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRdcLibrary_Impl::CreateComparator(this, core::mem::transmute_copy(&iseedsignaturesfile), core::mem::transmute_copy(&comparatorbuffersize)) {
+                match IRdcLibrary_Impl::CreateComparator(this, windows_core::Ref::option_from_abi(&iseedsignaturesfile), core::mem::transmute_copy(&comparatorbuffersize)) {
                     Ok(ok__) => {
                         icomparator.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -609,7 +609,7 @@ impl IRdcLibrary_Vtbl {
         unsafe extern "system" fn CreateSignatureReader<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifilereader: *mut core::ffi::c_void, isignaturereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRdcLibrary_Impl::CreateSignatureReader(this, core::mem::transmute_copy(&ifilereader)) {
+                match IRdcLibrary_Impl::CreateSignatureReader(this, windows_core::Ref::option_from_abi(&ifilereader)) {
                     Ok(ok__) => {
                         isignaturereader.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -759,7 +759,7 @@ impl ISimilarity {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&path.param().borrow()), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CreateTableIndirect<P0, P1>(&self, mapping: P0, fileidfile: P1, truncate: bool, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
@@ -769,7 +769,7 @@ impl ISimilarity {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), mapping.param().abi(), fileidfile.param().abi(), truncate.into(), recordsize, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mapping.param().borrow()), core::mem::transmute_copy(&fileidfile.param().borrow()), truncate.into(), recordsize, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::Result<()> {
@@ -789,7 +789,7 @@ impl ISimilarity {
         P0: windows_core::Param<ISimilarity>,
         P1: windows_core::Param<ISimilarityReportProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyAndSwap)(windows_core::Interface::as_raw(self), newsimilaritytables.param().abi(), reportprogress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyAndSwap)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newsimilaritytables.param().borrow()), core::mem::transmute_copy(&reportprogress.param().borrow())).ok() }
     }
     pub unsafe fn GetRecordCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -812,11 +812,11 @@ pub struct ISimilarity_Vtbl {
 }
 pub trait ISimilarity_Impl: windows_core::IUnknownImpl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, mapping: windows_core::Ref<ISimilarityTraitsMapping>, fileidfile: windows_core::Ref<IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, mapping: Option<&ISimilarityTraitsMapping>, fileidfile: Option<&IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> windows_core::Result<()>;
     fn FindSimilarFileId(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32) -> windows_core::Result<IFindSimilarResults>;
-    fn CopyAndSwap(&self, newsimilaritytables: windows_core::Ref<ISimilarity>, reportprogress: windows_core::Ref<ISimilarityReportProgress>) -> windows_core::Result<()>;
+    fn CopyAndSwap(&self, newsimilaritytables: Option<&ISimilarity>, reportprogress: Option<&ISimilarityReportProgress>) -> windows_core::Result<()>;
     fn GetRecordCount(&self) -> windows_core::Result<u32>;
 }
 impl ISimilarity_Vtbl {
@@ -836,7 +836,7 @@ impl ISimilarity_Vtbl {
         unsafe extern "system" fn CreateTableIndirect<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void, fileidfile: *mut core::ffi::c_void, truncate: windows_core::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISimilarity_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&mapping), core::mem::transmute_copy(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
+                match ISimilarity_Impl::CreateTableIndirect(this, windows_core::Ref::option_from_abi(&mapping), windows_core::Ref::option_from_abi(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -872,7 +872,7 @@ impl ISimilarity_Vtbl {
         unsafe extern "system" fn CopyAndSwap<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newsimilaritytables: *mut core::ffi::c_void, reportprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISimilarity_Impl::CopyAndSwap(this, core::mem::transmute_copy(&newsimilaritytables), core::mem::transmute_copy(&reportprogress)).into()
+                ISimilarity_Impl::CopyAndSwap(this, windows_core::Ref::option_from_abi(&newsimilaritytables), windows_core::Ref::option_from_abi(&reportprogress)).into()
             }
         }
         unsafe extern "system" fn GetRecordCount<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordcount: *mut u32) -> windows_core::HRESULT {
@@ -912,7 +912,7 @@ impl ISimilarityFileIdTable {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&path.param().borrow()), truncate.into(), securitydescriptor, recordsize, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CreateTableIndirect<P0>(&self, fileidfile: P0, truncate: bool, recordsize: u32) -> windows_core::Result<RdcCreatedTables>
@@ -921,7 +921,7 @@ impl ISimilarityFileIdTable {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), fileidfile.param().abi(), truncate.into(), recordsize, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&fileidfile.param().borrow()), truncate.into(), recordsize, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::Result<()> {
@@ -960,7 +960,7 @@ pub struct ISimilarityFileIdTable_Vtbl {
 }
 pub trait ISimilarityFileIdTable_Impl: windows_core::IUnknownImpl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, fileidfile: windows_core::Ref<IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, fileidfile: Option<&IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId) -> windows_core::Result<u32>;
     fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> windows_core::Result<()>;
@@ -984,7 +984,7 @@ impl ISimilarityFileIdTable_Vtbl {
         unsafe extern "system" fn CreateTableIndirect<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileidfile: *mut core::ffi::c_void, truncate: windows_core::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISimilarityFileIdTable_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
+                match ISimilarityFileIdTable_Impl::CreateTableIndirect(this, windows_core::Ref::option_from_abi(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1347,7 +1347,7 @@ impl ISimilarityTraitsTable {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), path.param().abi(), truncate.into(), securitydescriptor, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&path.param().borrow()), truncate.into(), securitydescriptor, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CreateTableIndirect<P0>(&self, mapping: P0, truncate: bool) -> windows_core::Result<RdcCreatedTables>
@@ -1356,7 +1356,7 @@ impl ISimilarityTraitsTable {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), mapping.param().abi(), truncate.into(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateTableIndirect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mapping.param().borrow()), truncate.into(), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CloseTable(&self, isvalid: bool) -> windows_core::Result<()> {
@@ -1395,7 +1395,7 @@ pub struct ISimilarityTraitsTable_Vtbl {
 }
 pub trait ISimilarityTraitsTable_Impl: windows_core::IUnknownImpl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8) -> windows_core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, mapping: windows_core::Ref<ISimilarityTraitsMapping>, truncate: windows_core::BOOL) -> windows_core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, mapping: Option<&ISimilarityTraitsMapping>, truncate: windows_core::BOOL) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
     fn Append(&self, data: *const SimilarityData, fileindex: u32) -> windows_core::Result<()>;
     fn FindSimilarFileIndex(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> windows_core::Result<()>;
@@ -1419,7 +1419,7 @@ impl ISimilarityTraitsTable_Vtbl {
         unsafe extern "system" fn CreateTableIndirect<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void, truncate: windows_core::BOOL, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISimilarityTraitsTable_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&mapping), core::mem::transmute_copy(&truncate)) {
+                match ISimilarityTraitsTable_Impl::CreateTableIndirect(this, windows_core::Ref::option_from_abi(&mapping), core::mem::transmute_copy(&truncate)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

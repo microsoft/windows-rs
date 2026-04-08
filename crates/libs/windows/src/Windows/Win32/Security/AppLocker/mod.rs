@@ -35,7 +35,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn SaferRecordEventLogEntry(hlevel : super:: SAFER_LEVEL_HANDLE, sztargetpath : windows_core::PCWSTR, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SaferRecordEventLogEntry(hlevel, sztargetpath.param().abi(), lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { SaferRecordEventLogEntry(hlevel, core::mem::transmute_copy(&sztargetpath.param().borrow()), lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn SaferSetLevelInformation(levelhandle: super::SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: *const core::ffi::c_void, dwinbuffersize: u32) -> windows_core::Result<()> {
@@ -53,7 +53,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn SaferiIsExecutableFileType(szfullpathname : windows_core::PCWSTR, bfromshellexecute : bool) -> windows_core::BOOL);
-    unsafe { SaferiIsExecutableFileType(szfullpathname.param().abi(), bfromshellexecute) }
+    unsafe { SaferiIsExecutableFileType(core::mem::transmute_copy(&szfullpathname.param().borrow()), bfromshellexecute) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]

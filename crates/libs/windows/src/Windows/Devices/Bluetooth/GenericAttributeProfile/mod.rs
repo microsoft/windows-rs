@@ -78,7 +78,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteValueAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteValueAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -89,7 +89,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
@@ -113,7 +113,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), valuechangedhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&valuechangedhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveValueChanged(&self, valuechangedeventcookie: i64) -> windows_core::Result<()> {
@@ -170,7 +170,7 @@ impl GattCharacteristic {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteValueWithResultAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteValueWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -181,7 +181,7 @@ impl GattCharacteristic {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>> {
@@ -935,7 +935,7 @@ impl GattDescriptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteValueAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteValueAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -946,7 +946,7 @@ impl GattDescriptor {
         let this = &windows_core::Interface::cast::<IGattDescriptor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteValueWithResultAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteValueWithResultAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
@@ -1259,7 +1259,7 @@ impl GattDeviceService {
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bluetoothdeviceid.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<P0>(bluetoothdeviceid: P0, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_core::HSTRING>
@@ -1268,7 +1268,7 @@ impl GattDeviceService {
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), cachemode, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bluetoothdeviceid.param().borrow()), cachemode, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuid<P0>(bluetoothdeviceid: P0, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING>
@@ -1277,7 +1277,7 @@ impl GattDeviceService {
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), serviceuuid, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bluetoothdeviceid.param().borrow()), serviceuuid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<P0>(bluetoothdeviceid: P0, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_core::HSTRING>
@@ -1286,7 +1286,7 @@ impl GattDeviceService {
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), serviceuuid, cachemode, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bluetoothdeviceid.param().borrow()), serviceuuid, cachemode, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     fn IGattDeviceServiceStatics<R, F: FnOnce(&IGattDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1397,7 +1397,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDescriptorAsync)(windows_core::Interface::as_raw(this), descriptoruuid, parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDescriptorAsync)(windows_core::Interface::as_raw(this), descriptoruuid, core::mem::transmute_copy(&parameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<GattLocalDescriptor>> {
@@ -1435,7 +1435,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SubscribedClientsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SubscribedClientsChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSubscribedClientsChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1449,7 +1449,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1463,7 +1463,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).WriteRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveWriteRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1478,7 +1478,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotifyValueAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).NotifyValueAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1490,7 +1490,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(windows_core::Interface::as_raw(this), value.param().abi(), subscribedclient.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), core::mem::transmute_copy(&subscribedclient.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1524,7 +1524,7 @@ impl GattLocalCharacteristicParameters {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStaticValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStaticValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -1671,7 +1671,7 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1685,7 +1685,7 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).WriteRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveWriteRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1723,7 +1723,7 @@ impl GattLocalDescriptorParameters {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStaticValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStaticValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -1819,7 +1819,7 @@ impl GattLocalService {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCharacteristicAsync)(windows_core::Interface::as_raw(this), characteristicuuid, parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCharacteristicAsync)(windows_core::Interface::as_raw(this), characteristicuuid, core::mem::transmute_copy(&parameters.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<GattLocalCharacteristic>> {
@@ -2303,7 +2303,7 @@ impl GattReadRequest {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2316,7 +2316,7 @@ impl GattReadRequest {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RespondWithValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RespondWithValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RespondWithProtocolError(&self, protocolerror: u8) -> windows_core::Result<()> {
         let this = self;
@@ -2433,7 +2433,7 @@ impl GattReliableWriteTransaction {
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).WriteValue)(windows_core::Interface::as_raw(this), characteristic.param().abi(), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).WriteValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&characteristic.param().borrow()), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CommitAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
@@ -2534,7 +2534,7 @@ impl GattServiceProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdvertisementStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AdvertisementStatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdvertisementStatusChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2550,7 +2550,7 @@ impl GattServiceProvider {
         P0: windows_core::Param<GattServiceProviderAdvertisingParameters>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartAdvertisingWithParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartAdvertisingWithParameters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&parameters.param().borrow())).ok() }
     }
     pub fn StopAdvertising(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2561,7 +2561,7 @@ impl GattServiceProvider {
         P0: windows_core::Param<GattServiceProviderAdvertisingParameters>,
     {
         let this = &windows_core::Interface::cast::<IGattServiceProvider2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&parameters.param().borrow())).ok() }
     }
     pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
@@ -2674,7 +2674,7 @@ impl GattServiceProviderAdvertisingParameters {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetServiceData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServiceData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ServiceData(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -2953,7 +2953,7 @@ impl GattSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxPduSizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MaxPduSizeChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMaxPduSizeChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2967,7 +2967,7 @@ impl GattSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SessionStatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSessionStatusChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2980,7 +2980,7 @@ impl GattSession {
     {
         Self::IGattSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromDeviceIdAsync)(windows_core::Interface::as_raw(this), deviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromDeviceIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&deviceid.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IGattSessionStatics<R, F: FnOnce(&IGattSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3086,7 +3086,7 @@ impl GattSubscribedClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxNotificationSizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MaxNotificationSizeChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMaxNotificationSizeChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -3193,7 +3193,7 @@ impl GattWriteRequest {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {

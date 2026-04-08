@@ -4,7 +4,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { BackupEventLogA(heventlog, lpbackupfilename.param().abi()).ok() }
+    unsafe { BackupEventLogA(heventlog, core::mem::transmute_copy(&lpbackupfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn BackupEventLogW<P1>(heventlog: super::super::Foundation::HANDLE, lpbackupfilename: P1) -> windows_core::Result<()>
@@ -12,7 +12,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { BackupEventLogW(heventlog, lpbackupfilename.param().abi()).ok() }
+    unsafe { BackupEventLogW(heventlog, core::mem::transmute_copy(&lpbackupfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn ClearEventLogA<P1>(heventlog: super::super::Foundation::HANDLE, lpbackupfilename: P1) -> windows_core::Result<()>
@@ -20,7 +20,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { ClearEventLogA(heventlog, lpbackupfilename.param().abi()).ok() }
+    unsafe { ClearEventLogA(heventlog, core::mem::transmute_copy(&lpbackupfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn ClearEventLogW<P1>(heventlog: super::super::Foundation::HANDLE, lpbackupfilename: P1) -> windows_core::Result<()>
@@ -28,7 +28,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { ClearEventLogW(heventlog, lpbackupfilename.param().abi()).ok() }
+    unsafe { ClearEventLogW(heventlog, core::mem::transmute_copy(&lpbackupfilename.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn CloseEventLog(heventlog: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -46,7 +46,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : windows_core::PCWSTR, locale : u32, flags : u32) -> windows_core::BOOL);
-    unsafe { EvtArchiveExportedLog(session.unwrap_or(core::mem::zeroed()) as _, logfilepath.param().abi(), locale, flags).ok() }
+    unsafe { EvtArchiveExportedLog(session.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&logfilepath.param().borrow()), locale, flags).ok() }
 }
 #[inline]
 pub unsafe fn EvtCancel(object: Option<EVT_HANDLE>) -> windows_core::Result<()> {
@@ -60,7 +60,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : windows_core::PCWSTR, targetfilepath : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { EvtClearLog(session.unwrap_or(core::mem::zeroed()) as _, channelpath.param().abi(), targetfilepath.param().abi(), flags).ok() }
+    unsafe { EvtClearLog(session.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&channelpath.param().borrow()), core::mem::transmute_copy(&targetfilepath.param().borrow()), flags).ok() }
 }
 #[inline]
 pub unsafe fn EvtClose(object: EVT_HANDLE) -> windows_core::Result<()> {
@@ -73,7 +73,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtCreateBookmark(bookmarkxml : windows_core::PCWSTR) -> EVT_HANDLE);
-    let result__ = unsafe { EvtCreateBookmark(bookmarkxml.param().abi()) };
+    let result__ = unsafe { EvtCreateBookmark(core::mem::transmute_copy(&bookmarkxml.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -90,7 +90,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : windows_core::PCWSTR, query : windows_core::PCWSTR, targetfilepath : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
-    unsafe { EvtExportLog(session.unwrap_or(core::mem::zeroed()) as _, path.param().abi(), query.param().abi(), targetfilepath.param().abi(), flags).ok() }
+    unsafe { EvtExportLog(session.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&path.param().borrow()), core::mem::transmute_copy(&query.param().borrow()), core::mem::transmute_copy(&targetfilepath.param().borrow()), flags).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -177,7 +177,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
-    let result__ = unsafe { EvtOpenChannelConfig(session.unwrap_or(core::mem::zeroed()) as _, channelpath.param().abi(), flags) };
+    let result__ = unsafe { EvtOpenChannelConfig(session.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&channelpath.param().borrow()), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -198,7 +198,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
-    let result__ = unsafe { EvtOpenLog(session.unwrap_or(core::mem::zeroed()) as _, path.param().abi(), flags) };
+    let result__ = unsafe { EvtOpenLog(session.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&path.param().borrow()), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -214,7 +214,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : windows_core::PCWSTR, logfilepath : windows_core::PCWSTR, locale : u32, flags : u32) -> EVT_HANDLE);
-    let result__ = unsafe { EvtOpenPublisherMetadata(session.unwrap_or(core::mem::zeroed()) as _, publisherid.param().abi(), logfilepath.param().abi(), locale, flags) };
+    let result__ = unsafe { EvtOpenPublisherMetadata(session.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&publisherid.param().borrow()), core::mem::transmute_copy(&logfilepath.param().borrow()), locale, flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -230,7 +230,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : windows_core::PCWSTR, query : windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
-    let result__ = unsafe { EvtQuery(session.unwrap_or(core::mem::zeroed()) as _, path.param().abi(), query.param().abi(), flags) };
+    let result__ = unsafe { EvtQuery(session.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&path.param().borrow()), core::mem::transmute_copy(&query.param().borrow()), flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -261,7 +261,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_core::PCWSTR, query : windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
-    let result__ = unsafe { EvtSubscribe(session.unwrap_or(core::mem::zeroed()) as _, signalevent.unwrap_or(core::mem::zeroed()) as _, channelpath.param().abi(), query.param().abi(), bookmark.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, callback, flags) };
+    let result__ = unsafe { EvtSubscribe(session.unwrap_or(core::mem::zeroed()) as _, signalevent.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&channelpath.param().borrow()), core::mem::transmute_copy(&query.param().borrow()), bookmark.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, callback, flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -296,7 +296,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : windows_core::PCSTR, lpfilename : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenBackupEventLogA(lpuncservername.param().abi(), lpfilename.param().abi()) };
+    let result__ = unsafe { OpenBackupEventLogA(core::mem::transmute_copy(&lpuncservername.param().borrow()), core::mem::transmute_copy(&lpfilename.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -306,7 +306,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : windows_core::PCWSTR, lpfilename : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenBackupEventLogW(lpuncservername.param().abi(), lpfilename.param().abi()) };
+    let result__ = unsafe { OpenBackupEventLogW(core::mem::transmute_copy(&lpuncservername.param().borrow()), core::mem::transmute_copy(&lpfilename.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -316,7 +316,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : windows_core::PCSTR, lpsourcename : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenEventLogA(lpuncservername.param().abi(), lpsourcename.param().abi()) };
+    let result__ = unsafe { OpenEventLogA(core::mem::transmute_copy(&lpuncservername.param().borrow()), core::mem::transmute_copy(&lpsourcename.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -326,7 +326,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : windows_core::PCWSTR, lpsourcename : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { OpenEventLogW(lpuncservername.param().abi(), lpsourcename.param().abi()) };
+    let result__ = unsafe { OpenEventLogW(core::mem::transmute_copy(&lpuncservername.param().borrow()), core::mem::transmute_copy(&lpsourcename.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -346,7 +346,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : windows_core::PCSTR, lpsourcename : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { RegisterEventSourceA(lpuncservername.param().abi(), lpsourcename.param().abi()) };
+    let result__ = unsafe { RegisterEventSourceA(core::mem::transmute_copy(&lpuncservername.param().borrow()), core::mem::transmute_copy(&lpsourcename.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -356,7 +356,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : windows_core::PCWSTR, lpsourcename : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = unsafe { RegisterEventSourceW(lpuncservername.param().abi(), lpsourcename.param().abi()) };
+    let result__ = unsafe { RegisterEventSourceW(core::mem::transmute_copy(&lpuncservername.param().borrow()), core::mem::transmute_copy(&lpsourcename.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]

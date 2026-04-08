@@ -13,7 +13,7 @@ impl HolographicApplicationPreview {
     {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsHolographicActivation)(windows_core::Interface::as_raw(this), activatedeventargs.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsHolographicActivation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&activatedeventargs.param().borrow()), &mut result__).map(|| result__)
         })
     }
     fn IHolographicApplicationPreviewStatics<R, F: FnOnce(&IHolographicApplicationPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -35,7 +35,7 @@ impl HolographicKeyboardPlacementOverridePreview {
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), topcenterposition, normal).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
     pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3, maxsize: windows_numerics::Vector2) -> windows_core::Result<()>
@@ -43,7 +43,7 @@ impl HolographicKeyboardPlacementOverridePreview {
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal, maxsize).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), topcenterposition, normal, maxsize).ok() }
     }
     pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {
         let this = self;

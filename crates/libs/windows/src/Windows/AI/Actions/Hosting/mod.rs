@@ -18,7 +18,7 @@ impl ActionCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -162,7 +162,7 @@ impl ActionDefinition {
         let this = &windows_core::Interface::cast::<IActionDefinition5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIconFullPath)(windows_core::Interface::as_raw(this), qualifiervalues.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetIconFullPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&qualifiervalues.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -325,7 +325,7 @@ impl ActionOverload {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InvokeAsync)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InvokeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&context.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn InvokeFeedbackAsync<P0, P1>(&self, context: P0, feedback: P1) -> windows_core::Result<windows_future::IAsyncAction>
@@ -336,7 +336,7 @@ impl ActionOverload {
         let this = &windows_core::Interface::cast::<IActionOverload2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InvokeFeedbackAsync)(windows_core::Interface::as_raw(this), context.param().abi(), feedback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InvokeFeedbackAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&context.param().borrow()), core::mem::transmute_copy(&feedback.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSupportsFeedback(&self) -> windows_core::Result<bool> {

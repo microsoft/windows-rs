@@ -989,7 +989,7 @@ impl IContentPrefetcherTaskTrigger {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TriggerContentPrefetcherTask)(windows_core::Interface::as_raw(self), packagefullname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).TriggerContentPrefetcherTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&packagefullname.param().borrow())).ok() }
     }
     pub unsafe fn IsRegisteredForContentPrefetch<P0>(&self, packagefullname: P0) -> windows_core::Result<u8>
     where
@@ -997,7 +997,7 @@ impl IContentPrefetcherTaskTrigger {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsRegisteredForContentPrefetch)(windows_core::Interface::as_raw(self), packagefullname.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsRegisteredForContentPrefetch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&packagefullname.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }

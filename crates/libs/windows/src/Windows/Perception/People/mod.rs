@@ -130,7 +130,7 @@ impl HandMeshObserver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetVertexStateForPose)(windows_core::Interface::as_raw(this), handpose.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetVertexStateForPose)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handpose.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn NeutralPose(&self) -> windows_core::Result<HandPose> {
@@ -229,7 +229,7 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetJoint)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), joint, jointpose, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TryGetJoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), joint, jointpose, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -240,7 +240,7 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetJoints)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), joints.len().try_into().unwrap(), joints.as_ptr(), jointposes.len().try_into().unwrap(), jointposes.as_mut_ptr(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TryGetJoints)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), joints.len().try_into().unwrap(), joints.as_ptr(), jointposes.len().try_into().unwrap(), jointposes.as_mut_ptr(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]

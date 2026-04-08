@@ -1,5 +1,5 @@
 use crate::imp::Box;
-use crate::{IUnknown, IUnknownImpl, Interface};
+use crate::{IUnknown, IUnknownImpl, Interface, InterfaceRef};
 use core::any::Any;
 use core::borrow::Borrow;
 use core::ops::Deref;
@@ -52,7 +52,7 @@ pub trait ComObjectInner: Sized {
 /// User code should not deal directly with this trait.
 pub trait ComObjectInterface<I: Interface> {
     /// Gets a borrowed interface that is implemented by `T`.
-    fn as_interface_ref(&self) -> &I;
+    fn as_interface_ref(&self) -> InterfaceRef<'_, I>;
 }
 
 /// A counted pointer to a type that implements COM interfaces, where the object has been
@@ -165,9 +165,9 @@ impl<T: ComObjectInner> ComObject<T> {
     /// Gets a borrowed reference to an interface that is implemented by `T`.
     ///
     /// The returned reference does not have an additional reference count.
-    /// You can AddRef it by calling [`Clone::clone`].
+    /// You can AddRef it by calling [`InterfaceRef::to_owned`].
     #[inline(always)]
-    pub fn as_interface<I: Interface>(&self) -> &I
+    pub fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
     where
         T::Outer: ComObjectInterface<I>,
     {
@@ -180,7 +180,7 @@ impl<T: ComObjectInner> ComObject<T> {
     where
         T::Outer: ComObjectInterface<I>,
     {
-        self.as_interface::<I>().clone()
+        self.as_interface::<I>().to_owned()
     }
 
     /// Converts `self` into an interface that it implements.
@@ -192,7 +192,7 @@ impl<T: ComObjectInner> ComObject<T> {
         T::Outer: ComObjectInterface<I>,
     {
         unsafe {
-            let raw = Interface::as_raw(self.get_box().as_interface_ref());
+            let raw = self.get_box().as_interface_ref().as_raw();
             core::mem::forget(self);
             I::from_raw(raw)
         }

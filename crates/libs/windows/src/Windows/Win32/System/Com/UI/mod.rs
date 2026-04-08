@@ -44,14 +44,14 @@ impl IThumbnailExtractor {
     where
         P0: windows_core::Param<super::StructuredStorage::IStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), pstg.param().abi(), ullength, ulheight, puloutputlength as _, puloutputheight as _, phoutputbitmap as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExtractThumbnail)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pstg.param().borrow()), ullength, ulheight, puloutputlength as _, puloutputheight as _, phoutputbitmap as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn OnFileUpdated<P0>(&self, pstg: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::StructuredStorage::IStorage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnFileUpdated)(windows_core::Interface::as_raw(self), pstg.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnFileUpdated)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pstg.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -69,8 +69,8 @@ pub struct IThumbnailExtractor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IThumbnailExtractor_Impl: windows_core::IUnknownImpl {
-    fn ExtractThumbnail(&self, pstg: windows_core::Ref<super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
-    fn OnFileUpdated(&self, pstg: windows_core::Ref<super::StructuredStorage::IStorage>) -> windows_core::Result<()>;
+    fn ExtractThumbnail(&self, pstg: Option<&super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
+    fn OnFileUpdated(&self, pstg: Option<&super::StructuredStorage::IStorage>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IThumbnailExtractor_Vtbl {
@@ -78,13 +78,13 @@ impl IThumbnailExtractor_Vtbl {
         unsafe extern "system" fn ExtractThumbnail<Identity: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IThumbnailExtractor_Impl::ExtractThumbnail(this, core::mem::transmute_copy(&pstg), core::mem::transmute_copy(&ullength), core::mem::transmute_copy(&ulheight), core::mem::transmute_copy(&puloutputlength), core::mem::transmute_copy(&puloutputheight), core::mem::transmute_copy(&phoutputbitmap)).into()
+                IThumbnailExtractor_Impl::ExtractThumbnail(this, windows_core::Ref::option_from_abi(&pstg), core::mem::transmute_copy(&ullength), core::mem::transmute_copy(&ulheight), core::mem::transmute_copy(&puloutputlength), core::mem::transmute_copy(&puloutputheight), core::mem::transmute_copy(&phoutputbitmap)).into()
             }
         }
         unsafe extern "system" fn OnFileUpdated<Identity: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstg: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IThumbnailExtractor_Impl::OnFileUpdated(this, core::mem::transmute_copy(&pstg)).into()
+                IThumbnailExtractor_Impl::OnFileUpdated(this, windows_core::Ref::option_from_abi(&pstg)).into()
             }
         }
         Self {

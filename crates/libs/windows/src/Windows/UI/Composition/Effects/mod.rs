@@ -96,7 +96,7 @@ impl SceneLightingEffect {
         P0: windows_core::Param<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNormalMapSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNormalMapSource)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SpecularAmount(&self) -> windows_core::Result<f32> {
         let this = self;

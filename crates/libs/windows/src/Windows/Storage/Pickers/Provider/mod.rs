@@ -26,7 +26,7 @@ impl FileOpenPickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), file.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AddFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(&file.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFile(&self, id: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -48,7 +48,7 @@ impl FileOpenPickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanAddFile)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CanAddFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn AllowedFileTypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
@@ -90,7 +90,7 @@ impl FileOpenPickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FileRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FileRemoved)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFileRemoved(&self, token: i64) -> windows_core::Result<()> {
@@ -104,7 +104,7 @@ impl FileOpenPickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closing)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosing(&self, token: i64) -> windows_core::Result<()> {
@@ -196,7 +196,7 @@ impl FileSavePickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FileNameChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FileNameChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFileNameChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -210,7 +210,7 @@ impl FileSavePickerUI {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetFileRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TargetFileRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTargetFileRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -481,7 +481,7 @@ impl TargetFileRequest {
         P0: windows_core::Param<super::super::IStorageFile>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTargetFile)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTargetFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<TargetFileRequestDeferral> {
         let this = self;

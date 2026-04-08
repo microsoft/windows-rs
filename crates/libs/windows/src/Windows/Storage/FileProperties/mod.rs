@@ -32,7 +32,7 @@ impl BasicProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestoretrieve.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -42,7 +42,7 @@ impl BasicProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestosave.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -112,7 +112,7 @@ impl DocumentProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestoretrieve.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -122,7 +122,7 @@ impl DocumentProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestosave.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -152,7 +152,7 @@ impl GeotagHelper {
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetGeotagAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetGeotagAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Storage_Streams"))]
@@ -163,7 +163,7 @@ impl GeotagHelper {
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(windows_core::Interface::as_raw(this), file.param().abi(), geolocator.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&geolocator.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Devices_Geolocation", feature = "Storage_Streams"))]
@@ -174,7 +174,7 @@ impl GeotagHelper {
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetGeotagAsync)(windows_core::Interface::as_raw(this), file.param().abi(), geopoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetGeotagAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&geopoint.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -319,7 +319,7 @@ impl IStorageItemExtraProperties {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestoretrieve.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -329,7 +329,7 @@ impl IStorageItemExtraProperties {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestosave.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -344,8 +344,8 @@ impl windows_core::RuntimeName for IStorageItemExtraProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IStorageItemExtraProperties";
 }
 pub trait IStorageItemExtraProperties_Impl: windows_core::IUnknownImpl {
-    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
-    fn SavePropertiesAsync(&self, propertiesToSave: windows_core::Ref<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: Option<&windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
+    fn SavePropertiesAsync(&self, propertiesToSave: Option<&windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<windows_future::IAsyncAction>;
     fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 impl IStorageItemExtraProperties_Vtbl {
@@ -353,7 +353,7 @@ impl IStorageItemExtraProperties_Vtbl {
         unsafe extern "system" fn RetrievePropertiesAsync<Identity: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemExtraProperties_Impl::RetrievePropertiesAsync(this, core::mem::transmute_copy(&propertiestoretrieve)) {
+                match IStorageItemExtraProperties_Impl::RetrievePropertiesAsync(this, windows_core::Ref::option_from_abi(&propertiestoretrieve)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -366,7 +366,7 @@ impl IStorageItemExtraProperties_Vtbl {
         unsafe extern "system" fn SavePropertiesAsync<Identity: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestosave: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStorageItemExtraProperties_Impl::SavePropertiesAsync(this, core::mem::transmute_copy(&propertiestosave)) {
+                match IStorageItemExtraProperties_Impl::SavePropertiesAsync(this, windows_core::Ref::option_from_abi(&propertiestosave)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -568,7 +568,7 @@ impl ImageProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestoretrieve.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -578,7 +578,7 @@ impl ImageProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestosave.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -760,7 +760,7 @@ impl MusicProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestoretrieve.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -770,7 +770,7 @@ impl MusicProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestosave.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -902,7 +902,7 @@ impl StorageItemContentProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestoretrieve.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -912,7 +912,7 @@ impl StorageItemContentProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestosave.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -961,7 +961,7 @@ impl StorageItemThumbnail {
         let this = &windows_core::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
@@ -971,7 +971,7 @@ impl StorageItemThumbnail {
         let this = &windows_core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buffer.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -1186,7 +1186,7 @@ impl VideoProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestoretrieve.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrievePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestoretrieve.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1196,7 +1196,7 @@ impl VideoProperties {
         let this = &windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), propertiestosave.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SavePropertiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&propertiestosave.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction> {

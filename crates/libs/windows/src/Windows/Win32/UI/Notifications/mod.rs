@@ -6,7 +6,7 @@ impl INotificationActivationCallback {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), appusermodelid.param().abi(), invokedargs.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&appusermodelid.param().borrow()), core::mem::transmute_copy(&invokedargs.param().borrow()), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok() }
     }
 }
 #[repr(C)]

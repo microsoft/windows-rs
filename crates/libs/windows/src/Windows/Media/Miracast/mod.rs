@@ -337,7 +337,7 @@ impl MiracastReceiver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisconnectAllAndApplySettings)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisconnectAllAndApplySettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisconnectAllAndApplySettingsAsync<P0>(&self, settings: P0) -> windows_core::Result<windows_future::IAsyncOperation<MiracastReceiverApplySettingsResult>>
@@ -347,7 +347,7 @@ impl MiracastReceiver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisconnectAllAndApplySettingsAsync)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisconnectAllAndApplySettingsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetStatus(&self) -> windows_core::Result<MiracastReceiverStatus> {
@@ -371,7 +371,7 @@ impl MiracastReceiver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -386,7 +386,7 @@ impl MiracastReceiver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSession)(windows_core::Interface::as_raw(this), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSession)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&view.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
@@ -397,7 +397,7 @@ impl MiracastReceiver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSessionAsync)(windows_core::Interface::as_raw(this), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSessionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&view.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ClearKnownTransmitters(&self) -> windows_core::Result<()> {
@@ -409,7 +409,7 @@ impl MiracastReceiver {
         P0: windows_core::Param<MiracastTransmitter>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveKnownTransmitter)(windows_core::Interface::as_raw(this), transmitter.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveKnownTransmitter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&transmitter.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for MiracastReceiver {
@@ -653,7 +653,7 @@ impl MiracastReceiverCursorImageChannel {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImageStreamChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ImageStreamChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveImageStreamChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -667,7 +667,7 @@ impl MiracastReceiverCursorImageChannel {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PositionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PositionChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePositionChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -821,7 +821,7 @@ impl MiracastReceiverGameControllerDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -923,7 +923,7 @@ impl MiracastReceiverKeyboardDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1024,7 +1024,7 @@ impl MiracastReceiverSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionCreated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ConnectionCreated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConnectionCreated(&self, token: i64) -> windows_core::Result<()> {
@@ -1038,7 +1038,7 @@ impl MiracastReceiverSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MediaSourceCreated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MediaSourceCreated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMediaSourceCreated(&self, token: i64) -> windows_core::Result<()> {
@@ -1052,7 +1052,7 @@ impl MiracastReceiverSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Disconnected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Disconnected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDisconnected(&self, token: i64) -> windows_core::Result<()> {
@@ -1305,7 +1305,7 @@ impl MiracastReceiverStreamControl {
         P0: windows_core::Param<MiracastReceiverVideoStreamSettings>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SuggestVideoStreamSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SuggestVideoStreamSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow())).ok() }
     }
     pub fn SuggestVideoStreamSettingsAsync<P0>(&self, settings: P0) -> windows_core::Result<windows_future::IAsyncAction>
     where
@@ -1314,7 +1314,7 @@ impl MiracastReceiverStreamControl {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SuggestVideoStreamSettingsAsync)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SuggestVideoStreamSettingsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MuteAudio(&self) -> windows_core::Result<bool> {

@@ -537,13 +537,13 @@ impl IRTCBuddyGroup {
     where
         P0: windows_core::Param<IRTCBuddy>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddBuddy)(windows_core::Interface::as_raw(self), pbuddy.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddBuddy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuddy.param().borrow())).ok() }
     }
     pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRTCBuddy>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveBuddy)(windows_core::Interface::as_raw(self), pbuddy.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveBuddy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuddy.param().borrow())).ok() }
     }
     pub unsafe fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies> {
         unsafe {
@@ -595,8 +595,8 @@ pub struct IRTCBuddyGroup_Vtbl {
 pub trait IRTCBuddyGroup_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
-    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
+    fn AddBuddy(&self, pbuddy: Option<&IRTCBuddy>) -> windows_core::Result<()>;
+    fn RemoveBuddy(&self, pbuddy: Option<&IRTCBuddy>) -> windows_core::Result<()>;
     fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies>;
     fn Buddies(&self) -> windows_core::Result<IRTCCollection>;
     fn Data(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -627,13 +627,13 @@ impl IRTCBuddyGroup_Vtbl {
         unsafe extern "system" fn AddBuddy<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCBuddyGroup_Impl::AddBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
+                IRTCBuddyGroup_Impl::AddBuddy(this, windows_core::Ref::option_from_abi(&pbuddy)).into()
             }
         }
         unsafe extern "system" fn RemoveBuddy<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCBuddyGroup_Impl::RemoveBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
+                IRTCBuddyGroup_Impl::RemoveBuddy(this, windows_core::Ref::option_from_abi(&pbuddy)).into()
             }
         }
         unsafe extern "system" fn EnumerateBuddies<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -871,7 +871,7 @@ impl IRTCClient {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), entype, core::mem::transmute_copy(bstrlocalphoneuri), pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), entype, core::mem::transmute_copy(bstrlocalphoneuri), core::mem::transmute_copy(&pprofile.param().borrow()), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> windows_core::Result<()> {
@@ -1090,7 +1090,7 @@ pub trait IRTCClient_Impl: windows_core::IUnknownImpl {
     fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn PreferredMediaTypes(&self) -> windows_core::Result<i32>;
     fn MediaCapabilities(&self) -> windows_core::Result<i32>;
-    fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession>;
+    fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: Option<&IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession>;
     fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> windows_core::Result<()>;
     fn ListenForIncomingSessions(&self) -> windows_core::Result<RTC_LISTEN_MODE>;
     fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::Variant::VARIANT>;
@@ -1197,7 +1197,7 @@ impl IRTCClient_Vtbl {
         unsafe extern "system" fn CreateSession<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRTCClient_Impl::CreateSession(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
+                match IRTCClient_Impl::CreateSession(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1600,14 +1600,14 @@ impl IRTCClient2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSessionWithDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription), pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSessionWithDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription), core::mem::transmute_copy(&pprofile.param().borrow()), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetSessionDescriptionManager<P0>(&self, psessiondescriptionmanager: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRTCSessionDescriptionManager>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSessionDescriptionManager)(windows_core::Interface::as_raw(self), psessiondescriptionmanager.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetSessionDescriptionManager)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&psessiondescriptionmanager.param().borrow())).ok() }
     }
     pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_PreferredSecurityLevel)(windows_core::Interface::as_raw(self), ensecuritytype, ensecuritylevel).ok() }
@@ -1655,8 +1655,8 @@ pub trait IRTCClient2_Impl: IRTCClient_Impl {
     fn SetClientName(&self, bstrclientname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetClientCurVer(&self, bstrclientcurver: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InitializeEx(&self, lflags: i32) -> windows_core::Result<()>;
-    fn CreateSessionWithDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession2>;
-    fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: windows_core::Ref<IRTCSessionDescriptionManager>) -> windows_core::Result<()>;
+    fn CreateSessionWithDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: Option<&IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession2>;
+    fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: Option<&IRTCSessionDescriptionManager>) -> windows_core::Result<()>;
     fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::Result<()>;
     fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL>;
     fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_core::Result<()>;
@@ -1722,7 +1722,7 @@ impl IRTCClient2_Vtbl {
         unsafe extern "system" fn CreateSessionWithDescription<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppsession2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRTCClient2_Impl::CreateSessionWithDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
+                match IRTCClient2_Impl::CreateSessionWithDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppsession2.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1734,7 +1734,7 @@ impl IRTCClient2_Vtbl {
         unsafe extern "system" fn SetSessionDescriptionManager<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psessiondescriptionmanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClient2_Impl::SetSessionDescriptionManager(this, core::mem::transmute_copy(&psessiondescriptionmanager)).into()
+                IRTCClient2_Impl::SetSessionDescriptionManager(this, windows_core::Ref::option_from_abi(&psessiondescriptionmanager)).into()
             }
         }
         unsafe extern "system" fn put_PreferredSecurityLevel<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::HRESULT {
@@ -1968,14 +1968,14 @@ impl IRTCClientPresence {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBuddy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), fpersistent, pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBuddy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), fpersistent, core::mem::transmute_copy(&pprofile.param().borrow()), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRTCBuddy>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveBuddy)(windows_core::Interface::as_raw(self), pbuddy.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveBuddy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pbuddy.param().borrow())).ok() }
     }
     pub unsafe fn EnumerateWatchers(&self) -> windows_core::Result<IRTCEnumWatchers> {
         unsafe {
@@ -2006,7 +2006,7 @@ impl IRTCClientPresence {
     where
         P0: windows_core::Param<IRTCWatcher>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveWatcher)(windows_core::Interface::as_raw(self), pwatcher.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveWatcher)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pwatcher.param().borrow())).ok() }
     }
     pub unsafe fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLocalPresenceInfo)(windows_core::Interface::as_raw(self), enstatus, core::mem::transmute_copy(bstrnotes)).ok() }
@@ -2076,13 +2076,13 @@ pub trait IRTCClientPresence_Impl: windows_core::IUnknownImpl {
     fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies>;
     fn Buddies(&self) -> windows_core::Result<IRTCCollection>;
     fn get_Buddy(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCBuddy>;
-    fn AddBuddy(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy>;
-    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
+    fn AddBuddy(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: Option<&IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy>;
+    fn RemoveBuddy(&self, pbuddy: Option<&IRTCBuddy>) -> windows_core::Result<()>;
     fn EnumerateWatchers(&self) -> windows_core::Result<IRTCEnumWatchers>;
     fn Watchers(&self) -> windows_core::Result<IRTCCollection>;
     fn get_Watcher(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher>;
     fn AddWatcher(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IRTCWatcher>;
-    fn RemoveWatcher(&self, pwatcher: windows_core::Ref<IRTCWatcher>) -> windows_core::Result<()>;
+    fn RemoveWatcher(&self, pwatcher: Option<&IRTCWatcher>) -> windows_core::Result<()>;
     fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &windows_core::BSTR) -> windows_core::Result<()>;
     fn OfferWatcherMode(&self) -> windows_core::Result<RTC_OFFER_WATCHER_MODE>;
     fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> windows_core::Result<()>;
@@ -2149,7 +2149,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn AddBuddy<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: *mut core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRTCClientPresence_Impl::AddBuddy(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
+                match IRTCClientPresence_Impl::AddBuddy(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2161,7 +2161,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn RemoveBuddy<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClientPresence_Impl::RemoveBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
+                IRTCClientPresence_Impl::RemoveBuddy(this, windows_core::Ref::option_from_abi(&pbuddy)).into()
             }
         }
         unsafe extern "system" fn EnumerateWatchers<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2215,7 +2215,7 @@ impl IRTCClientPresence_Vtbl {
         unsafe extern "system" fn RemoveWatcher<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwatcher: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClientPresence_Impl::RemoveWatcher(this, core::mem::transmute_copy(&pwatcher)).into()
+                IRTCClientPresence_Impl::RemoveWatcher(this, windows_core::Ref::option_from_abi(&pwatcher)).into()
             }
         }
         unsafe extern "system" fn SetLocalPresenceInfo<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enstatus: RTC_PRESENCE_STATUS, bstrnotes: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2302,7 +2302,7 @@ impl IRTCClientPresence2 {
     where
         P0: windows_core::Param<IRTCProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnablePresenceEx)(windows_core::Interface::as_raw(self), pprofile.param().abi(), core::mem::transmute_copy(varstorage), lflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnablePresenceEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprofile.param().borrow()), core::mem::transmute_copy(varstorage), lflags).ok() }
     }
     pub unsafe fn DisablePresence(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DisablePresence)(windows_core::Interface::as_raw(self)).ok() }
@@ -2313,14 +2313,14 @@ impl IRTCClientPresence2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(bstrdata), pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(bstrdata), core::mem::transmute_copy(&pprofile.param().borrow()), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveGroup<P0>(&self, pgroup: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRTCBuddyGroup>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveGroup)(windows_core::Interface::as_raw(self), pgroup.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pgroup.param().borrow())).ok() }
     }
     pub unsafe fn EnumerateGroups(&self) -> windows_core::Result<IRTCEnumGroups> {
         unsafe {
@@ -2347,7 +2347,7 @@ impl IRTCClientPresence2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddWatcherEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), enstate, fpersistent, enscope, pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddWatcherEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), enstate, fpersistent, enscope, core::mem::transmute_copy(&pprofile.param().borrow()), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher2> {
@@ -2380,7 +2380,7 @@ impl IRTCClientPresence2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBuddyEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), fpersistent, ensubscriptiontype, pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBuddyEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), fpersistent, ensubscriptiontype, core::mem::transmute_copy(&pprofile.param().borrow()), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2412,21 +2412,21 @@ pub struct IRTCClientPresence2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCClientPresence2_Impl: IRTCClientPresence_Impl {
-    fn EnablePresenceEx(&self, pprofile: windows_core::Ref<IRTCProfile>, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_core::Result<()>;
+    fn EnablePresenceEx(&self, pprofile: Option<&IRTCProfile>, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_core::Result<()>;
     fn DisablePresence(&self) -> windows_core::Result<()>;
-    fn AddGroup(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddyGroup>;
-    fn RemoveGroup(&self, pgroup: windows_core::Ref<IRTCBuddyGroup>) -> windows_core::Result<()>;
+    fn AddGroup(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: Option<&IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddyGroup>;
+    fn RemoveGroup(&self, pgroup: Option<&IRTCBuddyGroup>) -> windows_core::Result<()>;
     fn EnumerateGroups(&self) -> windows_core::Result<IRTCEnumGroups>;
     fn Groups(&self) -> windows_core::Result<IRTCCollection>;
     fn get_Group(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<IRTCBuddyGroup>;
-    fn AddWatcherEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCWatcher2>;
+    fn AddWatcherEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: Option<&IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCWatcher2>;
     fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher2>;
     fn put_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR>;
     fn SetPresenceData(&self, bstrnamespace: &windows_core::BSTR, bstrdata: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddBuddyEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy2>;
+    fn AddBuddyEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: Option<&IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy2>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientPresence2_Vtbl {
@@ -2434,7 +2434,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn EnablePresenceEx<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, varstorage: super::Variant::VARIANT, lflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClientPresence2_Impl::EnablePresenceEx(this, core::mem::transmute_copy(&pprofile), core::mem::transmute(&varstorage), core::mem::transmute_copy(&lflags)).into()
+                IRTCClientPresence2_Impl::EnablePresenceEx(this, windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute(&varstorage), core::mem::transmute_copy(&lflags)).into()
             }
         }
         unsafe extern "system" fn DisablePresence<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2446,7 +2446,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn AddGroup<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRTCClientPresence2_Impl::AddGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
+                match IRTCClientPresence2_Impl::AddGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrdata), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppgroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2458,7 +2458,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn RemoveGroup<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgroup: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClientPresence2_Impl::RemoveGroup(this, core::mem::transmute_copy(&pgroup)).into()
+                IRTCClientPresence2_Impl::RemoveGroup(this, windows_core::Ref::option_from_abi(&pgroup)).into()
             }
         }
         unsafe extern "system" fn EnumerateGroups<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2500,7 +2500,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn AddWatcherEx<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: *mut core::ffi::c_void, lflags: i32, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRTCClientPresence2_Impl::AddWatcherEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&enstate), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&enscope), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
+                match IRTCClientPresence2_Impl::AddWatcherEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&enstate), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&enscope), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2560,7 +2560,7 @@ impl IRTCClientPresence2_Vtbl {
         unsafe extern "system" fn AddBuddyEx<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: *mut core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRTCClientPresence2_Impl::AddBuddyEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&ensubscriptiontype), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
+                match IRTCClientPresence2_Impl::AddBuddyEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&ensubscriptiontype), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2607,13 +2607,13 @@ impl IRTCClientProvisioning {
     where
         P0: windows_core::Param<IRTCProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnableProfile)(windows_core::Interface::as_raw(self), pprofile.param().abi(), lregisterflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnableProfile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprofile.param().borrow()), lregisterflags).ok() }
     }
     pub unsafe fn DisableProfile<P0>(&self, pprofile: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IRTCProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DisableProfile)(windows_core::Interface::as_raw(self), pprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DisableProfile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprofile.param().borrow())).ok() }
     }
     pub unsafe fn EnumerateProfiles(&self) -> windows_core::Result<IRTCEnumProfiles> {
         unsafe {
@@ -2656,8 +2656,8 @@ pub struct IRTCClientProvisioning_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning_Impl: windows_core::IUnknownImpl {
     fn CreateProfile(&self, bstrprofilexml: &windows_core::BSTR) -> windows_core::Result<IRTCProfile>;
-    fn EnableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32) -> windows_core::Result<()>;
-    fn DisableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>) -> windows_core::Result<()>;
+    fn EnableProfile(&self, pprofile: Option<&IRTCProfile>, lregisterflags: i32) -> windows_core::Result<()>;
+    fn DisableProfile(&self, pprofile: Option<&IRTCProfile>) -> windows_core::Result<()>;
     fn EnumerateProfiles(&self) -> windows_core::Result<IRTCEnumProfiles>;
     fn Profiles(&self) -> windows_core::Result<IRTCCollection>;
     fn GetProfile(&self, bstruseraccount: &windows_core::BSTR, bstruserpassword: &windows_core::BSTR, bstruseruri: &windows_core::BSTR, bstrserver: &windows_core::BSTR, ltransport: i32, lcookie: isize) -> windows_core::Result<()>;
@@ -2681,13 +2681,13 @@ impl IRTCClientProvisioning_Vtbl {
         unsafe extern "system" fn EnableProfile<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lregisterflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClientProvisioning_Impl::EnableProfile(this, core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lregisterflags)).into()
+                IRTCClientProvisioning_Impl::EnableProfile(this, windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lregisterflags)).into()
             }
         }
         unsafe extern "system" fn DisableProfile<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClientProvisioning_Impl::DisableProfile(this, core::mem::transmute_copy(&pprofile)).into()
+                IRTCClientProvisioning_Impl::DisableProfile(this, windows_core::Ref::option_from_abi(&pprofile)).into()
             }
         }
         unsafe extern "system" fn EnumerateProfiles<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2762,7 +2762,7 @@ impl IRTCClientProvisioning2 {
     where
         P0: windows_core::Param<IRTCProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnableProfileEx)(windows_core::Interface::as_raw(self), pprofile.param().abi(), lregisterflags, lroamingflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnableProfileEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprofile.param().borrow()), lregisterflags, lroamingflags).ok() }
     }
 }
 #[repr(C)]
@@ -2773,7 +2773,7 @@ pub struct IRTCClientProvisioning2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning2_Impl: IRTCClientProvisioning_Impl {
-    fn EnableProfileEx(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> windows_core::Result<()>;
+    fn EnableProfileEx(&self, pprofile: Option<&IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientProvisioning2_Vtbl {
@@ -2781,7 +2781,7 @@ impl IRTCClientProvisioning2_Vtbl {
         unsafe extern "system" fn EnableProfileEx<Identity: IRTCClientProvisioning2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lregisterflags: i32, lroamingflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCClientProvisioning2_Impl::EnableProfileEx(this, core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lregisterflags), core::mem::transmute_copy(&lroamingflags)).into()
+                IRTCClientProvisioning2_Impl::EnableProfileEx(this, windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lregisterflags), core::mem::transmute_copy(&lroamingflags)).into()
             }
         }
         Self { base__: IRTCClientProvisioning_Vtbl::new::<Identity, OFFSET>(), EnableProfileEx: EnableProfileEx::<Identity, OFFSET> }
@@ -3486,7 +3486,7 @@ impl IRTCEventNotification {
     where
         P1: windows_core::Param<super::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Event)(windows_core::Interface::as_raw(self), rtcevent, pevent.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Event)(windows_core::Interface::as_raw(self), rtcevent, core::mem::transmute_copy(&pevent.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3500,7 +3500,7 @@ pub struct IRTCEventNotification_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCEventNotification_Impl: windows_core::IUnknownImpl {
-    fn Event(&self, rtcevent: RTC_EVENT, pevent: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Event(&self, rtcevent: RTC_EVENT, pevent: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCEventNotification_Vtbl {
@@ -3508,7 +3508,7 @@ impl IRTCEventNotification_Vtbl {
         unsafe extern "system" fn Event<Identity: IRTCEventNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtcevent: RTC_EVENT, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCEventNotification_Impl::Event(this, core::mem::transmute_copy(&rtcevent), core::mem::transmute_copy(&pevent)).into()
+                IRTCEventNotification_Impl::Event(this, core::mem::transmute_copy(&rtcevent), windows_core::Ref::option_from_abi(&pevent)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, OFFSET> }
@@ -6056,7 +6056,7 @@ impl IRTCSession {
     where
         P2: windows_core::Param<IRTCProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), entype, core::mem::transmute_copy(bstrlocalphoneuri), pprofile.param().abi(), lflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), entype, core::mem::transmute_copy(bstrlocalphoneuri), core::mem::transmute_copy(&pprofile.param().borrow()), lflags).ok() }
     }
     pub unsafe fn AddParticipant(&self, bstraddress: &windows_core::BSTR, bstrname: &windows_core::BSTR) -> windows_core::Result<IRTCParticipant> {
         unsafe {
@@ -6068,7 +6068,7 @@ impl IRTCSession {
     where
         P0: windows_core::Param<IRTCParticipant>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveParticipant)(windows_core::Interface::as_raw(self), pparticipant.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveParticipant)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pparticipant.param().borrow())).ok() }
     }
     pub unsafe fn EnumerateParticipants(&self) -> windows_core::Result<IRTCEnumParticipants> {
         unsafe {
@@ -6150,9 +6150,9 @@ pub trait IRTCSession_Impl: windows_core::IUnknownImpl {
     fn Participants(&self) -> windows_core::Result<IRTCCollection>;
     fn Answer(&self) -> windows_core::Result<()>;
     fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> windows_core::Result<()>;
-    fn Redirect(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<()>;
+    fn Redirect(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: Option<&IRTCProfile>, lflags: i32) -> windows_core::Result<()>;
     fn AddParticipant(&self, bstraddress: &windows_core::BSTR, bstrname: &windows_core::BSTR) -> windows_core::Result<IRTCParticipant>;
-    fn RemoveParticipant(&self, pparticipant: windows_core::Ref<IRTCParticipant>) -> windows_core::Result<()>;
+    fn RemoveParticipant(&self, pparticipant: Option<&IRTCParticipant>) -> windows_core::Result<()>;
     fn EnumerateParticipants(&self) -> windows_core::Result<IRTCEnumParticipants>;
     fn CanAddParticipants(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn RedirectedUserURI(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -6242,7 +6242,7 @@ impl IRTCSession_Vtbl {
         unsafe extern "system" fn Redirect<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCSession_Impl::Redirect(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)).into()
+                IRTCSession_Impl::Redirect(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lflags)).into()
             }
         }
         unsafe extern "system" fn AddParticipant<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraddress: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6260,7 +6260,7 @@ impl IRTCSession_Vtbl {
         unsafe extern "system" fn RemoveParticipant<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparticipant: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCSession_Impl::RemoveParticipant(this, core::mem::transmute_copy(&pparticipant)).into()
+                IRTCSession_Impl::RemoveParticipant(this, windows_core::Ref::option_from_abi(&pparticipant)).into()
             }
         }
         unsafe extern "system" fn EnumerateParticipants<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6882,7 +6882,7 @@ impl IRTCSessionPortManagement {
     where
         P0: windows_core::Param<IRTCPortManager>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPortManager)(windows_core::Interface::as_raw(self), pportmanager.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPortManager)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pportmanager.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -6892,14 +6892,14 @@ pub struct IRTCSessionPortManagement_Vtbl {
     pub SetPortManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCSessionPortManagement_Impl: windows_core::IUnknownImpl {
-    fn SetPortManager(&self, pportmanager: windows_core::Ref<IRTCPortManager>) -> windows_core::Result<()>;
+    fn SetPortManager(&self, pportmanager: Option<&IRTCPortManager>) -> windows_core::Result<()>;
 }
 impl IRTCSessionPortManagement_Vtbl {
     pub const fn new<Identity: IRTCSessionPortManagement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPortManager<Identity: IRTCSessionPortManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportmanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCSessionPortManagement_Impl::SetPortManager(this, core::mem::transmute_copy(&pportmanager)).into()
+                IRTCSessionPortManagement_Impl::SetPortManager(this, windows_core::Ref::option_from_abi(&pportmanager)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetPortManager: SetPortManager::<Identity, OFFSET> }
@@ -7430,7 +7430,7 @@ impl IRTCUserSearch {
         P0: windows_core::Param<IRTCUserSearchQuery>,
         P1: windows_core::Param<IRTCProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteSearch)(windows_core::Interface::as_raw(self), pquery.param().abi(), pprofile.param().abi(), lcookie).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ExecuteSearch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pquery.param().borrow()), core::mem::transmute_copy(&pprofile.param().borrow()), lcookie).ok() }
     }
 }
 #[repr(C)]
@@ -7442,7 +7442,7 @@ pub struct IRTCUserSearch_Vtbl {
 }
 pub trait IRTCUserSearch_Impl: windows_core::IUnknownImpl {
     fn CreateQuery(&self) -> windows_core::Result<IRTCUserSearchQuery>;
-    fn ExecuteSearch(&self, pquery: windows_core::Ref<IRTCUserSearchQuery>, pprofile: windows_core::Ref<IRTCProfile>, lcookie: isize) -> windows_core::Result<()>;
+    fn ExecuteSearch(&self, pquery: Option<&IRTCUserSearchQuery>, pprofile: Option<&IRTCProfile>, lcookie: isize) -> windows_core::Result<()>;
 }
 impl IRTCUserSearch_Vtbl {
     pub const fn new<Identity: IRTCUserSearch_Impl, const OFFSET: isize>() -> Self {
@@ -7461,7 +7461,7 @@ impl IRTCUserSearch_Vtbl {
         unsafe extern "system" fn ExecuteSearch<Identity: IRTCUserSearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pquery: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRTCUserSearch_Impl::ExecuteSearch(this, core::mem::transmute_copy(&pquery), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lcookie)).into()
+                IRTCUserSearch_Impl::ExecuteSearch(this, windows_core::Ref::option_from_abi(&pquery), windows_core::Ref::option_from_abi(&pprofile), core::mem::transmute_copy(&lcookie)).into()
             }
         }
         Self {

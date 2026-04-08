@@ -53,7 +53,7 @@ where
 {
     windows_core::link!("windows.ui.dll" "C" fn CreateControlInputEx(pcorewindow : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { CreateControlInputEx(pcorewindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { CreateControlInputEx(core::mem::transmute_copy(&pcorewindow.param().borrow()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "System")]
 #[inline]
@@ -72,7 +72,7 @@ where
 {
     windows_core::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOnFile(filepath : windows_core::PCWSTR, accessmode : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { CreateRandomAccessStreamOnFile(filepath.param().abi(), accessmode, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { CreateRandomAccessStreamOnFile(core::mem::transmute_copy(&filepath.param().borrow()), accessmode, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -83,7 +83,7 @@ where
 {
     windows_core::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOverStream(stream : * mut core::ffi::c_void, options : BSOS_OPTIONS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { CreateRandomAccessStreamOverStream(stream.param().abi(), options, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { CreateRandomAccessStreamOverStream(core::mem::transmute_copy(&stream.param().borrow()), options, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CreateStreamOverRandomAccessStream<P0, T>(randomaccessstream: P0) -> windows_core::Result<T>
@@ -93,7 +93,7 @@ where
 {
     windows_core::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateStreamOverRandomAccessStream(randomaccessstream : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { CreateStreamOverRandomAccessStream(randomaccessstream.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { CreateStreamOverRandomAccessStream(core::mem::transmute_copy(&randomaccessstream.param().borrow()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> windows_core::Result<IRestrictedErrorInfo> {
@@ -188,7 +188,7 @@ where
     windows_core::link!("combase.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoGetAgileReference(options, riid, punk.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        RoGetAgileReference(options, riid, core::mem::transmute_copy(&punk.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -263,7 +263,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoOriginateLanguageException(error : windows_core::HRESULT, message : * mut core::ffi::c_void, languageexception : * mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { RoOriginateLanguageException(error, core::mem::transmute_copy(message), languageexception.param().abi()) }
+    unsafe { RoOriginateLanguageException(error, core::mem::transmute_copy(message), core::mem::transmute_copy(&languageexception.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const windows_core::HSTRING, activationfactorycallbacks: *const PFNGETACTIVATIONFACTORY, count: u32) -> windows_core::Result<RO_REGISTRATION_COOKIE> {
@@ -279,7 +279,7 @@ where
     P0: windows_core::Param<IApartmentShutdown>,
 {
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoRegisterForApartmentShutdown(callbackobject : * mut core::ffi::c_void, apartmentidentifier : *mut u64, regcookie : *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> windows_core::HRESULT);
-    unsafe { RoRegisterForApartmentShutdown(callbackobject.param().abi(), apartmentidentifier as _, regcookie as _).ok() }
+    unsafe { RoRegisterForApartmentShutdown(core::mem::transmute_copy(&callbackobject.param().borrow()), apartmentidentifier as _, regcookie as _).ok() }
 }
 #[inline]
 pub unsafe fn RoReportFailedDelegate<P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> windows_core::Result<()>
@@ -288,7 +288,7 @@ where
     P1: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportFailedDelegate(punkdelegate : * mut core::ffi::c_void, prestrictederrorinfo : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoReportFailedDelegate(punkdelegate.param().abi(), prestrictederrorinfo.param().abi()).ok() }
+    unsafe { RoReportFailedDelegate(core::mem::transmute_copy(&punkdelegate.param().borrow()), core::mem::transmute_copy(&prestrictederrorinfo.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RoReportUnhandledError<P0>(prestrictederrorinfo: P0) -> windows_core::Result<()>
@@ -296,7 +296,7 @@ where
     P0: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoReportUnhandledError(prestrictederrorinfo : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoReportUnhandledError(prestrictederrorinfo.param().abi()).ok() }
+    unsafe { RoReportUnhandledError(core::mem::transmute_copy(&prestrictederrorinfo.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<P0>(reference: P0) -> windows_core::Result<IRestrictedErrorInfo>
@@ -306,7 +306,7 @@ where
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoResolveRestrictedErrorInfoReference(reference : windows_core::PCWSTR, pprestrictederrorinfo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoResolveRestrictedErrorInfoReference(reference.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        RoResolveRestrictedErrorInfoReference(core::mem::transmute_copy(&reference.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -345,7 +345,7 @@ where
     P0: windows_core::Param<IRestrictedErrorInfo>,
 {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn SetRestrictedErrorInfo(prestrictederrorinfo : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SetRestrictedErrorInfo(prestrictederrorinfo.param().abi()).ok() }
+    unsafe { SetRestrictedErrorInfo(core::mem::transmute_copy(&prestrictederrorinfo.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal(string1: &windows_core::HSTRING, string2: &windows_core::HSTRING) -> windows_core::Result<i32> {
@@ -377,7 +377,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring : windows_core::PCWSTR, length : u32, hstringheader : *mut HSTRING_HEADER, string : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { WindowsCreateStringReference(sourcestring.param().abi(), length, hstringheader as _, core::mem::transmute(string)).ok() }
+    unsafe { WindowsCreateStringReference(core::mem::transmute_copy(&sourcestring.param().borrow()), length, hstringheader as _, core::mem::transmute(string)).ok() }
 }
 #[inline]
 pub unsafe fn WindowsDeleteString(string: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -848,7 +848,7 @@ impl ICastingController {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), castingengine.param().abi(), castingsource.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&castingengine.param().borrow()), core::mem::transmute_copy(&castingsource.param().borrow())).ok() }
     }
     pub unsafe fn Connect(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self)).ok() }
@@ -862,7 +862,7 @@ impl ICastingController {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn UnAdvise(&self, cookie: u32) -> windows_core::Result<()> {
@@ -880,10 +880,10 @@ pub struct ICastingController_Vtbl {
     pub UnAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ICastingController_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, castingengine: windows_core::Ref<windows_core::IUnknown>, castingsource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, castingengine: Option<&windows_core::IUnknown>, castingsource: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Connect(&self) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
-    fn Advise(&self, eventhandler: windows_core::Ref<ICastingEventHandler>) -> windows_core::Result<u32>;
+    fn Advise(&self, eventhandler: Option<&ICastingEventHandler>) -> windows_core::Result<u32>;
     fn UnAdvise(&self, cookie: u32) -> windows_core::Result<()>;
 }
 impl ICastingController_Vtbl {
@@ -891,7 +891,7 @@ impl ICastingController_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, castingengine: *mut core::ffi::c_void, castingsource: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICastingController_Impl::Initialize(this, core::mem::transmute_copy(&castingengine), core::mem::transmute_copy(&castingsource)).into()
+                ICastingController_Impl::Initialize(this, windows_core::Ref::option_from_abi(&castingengine), windows_core::Ref::option_from_abi(&castingsource)).into()
             }
         }
         unsafe extern "system" fn Connect<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -909,7 +909,7 @@ impl ICastingController_Vtbl {
         unsafe extern "system" fn Advise<Identity: ICastingController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, cookie: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICastingController_Impl::Advise(this, core::mem::transmute_copy(&eventhandler)) {
+                match ICastingController_Impl::Advise(this, windows_core::Ref::option_from_abi(&eventhandler)) {
                     Ok(ok__) => {
                         cookie.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -948,7 +948,7 @@ impl ICastingEventHandler {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errorstatus, errormessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errorstatus, core::mem::transmute_copy(&errormessage.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1065,7 +1065,7 @@ impl ICoreInputInterop {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetInputSource)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetInputSource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub unsafe fn SetMessageHandled(&self, value: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMessageHandled)(windows_core::Interface::as_raw(self), value).ok() }
@@ -1079,7 +1079,7 @@ pub struct ICoreInputInterop_Vtbl {
     pub SetMessageHandled: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
 pub trait ICoreInputInterop_Impl: windows_core::IUnknownImpl {
-    fn SetInputSource(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetInputSource(&self, value: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetMessageHandled(&self, value: u8) -> windows_core::Result<()>;
 }
 impl ICoreInputInterop_Vtbl {
@@ -1087,7 +1087,7 @@ impl ICoreInputInterop_Vtbl {
         unsafe extern "system" fn SetInputSource<Identity: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreInputInterop_Impl::SetInputSource(this, core::mem::transmute_copy(&value)).into()
+                ICoreInputInterop_Impl::SetInputSource(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn SetMessageHandled<Identity: ICoreInputInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u8) -> windows_core::HRESULT {
@@ -1211,7 +1211,7 @@ impl ICoreWindowAdapterInterop {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowClientAdapter)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetWindowClientAdapter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1235,7 +1235,7 @@ pub trait ICoreWindowAdapterInterop_Impl: windows_core::IUnknownImpl {
     fn PositionerClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SystemNavigationClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn TitleBarClientAdapter(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetWindowClientAdapter(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetWindowClientAdapter(&self, value: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICoreWindowAdapterInterop_Vtbl {
     pub const fn new<Identity: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>() -> Self {
@@ -1326,7 +1326,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
         unsafe extern "system" fn SetWindowClientAdapter<Identity: ICoreWindowAdapterInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindowAdapterInterop_Impl::SetWindowClientAdapter(this, core::mem::transmute_copy(&value)).into()
+                ICoreWindowAdapterInterop_Impl::SetWindowClientAdapter(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         Self {
@@ -1353,7 +1353,7 @@ impl ICoreWindowComponentInterop {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ConfigureComponentInput)(windows_core::Interface::as_raw(self), hostviewinstanceid, hwndhost, inputsourcevisual.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ConfigureComponentInput)(windows_core::Interface::as_raw(self), hostviewinstanceid, hwndhost, core::mem::transmute_copy(&inputsourcevisual.param().borrow())).ok() }
     }
     pub unsafe fn GetViewInstanceId(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1370,7 +1370,7 @@ pub struct ICoreWindowComponentInterop_Vtbl {
     pub GetViewInstanceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait ICoreWindowComponentInterop_Impl: windows_core::IUnknownImpl {
-    fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetViewInstanceId(&self) -> windows_core::Result<u32>;
 }
 impl ICoreWindowComponentInterop_Vtbl {
@@ -1378,7 +1378,7 @@ impl ICoreWindowComponentInterop_Vtbl {
         unsafe extern "system" fn ConfigureComponentInput<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindowComponentInterop_Impl::ConfigureComponentInput(this, core::mem::transmute_copy(&hostviewinstanceid), core::mem::transmute_copy(&hwndhost), core::mem::transmute_copy(&inputsourcevisual)).into()
+                ICoreWindowComponentInterop_Impl::ConfigureComponentInput(this, core::mem::transmute_copy(&hostviewinstanceid), core::mem::transmute_copy(&hwndhost), windows_core::Ref::option_from_abi(&inputsourcevisual)).into()
             }
         }
         unsafe extern "system" fn GetViewInstanceId<Identity: ICoreWindowComponentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, componentviewinstanceid: *mut u32) -> windows_core::HRESULT {
@@ -1742,7 +1742,7 @@ impl ILanguageExceptionErrorInfo2 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), languageexception.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CapturePropagationContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&languageexception.param().borrow())).ok() }
     }
     pub unsafe fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2> {
         unsafe {
@@ -1761,7 +1761,7 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
 }
 pub trait ILanguageExceptionErrorInfo2_Impl: ILanguageExceptionErrorInfo_Impl {
     fn GetPreviousLanguageExceptionErrorInfo(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
-    fn CapturePropagationContext(&self, languageexception: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CapturePropagationContext(&self, languageexception: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPropagationContextHead(&self) -> windows_core::Result<ILanguageExceptionErrorInfo2>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
@@ -1781,7 +1781,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         unsafe extern "system" fn CapturePropagationContext<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languageexception: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ILanguageExceptionErrorInfo2_Impl::CapturePropagationContext(this, core::mem::transmute_copy(&languageexception)).into()
+                ILanguageExceptionErrorInfo2_Impl::CapturePropagationContext(this, windows_core::Ref::option_from_abi(&languageexception)).into()
             }
         }
         unsafe extern "system" fn GetPropagationContextHead<Identity: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2469,7 +2469,7 @@ impl IWebAuthenticationCoreManagerInterop {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).RequestTokenForWindowAsync)(windows_core::Interface::as_raw(self), appwindow, request.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).RequestTokenForWindowAsync)(windows_core::Interface::as_raw(self), appwindow, core::mem::transmute_copy(&request.param().borrow()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn RequestTokenWithWebAccountForWindowAsync<P1, P2, T>(&self, appwindow: super::super::Foundation::HWND, request: P1, webaccount: P2) -> windows_core::Result<T>
     where
@@ -2478,7 +2478,7 @@ impl IWebAuthenticationCoreManagerInterop {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).RequestTokenWithWebAccountForWindowAsync)(windows_core::Interface::as_raw(self), appwindow, request.param().abi(), webaccount.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).RequestTokenWithWebAccountForWindowAsync)(windows_core::Interface::as_raw(self), appwindow, core::mem::transmute_copy(&request.param().borrow()), core::mem::transmute_copy(&webaccount.param().borrow()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2489,21 +2489,21 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     pub RequestTokenWithWebAccountForWindowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWebAuthenticationCoreManagerInterop_Impl: windows_core::IUnknownImpl {
-    fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn RequestTokenWithWebAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: windows_core::Ref<windows_core::IInspectable>, webaccount: windows_core::Ref<windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: Option<&windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn RequestTokenWithWebAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: Option<&windows_core::IInspectable>, webaccount: Option<&windows_core::IInspectable>, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IWebAuthenticationCoreManagerInterop_Vtbl {
     pub const fn new<Identity: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RequestTokenForWindowAsync<Identity: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut core::ffi::c_void, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebAuthenticationCoreManagerInterop_Impl::RequestTokenForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&request), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
+                IWebAuthenticationCoreManagerInterop_Impl::RequestTokenForWindowAsync(this, core::mem::transmute_copy(&appwindow), windows_core::Ref::option_from_abi(&request), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
             }
         }
         unsafe extern "system" fn RequestTokenWithWebAccountForWindowAsync<Identity: IWebAuthenticationCoreManagerInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, riid: *const windows_core::GUID, asyncinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebAuthenticationCoreManagerInterop_Impl::RequestTokenWithWebAccountForWindowAsync(this, core::mem::transmute_copy(&appwindow), core::mem::transmute_copy(&request), core::mem::transmute_copy(&webaccount), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
+                IWebAuthenticationCoreManagerInterop_Impl::RequestTokenWithWebAccountForWindowAsync(this, core::mem::transmute_copy(&appwindow), windows_core::Ref::option_from_abi(&request), windows_core::Ref::option_from_abi(&webaccount), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&asyncinfo)).into()
             }
         }
         Self {

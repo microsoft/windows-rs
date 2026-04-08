@@ -390,7 +390,7 @@ impl ICorProfilerCallback {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), picorprofilerinfounk.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&picorprofilerinfounk.param().borrow())).ok() }
     }
     pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok() }
@@ -678,7 +678,7 @@ pub struct ICorProfilerCallback_Vtbl {
     pub ExceptionCLRCatcherExecute: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, picorprofilerinfounk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, picorprofilerinfounk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
     fn AppDomainCreationStarted(&self, appdomainid: usize) -> windows_core::Result<()>;
     fn AppDomainCreationFinished(&self, appdomainid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
@@ -753,7 +753,7 @@ impl ICorProfilerCallback_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, picorprofilerinfounk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerCallback_Impl::Initialize(this, core::mem::transmute_copy(&picorprofilerinfounk)).into()
+                ICorProfilerCallback_Impl::Initialize(this, windows_core::Ref::option_from_abi(&picorprofilerinfounk)).into()
             }
         }
         unsafe extern "system" fn Shutdown<Identity: ICorProfilerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1495,7 +1495,7 @@ impl ICorProfilerCallback3 {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), pcorprofilerinfounk.param().abi(), pvclientdata, cbclientdata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitializeForAttach)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcorprofilerinfounk.param().borrow()), pvclientdata, cbclientdata).ok() }
     }
     pub unsafe fn ProfilerAttachComplete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ProfilerAttachComplete)(windows_core::Interface::as_raw(self)).ok() }
@@ -1513,7 +1513,7 @@ pub struct ICorProfilerCallback3_Vtbl {
     pub ProfilerDetachSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback3_Impl: ICorProfilerCallback2_Impl {
-    fn InitializeForAttach(&self, pcorprofilerinfounk: windows_core::Ref<windows_core::IUnknown>, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>;
+    fn InitializeForAttach(&self, pcorprofilerinfounk: Option<&windows_core::IUnknown>, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::Result<()>;
     fn ProfilerAttachComplete(&self) -> windows_core::Result<()>;
     fn ProfilerDetachSucceeded(&self) -> windows_core::Result<()>;
 }
@@ -1522,7 +1522,7 @@ impl ICorProfilerCallback3_Vtbl {
         unsafe extern "system" fn InitializeForAttach<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcorprofilerinfounk: *mut core::ffi::c_void, pvclientdata: *const core::ffi::c_void, cbclientdata: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerCallback3_Impl::InitializeForAttach(this, core::mem::transmute_copy(&pcorprofilerinfounk), core::mem::transmute_copy(&pvclientdata), core::mem::transmute_copy(&cbclientdata)).into()
+                ICorProfilerCallback3_Impl::InitializeForAttach(this, windows_core::Ref::option_from_abi(&pcorprofilerinfounk), core::mem::transmute_copy(&pvclientdata), core::mem::transmute_copy(&cbclientdata)).into()
             }
         }
         unsafe extern "system" fn ProfilerAttachComplete<Identity: ICorProfilerCallback3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1565,7 +1565,7 @@ impl ICorProfilerCallback4 {
     where
         P2: windows_core::Param<ICorProfilerFunctionControl>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetReJITParameters)(windows_core::Interface::as_raw(self), moduleid, methodid, core::mem::transmute_copy(&pfunctioncontrol.param().borrow())).ok() }
     }
     pub unsafe fn ReJITCompilationFinished(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReJITCompilationFinished)(windows_core::Interface::as_raw(self), functionid, rejitid, hrstatus, fissafetoblock.into()).ok() }
@@ -1593,7 +1593,7 @@ pub struct ICorProfilerCallback4_Vtbl {
 }
 pub trait ICorProfilerCallback4_Impl: ICorProfilerCallback3_Impl {
     fn ReJITCompilationStarted(&self, functionid: usize, rejitid: usize, fissafetoblock: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetReJITParameters(&self, moduleid: usize, methodid: u32, pfunctioncontrol: windows_core::Ref<ICorProfilerFunctionControl>) -> windows_core::Result<()>;
+    fn GetReJITParameters(&self, moduleid: usize, methodid: u32, pfunctioncontrol: Option<&ICorProfilerFunctionControl>) -> windows_core::Result<()>;
     fn ReJITCompilationFinished(&self, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: windows_core::BOOL) -> windows_core::Result<()>;
     fn ReJITError(&self, moduleid: usize, methodid: u32, functionid: usize, hrstatus: windows_core::HRESULT) -> windows_core::Result<()>;
     fn MovedReferences2(&self, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> windows_core::Result<()>;
@@ -1610,7 +1610,7 @@ impl ICorProfilerCallback4_Vtbl {
         unsafe extern "system" fn GetReJITParameters<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moduleid: usize, methodid: u32, pfunctioncontrol: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerCallback4_Impl::GetReJITParameters(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), core::mem::transmute_copy(&pfunctioncontrol)).into()
+                ICorProfilerCallback4_Impl::GetReJITParameters(this, core::mem::transmute_copy(&moduleid), core::mem::transmute_copy(&methodid), windows_core::Ref::option_from_abi(&pfunctioncontrol)).into()
             }
         }
         unsafe extern "system" fn ReJITCompilationFinished<Identity: ICorProfilerCallback4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionid: usize, rejitid: usize, hrstatus: windows_core::HRESULT, fissafetoblock: windows_core::BOOL) -> windows_core::HRESULT {
@@ -1706,7 +1706,7 @@ impl ICorProfilerCallback6 {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ICorProfilerAssemblyReferenceProvider>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAssemblyReferences)(windows_core::Interface::as_raw(self), wszassemblypath.param().abi(), pasmrefprovider.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAssemblyReferences)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszassemblypath.param().borrow()), core::mem::transmute_copy(&pasmrefprovider.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1716,14 +1716,14 @@ pub struct ICorProfilerCallback6_Vtbl {
     pub GetAssemblyReferences: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback6_Impl: ICorProfilerCallback5_Impl {
-    fn GetAssemblyReferences(&self, wszassemblypath: &windows_core::PCWSTR, pasmrefprovider: windows_core::Ref<ICorProfilerAssemblyReferenceProvider>) -> windows_core::Result<()>;
+    fn GetAssemblyReferences(&self, wszassemblypath: &windows_core::PCWSTR, pasmrefprovider: Option<&ICorProfilerAssemblyReferenceProvider>) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback6_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAssemblyReferences<Identity: ICorProfilerCallback6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszassemblypath: windows_core::PCWSTR, pasmrefprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorProfilerCallback6_Impl::GetAssemblyReferences(this, core::mem::transmute(&wszassemblypath), core::mem::transmute_copy(&pasmrefprovider)).into()
+                ICorProfilerCallback6_Impl::GetAssemblyReferences(this, core::mem::transmute(&wszassemblypath), windows_core::Ref::option_from_abi(&pasmrefprovider)).into()
             }
         }
         Self { base__: ICorProfilerCallback5_Vtbl::new::<Identity, OFFSET>(), GetAssemblyReferences: GetAssemblyReferences::<Identity, OFFSET> }
@@ -2693,14 +2693,14 @@ impl ICorProfilerInfo11 {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.len().try_into().unwrap(), pcchvalue as _, core::mem::transmute(szvalue.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetEnvironmentVariableA)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&szname.param().borrow()), szvalue.len().try_into().unwrap(), pcchvalue as _, core::mem::transmute(szvalue.as_ptr())).ok() }
     }
     pub unsafe fn SetEnvironmentVariable<P0, P1>(&self, szname: P0, szvalue: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetEnvironmentVariable)(windows_core::Interface::as_raw(self), szname.param().abi(), szvalue.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetEnvironmentVariable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&szname.param().borrow()), core::mem::transmute_copy(&szvalue.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2769,7 +2769,7 @@ impl ICorProfilerInfo12 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EventPipeCreateProvider)(windows_core::Interface::as_raw(self), providername.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).EventPipeCreateProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&providername.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> windows_core::Result<()> {
@@ -2781,7 +2781,7 @@ impl ICorProfilerInfo12 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, eventname.param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).EventPipeDefineEvent)(windows_core::Interface::as_raw(self), provider, core::mem::transmute_copy(&eventname.param().borrow()), eventid, keywords, eventversion, level, opcode, needstack.into(), pparamdescs.len().try_into().unwrap(), core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const windows_core::GUID, prelatedactivityid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -3002,7 +3002,7 @@ impl ICorProfilerInfo14 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), providername.param().abi(), pcallback, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).EventPipeCreateProvider2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&providername.param().borrow()), pcallback, &mut result__).map(|| result__)
         }
     }
 }

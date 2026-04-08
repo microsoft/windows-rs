@@ -685,7 +685,7 @@ impl IEnumEnhancedStorageACT {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMatchingACT)(windows_core::Interface::as_raw(self), szvolume.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMatchingACT)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&szvolume.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

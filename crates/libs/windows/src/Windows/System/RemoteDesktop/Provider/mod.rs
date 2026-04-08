@@ -148,7 +148,7 @@ impl RemoteDesktopConnectionInfo {
     {
         Self::IRemoteDesktopConnectionInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&launchuri.param().borrow()), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRemoteDesktopConnectionInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -189,7 +189,7 @@ impl RemoteDesktopConnectionRemoteInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SwitchToLocalSessionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SwitchToLocalSessionRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSwitchToLocalSessionRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -203,7 +203,7 @@ impl RemoteDesktopConnectionRemoteInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PerformLocalActionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PerformLocalActionRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePerformLocalActionRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -222,7 +222,7 @@ impl RemoteDesktopConnectionRemoteInfo {
     {
         Self::IRemoteDesktopConnectionRemoteInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&launchuri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRemoteDesktopConnectionRemoteInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionRemoteInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

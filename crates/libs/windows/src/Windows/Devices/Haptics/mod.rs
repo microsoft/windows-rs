@@ -214,7 +214,7 @@ impl InputHapticsManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetOverrideHapticsController)(windows_core::Interface::as_raw(this), devicetype, controller.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetOverrideHapticsController)(windows_core::Interface::as_raw(this), devicetype, core::mem::transmute_copy(&controller.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn ClearOverrideHapticsController(&self, token: HapticsControllerOverrideToken) -> windows_core::Result<()> {
@@ -422,28 +422,28 @@ impl SimpleHapticsController {
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedback)(windows_core::Interface::as_raw(this), feedback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedback)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&feedback.param().borrow())).ok() }
     }
     pub fn SendHapticFeedbackWithIntensity<P0>(&self, feedback: P0, intensity: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackWithIntensity)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackWithIntensity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&feedback.param().borrow()), intensity).ok() }
     }
     pub fn SendHapticFeedbackForDuration<P0>(&self, feedback: P0, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
     where
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForDuration)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity, playduration).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&feedback.param().borrow()), intensity, playduration).ok() }
     }
     pub fn SendHapticFeedbackForPlayCount<P0>(&self, feedback: P0, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
     where
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity, playcount, replaypauseinterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&feedback.param().borrow()), intensity, playcount, replaypauseinterval).ok() }
     }
 }
 impl windows_core::RuntimeType for SimpleHapticsController {

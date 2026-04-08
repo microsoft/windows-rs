@@ -468,7 +468,7 @@ impl PrintSupportAppInfo {
     {
         Self::IPrintSupportAppInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPrintJobShowsUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPrintJobShowsUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), core::mem::transmute_copy(&printticket.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<PrintSupportAppInfo> {
@@ -586,7 +586,7 @@ impl PrintSupportExtensionSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintTicketValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrintTicketValidationRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrintTicketValidationRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -600,7 +600,7 @@ impl PrintSupportExtensionSession {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -618,7 +618,7 @@ impl PrintSupportExtensionSession {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrinterSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrinterSelected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrinterSelected(&self, token: i64) -> windows_core::Result<()> {
@@ -632,7 +632,7 @@ impl PrintSupportExtensionSession {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommunicationErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CommunicationErrorDetected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCommunicationErrorDetected(&self, token: i64) -> windows_core::Result<()> {
@@ -888,7 +888,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         P0: windows_core::Param<super::super::super::Data::Xml::Dom::XmlDocument>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(windows_core::Interface::as_raw(this), updatedpdc.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&updatedpdc.param().borrow())).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -902,7 +902,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSupportedPdlPassthroughContentTypes)(windows_core::Interface::as_raw(this), supportedpdlcontenttypes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSupportedPdlPassthroughContentTypes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&supportedpdlcontenttypes.param().borrow())).ok() }
     }
     pub fn ResourceLanguage(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
@@ -925,14 +925,14 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         P0: windows_core::Param<super::super::super::Data::Xml::Dom::XmlDocument>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).UpdatePrintDeviceResources)(windows_core::Interface::as_raw(this), updatedpdr.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdatePrintDeviceResources)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&updatedpdr.param().borrow())).ok() }
     }
     pub fn SetPrintDeviceCapabilitiesUpdatePolicy<P0>(&self, updatepolicy: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<PrintSupportPrintDeviceCapabilitiesUpdatePolicy>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPrintDeviceCapabilitiesUpdatePolicy)(windows_core::Interface::as_raw(this), updatepolicy.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrintDeviceCapabilitiesUpdatePolicy)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&updatepolicy.param().borrow())).ok() }
     }
     pub fn CommunicationConfiguration(&self) -> windows_core::Result<PrintSupportIppCommunicationConfiguration> {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3>(self)?;
@@ -1110,21 +1110,21 @@ impl PrintSupportPrinterSelectedEventArgs {
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPrintTicket)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrintTicket)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SetAdditionalFeatures<P0>(&self, features: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdditionalFeatures)(windows_core::Interface::as_raw(this), features.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAdditionalFeatures)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&features.param().borrow())).ok() }
     }
     pub fn SetAdditionalParameters<P0>(&self, parameters: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdditionalParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAdditionalParameters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&parameters.param().borrow())).ok() }
     }
     pub fn AllowedAdditionalFeaturesAndParametersCount(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1139,7 +1139,7 @@ impl PrintSupportPrinterSelectedEventArgs {
         P0: windows_core::Param<super::super::super::UI::Shell::IAdaptiveCard>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAdaptiveCard)(windows_core::Interface::as_raw(this), adaptivecard.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAdaptiveCard)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&adaptivecard.param().borrow())).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1307,7 +1307,7 @@ impl PrintSupportSettingsUISession {
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdatePrintTicket)(windows_core::Interface::as_raw(this), printticket.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdatePrintTicket)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&printticket.param().borrow())).ok() }
     }
     pub fn SessionInfo(&self) -> windows_core::Result<PrintSupportSessionInfo> {
         let this = self;

@@ -5,7 +5,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> windows_core:: WIN32_ERROR);
-    unsafe { RmAddFilter(dwsessionhandle, strmodulename.param().abi(), pprocess.unwrap_or(core::mem::zeroed()) as _, strserviceshortname.param().abi(), filteraction) }
+    unsafe { RmAddFilter(dwsessionhandle, core::mem::transmute_copy(&strmodulename.param().borrow()), pprocess.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&strserviceshortname.param().borrow()), filteraction) }
 }
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> windows_core::WIN32_ERROR {
@@ -33,7 +33,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { RmJoinSession(psessionhandle as _, strsessionkey.param().abi()) }
+    unsafe { RmJoinSession(psessionhandle as _, core::mem::transmute_copy(&strsessionkey.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> windows_core::WIN32_ERROR {
@@ -57,7 +57,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> windows_core:: WIN32_ERROR);
-    unsafe { RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), pprocess.unwrap_or(core::mem::zeroed()) as _, strserviceshortname.param().abi()) }
+    unsafe { RmRemoveFilter(dwsessionhandle, core::mem::transmute_copy(&strmodulename.param().borrow()), pprocess.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&strserviceshortname.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: Option<u32>, fnstatus: RM_WRITE_STATUS_CALLBACK) -> windows_core::WIN32_ERROR {

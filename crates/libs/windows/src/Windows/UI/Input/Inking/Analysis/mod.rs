@@ -1175,14 +1175,14 @@ impl InkAnalyzer {
         P0: windows_core::Param<super::InkStroke>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDataForStroke)(windows_core::Interface::as_raw(this), stroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddDataForStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stroke.param().borrow())).ok() }
     }
     pub fn AddDataForStrokes<P0>(&self, strokes: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::InkStroke>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddDataForStrokes)(windows_core::Interface::as_raw(this), strokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddDataForStrokes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&strokes.param().borrow())).ok() }
     }
     pub fn ClearDataForAllStrokes(&self) -> windows_core::Result<()> {
         let this = self;
@@ -1197,14 +1197,14 @@ impl InkAnalyzer {
         P0: windows_core::Param<windows_collections::IIterable<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveDataForStrokes)(windows_core::Interface::as_raw(this), strokeids.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveDataForStrokes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&strokeids.param().borrow())).ok() }
     }
     pub fn ReplaceDataForStroke<P0>(&self, stroke: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::InkStroke>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceDataForStroke)(windows_core::Interface::as_raw(this), stroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReplaceDataForStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stroke.param().borrow())).ok() }
     }
     pub fn SetStrokeDataKind(&self, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> windows_core::Result<()> {
         let this = self;

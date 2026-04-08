@@ -134,7 +134,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminEstablishDomainRasServer(pszdomain : windows_core::PCWSTR, pszmachine : windows_core::PCWSTR, benable : windows_core::BOOL) -> u32);
-    unsafe { MprAdminEstablishDomainRasServer(pszdomain.param().abi(), pszmachine.param().abi(), benable.into()) }
+    unsafe { MprAdminEstablishDomainRasServer(core::mem::transmute_copy(&pszdomain.param().borrow()), core::mem::transmute_copy(&pszmachine.param().borrow()), benable.into()) }
 }
 #[inline]
 pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut windows_core::PWSTR) -> u32 {
@@ -148,7 +148,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminGetPDCServer(lpszdomain : windows_core::PCWSTR, lpszserver : windows_core::PCWSTR, lpszpdcserver : windows_core::PWSTR) -> u32);
-    unsafe { MprAdminGetPDCServer(lpszdomain.param().abi(), lpszserver.param().abi(), core::mem::transmute(lpszpdcserver)) }
+    unsafe { MprAdminGetPDCServer(core::mem::transmute_copy(&lpszdomain.param().borrow()), core::mem::transmute_copy(&lpszserver.param().borrow()), core::mem::transmute(lpszpdcserver)) }
 }
 #[inline]
 pub unsafe fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: bool) -> u32 {
@@ -192,7 +192,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCredentials(lpwsserver : windows_core::PCWSTR, lpwsinterfacename : windows_core::PCWSTR, lpwsusername : windows_core::PWSTR, lpwspassword : windows_core::PWSTR, lpwsdomainname : windows_core::PWSTR) -> u32);
-    unsafe { MprAdminInterfaceGetCredentials(lpwsserver.param().abi(), lpwsinterfacename.param().abi(), lpwsusername.unwrap_or(core::mem::zeroed()) as _, lpwspassword.unwrap_or(core::mem::zeroed()) as _, lpwsdomainname.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { MprAdminInterfaceGetCredentials(core::mem::transmute_copy(&lpwsserver.param().borrow()), core::mem::transmute_copy(&lpwsinterfacename.param().borrow()), lpwsusername.unwrap_or(core::mem::zeroed()) as _, lpwspassword.unwrap_or(core::mem::zeroed()) as _, lpwsdomainname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
@@ -211,7 +211,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceGetHandle(hmprserver : isize, lpwsinterfacename : windows_core::PCWSTR, phinterface : *mut super::super::Foundation:: HANDLE, fincludeclientinterfaces : windows_core::BOOL) -> u32);
-    unsafe { MprAdminInterfaceGetHandle(hmprserver, lpwsinterfacename.param().abi(), phinterface as _, fincludeclientinterfaces.into()) }
+    unsafe { MprAdminInterfaceGetHandle(hmprserver, core::mem::transmute_copy(&lpwsinterfacename.param().borrow()), phinterface as _, fincludeclientinterfaces.into()) }
 }
 #[inline]
 pub unsafe fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
@@ -233,7 +233,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentials(lpwsserver : windows_core::PCWSTR, lpwsinterfacename : windows_core::PCWSTR, lpwsusername : windows_core::PCWSTR, lpwsdomainname : windows_core::PCWSTR, lpwspassword : windows_core::PCWSTR) -> u32);
-    unsafe { MprAdminInterfaceSetCredentials(lpwsserver.param().abi(), lpwsinterfacename.param().abi(), lpwsusername.param().abi(), lpwsdomainname.param().abi(), lpwspassword.param().abi()) }
+    unsafe { MprAdminInterfaceSetCredentials(core::mem::transmute_copy(&lpwsserver.param().borrow()), core::mem::transmute_copy(&lpwsinterfacename.param().borrow()), core::mem::transmute_copy(&lpwsusername.param().borrow()), core::mem::transmute_copy(&lpwsdomainname.param().borrow()), core::mem::transmute_copy(&lpwspassword.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
@@ -288,7 +288,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminIsDomainRasServer(pszdomain : windows_core::PCWSTR, pszmachine : windows_core::PCWSTR, pbisrasserver : *mut windows_core::BOOL) -> u32);
-    unsafe { MprAdminIsDomainRasServer(pszdomain.param().abi(), pszmachine.param().abi(), pbisrasserver as _) }
+    unsafe { MprAdminIsDomainRasServer(core::mem::transmute_copy(&pszdomain.param().borrow()), core::mem::transmute_copy(&pszmachine.param().borrow()), pbisrasserver as _) }
 }
 #[inline]
 pub unsafe fn MprAdminIsServiceInitialized<P0>(lpwsservername: P0, fisserviceinitialized: *const windows_core::BOOL) -> u32
@@ -296,7 +296,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminIsServiceInitialized(lpwsservername : windows_core::PCWSTR, fisserviceinitialized : *const windows_core::BOOL) -> u32);
-    unsafe { MprAdminIsServiceInitialized(lpwsservername.param().abi(), fisserviceinitialized) }
+    unsafe { MprAdminIsServiceInitialized(core::mem::transmute_copy(&lpwsservername.param().borrow()), fisserviceinitialized) }
 }
 #[inline]
 pub unsafe fn MprAdminIsServiceRunning<P0>(lpwsservername: P0) -> windows_core::BOOL
@@ -304,7 +304,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminIsServiceRunning(lpwsservername : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { MprAdminIsServiceRunning(lpwsservername.param().abi()) }
+    unsafe { MprAdminIsServiceRunning(core::mem::transmute_copy(&lpwsservername.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MprAdminMIBBufferFree(pbuffer: *const core::ffi::c_void) -> u32 {
@@ -347,7 +347,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminMIBServerConnect(lpwsservername : windows_core::PCWSTR, phmibserver : *mut isize) -> u32);
-    unsafe { MprAdminMIBServerConnect(lpwsservername.param().abi(), phmibserver as _) }
+    unsafe { MprAdminMIBServerConnect(core::mem::transmute_copy(&lpwsservername.param().borrow()), phmibserver as _) }
 }
 #[inline]
 pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
@@ -390,7 +390,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminSendUserMessage(hmprserver : isize, hconnection : super::super::Foundation:: HANDLE, lpwszmessage : windows_core::PCWSTR) -> u32);
-    unsafe { MprAdminSendUserMessage(hmprserver, hconnection, lpwszmessage.param().abi()) }
+    unsafe { MprAdminSendUserMessage(hmprserver, hconnection, core::mem::transmute_copy(&lpwszmessage.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MprAdminServerConnect<P0>(lpwsservername: P0, phmprserver: *mut isize) -> u32
@@ -398,7 +398,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminServerConnect(lpwsservername : windows_core::PCWSTR, phmprserver : *mut isize) -> u32);
-    unsafe { MprAdminServerConnect(lpwsservername.param().abi(), phmprserver as _) }
+    unsafe { MprAdminServerConnect(core::mem::transmute_copy(&lpwsservername.param().borrow()), phmprserver as _) }
 }
 #[inline]
 pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
@@ -444,7 +444,7 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminTransportCreate(hmprserver : isize, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR) -> u32);
-    unsafe { MprAdminTransportCreate(hmprserver, dwtransportid, lpwstransportname.param().abi(), pglobalinfo, dwglobalinfosize, pclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, dwclientinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _, lpwsdllpath.param().abi()) }
+    unsafe { MprAdminTransportCreate(hmprserver, dwtransportid, core::mem::transmute_copy(&lpwstransportname.param().borrow()), pglobalinfo, dwglobalinfosize, pclientinterfaceinfo.unwrap_or(core::mem::zeroed()) as _, dwclientinterfaceinfosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpwsdllpath.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: Option<*mut *mut u8>, lpdwglobalinfosize: Option<*mut u32>, ppclientinterfaceinfo: Option<*mut *mut u8>, lpdwclientinterfaceinfosize: Option<*mut u32>) -> u32 {
@@ -468,7 +468,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminUserGetInfo(lpszserver : windows_core::PCWSTR, lpszuser : windows_core::PCWSTR, dwlevel : u32, lpbbuffer : *mut u8) -> u32);
-    unsafe { MprAdminUserGetInfo(lpszserver.param().abi(), lpszuser.param().abi(), dwlevel, lpbbuffer as _) }
+    unsafe { MprAdminUserGetInfo(core::mem::transmute_copy(&lpszserver.param().borrow()), core::mem::transmute_copy(&lpszuser.param().borrow()), dwlevel, lpbbuffer as _) }
 }
 #[inline]
 pub unsafe fn MprAdminUserSetInfo<P0, P1>(lpszserver: P0, lpszuser: P1, dwlevel: u32, lpbbuffer: *const u8) -> u32
@@ -477,7 +477,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminUserSetInfo(lpszserver : windows_core::PCWSTR, lpszuser : windows_core::PCWSTR, dwlevel : u32, lpbbuffer : *const u8) -> u32);
-    unsafe { MprAdminUserSetInfo(lpszserver.param().abi(), lpszuser.param().abi(), dwlevel, lpbbuffer) }
+    unsafe { MprAdminUserSetInfo(core::mem::transmute_copy(&lpszserver.param().borrow()), core::mem::transmute_copy(&lpszuser.param().borrow()), dwlevel, lpbbuffer) }
 }
 #[inline]
 pub unsafe fn MprConfigBufferFree(pbuffer: *const core::ffi::c_void) -> u32 {
@@ -500,7 +500,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigGetFriendlyName(hmprconfig : super::super::Foundation:: HANDLE, pszguidname : windows_core::PCWSTR, pszbuffer : windows_core::PWSTR, dwbuffersize : u32) -> u32);
-    unsafe { MprConfigGetFriendlyName(hmprconfig, pszguidname.param().abi(), core::mem::transmute(pszbuffer), dwbuffersize) }
+    unsafe { MprConfigGetFriendlyName(hmprconfig, core::mem::transmute_copy(&pszguidname.param().borrow()), core::mem::transmute(pszbuffer), dwbuffersize) }
 }
 #[inline]
 pub unsafe fn MprConfigGetGuidName<P1>(hmprconfig: super::super::Foundation::HANDLE, pszfriendlyname: P1, pszbuffer: windows_core::PWSTR, dwbuffersize: u32) -> u32
@@ -508,7 +508,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigGetGuidName(hmprconfig : super::super::Foundation:: HANDLE, pszfriendlyname : windows_core::PCWSTR, pszbuffer : windows_core::PWSTR, dwbuffersize : u32) -> u32);
-    unsafe { MprConfigGetGuidName(hmprconfig, pszfriendlyname.param().abi(), core::mem::transmute(pszbuffer), dwbuffersize) }
+    unsafe { MprConfigGetGuidName(hmprconfig, core::mem::transmute_copy(&pszfriendlyname.param().borrow()), core::mem::transmute(pszbuffer), dwbuffersize) }
 }
 #[inline]
 pub unsafe fn MprConfigInterfaceCreate(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -537,7 +537,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceGetHandle(hmprconfig : super::super::Foundation:: HANDLE, lpwsinterfacename : windows_core::PCWSTR, phrouterinterface : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { MprConfigInterfaceGetHandle(hmprconfig, lpwsinterfacename.param().abi(), phrouterinterface as _) }
+    unsafe { MprConfigInterfaceGetHandle(hmprconfig, core::mem::transmute_copy(&lpwsinterfacename.param().borrow()), phrouterinterface as _) }
 }
 #[inline]
 pub unsafe fn MprConfigInterfaceGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32 {
@@ -561,7 +561,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigInterfaceTransportAdd(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pinterfaceinfo : *const u8, dwinterfaceinfosize : u32, phrouteriftransport : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { MprConfigInterfaceTransportAdd(hmprconfig, hrouterinterface, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pinterfaceinfo.as_ptr()), pinterfaceinfo.len().try_into().unwrap(), phrouteriftransport as _) }
+    unsafe { MprConfigInterfaceTransportAdd(hmprconfig, hrouterinterface, dwtransportid, core::mem::transmute_copy(&lpwstransportname.param().borrow()), core::mem::transmute(pinterfaceinfo.as_ptr()), pinterfaceinfo.len().try_into().unwrap(), phrouteriftransport as _) }
 }
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportEnum(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: Option<*mut u32>) -> u32 {
@@ -594,7 +594,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigServerBackup(hmprconfig : super::super::Foundation:: HANDLE, lpwspath : windows_core::PCWSTR) -> u32);
-    unsafe { MprConfigServerBackup(hmprconfig, lpwspath.param().abi()) }
+    unsafe { MprConfigServerBackup(hmprconfig, core::mem::transmute_copy(&lpwspath.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MprConfigServerConnect<P0>(lpwsservername: P0, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32
@@ -602,7 +602,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigServerConnect(lpwsservername : windows_core::PCWSTR, phmprconfig : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { MprConfigServerConnect(lpwsservername.param().abi(), phmprconfig as _) }
+    unsafe { MprConfigServerConnect(core::mem::transmute_copy(&lpwsservername.param().borrow()), phmprconfig as _) }
 }
 #[inline]
 pub unsafe fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE) {
@@ -636,7 +636,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigServerRestore(hmprconfig : super::super::Foundation:: HANDLE, lpwspath : windows_core::PCWSTR) -> u32);
-    unsafe { MprConfigServerRestore(hmprconfig, lpwspath.param().abi()) }
+    unsafe { MprConfigServerRestore(hmprconfig, core::mem::transmute_copy(&lpwspath.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
@@ -656,7 +656,7 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigTransportCreate(hmprconfig : super::super::Foundation:: HANDLE, dwtransportid : u32, lpwstransportname : windows_core::PCWSTR, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR, phroutertransport : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, lpwstransportname.param().abi(), core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len().try_into().unwrap(), core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi(), phroutertransport as _) }
+    unsafe { MprConfigTransportCreate(hmprconfig, dwtransportid, core::mem::transmute_copy(&lpwstransportname.param().borrow()), core::mem::transmute(pglobalinfo.as_ptr()), pglobalinfo.len().try_into().unwrap(), core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(&lpwsdllpath.param().borrow()), phroutertransport as _) }
 }
 #[inline]
 pub unsafe fn MprConfigTransportDelete(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE) -> u32 {
@@ -684,7 +684,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprConfigTransportSetInfo(hmprconfig : super::super::Foundation:: HANDLE, hroutertransport : super::super::Foundation:: HANDLE, pglobalinfo : *const u8, dwglobalinfosize : u32, pclientinterfaceinfo : *const u8, dwclientinterfaceinfosize : u32, lpwsdllpath : windows_core::PCWSTR) -> u32);
-    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, core::mem::transmute(pglobalinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpwsdllpath.param().abi()) }
+    unsafe { MprConfigTransportSetInfo(hmprconfig, hroutertransport, core::mem::transmute(pglobalinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pglobalinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclientinterfaceinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pclientinterfaceinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(&lpwsdllpath.param().borrow())) }
 }
 #[inline]
 pub unsafe fn MprInfoBlockAdd(lpheader: *const core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut core::ffi::c_void) -> u32 {
@@ -757,7 +757,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasCreatePhonebookEntryA(param0 : super::super::Foundation:: HWND, param1 : windows_core::PCSTR) -> u32);
-    unsafe { RasCreatePhonebookEntryA(param0, param1.param().abi()) }
+    unsafe { RasCreatePhonebookEntryA(param0, core::mem::transmute_copy(&param1.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryW<P1>(param0: super::super::Foundation::HWND, param1: P1) -> u32
@@ -765,7 +765,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasCreatePhonebookEntryW(param0 : super::super::Foundation:: HWND, param1 : windows_core::PCWSTR) -> u32);
-    unsafe { RasCreatePhonebookEntryW(param0, param1.param().abi()) }
+    unsafe { RasCreatePhonebookEntryW(param0, core::mem::transmute_copy(&param1.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasDeleteEntryA<P0, P1>(param0: P0, param1: P1) -> u32
@@ -774,7 +774,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasDeleteEntryA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR) -> u32);
-    unsafe { RasDeleteEntryA(param0.param().abi(), param1.param().abi()) }
+    unsafe { RasDeleteEntryA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasDeleteEntryW<P0, P1>(param0: P0, param1: P1) -> u32
@@ -783,7 +783,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasDeleteEntryW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR) -> u32);
-    unsafe { RasDeleteEntryW(param0.param().abi(), param1.param().abi()) }
+    unsafe { RasDeleteEntryW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasDeleteSubEntryA<P0, P1>(pszphonebook: P0, pszentry: P1, dwsubentryid: u32) -> u32
@@ -792,7 +792,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasDeleteSubEntryA(pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, dwsubentryid : u32) -> u32);
-    unsafe { RasDeleteSubEntryA(pszphonebook.param().abi(), pszentry.param().abi(), dwsubentryid) }
+    unsafe { RasDeleteSubEntryA(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), dwsubentryid) }
 }
 #[inline]
 pub unsafe fn RasDeleteSubEntryW<P0, P1>(pszphonebook: P0, pszentry: P1, dwsubentryid: u32) -> u32
@@ -801,7 +801,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasDeleteSubEntryW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, dwsubentryid : u32) -> u32);
-    unsafe { RasDeleteSubEntryW(pszphonebook.param().abi(), pszentry.param().abi(), dwsubentryid) }
+    unsafe { RasDeleteSubEntryW(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), dwsubentryid) }
 }
 #[inline]
 pub unsafe fn RasDialA<P1>(param0: Option<*const RASDIALEXTENSIONS>, param1: P1, param2: *const RASDIALPARAMSA, param3: u32, param4: Option<*const core::ffi::c_void>, param5: *mut HRASCONN) -> u32
@@ -809,7 +809,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasDialA(param0 : *const RASDIALEXTENSIONS, param1 : windows_core::PCSTR, param2 : *const RASDIALPARAMSA, param3 : u32, param4 : *const core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
-    unsafe { RasDialA(param0.unwrap_or(core::mem::zeroed()) as _, param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5 as _) }
+    unsafe { RasDialA(param0.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&param1.param().borrow()), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5 as _) }
 }
 #[inline]
 pub unsafe fn RasDialDlgA<P0, P1, P2>(lpszphonebook: P0, lpszentry: P1, lpszphonenumber: P2, lpinfo: *mut RASDIALDLG) -> windows_core::BOOL
@@ -819,7 +819,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasdlg.dll" "system" fn RasDialDlgA(lpszphonebook : windows_core::PCSTR, lpszentry : windows_core::PCSTR, lpszphonenumber : windows_core::PCSTR, lpinfo : *mut RASDIALDLG) -> windows_core::BOOL);
-    unsafe { RasDialDlgA(lpszphonebook.param().abi(), lpszentry.param().abi(), lpszphonenumber.param().abi(), lpinfo as _) }
+    unsafe { RasDialDlgA(core::mem::transmute_copy(&lpszphonebook.param().borrow()), core::mem::transmute_copy(&lpszentry.param().borrow()), core::mem::transmute_copy(&lpszphonenumber.param().borrow()), lpinfo as _) }
 }
 #[inline]
 pub unsafe fn RasDialDlgW<P0, P1, P2>(lpszphonebook: P0, lpszentry: P1, lpszphonenumber: P2, lpinfo: *mut RASDIALDLG) -> windows_core::BOOL
@@ -829,7 +829,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasdlg.dll" "system" fn RasDialDlgW(lpszphonebook : windows_core::PCWSTR, lpszentry : windows_core::PCWSTR, lpszphonenumber : windows_core::PCWSTR, lpinfo : *mut RASDIALDLG) -> windows_core::BOOL);
-    unsafe { RasDialDlgW(lpszphonebook.param().abi(), lpszentry.param().abi(), lpszphonenumber.param().abi(), lpinfo as _) }
+    unsafe { RasDialDlgW(core::mem::transmute_copy(&lpszphonebook.param().borrow()), core::mem::transmute_copy(&lpszentry.param().borrow()), core::mem::transmute_copy(&lpszphonenumber.param().borrow()), lpinfo as _) }
 }
 #[inline]
 pub unsafe fn RasDialW<P1>(param0: Option<*const RASDIALEXTENSIONS>, param1: P1, param2: *const RASDIALPARAMSW, param3: u32, param4: Option<*const core::ffi::c_void>, param5: *mut HRASCONN) -> u32
@@ -837,7 +837,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasDialW(param0 : *const RASDIALEXTENSIONS, param1 : windows_core::PCWSTR, param2 : *const RASDIALPARAMSW, param3 : u32, param4 : *const core::ffi::c_void, param5 : *mut HRASCONN) -> u32);
-    unsafe { RasDialW(param0.unwrap_or(core::mem::zeroed()) as _, param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5 as _) }
+    unsafe { RasDialW(param0.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&param1.param().borrow()), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5 as _) }
 }
 #[inline]
 pub unsafe fn RasEditPhonebookEntryA<P1, P2>(param0: super::super::Foundation::HWND, param1: P1, param2: P2) -> u32
@@ -846,7 +846,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryA(param0 : super::super::Foundation:: HWND, param1 : windows_core::PCSTR, param2 : windows_core::PCSTR) -> u32);
-    unsafe { RasEditPhonebookEntryA(param0, param1.param().abi(), param2.param().abi()) }
+    unsafe { RasEditPhonebookEntryA(param0, core::mem::transmute_copy(&param1.param().borrow()), core::mem::transmute_copy(&param2.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasEditPhonebookEntryW<P1, P2>(param0: super::super::Foundation::HWND, param1: P1, param2: P2) -> u32
@@ -855,7 +855,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasEditPhonebookEntryW(param0 : super::super::Foundation:: HWND, param1 : windows_core::PCWSTR, param2 : windows_core::PCWSTR) -> u32);
-    unsafe { RasEditPhonebookEntryW(param0, param1.param().abi(), param2.param().abi()) }
+    unsafe { RasEditPhonebookEntryW(param0, core::mem::transmute_copy(&param1.param().borrow()), core::mem::transmute_copy(&param2.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasEntryDlgA<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut RASENTRYDLGA) -> windows_core::BOOL
@@ -864,7 +864,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasdlg.dll" "system" fn RasEntryDlgA(lpszphonebook : windows_core::PCSTR, lpszentry : windows_core::PCSTR, lpinfo : *mut RASENTRYDLGA) -> windows_core::BOOL);
-    unsafe { RasEntryDlgA(lpszphonebook.param().abi(), lpszentry.param().abi(), lpinfo as _) }
+    unsafe { RasEntryDlgA(core::mem::transmute_copy(&lpszphonebook.param().borrow()), core::mem::transmute_copy(&lpszentry.param().borrow()), lpinfo as _) }
 }
 #[inline]
 pub unsafe fn RasEntryDlgW<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut RASENTRYDLGW) -> windows_core::BOOL
@@ -873,7 +873,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasdlg.dll" "system" fn RasEntryDlgW(lpszphonebook : windows_core::PCWSTR, lpszentry : windows_core::PCWSTR, lpinfo : *mut RASENTRYDLGW) -> windows_core::BOOL);
-    unsafe { RasEntryDlgW(lpszphonebook.param().abi(), lpszentry.param().abi(), lpinfo as _) }
+    unsafe { RasEntryDlgW(core::mem::transmute_copy(&lpszphonebook.param().borrow()), core::mem::transmute_copy(&lpszentry.param().borrow()), lpinfo as _) }
 }
 #[inline]
 pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: Option<*mut windows_core::PSTR>, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
@@ -912,7 +912,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasEnumEntriesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut RASENTRYNAMEA, param3 : *mut u32, param4 : *mut u32) -> u32);
-    unsafe { RasEnumEntriesA(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
+    unsafe { RasEnumEntriesA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
 #[inline]
 pub unsafe fn RasEnumEntriesW<P0, P1>(param0: P0, param1: P1, param2: Option<*mut RASENTRYNAMEW>, param3: *mut u32, param4: *mut u32) -> u32
@@ -921,7 +921,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasEnumEntriesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *mut RASENTRYNAMEW, param3 : *mut u32, param4 : *mut u32) -> u32);
-    unsafe { RasEnumEntriesW(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
+    unsafe { RasEnumEntriesW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
 #[inline]
 pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA) {
@@ -939,7 +939,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialAddressA(param0 : windows_core::PCSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYA, param3 : *mut u32, param4 : *mut u32) -> u32);
-    unsafe { RasGetAutodialAddressA(param0.param().abi(), param1.unwrap_or(core::mem::zeroed()) as _, param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
+    unsafe { RasGetAutodialAddressA(core::mem::transmute_copy(&param0.param().borrow()), param1.unwrap_or(core::mem::zeroed()) as _, param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
 #[inline]
 pub unsafe fn RasGetAutodialAddressW<P0>(param0: P0, param1: Option<*const u32>, param2: Option<*mut RASAUTODIALENTRYW>, param3: *mut u32, param4: *mut u32) -> u32
@@ -947,7 +947,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : windows_core::PCWSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
-    unsafe { RasGetAutodialAddressW(param0.param().abi(), param1.unwrap_or(core::mem::zeroed()) as _, param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
+    unsafe { RasGetAutodialAddressW(core::mem::transmute_copy(&param0.param().borrow()), param1.unwrap_or(core::mem::zeroed()) as _, param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4 as _) }
 }
 #[inline]
 pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut windows_core::BOOL) -> u32 {
@@ -1003,7 +1003,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetCredentialsA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut RASCREDENTIALSA) -> u32);
-    unsafe { RasGetCredentialsA(param0.param().abi(), param1.param().abi(), param2 as _) }
+    unsafe { RasGetCredentialsA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2 as _) }
 }
 #[inline]
 pub unsafe fn RasGetCredentialsW<P0, P1>(param0: P0, param1: P1, param2: *mut RASCREDENTIALSW) -> u32
@@ -1012,7 +1012,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetCredentialsW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *mut RASCREDENTIALSW) -> u32);
-    unsafe { RasGetCredentialsW(param0.param().abi(), param1.param().abi(), param2 as _) }
+    unsafe { RasGetCredentialsW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2 as _) }
 }
 #[inline]
 pub unsafe fn RasGetCustomAuthDataA<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: Option<*mut u8>, pdwsizeofcustomauthdata: *mut u32) -> u32
@@ -1021,7 +1021,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetCustomAuthDataA(pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbcustomauthdata : *mut u8, pdwsizeofcustomauthdata : *mut u32) -> u32);
-    unsafe { RasGetCustomAuthDataA(pszphonebook.param().abi(), pszentry.param().abi(), pbcustomauthdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofcustomauthdata as _) }
+    unsafe { RasGetCustomAuthDataA(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), pbcustomauthdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofcustomauthdata as _) }
 }
 #[inline]
 pub unsafe fn RasGetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: Option<*mut u8>, pdwsizeofcustomauthdata: *mut u32) -> u32
@@ -1030,7 +1030,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetCustomAuthDataW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbcustomauthdata : *mut u8, pdwsizeofcustomauthdata : *mut u32) -> u32);
-    unsafe { RasGetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), pbcustomauthdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofcustomauthdata as _) }
+    unsafe { RasGetCustomAuthDataW(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), pbcustomauthdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofcustomauthdata as _) }
 }
 #[inline]
 pub unsafe fn RasGetEapUserDataA<P1, P2>(htoken: Option<super::super::Foundation::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: Option<*mut u8>, pdwsizeofeapdata: *mut u32) -> u32
@@ -1039,7 +1039,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
-    unsafe { RasGetEapUserDataA(htoken.unwrap_or(core::mem::zeroed()) as _, pszphonebook.param().abi(), pszentry.param().abi(), pbeapdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofeapdata as _) }
+    unsafe { RasGetEapUserDataA(htoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), pbeapdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofeapdata as _) }
 }
 #[inline]
 pub unsafe fn RasGetEapUserDataW<P1, P2>(htoken: Option<super::super::Foundation::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: Option<*mut u8>, pdwsizeofeapdata: *mut u32) -> u32
@@ -1048,7 +1048,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbeapdata : *mut u8, pdwsizeofeapdata : *mut u32) -> u32);
-    unsafe { RasGetEapUserDataW(htoken.unwrap_or(core::mem::zeroed()) as _, pszphonebook.param().abi(), pszentry.param().abi(), pbeapdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofeapdata as _) }
+    unsafe { RasGetEapUserDataW(htoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), pbeapdata.unwrap_or(core::mem::zeroed()) as _, pdwsizeofeapdata as _) }
 }
 #[inline]
 pub unsafe fn RasGetEapUserIdentityA<P0, P1>(pszphonebook: P0, pszentry: P1, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32
@@ -1057,7 +1057,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityA(pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYA) -> u32);
-    unsafe { RasGetEapUserIdentityA(pszphonebook.param().abi(), pszentry.param().abi(), dwflags, hwnd, ppraseapuseridentity as _) }
+    unsafe { RasGetEapUserIdentityA(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), dwflags, hwnd, ppraseapuseridentity as _) }
 }
 #[inline]
 pub unsafe fn RasGetEapUserIdentityW<P0, P1>(pszphonebook: P0, pszentry: P1, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32
@@ -1066,7 +1066,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEapUserIdentityW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYW) -> u32);
-    unsafe { RasGetEapUserIdentityW(pszphonebook.param().abi(), pszentry.param().abi(), dwflags, hwnd, ppraseapuseridentity as _) }
+    unsafe { RasGetEapUserIdentityW(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), dwflags, hwnd, ppraseapuseridentity as _) }
 }
 #[inline]
 pub unsafe fn RasGetEntryDialParamsA<P0>(param0: P0, param1: *mut RASDIALPARAMSA, param2: *mut windows_core::BOOL) -> u32
@@ -1074,7 +1074,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : windows_core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : *mut windows_core::BOOL) -> u32);
-    unsafe { RasGetEntryDialParamsA(param0.param().abi(), param1 as _, param2 as _) }
+    unsafe { RasGetEntryDialParamsA(core::mem::transmute_copy(&param0.param().borrow()), param1 as _, param2 as _) }
 }
 #[inline]
 pub unsafe fn RasGetEntryDialParamsW<P0>(param0: P0, param1: *mut RASDIALPARAMSW, param2: *mut windows_core::BOOL) -> u32
@@ -1082,7 +1082,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut windows_core::BOOL) -> u32);
-    unsafe { RasGetEntryDialParamsW(param0.param().abi(), param1 as _, param2 as _) }
+    unsafe { RasGetEntryDialParamsW(core::mem::transmute_copy(&param0.param().borrow()), param1 as _, param2 as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1092,7 +1092,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *mut RASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
-    unsafe { RasGetEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RasGetEntryPropertiesA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1102,7 +1102,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *mut RASENTRYW, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
-    unsafe { RasGetEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RasGetEntryPropertiesW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2.unwrap_or(core::mem::zeroed()) as _, param3 as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: &mut [u8]) -> u32 {
@@ -1157,7 +1157,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : u32, param3 : *mut RASSUBENTRYA, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
-    unsafe { RasGetSubEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2, param3.unwrap_or(core::mem::zeroed()) as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _, param6.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RasGetSubEntryPropertiesA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3.unwrap_or(core::mem::zeroed()) as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _, param6.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: Option<*mut RASSUBENTRYW>, param4: Option<*mut u32>, param5: Option<*mut u8>, param6: Option<*mut u32>) -> u32
@@ -1166,7 +1166,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetSubEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : u32, param3 : *mut RASSUBENTRYW, param4 : *mut u32, param5 : *mut u8, param6 : *mut u32) -> u32);
-    unsafe { RasGetSubEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2, param3.unwrap_or(core::mem::zeroed()) as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _, param6.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RasGetSubEntryPropertiesW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3.unwrap_or(core::mem::zeroed()) as _, param4.unwrap_or(core::mem::zeroed()) as _, param5.unwrap_or(core::mem::zeroed()) as _, param6.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RasHangUpA(param0: HRASCONN) -> u32 {
@@ -1190,7 +1190,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasdlg.dll" "system" fn RasPhonebookDlgA(lpszphonebook : windows_core::PCSTR, lpszentry : windows_core::PCSTR, lpinfo : *mut RASPBDLGA) -> windows_core::BOOL);
-    unsafe { RasPhonebookDlgA(lpszphonebook.param().abi(), lpszentry.param().abi(), lpinfo as _) }
+    unsafe { RasPhonebookDlgA(core::mem::transmute_copy(&lpszphonebook.param().borrow()), core::mem::transmute_copy(&lpszentry.param().borrow()), lpinfo as _) }
 }
 #[inline]
 pub unsafe fn RasPhonebookDlgW<P0, P1>(lpszphonebook: P0, lpszentry: P1, lpinfo: *mut RASPBDLGW) -> windows_core::BOOL
@@ -1199,7 +1199,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasdlg.dll" "system" fn RasPhonebookDlgW(lpszphonebook : windows_core::PCWSTR, lpszentry : windows_core::PCWSTR, lpinfo : *mut RASPBDLGW) -> windows_core::BOOL);
-    unsafe { RasPhonebookDlgW(lpszphonebook.param().abi(), lpszentry.param().abi(), lpinfo as _) }
+    unsafe { RasPhonebookDlgW(core::mem::transmute_copy(&lpszphonebook.param().borrow()), core::mem::transmute_copy(&lpszentry.param().borrow()), lpinfo as _) }
 }
 #[inline]
 pub unsafe fn RasRenameEntryA<P0, P1, P2>(param0: P0, param1: P1, param2: P2) -> u32
@@ -1209,7 +1209,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasRenameEntryA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : windows_core::PCSTR) -> u32);
-    unsafe { RasRenameEntryA(param0.param().abi(), param1.param().abi(), param2.param().abi()) }
+    unsafe { RasRenameEntryA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), core::mem::transmute_copy(&param2.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasRenameEntryW<P0, P1, P2>(param0: P0, param1: P1, param2: P2) -> u32
@@ -1219,7 +1219,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasRenameEntryW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : windows_core::PCWSTR) -> u32);
-    unsafe { RasRenameEntryW(param0.param().abi(), param1.param().abi(), param2.param().abi()) }
+    unsafe { RasRenameEntryW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), core::mem::transmute_copy(&param2.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasSetAutodialAddressA<P0>(param0: P0, param1: u32, param2: Option<*const RASAUTODIALENTRYA>, param3: u32, param4: u32) -> u32
@@ -1227,7 +1227,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetAutodialAddressA(param0 : windows_core::PCSTR, param1 : u32, param2 : *const RASAUTODIALENTRYA, param3 : u32, param4 : u32) -> u32);
-    unsafe { RasSetAutodialAddressA(param0.param().abi(), param1, param2.unwrap_or(core::mem::zeroed()) as _, param3, param4) }
+    unsafe { RasSetAutodialAddressA(core::mem::transmute_copy(&param0.param().borrow()), param1, param2.unwrap_or(core::mem::zeroed()) as _, param3, param4) }
 }
 #[inline]
 pub unsafe fn RasSetAutodialAddressW<P0>(param0: P0, param1: u32, param2: Option<*const RASAUTODIALENTRYW>, param3: u32, param4: u32) -> u32
@@ -1235,7 +1235,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetAutodialAddressW(param0 : windows_core::PCWSTR, param1 : u32, param2 : *const RASAUTODIALENTRYW, param3 : u32, param4 : u32) -> u32);
-    unsafe { RasSetAutodialAddressW(param0.param().abi(), param1, param2.unwrap_or(core::mem::zeroed()) as _, param3, param4) }
+    unsafe { RasSetAutodialAddressW(core::mem::transmute_copy(&param0.param().borrow()), param1, param2.unwrap_or(core::mem::zeroed()) as _, param3, param4) }
 }
 #[inline]
 pub unsafe fn RasSetAutodialEnableA(param0: u32, param1: bool) -> u32 {
@@ -1264,7 +1264,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCredentialsA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *const RASCREDENTIALSA, param3 : windows_core::BOOL) -> u32);
-    unsafe { RasSetCredentialsA(param0.param().abi(), param1.param().abi(), param2, param3.into()) }
+    unsafe { RasSetCredentialsA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3.into()) }
 }
 #[inline]
 pub unsafe fn RasSetCredentialsW<P0, P1>(param0: P0, param1: P1, param2: *const RASCREDENTIALSW, param3: bool) -> u32
@@ -1273,7 +1273,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCredentialsW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *const RASCREDENTIALSW, param3 : windows_core::BOOL) -> u32);
-    unsafe { RasSetCredentialsW(param0.param().abi(), param1.param().abi(), param2, param3.into()) }
+    unsafe { RasSetCredentialsW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3.into()) }
 }
 #[inline]
 pub unsafe fn RasSetCustomAuthDataA<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> u32
@@ -1282,7 +1282,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataA(pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-    unsafe { RasSetCustomAuthDataA(pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
+    unsafe { RasSetCustomAuthDataA(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn RasSetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> u32
@@ -1291,7 +1291,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-    unsafe { RasSetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
+    unsafe { RasSetCustomAuthDataW(core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn RasSetEapUserDataA<P1, P2>(htoken: Option<super::super::Foundation::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32
@@ -1300,7 +1300,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetEapUserDataA(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
-    unsafe { RasSetEapUserDataA(htoken.unwrap_or(core::mem::zeroed()) as _, pszphonebook.param().abi(), pszentry.param().abi(), pbeapdata, dwsizeofeapdata) }
+    unsafe { RasSetEapUserDataA(htoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), pbeapdata, dwsizeofeapdata) }
 }
 #[inline]
 pub unsafe fn RasSetEapUserDataW<P1, P2>(htoken: Option<super::super::Foundation::HANDLE>, pszphonebook: P1, pszentry: P2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32
@@ -1309,7 +1309,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetEapUserDataW(htoken : super::super::Foundation:: HANDLE, pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbeapdata : *const u8, dwsizeofeapdata : u32) -> u32);
-    unsafe { RasSetEapUserDataW(htoken.unwrap_or(core::mem::zeroed()) as _, pszphonebook.param().abi(), pszentry.param().abi(), pbeapdata, dwsizeofeapdata) }
+    unsafe { RasSetEapUserDataW(htoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&pszphonebook.param().borrow()), core::mem::transmute_copy(&pszentry.param().borrow()), pbeapdata, dwsizeofeapdata) }
 }
 #[inline]
 pub unsafe fn RasSetEntryDialParamsA<P0>(param0: P0, param1: *const RASDIALPARAMSA, param2: bool) -> u32
@@ -1317,7 +1317,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsA(param0 : windows_core::PCSTR, param1 : *const RASDIALPARAMSA, param2 : windows_core::BOOL) -> u32);
-    unsafe { RasSetEntryDialParamsA(param0.param().abi(), param1, param2.into()) }
+    unsafe { RasSetEntryDialParamsA(core::mem::transmute_copy(&param0.param().borrow()), param1, param2.into()) }
 }
 #[inline]
 pub unsafe fn RasSetEntryDialParamsW<P0>(param0: P0, param1: *const RASDIALPARAMSW, param2: bool) -> u32
@@ -1325,7 +1325,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : windows_core::PCWSTR, param1 : *const RASDIALPARAMSW, param2 : windows_core::BOOL) -> u32);
-    unsafe { RasSetEntryDialParamsW(param0.param().abi(), param1, param2.into()) }
+    unsafe { RasSetEntryDialParamsW(core::mem::transmute_copy(&param0.param().borrow()), param1, param2.into()) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1335,7 +1335,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : *const RASENTRYA, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
-    unsafe { RasSetEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5) }
+    unsafe { RasSetEntryPropertiesA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1345,7 +1345,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : *const RASENTRYW, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
-    unsafe { RasSetEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5) }
+    unsafe { RasSetEntryPropertiesW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3, param4.unwrap_or(core::mem::zeroed()) as _, param5) }
 }
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: Option<*const u8>, param6: u32) -> u32
@@ -1354,7 +1354,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR, param2 : u32, param3 : *const RASSUBENTRYA, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
-    unsafe { RasSetSubEntryPropertiesA(param0.param().abi(), param1.param().abi(), param2, param3, param4, param5.unwrap_or(core::mem::zeroed()) as _, param6) }
+    unsafe { RasSetSubEntryPropertiesA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3, param4, param5.unwrap_or(core::mem::zeroed()) as _, param6) }
 }
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: Option<*const u8>, param6: u32) -> u32
@@ -1363,7 +1363,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR, param2 : u32, param3 : *const RASSUBENTRYW, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
-    unsafe { RasSetSubEntryPropertiesW(param0.param().abi(), param1.param().abi(), param2, param3, param4, param5.unwrap_or(core::mem::zeroed()) as _, param6) }
+    unsafe { RasSetSubEntryPropertiesW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow()), param2, param3, param4, param5.unwrap_or(core::mem::zeroed()) as _, param6) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1378,7 +1378,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasValidateEntryNameA(param0 : windows_core::PCSTR, param1 : windows_core::PCSTR) -> u32);
-    unsafe { RasValidateEntryNameA(param0.param().abi(), param1.param().abi()) }
+    unsafe { RasValidateEntryNameA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RasValidateEntryNameW<P0, P1>(param0: P0, param1: P1) -> u32
@@ -1387,7 +1387,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasValidateEntryNameW(param0 : windows_core::PCWSTR, param1 : windows_core::PCWSTR) -> u32);
-    unsafe { RasValidateEntryNameW(param0.param().abi(), param1.param().abi()) }
+    unsafe { RasValidateEntryNameW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute_copy(&param1.param().borrow())) }
 }
 #[inline]
 pub unsafe fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32 {

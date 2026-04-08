@@ -43,7 +43,19 @@ where
     windows_core::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCreateObjectQueryFromId(objecttype : DEV_OBJECT_TYPE, pszobjectid : windows_core::PCWSTR, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, pcallback : PDEV_QUERY_RESULT_CALLBACK, pcontext : *const core::ffi::c_void, phdevquery : *mut HDEVQUERY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DevCreateObjectQueryFromId(objecttype, pszobjectid.param().abi(), queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, pcontext.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        DevCreateObjectQueryFromId(
+            objecttype,
+            core::mem::transmute_copy(&pszobjectid.param().borrow()),
+            queryflags,
+            prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pcallback,
+            pcontext.unwrap_or(core::mem::zeroed()) as _,
+            &mut result__,
+        )
+        .map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -57,7 +69,7 @@ where
         let mut result__ = core::mem::zeroed();
         DevCreateObjectQueryFromIdEx(
             objecttype,
-            pszobjectid.param().abi(),
+            core::mem::transmute_copy(&pszobjectid.param().borrow()),
             queryflags,
             prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
@@ -81,7 +93,19 @@ where
     windows_core::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCreateObjectQueryFromIds(objecttype : DEV_OBJECT_TYPE, pszzobjectids : windows_core::PCWSTR, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, pcallback : PDEV_QUERY_RESULT_CALLBACK, pcontext : *const core::ffi::c_void, phdevquery : *mut HDEVQUERY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DevCreateObjectQueryFromIds(objecttype, pszzobjectids.param().abi(), queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, pcontext.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        DevCreateObjectQueryFromIds(
+            objecttype,
+            core::mem::transmute_copy(&pszzobjectids.param().borrow()),
+            queryflags,
+            prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pcallback,
+            pcontext.unwrap_or(core::mem::zeroed()) as _,
+            &mut result__,
+        )
+        .map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -95,7 +119,7 @@ where
         let mut result__ = core::mem::zeroed();
         DevCreateObjectQueryFromIdsEx(
             objecttype,
-            pszzobjectids.param().abi(),
+            core::mem::transmute_copy(&pszzobjectids.param().borrow()),
             queryflags,
             prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
@@ -117,7 +141,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFindProperty(pkey : *const super::super::Foundation:: DEVPROPKEY, store : super::Properties:: DEVPROPSTORE, pszlocalename : windows_core::PCWSTR, cproperties : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> *mut super::Properties:: DEVPROPERTY);
-    unsafe { DevFindProperty(pkey, store, pszlocalename.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { DevFindProperty(pkey, store, core::mem::transmute_copy(&pszlocalename.param().borrow()), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -138,7 +162,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevGetObjectProperties(objecttype : DEV_OBJECT_TYPE, pszobjectid : windows_core::PCWSTR, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, pcpropertycount : *mut u32, ppproperties : *mut *mut super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    unsafe { DevGetObjectProperties(objecttype, pszobjectid.param().abi(), queryflags, prequestedproperties.len().try_into().unwrap(), core::mem::transmute(prequestedproperties.as_ptr()), pcpropertycount as _, ppproperties as _).ok() }
+    unsafe { DevGetObjectProperties(objecttype, core::mem::transmute_copy(&pszobjectid.param().borrow()), queryflags, prequestedproperties.len().try_into().unwrap(), core::mem::transmute(prequestedproperties.as_ptr()), pcpropertycount as _, ppproperties as _).ok() }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -147,7 +171,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-devices-query-l1-1-1.dll" "system" fn DevGetObjectPropertiesEx(objecttype : DEV_OBJECT_TYPE, pszobjectid : windows_core::PCWSTR, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cextendedparametercount : u32, pextendedparameters : *const DEV_QUERY_PARAMETER, pcpropertycount : *mut u32, ppproperties : *mut *mut super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    unsafe { DevGetObjectPropertiesEx(objecttype, pszobjectid.param().abi(), queryflags, prequestedproperties.len().try_into().unwrap(), core::mem::transmute(prequestedproperties.as_ptr()), pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertycount as _, ppproperties as _).ok() }
+    unsafe { DevGetObjectPropertiesEx(objecttype, core::mem::transmute_copy(&pszobjectid.param().borrow()), queryflags, prequestedproperties.len().try_into().unwrap(), core::mem::transmute(prequestedproperties.as_ptr()), pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertycount as _, ppproperties as _).ok() }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]

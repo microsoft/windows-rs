@@ -1391,7 +1391,7 @@ impl MediaEncodingProfile {
         P0: windows_core::Param<AudioEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAudio)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAudio)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Audio(&self) -> windows_core::Result<AudioEncodingProperties> {
         let this = self;
@@ -1405,7 +1405,7 @@ impl MediaEncodingProfile {
         P0: windows_core::Param<VideoEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetVideo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetVideo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Video(&self) -> windows_core::Result<VideoEncodingProperties> {
         let this = self;
@@ -1419,7 +1419,7 @@ impl MediaEncodingProfile {
         P0: windows_core::Param<ContainerEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContainer)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContainer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Container(&self) -> windows_core::Result<ContainerEncodingProperties> {
         let this = self;
@@ -1434,7 +1434,7 @@ impl MediaEncodingProfile {
         P0: windows_core::Param<windows_collections::IIterable<super::Core::AudioStreamDescriptor>>,
     {
         let this = &windows_core::Interface::cast::<IMediaEncodingProfile2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAudioTracks)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAudioTracks)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn GetAudioTracks(&self) -> windows_core::Result<windows_collections::IVector<super::Core::AudioStreamDescriptor>> {
@@ -1450,7 +1450,7 @@ impl MediaEncodingProfile {
         P0: windows_core::Param<windows_collections::IIterable<super::Core::VideoStreamDescriptor>>,
     {
         let this = &windows_core::Interface::cast::<IMediaEncodingProfile2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetVideoTracks)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetVideoTracks)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn GetVideoTracks(&self) -> windows_core::Result<windows_collections::IVector<super::Core::VideoStreamDescriptor>> {
@@ -1466,7 +1466,7 @@ impl MediaEncodingProfile {
         P0: windows_core::Param<windows_collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>,
     {
         let this = &windows_core::Interface::cast::<IMediaEncodingProfile3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetTimedMetadataTracks)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTimedMetadataTracks)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn GetTimedMetadataTracks(&self) -> windows_core::Result<windows_collections::IVector<super::Core::TimedMetadataStreamDescriptor>> {
@@ -1513,7 +1513,7 @@ impl MediaEncodingProfile {
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1523,7 +1523,7 @@ impl MediaEncodingProfile {
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromStreamAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromStreamAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWav(quality: AudioEncodingQuality) -> windows_core::Result<MediaEncodingProfile> {
@@ -2065,7 +2065,7 @@ impl MediaPropertySet {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key, value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key, core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: windows_core::GUID) -> windows_core::Result<()> {

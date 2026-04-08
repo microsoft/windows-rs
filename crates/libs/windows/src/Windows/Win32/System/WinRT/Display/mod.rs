@@ -8,7 +8,7 @@ impl IDisplayDeviceInterop {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), psecurityattributes, access, core::mem::transmute_copy(name), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pobject.param().borrow()), psecurityattributes, access, core::mem::transmute_copy(name), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void> {
@@ -30,7 +30,7 @@ pub struct IDisplayDeviceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 pub trait IDisplayDeviceInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateSharedHandle(&self, pobject: windows_core::Ref<windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
+    fn CreateSharedHandle(&self, pobject: Option<&windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
     fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void>;
 }
 #[cfg(feature = "Win32_Security")]
@@ -39,7 +39,7 @@ impl IDisplayDeviceInterop_Vtbl {
         unsafe extern "system" fn CreateSharedHandle<Identity: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobject: *mut core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: *mut core::ffi::c_void, phandle: *mut super::super::super::Foundation::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
+                match IDisplayDeviceInterop_Impl::CreateSharedHandle(this, windows_core::Ref::option_from_abi(&pobject), core::mem::transmute_copy(&psecurityattributes), core::mem::transmute_copy(&access), core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         phandle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

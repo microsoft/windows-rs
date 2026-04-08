@@ -222,7 +222,7 @@ impl INDDownloadEngine {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), uri.param().abi(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&uri.param().borrow()), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr()).ok() }
     }
     pub fn Pause(&self) -> windows_core::Result<()> {
         let this = self;
@@ -273,7 +273,7 @@ impl windows_core::RuntimeName for INDDownloadEngine {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngine";
 }
 pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, uri: windows_core::Ref<super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
+    fn Open(&self, uri: Option<&super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
@@ -288,7 +288,7 @@ impl INDDownloadEngine_Vtbl {
         unsafe extern "system" fn Open<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDDownloadEngine_Impl::Open(this, core::mem::transmute_copy(&uri), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size as usize)).into()
+                INDDownloadEngine_Impl::Open(this, windows_core::Ref::option_from_abi(&uri), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size as usize)).into()
             }
         }
         unsafe extern "system" fn Pause<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -414,7 +414,7 @@ impl INDDownloadEngineNotifier {
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&licensefetchdescriptor.param().borrow())).ok() }
     }
     pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> windows_core::Result<()> {
         let this = self;
@@ -435,7 +435,7 @@ impl windows_core::RuntimeName for INDDownloadEngineNotifier {
 pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
     fn OnStreamOpened(&self) -> windows_core::Result<()>;
     fn OnPlayReadyObjectReceived(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
-    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
+    fn OnContentIDReceived(&self, licenseFetchDescriptor: Option<&INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
     fn OnDataReceived(&self, dataBytes: &[u8], bytesReceived: u32) -> windows_core::Result<()>;
     fn OnEndOfStream(&self) -> windows_core::Result<()>;
     fn OnNetworkError(&self) -> windows_core::Result<()>;
@@ -457,7 +457,7 @@ impl INDDownloadEngineNotifier_Vtbl {
         unsafe extern "system" fn OnContentIDReceived<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDDownloadEngineNotifier_Impl::OnContentIDReceived(this, core::mem::transmute_copy(&licensefetchdescriptor)).into()
+                INDDownloadEngineNotifier_Impl::OnContentIDReceived(this, windows_core::Ref::option_from_abi(&licensefetchdescriptor)).into()
             }
         }
         unsafe extern "system" fn OnDataReceived<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8, bytesreceived: u32) -> windows_core::HRESULT {
@@ -585,7 +585,7 @@ impl INDLicenseFetchDescriptor {
         P0: windows_core::Param<INDCustomData>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), licensefetchchallengecustomdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&licensefetchchallengecustomdata.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeName for INDLicenseFetchDescriptor {
@@ -595,7 +595,7 @@ pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
     fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
     fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
-    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
+    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: Option<&INDCustomData>) -> windows_core::Result<()>;
 }
 impl INDLicenseFetchDescriptor_Vtbl {
     pub const fn new<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>() -> Self {
@@ -641,7 +641,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchchallengecustomdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, core::mem::transmute_copy(&licensefetchchallengecustomdata)).into()
+                INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, windows_core::Ref::option_from_abi(&licensefetchchallengecustomdata)).into()
             }
         }
         Self {
@@ -1117,7 +1117,7 @@ impl INDStorageFileHelper {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileURLs)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFileURLs)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1127,7 +1127,7 @@ impl windows_core::RuntimeName for INDStorageFileHelper {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait INDStorageFileHelper_Impl: windows_core::IUnknownImpl {
-    fn GetFileURLs(&self, file: windows_core::Ref<super::super::super::Storage::IStorageFile>) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
+    fn GetFileURLs(&self, file: Option<&super::super::super::Storage::IStorageFile>) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl INDStorageFileHelper_Vtbl {
@@ -1135,7 +1135,7 @@ impl INDStorageFileHelper_Vtbl {
         unsafe extern "system" fn GetFileURLs<Identity: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INDStorageFileHelper_Impl::GetFileURLs(this, core::mem::transmute_copy(&file)) {
+                match INDStorageFileHelper_Impl::GetFileURLs(this, windows_core::Ref::option_from_abi(&file)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1178,7 +1178,7 @@ impl INDStreamParser {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStreamInformation)(windows_core::Interface::as_raw(this), descriptor.param().abi(), streamtype, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetStreamInformation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&descriptor.param().borrow()), streamtype, &mut result__).map(|| result__)
         }
     }
     pub fn BeginOfStream(&self) -> windows_core::Result<()> {
@@ -1204,7 +1204,7 @@ impl windows_core::RuntimeName for INDStreamParser {
 #[cfg(feature = "Media_Core")]
 pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
     fn ParseData(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
-    fn GetStreamInformation(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
+    fn GetStreamInformation(&self, descriptor: Option<&super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
     fn BeginOfStream(&self) -> windows_core::Result<()>;
     fn EndOfStream(&self) -> windows_core::Result<()>;
     fn Notifier(&self) -> windows_core::Result<NDStreamParserNotifier>;
@@ -1221,7 +1221,7 @@ impl INDStreamParser_Vtbl {
         unsafe extern "system" fn GetStreamInformation<Identity: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, streamtype: *mut NDMediaStreamType, result__: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INDStreamParser_Impl::GetStreamInformation(this, core::mem::transmute_copy(&descriptor), core::mem::transmute_copy(&streamtype)) {
+                match INDStreamParser_Impl::GetStreamInformation(this, windows_core::Ref::option_from_abi(&descriptor), core::mem::transmute_copy(&streamtype)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -1292,7 +1292,7 @@ impl INDStreamParserNotifier {
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&licensefetchdescriptor.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_core::Result<()>
@@ -1301,7 +1301,7 @@ impl INDStreamParserNotifier {
         P1: windows_core::Param<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), audiostreamdescriptors.param().abi(), videostreamdescriptors.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&audiostreamdescriptors.param().borrow()), core::mem::transmute_copy(&videostreamdescriptors.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn OnSampleParsed<P2>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> windows_core::Result<()>
@@ -1309,7 +1309,7 @@ impl INDStreamParserNotifier {
         P2: windows_core::Param<super::super::Core::MediaStreamSample>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnSampleParsed)(windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.param().abi(), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnSampleParsed)(windows_core::Interface::as_raw(this), streamid, streamtype, core::mem::transmute_copy(&streamsample.param().borrow()), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: windows_core::GUID, probytes: &[u8]) -> windows_core::Result<()>
@@ -1317,7 +1317,7 @@ impl INDStreamParserNotifier {
         P0: windows_core::Param<super::super::Core::IMediaStreamDescriptor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(windows_core::Interface::as_raw(this), descriptor.param().abi(), keyid, probytes.len().try_into().unwrap(), probytes.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&descriptor.param().borrow()), keyid, probytes.len().try_into().unwrap(), probytes.as_ptr()).ok() }
     }
 }
 #[cfg(feature = "Media_Core")]
@@ -1326,10 +1326,10 @@ impl windows_core::RuntimeName for INDStreamParserNotifier {
 }
 #[cfg(feature = "Media_Core")]
 pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
-    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
-    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
-    fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
-    fn OnBeginSetupDecryptor(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_core::Result<()>;
+    fn OnContentIDReceived(&self, licenseFetchDescriptor: Option<&INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
+    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: Option<&windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: Option<&windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
+    fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: Option<&super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
+    fn OnBeginSetupDecryptor(&self, descriptor: Option<&super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Media_Core")]
 impl INDStreamParserNotifier_Vtbl {
@@ -1337,25 +1337,25 @@ impl INDStreamParserNotifier_Vtbl {
         unsafe extern "system" fn OnContentIDReceived<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDStreamParserNotifier_Impl::OnContentIDReceived(this, core::mem::transmute_copy(&licensefetchdescriptor)).into()
+                INDStreamParserNotifier_Impl::OnContentIDReceived(this, windows_core::Ref::option_from_abi(&licensefetchdescriptor)).into()
             }
         }
         unsafe extern "system" fn OnMediaStreamDescriptorCreated<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiostreamdescriptors: *mut core::ffi::c_void, videostreamdescriptors: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDStreamParserNotifier_Impl::OnMediaStreamDescriptorCreated(this, core::mem::transmute_copy(&audiostreamdescriptors), core::mem::transmute_copy(&videostreamdescriptors)).into()
+                INDStreamParserNotifier_Impl::OnMediaStreamDescriptorCreated(this, windows_core::Ref::option_from_abi(&audiostreamdescriptors), windows_core::Ref::option_from_abi(&videostreamdescriptors)).into()
             }
         }
         unsafe extern "system" fn OnSampleParsed<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamid: u32, streamtype: NDMediaStreamType, streamsample: *mut core::ffi::c_void, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes_array_size: u32, ccdatabytes: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDStreamParserNotifier_Impl::OnSampleParsed(this, streamid, streamtype, core::mem::transmute_copy(&streamsample), pts, ccformat, core::slice::from_raw_parts(core::mem::transmute_copy(&ccdatabytes), ccdatabytes_array_size as usize)).into()
+                INDStreamParserNotifier_Impl::OnSampleParsed(this, streamid, streamtype, windows_core::Ref::option_from_abi(&streamsample), pts, ccformat, core::slice::from_raw_parts(core::mem::transmute_copy(&ccdatabytes), ccdatabytes_array_size as usize)).into()
             }
         }
         unsafe extern "system" fn OnBeginSetupDecryptor<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, keyid: windows_core::GUID, probytes_array_size: u32, probytes: *const u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDStreamParserNotifier_Impl::OnBeginSetupDecryptor(this, core::mem::transmute_copy(&descriptor), core::mem::transmute(&keyid), core::slice::from_raw_parts(core::mem::transmute_copy(&probytes), probytes_array_size as usize)).into()
+                INDStreamParserNotifier_Impl::OnBeginSetupDecryptor(this, windows_core::Ref::option_from_abi(&descriptor), core::mem::transmute(&keyid), core::slice::from_raw_parts(core::mem::transmute_copy(&probytes), probytes_array_size as usize)).into()
             }
         }
         Self {
@@ -2151,7 +2151,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentHeader)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -2190,7 +2190,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -2244,7 +2244,7 @@ impl windows_core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest {
 }
 pub trait IPlayReadyLicenseAcquisitionServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn ContentHeader(&self) -> windows_core::Result<PlayReadyContentHeader>;
-    fn SetContentHeader(&self, value: windows_core::Ref<PlayReadyContentHeader>) -> windows_core::Result<()>;
+    fn SetContentHeader(&self, value: Option<&PlayReadyContentHeader>) -> windows_core::Result<()>;
     fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID>;
     fn SetDomainServiceId(&self, value: &windows_core::GUID) -> windows_core::Result<()>;
 }
@@ -2266,7 +2266,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         unsafe extern "system" fn SetContentHeader<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPlayReadyLicenseAcquisitionServiceRequest_Impl::SetContentHeader(this, core::mem::transmute_copy(&value)).into()
+                IPlayReadyLicenseAcquisitionServiceRequest_Impl::SetContentHeader(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn DomainServiceId<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -2366,7 +2366,7 @@ impl IPlayReadyLicenseSession {
         P0: windows_core::Param<super::MediaProtectionManager>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), mpm.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mpm.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeName for IPlayReadyLicenseSession {
@@ -2374,7 +2374,7 @@ impl windows_core::RuntimeName for IPlayReadyLicenseSession {
 }
 pub trait IPlayReadyLicenseSession_Impl: windows_core::IUnknownImpl {
     fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
-    fn ConfigureMediaProtectionManager(&self, mpm: windows_core::Ref<super::MediaProtectionManager>) -> windows_core::Result<()>;
+    fn ConfigureMediaProtectionManager(&self, mpm: Option<&super::MediaProtectionManager>) -> windows_core::Result<()>;
 }
 impl IPlayReadyLicenseSession_Vtbl {
     pub const fn new<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>() -> Self {
@@ -2394,7 +2394,7 @@ impl IPlayReadyLicenseSession_Vtbl {
         unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mpm: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPlayReadyLicenseSession_Impl::ConfigureMediaProtectionManager(this, core::mem::transmute_copy(&mpm)).into()
+                IPlayReadyLicenseSession_Impl::ConfigureMediaProtectionManager(this, windows_core::Ref::option_from_abi(&mpm)).into()
             }
         }
         Self {
@@ -2428,7 +2428,7 @@ impl IPlayReadyLicenseSession2 {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), contentheader.param().abi(), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contentheader.param().borrow()), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
@@ -2443,21 +2443,21 @@ impl IPlayReadyLicenseSession2 {
         P0: windows_core::Param<super::MediaProtectionManager>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyLicenseSession>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), mpm.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mpm.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeName for IPlayReadyLicenseSession2 {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession2";
 }
 pub trait IPlayReadyLicenseSession2_Impl: IPlayReadyLicenseSession_Impl {
-    fn CreateLicenseIterable(&self, contentHeader: windows_core::Ref<PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>;
+    fn CreateLicenseIterable(&self, contentHeader: Option<&PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>;
 }
 impl IPlayReadyLicenseSession2_Vtbl {
     pub const fn new<Identity: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLicenseIterable<Identity: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentheader: *mut core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPlayReadyLicenseSession2_Impl::CreateLicenseIterable(this, core::mem::transmute_copy(&contentheader), fullyevaluated) {
+                match IPlayReadyLicenseSession2_Impl::CreateLicenseIterable(this, windows_core::Ref::option_from_abi(&contentheader), fullyevaluated) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -2593,7 +2593,7 @@ impl IPlayReadySecureStopServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -2769,7 +2769,7 @@ impl IPlayReadyServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2837,7 +2837,7 @@ impl windows_core::RuntimeName for IPlayReadyServiceRequest {
 }
 pub trait IPlayReadyServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl {
     fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri>;
-    fn SetUri(&self, value: windows_core::Ref<super::super::super::Foundation::Uri>) -> windows_core::Result<()>;
+    fn SetUri(&self, value: Option<&super::super::super::Foundation::Uri>) -> windows_core::Result<()>;
     fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
@@ -2864,7 +2864,7 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn SetUri<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPlayReadyServiceRequest_Impl::SetUri(this, core::mem::transmute_copy(&value)).into()
+                IPlayReadyServiceRequest_Impl::SetUri(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn ResponseCustomData<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3134,7 +3134,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegistrationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RegistrationCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRegistrationCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -3148,7 +3148,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProximityDetectionCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProximityDetectionCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveProximityDetectionCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -3162,7 +3162,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LicenseFetchCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).LicenseFetchCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveLicenseFetchCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -3176,7 +3176,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReRegistrationNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReRegistrationNeeded)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReRegistrationNeeded(&self, token: i64) -> windows_core::Result<()> {
@@ -3190,7 +3190,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ClosedCaptionDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ClosedCaptionDataReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosedCaptionDataReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -3206,7 +3206,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), contenturl.param().abi(), startasyncoptions, registrationcustomdata.param().abi(), licensefetchdescriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contenturl.param().borrow()), startasyncoptions, core::mem::transmute_copy(&registrationcustomdata.param().borrow()), core::mem::transmute_copy(&licensefetchdescriptor.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LicenseFetchAsync<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<windows_future::IAsyncOperation<INDLicenseFetchResult>>
@@ -3216,7 +3216,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LicenseFetchAsync)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LicenseFetchAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&licensefetchdescriptor.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReRegistrationAsync<P0>(&self, registrationcustomdata: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -3226,7 +3226,7 @@ impl NDClient {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReRegistrationAsync)(windows_core::Interface::as_raw(this), registrationcustomdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReRegistrationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&registrationcustomdata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -3241,7 +3241,7 @@ impl NDClient {
     {
         Self::INDClientFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), downloadengine.param().abi(), streamparser.param().abi(), pmessenger.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&downloadengine.param().borrow()), core::mem::transmute_copy(&streamparser.param().borrow()), core::mem::transmute_copy(&pmessenger.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn INDClientFactory<R, F: FnOnce(&INDClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3352,7 +3352,7 @@ impl NDDownloadEngineNotifier {
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&licensefetchdescriptor.param().borrow())).ok() }
     }
     pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> windows_core::Result<()> {
         let this = self;
@@ -3408,7 +3408,7 @@ impl NDLicenseFetchDescriptor {
         P0: windows_core::Param<INDCustomData>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), licensefetchchallengecustomdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&licensefetchchallengecustomdata.param().borrow())).ok() }
     }
     pub fn CreateInstance<P2>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P2) -> windows_core::Result<NDLicenseFetchDescriptor>
     where
@@ -3416,7 +3416,7 @@ impl NDLicenseFetchDescriptor {
     {
         Self::INDLicenseFetchDescriptorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), contentidtype, contentidbytes.len().try_into().unwrap(), contentidbytes.as_ptr(), licensefetchchallengecustomdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), contentidtype, contentidbytes.len().try_into().unwrap(), contentidbytes.as_ptr(), core::mem::transmute_copy(&licensefetchchallengecustomdata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn INDLicenseFetchDescriptorFactory<R, F: FnOnce(&INDLicenseFetchDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3494,7 +3494,7 @@ impl NDStorageFileHelper {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFileURLs)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFileURLs)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3525,7 +3525,7 @@ impl NDStreamParserNotifier {
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&licensefetchdescriptor.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_core::Result<()>
@@ -3534,7 +3534,7 @@ impl NDStreamParserNotifier {
         P1: windows_core::Param<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), audiostreamdescriptors.param().abi(), videostreamdescriptors.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&audiostreamdescriptors.param().borrow()), core::mem::transmute_copy(&videostreamdescriptors.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn OnSampleParsed<P2>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> windows_core::Result<()>
@@ -3542,7 +3542,7 @@ impl NDStreamParserNotifier {
         P2: windows_core::Param<super::super::Core::MediaStreamSample>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnSampleParsed)(windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.param().abi(), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnSampleParsed)(windows_core::Interface::as_raw(this), streamid, streamtype, core::mem::transmute_copy(&streamsample.param().borrow()), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
     }
     #[cfg(feature = "Media_Core")]
     pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: windows_core::GUID, probytes: &[u8]) -> windows_core::Result<()>
@@ -3550,7 +3550,7 @@ impl NDStreamParserNotifier {
         P0: windows_core::Param<super::super::Core::IMediaStreamDescriptor>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(windows_core::Interface::as_raw(this), descriptor.param().abi(), keyid, probytes.len().try_into().unwrap(), probytes.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnBeginSetupDecryptor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&descriptor.param().borrow()), keyid, probytes.len().try_into().unwrap(), probytes.as_ptr()).ok() }
     }
 }
 impl windows_core::RuntimeType for NDStreamParserNotifier {
@@ -3713,7 +3713,7 @@ impl PlayReadyContentHeader {
     {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(windows_core::Interface::as_raw(this), headerbytes.len().try_into().unwrap(), headerbytes.as_ptr(), licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(windows_core::Interface::as_raw(this), headerbytes.len().try_into().unwrap(), headerbytes.as_ptr(), core::mem::transmute_copy(&licenseacquisitionurl.param().borrow()), core::mem::transmute_copy(&licenseacquisitionuserinterfaceurl.param().borrow()), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateInstanceFromComponents<P3, P4>(contentkeyid: windows_core::GUID, contentkeyidstring: &windows_core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P3, licenseacquisitionuserinterfaceurl: P4, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<PlayReadyContentHeader>
@@ -3723,7 +3723,7 @@ impl PlayReadyContentHeader {
     {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceFromComponents)(windows_core::Interface::as_raw(this), contentkeyid, core::mem::transmute_copy(contentkeyidstring), contentencryptionalgorithm, licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstanceFromComponents)(windows_core::Interface::as_raw(this), contentkeyid, core::mem::transmute_copy(contentkeyidstring), contentencryptionalgorithm, core::mem::transmute_copy(&licenseacquisitionurl.param().borrow()), core::mem::transmute_copy(&licenseacquisitionuserinterfaceurl.param().borrow()), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[u8]) -> windows_core::Result<PlayReadyContentHeader> {
@@ -3739,7 +3739,7 @@ impl PlayReadyContentHeader {
     {
         Self::IPlayReadyContentHeaderFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstanceFromComponents2)(windows_core::Interface::as_raw(this), dwflags, contentkeyids.len().try_into().unwrap(), contentkeyids.as_ptr(), contentkeyidstrings.len().try_into().unwrap(), core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstanceFromComponents2)(windows_core::Interface::as_raw(this), dwflags, contentkeyids.len().try_into().unwrap(), contentkeyids.as_ptr(), contentkeyidstrings.len().try_into().unwrap(), core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, core::mem::transmute_copy(&licenseacquisitionurl.param().borrow()), core::mem::transmute_copy(&licenseacquisitionuserinterfaceurl.param().borrow()), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPlayReadyContentHeaderFactory<R, F: FnOnce(&IPlayReadyContentHeaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3769,7 +3769,7 @@ impl PlayReadyContentResolver {
     {
         Self::IPlayReadyContentResolver(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceRequest)(windows_core::Interface::as_raw(this), contentheader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ServiceRequest)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contentheader.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPlayReadyContentResolver<R, F: FnOnce(&IPlayReadyContentResolver) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4007,7 +4007,7 @@ impl PlayReadyDomainJoinServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -4127,7 +4127,7 @@ impl PlayReadyDomainLeaveServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -4250,7 +4250,7 @@ impl PlayReadyITADataGenerator {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
-            (windows_core::Interface::vtable(this).GenerateData)(windows_core::Interface::as_raw(this), guidcpsystemid, countofstreams, configuration.param().abi(), format, windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+            (windows_core::Interface::vtable(this).GenerateData)(windows_core::Interface::as_raw(this), guidcpsystemid, countofstreams, core::mem::transmute_copy(&configuration.param().borrow()), format, windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
 }
@@ -4303,7 +4303,7 @@ impl PlayReadyIndividualizationServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -4494,7 +4494,7 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentHeader)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -4521,7 +4521,7 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         let this = &windows_core::Interface::cast::<IPlayReadyLicenseAcquisitionServiceRequest3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), contentheader.param().abi(), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contentheader.param().borrow()), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
@@ -4536,7 +4536,7 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -4620,7 +4620,7 @@ impl PlayReadyLicenseIterable {
     {
         Self::IPlayReadyLicenseIterableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), contentheader.param().abi(), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contentheader.param().borrow()), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPlayReadyLicenseIterableFactory<R, F: FnOnce(&IPlayReadyLicenseIterableFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4704,7 +4704,7 @@ impl PlayReadyLicenseManagement {
     {
         Self::IPlayReadyLicenseManagement(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeleteLicenses)(windows_core::Interface::as_raw(this), contentheader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeleteLicenses)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contentheader.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPlayReadyLicenseManagement<R, F: FnOnce(&IPlayReadyLicenseManagement) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4733,7 +4733,7 @@ impl PlayReadyLicenseSession {
         P0: windows_core::Param<super::MediaProtectionManager>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), mpm.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mpm.param().borrow())).ok() }
     }
     pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
     where
@@ -4742,7 +4742,7 @@ impl PlayReadyLicenseSession {
         let this = &windows_core::Interface::cast::<IPlayReadyLicenseSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), contentheader.param().abi(), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&contentheader.param().borrow()), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -4752,7 +4752,7 @@ impl PlayReadyLicenseSession {
     {
         Self::IPlayReadyLicenseSessionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&configuration.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPlayReadyLicenseSessionFactory<R, F: FnOnce(&IPlayReadyLicenseSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4820,7 +4820,7 @@ impl PlayReadyMeteringReportServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -4918,7 +4918,7 @@ impl PlayReadyRevocationServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
@@ -5147,7 +5147,7 @@ impl PlayReadySecureStopServiceRequest {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;

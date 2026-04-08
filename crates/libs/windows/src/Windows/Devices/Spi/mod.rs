@@ -115,7 +115,7 @@ impl ISpiDeviceStatics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(busid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(busid), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -126,7 +126,7 @@ pub trait ISpiDeviceStatics_Impl: windows_core::IUnknownImpl {
     fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
     fn GetBusInfo(&self, busId: &windows_core::HSTRING) -> windows_core::Result<SpiBusInfo>;
-    fn FromIdAsync(&self, busId: &windows_core::HSTRING, settings: windows_core::Ref<SpiConnectionSettings>) -> windows_core::Result<windows_future::IAsyncOperation<SpiDevice>>;
+    fn FromIdAsync(&self, busId: &windows_core::HSTRING, settings: Option<&SpiConnectionSettings>) -> windows_core::Result<windows_future::IAsyncOperation<SpiDevice>>;
 }
 impl ISpiDeviceStatics_Vtbl {
     pub const fn new<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>() -> Self {
@@ -172,7 +172,7 @@ impl ISpiDeviceStatics_Vtbl {
         unsafe extern "system" fn FromIdAsync<Identity: ISpiDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busid: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISpiDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&busid), core::mem::transmute_copy(&settings)) {
+                match ISpiDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&busid), windows_core::Ref::option_from_abi(&settings)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -344,7 +344,7 @@ impl SpiController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevice)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevice)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<SpiController>> {
@@ -360,7 +360,7 @@ impl SpiController {
     {
         Self::ISpiControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&provider.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISpiControllerStatics<R, F: FnOnce(&ISpiControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -444,7 +444,7 @@ impl SpiDevice {
     {
         Self::ISpiDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(busid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(busid), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISpiDeviceStatics<R, F: FnOnce(&ISpiDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

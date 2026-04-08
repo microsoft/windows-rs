@@ -16,7 +16,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxAge)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxAge)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxStale(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -30,7 +30,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxStale)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxStale)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MinFresh(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -44,7 +44,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMinFresh)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMinFresh)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SharedMaxAge(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -58,7 +58,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSharedMaxAge)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSharedMaxAge)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ParseAdd(&self, input: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -113,7 +113,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -121,14 +121,14 @@ impl HttpCacheDirectiveHeaderValueCollection {
         P1: windows_core::Param<HttpNameValueHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpNameValueHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
@@ -139,7 +139,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         P0: windows_core::Param<HttpNameValueHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpNameValueHeaderValue>>(self)?;
@@ -325,7 +325,7 @@ impl HttpChallengeHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -333,14 +333,14 @@ impl HttpChallengeHeaderValueCollection {
         P1: windows_core::Param<HttpChallengeHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpChallengeHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
@@ -351,7 +351,7 @@ impl HttpChallengeHeaderValueCollection {
         P0: windows_core::Param<HttpChallengeHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpChallengeHeaderValue>>(self)?;
@@ -517,7 +517,7 @@ impl HttpConnectionOptionHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -525,14 +525,14 @@ impl HttpConnectionOptionHeaderValueCollection {
         P1: windows_core::Param<HttpConnectionOptionHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpConnectionOptionHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
@@ -543,7 +543,7 @@ impl HttpConnectionOptionHeaderValueCollection {
         P0: windows_core::Param<HttpConnectionOptionHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
@@ -709,7 +709,7 @@ impl HttpContentCodingHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -717,14 +717,14 @@ impl HttpContentCodingHeaderValueCollection {
         P1: windows_core::Param<HttpContentCodingHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpContentCodingHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
@@ -735,7 +735,7 @@ impl HttpContentCodingHeaderValueCollection {
         P0: windows_core::Param<HttpContentCodingHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingHeaderValue>>(self)?;
@@ -914,7 +914,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -922,14 +922,14 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         P1: windows_core::Param<HttpContentCodingWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpContentCodingWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -940,7 +940,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         P0: windows_core::Param<HttpContentCodingWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -1057,7 +1057,7 @@ impl HttpContentDispositionHeaderValue {
         P0: windows_core::Param<super::super::super::Foundation::IReference<u64>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Create(dispositiontype: &windows_core::HSTRING) -> windows_core::Result<HttpContentDispositionHeaderValue> {
         Self::IHttpContentDispositionHeaderValueFactory(|this| unsafe {
@@ -1130,7 +1130,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<HttpContentDispositionHeaderValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentDisposition)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentDisposition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentEncoding(&self) -> windows_core::Result<HttpContentCodingHeaderValueCollection> {
         let this = self;
@@ -1159,7 +1159,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<u64>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentLength)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentLength)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentLocation(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -1173,7 +1173,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentLocation)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentMD5(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -1189,7 +1189,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentMD5)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentMD5)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentRange(&self) -> windows_core::Result<HttpContentRangeHeaderValue> {
         let this = self;
@@ -1203,7 +1203,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<HttpContentRangeHeaderValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentRange)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentRange)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentType(&self) -> windows_core::Result<HttpMediaTypeHeaderValue> {
         let this = self;
@@ -1217,7 +1217,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<HttpMediaTypeHeaderValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentType)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Expires(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -1231,7 +1231,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetExpires)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetExpires)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn LastModified(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -1245,7 +1245,7 @@ impl HttpContentHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLastModified)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLastModified)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Append(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -1573,7 +1573,7 @@ impl HttpCookiePairHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -1581,14 +1581,14 @@ impl HttpCookiePairHeaderValueCollection {
         P1: windows_core::Param<HttpCookiePairHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpCookiePairHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
@@ -1599,7 +1599,7 @@ impl HttpCookiePairHeaderValueCollection {
         P0: windows_core::Param<HttpCookiePairHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpCookiePairHeaderValue>>(self)?;
@@ -1924,7 +1924,7 @@ impl HttpExpectationHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -1932,14 +1932,14 @@ impl HttpExpectationHeaderValueCollection {
         P1: windows_core::Param<HttpExpectationHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpExpectationHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
@@ -1950,7 +1950,7 @@ impl HttpExpectationHeaderValueCollection {
         P0: windows_core::Param<HttpExpectationHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpExpectationHeaderValue>>(self)?;
@@ -2061,7 +2061,7 @@ impl HttpLanguageHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -2069,14 +2069,14 @@ impl HttpLanguageHeaderValueCollection {
         P1: windows_core::Param<super::super::super::Globalization::Language>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::super::super::Globalization::Language>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
@@ -2087,7 +2087,7 @@ impl HttpLanguageHeaderValueCollection {
         P0: windows_core::Param<super::super::super::Globalization::Language>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::super::super::Globalization::Language>>(self)?;
@@ -2273,7 +2273,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -2281,14 +2281,14 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         P1: windows_core::Param<HttpLanguageRangeWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpLanguageRangeWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -2299,7 +2299,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         P0: windows_core::Param<HttpLanguageRangeWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -2475,7 +2475,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
         P0: windows_core::Param<super::super::super::Foundation::IReference<f64>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetQuality)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetQuality)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CreateFromMediaType(mediatype: &windows_core::HSTRING) -> windows_core::Result<HttpMediaTypeWithQualityHeaderValue> {
         Self::IHttpMediaTypeWithQualityHeaderValueFactory(|this| unsafe {
@@ -2588,7 +2588,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -2596,14 +2596,14 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         P1: windows_core::Param<HttpMediaTypeWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpMediaTypeWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -2614,7 +2614,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         P0: windows_core::Param<HttpMediaTypeWithQualityHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -2721,7 +2721,7 @@ impl HttpMethodHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -2729,14 +2729,14 @@ impl HttpMethodHeaderValueCollection {
         P1: windows_core::Param<super::HttpMethod>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<super::HttpMethod>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
@@ -2747,7 +2747,7 @@ impl HttpMethodHeaderValueCollection {
         P0: windows_core::Param<super::HttpMethod>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<super::HttpMethod>>(self)?;
@@ -3074,7 +3074,7 @@ impl HttpProductInfoHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -3082,14 +3082,14 @@ impl HttpProductInfoHeaderValueCollection {
         P1: windows_core::Param<HttpProductInfoHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpProductInfoHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
@@ -3100,7 +3100,7 @@ impl HttpProductInfoHeaderValueCollection {
         P0: windows_core::Param<HttpProductInfoHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpProductInfoHeaderValue>>(self)?;
@@ -3187,7 +3187,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<HttpCredentialsHeaderValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAuthorization)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAuthorization)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CacheControl(&self) -> windows_core::Result<HttpCacheDirectiveHeaderValueCollection> {
         let this = self;
@@ -3222,7 +3222,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Expect(&self) -> windows_core::Result<HttpExpectationHeaderValueCollection> {
         let this = self;
@@ -3256,7 +3256,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<super::super::super::Networking::HostName>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHost)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetHost)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IfModifiedSince(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -3270,7 +3270,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIfModifiedSince)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIfModifiedSince)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IfUnmodifiedSince(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -3284,7 +3284,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIfUnmodifiedSince)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIfUnmodifiedSince)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn MaxForwards(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -3298,7 +3298,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxForwards)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMaxForwards)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProxyAuthorization(&self) -> windows_core::Result<HttpCredentialsHeaderValue> {
         let this = self;
@@ -3312,7 +3312,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<HttpCredentialsHeaderValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyAuthorization)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProxyAuthorization)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Referer(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -3326,7 +3326,7 @@ impl HttpRequestHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetReferer)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetReferer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn TransferEncoding(&self) -> windows_core::Result<HttpTransferCodingHeaderValueCollection> {
         let this = self;
@@ -3455,7 +3455,7 @@ impl HttpResponseHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAge)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAge)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Allow(&self) -> windows_core::Result<HttpMethodHeaderValueCollection> {
         let this = self;
@@ -3490,7 +3490,7 @@ impl HttpResponseHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Location(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -3504,7 +3504,7 @@ impl HttpResponseHeaderCollection {
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocation)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProxyAuthenticate(&self) -> windows_core::Result<HttpChallengeHeaderValueCollection> {
         let this = self;
@@ -3525,7 +3525,7 @@ impl HttpResponseHeaderCollection {
         P0: windows_core::Param<HttpDateOrDeltaHeaderValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRetryAfter)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRetryAfter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn TransferEncoding(&self) -> windows_core::Result<HttpTransferCodingHeaderValueCollection> {
         let this = self;
@@ -3761,7 +3761,7 @@ impl HttpTransferCodingHeaderValueCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -3769,14 +3769,14 @@ impl HttpTransferCodingHeaderValueCollection {
         P1: windows_core::Param<HttpTransferCodingHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<HttpTransferCodingHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
@@ -3787,7 +3787,7 @@ impl HttpTransferCodingHeaderValueCollection {
         P0: windows_core::Param<HttpTransferCodingHeaderValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<HttpTransferCodingHeaderValue>>(self)?;

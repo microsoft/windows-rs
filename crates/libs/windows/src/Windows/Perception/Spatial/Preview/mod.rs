@@ -113,7 +113,7 @@ impl SpatialGraphInteropPreview {
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFrameOfReference)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFrameOfReference)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn TryCreateFrameOfReferenceWithPosition<P0>(coordinatesystem: P0, relativeposition: windows_numerics::Vector3) -> windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
@@ -122,7 +122,7 @@ impl SpatialGraphInteropPreview {
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), relativeposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), relativeposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -132,7 +132,7 @@ impl SpatialGraphInteropPreview {
     {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), relativeposition, relativeorientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&coordinatesystem.param().borrow()), relativeposition, relativeorientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISpatialGraphInteropPreviewStatics<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

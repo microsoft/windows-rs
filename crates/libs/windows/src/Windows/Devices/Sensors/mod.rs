@@ -37,7 +37,7 @@ impl Accelerometer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -51,7 +51,7 @@ impl Accelerometer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Shaken)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Shaken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveShaken(&self, token: i64) -> windows_core::Result<()> {
@@ -388,7 +388,7 @@ impl ActivitySensor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -661,7 +661,7 @@ impl Altimeter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -824,7 +824,7 @@ impl Barometer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1032,7 +1032,7 @@ impl Compass {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1327,7 +1327,7 @@ impl Gyrometer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1708,7 +1708,7 @@ impl HingeAngleSensor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1916,7 +1916,7 @@ impl HumanPresenceSensor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2139,7 +2139,7 @@ impl HumanPresenceSensorReadingUpdate {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTimestamp)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTimestamp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Presence(&self) -> windows_core::Result<super::super::Foundation::IReference<HumanPresence>> {
         let this = self;
@@ -2153,7 +2153,7 @@ impl HumanPresenceSensorReadingUpdate {
         P0: windows_core::Param<super::super::Foundation::IReference<HumanPresence>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPresence)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPresence)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Engagement(&self) -> windows_core::Result<super::super::Foundation::IReference<HumanEngagement>> {
         let this = self;
@@ -2167,7 +2167,7 @@ impl HumanPresenceSensorReadingUpdate {
         P0: windows_core::Param<super::super::Foundation::IReference<HumanEngagement>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEngagement)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEngagement)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn DistanceInMillimeters(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -2181,7 +2181,7 @@ impl HumanPresenceSensorReadingUpdate {
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDistanceInMillimeters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDistanceInMillimeters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn OnlookerPresence(&self) -> windows_core::Result<super::super::Foundation::IReference<HumanPresence>> {
         let this = &windows_core::Interface::cast::<IHumanPresenceSensorReadingUpdate2>(self)?;
@@ -2195,7 +2195,7 @@ impl HumanPresenceSensorReadingUpdate {
         P0: windows_core::Param<super::super::Foundation::IReference<HumanPresence>>,
     {
         let this = &windows_core::Interface::cast::<IHumanPresenceSensorReadingUpdate2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetOnlookerPresence)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOnlookerPresence)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for HumanPresenceSensorReadingUpdate {
@@ -2249,7 +2249,7 @@ impl HumanPresenceSettings {
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetWakeOnApproachDistanceInMillimeters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetWakeOnApproachDistanceInMillimeters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IsLockOnLeaveEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -2274,7 +2274,7 @@ impl HumanPresenceSettings {
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLockOnLeaveDistanceInMillimeters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLockOnLeaveDistanceInMillimeters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn LockOnLeaveTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2366,14 +2366,14 @@ impl HumanPresenceSettings {
     {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateSettingsAsync)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateSettingsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn UpdateSettings<P0>(settings: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<HumanPresenceSettings>,
     {
-        Self::IHumanPresenceSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).UpdateSettings)(windows_core::Interface::as_raw(this), settings.param().abi()).ok() })
+        Self::IHumanPresenceSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).UpdateSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow())).ok() })
     }
     pub fn GetSupportedFeaturesForSensorIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceFeatures>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
@@ -2399,7 +2399,7 @@ impl HumanPresenceSettings {
     {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SettingsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SettingsChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveSettingsChanged(token: i64) -> windows_core::Result<()> {
@@ -3300,7 +3300,7 @@ impl IHumanPresenceSensorExtension {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProcessReading)(windows_core::Interface::as_raw(this), reading.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProcessReading)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&reading.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ProcessReadingTimeoutExpired<P0>(&self, reading: P0) -> windows_core::Result<()>
@@ -3308,7 +3308,7 @@ impl IHumanPresenceSensorExtension {
         P0: windows_core::Param<HumanPresenceSensorReading>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessReadingTimeoutExpired)(windows_core::Interface::as_raw(this), reading.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessReadingTimeoutExpired)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&reading.param().borrow())).ok() }
     }
     pub fn Stop(&self) -> windows_core::Result<()> {
         let this = self;
@@ -3329,8 +3329,8 @@ impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
 pub trait IHumanPresenceSensorExtension_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, deviceInterface: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Start(&self) -> windows_core::Result<()>;
-    fn ProcessReading(&self, reading: windows_core::Ref<HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
-    fn ProcessReadingTimeoutExpired(&self, reading: windows_core::Ref<HumanPresenceSensorReading>) -> windows_core::Result<()>;
+    fn ProcessReading(&self, reading: Option<&HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
+    fn ProcessReadingTimeoutExpired(&self, reading: Option<&HumanPresenceSensorReading>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
@@ -3352,7 +3352,7 @@ impl IHumanPresenceSensorExtension_Vtbl {
         unsafe extern "system" fn ProcessReading<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IHumanPresenceSensorExtension_Impl::ProcessReading(this, core::mem::transmute_copy(&reading)) {
+                match IHumanPresenceSensorExtension_Impl::ProcessReading(this, windows_core::Ref::option_from_abi(&reading)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -3365,7 +3365,7 @@ impl IHumanPresenceSensorExtension_Vtbl {
         unsafe extern "system" fn ProcessReadingTimeoutExpired<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reading: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHumanPresenceSensorExtension_Impl::ProcessReadingTimeoutExpired(this, core::mem::transmute_copy(&reading)).into()
+                IHumanPresenceSensorExtension_Impl::ProcessReadingTimeoutExpired(this, windows_core::Ref::option_from_abi(&reading)).into()
             }
         }
         unsafe extern "system" fn Stop<Identity: IHumanPresenceSensorExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4521,7 +4521,7 @@ impl Inclinometer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -4819,7 +4819,7 @@ impl LightSensor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -5111,7 +5111,7 @@ impl Magnetometer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -5466,7 +5466,7 @@ impl OrientationSensor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -5718,7 +5718,7 @@ impl Pedometer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -5768,7 +5768,7 @@ impl Pedometer {
     {
         Self::IPedometerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetReadingsFromTriggerDetails)(windows_core::Interface::as_raw(this), triggerdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetReadingsFromTriggerDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&triggerdetails.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPedometerStatics<R, F: FnOnce(&IPedometerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -5803,7 +5803,7 @@ impl PedometerDataThreshold {
     {
         Self::IPedometerDataThresholdFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), sensor.param().abi(), stepgoal, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sensor.param().borrow()), stepgoal, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPedometerDataThresholdFactory<R, F: FnOnce(&IPedometerDataThresholdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -5948,7 +5948,7 @@ impl ProximitySensor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -5980,7 +5980,7 @@ impl ProximitySensor {
     {
         Self::IProximitySensorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetReadingsFromTriggerDetails)(windows_core::Interface::as_raw(this), triggerdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetReadingsFromTriggerDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&triggerdetails.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IProximitySensorStatics<R, F: FnOnce(&IProximitySensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -6015,7 +6015,7 @@ impl ProximitySensorDataThreshold {
     {
         Self::IProximitySensorDataThresholdFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), sensor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sensor.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IProximitySensorDataThresholdFactory<R, F: FnOnce(&IProximitySensorDataThresholdFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -6367,7 +6367,7 @@ impl SimpleOrientationSensor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OrientationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).OrientationChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveOrientationChanged(&self, token: i64) -> windows_core::Result<()> {

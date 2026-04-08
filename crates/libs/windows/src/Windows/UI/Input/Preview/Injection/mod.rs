@@ -1002,14 +1002,14 @@ impl InputInjector {
         P0: windows_core::Param<windows_collections::IIterable<InjectedInputKeyboardInfo>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectKeyboardInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectKeyboardInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&input.param().borrow())).ok() }
     }
     pub fn InjectMouseInput<P0>(&self, input: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<InjectedInputMouseInfo>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectMouseInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectMouseInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&input.param().borrow())).ok() }
     }
     pub fn InitializeTouchInjection(&self, visualmode: InjectedInputVisualizationMode) -> windows_core::Result<()> {
         let this = self;
@@ -1020,7 +1020,7 @@ impl InputInjector {
         P0: windows_core::Param<windows_collections::IIterable<InjectedInputTouchInfo>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectTouchInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectTouchInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&input.param().borrow())).ok() }
     }
     pub fn UninitializeTouchInjection(&self) -> windows_core::Result<()> {
         let this = self;
@@ -1035,7 +1035,7 @@ impl InputInjector {
         P0: windows_core::Param<InjectedInputPenInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InjectPenInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectPenInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&input.param().borrow())).ok() }
     }
     pub fn UninitializePenInjection(&self) -> windows_core::Result<()> {
         let this = self;
@@ -1054,7 +1054,7 @@ impl InputInjector {
         P0: windows_core::Param<InjectedInputGamepadInfo>,
     {
         let this = &windows_core::Interface::cast::<IInputInjector2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InjectGamepadInput)(windows_core::Interface::as_raw(this), input.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InjectGamepadInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&input.param().borrow())).ok() }
     }
     pub fn UninitializeGamepadInjection(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInputInjector2>(self)?;

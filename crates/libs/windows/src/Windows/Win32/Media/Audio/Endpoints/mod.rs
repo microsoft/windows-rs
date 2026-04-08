@@ -303,13 +303,13 @@ impl IAudioEndpointVolume {
     where
         P0: windows_core::Param<IAudioEndpointVolumeCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterControlChangeNotify)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pnotify.param().borrow())).ok() }
     }
     pub unsafe fn UnregisterControlChangeNotify<P0>(&self, pnotify: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioEndpointVolumeCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterControlChangeNotify)(windows_core::Interface::as_raw(self), pnotify.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterControlChangeNotify)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pnotify.param().borrow())).ok() }
     }
     pub unsafe fn GetChannelCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -405,8 +405,8 @@ pub struct IAudioEndpointVolume_Vtbl {
     pub GetVolumeRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
 }
 pub trait IAudioEndpointVolume_Impl: windows_core::IUnknownImpl {
-    fn RegisterControlChangeNotify(&self, pnotify: windows_core::Ref<IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
-    fn UnregisterControlChangeNotify(&self, pnotify: windows_core::Ref<IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
+    fn RegisterControlChangeNotify(&self, pnotify: Option<&IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
+    fn UnregisterControlChangeNotify(&self, pnotify: Option<&IAudioEndpointVolumeCallback>) -> windows_core::Result<()>;
     fn GetChannelCount(&self) -> windows_core::Result<u32>;
     fn SetMasterVolumeLevel(&self, fleveldb: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetMasterVolumeLevelScalar(&self, flevel: f32, pguideventcontext: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -429,13 +429,13 @@ impl IAudioEndpointVolume_Vtbl {
         unsafe extern "system" fn RegisterControlChangeNotify<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioEndpointVolume_Impl::RegisterControlChangeNotify(this, core::mem::transmute_copy(&pnotify)).into()
+                IAudioEndpointVolume_Impl::RegisterControlChangeNotify(this, windows_core::Ref::option_from_abi(&pnotify)).into()
             }
         }
         unsafe extern "system" fn UnregisterControlChangeNotify<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioEndpointVolume_Impl::UnregisterControlChangeNotify(this, core::mem::transmute_copy(&pnotify)).into()
+                IAudioEndpointVolume_Impl::UnregisterControlChangeNotify(this, windows_core::Ref::option_from_abi(&pnotify)).into()
             }
         }
         unsafe extern "system" fn GetChannelCount<Identity: IAudioEndpointVolume_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnchannelcount: *mut u32) -> windows_core::HRESULT {
@@ -832,26 +832,26 @@ impl IHardwareAudioEngineBase {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), _pwstrdeviceid.param().abi(), _uconnectorid, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&_pwstrdeviceid.param().borrow()), _uconnectorid, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetEngineFormat<P0>(&self, pdevice: P0, _brequestdeviceformat: bool, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IMMDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _brequestdeviceformat.into(), _ppwfxformat as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetEngineFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), _brequestdeviceformat.into(), _ppwfxformat as _).ok() }
     }
     pub unsafe fn SetEngineDeviceFormat<P0>(&self, pdevice: P0, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IMMDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetEngineDeviceFormat)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _pwfxformat as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetEngineDeviceFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), _pwfxformat as _).ok() }
     }
     pub unsafe fn SetGfxState<P0>(&self, pdevice: P0, _benable: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IMMDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetGfxState)(windows_core::Interface::as_raw(self), pdevice.param().abi(), _benable.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetGfxState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), _benable.into()).ok() }
     }
     pub unsafe fn GetGfxState<P0>(&self, pdevice: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -859,7 +859,7 @@ impl IHardwareAudioEngineBase {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetGfxState)(windows_core::Interface::as_raw(self), pdevice.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetGfxState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdevice.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -875,10 +875,10 @@ pub struct IHardwareAudioEngineBase_Vtbl {
 }
 pub trait IHardwareAudioEngineBase_Impl: windows_core::IUnknownImpl {
     fn GetAvailableOffloadConnectorCount(&self, _pwstrdeviceid: &windows_core::PCWSTR, _uconnectorid: u32) -> windows_core::Result<u32>;
-    fn GetEngineFormat(&self, pdevice: windows_core::Ref<super::IMMDevice>, _brequestdeviceformat: windows_core::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn SetEngineDeviceFormat(&self, pdevice: windows_core::Ref<super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn SetGfxState(&self, pdevice: windows_core::Ref<super::IMMDevice>, _benable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetGfxState(&self, pdevice: windows_core::Ref<super::IMMDevice>) -> windows_core::Result<windows_core::BOOL>;
+    fn GetEngineFormat(&self, pdevice: Option<&super::IMMDevice>, _brequestdeviceformat: windows_core::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetEngineDeviceFormat(&self, pdevice: Option<&super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetGfxState(&self, pdevice: Option<&super::IMMDevice>, _benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetGfxState(&self, pdevice: Option<&super::IMMDevice>) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IHardwareAudioEngineBase_Vtbl {
     pub const fn new<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>() -> Self {
@@ -897,25 +897,25 @@ impl IHardwareAudioEngineBase_Vtbl {
         unsafe extern "system" fn GetEngineFormat<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, _brequestdeviceformat: windows_core::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHardwareAudioEngineBase_Impl::GetEngineFormat(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&_brequestdeviceformat), core::mem::transmute_copy(&_ppwfxformat)).into()
+                IHardwareAudioEngineBase_Impl::GetEngineFormat(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&_brequestdeviceformat), core::mem::transmute_copy(&_ppwfxformat)).into()
             }
         }
         unsafe extern "system" fn SetEngineDeviceFormat<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, _pwfxformat: *mut super::WAVEFORMATEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHardwareAudioEngineBase_Impl::SetEngineDeviceFormat(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&_pwfxformat)).into()
+                IHardwareAudioEngineBase_Impl::SetEngineDeviceFormat(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&_pwfxformat)).into()
             }
         }
         unsafe extern "system" fn SetGfxState<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, _benable: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IHardwareAudioEngineBase_Impl::SetGfxState(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&_benable)).into()
+                IHardwareAudioEngineBase_Impl::SetGfxState(this, windows_core::Ref::option_from_abi(&pdevice), core::mem::transmute_copy(&_benable)).into()
             }
         }
         unsafe extern "system" fn GetGfxState<Identity: IHardwareAudioEngineBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, _pbenable: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IHardwareAudioEngineBase_Impl::GetGfxState(this, core::mem::transmute_copy(&pdevice)) {
+                match IHardwareAudioEngineBase_Impl::GetGfxState(this, windows_core::Ref::option_from_abi(&pdevice)) {
                     Ok(ok__) => {
                         _pbenable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

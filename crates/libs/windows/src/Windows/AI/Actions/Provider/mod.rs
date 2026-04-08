@@ -12,7 +12,7 @@ impl IActionFeedbackHandler {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProcessFeedbackAsync)(windows_core::Interface::as_raw(this), context.param().abi(), feedback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProcessFeedbackAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&context.param().borrow()), core::mem::transmute_copy(&feedback.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -20,14 +20,14 @@ impl windows_core::RuntimeName for IActionFeedbackHandler {
     const NAME: &'static str = "Windows.AI.Actions.Provider.IActionFeedbackHandler";
 }
 pub trait IActionFeedbackHandler_Impl: windows_core::IUnknownImpl {
-    fn ProcessFeedbackAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>, feedback: windows_core::Ref<super::ActionFeedback>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn ProcessFeedbackAsync(&self, context: Option<&super::ActionInvocationContext>, feedback: Option<&super::ActionFeedback>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 impl IActionFeedbackHandler_Vtbl {
     pub const fn new<Identity: IActionFeedbackHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ProcessFeedbackAsync<Identity: IActionFeedbackHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, feedback: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IActionFeedbackHandler_Impl::ProcessFeedbackAsync(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&feedback)) {
+                match IActionFeedbackHandler_Impl::ProcessFeedbackAsync(this, windows_core::Ref::option_from_abi(&context), windows_core::Ref::option_from_abi(&feedback)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -65,7 +65,7 @@ impl IActionProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InvokeAsync)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InvokeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&context.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -73,14 +73,14 @@ impl windows_core::RuntimeName for IActionProvider {
     const NAME: &'static str = "Windows.AI.Actions.Provider.IActionProvider";
 }
 pub trait IActionProvider_Impl: windows_core::IUnknownImpl {
-    fn InvokeAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn InvokeAsync(&self, context: Option<&super::ActionInvocationContext>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 impl IActionProvider_Vtbl {
     pub const fn new<Identity: IActionProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InvokeAsync<Identity: IActionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IActionProvider_Impl::InvokeAsync(this, core::mem::transmute_copy(&context)) {
+                match IActionProvider_Impl::InvokeAsync(this, windows_core::Ref::option_from_abi(&context)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);

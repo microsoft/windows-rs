@@ -13,7 +13,7 @@ impl IMcpMessageFilterExperimental {
         P2: windows_core::Param<McpMessageFilterResponse>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OnMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), direction, filterresponse.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OnMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), direction, core::mem::transmute_copy(&filterresponse.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeName for IMcpMessageFilterExperimental {
@@ -21,7 +21,7 @@ impl windows_core::RuntimeName for IMcpMessageFilterExperimental {
 }
 pub trait IMcpMessageFilterExperimental_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, clientAppUserModelId: &windows_core::HSTRING, clientProcessId: u32, serverIdentity: &windows_core::HSTRING, serverName: &windows_core::HSTRING, serverProcessId: u32) -> windows_core::Result<()>;
-    fn OnMessage(&self, message: &windows_core::HSTRING, direction: McpMessageDirection, filterResponse: windows_core::Ref<McpMessageFilterResponse>) -> windows_core::Result<()>;
+    fn OnMessage(&self, message: &windows_core::HSTRING, direction: McpMessageDirection, filterResponse: Option<&McpMessageFilterResponse>) -> windows_core::Result<()>;
 }
 impl IMcpMessageFilterExperimental_Vtbl {
     pub const fn new<Identity: IMcpMessageFilterExperimental_Impl, const OFFSET: isize>() -> Self {
@@ -34,7 +34,7 @@ impl IMcpMessageFilterExperimental_Vtbl {
         unsafe extern "system" fn OnMessage<Identity: IMcpMessageFilterExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, direction: McpMessageDirection, filterresponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMcpMessageFilterExperimental_Impl::OnMessage(this, core::mem::transmute(&message), direction, core::mem::transmute_copy(&filterresponse)).into()
+                IMcpMessageFilterExperimental_Impl::OnMessage(this, core::mem::transmute(&message), direction, windows_core::Ref::option_from_abi(&filterresponse)).into()
             }
         }
         Self {

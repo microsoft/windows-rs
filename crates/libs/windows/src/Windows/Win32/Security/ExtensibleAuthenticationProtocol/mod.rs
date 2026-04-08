@@ -21,7 +21,7 @@ where
     P1: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
 {
     windows_core::link!("eappcfg.dll" "system" fn EapHostPeerConfigXml2Blob(dwflags : u32, pconfigdoc : * mut core::ffi::c_void, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    unsafe { EapHostPeerConfigXml2Blob(dwflags, pconfigdoc.param().abi(), pdwsizeofconfigout as _, ppconfigout as _, peapmethodtype as _, ppeaperror as _) }
+    unsafe { EapHostPeerConfigXml2Blob(dwflags, core::mem::transmute_copy(&pconfigdoc.param().borrow()), pdwsizeofconfigout as _, ppconfigout as _, peapmethodtype as _, ppeaperror as _) }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
@@ -30,7 +30,7 @@ where
     P1: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
 {
     windows_core::link!("eappcfg.dll" "system" fn EapHostPeerCredentialsXml2Blob(dwflags : u32, pcredentialsdoc : * mut core::ffi::c_void, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofcredentialsout : *mut u32, ppcredentialsout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    unsafe { EapHostPeerCredentialsXml2Blob(dwflags, pcredentialsdoc.param().abi(), pconfigin.len().try_into().unwrap(), core::mem::transmute(pconfigin.as_ptr()), pdwsizeofcredentialsout as _, ppcredentialsout as _, peapmethodtype as _, ppeaperror as _) }
+    unsafe { EapHostPeerCredentialsXml2Blob(dwflags, core::mem::transmute_copy(&pcredentialsdoc.param().borrow()), pconfigin.len().try_into().unwrap(), core::mem::transmute(pconfigin.as_ptr()), pdwsizeofcredentialsout as _, ppcredentialsout as _, peapmethodtype as _, ppeaperror as _) }
 }
 #[inline]
 pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -73,7 +73,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("eappprxy.dll" "system" fn EapHostPeerGetEncryptedPassword(dwsizeofpassword : u32, szpassword : windows_core::PCWSTR, ppszencpassword : *mut windows_core::PWSTR) -> u32);
-    unsafe { EapHostPeerGetEncryptedPassword(dwsizeofpassword, szpassword.param().abi(), ppszencpassword as _) }
+    unsafe { EapHostPeerGetEncryptedPassword(dwsizeofpassword, core::mem::transmute_copy(&szpassword.param().borrow()), ppszencpassword as _) }
 }
 #[inline]
 pub unsafe fn EapHostPeerGetIdentity(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: super::super::Foundation::HANDLE, pfinvokeui: *mut windows_core::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
@@ -880,7 +880,7 @@ impl IAccountingProviderConfig {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmachinename.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
@@ -974,7 +974,7 @@ impl IAuthenticationProviderConfig {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmachinename.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
@@ -1068,7 +1068,7 @@ impl IEAPProviderConfig {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dweaptypeid, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmachinename.param().borrow()), dweaptypeid, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()> {
@@ -1253,14 +1253,14 @@ impl IRouterProtocolConfig {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dwtransportid, dwprotocolid, hwnd, dwflags, prouter.param().abi(), ureserved1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddProtocol)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmachinename.param().borrow()), dwtransportid, dwprotocolid, hwnd, dwflags, core::mem::transmute_copy(&prouter.param().borrow()), ureserved1).ok() }
     }
     pub unsafe fn RemoveProtocol<P0, P5>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: P5, ureserved1: usize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RemoveProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dwtransportid, dwprotocolid, hwnd, dwflags, prouter.param().abi(), ureserved1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RemoveProtocol)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmachinename.param().borrow()), dwtransportid, dwprotocolid, hwnd, dwflags, core::mem::transmute_copy(&prouter.param().borrow()), ureserved1).ok() }
     }
 }
 #[repr(C)]
@@ -1271,21 +1271,21 @@ pub struct IRouterProtocolConfig_Vtbl {
     pub RemoveProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, super::super::Foundation::HWND, u32, *mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 pub trait IRouterProtocolConfig_Impl: windows_core::IUnknownImpl {
-    fn AddProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: windows_core::Ref<windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
-    fn RemoveProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: windows_core::Ref<windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
+    fn AddProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: Option<&windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
+    fn RemoveProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: Option<&windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
 }
 impl IRouterProtocolConfig_Vtbl {
     pub const fn new<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddProtocol<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut core::ffi::c_void, ureserved1: usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRouterProtocolConfig_Impl::AddProtocol(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dwtransportid), core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&prouter), core::mem::transmute_copy(&ureserved1)).into()
+                IRouterProtocolConfig_Impl::AddProtocol(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dwtransportid), core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), windows_core::Ref::option_from_abi(&prouter), core::mem::transmute_copy(&ureserved1)).into()
             }
         }
         unsafe extern "system" fn RemoveProtocol<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut core::ffi::c_void, ureserved1: usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRouterProtocolConfig_Impl::RemoveProtocol(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dwtransportid), core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&prouter), core::mem::transmute_copy(&ureserved1)).into()
+                IRouterProtocolConfig_Impl::RemoveProtocol(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dwtransportid), core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), windows_core::Ref::option_from_abi(&prouter), core::mem::transmute_copy(&ureserved1)).into()
             }
         }
         Self {

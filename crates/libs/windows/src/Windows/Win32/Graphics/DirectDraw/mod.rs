@@ -4,7 +4,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawCreate(lpguid : *mut windows_core::GUID, lplpdd : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawCreate(lpguid as _, core::mem::transmute(lplpdd), punkouter.param().abi()).ok() }
+    unsafe { DirectDrawCreate(lpguid as _, core::mem::transmute(lplpdd), core::mem::transmute_copy(&punkouter.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DirectDrawCreateClipper<P2>(dwflags: u32, lplpddclipper: *mut Option<IDirectDrawClipper>, punkouter: P2) -> windows_core::Result<()>
@@ -12,7 +12,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawCreateClipper(dwflags : u32, lplpddclipper : *mut * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawCreateClipper(dwflags, core::mem::transmute(lplpddclipper), punkouter.param().abi()).ok() }
+    unsafe { DirectDrawCreateClipper(dwflags, core::mem::transmute(lplpddclipper), core::mem::transmute_copy(&punkouter.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DirectDrawCreateEx<P3>(lpguid: *mut windows_core::GUID, lplpdd: *mut *mut core::ffi::c_void, iid: *const windows_core::GUID, punkouter: P3) -> windows_core::Result<()>
@@ -20,7 +20,7 @@ where
     P3: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawCreateEx(lpguid as _, lplpdd as _, iid, punkouter.param().abi()).ok() }
+    unsafe { DirectDrawCreateEx(lpguid as _, lplpdd as _, iid, core::mem::transmute_copy(&punkouter.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -5796,7 +5796,7 @@ impl IDDVideoPortContainer {
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoPort)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoPort)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), core::mem::transmute_copy(&param3.param().borrow())).ok() }
     }
     pub unsafe fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumVideoPorts)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3).ok() }
@@ -5818,7 +5818,7 @@ pub struct IDDVideoPortContainer_Vtbl {
     pub QueryVideoPortStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDVIDEOPORTSTATUS) -> windows_core::HRESULT,
 }
 pub trait IDDVideoPortContainer_Impl: windows_core::IUnknownImpl {
-    fn CreateVideoPort(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: windows_core::OutRef<IDirectDrawVideoPort>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateVideoPort(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: windows_core::OutRef<IDirectDrawVideoPort>, param3: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> windows_core::Result<()>;
     fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> windows_core::Result<()>;
     fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> windows_core::Result<()>;
@@ -5828,7 +5828,7 @@ impl IDDVideoPortContainer_Vtbl {
         unsafe extern "system" fn CreateVideoPort<Identity: IDDVideoPortContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDDVideoPortContainer_Impl::CreateVideoPort(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDDVideoPortContainer_Impl::CreateVideoPort(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::Ref::option_from_abi(&param3)).into()
             }
         }
         unsafe extern "system" fn EnumVideoPorts<Identity: IDDVideoPortContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut core::ffi::c_void, param3: LPDDENUMVIDEOCALLBACK) -> windows_core::HRESULT {
@@ -5872,20 +5872,20 @@ impl IDirectDraw {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), core::mem::transmute_copy(&param3.param().borrow())).ok() }
     }
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface>
     where
@@ -5893,7 +5893,7 @@ impl IDirectDraw {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()> {
@@ -5976,10 +5976,10 @@ pub struct IDirectDraw_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDraw_Impl: windows_core::IUnknownImpl {
     fn Compact(&self) -> windows_core::Result<()>;
-    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: windows_core::OutRef<IDirectDrawSurface>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DuplicateSurface(&self, param0: windows_core::Ref<IDirectDrawSurface>) -> windows_core::Result<IDirectDrawSurface>;
+    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: windows_core::OutRef<IDirectDrawSurface>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DuplicateSurface(&self, param0: Option<&IDirectDrawSurface>) -> windows_core::Result<IDirectDrawSurface>;
     fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()>;
     fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
     fn FlipToGDISurface(&self) -> windows_core::Result<()>;
@@ -6008,25 +6008,25 @@ impl IDirectDraw_Vtbl {
         unsafe extern "system" fn CreateClipper<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn CreatePalette<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectDraw_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::Ref::option_from_abi(&param3)).into()
             }
         }
         unsafe extern "system" fn CreateSurface<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn DuplicateSurface<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDraw_Impl::DuplicateSurface(this, core::mem::transmute_copy(&param0)) {
+                match IDirectDraw_Impl::DuplicateSurface(this, windows_core::Ref::option_from_abi(&param0)) {
                     Ok(ok__) => {
                         param1.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6171,20 +6171,20 @@ impl IDirectDraw2 {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), core::mem::transmute_copy(&param3.param().borrow())).ok() }
     }
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC, param1: *mut Option<IDirectDrawSurface>, param2: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface>
     where
@@ -6192,7 +6192,7 @@ impl IDirectDraw2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()> {
@@ -6279,10 +6279,10 @@ pub struct IDirectDraw2_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDraw2_Impl: windows_core::IUnknownImpl {
     fn Compact(&self) -> windows_core::Result<()>;
-    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: windows_core::OutRef<IDirectDrawSurface>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DuplicateSurface(&self, param0: windows_core::Ref<IDirectDrawSurface>) -> windows_core::Result<IDirectDrawSurface>;
+    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: windows_core::OutRef<IDirectDrawSurface>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DuplicateSurface(&self, param0: Option<&IDirectDrawSurface>) -> windows_core::Result<IDirectDrawSurface>;
     fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> windows_core::Result<()>;
     fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
     fn FlipToGDISurface(&self) -> windows_core::Result<()>;
@@ -6312,25 +6312,25 @@ impl IDirectDraw2_Vtbl {
         unsafe extern "system" fn CreateClipper<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw2_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw2_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn CreatePalette<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw2_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectDraw2_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::Ref::option_from_abi(&param3)).into()
             }
         }
         unsafe extern "system" fn CreateSurface<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw2_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw2_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn DuplicateSurface<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDraw2_Impl::DuplicateSurface(this, core::mem::transmute_copy(&param0)) {
+                match IDirectDraw2_Impl::DuplicateSurface(this, windows_core::Ref::option_from_abi(&param0)) {
                     Ok(ok__) => {
                         param1.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6482,20 +6482,20 @@ impl IDirectDraw4 {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), core::mem::transmute_copy(&param3.param().borrow())).ok() }
     }
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface4>, param2: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface4>
     where
@@ -6503,7 +6503,7 @@ impl IDirectDraw4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()> {
@@ -6613,10 +6613,10 @@ pub struct IDirectDraw4_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDraw4_Impl: windows_core::IUnknownImpl {
     fn Compact(&self) -> windows_core::Result<()>;
-    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: windows_core::OutRef<IDirectDrawSurface4>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DuplicateSurface(&self, param0: windows_core::Ref<IDirectDrawSurface4>) -> windows_core::Result<IDirectDrawSurface4>;
+    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: windows_core::OutRef<IDirectDrawSurface4>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DuplicateSurface(&self, param0: Option<&IDirectDrawSurface4>) -> windows_core::Result<IDirectDrawSurface4>;
     fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()>;
     fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK2) -> windows_core::Result<()>;
     fn FlipToGDISurface(&self) -> windows_core::Result<()>;
@@ -6650,25 +6650,25 @@ impl IDirectDraw4_Vtbl {
         unsafe extern "system" fn CreateClipper<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw4_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw4_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn CreatePalette<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw4_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectDraw4_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::Ref::option_from_abi(&param3)).into()
             }
         }
         unsafe extern "system" fn CreateSurface<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw4_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw4_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn DuplicateSurface<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDraw4_Impl::DuplicateSurface(this, core::mem::transmute_copy(&param0)) {
+                match IDirectDraw4_Impl::DuplicateSurface(this, windows_core::Ref::option_from_abi(&param0)) {
                     Ok(ok__) => {
                         param1.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6854,20 +6854,20 @@ impl IDirectDraw7 {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateClipper)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<P3>(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut Option<IDirectDrawPalette>, param3: P3) -> windows_core::Result<()>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), param3.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreatePalette)(windows_core::Interface::as_raw(self), param0, param1 as _, core::mem::transmute(param2), core::mem::transmute_copy(&param3.param().borrow())).ok() }
     }
     pub unsafe fn CreateSurface<P2>(&self, param0: *mut DDSURFACEDESC2, param1: *mut Option<IDirectDrawSurface7>, param2: P2) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), param2.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1), core::mem::transmute_copy(&param2.param().borrow())).ok() }
     }
     pub unsafe fn DuplicateSurface<P0>(&self, param0: P0) -> windows_core::Result<IDirectDrawSurface7>
     where
@@ -6875,7 +6875,7 @@ impl IDirectDraw7 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()> {
@@ -6993,10 +6993,10 @@ pub struct IDirectDraw7_Vtbl {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDraw7_Impl: windows_core::IUnknownImpl {
     fn Compact(&self) -> windows_core::Result<()>;
-    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: windows_core::OutRef<IDirectDrawSurface7>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DuplicateSurface(&self, param0: windows_core::Ref<IDirectDrawSurface7>) -> windows_core::Result<IDirectDrawSurface7>;
+    fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: windows_core::OutRef<IDirectDrawSurface7>, param2: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DuplicateSurface(&self, param0: Option<&IDirectDrawSurface7>) -> windows_core::Result<IDirectDrawSurface7>;
     fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> windows_core::Result<()>;
     fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void, param3: LPDDENUMSURFACESCALLBACK7) -> windows_core::Result<()>;
     fn FlipToGDISurface(&self) -> windows_core::Result<()>;
@@ -7032,25 +7032,25 @@ impl IDirectDraw7_Vtbl {
         unsafe extern "system" fn CreateClipper<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw7_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw7_Impl::CreateClipper(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn CreatePalette<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw7_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
+                IDirectDraw7_Impl::CreatePalette(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), windows_core::Ref::option_from_abi(&param3)).into()
             }
         }
         unsafe extern "system" fn CreateSurface<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSURFACEDESC2, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw7_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDraw7_Impl::CreateSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2)).into()
             }
         }
         unsafe extern "system" fn DuplicateSurface<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectDraw7_Impl::DuplicateSurface(this, core::mem::transmute_copy(&param0)) {
+                match IDirectDraw7_Impl::DuplicateSurface(this, windows_core::Ref::option_from_abi(&param0)) {
                     Ok(ok__) => {
                         param1.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7254,7 +7254,7 @@ impl IDirectDrawClipper {
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn IsClipListChanged(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsClipListChanged)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -7288,7 +7288,7 @@ pub struct IDirectDrawClipper_Vtbl {
 pub trait IDirectDrawClipper_Impl: windows_core::IUnknownImpl {
     fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> windows_core::Result<()>;
     fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: Option<&IDirectDraw>, param1: u32) -> windows_core::Result<()>;
     fn IsClipListChanged(&self, param0: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> windows_core::Result<()>;
     fn SetHWnd(&self, param0: u32, param1: super::super::Foundation::HWND) -> windows_core::Result<()>;
@@ -7311,7 +7311,7 @@ impl IDirectDrawClipper_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawClipper_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawClipper_Impl::Initialize(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn IsClipListChanged<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -7513,7 +7513,7 @@ impl IDirectDrawPalette {
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1, param2 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1, param2 as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()> {
@@ -7542,7 +7542,7 @@ pub struct IDirectDrawPalette_Vtbl {
 pub trait IDirectDrawPalette_Impl: windows_core::IUnknownImpl {
     fn GetCaps(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: Option<&IDirectDraw>, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()>;
     fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7563,7 +7563,7 @@ impl IDirectDrawPalette_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawPalette_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
+                IDirectDrawPalette_Impl::Initialize(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
             }
         }
         unsafe extern "system" fn SetEntries<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> windows_core::HRESULT {
@@ -7593,7 +7593,7 @@ impl IDirectDrawSurface {
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -7602,7 +7602,7 @@ impl IDirectDrawSurface {
     where
         P1: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
@@ -7611,13 +7611,13 @@ impl IDirectDrawSurface {
     where
         P2: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, core::mem::transmute_copy(&param2.param().borrow()), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
@@ -7629,7 +7629,7 @@ impl IDirectDrawSurface {
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<IDirectDrawSurface>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
@@ -7675,7 +7675,7 @@ impl IDirectDrawSurface {
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1 as _).ok() }
     }
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
@@ -7694,7 +7694,7 @@ impl IDirectDrawSurface {
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
@@ -7706,7 +7706,7 @@ impl IDirectDrawSurface {
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -7715,7 +7715,7 @@ impl IDirectDrawSurface {
     where
         P1: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
@@ -7724,7 +7724,7 @@ impl IDirectDrawSurface {
     where
         P1: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -7773,15 +7773,15 @@ pub struct IDirectDrawSurface_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawSurface_Impl: windows_core::IUnknownImpl {
-    fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface>) -> windows_core::Result<()>;
+    fn AddAttachedSurface(&self, param0: Option<&IDirectDrawSurface>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
     fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn BltFast(&self, param0: u32, param1: u32, param2: windows_core::Ref<IDirectDrawSurface>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
-    fn DeleteAttachedSurface(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface>) -> windows_core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: Option<&IDirectDrawSurface>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: Option<&IDirectDrawSurface>) -> windows_core::Result<()>;
     fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
     fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
-    fn Flip(&self, param0: windows_core::Ref<IDirectDrawSurface>, param1: u32) -> windows_core::Result<()>;
+    fn Flip(&self, param0: Option<&IDirectDrawSurface>, param1: u32) -> windows_core::Result<()>;
     fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: windows_core::OutRef<IDirectDrawSurface>) -> windows_core::Result<()>;
     fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()>;
     fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::Result<()>;
@@ -7793,19 +7793,19 @@ pub trait IDirectDrawSurface_Impl: windows_core::IUnknownImpl {
     fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette>;
     fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: Option<&IDirectDraw>, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>;
     fn IsLost(&self) -> windows_core::Result<()>;
     fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()>;
     fn Restore(&self) -> windows_core::Result<()>;
-    fn SetClipper(&self, param0: windows_core::Ref<IDirectDrawClipper>) -> windows_core::Result<()>;
+    fn SetClipper(&self, param0: Option<&IDirectDrawClipper>) -> windows_core::Result<()>;
     fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()>;
     fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()>;
-    fn SetPalette(&self, param0: windows_core::Ref<IDirectDrawPalette>) -> windows_core::Result<()>;
+    fn SetPalette(&self, param0: Option<&IDirectDrawPalette>) -> windows_core::Result<()>;
     fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
     fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()>;
-    fn UpdateOverlayZOrder(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface>) -> windows_core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: Option<&IDirectDrawSurface>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawSurface_Vtbl {
@@ -7813,7 +7813,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::AddAttachedSurface(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface_Impl::AddAttachedSurface(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn AddOverlayDirtyRect<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
@@ -7825,7 +7825,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn Blt<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::Blt(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn BltBatch<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
@@ -7837,13 +7837,13 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn BltFast<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn DeleteAttachedSurface<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn EnumAttachedSurfaces<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
@@ -7861,7 +7861,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn Flip<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::Flip(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface_Impl::Flip(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn GetAttachedSurface<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7945,7 +7945,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface_Impl::Initialize(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn IsLost<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7975,7 +7975,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn SetClipper<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::SetClipper(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface_Impl::SetClipper(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn SetColorKey<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
@@ -7993,7 +7993,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn SetPalette<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::SetPalette(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface_Impl::SetPalette(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn Unlock<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8005,7 +8005,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn UpdateOverlay<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn UpdateOverlayDisplay<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
@@ -8017,7 +8017,7 @@ impl IDirectDrawSurface_Vtbl {
         unsafe extern "system" fn UpdateOverlayZOrder<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         Self {
@@ -8070,7 +8070,7 @@ impl IDirectDrawSurface2 {
     where
         P0: windows_core::Param<IDirectDrawSurface2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -8079,7 +8079,7 @@ impl IDirectDrawSurface2 {
     where
         P1: windows_core::Param<IDirectDrawSurface2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
@@ -8088,13 +8088,13 @@ impl IDirectDrawSurface2 {
     where
         P2: windows_core::Param<IDirectDrawSurface2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, core::mem::transmute_copy(&param2.param().borrow()), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IDirectDrawSurface2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
@@ -8106,7 +8106,7 @@ impl IDirectDrawSurface2 {
     where
         P0: windows_core::Param<IDirectDrawSurface2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<IDirectDrawSurface2>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
@@ -8152,7 +8152,7 @@ impl IDirectDrawSurface2 {
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1 as _).ok() }
     }
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
@@ -8171,7 +8171,7 @@ impl IDirectDrawSurface2 {
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
@@ -8183,7 +8183,7 @@ impl IDirectDrawSurface2 {
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -8192,7 +8192,7 @@ impl IDirectDrawSurface2 {
     where
         P1: windows_core::Param<IDirectDrawSurface2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
@@ -8201,7 +8201,7 @@ impl IDirectDrawSurface2 {
     where
         P1: windows_core::Param<IDirectDrawSurface2>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -8262,15 +8262,15 @@ pub struct IDirectDrawSurface2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawSurface2_Impl: windows_core::IUnknownImpl {
-    fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface2>) -> windows_core::Result<()>;
+    fn AddAttachedSurface(&self, param0: Option<&IDirectDrawSurface2>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
     fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn BltFast(&self, param0: u32, param1: u32, param2: windows_core::Ref<IDirectDrawSurface2>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
-    fn DeleteAttachedSurface(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface2>) -> windows_core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: Option<&IDirectDrawSurface2>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: Option<&IDirectDrawSurface2>) -> windows_core::Result<()>;
     fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
     fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
-    fn Flip(&self, param0: windows_core::Ref<IDirectDrawSurface2>, param1: u32) -> windows_core::Result<()>;
+    fn Flip(&self, param0: Option<&IDirectDrawSurface2>, param1: u32) -> windows_core::Result<()>;
     fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: windows_core::OutRef<IDirectDrawSurface2>) -> windows_core::Result<()>;
     fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()>;
     fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::Result<()>;
@@ -8282,19 +8282,19 @@ pub trait IDirectDrawSurface2_Impl: windows_core::IUnknownImpl {
     fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette>;
     fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: Option<&IDirectDraw>, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>;
     fn IsLost(&self) -> windows_core::Result<()>;
     fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()>;
     fn Restore(&self) -> windows_core::Result<()>;
-    fn SetClipper(&self, param0: windows_core::Ref<IDirectDrawClipper>) -> windows_core::Result<()>;
+    fn SetClipper(&self, param0: Option<&IDirectDrawClipper>) -> windows_core::Result<()>;
     fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()>;
     fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()>;
-    fn SetPalette(&self, param0: windows_core::Ref<IDirectDrawPalette>) -> windows_core::Result<()>;
+    fn SetPalette(&self, param0: Option<&IDirectDrawPalette>) -> windows_core::Result<()>;
     fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
     fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()>;
-    fn UpdateOverlayZOrder(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface2>) -> windows_core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: Option<&IDirectDrawSurface2>) -> windows_core::Result<()>;
     fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn PageLock(&self, param0: u32) -> windows_core::Result<()>;
     fn PageUnlock(&self, param0: u32) -> windows_core::Result<()>;
@@ -8305,7 +8305,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::AddAttachedSurface(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface2_Impl::AddAttachedSurface(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn AddOverlayDirtyRect<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
@@ -8317,7 +8317,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn Blt<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::Blt(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface2_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn BltBatch<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
@@ -8329,13 +8329,13 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn BltFast<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface2_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn DeleteAttachedSurface<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface2_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn EnumAttachedSurfaces<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
@@ -8353,7 +8353,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn Flip<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::Flip(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface2_Impl::Flip(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn GetAttachedSurface<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8437,7 +8437,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface2_Impl::Initialize(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn IsLost<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8467,7 +8467,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn SetClipper<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::SetClipper(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface2_Impl::SetClipper(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn SetColorKey<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
@@ -8485,7 +8485,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn SetPalette<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::SetPalette(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface2_Impl::SetPalette(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn Unlock<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8497,7 +8497,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn UpdateOverlay<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface2_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn UpdateOverlayDisplay<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
@@ -8509,7 +8509,7 @@ impl IDirectDrawSurface2_Vtbl {
         unsafe extern "system" fn UpdateOverlayZOrder<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface2_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn GetDDInterface<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8583,7 +8583,7 @@ impl IDirectDrawSurface3 {
     where
         P0: windows_core::Param<IDirectDrawSurface3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -8592,7 +8592,7 @@ impl IDirectDrawSurface3 {
     where
         P1: windows_core::Param<IDirectDrawSurface3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
@@ -8601,13 +8601,13 @@ impl IDirectDrawSurface3 {
     where
         P2: windows_core::Param<IDirectDrawSurface3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, core::mem::transmute_copy(&param2.param().borrow()), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IDirectDrawSurface3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
@@ -8619,7 +8619,7 @@ impl IDirectDrawSurface3 {
     where
         P0: windows_core::Param<IDirectDrawSurface3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut Option<IDirectDrawSurface3>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
@@ -8665,7 +8665,7 @@ impl IDirectDrawSurface3 {
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1 as _).ok() }
     }
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
@@ -8684,7 +8684,7 @@ impl IDirectDrawSurface3 {
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
@@ -8696,7 +8696,7 @@ impl IDirectDrawSurface3 {
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -8705,7 +8705,7 @@ impl IDirectDrawSurface3 {
     where
         P1: windows_core::Param<IDirectDrawSurface3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
@@ -8714,7 +8714,7 @@ impl IDirectDrawSurface3 {
     where
         P1: windows_core::Param<IDirectDrawSurface3>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -8779,15 +8779,15 @@ pub struct IDirectDrawSurface3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawSurface3_Impl: windows_core::IUnknownImpl {
-    fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface3>) -> windows_core::Result<()>;
+    fn AddAttachedSurface(&self, param0: Option<&IDirectDrawSurface3>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
     fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn BltFast(&self, param0: u32, param1: u32, param2: windows_core::Ref<IDirectDrawSurface3>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
-    fn DeleteAttachedSurface(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface3>) -> windows_core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: Option<&IDirectDrawSurface3>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: Option<&IDirectDrawSurface3>) -> windows_core::Result<()>;
     fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
     fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK) -> windows_core::Result<()>;
-    fn Flip(&self, param0: windows_core::Ref<IDirectDrawSurface3>, param1: u32) -> windows_core::Result<()>;
+    fn Flip(&self, param0: Option<&IDirectDrawSurface3>, param1: u32) -> windows_core::Result<()>;
     fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: windows_core::OutRef<IDirectDrawSurface3>) -> windows_core::Result<()>;
     fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()>;
     fn GetCaps(&self, param0: *mut DDSCAPS) -> windows_core::Result<()>;
@@ -8799,19 +8799,19 @@ pub trait IDirectDrawSurface3_Impl: windows_core::IUnknownImpl {
     fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette>;
     fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: Option<&IDirectDraw>, param1: *mut DDSURFACEDESC) -> windows_core::Result<()>;
     fn IsLost(&self) -> windows_core::Result<()>;
     fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()>;
     fn Restore(&self) -> windows_core::Result<()>;
-    fn SetClipper(&self, param0: windows_core::Ref<IDirectDrawClipper>) -> windows_core::Result<()>;
+    fn SetClipper(&self, param0: Option<&IDirectDrawClipper>) -> windows_core::Result<()>;
     fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()>;
     fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()>;
-    fn SetPalette(&self, param0: windows_core::Ref<IDirectDrawPalette>) -> windows_core::Result<()>;
+    fn SetPalette(&self, param0: Option<&IDirectDrawPalette>) -> windows_core::Result<()>;
     fn Unlock(&self, param0: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
     fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()>;
-    fn UpdateOverlayZOrder(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface3>) -> windows_core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: Option<&IDirectDrawSurface3>) -> windows_core::Result<()>;
     fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn PageLock(&self, param0: u32) -> windows_core::Result<()>;
     fn PageUnlock(&self, param0: u32) -> windows_core::Result<()>;
@@ -8823,7 +8823,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::AddAttachedSurface(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface3_Impl::AddAttachedSurface(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn AddOverlayDirtyRect<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
@@ -8835,7 +8835,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn Blt<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::Blt(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface3_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn BltBatch<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
@@ -8847,13 +8847,13 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn BltFast<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface3_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn DeleteAttachedSurface<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface3_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn EnumAttachedSurfaces<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK) -> windows_core::HRESULT {
@@ -8871,7 +8871,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn Flip<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::Flip(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface3_Impl::Flip(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn GetAttachedSurface<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8955,7 +8955,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface3_Impl::Initialize(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn IsLost<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8985,7 +8985,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn SetClipper<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::SetClipper(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface3_Impl::SetClipper(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn SetColorKey<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
@@ -9003,7 +9003,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn SetPalette<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::SetPalette(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface3_Impl::SetPalette(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn Unlock<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9015,7 +9015,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn UpdateOverlay<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface3_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn UpdateOverlayDisplay<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
@@ -9027,7 +9027,7 @@ impl IDirectDrawSurface3_Vtbl {
         unsafe extern "system" fn UpdateOverlayZOrder<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface3_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn GetDDInterface<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9108,7 +9108,7 @@ impl IDirectDrawSurface4 {
     where
         P0: windows_core::Param<IDirectDrawSurface4>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -9117,7 +9117,7 @@ impl IDirectDrawSurface4 {
     where
         P1: windows_core::Param<IDirectDrawSurface4>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
@@ -9126,13 +9126,13 @@ impl IDirectDrawSurface4 {
     where
         P2: windows_core::Param<IDirectDrawSurface4>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, core::mem::transmute_copy(&param2.param().borrow()), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IDirectDrawSurface4>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
@@ -9144,7 +9144,7 @@ impl IDirectDrawSurface4 {
     where
         P0: windows_core::Param<IDirectDrawSurface4>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<IDirectDrawSurface4>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
@@ -9190,7 +9190,7 @@ impl IDirectDrawSurface4 {
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1 as _).ok() }
     }
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
@@ -9209,7 +9209,7 @@ impl IDirectDrawSurface4 {
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
@@ -9221,7 +9221,7 @@ impl IDirectDrawSurface4 {
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -9230,7 +9230,7 @@ impl IDirectDrawSurface4 {
     where
         P1: windows_core::Param<IDirectDrawSurface4>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
@@ -9239,7 +9239,7 @@ impl IDirectDrawSurface4 {
     where
         P1: windows_core::Param<IDirectDrawSurface4>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -9324,15 +9324,15 @@ pub struct IDirectDrawSurface4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawSurface4_Impl: windows_core::IUnknownImpl {
-    fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface4>) -> windows_core::Result<()>;
+    fn AddAttachedSurface(&self, param0: Option<&IDirectDrawSurface4>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
     fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn BltFast(&self, param0: u32, param1: u32, param2: windows_core::Ref<IDirectDrawSurface4>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
-    fn DeleteAttachedSurface(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface4>) -> windows_core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: Option<&IDirectDrawSurface4>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: Option<&IDirectDrawSurface4>) -> windows_core::Result<()>;
     fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::Result<()>;
     fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK2) -> windows_core::Result<()>;
-    fn Flip(&self, param0: windows_core::Ref<IDirectDrawSurface4>, param1: u32) -> windows_core::Result<()>;
+    fn Flip(&self, param0: Option<&IDirectDrawSurface4>, param1: u32) -> windows_core::Result<()>;
     fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: windows_core::OutRef<IDirectDrawSurface4>) -> windows_core::Result<()>;
     fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()>;
     fn GetCaps(&self, param0: *mut DDSCAPS2) -> windows_core::Result<()>;
@@ -9344,19 +9344,19 @@ pub trait IDirectDrawSurface4_Impl: windows_core::IUnknownImpl {
     fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette>;
     fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: *mut DDSURFACEDESC2) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: Option<&IDirectDraw>, param1: *mut DDSURFACEDESC2) -> windows_core::Result<()>;
     fn IsLost(&self) -> windows_core::Result<()>;
     fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()>;
     fn Restore(&self) -> windows_core::Result<()>;
-    fn SetClipper(&self, param0: windows_core::Ref<IDirectDrawClipper>) -> windows_core::Result<()>;
+    fn SetClipper(&self, param0: Option<&IDirectDrawClipper>) -> windows_core::Result<()>;
     fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()>;
     fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()>;
-    fn SetPalette(&self, param0: windows_core::Ref<IDirectDrawPalette>) -> windows_core::Result<()>;
+    fn SetPalette(&self, param0: Option<&IDirectDrawPalette>) -> windows_core::Result<()>;
     fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
     fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()>;
-    fn UpdateOverlayZOrder(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface4>) -> windows_core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: Option<&IDirectDrawSurface4>) -> windows_core::Result<()>;
     fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn PageLock(&self, param0: u32) -> windows_core::Result<()>;
     fn PageUnlock(&self, param0: u32) -> windows_core::Result<()>;
@@ -9373,7 +9373,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::AddAttachedSurface(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface4_Impl::AddAttachedSurface(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn AddOverlayDirtyRect<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
@@ -9385,7 +9385,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn Blt<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::Blt(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface4_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn BltBatch<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
@@ -9397,13 +9397,13 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn BltFast<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface4_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn DeleteAttachedSurface<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface4_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn EnumAttachedSurfaces<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK2) -> windows_core::HRESULT {
@@ -9421,7 +9421,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn Flip<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::Flip(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface4_Impl::Flip(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn GetAttachedSurface<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9505,7 +9505,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface4_Impl::Initialize(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn IsLost<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9535,7 +9535,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn SetClipper<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::SetClipper(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface4_Impl::SetClipper(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn SetColorKey<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
@@ -9553,7 +9553,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn SetPalette<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::SetPalette(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface4_Impl::SetPalette(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn Unlock<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
@@ -9565,7 +9565,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn UpdateOverlay<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface4_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn UpdateOverlayDisplay<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
@@ -9577,7 +9577,7 @@ impl IDirectDrawSurface4_Vtbl {
         unsafe extern "system" fn UpdateOverlayZOrder<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface4_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn GetDDInterface<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9693,7 +9693,7 @@ impl IDirectDrawSurface7 {
     where
         P0: windows_core::Param<IDirectDrawSurface7>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAttachedSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddOverlayDirtyRect)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -9702,7 +9702,7 @@ impl IDirectDrawSurface7 {
     where
         P1: windows_core::Param<IDirectDrawSurface7>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2).ok() }
@@ -9711,13 +9711,13 @@ impl IDirectDrawSurface7 {
     where
         P2: windows_core::Param<IDirectDrawSurface7>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, param2.param().abi(), param3 as _, param4).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BltFast)(windows_core::Interface::as_raw(self), param0, param1, core::mem::transmute_copy(&param2.param().borrow()), param3 as _, param4).ok() }
     }
     pub unsafe fn DeleteAttachedSurface<P1>(&self, param0: u32, param1: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IDirectDrawSurface7>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttachedSurface)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumAttachedSurfaces)(windows_core::Interface::as_raw(self), param0 as _, param1).ok() }
@@ -9729,7 +9729,7 @@ impl IDirectDrawSurface7 {
     where
         P0: windows_core::Param<IDirectDrawSurface7>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut Option<IDirectDrawSurface7>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttachedSurface)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute(param1)).ok() }
@@ -9775,7 +9775,7 @@ impl IDirectDrawSurface7 {
     where
         P0: windows_core::Param<IDirectDraw>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0.param().abi(), param1 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1 as _).ok() }
     }
     pub unsafe fn IsLost(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsLost)(windows_core::Interface::as_raw(self)).ok() }
@@ -9794,7 +9794,7 @@ impl IDirectDrawSurface7 {
     where
         P0: windows_core::Param<IDirectDrawClipper>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetClipper)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColorKey)(windows_core::Interface::as_raw(self), param0, param1 as _).ok() }
@@ -9806,7 +9806,7 @@ impl IDirectDrawSurface7 {
     where
         P0: windows_core::Param<IDirectDrawPalette>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), param0.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPalette)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow())).ok() }
     }
     pub unsafe fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -9815,7 +9815,7 @@ impl IDirectDrawSurface7 {
     where
         P1: windows_core::Param<IDirectDrawSurface7>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, core::mem::transmute_copy(&param1.param().borrow()), param2 as _, param3, core::mem::transmute(param4)).ok() }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0).ok() }
@@ -9824,7 +9824,7 @@ impl IDirectDrawSurface7 {
     where
         P1: windows_core::Param<IDirectDrawSurface7>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, param1.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlayZOrder)(windows_core::Interface::as_raw(self), param0, core::mem::transmute_copy(&param1.param().borrow())).ok() }
     }
     pub unsafe fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDDInterface)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -9925,15 +9925,15 @@ pub struct IDirectDrawSurface7_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawSurface7_Impl: windows_core::IUnknownImpl {
-    fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface7>) -> windows_core::Result<()>;
+    fn AddAttachedSurface(&self, param0: Option<&IDirectDrawSurface7>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
     fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn BltFast(&self, param0: u32, param1: u32, param2: windows_core::Ref<IDirectDrawSurface7>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
-    fn DeleteAttachedSurface(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface7>) -> windows_core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: Option<&IDirectDrawSurface7>, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: Option<&IDirectDrawSurface7>) -> windows_core::Result<()>;
     fn EnumAttachedSurfaces(&self, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::Result<()>;
     fn EnumOverlayZOrders(&self, param0: u32, param1: *mut core::ffi::c_void, param2: LPDDENUMSURFACESCALLBACK7) -> windows_core::Result<()>;
-    fn Flip(&self, param0: windows_core::Ref<IDirectDrawSurface7>, param1: u32) -> windows_core::Result<()>;
+    fn Flip(&self, param0: Option<&IDirectDrawSurface7>, param1: u32) -> windows_core::Result<()>;
     fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: windows_core::OutRef<IDirectDrawSurface7>) -> windows_core::Result<()>;
     fn GetBltStatus(&self, param0: u32) -> windows_core::Result<()>;
     fn GetCaps(&self, param0: *mut DDSCAPS2) -> windows_core::Result<()>;
@@ -9945,19 +9945,19 @@ pub trait IDirectDrawSurface7_Impl: windows_core::IUnknownImpl {
     fn GetPalette(&self) -> windows_core::Result<IDirectDrawPalette>;
     fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: *mut DDSURFACEDESC2) -> windows_core::Result<()>;
+    fn Initialize(&self, param0: Option<&IDirectDraw>, param1: *mut DDSURFACEDESC2) -> windows_core::Result<()>;
     fn IsLost(&self) -> windows_core::Result<()>;
     fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn ReleaseDC(&self, param0: super::Gdi::HDC) -> windows_core::Result<()>;
     fn Restore(&self) -> windows_core::Result<()>;
-    fn SetClipper(&self, param0: windows_core::Ref<IDirectDrawClipper>) -> windows_core::Result<()>;
+    fn SetClipper(&self, param0: Option<&IDirectDrawClipper>) -> windows_core::Result<()>;
     fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::Result<()>;
     fn SetOverlayPosition(&self, param0: i32, param1: i32) -> windows_core::Result<()>;
-    fn SetPalette(&self, param0: windows_core::Ref<IDirectDrawPalette>) -> windows_core::Result<()>;
+    fn SetPalette(&self, param0: Option<&IDirectDrawPalette>) -> windows_core::Result<()>;
     fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: windows_core::Ref<IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: Option<&IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::Result<()>;
     fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::Result<()>;
-    fn UpdateOverlayZOrder(&self, param0: u32, param1: windows_core::Ref<IDirectDrawSurface7>) -> windows_core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: Option<&IDirectDrawSurface7>) -> windows_core::Result<()>;
     fn GetDDInterface(&self, param0: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn PageLock(&self, param0: u32) -> windows_core::Result<()>;
     fn PageUnlock(&self, param0: u32) -> windows_core::Result<()>;
@@ -9978,7 +9978,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::AddAttachedSurface(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface7_Impl::AddAttachedSurface(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn AddOverlayDirtyRect<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
@@ -9990,7 +9990,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn Blt<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::Blt(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface7_Impl::Blt(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn BltBatch<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
@@ -10002,13 +10002,13 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn BltFast<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: u32, param2: *mut core::ffi::c_void, param3: *mut super::super::Foundation::RECT, param4: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface7_Impl::BltFast(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), windows_core::Ref::option_from_abi(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn DeleteAttachedSurface<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface7_Impl::DeleteAttachedSurface(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn EnumAttachedSurfaces<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: LPDDENUMSURFACESCALLBACK7) -> windows_core::HRESULT {
@@ -10026,7 +10026,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn Flip<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::Flip(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface7_Impl::Flip(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn GetAttachedSurface<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDSCAPS2, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10110,7 +10110,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: *mut DDSURFACEDESC2) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface7_Impl::Initialize(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn IsLost<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10140,7 +10140,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn SetClipper<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::SetClipper(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface7_Impl::SetClipper(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn SetColorKey<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDCOLORKEY) -> windows_core::HRESULT {
@@ -10158,7 +10158,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn SetPalette<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::SetPalette(this, core::mem::transmute_copy(&param0)).into()
+                IDirectDrawSurface7_Impl::SetPalette(this, windows_core::Ref::option_from_abi(&param0)).into()
             }
         }
         unsafe extern "system" fn Unlock<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
@@ -10170,7 +10170,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn UpdateOverlay<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
+                IDirectDrawSurface7_Impl::UpdateOverlay(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3), core::mem::transmute_copy(&param4)).into()
             }
         }
         unsafe extern "system" fn UpdateOverlayDisplay<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
@@ -10182,7 +10182,7 @@ impl IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn UpdateOverlayZOrder<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawSurface7_Impl::UpdateOverlayZOrder(this, core::mem::transmute_copy(&param0), windows_core::Ref::option_from_abi(&param1)).into()
             }
         }
         unsafe extern "system" fn GetDDInterface<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10372,7 +10372,7 @@ impl IDirectDrawVideoPort {
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Flip)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn GetBandwidthInfo(&self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBandwidthInfo)(windows_core::Interface::as_raw(self), param0 as _, param1, param2, param3, param4 as _).ok() }
@@ -10402,7 +10402,7 @@ impl IDirectDrawVideoPort {
     where
         P0: windows_core::Param<IDirectDrawSurface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetTargetSurface)(windows_core::Interface::as_raw(self), param0.param().abi(), param1).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetTargetSurface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&param0.param().borrow()), param1).ok() }
     }
     pub unsafe fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StartVideo)(windows_core::Interface::as_raw(self), param0 as _).ok() }
@@ -10437,7 +10437,7 @@ pub struct IDirectDrawVideoPort_Vtbl {
     pub WaitForSync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IDirectDrawVideoPort_Impl: windows_core::IUnknownImpl {
-    fn Flip(&self, param0: windows_core::Ref<IDirectDrawSurface>, param1: u32) -> windows_core::Result<()>;
+    fn Flip(&self, param0: Option<&IDirectDrawSurface>, param1: u32) -> windows_core::Result<()>;
     fn GetBandwidthInfo(&self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> windows_core::Result<()>;
     fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()>;
     fn GetInputFormats(&self, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> windows_core::Result<()>;
@@ -10446,7 +10446,7 @@ pub trait IDirectDrawVideoPort_Impl: windows_core::IUnknownImpl {
     fn GetVideoLine(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn GetVideoSignalStatus(&self, param0: *mut u32) -> windows_core::Result<()>;
     fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()>;
-    fn SetTargetSurface(&self, param0: windows_core::Ref<IDirectDrawSurface>, param1: u32) -> windows_core::Result<()>;
+    fn SetTargetSurface(&self, param0: Option<&IDirectDrawSurface>, param1: u32) -> windows_core::Result<()>;
     fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> windows_core::Result<()>;
     fn StopVideo(&self) -> windows_core::Result<()>;
     fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> windows_core::Result<()>;
@@ -10457,7 +10457,7 @@ impl IDirectDrawVideoPort_Vtbl {
         unsafe extern "system" fn Flip<Identity: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawVideoPort_Impl::Flip(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawVideoPort_Impl::Flip(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn GetBandwidthInfo<Identity: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> windows_core::HRESULT {
@@ -10511,7 +10511,7 @@ impl IDirectDrawVideoPort_Vtbl {
         unsafe extern "system" fn SetTargetSurface<Identity: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void, param1: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawVideoPort_Impl::SetTargetSurface(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
+                IDirectDrawVideoPort_Impl::SetTargetSurface(this, windows_core::Ref::option_from_abi(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
         unsafe extern "system" fn StartVideo<Identity: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDVIDEOPORTINFO) -> windows_core::HRESULT {

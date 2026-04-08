@@ -179,7 +179,7 @@ impl IPrintCustomOptionDetails {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -355,7 +355,7 @@ impl IPrintItemListOptionDetails {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -489,7 +489,7 @@ impl IPrintNumberOptionDetails {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -599,7 +599,7 @@ impl IPrintOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -614,7 +614,7 @@ pub trait IPrintOptionDetails_Impl: windows_core::IUnknownImpl {
     fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()>;
     fn State(&self) -> windows_core::Result<PrintOptionStates>;
     fn Value(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn TrySetValue(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<bool>;
+    fn TrySetValue(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<bool>;
 }
 impl IPrintOptionDetails_Vtbl {
     pub const fn new<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>() -> Self {
@@ -696,7 +696,7 @@ impl IPrintOptionDetails_Vtbl {
         unsafe extern "system" fn TrySetValue<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPrintOptionDetails_Impl::TrySetValue(this, core::mem::transmute_copy(&value)) {
+                match IPrintOptionDetails_Impl::TrySetValue(this, windows_core::Ref::option_from_abi(&value)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -896,7 +896,7 @@ impl IPrintTextOptionDetails {
         let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1017,7 +1017,7 @@ impl PrintBindingOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1118,7 +1118,7 @@ impl PrintBorderingOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1219,7 +1219,7 @@ impl PrintCollationOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1320,7 +1320,7 @@ impl PrintColorModeOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1428,7 +1428,7 @@ impl PrintCopiesOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1496,7 +1496,7 @@ impl PrintCustomItemListOptionDetails {
         P3: windows_core::Param<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
         let this = &windows_core::Interface::cast::<IPrintCustomItemListOptionDetails2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(description), icon.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(description), core::mem::transmute_copy(&icon.param().borrow())).ok() }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
@@ -1588,7 +1588,7 @@ impl PrintCustomItemListOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1704,7 +1704,7 @@ impl PrintCustomTextOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1809,7 +1809,7 @@ impl PrintCustomToggleOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1910,7 +1910,7 @@ impl PrintDuplexOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -2011,7 +2011,7 @@ impl PrintHolePunchOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -2112,7 +2112,7 @@ impl PrintMediaSizeOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -2213,7 +2213,7 @@ impl PrintMediaTypeOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -2355,7 +2355,7 @@ impl PrintOrientationOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2448,7 +2448,7 @@ impl PrintPageRangeOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2549,7 +2549,7 @@ impl PrintQualityOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2650,7 +2650,7 @@ impl PrintStapleOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2747,7 +2747,7 @@ impl PrintTaskOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OptionChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).OptionChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveOptionChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -2761,7 +2761,7 @@ impl PrintTaskOptionDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BeginValidation)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BeginValidation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBeginValidation(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -2781,7 +2781,7 @@ impl PrintTaskOptionDetails {
     {
         Self::IPrintTaskOptionDetailsStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromPrintTaskOptions)(windows_core::Interface::as_raw(this), printtaskoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromPrintTaskOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&printtaskoptions.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<super::PrintPageDescription> {

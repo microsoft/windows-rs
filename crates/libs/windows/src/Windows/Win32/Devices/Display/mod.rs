@@ -210,7 +210,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("gdi32.dll" "system" fn EngLoadModule(pwsz : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { EngLoadModule(pwsz.param().abi()) }
+    unsafe { EngLoadModule(core::mem::transmute_copy(&pwsz.param().borrow())) }
 }
 #[inline]
 pub unsafe fn EngLockSurface(hsurf: HSURF) -> *mut SURFOBJ {
@@ -301,7 +301,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : windows_core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : windows_core::PCWSTR, bytesinunicodestring : u32));
-    unsafe { EngUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring.param().abi(), bytesinunicodestring) }
+    unsafe { EngUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&unicodestring.param().borrow()), bytesinunicodestring) }
 }
 #[inline]
 pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
@@ -314,7 +314,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : windows_core::PCWSTR, bytesinwidecharstring : i32, multibytestring : windows_core::PSTR, bytesinmultibytestring : i32) -> i32);
-    unsafe { EngWideCharToMultiByte(codepage, widecharstring.param().abi(), bytesinwidecharstring, core::mem::transmute(multibytestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { EngWideCharToMultiByte(codepage, core::mem::transmute_copy(&widecharstring.param().borrow()), bytesinwidecharstring, core::mem::transmute(multibytestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), multibytestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32 {
@@ -437,7 +437,7 @@ where
     windows_core::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut core::ffi::c_void, pdwnumberofphysicalmonitors : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.param().abi(), &mut result__).map(|| result__)
+        GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(core::mem::transmute_copy(&pdirect3ddevice9.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -453,7 +453,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
     windows_core::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut core::ffi::c_void, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> windows_core::HRESULT);
-    unsafe { GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.param().abi(), pphysicalmonitorarray.len().try_into().unwrap(), core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok() }
+    unsafe { GetPhysicalMonitorsFromIDirect3DDevice9(core::mem::transmute_copy(&pdirect3ddevice9.param().borrow()), pphysicalmonitorarray.len().try_into().unwrap(), core::mem::transmute(pphysicalmonitorarray.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn GetTimingReport(hmonitor: super::super::Foundation::HANDLE, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32 {
@@ -2757,19 +2757,19 @@ impl ICloneViewHelper {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetConnectedIDs)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), pulcount as _, pulid as _, ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConnectedIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszadaptorname.param().borrow()), pulcount as _, pulid as _, ulflags).ok() }
     }
     pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, pulcount as _, pultargetid as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetActiveTopology)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszadaptorname.param().borrow()), ulsourceid, pulcount as _, pultargetid as _).ok() }
     }
     pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, ulcount, pultargetid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetActiveTopology)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszadaptorname.param().borrow()), ulsourceid, ulcount, pultargetid).ok() }
     }
     pub unsafe fn Commit(&self, ffinalcall: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), ffinalcall.into()).ok() }
@@ -3186,19 +3186,19 @@ impl IViewHelper {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetConnectedIDs)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), pulcount as _, pulid as _, ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetConnectedIDs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszadaptorname.param().borrow()), pulcount as _, pulid as _, ulflags).ok() }
     }
     pub unsafe fn GetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, pulcount as _, pultargetid as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetActiveTopology)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszadaptorname.param().borrow()), ulsourceid, pulcount as _, pultargetid as _).ok() }
     }
     pub unsafe fn SetActiveTopology<P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetActiveTopology)(windows_core::Interface::as_raw(self), wszadaptorname.param().abi(), ulsourceid, ulcount, pultargetid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetActiveTopology)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszadaptorname.param().borrow()), ulsourceid, ulcount, pultargetid).ok() }
     }
     pub unsafe fn Commit(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)).ok() }
@@ -3210,7 +3210,7 @@ impl IViewHelper {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), pistream.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).SetConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pistream.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> windows_core::Result<()> {
@@ -3237,7 +3237,7 @@ pub trait IViewHelper_Impl: windows_core::IUnknownImpl {
     fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>;
     fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
-    fn SetConfiguration(&self, pistream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<u32>;
+    fn SetConfiguration(&self, pistream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<u32>;
     fn GetProceedOnNewConfiguration(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3270,7 +3270,7 @@ impl IViewHelper_Vtbl {
         unsafe extern "system" fn SetConfiguration<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pulstatus: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IViewHelper_Impl::SetConfiguration(this, core::mem::transmute_copy(&pistream)) {
+                match IViewHelper_Impl::SetConfiguration(this, windows_core::Ref::option_from_abi(&pistream)) {
                     Ok(ok__) => {
                         pulstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

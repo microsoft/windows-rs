@@ -8,28 +8,28 @@ impl CompositionDebugHeatMaps {
         P0: windows_core::Param<super::Visual>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&subtree.param().borrow())).ok() }
     }
     pub fn ShowMemoryUsage<P0>(&self, subtree: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Visual>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowMemoryUsage)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowMemoryUsage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&subtree.param().borrow())).ok() }
     }
     pub fn ShowOverdraw<P0>(&self, subtree: P0, contentkinds: CompositionDebugOverdrawContentKinds) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Visual>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowOverdraw)(windows_core::Interface::as_raw(this), subtree.param().abi(), contentkinds).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowOverdraw)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&subtree.param().borrow()), contentkinds).ok() }
     }
     pub fn ShowRedraw<P0>(&self, subtree: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Visual>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowRedraw)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowRedraw)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&subtree.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for CompositionDebugHeatMaps {
@@ -115,7 +115,7 @@ impl CompositionDebugSettings {
     {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetSettings)(windows_core::Interface::as_raw(this), compositor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&compositor.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ICompositionDebugSettingsStatics<R, F: FnOnce(&ICompositionDebugSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

@@ -8,7 +8,7 @@ where
     windows_core::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : *const super:: SID_AND_ATTRIBUTES, dwcapabilitycount : u32, ppsidappcontainersid : *mut super:: PSID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateAppContainerProfile(pszappcontainername.param().abi(), pszdisplayname.param().abi(), pszdescription.param().abi(), core::mem::transmute(pcapabilities.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
+        CreateAppContainerProfile(core::mem::transmute_copy(&pszappcontainername.param().borrow()), core::mem::transmute_copy(&pszdisplayname.param().borrow()), core::mem::transmute_copy(&pszdescription.param().borrow()), core::mem::transmute(pcapabilities.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -17,7 +17,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn DeleteAppContainerProfile(pszappcontainername : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { DeleteAppContainerProfile(pszappcontainername.param().abi()).ok() }
+    unsafe { DeleteAppContainerProfile(core::mem::transmute_copy(&pszappcontainername.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<P0>(pszappcontainername: P0) -> windows_core::Result<super::PSID>
@@ -27,7 +27,7 @@ where
     windows_core::link!("userenv.dll" "system" fn DeriveAppContainerSidFromAppContainerName(pszappcontainername : windows_core::PCWSTR, ppsidappcontainersid : *mut super:: PSID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DeriveAppContainerSidFromAppContainerName(pszappcontainername.param().abi(), &mut result__).map(|| result__)
+        DeriveAppContainerSidFromAppContainerName(core::mem::transmute_copy(&pszappcontainername.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -38,7 +38,7 @@ where
     windows_core::link!("userenv.dll" "system" fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid : super:: PSID, pszrestrictedappcontainername : windows_core::PCWSTR, ppsidrestrictedappcontainersid : *mut super:: PSID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid, pszrestrictedappcontainername.param().abi(), &mut result__).map(|| result__)
+        DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid, core::mem::transmute_copy(&pszrestrictedappcontainername.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -49,7 +49,7 @@ where
     windows_core::link!("userenv.dll" "system" fn GetAppContainerFolderPath(pszappcontainersid : windows_core::PCWSTR, ppszpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetAppContainerFolderPath(pszappcontainersid.param().abi(), &mut result__).map(|| result__)
+        GetAppContainerFolderPath(core::mem::transmute_copy(&pszappcontainersid.param().borrow()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -106,7 +106,7 @@ impl IIsolatedAppLauncher {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Launch)(windows_core::Interface::as_raw(self), appusermodelid.param().abi(), arguments.param().abi(), telemetryparameters).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Launch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&appusermodelid.param().borrow()), core::mem::transmute_copy(&arguments.param().borrow()), telemetryparameters).ok() }
     }
 }
 #[repr(C)]
@@ -142,14 +142,14 @@ impl IIsolatedProcessLauncher {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LaunchProcess)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LaunchProcess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&process.param().borrow()), core::mem::transmute_copy(&arguments.param().borrow()), core::mem::transmute_copy(&workingdirectory.param().borrow())).ok() }
     }
     pub unsafe fn ShareDirectory<P0, P1>(&self, hostpath: P0, containerpath: P1, readonly: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ShareDirectory)(windows_core::Interface::as_raw(self), hostpath.param().abi(), containerpath.param().abi(), readonly.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).ShareDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&hostpath.param().borrow()), core::mem::transmute_copy(&containerpath.param().borrow()), readonly.into()).ok() }
     }
     pub unsafe fn GetContainerGuid(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
@@ -257,7 +257,7 @@ impl IIsolatedProcessLauncher2 {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), process.param().abi(), arguments.param().abi(), workingdirectory.param().abi(), correlationguid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LaunchProcess2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&process.param().borrow()), core::mem::transmute_copy(&arguments.param().borrow()), core::mem::transmute_copy(&workingdirectory.param().borrow()), correlationguid).ok() }
     }
 }
 #[repr(C)]

@@ -406,7 +406,7 @@ impl PrintTicketFeature {
         P0: windows_core::Param<PrintTicketOption>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSelectedOption)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSelectedOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SelectionType(&self) -> windows_core::Result<PrintTicketFeatureSelectionType> {
         let this = self;
@@ -632,7 +632,7 @@ impl PrintTicketParameterInitializer {
         P0: windows_core::Param<PrintTicketValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Value(&self) -> windows_core::Result<PrintTicketValue> {
         let this = self;
@@ -895,7 +895,7 @@ impl WorkflowPrintTicket {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MergeAndValidateTicket)(windows_core::Interface::as_raw(this), deltashematicket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MergeAndValidateTicket)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&deltashematicket.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -905,7 +905,7 @@ impl WorkflowPrintTicket {
     {
         Self::IWorkflowPrintTicketFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticketstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), core::mem::transmute_copy(&printticketstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWorkflowPrintTicketFactory<R, F: FnOnce(&IWorkflowPrintTicketFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

@@ -151,7 +151,7 @@ impl Print3DWorkflow {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrintRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrintRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -165,7 +165,7 @@ impl Print3DWorkflow {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePrinterChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -224,7 +224,7 @@ impl Print3DWorkflowPrintRequestedEventArgs {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&source.param().borrow())).ok() }
     }
     pub fn SetSourceChanged(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
@@ -355,7 +355,7 @@ impl PrintTaskConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SaveRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventhandler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSaveRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -387,7 +387,7 @@ impl PrintTaskConfigurationSaveRequest {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Save)(windows_core::Interface::as_raw(this), printerextensioncontext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Save)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&printerextensioncontext.param().borrow())).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         let this = self;

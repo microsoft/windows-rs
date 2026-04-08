@@ -23,14 +23,14 @@ impl IMLOperatorAttributes {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAttributeElementCount)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetAttributeElementCount)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), r#type, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, elementcount, elementbytesize, value as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), r#type, elementcount, elementbytesize, value as _).ok() }
     }
     pub unsafe fn GetStringAttributeElementLength<P0>(&self, name: P0, elementindex: u32) -> windows_core::Result<u32>
     where
@@ -38,14 +38,14 @@ impl IMLOperatorAttributes {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetStringAttributeElementLength)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), elementindex, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetStringAttributeElement)(windows_core::Interface::as_raw(self), name.param().abi(), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetStringAttributeElement)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), elementindex, attributeelement.len().try_into().unwrap(), core::mem::transmute(attributeelement.as_ptr())).ok() }
     }
 }
 #[repr(C)]
@@ -121,7 +121,7 @@ impl IMLOperatorKernel {
     where
         P0: windows_core::Param<IMLOperatorKernelContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Compute)(windows_core::Interface::as_raw(self), context.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Compute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&context.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -131,14 +131,14 @@ pub struct IMLOperatorKernel_Vtbl {
     pub Compute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorKernel_Impl: windows_core::IUnknownImpl {
-    fn Compute(&self, context: windows_core::Ref<IMLOperatorKernelContext>) -> windows_core::Result<()>;
+    fn Compute(&self, context: Option<&IMLOperatorKernelContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorKernel_Vtbl {
     pub const fn new<Identity: IMLOperatorKernel_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Compute<Identity: IMLOperatorKernel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorKernel_Impl::Compute(this, core::mem::transmute_copy(&context)).into()
+                IMLOperatorKernel_Impl::Compute(this, windows_core::Ref::option_from_abi(&context)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Compute: Compute::<Identity, OFFSET> }
@@ -446,7 +446,7 @@ impl IMLOperatorKernelFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateKernel)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateKernel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&context.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -457,14 +457,14 @@ pub struct IMLOperatorKernelFactory_Vtbl {
     pub CreateKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorKernelFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateKernel(&self, context: windows_core::Ref<IMLOperatorKernelCreationContext>) -> windows_core::Result<IMLOperatorKernel>;
+    fn CreateKernel(&self, context: Option<&IMLOperatorKernelCreationContext>) -> windows_core::Result<IMLOperatorKernel>;
 }
 impl IMLOperatorKernelFactory_Vtbl {
     pub const fn new<Identity: IMLOperatorKernelFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateKernel<Identity: IMLOperatorKernelFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, kernel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMLOperatorKernelFactory_Impl::CreateKernel(this, core::mem::transmute_copy(&context)) {
+                match IMLOperatorKernelFactory_Impl::CreateKernel(this, windows_core::Ref::option_from_abi(&context)) {
                     Ok(ok__) => {
                         kernel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -488,14 +488,14 @@ impl IMLOperatorRegistry {
         P4: windows_core::Param<IMLOperatorTypeInferrer>,
         P5: windows_core::Param<IMLOperatorShapeInferrer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterOperatorSetSchema)(windows_core::Interface::as_raw(self), operatorsetid, baselineversion, core::mem::transmute(schema.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), typeinferrer.param().abi(), shapeinferrer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterOperatorSetSchema)(windows_core::Interface::as_raw(self), operatorsetid, baselineversion, core::mem::transmute(schema.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(&typeinferrer.param().borrow()), core::mem::transmute_copy(&shapeinferrer.param().borrow())).ok() }
     }
     pub unsafe fn RegisterOperatorKernel<P1, P2>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: P1, shapeinferrer: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IMLOperatorKernelFactory>,
         P2: windows_core::Param<IMLOperatorShapeInferrer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterOperatorKernel)(windows_core::Interface::as_raw(self), operatorkernel, operatorkernelfactory.param().abi(), shapeinferrer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterOperatorKernel)(windows_core::Interface::as_raw(self), operatorkernel, core::mem::transmute_copy(&operatorkernelfactory.param().borrow()), core::mem::transmute_copy(&shapeinferrer.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -506,21 +506,21 @@ pub struct IMLOperatorRegistry_Vtbl {
     pub RegisterOperatorKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *const MLOperatorKernelDescription, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorRegistry_Impl: windows_core::IUnknownImpl {
-    fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: windows_core::Ref<IMLOperatorTypeInferrer>, shapeinferrer: windows_core::Ref<IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
-    fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: windows_core::Ref<IMLOperatorKernelFactory>, shapeinferrer: windows_core::Ref<IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
+    fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: Option<&IMLOperatorTypeInferrer>, shapeinferrer: Option<&IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
+    fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: Option<&IMLOperatorKernelFactory>, shapeinferrer: Option<&IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
 }
 impl IMLOperatorRegistry_Vtbl {
     pub const fn new<Identity: IMLOperatorRegistry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterOperatorSetSchema<Identity: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: *mut core::ffi::c_void, shapeinferrer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorRegistry_Impl::RegisterOperatorSetSchema(this, core::mem::transmute_copy(&operatorsetid), core::mem::transmute_copy(&baselineversion), core::mem::transmute_copy(&schema), core::mem::transmute_copy(&schemacount), core::mem::transmute_copy(&typeinferrer), core::mem::transmute_copy(&shapeinferrer)).into()
+                IMLOperatorRegistry_Impl::RegisterOperatorSetSchema(this, core::mem::transmute_copy(&operatorsetid), core::mem::transmute_copy(&baselineversion), core::mem::transmute_copy(&schema), core::mem::transmute_copy(&schemacount), windows_core::Ref::option_from_abi(&typeinferrer), windows_core::Ref::option_from_abi(&shapeinferrer)).into()
             }
         }
         unsafe extern "system" fn RegisterOperatorKernel<Identity: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: *mut core::ffi::c_void, shapeinferrer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorRegistry_Impl::RegisterOperatorKernel(this, core::mem::transmute_copy(&operatorkernel), core::mem::transmute_copy(&operatorkernelfactory), core::mem::transmute_copy(&shapeinferrer)).into()
+                IMLOperatorRegistry_Impl::RegisterOperatorKernel(this, core::mem::transmute_copy(&operatorkernel), windows_core::Ref::option_from_abi(&operatorkernelfactory), windows_core::Ref::option_from_abi(&shapeinferrer)).into()
             }
         }
         Self {
@@ -683,7 +683,7 @@ impl IMLOperatorShapeInferrer {
     where
         P0: windows_core::Param<IMLOperatorShapeInferenceContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InferOutputShapes)(windows_core::Interface::as_raw(self), context.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InferOutputShapes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&context.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -693,14 +693,14 @@ pub struct IMLOperatorShapeInferrer_Vtbl {
     pub InferOutputShapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorShapeInferrer_Impl: windows_core::IUnknownImpl {
-    fn InferOutputShapes(&self, context: windows_core::Ref<IMLOperatorShapeInferenceContext>) -> windows_core::Result<()>;
+    fn InferOutputShapes(&self, context: Option<&IMLOperatorShapeInferenceContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorShapeInferrer_Vtbl {
     pub const fn new<Identity: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InferOutputShapes<Identity: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorShapeInferrer_Impl::InferOutputShapes(this, core::mem::transmute_copy(&context)).into()
+                IMLOperatorShapeInferrer_Impl::InferOutputShapes(this, windows_core::Ref::option_from_abi(&context)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InferOutputShapes: InferOutputShapes::<Identity, OFFSET> }
@@ -1036,7 +1036,7 @@ impl IMLOperatorTypeInferrer {
     where
         P0: windows_core::Param<IMLOperatorTypeInferenceContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InferOutputTypes)(windows_core::Interface::as_raw(self), context.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InferOutputTypes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&context.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1046,14 +1046,14 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
     pub InferOutputTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorTypeInferrer_Impl: windows_core::IUnknownImpl {
-    fn InferOutputTypes(&self, context: windows_core::Ref<IMLOperatorTypeInferenceContext>) -> windows_core::Result<()>;
+    fn InferOutputTypes(&self, context: Option<&IMLOperatorTypeInferenceContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorTypeInferrer_Vtbl {
     pub const fn new<Identity: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InferOutputTypes<Identity: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorTypeInferrer_Impl::InferOutputTypes(this, core::mem::transmute_copy(&context)).into()
+                IMLOperatorTypeInferrer_Impl::InferOutputTypes(this, windows_core::Ref::option_from_abi(&context)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InferOutputTypes: InferOutputTypes::<Identity, OFFSET> }
@@ -1077,7 +1077,7 @@ impl IWinMLEvaluationContext {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
@@ -1250,7 +1250,7 @@ impl IWinMLRuntime {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&path.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1260,14 +1260,14 @@ impl IWinMLRuntime {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEvaluationContext)(windows_core::Interface::as_raw(self), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEvaluationContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&device.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EvaluateModel<P0>(&self, pcontext: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWinMLEvaluationContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EvaluateModel)(windows_core::Interface::as_raw(self), pcontext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EvaluateModel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcontext.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1284,8 +1284,8 @@ pub struct IWinMLRuntime_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLRuntime_Impl: windows_core::IUnknownImpl {
     fn LoadModel(&self, path: &windows_core::PCWSTR) -> windows_core::Result<IWinMLModel>;
-    fn CreateEvaluationContext(&self, device: windows_core::Ref<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> windows_core::Result<IWinMLEvaluationContext>;
-    fn EvaluateModel(&self, pcontext: windows_core::Ref<IWinMLEvaluationContext>) -> windows_core::Result<()>;
+    fn CreateEvaluationContext(&self, device: Option<&super::super::super::Graphics::Direct3D12::ID3D12Device>) -> windows_core::Result<IWinMLEvaluationContext>;
+    fn EvaluateModel(&self, pcontext: Option<&IWinMLEvaluationContext>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLRuntime_Vtbl {
@@ -1305,7 +1305,7 @@ impl IWinMLRuntime_Vtbl {
         unsafe extern "system" fn CreateEvaluationContext<Identity: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void, ppcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWinMLRuntime_Impl::CreateEvaluationContext(this, core::mem::transmute_copy(&device)) {
+                match IWinMLRuntime_Impl::CreateEvaluationContext(this, windows_core::Ref::option_from_abi(&device)) {
                     Ok(ok__) => {
                         ppcontext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1317,7 +1317,7 @@ impl IWinMLRuntime_Vtbl {
         unsafe extern "system" fn EvaluateModel<Identity: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWinMLRuntime_Impl::EvaluateModel(this, core::mem::transmute_copy(&pcontext)).into()
+                IWinMLRuntime_Impl::EvaluateModel(this, windows_core::Ref::option_from_abi(&pcontext)).into()
             }
         }
         Self {

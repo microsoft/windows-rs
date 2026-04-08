@@ -56,7 +56,7 @@ impl BarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSupportedProfiles(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
@@ -80,7 +80,7 @@ impl BarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -329,7 +329,7 @@ impl BarcodeScannerReport {
     {
         Self::IBarcodeScannerReportFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), scandatatype, scandata.param().abi(), scandatalabel.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), scandatatype, core::mem::transmute_copy(&scandata.param().borrow()), core::mem::transmute_copy(&scandatalabel.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IBarcodeScannerReportFactory<R, F: FnOnce(&IBarcodeScannerReportFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1151,7 +1151,7 @@ impl CashDrawer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -1161,7 +1161,7 @@ impl CashDrawer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -1333,7 +1333,7 @@ impl CashDrawerCloseAlarm {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlarmTimeoutExpired)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AlarmTimeoutExpired)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAlarmTimeoutExpired(&self, token: i64) -> windows_core::Result<()> {
@@ -1397,7 +1397,7 @@ impl CashDrawerEventSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DrawerClosed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DrawerClosed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDrawerClosed(&self, token: i64) -> windows_core::Result<()> {
@@ -1411,7 +1411,7 @@ impl CashDrawerEventSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DrawerOpened)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DrawerOpened)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDrawerOpened(&self, token: i64) -> windows_core::Result<()> {
@@ -1596,7 +1596,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetActiveSymbologiesAsync)(windows_core::Interface::as_raw(this), symbologies.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetActiveSymbologiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&symbologies.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ResetStatisticsAsync<P0>(&self, statisticscategories: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1606,7 +1606,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -1616,7 +1616,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statistics.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetActiveProfileAsync(&self, profile: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
@@ -1633,7 +1633,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DataReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDataReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -1647,7 +1647,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TriggerPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTriggerPressed(&self, token: i64) -> windows_core::Result<()> {
@@ -1661,7 +1661,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TriggerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TriggerReleased)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTriggerReleased(&self, token: i64) -> windows_core::Result<()> {
@@ -1675,7 +1675,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1689,7 +1689,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImagePreviewReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ImagePreviewReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveImagePreviewReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -1703,7 +1703,7 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveErrorOccurred(&self, token: i64) -> windows_core::Result<()> {
@@ -1738,7 +1738,7 @@ impl ClaimedBarcodeScanner {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetSymbologyAttributesAsync)(windows_core::Interface::as_raw(this), barcodesymbology, attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetSymbologyAttributesAsync)(windows_core::Interface::as_raw(this), barcodesymbology, core::mem::transmute_copy(&attributes.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ShowVideoPreviewAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -1770,7 +1770,7 @@ impl ClaimedBarcodeScanner {
         let this = &windows_core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
@@ -1880,7 +1880,7 @@ impl ClaimedCashDrawer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -1890,7 +1890,7 @@ impl ClaimedCashDrawer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statistics.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -1900,7 +1900,7 @@ impl ClaimedCashDrawer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -1914,7 +1914,7 @@ impl ClaimedCashDrawer {
         let this = &windows_core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
@@ -2172,7 +2172,7 @@ impl ClaimedLineDisplay {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -2186,7 +2186,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
@@ -2210,7 +2210,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -2259,7 +2259,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&attributes.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TrySetDescriptorAsync(&self, descriptor: u32, descriptorstate: LineDisplayDescriptorState) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -2291,7 +2291,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2302,7 +2302,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2313,7 +2313,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -2323,7 +2323,7 @@ impl ClaimedLineDisplay {
         let this = &windows_core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
@@ -2526,7 +2526,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -2536,7 +2536,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statistics.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn BankCardDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -2546,7 +2546,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BankCardDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BankCardDataReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveBankCardDataReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -2560,7 +2560,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AamvaCardDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AamvaCardDataReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAamvaCardDataReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -2574,7 +2574,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VendorSpecificDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VendorSpecificDataReceived)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVendorSpecificDataReceived(&self, token: i64) -> windows_core::Result<()> {
@@ -2588,7 +2588,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -2602,7 +2602,7 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveErrorOccurred(&self, token: i64) -> windows_core::Result<()> {
@@ -2616,7 +2616,7 @@ impl ClaimedMagneticStripeReader {
         let this = &windows_core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
@@ -2766,7 +2766,7 @@ impl ClaimedPosPrinter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResetStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateStatisticsAsync<P0>(&self, statistics: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -2776,7 +2776,7 @@ impl ClaimedPosPrinter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), statistics.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statistics.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -2786,7 +2786,7 @@ impl ClaimedPosPrinter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReleaseDeviceRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveReleaseDeviceRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -2800,7 +2800,7 @@ impl ClaimedPosPrinter {
         let this = &windows_core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
@@ -5883,7 +5883,7 @@ impl IReceiptOrSlipJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<P1>(&self, bitmapnumber: u32, bitmap: P1, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
@@ -5891,7 +5891,7 @@ impl IReceiptOrSlipJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<P1>(&self, bitmapnumber: u32, bitmap: P1, alignmentdistance: u32) -> windows_core::Result<()>
@@ -5899,7 +5899,7 @@ impl IReceiptOrSlipJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<P1>(&self, bitmapnumber: u32, bitmap: P1, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
@@ -5907,7 +5907,7 @@ impl IReceiptOrSlipJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> windows_core::Result<()> {
         let this = self;
@@ -5931,7 +5931,7 @@ impl IReceiptOrSlipJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
@@ -5939,7 +5939,7 @@ impl IReceiptOrSlipJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
@@ -5947,7 +5947,7 @@ impl IReceiptOrSlipJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
@@ -5955,7 +5955,7 @@ impl IReceiptOrSlipJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance, width).ok() }
     }
     pub fn Print(&self, data: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -5986,18 +5986,18 @@ pub trait IReceiptOrSlipJob_Impl: IPosPrinterJob_Impl {
     fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> windows_core::Result<()>;
     fn SetPrintRotation(&self, value: PosPrinterRotation, includeBitmaps: bool) -> windows_core::Result<()>;
     fn SetPrintArea(&self, value: &super::super::Foundation::Rect) -> windows_core::Result<()>;
-    fn SetBitmap(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
-    fn SetBitmapCustomWidthStandardAlign(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
-    fn SetCustomAlignedBitmap(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
-    fn SetBitmapCustomWidthCustomAlign(&self, bitmapNumber: u32, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
+    fn SetBitmap(&self, bitmapNumber: u32, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
+    fn SetBitmapCustomWidthStandardAlign(&self, bitmapNumber: u32, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
+    fn SetCustomAlignedBitmap(&self, bitmapNumber: u32, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
+    fn SetBitmapCustomWidthCustomAlign(&self, bitmapNumber: u32, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
     fn PrintSavedBitmap(&self, bitmapNumber: u32) -> windows_core::Result<()>;
     fn DrawRuledLine(&self, positionList: &windows_core::HSTRING, lineDirection: PosPrinterLineDirection, lineWidth: u32, lineStyle: PosPrinterLineStyle, lineColor: u32) -> windows_core::Result<()>;
     fn PrintBarcode(&self, data: &windows_core::HSTRING, symbology: u32, height: u32, width: u32, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
     fn PrintBarcodeCustomAlign(&self, data: &windows_core::HSTRING, symbology: u32, height: u32, width: u32, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: u32) -> windows_core::Result<()>;
-    fn PrintBitmap(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
-    fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
-    fn PrintCustomAlignedBitmap(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
-    fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: windows_core::Ref<super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
+    fn PrintBitmap(&self, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> windows_core::Result<()>;
+    fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>;
+    fn PrintCustomAlignedBitmap(&self, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32) -> windows_core::Result<()>;
+    fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentDistance: u32, width: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Graphics_Imaging")]
 impl IReceiptOrSlipJob_Vtbl {
@@ -6023,25 +6023,25 @@ impl IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn SetBitmap<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::SetBitmap(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignment).into()
+                IReceiptOrSlipJob_Impl::SetBitmap(this, bitmapnumber, windows_core::Ref::option_from_abi(&bitmap), alignment).into()
             }
         }
         unsafe extern "system" fn SetBitmapCustomWidthStandardAlign<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::SetBitmapCustomWidthStandardAlign(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignment, width).into()
+                IReceiptOrSlipJob_Impl::SetBitmapCustomWidthStandardAlign(this, bitmapnumber, windows_core::Ref::option_from_abi(&bitmap), alignment, width).into()
             }
         }
         unsafe extern "system" fn SetCustomAlignedBitmap<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignmentdistance: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::SetCustomAlignedBitmap(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignmentdistance).into()
+                IReceiptOrSlipJob_Impl::SetCustomAlignedBitmap(this, bitmapnumber, windows_core::Ref::option_from_abi(&bitmap), alignmentdistance).into()
             }
         }
         unsafe extern "system" fn SetBitmapCustomWidthCustomAlign<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32, bitmap: *mut core::ffi::c_void, alignmentdistance: u32, width: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::SetBitmapCustomWidthCustomAlign(this, bitmapnumber, core::mem::transmute_copy(&bitmap), alignmentdistance, width).into()
+                IReceiptOrSlipJob_Impl::SetBitmapCustomWidthCustomAlign(this, bitmapnumber, windows_core::Ref::option_from_abi(&bitmap), alignmentdistance, width).into()
             }
         }
         unsafe extern "system" fn PrintSavedBitmap<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapnumber: u32) -> windows_core::HRESULT {
@@ -6071,25 +6071,25 @@ impl IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn PrintBitmap<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::PrintBitmap(this, core::mem::transmute_copy(&bitmap), alignment).into()
+                IReceiptOrSlipJob_Impl::PrintBitmap(this, windows_core::Ref::option_from_abi(&bitmap), alignment).into()
             }
         }
         unsafe extern "system" fn PrintBitmapCustomWidthStandardAlign<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthStandardAlign(this, core::mem::transmute_copy(&bitmap), alignment, width).into()
+                IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthStandardAlign(this, windows_core::Ref::option_from_abi(&bitmap), alignment, width).into()
             }
         }
         unsafe extern "system" fn PrintCustomAlignedBitmap<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignmentdistance: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::PrintCustomAlignedBitmap(this, core::mem::transmute_copy(&bitmap), alignmentdistance).into()
+                IReceiptOrSlipJob_Impl::PrintCustomAlignedBitmap(this, windows_core::Ref::option_from_abi(&bitmap), alignmentdistance).into()
             }
         }
         unsafe extern "system" fn PrintBitmapCustomWidthCustomAlign<Identity: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmap: *mut core::ffi::c_void, alignmentdistance: u32, width: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthCustomAlign(this, core::mem::transmute_copy(&bitmap), alignmentdistance, width).into()
+                IReceiptOrSlipJob_Impl::PrintBitmapCustomWidthCustomAlign(this, windows_core::Ref::option_from_abi(&bitmap), alignmentdistance, width).into()
             }
         }
         Self {
@@ -6282,7 +6282,7 @@ impl JournalPrintJob {
         P1: windows_core::Param<PosPrinterPrintOptions>,
     {
         let this = &windows_core::Interface::cast::<IJournalPrintJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), core::mem::transmute_copy(&printoptions.param().borrow())).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IJournalPrintJob>(self)?;
@@ -6683,7 +6683,7 @@ impl LineDisplayAttributes {
         P0: windows_core::Param<LineDisplayWindow>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCurrentWindow)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCurrentWindow)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for LineDisplayAttributes {
@@ -6910,7 +6910,7 @@ impl LineDisplayCursor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), attributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&attributes.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -7032,7 +7032,7 @@ impl LineDisplayCustomGlyphs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRedefineAsync)(windows_core::Interface::as_raw(this), glyphcode, glyphdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRedefineAsync)(windows_core::Interface::as_raw(this), glyphcode, core::mem::transmute_copy(&glyphdata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -7423,7 +7423,7 @@ impl LineDisplayWindow {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -7434,7 +7434,7 @@ impl LineDisplayWindow {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -7445,7 +7445,7 @@ impl LineDisplayWindow {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), horizontalalignment, verticalalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -7456,7 +7456,7 @@ impl LineDisplayWindow {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), horizontalalignment, verticalalignment, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -7467,7 +7467,7 @@ impl LineDisplayWindow {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), offsetinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), offsetinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -7478,7 +7478,7 @@ impl LineDisplayWindow {
         let this = &windows_core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), offsetinpixels, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), offsetinpixels, widthinpixels, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -7554,7 +7554,7 @@ impl MagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RetrieveStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetErrorReportingType(&self) -> windows_core::Result<MagneticStripeReaderErrorReportingType> {
@@ -7571,7 +7571,7 @@ impl MagneticStripeReader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -8455,7 +8455,7 @@ impl PosPrinter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), statisticscategories.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetStatisticsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&statisticscategories.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StatusUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -8465,7 +8465,7 @@ impl PosPrinter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusUpdated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -9325,7 +9325,7 @@ impl ReceiptPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<P1>(&self, bitmapnumber: u32, bitmap: P1, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
@@ -9333,7 +9333,7 @@ impl ReceiptPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<P1>(&self, bitmapnumber: u32, bitmap: P1, alignmentdistance: u32) -> windows_core::Result<()>
@@ -9341,7 +9341,7 @@ impl ReceiptPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<P1>(&self, bitmapnumber: u32, bitmap: P1, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
@@ -9349,7 +9349,7 @@ impl ReceiptPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
@@ -9373,7 +9373,7 @@ impl ReceiptPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
@@ -9381,7 +9381,7 @@ impl ReceiptPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
@@ -9389,7 +9389,7 @@ impl ReceiptPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
@@ -9397,7 +9397,7 @@ impl ReceiptPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = &windows_core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance, width).ok() }
     }
     pub fn MarkFeed(&self, kind: PosPrinterMarkFeedKind) -> windows_core::Result<()> {
         let this = self;
@@ -9420,7 +9420,7 @@ impl ReceiptPrintJob {
         P1: windows_core::Param<PosPrinterPrintOptions>,
     {
         let this = &windows_core::Interface::cast::<IReceiptPrintJob2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), core::mem::transmute_copy(&printoptions.param().borrow())).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IReceiptPrintJob2>(self)?;
@@ -9734,7 +9734,7 @@ impl SlipPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<P1>(&self, bitmapnumber: u32, bitmap: P1, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
@@ -9742,7 +9742,7 @@ impl SlipPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<P1>(&self, bitmapnumber: u32, bitmap: P1, alignmentdistance: u32) -> windows_core::Result<()>
@@ -9750,7 +9750,7 @@ impl SlipPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<P1>(&self, bitmapnumber: u32, bitmap: P1, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
@@ -9758,7 +9758,7 @@ impl SlipPrintJob {
         P1: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, bitmap.param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmapnumber, core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> windows_core::Result<()> {
         let this = self;
@@ -9782,7 +9782,7 @@ impl SlipPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignment).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> windows_core::Result<()>
@@ -9790,7 +9790,7 @@ impl SlipPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignment, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignment, width).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> windows_core::Result<()>
@@ -9798,7 +9798,7 @@ impl SlipPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> windows_core::Result<()>
@@ -9806,14 +9806,14 @@ impl SlipPrintJob {
         P0: windows_core::Param<super::super::Graphics::Imaging::BitmapFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), bitmap.param().abi(), alignmentdistance, width).ok() }
+        unsafe { (windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&bitmap.param().borrow()), alignmentdistance, width).ok() }
     }
     pub fn Print2<P1>(&self, data: &windows_core::HSTRING, printoptions: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<PosPrinterPrintOptions>,
     {
         let this = &windows_core::Interface::cast::<ISlipPrintJob>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), printoptions.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Print)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(data), core::mem::transmute_copy(&printoptions.param().borrow())).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ISlipPrintJob>(self)?;

@@ -356,7 +356,7 @@ impl VoiceCommandContentTile {
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AppContext(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
@@ -370,7 +370,7 @@ impl VoiceCommandContentTile {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAppContext)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAppContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AppLaunchArgument(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -452,7 +452,7 @@ impl VoiceCommandDefinition {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPhraseListAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phraselistname), phraselist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetPhraseListAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phraselistname), core::mem::transmute_copy(&phraselist.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -477,7 +477,7 @@ impl VoiceCommandDefinitionManager {
     {
         Self::IVoiceCommandDefinitionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstallCommandDefinitionsFromStorageFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InstallCommandDefinitionsFromStorageFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn InstalledCommandDefinitions() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, VoiceCommandDefinition>> {
@@ -536,7 +536,7 @@ impl VoiceCommandResponse {
         P0: windows_core::Param<VoiceCommandUserMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetMessage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RepeatMessage(&self) -> windows_core::Result<VoiceCommandUserMessage> {
         let this = self;
@@ -550,7 +550,7 @@ impl VoiceCommandResponse {
         P0: windows_core::Param<VoiceCommandUserMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRepeatMessage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRepeatMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AppLaunchArgument(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -582,7 +582,7 @@ impl VoiceCommandResponse {
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateResponse)(windows_core::Interface::as_raw(this), usermessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateResponse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&usermessage.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateResponseWithTiles<P0, P1>(message: P0, contenttiles: P1) -> windows_core::Result<VoiceCommandResponse>
@@ -592,7 +592,7 @@ impl VoiceCommandResponse {
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateResponseWithTiles)(windows_core::Interface::as_raw(this), message.param().abi(), contenttiles.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateResponseWithTiles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), core::mem::transmute_copy(&contenttiles.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateResponseForPrompt<P0, P1>(message: P0, repeatmessage: P1) -> windows_core::Result<VoiceCommandResponse>
@@ -602,7 +602,7 @@ impl VoiceCommandResponse {
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateResponseForPrompt)(windows_core::Interface::as_raw(this), message.param().abi(), repeatmessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateResponseForPrompt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), core::mem::transmute_copy(&repeatmessage.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateResponseForPromptWithTiles<P0, P1, P2>(message: P0, repeatmessage: P1, contenttiles: P2) -> windows_core::Result<VoiceCommandResponse>
@@ -613,7 +613,7 @@ impl VoiceCommandResponse {
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateResponseForPromptWithTiles)(windows_core::Interface::as_raw(this), message.param().abi(), repeatmessage.param().abi(), contenttiles.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateResponseForPromptWithTiles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&message.param().borrow()), core::mem::transmute_copy(&repeatmessage.param().borrow()), core::mem::transmute_copy(&contenttiles.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IVoiceCommandResponseStatics<R, F: FnOnce(&IVoiceCommandResponseStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -652,7 +652,7 @@ impl VoiceCommandServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestConfirmationAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestConfirmationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&response.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestDisambiguationAsync<P0>(&self, response: P0) -> windows_core::Result<windows_future::IAsyncOperation<VoiceCommandDisambiguationResult>>
@@ -662,7 +662,7 @@ impl VoiceCommandServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDisambiguationAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDisambiguationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&response.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReportProgressAsync<P0>(&self, response: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -672,7 +672,7 @@ impl VoiceCommandServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReportProgressAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReportProgressAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&response.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReportSuccessAsync<P0>(&self, response: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -682,7 +682,7 @@ impl VoiceCommandServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReportSuccessAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReportSuccessAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&response.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReportFailureAsync<P0>(&self, response: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -692,7 +692,7 @@ impl VoiceCommandServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReportFailureAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ReportFailureAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&response.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestAppLaunchAsync<P0>(&self, response: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -702,7 +702,7 @@ impl VoiceCommandServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAppLaunchAsync)(windows_core::Interface::as_raw(this), response.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAppLaunchAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&response.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Globalization")]
@@ -720,7 +720,7 @@ impl VoiceCommandServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VoiceCommandCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VoiceCommandCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveVoiceCommandCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -734,7 +734,7 @@ impl VoiceCommandServiceConnection {
     {
         Self::IVoiceCommandServiceConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromAppServiceTriggerDetails)(windows_core::Interface::as_raw(this), triggerdetails.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromAppServiceTriggerDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&triggerdetails.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IVoiceCommandServiceConnectionStatics<R, F: FnOnce(&IVoiceCommandServiceConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

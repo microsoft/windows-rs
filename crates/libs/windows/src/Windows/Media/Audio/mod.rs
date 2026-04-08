@@ -24,21 +24,21 @@ impl AudioDeviceInputNode {
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter> {
         let this = &windows_core::Interface::cast::<IAudioInputNode2>(self)?;
@@ -103,7 +103,7 @@ impl AudioDeviceInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -111,7 +111,7 @@ impl AudioDeviceInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -216,7 +216,7 @@ impl AudioDeviceOutputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -224,14 +224,14 @@ impl AudioDeviceOutputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn SetListener<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<AudioNodeListener>,
     {
         let this = &windows_core::Interface::cast::<IAudioNodeWithListener>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetListener)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetListener)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Listener(&self) -> windows_core::Result<AudioNodeListener> {
         let this = &windows_core::Interface::cast::<IAudioNodeWithListener>(self)?;
@@ -290,7 +290,7 @@ impl AudioEffectsPackConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -380,7 +380,7 @@ impl AudioFileInputNode {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn EndTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -394,7 +394,7 @@ impl AudioFileInputNode {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEndTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEndTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn LoopCount(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -408,7 +408,7 @@ impl AudioFileInputNode {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLoopCount)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLoopCount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -432,7 +432,7 @@ impl AudioFileInputNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FileCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FileCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveFileCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -451,21 +451,21 @@ impl AudioFileInputNode {
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter> {
         let this = &windows_core::Interface::cast::<IAudioInputNode2>(self)?;
@@ -530,7 +530,7 @@ impl AudioFileInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -538,7 +538,7 @@ impl AudioFileInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -659,7 +659,7 @@ impl AudioFileOutputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -667,7 +667,7 @@ impl AudioFileOutputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -733,7 +733,7 @@ impl AudioFrameInputNode {
         P0: windows_core::Param<super::AudioFrame>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddFrame)(windows_core::Interface::as_raw(this), frame.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddFrame)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&frame.param().borrow())).ok() }
     }
     pub fn DiscardQueuedFrames(&self) -> windows_core::Result<()> {
         let this = self;
@@ -753,7 +753,7 @@ impl AudioFrameInputNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AudioFrameCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AudioFrameCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAudioFrameCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -767,7 +767,7 @@ impl AudioFrameInputNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveQuantumStarted(&self, token: i64) -> windows_core::Result<()> {
@@ -786,21 +786,21 @@ impl AudioFrameInputNode {
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter> {
         let this = &windows_core::Interface::cast::<IAudioInputNode2>(self)?;
@@ -865,7 +865,7 @@ impl AudioFrameInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -873,7 +873,7 @@ impl AudioFrameInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -961,7 +961,7 @@ impl AudioFrameOutputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -969,7 +969,7 @@ impl AudioFrameOutputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1009,7 +1009,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormat)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&encodingproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Capture")]
@@ -1028,7 +1028,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(windows_core::Interface::as_raw(this), category, encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(windows_core::Interface::as_raw(this), category, core::mem::transmute_copy(&encodingproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
@@ -1040,7 +1040,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatOnDeviceAsync)(windows_core::Interface::as_raw(this), category, encodingproperties.param().abi(), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatOnDeviceAsync)(windows_core::Interface::as_raw(this), category, core::mem::transmute_copy(&encodingproperties.param().borrow()), core::mem::transmute_copy(&device.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateFrameOutputNode(&self) -> windows_core::Result<AudioFrameOutputNode> {
@@ -1058,7 +1058,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFrameOutputNodeWithFormat)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFrameOutputNodeWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&encodingproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateDeviceOutputNodeAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioDeviceOutputNodeResult>> {
@@ -1076,7 +1076,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileInputNodeAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileInputNodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1087,7 +1087,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileOutputNodeAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileOutputNodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -1099,7 +1099,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileOutputNodeWithFileProfileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), fileencodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileOutputNodeWithFileProfileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&fileencodingprofile.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateSubmixNode(&self) -> windows_core::Result<AudioSubmixNode> {
@@ -1117,7 +1117,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSubmixNodeWithFormat)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSubmixNodeWithFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&encodingproperties.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
@@ -1139,7 +1139,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveQuantumStarted(&self, token: i64) -> windows_core::Result<()> {
@@ -1153,7 +1153,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuantumProcessed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).QuantumProcessed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveQuantumProcessed(&self, token: i64) -> windows_core::Result<()> {
@@ -1167,7 +1167,7 @@ impl AudioGraph {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUnrecoverableErrorOccurred(&self, token: i64) -> windows_core::Result<()> {
@@ -1227,7 +1227,7 @@ impl AudioGraph {
         let this = &windows_core::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormatAndEmitter)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), emitter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormatAndEmitter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&encodingproperties.param().borrow()), core::mem::transmute_copy(&emitter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Enumeration", feature = "Media_Capture", feature = "Media_MediaProperties"))]
@@ -1240,7 +1240,7 @@ impl AudioGraph {
         let this = &windows_core::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync)(windows_core::Interface::as_raw(this), category, encodingproperties.param().abi(), device.param().abi(), emitter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync)(windows_core::Interface::as_raw(this), category, core::mem::transmute_copy(&encodingproperties.param().borrow()), core::mem::transmute_copy(&device.param().borrow()), core::mem::transmute_copy(&emitter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1252,7 +1252,7 @@ impl AudioGraph {
         let this = &windows_core::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFileInputNodeWithEmitterAsync)(windows_core::Interface::as_raw(this), file.param().abi(), emitter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFileInputNodeWithEmitterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&file.param().borrow()), core::mem::transmute_copy(&emitter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -1264,7 +1264,7 @@ impl AudioGraph {
         let this = &windows_core::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSubmixNodeWithFormatAndEmitter)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), emitter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSubmixNodeWithFormatAndEmitter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&encodingproperties.param().borrow()), core::mem::transmute_copy(&emitter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateBatchUpdater(&self) -> windows_core::Result<AudioGraphBatchUpdater> {
@@ -1282,7 +1282,7 @@ impl AudioGraph {
         let this = &windows_core::Interface::cast::<IAudioGraph3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeAsync)(windows_core::Interface::as_raw(this), mediasource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mediasource.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_Playback"))]
@@ -1294,7 +1294,7 @@ impl AudioGraph {
         let this = &windows_core::Interface::cast::<IAudioGraph3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeWithEmitterAsync)(windows_core::Interface::as_raw(this), mediasource.param().abi(), emitter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeWithEmitterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&mediasource.param().borrow()), core::mem::transmute_copy(&emitter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateAsync<P0>(settings: P0) -> windows_core::Result<windows_future::IAsyncOperation<CreateAudioGraphResult>>
@@ -1303,7 +1303,7 @@ impl AudioGraph {
     {
         Self::IAudioGraphStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&settings.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -1419,7 +1419,7 @@ impl AudioGraphSettings {
         P0: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Devices_Enumeration")]
     pub fn PrimaryRenderDevice(&self) -> windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
@@ -1435,7 +1435,7 @@ impl AudioGraphSettings {
         P0: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPrimaryRenderDevice)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPrimaryRenderDevice)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn QuantumSizeSelectionMode(&self) -> windows_core::Result<QuantumSizeSelectionMode> {
         let this = self;
@@ -1675,7 +1675,7 @@ impl AudioNodeEmitter {
     {
         Self::IAudioNodeEmitterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAudioNodeEmitter)(windows_core::Interface::as_raw(this), shape.param().abi(), decaymodel.param().abi(), settings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAudioNodeEmitter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&shape.param().borrow()), core::mem::transmute_copy(&decaymodel.param().borrow()), settings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IAudioNodeEmitterFactory<R, F: FnOnce(&IAudioNodeEmitterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2071,7 +2071,7 @@ impl AudioPlaybackConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2183,7 +2183,7 @@ impl AudioStateMonitor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSoundLevelChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2286,21 +2286,21 @@ impl AudioSubmixNode {
         P0: windows_core::Param<IAudioNode>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter> {
         let this = &windows_core::Interface::cast::<IAudioInputNode2>(self)?;
@@ -2365,7 +2365,7 @@ impl AudioSubmixNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -2373,7 +2373,7 @@ impl AudioSubmixNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2690,7 +2690,7 @@ impl EchoEffectDefinition {
     {
         Self::IEchoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&audiograph.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IEchoEffectDefinitionFactory<R, F: FnOnce(&IEchoEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2804,7 +2804,7 @@ impl EqualizerEffectDefinition {
     {
         Self::IEqualizerEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&audiograph.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IEqualizerEffectDefinitionFactory<R, F: FnOnce(&IEqualizerEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3217,21 +3217,21 @@ impl IAudioInputNode {
         P0: windows_core::Param<IAudioNode>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
@@ -3289,7 +3289,7 @@ impl IAudioInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -3297,7 +3297,7 @@ impl IAudioInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3311,9 +3311,9 @@ impl windows_core::RuntimeName for IAudioInputNode {
 #[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioInputNode_Impl: IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
     fn OutgoingConnections(&self) -> windows_core::Result<windows_collections::IVectorView<AudioGraphConnection>>;
-    fn AddOutgoingConnection(&self, destination: windows_core::Ref<IAudioNode>) -> windows_core::Result<()>;
-    fn AddOutgoingConnectionWithGain(&self, destination: windows_core::Ref<IAudioNode>, gain: f64) -> windows_core::Result<()>;
-    fn RemoveOutgoingConnection(&self, destination: windows_core::Ref<IAudioNode>) -> windows_core::Result<()>;
+    fn AddOutgoingConnection(&self, destination: Option<&IAudioNode>) -> windows_core::Result<()>;
+    fn AddOutgoingConnectionWithGain(&self, destination: Option<&IAudioNode>, gain: f64) -> windows_core::Result<()>;
+    fn RemoveOutgoingConnection(&self, destination: Option<&IAudioNode>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioInputNode_Vtbl {
@@ -3334,19 +3334,19 @@ impl IAudioInputNode_Vtbl {
         unsafe extern "system" fn AddOutgoingConnection<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputNode_Impl::AddOutgoingConnection(this, core::mem::transmute_copy(&destination)).into()
+                IAudioInputNode_Impl::AddOutgoingConnection(this, windows_core::Ref::option_from_abi(&destination)).into()
             }
         }
         unsafe extern "system" fn AddOutgoingConnectionWithGain<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void, gain: f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputNode_Impl::AddOutgoingConnectionWithGain(this, core::mem::transmute_copy(&destination), gain).into()
+                IAudioInputNode_Impl::AddOutgoingConnectionWithGain(this, windows_core::Ref::option_from_abi(&destination), gain).into()
             }
         }
         unsafe extern "system" fn RemoveOutgoingConnection<Identity: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputNode_Impl::RemoveOutgoingConnection(this, core::mem::transmute_copy(&destination)).into()
+                IAudioInputNode_Impl::RemoveOutgoingConnection(this, windows_core::Ref::option_from_abi(&destination)).into()
             }
         }
         Self {
@@ -3396,21 +3396,21 @@ impl IAudioInputNode2 {
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
@@ -3468,7 +3468,7 @@ impl IAudioInputNode2 {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -3476,7 +3476,7 @@ impl IAudioInputNode2 {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3582,7 +3582,7 @@ impl IAudioNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -3590,7 +3590,7 @@ impl IAudioNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3612,8 +3612,8 @@ pub trait IAudioNode_Impl: super::super::Foundation::IClosable_Impl {
     fn Start(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
-    fn DisableEffectsByDefinition(&self, definition: windows_core::Ref<super::Effects::IAudioEffectDefinition>) -> windows_core::Result<()>;
-    fn EnableEffectsByDefinition(&self, definition: windows_core::Ref<super::Effects::IAudioEffectDefinition>) -> windows_core::Result<()>;
+    fn DisableEffectsByDefinition(&self, definition: Option<&super::Effects::IAudioEffectDefinition>) -> windows_core::Result<()>;
+    fn EnableEffectsByDefinition(&self, definition: Option<&super::Effects::IAudioEffectDefinition>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl IAudioNode_Vtbl {
@@ -3701,13 +3701,13 @@ impl IAudioNode_Vtbl {
         unsafe extern "system" fn DisableEffectsByDefinition<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, definition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioNode_Impl::DisableEffectsByDefinition(this, core::mem::transmute_copy(&definition)).into()
+                IAudioNode_Impl::DisableEffectsByDefinition(this, windows_core::Ref::option_from_abi(&definition)).into()
             }
         }
         unsafe extern "system" fn EnableEffectsByDefinition<Identity: IAudioNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, definition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioNode_Impl::EnableEffectsByDefinition(this, core::mem::transmute_copy(&definition)).into()
+                IAudioNode_Impl::EnableEffectsByDefinition(this, windows_core::Ref::option_from_abi(&definition)).into()
             }
         }
         Self {
@@ -3906,7 +3906,7 @@ impl IAudioNodeWithListener {
         P0: windows_core::Param<AudioNodeListener>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetListener)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetListener)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Listener(&self) -> windows_core::Result<AudioNodeListener> {
         let this = self;
@@ -3971,7 +3971,7 @@ impl IAudioNodeWithListener {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -3979,7 +3979,7 @@ impl IAudioNodeWithListener {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3992,7 +3992,7 @@ impl windows_core::RuntimeName for IAudioNodeWithListener {
 }
 #[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioNodeWithListener_Impl: IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
-    fn SetListener(&self, value: windows_core::Ref<AudioNodeListener>) -> windows_core::Result<()>;
+    fn SetListener(&self, value: Option<&AudioNodeListener>) -> windows_core::Result<()>;
     fn Listener(&self) -> windows_core::Result<AudioNodeListener>;
 }
 #[cfg(all(feature = "Media_Effects", feature = "Media_MediaProperties"))]
@@ -4001,7 +4001,7 @@ impl IAudioNodeWithListener_Vtbl {
         unsafe extern "system" fn SetListener<Identity: IAudioNodeWithListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioNodeWithListener_Impl::SetListener(this, core::mem::transmute_copy(&value)).into()
+                IAudioNodeWithListener_Impl::SetListener(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn Listener<Identity: IAudioNodeWithListener_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4592,7 +4592,7 @@ impl LimiterEffectDefinition {
     {
         Self::ILimiterEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&audiograph.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ILimiterEffectDefinitionFactory<R, F: FnOnce(&ILimiterEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4635,21 +4635,21 @@ impl MediaSourceAudioInputNode {
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow()), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
         let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&destination.param().borrow())).ok() }
     }
     pub fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter> {
         let this = &windows_core::Interface::cast::<IAudioInputNode2>(self)?;
@@ -4714,7 +4714,7 @@ impl MediaSourceAudioInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).DisableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     #[cfg(feature = "Media_Effects")]
     pub fn EnableEffectsByDefinition<P0>(&self, definition: P0) -> windows_core::Result<()>
@@ -4722,7 +4722,7 @@ impl MediaSourceAudioInputNode {
         P0: windows_core::Param<super::Effects::IAudioEffectDefinition>,
     {
         let this = &windows_core::Interface::cast::<IAudioNode>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&definition.param().borrow())).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4762,7 +4762,7 @@ impl MediaSourceAudioInputNode {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn EndTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -4776,7 +4776,7 @@ impl MediaSourceAudioInputNode {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEndTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEndTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn LoopCount(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4790,7 +4790,7 @@ impl MediaSourceAudioInputNode {
         P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLoopCount)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLoopCount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -4814,7 +4814,7 @@ impl MediaSourceAudioInputNode {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MediaSourceCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MediaSourceCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMediaSourceCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -5160,7 +5160,7 @@ impl ReverbEffectDefinition {
     {
         Self::IReverbEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), audiograph.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&audiograph.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IReverbEffectDefinitionFactory<R, F: FnOnce(&IReverbEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -5281,7 +5281,7 @@ impl SpatialAudioDeviceConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConfigurationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ConfigurationChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveConfigurationChanged(&self, token: i64) -> windows_core::Result<()> {

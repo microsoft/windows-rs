@@ -66,7 +66,7 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), callbackuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAsync)(windows_core::Interface::as_raw(this), options, core::mem::transmute_copy(&requesturi.param().borrow()), core::mem::transmute_copy(&callbackuri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AuthenticateWithoutCallbackUriAsync<P1>(options: WebAuthenticationOptions, requesturi: P1) -> windows_core::Result<windows_future::IAsyncOperation<WebAuthenticationResult>>
@@ -75,7 +75,7 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateWithoutCallbackUriAsync)(windows_core::Interface::as_raw(this), options, requesturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateWithoutCallbackUriAsync)(windows_core::Interface::as_raw(this), options, core::mem::transmute_copy(&requesturi.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetCurrentApplicationCallbackUri() -> windows_core::Result<super::super::super::Foundation::Uri> {
@@ -88,14 +88,14 @@ impl WebAuthenticationBroker {
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
-        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).AuthenticateAndContinue)(windows_core::Interface::as_raw(this), requesturi.param().abi()).ok() })
+        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).AuthenticateAndContinue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&requesturi.param().borrow())).ok() })
     }
     pub fn AuthenticateWithCallbackUriAndContinue<P0, P1>(requesturi: P0, callbackuri: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
     {
-        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAndContinue)(windows_core::Interface::as_raw(this), requesturi.param().abi(), callbackuri.param().abi()).ok() })
+        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAndContinue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&requesturi.param().borrow()), core::mem::transmute_copy(&callbackuri.param().borrow())).ok() })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue<P0, P1, P2>(requesturi: P0, callbackuri: P1, continuationdata: P2, options: WebAuthenticationOptions) -> windows_core::Result<()>
@@ -104,7 +104,7 @@ impl WebAuthenticationBroker {
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
         P2: windows_core::Param<super::super::super::Foundation::Collections::ValueSet>,
     {
-        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue)(windows_core::Interface::as_raw(this), requesturi.param().abi(), callbackuri.param().abi(), continuationdata.param().abi(), options).ok() })
+        Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&requesturi.param().borrow()), core::mem::transmute_copy(&callbackuri.param().borrow()), core::mem::transmute_copy(&continuationdata.param().borrow()), options).ok() })
     }
     pub fn AuthenticateSilentlyAsync<P0>(requesturi: P0) -> windows_core::Result<windows_future::IAsyncOperation<WebAuthenticationResult>>
     where
@@ -112,7 +112,7 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateSilentlyAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateSilentlyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&requesturi.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn AuthenticateSilentlyWithOptionsAsync<P0>(requesturi: P0, options: WebAuthenticationOptions) -> windows_core::Result<windows_future::IAsyncOperation<WebAuthenticationResult>>
@@ -121,7 +121,7 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AuthenticateSilentlyWithOptionsAsync)(windows_core::Interface::as_raw(this), requesturi.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AuthenticateSilentlyWithOptionsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&requesturi.param().borrow()), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWebAuthenticationBrokerStatics<R, F: FnOnce(&IWebAuthenticationBrokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

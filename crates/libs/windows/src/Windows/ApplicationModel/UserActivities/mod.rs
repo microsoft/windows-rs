@@ -353,7 +353,7 @@ impl UserActivity {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -378,7 +378,7 @@ impl UserActivity {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetFallbackUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ActivationUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -392,7 +392,7 @@ impl UserActivity {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetActivationUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetActivationUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ContentInfo(&self) -> windows_core::Result<IUserActivityContentInfo> {
         let this = self;
@@ -406,7 +406,7 @@ impl UserActivity {
         P0: windows_core::Param<IUserActivityContentInfo>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentInfo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         let this = self;
@@ -464,7 +464,7 @@ impl UserActivity {
     {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ToJsonArray)(windows_core::Interface::as_raw(this), activities.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ToJsonArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&activities.param().borrow()), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     fn IUserActivityFactory<R, F: FnOnce(&IUserActivityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -512,7 +512,7 @@ impl UserActivityAttribution {
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetIconUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIconUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn AlternateText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -542,7 +542,7 @@ impl UserActivityAttribution {
     {
         Self::IUserActivityAttributionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithUri)(windows_core::Interface::as_raw(this), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&iconuri.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IUserActivityAttributionFactory<R, F: FnOnce(&IUserActivityAttributionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -618,7 +618,7 @@ impl UserActivityChannel {
     {
         Self::IUserActivityChannelStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetForWebAccount)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetForWebAccount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&account.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -628,7 +628,7 @@ impl UserActivityChannel {
     {
         Self::IUserActivityChannelStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&user.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IUserActivityChannelStatics<R, F: FnOnce(&IUserActivityChannelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -701,7 +701,7 @@ impl UserActivityRequest {
         P0: windows_core::Param<UserActivity>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetUserActivity)(windows_core::Interface::as_raw(this), activity.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetUserActivity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&activity.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for UserActivityRequest {
@@ -728,7 +728,7 @@ impl UserActivityRequestManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserActivityRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserActivityRequested)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUserActivityRequested(&self, token: i64) -> windows_core::Result<()> {
@@ -922,7 +922,7 @@ impl UserActivityVisualElements {
         P0: windows_core::Param<UserActivityAttribution>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAttribution)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAttribution)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "UI_Shell")]
     pub fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -930,7 +930,7 @@ impl UserActivityVisualElements {
         P0: windows_core::Param<super::super::UI::Shell::IAdaptiveCard>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "UI_Shell")]
     pub fn Content(&self) -> windows_core::Result<super::super::UI::Shell::IAdaptiveCard> {

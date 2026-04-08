@@ -26,7 +26,7 @@ impl WindowManagementPreview {
     where
         P0: windows_core::Param<super::AppWindow>,
     {
-        Self::IWindowManagementPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPreferredMinSize)(windows_core::Interface::as_raw(this), window.param().abi(), preferredframeminsize).ok() })
+        Self::IWindowManagementPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPreferredMinSize)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&window.param().borrow()), preferredframeminsize).ok() })
     }
     fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowManagementPreview, IWindowManagementPreviewStatics> = windows_core::imp::FactoryCache::new();

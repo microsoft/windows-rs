@@ -39,7 +39,7 @@ impl AsyncIFtpAuthenticationProvider {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Begin_AuthenticateUser)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszpassword.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Begin_AuthenticateUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow()), core::mem::transmute_copy(&pszpassword.param().borrow())).ok() }
     }
     pub unsafe fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut windows_core::PWSTR, pfauthenticated: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Finish_AuthenticateUser)(windows_core::Interface::as_raw(self), ppszcanonicalusername as _, pfauthenticated as _).ok() }
@@ -91,7 +91,7 @@ impl AsyncIFtpAuthorizationProvider {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Begin_GetUserAccessPermission)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszvirtualpath.param().abi(), pszusername.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Begin_GetUserAccessPermission)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszvirtualpath.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow())).ok() }
     }
     pub unsafe fn Finish_GetUserAccessPermission(&self) -> windows_core::Result<FTP_ACCESS> {
         unsafe {
@@ -151,7 +151,7 @@ impl AsyncIFtpHomeDirectoryProvider {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Begin_GetUserHomeDirectoryData)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Begin_GetUserHomeDirectoryData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow())).ok() }
     }
     pub unsafe fn Finish_GetUserHomeDirectoryData(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -368,7 +368,7 @@ impl AsyncIFtpRoleProvider {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Begin_IsUserInRole)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszrole.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Begin_IsUserInRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow()), core::mem::transmute_copy(&pszrole.param().borrow())).ok() }
     }
     pub unsafe fn Finish_IsUserInRole(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1111,7 +1111,7 @@ impl IFtpAuthenticationProvider {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AuthenticateUser)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszpassword.param().abi(), ppszcanonicalusername as _, pfauthenticated as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AuthenticateUser)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow()), core::mem::transmute_copy(&pszpassword.param().borrow()), ppszcanonicalusername as _, pfauthenticated as _).ok() }
     }
 }
 #[repr(C)]
@@ -1150,7 +1150,7 @@ impl IFtpAuthorizationProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUserAccessPermission)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszvirtualpath.param().abi(), pszusername.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetUserAccessPermission)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszvirtualpath.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1195,7 +1195,7 @@ impl IFtpHomeDirectoryProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUserHomeDirectoryData)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetUserHomeDirectoryData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1390,7 +1390,7 @@ impl IFtpRoleProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsUserInRole)(windows_core::Interface::as_raw(self), pszsessionid.param().abi(), pszsitename.param().abi(), pszusername.param().abi(), pszrole.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsUserInRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszsessionid.param().borrow()), core::mem::transmute_copy(&pszsitename.param().borrow()), core::mem::transmute_copy(&pszusername.param().borrow()), core::mem::transmute_copy(&pszrole.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -1531,14 +1531,14 @@ impl IMSAdminBase2W {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BackupWithPasswd)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags, pszpasswd.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).BackupWithPasswd)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmdbackuplocation.param().borrow()), dwmdversion, dwmdflags, core::mem::transmute_copy(&pszpasswd.param().borrow())).ok() }
     }
     pub unsafe fn RestoreWithPasswd<P0, P3>(&self, pszmdbackuplocation: P0, dwmdversion: u32, dwmdflags: u32, pszpasswd: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RestoreWithPasswd)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags, pszpasswd.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RestoreWithPasswd)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmdbackuplocation.param().borrow()), dwmdversion, dwmdflags, core::mem::transmute_copy(&pszpasswd.param().borrow())).ok() }
     }
     pub unsafe fn Export<P0, P1, P2>(&self, pszpasswd: P0, pszfilename: P1, pszsourcepath: P2, dwmdflags: u32) -> windows_core::Result<()>
     where
@@ -1546,7 +1546,7 @@ impl IMSAdminBase2W {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), pszpasswd.param().abi(), pszfilename.param().abi(), pszsourcepath.param().abi(), dwmdflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszpasswd.param().borrow()), core::mem::transmute_copy(&pszfilename.param().borrow()), core::mem::transmute_copy(&pszsourcepath.param().borrow()), dwmdflags).ok() }
     }
     pub unsafe fn Import<P0, P1, P2, P3>(&self, pszpasswd: P0, pszfilename: P1, pszsourcepath: P2, pszdestpath: P3, dwmdflags: u32) -> windows_core::Result<()>
     where
@@ -1555,13 +1555,13 @@ impl IMSAdminBase2W {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), pszpasswd.param().abi(), pszfilename.param().abi(), pszsourcepath.param().abi(), pszdestpath.param().abi(), dwmdflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszpasswd.param().borrow()), core::mem::transmute_copy(&pszfilename.param().borrow()), core::mem::transmute_copy(&pszsourcepath.param().borrow()), core::mem::transmute_copy(&pszdestpath.param().borrow()), dwmdflags).ok() }
     }
     pub unsafe fn RestoreHistory<P0>(&self, pszmdhistorylocation: P0, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RestoreHistory)(windows_core::Interface::as_raw(self), pszmdhistorylocation.param().abi(), dwmdmajorversion, dwmdminorversion, dwmdflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RestoreHistory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmdhistorylocation.param().borrow()), dwmdmajorversion, dwmdminorversion, dwmdflags).ok() }
     }
     pub unsafe fn EnumHistory(&self, pszmdhistorylocation: &mut [u16; 256], pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumHistory)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmdhistorylocation.as_ptr()), pdwmdmajorversion as _, pdwmdminorversion as _, pftmdhistorytime as _, dwmdenumindex).ok() }
@@ -1652,7 +1652,7 @@ impl IMSAdminBase3W {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetChildPaths)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchmdrequiredbuffersize.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetChildPaths)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchmdrequiredbuffersize.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -1732,88 +1732,88 @@ impl IMSAdminBaseW {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddKey)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow())).ok() }
     }
     pub unsafe fn DeleteKey<P1>(&self, hmdhandle: u32, pszmdpath: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteKey)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow())).ok() }
     }
     pub unsafe fn DeleteChildKeys<P1>(&self, hmdhandle: u32, pszmdpath: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteChildKeys)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteChildKeys)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow())).ok() }
     }
     pub unsafe fn EnumKeys<P1>(&self, hmdhandle: u32, pszmdpath: P1, pszmdname: &mut [u16; 256], dwmdenumobjectindex: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnumKeys)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), core::mem::transmute(pszmdname.as_ptr()), dwmdenumobjectindex).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnumKeys)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), core::mem::transmute(pszmdname.as_ptr()), dwmdenumobjectindex).ok() }
     }
     pub unsafe fn CopyKey<P1, P3>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, bmdoverwriteflag: bool, bmdcopyflag: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyKey)(windows_core::Interface::as_raw(self), hmdsourcehandle, pszmdsourcepath.param().abi(), hmddesthandle, pszmddestpath.param().abi(), bmdoverwriteflag.into(), bmdcopyflag.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyKey)(windows_core::Interface::as_raw(self), hmdsourcehandle, core::mem::transmute_copy(&pszmdsourcepath.param().borrow()), hmddesthandle, core::mem::transmute_copy(&pszmddestpath.param().borrow()), bmdoverwriteflag.into(), bmdcopyflag.into()).ok() }
     }
     pub unsafe fn RenameKey<P1, P2>(&self, hmdhandle: u32, pszmdpath: P1, pszmdnewname: P2) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RenameKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pszmdnewname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RenameKey)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), core::mem::transmute_copy(&pszmdnewname.param().borrow())).ok() }
     }
     pub unsafe fn SetData<P1>(&self, hmdhandle: u32, pszmdpath: P1, pmdrmddata: *mut METADATA_RECORD) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pmdrmddata as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), pmdrmddata as _).ok() }
     }
     pub unsafe fn GetData<P1>(&self, hmdhandle: u32, pszmdpath: P1, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pmdrmddata as _, pdwmdrequireddatalen as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), pmdrmddata as _, pdwmdrequireddatalen as _).ok() }
     }
     pub unsafe fn DeleteData<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdidentifier: u32, dwmddatatype: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdidentifier, dwmddatatype).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteData)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), dwmdidentifier, dwmddatatype).ok() }
     }
     pub unsafe fn EnumData<P1>(&self, hmdhandle: u32, pszmdpath: P1, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnumData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pmdrmddata as _, dwmdenumdataindex, pdwmdrequireddatalen as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnumData)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), pmdrmddata as _, dwmdenumdataindex, pdwmdrequireddatalen as _).ok() }
     }
     pub unsafe fn GetAllData<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAllData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdattributes, dwmdusertype, dwmddatatype, pdwmdnumdataentries as _, pdwmddatasetnumber as _, dwmdbuffersize, pbmdbuffer as _, pdwmdrequiredbuffersize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetAllData)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), dwmdattributes, dwmdusertype, dwmddatatype, pdwmdnumdataentries as _, pdwmddatasetnumber as _, dwmdbuffersize, pbmdbuffer as _, pdwmdrequiredbuffersize as _).ok() }
     }
     pub unsafe fn DeleteAllData<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdusertype: u32, dwmddatatype: u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAllData)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdusertype, dwmddatatype).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAllData)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), dwmdusertype, dwmddatatype).ok() }
     }
     pub unsafe fn CopyData<P1, P3>(&self, hmdsourcehandle: u32, pszmdsourcepath: P1, hmddesthandle: u32, pszmddestpath: P3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyData)(windows_core::Interface::as_raw(self), hmdsourcehandle, pszmdsourcepath.param().abi(), hmddesthandle, pszmddestpath.param().abi(), dwmdattributes, dwmdusertype, dwmddatatype, bmdcopyflag.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyData)(windows_core::Interface::as_raw(self), hmdsourcehandle, core::mem::transmute_copy(&pszmdsourcepath.param().borrow()), hmddesthandle, core::mem::transmute_copy(&pszmddestpath.param().borrow()), dwmdattributes, dwmdusertype, dwmddatatype, bmdcopyflag.into()).ok() }
     }
     pub unsafe fn GetDataPaths<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdidentifier: u32, dwmddatatype: u32, pszbuffer: &mut [u16], pdwmdrequiredbuffersize: *mut u32) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDataPaths)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdidentifier, dwmddatatype, pszbuffer.len().try_into().unwrap(), core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetDataPaths)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), dwmdidentifier, dwmddatatype, pszbuffer.len().try_into().unwrap(), core::mem::transmute(pszbuffer.as_ptr()), pdwmdrequiredbuffersize as _).ok() }
     }
     pub unsafe fn OpenKey<P1>(&self, hmdhandle: u32, pszmdpath: P1, dwmdaccessrequested: u32, dwmdtimeout: u32) -> windows_core::Result<u32>
     where
@@ -1821,7 +1821,7 @@ impl IMSAdminBaseW {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenKey)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), dwmdaccessrequested, dwmdtimeout, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).OpenKey)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), dwmdaccessrequested, dwmdtimeout, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> windows_core::Result<()> {
@@ -1851,20 +1851,20 @@ impl IMSAdminBaseW {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDataSetNumber)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetDataSetNumber)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn SetLastChangeTime<P1>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLastChangeTime)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pftmdlastchangetime, blocaltime.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetLastChangeTime)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), pftmdlastchangetime, blocaltime.into()).ok() }
     }
     pub unsafe fn GetLastChangeTime<P1>(&self, hmdhandle: u32, pszmdpath: P1, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: bool) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetLastChangeTime)(windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.param().abi(), pftmdlastchangetime as _, blocaltime.into()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLastChangeTime)(windows_core::Interface::as_raw(self), hmdhandle, core::mem::transmute_copy(&pszmdpath.param().borrow()), pftmdlastchangetime as _, blocaltime.into()).ok() }
     }
     pub unsafe fn KeyExchangePhase1(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).KeyExchangePhase1)(windows_core::Interface::as_raw(self)).ok() }
@@ -1876,13 +1876,13 @@ impl IMSAdminBaseW {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Backup)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Backup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmdbackuplocation.param().borrow()), dwmdversion, dwmdflags).ok() }
     }
     pub unsafe fn Restore<P0>(&self, pszmdbackuplocation: P0, dwmdversion: u32, dwmdflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion, dwmdflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Restore)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmdbackuplocation.param().borrow()), dwmdversion, dwmdflags).ok() }
     }
     pub unsafe fn EnumBackups(&self, pszmdbackuplocation: &mut [u16; 256], pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumBackups)(windows_core::Interface::as_raw(self), core::mem::transmute(pszmdbackuplocation.as_ptr()), pdwmdversion as _, pftmdbackuptime as _, dwmdenumindex).ok() }
@@ -1891,7 +1891,7 @@ impl IMSAdminBaseW {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteBackup)(windows_core::Interface::as_raw(self), pszmdbackuplocation.param().abi(), dwmdversion).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteBackup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszmdbackuplocation.param().borrow()), dwmdversion).ok() }
     }
     pub unsafe fn UnmarshalInterface(&self) -> windows_core::Result<IMSAdminBaseW> {
         unsafe {
@@ -2238,7 +2238,7 @@ impl IMSImpExpHelpW {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EnumeratePathsInFile)(windows_core::Interface::as_raw(self), pszfilename.param().abi(), pszkeytype.param().abi(), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwmdrequiredbuffersize as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EnumeratePathsInFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pszfilename.param().borrow()), core::mem::transmute_copy(&pszkeytype.param().borrow()), pszbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwmdrequiredbuffersize as _).ok() }
     }
 }
 #[repr(C)]

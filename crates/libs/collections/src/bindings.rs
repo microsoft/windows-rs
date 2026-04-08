@@ -542,7 +542,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(
                 windows_core::Interface::as_raw(this),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -568,7 +568,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(
                 windows_core::Interface::as_raw(this),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 &mut result__,
             )
             .map(|| result__)
@@ -595,8 +595,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Insert)(
                 windows_core::Interface::as_raw(this),
-                key.param().abi(),
-                value.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
+                core::mem::transmute_copy(&value.param().borrow()),
                 &mut result__,
             )
             .map(|| result__)
@@ -610,7 +610,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe {
             (windows_core::Interface::vtable(this).Remove)(
                 windows_core::Interface::as_raw(this),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
             )
             .ok()
         }
@@ -662,16 +662,12 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: windows_core::Ref<K>) -> windows_core::Result<V>;
+    fn Lookup(&self, key: Option<&K>) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: windows_core::Ref<K>) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: Option<&K>) -> windows_core::Result<bool>;
     fn GetView(&self) -> windows_core::Result<IMapView<K, V>>;
-    fn Insert(
-        &self,
-        key: windows_core::Ref<K>,
-        value: windows_core::Ref<V>,
-    ) -> windows_core::Result<bool>;
-    fn Remove(&self, key: windows_core::Ref<K>) -> windows_core::Result<()>;
+    fn Insert(&self, key: Option<&K>, value: Option<&V>) -> windows_core::Result<bool>;
+    fn Remove(&self, key: Option<&K>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -691,7 +687,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMap_Impl::Lookup(this, core::mem::transmute_copy(&key)) {
+                match IMap_Impl::Lookup(this, windows_core::Ref::option_from_abi(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -735,7 +731,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMap_Impl::HasKey(this, core::mem::transmute_copy(&key)) {
+                match IMap_Impl::HasKey(this, windows_core::Ref::option_from_abi(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -782,8 +778,8 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMap_Impl::Insert(
                     this,
-                    core::mem::transmute_copy(&key),
-                    core::mem::transmute_copy(&value),
+                    windows_core::Ref::option_from_abi(&key),
+                    windows_core::Ref::option_from_abi(&value),
                 ) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -805,7 +801,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMap_Impl::Remove(this, core::mem::transmute_copy(&key)).into()
+                IMap_Impl::Remove(this, windows_core::Ref::option_from_abi(&key)).into()
             }
         }
         unsafe extern "system" fn Clear<
@@ -929,7 +925,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(
                 windows_core::Interface::as_raw(this),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
@@ -955,7 +951,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(
                 windows_core::Interface::as_raw(this),
-                key.param().abi(),
+                core::mem::transmute_copy(&key.param().borrow()),
                 &mut result__,
             )
             .map(|| result__)
@@ -1016,9 +1012,9 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: windows_core::Ref<K>) -> windows_core::Result<V>;
+    fn Lookup(&self, key: Option<&K>) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: windows_core::Ref<K>) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: Option<&K>) -> windows_core::Result<bool>;
     fn Split(
         &self,
         first: windows_core::OutRef<IMapView<K, V>>,
@@ -1042,7 +1038,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapView_Impl::Lookup(this, core::mem::transmute_copy(&key)) {
+                match IMapView_Impl::Lookup(this, windows_core::Ref::option_from_abi(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1086,7 +1082,7 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMapView_Impl::HasKey(this, core::mem::transmute_copy(&key)) {
+                match IMapView_Impl::HasKey(this, windows_core::Ref::option_from_abi(&key)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -1231,7 +1227,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(
                 windows_core::Interface::as_raw(this),
-                value.param().abi(),
+                core::mem::transmute_copy(&value.param().borrow()),
                 index,
                 &mut result__,
             )
@@ -1247,7 +1243,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             (windows_core::Interface::vtable(this).SetAt)(
                 windows_core::Interface::as_raw(this),
                 index,
-                value.param().abi(),
+                core::mem::transmute_copy(&value.param().borrow()),
             )
             .ok()
         }
@@ -1261,7 +1257,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             (windows_core::Interface::vtable(this).InsertAt)(
                 windows_core::Interface::as_raw(this),
                 index,
-                value.param().abi(),
+                core::mem::transmute_copy(&value.param().borrow()),
             )
             .ok()
         }
@@ -1284,7 +1280,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
         unsafe {
             (windows_core::Interface::vtable(this).Append)(
                 windows_core::Interface::as_raw(this),
-                value.param().abi(),
+                core::mem::transmute_copy(&value.param().borrow()),
             )
             .ok()
         }
@@ -1373,11 +1369,11 @@ where
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
     fn GetView(&self) -> windows_core::Result<IVectorView<T>>;
-    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
-    fn SetAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
-    fn InsertAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
+    fn IndexOf(&self, value: Option<&T>, index: &mut u32) -> windows_core::Result<bool>;
+    fn SetAt(&self, index: u32, value: Option<&T>) -> windows_core::Result<()>;
+    fn InsertAt(&self, index: u32, value: Option<&T>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Append(&self, value: windows_core::Ref<T>) -> windows_core::Result<()>;
+    fn Append(&self, value: Option<&T>) -> windows_core::Result<()>;
     fn RemoveAtEnd(&self) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn GetMany(
@@ -1470,7 +1466,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVector_Impl::IndexOf(
                     this,
-                    core::mem::transmute_copy(&value),
+                    windows_core::Ref::option_from_abi(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
@@ -1493,7 +1489,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::SetAt(this, index, core::mem::transmute_copy(&value)).into()
+                IVector_Impl::SetAt(this, index, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn InsertAt<
@@ -1508,7 +1504,8 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::InsertAt(this, index, core::mem::transmute_copy(&value)).into()
+                IVector_Impl::InsertAt(this, index, windows_core::Ref::option_from_abi(&value))
+                    .into()
             }
         }
         unsafe extern "system" fn RemoveAt<
@@ -1536,7 +1533,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVector_Impl::Append(this, core::mem::transmute_copy(&value)).into()
+                IVector_Impl::Append(this, windows_core::Ref::option_from_abi(&value)).into()
             }
         }
         unsafe extern "system" fn RemoveAtEnd<
@@ -1752,7 +1749,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(
                 windows_core::Interface::as_raw(this),
-                value.param().abi(),
+                core::mem::transmute_copy(&value.param().borrow()),
                 index,
                 &mut result__,
             )
@@ -1812,7 +1809,7 @@ where
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
+    fn IndexOf(&self, value: Option<&T>, index: &mut u32) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
         startIndex: u32,
@@ -1878,7 +1875,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVectorView_Impl::IndexOf(
                     this,
-                    core::mem::transmute_copy(&value),
+                    windows_core::Ref::option_from_abi(&value),
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {

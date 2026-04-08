@@ -178,7 +178,7 @@ impl GattServiceProviderConnection {
         P0: windows_core::Param<super::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>,
     {
         let this = &windows_core::Interface::cast::<IGattServiceProviderConnection2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&parameters.param().borrow())).ok() }
     }
     pub fn AllServices() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, GattServiceProviderConnection>> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
@@ -465,7 +465,7 @@ impl RfcommInboundConnectionInformation {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSdpRecord)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSdpRecord)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn LocalServiceId(&self) -> windows_core::Result<super::Rfcomm::RfcommServiceId> {
@@ -481,7 +481,7 @@ impl RfcommInboundConnectionInformation {
         P0: windows_core::Param<super::Rfcomm::RfcommServiceId>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLocalServiceId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLocalServiceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ServiceCapabilities(&self) -> windows_core::Result<super::BluetoothServiceCapabilities> {
         let this = self;
@@ -526,7 +526,7 @@ impl RfcommOutboundConnectionInformation {
         P0: windows_core::Param<super::Rfcomm::RfcommServiceId>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemoteServiceId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRemoteServiceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for RfcommOutboundConnectionInformation {

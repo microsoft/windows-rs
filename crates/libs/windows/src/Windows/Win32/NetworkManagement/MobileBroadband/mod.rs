@@ -49,7 +49,7 @@ impl IMbnConnection {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), connectionmode, strprofile.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), connectionmode, core::mem::transmute_copy(&strprofile.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Disconnect(&self) -> windows_core::Result<u32> {
@@ -207,7 +207,7 @@ impl IMbnConnectionContext {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetProvisionedContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(provisionedcontexts), providerid.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).SetProvisionedContext)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(provisionedcontexts), core::mem::transmute_copy(&providerid.param().borrow()), &mut result__).map(|| result__)
         }
     }
 }
@@ -272,13 +272,13 @@ impl IMbnConnectionContextEvents {
     where
         P0: windows_core::Param<IMbnConnectionContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnProvisionedContextListChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnProvisionedContextListChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnSetProvisionedContextComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnConnectionContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetProvisionedContextComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetProvisionedContextComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow()), requestid, status).ok() }
     }
 }
 #[repr(C)]
@@ -289,21 +289,21 @@ pub struct IMbnConnectionContextEvents_Vtbl {
     pub OnSetProvisionedContextComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IMbnConnectionContextEvents_Impl: windows_core::IUnknownImpl {
-    fn OnProvisionedContextListChange(&self, newinterface: windows_core::Ref<IMbnConnectionContext>) -> windows_core::Result<()>;
-    fn OnSetProvisionedContextComplete(&self, newinterface: windows_core::Ref<IMbnConnectionContext>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnProvisionedContextListChange(&self, newinterface: Option<&IMbnConnectionContext>) -> windows_core::Result<()>;
+    fn OnSetProvisionedContextComplete(&self, newinterface: Option<&IMbnConnectionContext>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IMbnConnectionContextEvents_Vtbl {
     pub const fn new<Identity: IMbnConnectionContextEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnProvisionedContextListChange<Identity: IMbnConnectionContextEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionContextEvents_Impl::OnProvisionedContextListChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnConnectionContextEvents_Impl::OnProvisionedContextListChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnSetProvisionedContextComplete<Identity: IMbnConnectionContextEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionContextEvents_Impl::OnSetProvisionedContextComplete(this, core::mem::transmute_copy(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnConnectionContextEvents_Impl::OnSetProvisionedContextComplete(this, windows_core::Ref::option_from_abi(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         Self {
@@ -324,25 +324,25 @@ impl IMbnConnectionEvents {
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectComplete)(windows_core::Interface::as_raw(self), newconnection.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newconnection.param().borrow()), requestid, status).ok() }
     }
     pub unsafe fn OnDisconnectComplete<P0>(&self, newconnection: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDisconnectComplete)(windows_core::Interface::as_raw(self), newconnection.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDisconnectComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newconnection.param().borrow()), requestid, status).ok() }
     }
     pub unsafe fn OnConnectStateChange<P0>(&self, newconnection: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectStateChange)(windows_core::Interface::as_raw(self), newconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newconnection.param().borrow())).ok() }
     }
     pub unsafe fn OnVoiceCallStateChange<P0>(&self, newconnection: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnVoiceCallStateChange)(windows_core::Interface::as_raw(self), newconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnVoiceCallStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newconnection.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -355,35 +355,35 @@ pub struct IMbnConnectionEvents_Vtbl {
     pub OnVoiceCallStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMbnConnectionEvents_Impl: windows_core::IUnknownImpl {
-    fn OnConnectComplete(&self, newconnection: windows_core::Ref<IMbnConnection>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnDisconnectComplete(&self, newconnection: windows_core::Ref<IMbnConnection>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnConnectStateChange(&self, newconnection: windows_core::Ref<IMbnConnection>) -> windows_core::Result<()>;
-    fn OnVoiceCallStateChange(&self, newconnection: windows_core::Ref<IMbnConnection>) -> windows_core::Result<()>;
+    fn OnConnectComplete(&self, newconnection: Option<&IMbnConnection>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnDisconnectComplete(&self, newconnection: Option<&IMbnConnection>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnConnectStateChange(&self, newconnection: Option<&IMbnConnection>) -> windows_core::Result<()>;
+    fn OnVoiceCallStateChange(&self, newconnection: Option<&IMbnConnection>) -> windows_core::Result<()>;
 }
 impl IMbnConnectionEvents_Vtbl {
     pub const fn new<Identity: IMbnConnectionEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnConnectComplete<Identity: IMbnConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnection: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionEvents_Impl::OnConnectComplete(this, core::mem::transmute_copy(&newconnection), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnConnectionEvents_Impl::OnConnectComplete(this, windows_core::Ref::option_from_abi(&newconnection), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnDisconnectComplete<Identity: IMbnConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnection: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionEvents_Impl::OnDisconnectComplete(this, core::mem::transmute_copy(&newconnection), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnConnectionEvents_Impl::OnDisconnectComplete(this, windows_core::Ref::option_from_abi(&newconnection), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnConnectStateChange<Identity: IMbnConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionEvents_Impl::OnConnectStateChange(this, core::mem::transmute_copy(&newconnection)).into()
+                IMbnConnectionEvents_Impl::OnConnectStateChange(this, windows_core::Ref::option_from_abi(&newconnection)).into()
             }
         }
         unsafe extern "system" fn OnVoiceCallStateChange<Identity: IMbnConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionEvents_Impl::OnVoiceCallStateChange(this, core::mem::transmute_copy(&newconnection)).into()
+                IMbnConnectionEvents_Impl::OnVoiceCallStateChange(this, windows_core::Ref::option_from_abi(&newconnection)).into()
             }
         }
         Self {
@@ -408,7 +408,7 @@ impl IMbnConnectionManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConnection)(windows_core::Interface::as_raw(self), connectionid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetConnection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&connectionid.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -480,13 +480,13 @@ impl IMbnConnectionManagerEvents {
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionArrival)(windows_core::Interface::as_raw(self), newconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionArrival)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newconnection.param().borrow())).ok() }
     }
     pub unsafe fn OnConnectionRemoval<P0>(&self, oldconnection: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnConnection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionRemoval)(windows_core::Interface::as_raw(self), oldconnection.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionRemoval)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&oldconnection.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -497,21 +497,21 @@ pub struct IMbnConnectionManagerEvents_Vtbl {
     pub OnConnectionRemoval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMbnConnectionManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn OnConnectionArrival(&self, newconnection: windows_core::Ref<IMbnConnection>) -> windows_core::Result<()>;
-    fn OnConnectionRemoval(&self, oldconnection: windows_core::Ref<IMbnConnection>) -> windows_core::Result<()>;
+    fn OnConnectionArrival(&self, newconnection: Option<&IMbnConnection>) -> windows_core::Result<()>;
+    fn OnConnectionRemoval(&self, oldconnection: Option<&IMbnConnection>) -> windows_core::Result<()>;
 }
 impl IMbnConnectionManagerEvents_Vtbl {
     pub const fn new<Identity: IMbnConnectionManagerEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnConnectionArrival<Identity: IMbnConnectionManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionManagerEvents_Impl::OnConnectionArrival(this, core::mem::transmute_copy(&newconnection)).into()
+                IMbnConnectionManagerEvents_Impl::OnConnectionArrival(this, windows_core::Ref::option_from_abi(&newconnection)).into()
             }
         }
         unsafe extern "system" fn OnConnectionRemoval<Identity: IMbnConnectionManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldconnection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionManagerEvents_Impl::OnConnectionRemoval(this, core::mem::transmute_copy(&oldconnection)).into()
+                IMbnConnectionManagerEvents_Impl::OnConnectionRemoval(this, windows_core::Ref::option_from_abi(&oldconnection)).into()
             }
         }
         Self {
@@ -538,7 +538,7 @@ impl IMbnConnectionProfile {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateProfile)(windows_core::Interface::as_raw(self), strprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).UpdateProfile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&strprofile.param().borrow())).ok() }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
@@ -602,7 +602,7 @@ impl IMbnConnectionProfileEvents {
     where
         P0: windows_core::Param<IMbnConnectionProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnProfileUpdate)(windows_core::Interface::as_raw(self), newprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnProfileUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newprofile.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -612,14 +612,14 @@ pub struct IMbnConnectionProfileEvents_Vtbl {
     pub OnProfileUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMbnConnectionProfileEvents_Impl: windows_core::IUnknownImpl {
-    fn OnProfileUpdate(&self, newprofile: windows_core::Ref<IMbnConnectionProfile>) -> windows_core::Result<()>;
+    fn OnProfileUpdate(&self, newprofile: Option<&IMbnConnectionProfile>) -> windows_core::Result<()>;
 }
 impl IMbnConnectionProfileEvents_Vtbl {
     pub const fn new<Identity: IMbnConnectionProfileEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnProfileUpdate<Identity: IMbnConnectionProfileEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionProfileEvents_Impl::OnProfileUpdate(this, core::mem::transmute_copy(&newprofile)).into()
+                IMbnConnectionProfileEvents_Impl::OnProfileUpdate(this, windows_core::Ref::option_from_abi(&newprofile)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnProfileUpdate: OnProfileUpdate::<Identity, OFFSET> }
@@ -639,7 +639,7 @@ impl IMbnConnectionProfileManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConnectionProfiles)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetConnectionProfiles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mbninterface.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetConnectionProfile<P0, P1>(&self, mbninterface: P0, profilename: P1) -> windows_core::Result<IMbnConnectionProfile>
@@ -649,14 +649,14 @@ impl IMbnConnectionProfileManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConnectionProfile)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), profilename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetConnectionProfile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mbninterface.param().borrow()), core::mem::transmute_copy(&profilename.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateConnectionProfile<P0>(&self, xmlprofile: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateConnectionProfile)(windows_core::Interface::as_raw(self), xmlprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateConnectionProfile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&xmlprofile.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -672,8 +672,8 @@ pub struct IMbnConnectionProfileManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnConnectionProfileManager_Impl: windows_core::IUnknownImpl {
-    fn GetConnectionProfiles(&self, mbninterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetConnectionProfile(&self, mbninterface: windows_core::Ref<IMbnInterface>, profilename: &windows_core::PCWSTR) -> windows_core::Result<IMbnConnectionProfile>;
+    fn GetConnectionProfiles(&self, mbninterface: Option<&IMbnInterface>) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetConnectionProfile(&self, mbninterface: Option<&IMbnInterface>, profilename: &windows_core::PCWSTR) -> windows_core::Result<IMbnConnectionProfile>;
     fn CreateConnectionProfile(&self, xmlprofile: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -682,7 +682,7 @@ impl IMbnConnectionProfileManager_Vtbl {
         unsafe extern "system" fn GetConnectionProfiles<Identity: IMbnConnectionProfileManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mbninterface: *mut core::ffi::c_void, connectionprofiles: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMbnConnectionProfileManager_Impl::GetConnectionProfiles(this, core::mem::transmute_copy(&mbninterface)) {
+                match IMbnConnectionProfileManager_Impl::GetConnectionProfiles(this, windows_core::Ref::option_from_abi(&mbninterface)) {
                     Ok(ok__) => {
                         connectionprofiles.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -694,7 +694,7 @@ impl IMbnConnectionProfileManager_Vtbl {
         unsafe extern "system" fn GetConnectionProfile<Identity: IMbnConnectionProfileManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mbninterface: *mut core::ffi::c_void, profilename: windows_core::PCWSTR, connectionprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMbnConnectionProfileManager_Impl::GetConnectionProfile(this, core::mem::transmute_copy(&mbninterface), core::mem::transmute(&profilename)) {
+                match IMbnConnectionProfileManager_Impl::GetConnectionProfile(this, windows_core::Ref::option_from_abi(&mbninterface), core::mem::transmute(&profilename)) {
                     Ok(ok__) => {
                         connectionprofile.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -729,13 +729,13 @@ impl IMbnConnectionProfileManagerEvents {
     where
         P0: windows_core::Param<IMbnConnectionProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileArrival)(windows_core::Interface::as_raw(self), newconnectionprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileArrival)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newconnectionprofile.param().borrow())).ok() }
     }
     pub unsafe fn OnConnectionProfileRemoval<P0>(&self, oldconnectionprofile: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnConnectionProfile>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileRemoval)(windows_core::Interface::as_raw(self), oldconnectionprofile.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnConnectionProfileRemoval)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&oldconnectionprofile.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -746,21 +746,21 @@ pub struct IMbnConnectionProfileManagerEvents_Vtbl {
     pub OnConnectionProfileRemoval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMbnConnectionProfileManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn OnConnectionProfileArrival(&self, newconnectionprofile: windows_core::Ref<IMbnConnectionProfile>) -> windows_core::Result<()>;
-    fn OnConnectionProfileRemoval(&self, oldconnectionprofile: windows_core::Ref<IMbnConnectionProfile>) -> windows_core::Result<()>;
+    fn OnConnectionProfileArrival(&self, newconnectionprofile: Option<&IMbnConnectionProfile>) -> windows_core::Result<()>;
+    fn OnConnectionProfileRemoval(&self, oldconnectionprofile: Option<&IMbnConnectionProfile>) -> windows_core::Result<()>;
 }
 impl IMbnConnectionProfileManagerEvents_Vtbl {
     pub const fn new<Identity: IMbnConnectionProfileManagerEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnConnectionProfileArrival<Identity: IMbnConnectionProfileManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnectionprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionProfileManagerEvents_Impl::OnConnectionProfileArrival(this, core::mem::transmute_copy(&newconnectionprofile)).into()
+                IMbnConnectionProfileManagerEvents_Impl::OnConnectionProfileArrival(this, windows_core::Ref::option_from_abi(&newconnectionprofile)).into()
             }
         }
         unsafe extern "system" fn OnConnectionProfileRemoval<Identity: IMbnConnectionProfileManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldconnectionprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnConnectionProfileManagerEvents_Impl::OnConnectionProfileRemoval(this, core::mem::transmute_copy(&oldconnectionprofile)).into()
+                IMbnConnectionProfileManagerEvents_Impl::OnConnectionProfileRemoval(this, windows_core::Ref::option_from_abi(&oldconnectionprofile)).into()
             }
         }
         Self {
@@ -1215,65 +1215,65 @@ impl IMbnDeviceServicesEvents {
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnQuerySupportedCommandsComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), commandidlist, status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnQuerySupportedCommandsComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), commandidlist, status, requestid).ok() }
     }
     pub unsafe fn OnOpenCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOpenCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOpenCommandSessionComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), status, requestid).ok() }
     }
     pub unsafe fn OnCloseCommandSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnCloseCommandSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnCloseCommandSessionComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), status, requestid).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSetCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), responseid, deviceservicedata, status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetCommandComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), responseid, deviceservicedata, status, requestid).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQueryCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnQueryCommandComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), responseid, deviceservicedata, status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnQueryCommandComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), responseid, deviceservicedata, status, requestid).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventNotification<P0>(&self, deviceservice: P0, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), eventid, deviceservicedata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), eventid, deviceservicedata).ok() }
     }
     pub unsafe fn OnOpenDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnOpenDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnOpenDataSessionComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), status, requestid).ok() }
     }
     pub unsafe fn OnCloseDataSessionComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnCloseDataSessionComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnCloseDataSessionComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), status, requestid).ok() }
     }
     pub unsafe fn OnWriteDataComplete<P0>(&self, deviceservice: P0, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnWriteDataComplete)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), status, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnWriteDataComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), status, requestid).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnReadData<P0>(&self, deviceservice: P0, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnDeviceService>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnReadData)(windows_core::Interface::as_raw(self), deviceservice.param().abi(), deviceservicedata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnReadData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&deviceservice.param().borrow()), deviceservicedata).ok() }
     }
     pub unsafe fn OnInterfaceStateChange(&self, interfaceid: &windows_core::BSTR, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnInterfaceStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(interfaceid), statechange).ok() }
@@ -1312,16 +1312,16 @@ pub struct IMbnDeviceServicesEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnDeviceServicesEvents_Impl: windows_core::IUnknownImpl {
-    fn OnQuerySupportedCommandsComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, commandidlist: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnOpenCommandSessionComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnCloseCommandSessionComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnSetCommandComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnQueryCommandComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnEventNotification(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn OnOpenDataSessionComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnCloseDataSessionComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnWriteDataComplete(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
-    fn OnReadData(&self, deviceservice: windows_core::Ref<IMbnDeviceService>, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn OnQuerySupportedCommandsComplete(&self, deviceservice: Option<&IMbnDeviceService>, commandidlist: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnOpenCommandSessionComplete(&self, deviceservice: Option<&IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnCloseCommandSessionComplete(&self, deviceservice: Option<&IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnSetCommandComplete(&self, deviceservice: Option<&IMbnDeviceService>, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnQueryCommandComplete(&self, deviceservice: Option<&IMbnDeviceService>, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnEventNotification(&self, deviceservice: Option<&IMbnDeviceService>, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn OnOpenDataSessionComplete(&self, deviceservice: Option<&IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnCloseDataSessionComplete(&self, deviceservice: Option<&IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnWriteDataComplete(&self, deviceservice: Option<&IMbnDeviceService>, status: windows_core::HRESULT, requestid: u32) -> windows_core::Result<()>;
+    fn OnReadData(&self, deviceservice: Option<&IMbnDeviceService>, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn OnInterfaceStateChange(&self, interfaceid: &windows_core::BSTR, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1330,61 +1330,61 @@ impl IMbnDeviceServicesEvents_Vtbl {
         unsafe extern "system" fn OnQuerySupportedCommandsComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, commandidlist: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnQuerySupportedCommandsComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&commandidlist), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnQuerySupportedCommandsComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&commandidlist), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnOpenCommandSessionComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnOpenCommandSessionComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnOpenCommandSessionComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnCloseCommandSessionComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnCloseCommandSessionComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnCloseCommandSessionComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnSetCommandComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnSetCommandComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&responseid), core::mem::transmute_copy(&deviceservicedata), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnSetCommandComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&responseid), core::mem::transmute_copy(&deviceservicedata), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnQueryCommandComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnQueryCommandComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&responseid), core::mem::transmute_copy(&deviceservicedata), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnQueryCommandComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&responseid), core::mem::transmute_copy(&deviceservicedata), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnEventNotification<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnEventNotification(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&deviceservicedata)).into()
+                IMbnDeviceServicesEvents_Impl::OnEventNotification(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&deviceservicedata)).into()
             }
         }
         unsafe extern "system" fn OnOpenDataSessionComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnOpenDataSessionComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnOpenDataSessionComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnCloseDataSessionComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnCloseDataSessionComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnCloseDataSessionComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnWriteDataComplete<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, status: windows_core::HRESULT, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnWriteDataComplete(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
+                IMbnDeviceServicesEvents_Impl::OnWriteDataComplete(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&status), core::mem::transmute_copy(&requestid)).into()
             }
         }
         unsafe extern "system" fn OnReadData<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceservice: *mut core::ffi::c_void, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnDeviceServicesEvents_Impl::OnReadData(this, core::mem::transmute_copy(&deviceservice), core::mem::transmute_copy(&deviceservicedata)).into()
+                IMbnDeviceServicesEvents_Impl::OnReadData(this, windows_core::Ref::option_from_abi(&deviceservice), core::mem::transmute_copy(&deviceservicedata)).into()
             }
         }
         unsafe extern "system" fn OnInterfaceStateChange<Identity: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *mut core::ffi::c_void, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> windows_core::HRESULT {
@@ -1720,49 +1720,49 @@ impl IMbnInterfaceEvents {
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnSubscriberInformationChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSubscriberInformationChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSubscriberInformationChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnReadyStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnReadyStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnReadyStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnEmergencyModeChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEmergencyModeChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEmergencyModeChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnHomeProviderAvailable<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnHomeProviderAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnHomeProviderAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnPreferredProvidersChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnSetPreferredProvidersComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetPreferredProvidersComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetPreferredProvidersComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow()), requestid, status).ok() }
     }
     pub unsafe fn OnScanNetworkComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow()), requestid, status).ok() }
     }
 }
 #[repr(C)]
@@ -1779,63 +1779,63 @@ pub struct IMbnInterfaceEvents_Vtbl {
     pub OnScanNetworkComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IMbnInterfaceEvents_Impl: windows_core::IUnknownImpl {
-    fn OnInterfaceCapabilityAvailable(&self, newinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
-    fn OnSubscriberInformationChange(&self, newinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
-    fn OnReadyStateChange(&self, newinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
-    fn OnEmergencyModeChange(&self, newinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
-    fn OnHomeProviderAvailable(&self, newinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
-    fn OnPreferredProvidersChange(&self, newinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
-    fn OnSetPreferredProvidersComplete(&self, newinterface: windows_core::Ref<IMbnInterface>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnScanNetworkComplete(&self, newinterface: windows_core::Ref<IMbnInterface>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnInterfaceCapabilityAvailable(&self, newinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
+    fn OnSubscriberInformationChange(&self, newinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
+    fn OnReadyStateChange(&self, newinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
+    fn OnEmergencyModeChange(&self, newinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
+    fn OnHomeProviderAvailable(&self, newinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
+    fn OnPreferredProvidersChange(&self, newinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
+    fn OnSetPreferredProvidersComplete(&self, newinterface: Option<&IMbnInterface>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnScanNetworkComplete(&self, newinterface: Option<&IMbnInterface>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IMbnInterfaceEvents_Vtbl {
     pub const fn new<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnInterfaceCapabilityAvailable<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnInterfaceCapabilityAvailable(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnInterfaceEvents_Impl::OnInterfaceCapabilityAvailable(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnSubscriberInformationChange<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnSubscriberInformationChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnInterfaceEvents_Impl::OnSubscriberInformationChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnReadyStateChange<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnReadyStateChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnInterfaceEvents_Impl::OnReadyStateChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnEmergencyModeChange<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnEmergencyModeChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnInterfaceEvents_Impl::OnEmergencyModeChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnHomeProviderAvailable<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnHomeProviderAvailable(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnInterfaceEvents_Impl::OnHomeProviderAvailable(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnPreferredProvidersChange<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnPreferredProvidersChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnInterfaceEvents_Impl::OnPreferredProvidersChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnSetPreferredProvidersComplete<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnSetPreferredProvidersComplete(this, core::mem::transmute_copy(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnInterfaceEvents_Impl::OnSetPreferredProvidersComplete(this, windows_core::Ref::option_from_abi(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnScanNetworkComplete<Identity: IMbnInterfaceEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceEvents_Impl::OnScanNetworkComplete(this, core::mem::transmute_copy(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnInterfaceEvents_Impl::OnScanNetworkComplete(this, windows_core::Ref::option_from_abi(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         Self {
@@ -1864,7 +1864,7 @@ impl IMbnInterfaceManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), interfaceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&interfaceid.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -1936,13 +1936,13 @@ impl IMbnInterfaceManagerEvents {
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceArrival)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceArrival)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnInterfaceRemoval<P0>(&self, oldinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnInterface>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceRemoval)(windows_core::Interface::as_raw(self), oldinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceRemoval)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&oldinterface.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -1953,21 +1953,21 @@ pub struct IMbnInterfaceManagerEvents_Vtbl {
     pub OnInterfaceRemoval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMbnInterfaceManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn OnInterfaceArrival(&self, newinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
-    fn OnInterfaceRemoval(&self, oldinterface: windows_core::Ref<IMbnInterface>) -> windows_core::Result<()>;
+    fn OnInterfaceArrival(&self, newinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
+    fn OnInterfaceRemoval(&self, oldinterface: Option<&IMbnInterface>) -> windows_core::Result<()>;
 }
 impl IMbnInterfaceManagerEvents_Vtbl {
     pub const fn new<Identity: IMbnInterfaceManagerEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnInterfaceArrival<Identity: IMbnInterfaceManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceManagerEvents_Impl::OnInterfaceArrival(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnInterfaceManagerEvents_Impl::OnInterfaceArrival(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnInterfaceRemoval<Identity: IMbnInterfaceManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnInterfaceManagerEvents_Impl::OnInterfaceRemoval(this, core::mem::transmute_copy(&oldinterface)).into()
+                IMbnInterfaceManagerEvents_Impl::OnInterfaceRemoval(this, windows_core::Ref::option_from_abi(&oldinterface)).into()
             }
         }
         Self {
@@ -2151,31 +2151,31 @@ impl IMbnMultiCarrierEvents {
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetHomeProviderComplete)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetHomeProviderComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mbninterface.param().borrow()), requestid, status).ok() }
     }
     pub unsafe fn OnCurrentCellularClassChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnCurrentCellularClassChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnCurrentCellularClassChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mbninterface.param().borrow())).ok() }
     }
     pub unsafe fn OnPreferredProvidersChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPreferredProvidersChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mbninterface.param().borrow())).ok() }
     }
     pub unsafe fn OnScanNetworkComplete<P0>(&self, mbninterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), mbninterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnScanNetworkComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mbninterface.param().borrow()), requestid, status).ok() }
     }
     pub unsafe fn OnInterfaceCapabilityChange<P0>(&self, mbninterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnMultiCarrier>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityChange)(windows_core::Interface::as_raw(self), mbninterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnInterfaceCapabilityChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&mbninterface.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -2189,42 +2189,42 @@ pub struct IMbnMultiCarrierEvents_Vtbl {
     pub OnInterfaceCapabilityChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMbnMultiCarrierEvents_Impl: windows_core::IUnknownImpl {
-    fn OnSetHomeProviderComplete(&self, mbninterface: windows_core::Ref<IMbnMultiCarrier>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnCurrentCellularClassChange(&self, mbninterface: windows_core::Ref<IMbnMultiCarrier>) -> windows_core::Result<()>;
-    fn OnPreferredProvidersChange(&self, mbninterface: windows_core::Ref<IMbnMultiCarrier>) -> windows_core::Result<()>;
-    fn OnScanNetworkComplete(&self, mbninterface: windows_core::Ref<IMbnMultiCarrier>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnInterfaceCapabilityChange(&self, mbninterface: windows_core::Ref<IMbnMultiCarrier>) -> windows_core::Result<()>;
+    fn OnSetHomeProviderComplete(&self, mbninterface: Option<&IMbnMultiCarrier>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnCurrentCellularClassChange(&self, mbninterface: Option<&IMbnMultiCarrier>) -> windows_core::Result<()>;
+    fn OnPreferredProvidersChange(&self, mbninterface: Option<&IMbnMultiCarrier>) -> windows_core::Result<()>;
+    fn OnScanNetworkComplete(&self, mbninterface: Option<&IMbnMultiCarrier>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnInterfaceCapabilityChange(&self, mbninterface: Option<&IMbnMultiCarrier>) -> windows_core::Result<()>;
 }
 impl IMbnMultiCarrierEvents_Vtbl {
     pub const fn new<Identity: IMbnMultiCarrierEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSetHomeProviderComplete<Identity: IMbnMultiCarrierEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mbninterface: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnMultiCarrierEvents_Impl::OnSetHomeProviderComplete(this, core::mem::transmute_copy(&mbninterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnMultiCarrierEvents_Impl::OnSetHomeProviderComplete(this, windows_core::Ref::option_from_abi(&mbninterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnCurrentCellularClassChange<Identity: IMbnMultiCarrierEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mbninterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnMultiCarrierEvents_Impl::OnCurrentCellularClassChange(this, core::mem::transmute_copy(&mbninterface)).into()
+                IMbnMultiCarrierEvents_Impl::OnCurrentCellularClassChange(this, windows_core::Ref::option_from_abi(&mbninterface)).into()
             }
         }
         unsafe extern "system" fn OnPreferredProvidersChange<Identity: IMbnMultiCarrierEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mbninterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnMultiCarrierEvents_Impl::OnPreferredProvidersChange(this, core::mem::transmute_copy(&mbninterface)).into()
+                IMbnMultiCarrierEvents_Impl::OnPreferredProvidersChange(this, windows_core::Ref::option_from_abi(&mbninterface)).into()
             }
         }
         unsafe extern "system" fn OnScanNetworkComplete<Identity: IMbnMultiCarrierEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mbninterface: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnMultiCarrierEvents_Impl::OnScanNetworkComplete(this, core::mem::transmute_copy(&mbninterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnMultiCarrierEvents_Impl::OnScanNetworkComplete(this, windows_core::Ref::option_from_abi(&mbninterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnInterfaceCapabilityChange<Identity: IMbnMultiCarrierEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mbninterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnMultiCarrierEvents_Impl::OnInterfaceCapabilityChange(this, core::mem::transmute_copy(&mbninterface)).into()
+                IMbnMultiCarrierEvents_Impl::OnInterfaceCapabilityChange(this, windows_core::Ref::option_from_abi(&mbninterface)).into()
             }
         }
         Self {
@@ -2280,7 +2280,7 @@ impl IMbnPin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), pin.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Disable<P0>(&self, pin: P0) -> windows_core::Result<u32>
@@ -2289,7 +2289,7 @@ impl IMbnPin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Disable)(windows_core::Interface::as_raw(self), pin.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Disable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Enter<P0>(&self, pin: P0) -> windows_core::Result<u32>
@@ -2298,7 +2298,7 @@ impl IMbnPin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enter)(windows_core::Interface::as_raw(self), pin.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Enter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Change<P0, P1>(&self, pin: P0, newpin: P1) -> windows_core::Result<u32>
@@ -2308,7 +2308,7 @@ impl IMbnPin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Change)(windows_core::Interface::as_raw(self), pin.param().abi(), newpin.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Change)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), core::mem::transmute_copy(&newpin.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Unblock<P0, P1>(&self, puk: P0, newpin: P1) -> windows_core::Result<u32>
@@ -2318,7 +2318,7 @@ impl IMbnPin {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Unblock)(windows_core::Interface::as_raw(self), puk.param().abi(), newpin.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Unblock)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&puk.param().borrow()), core::mem::transmute_copy(&newpin.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetPinManager(&self) -> windows_core::Result<IMbnPinManager> {
@@ -2518,31 +2518,31 @@ impl IMbnPinEvents {
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEnableComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEnableComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), pininfo, requestid, status).ok() }
     }
     pub unsafe fn OnDisableComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnDisableComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnDisableComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), pininfo, requestid, status).ok() }
     }
     pub unsafe fn OnEnterComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEnterComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEnterComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), pininfo, requestid, status).ok() }
     }
     pub unsafe fn OnChangeComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnChangeComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnChangeComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), pininfo, requestid, status).ok() }
     }
     pub unsafe fn OnUnblockComplete<P0>(&self, pin: P0, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnUnblockComplete)(windows_core::Interface::as_raw(self), pin.param().abi(), pininfo, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnUnblockComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pin.param().borrow()), pininfo, requestid, status).ok() }
     }
 }
 #[repr(C)]
@@ -2556,42 +2556,42 @@ pub struct IMbnPinEvents_Vtbl {
     pub OnUnblockComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IMbnPinEvents_Impl: windows_core::IUnknownImpl {
-    fn OnEnableComplete(&self, pin: windows_core::Ref<IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnDisableComplete(&self, pin: windows_core::Ref<IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnEnterComplete(&self, pin: windows_core::Ref<IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnChangeComplete(&self, pin: windows_core::Ref<IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnUnblockComplete(&self, pin: windows_core::Ref<IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnEnableComplete(&self, pin: Option<&IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnDisableComplete(&self, pin: Option<&IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnEnterComplete(&self, pin: Option<&IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnChangeComplete(&self, pin: Option<&IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnUnblockComplete(&self, pin: Option<&IMbnPin>, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IMbnPinEvents_Vtbl {
     pub const fn new<Identity: IMbnPinEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnEnableComplete<Identity: IMbnPinEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnPinEvents_Impl::OnEnableComplete(this, core::mem::transmute_copy(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnPinEvents_Impl::OnEnableComplete(this, windows_core::Ref::option_from_abi(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnDisableComplete<Identity: IMbnPinEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnPinEvents_Impl::OnDisableComplete(this, core::mem::transmute_copy(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnPinEvents_Impl::OnDisableComplete(this, windows_core::Ref::option_from_abi(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnEnterComplete<Identity: IMbnPinEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnPinEvents_Impl::OnEnterComplete(this, core::mem::transmute_copy(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnPinEvents_Impl::OnEnterComplete(this, windows_core::Ref::option_from_abi(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnChangeComplete<Identity: IMbnPinEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnPinEvents_Impl::OnChangeComplete(this, core::mem::transmute_copy(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnPinEvents_Impl::OnChangeComplete(this, windows_core::Ref::option_from_abi(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnUnblockComplete<Identity: IMbnPinEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnPinEvents_Impl::OnUnblockComplete(this, core::mem::transmute_copy(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnPinEvents_Impl::OnUnblockComplete(this, windows_core::Ref::option_from_abi(&pin), core::mem::transmute_copy(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         Self {
@@ -2707,13 +2707,13 @@ impl IMbnPinManagerEvents {
     where
         P0: windows_core::Param<IMbnPinManager>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPinListAvailable)(windows_core::Interface::as_raw(self), pinmanager.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPinListAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pinmanager.param().borrow())).ok() }
     }
     pub unsafe fn OnGetPinStateComplete<P0>(&self, pinmanager: P0, pininfo: MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnPinManager>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnGetPinStateComplete)(windows_core::Interface::as_raw(self), pinmanager.param().abi(), core::mem::transmute(pininfo), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnGetPinStateComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pinmanager.param().borrow()), core::mem::transmute(pininfo), requestid, status).ok() }
     }
 }
 #[repr(C)]
@@ -2724,21 +2724,21 @@ pub struct IMbnPinManagerEvents_Vtbl {
     pub OnGetPinStateComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MBN_PIN_INFO, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IMbnPinManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn OnPinListAvailable(&self, pinmanager: windows_core::Ref<IMbnPinManager>) -> windows_core::Result<()>;
-    fn OnGetPinStateComplete(&self, pinmanager: windows_core::Ref<IMbnPinManager>, pininfo: &MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnPinListAvailable(&self, pinmanager: Option<&IMbnPinManager>) -> windows_core::Result<()>;
+    fn OnGetPinStateComplete(&self, pinmanager: Option<&IMbnPinManager>, pininfo: &MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IMbnPinManagerEvents_Vtbl {
     pub const fn new<Identity: IMbnPinManagerEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnPinListAvailable<Identity: IMbnPinManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinmanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnPinManagerEvents_Impl::OnPinListAvailable(this, core::mem::transmute_copy(&pinmanager)).into()
+                IMbnPinManagerEvents_Impl::OnPinListAvailable(this, windows_core::Ref::option_from_abi(&pinmanager)).into()
             }
         }
         unsafe extern "system" fn OnGetPinStateComplete<Identity: IMbnPinManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinmanager: *mut core::ffi::c_void, pininfo: MBN_PIN_INFO, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnPinManagerEvents_Impl::OnGetPinStateComplete(this, core::mem::transmute_copy(&pinmanager), core::mem::transmute(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnPinManagerEvents_Impl::OnGetPinStateComplete(this, windows_core::Ref::option_from_abi(&pinmanager), core::mem::transmute(&pininfo), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         Self {
@@ -2844,13 +2844,13 @@ impl IMbnRadioEvents {
     where
         P0: windows_core::Param<IMbnRadio>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRadioStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnRadioStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnSetSoftwareRadioStateComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnRadio>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetSoftwareRadioStateComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetSoftwareRadioStateComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow()), requestid, status).ok() }
     }
 }
 #[repr(C)]
@@ -2861,21 +2861,21 @@ pub struct IMbnRadioEvents_Vtbl {
     pub OnSetSoftwareRadioStateComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IMbnRadioEvents_Impl: windows_core::IUnknownImpl {
-    fn OnRadioStateChange(&self, newinterface: windows_core::Ref<IMbnRadio>) -> windows_core::Result<()>;
-    fn OnSetSoftwareRadioStateComplete(&self, newinterface: windows_core::Ref<IMbnRadio>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnRadioStateChange(&self, newinterface: Option<&IMbnRadio>) -> windows_core::Result<()>;
+    fn OnSetSoftwareRadioStateComplete(&self, newinterface: Option<&IMbnRadio>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IMbnRadioEvents_Vtbl {
     pub const fn new<Identity: IMbnRadioEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnRadioStateChange<Identity: IMbnRadioEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnRadioEvents_Impl::OnRadioStateChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnRadioEvents_Impl::OnRadioStateChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnSetSoftwareRadioStateComplete<Identity: IMbnRadioEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnRadioEvents_Impl::OnSetSoftwareRadioStateComplete(this, core::mem::transmute_copy(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnRadioEvents_Impl::OnSetSoftwareRadioStateComplete(this, windows_core::Ref::option_from_abi(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         Self {
@@ -2952,7 +2952,7 @@ impl IMbnRegistration {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetRegisterMode)(windows_core::Interface::as_raw(self), registermode, providerid.param().abi(), dataclass, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).SetRegisterMode)(windows_core::Interface::as_raw(self), registermode, core::mem::transmute_copy(&providerid.param().borrow()), dataclass, &mut result__).map(|| result__)
         }
     }
 }
@@ -3131,25 +3131,25 @@ impl IMbnRegistrationEvents {
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRegisterModeAvailable)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnRegisterModeAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnRegisterStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRegisterStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnRegisterStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnPacketServiceStateChange<P0>(&self, newinterface: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPacketServiceStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnPacketServiceStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
     pub unsafe fn OnSetRegisterModeComplete<P0>(&self, newinterface: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnRegistration>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetRegisterModeComplete)(windows_core::Interface::as_raw(self), newinterface.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetRegisterModeComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow()), requestid, status).ok() }
     }
 }
 #[repr(C)]
@@ -3162,35 +3162,35 @@ pub struct IMbnRegistrationEvents_Vtbl {
     pub OnSetRegisterModeComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IMbnRegistrationEvents_Impl: windows_core::IUnknownImpl {
-    fn OnRegisterModeAvailable(&self, newinterface: windows_core::Ref<IMbnRegistration>) -> windows_core::Result<()>;
-    fn OnRegisterStateChange(&self, newinterface: windows_core::Ref<IMbnRegistration>) -> windows_core::Result<()>;
-    fn OnPacketServiceStateChange(&self, newinterface: windows_core::Ref<IMbnRegistration>) -> windows_core::Result<()>;
-    fn OnSetRegisterModeComplete(&self, newinterface: windows_core::Ref<IMbnRegistration>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnRegisterModeAvailable(&self, newinterface: Option<&IMbnRegistration>) -> windows_core::Result<()>;
+    fn OnRegisterStateChange(&self, newinterface: Option<&IMbnRegistration>) -> windows_core::Result<()>;
+    fn OnPacketServiceStateChange(&self, newinterface: Option<&IMbnRegistration>) -> windows_core::Result<()>;
+    fn OnSetRegisterModeComplete(&self, newinterface: Option<&IMbnRegistration>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IMbnRegistrationEvents_Vtbl {
     pub const fn new<Identity: IMbnRegistrationEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnRegisterModeAvailable<Identity: IMbnRegistrationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnRegistrationEvents_Impl::OnRegisterModeAvailable(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnRegistrationEvents_Impl::OnRegisterModeAvailable(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnRegisterStateChange<Identity: IMbnRegistrationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnRegistrationEvents_Impl::OnRegisterStateChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnRegistrationEvents_Impl::OnRegisterStateChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnPacketServiceStateChange<Identity: IMbnRegistrationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnRegistrationEvents_Impl::OnPacketServiceStateChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnRegistrationEvents_Impl::OnPacketServiceStateChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         unsafe extern "system" fn OnSetRegisterModeComplete<Identity: IMbnRegistrationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnRegistrationEvents_Impl::OnSetRegisterModeComplete(this, core::mem::transmute_copy(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnRegistrationEvents_Impl::OnSetRegisterModeComplete(this, windows_core::Ref::option_from_abi(&newinterface), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         Self {
@@ -3261,7 +3261,7 @@ impl IMbnServiceActivationEvents {
     where
         P0: windows_core::Param<IMbnServiceActivation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnActivationComplete)(windows_core::Interface::as_raw(self), serviceactivation.param().abi(), vendorspecificdata, requestid, status, networkerror).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnActivationComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&serviceactivation.param().borrow()), vendorspecificdata, requestid, status, networkerror).ok() }
     }
 }
 #[repr(C)]
@@ -3275,7 +3275,7 @@ pub struct IMbnServiceActivationEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnServiceActivationEvents_Impl: windows_core::IUnknownImpl {
-    fn OnActivationComplete(&self, serviceactivation: windows_core::Ref<IMbnServiceActivation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: windows_core::HRESULT, networkerror: u32) -> windows_core::Result<()>;
+    fn OnActivationComplete(&self, serviceactivation: Option<&IMbnServiceActivation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: windows_core::HRESULT, networkerror: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnServiceActivationEvents_Vtbl {
@@ -3283,7 +3283,7 @@ impl IMbnServiceActivationEvents_Vtbl {
         unsafe extern "system" fn OnActivationComplete<Identity: IMbnServiceActivationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, serviceactivation: *mut core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: windows_core::HRESULT, networkerror: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnServiceActivationEvents_Impl::OnActivationComplete(this, core::mem::transmute_copy(&serviceactivation), core::mem::transmute_copy(&vendorspecificdata), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status), core::mem::transmute_copy(&networkerror)).into()
+                IMbnServiceActivationEvents_Impl::OnActivationComplete(this, windows_core::Ref::option_from_abi(&serviceactivation), core::mem::transmute_copy(&vendorspecificdata), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status), core::mem::transmute_copy(&networkerror)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivationComplete: OnActivationComplete::<Identity, OFFSET> }
@@ -3365,7 +3365,7 @@ impl IMbnSignalEvents {
     where
         P0: windows_core::Param<IMbnSignal>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSignalStateChange)(windows_core::Interface::as_raw(self), newinterface.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSignalStateChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&newinterface.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3375,14 +3375,14 @@ pub struct IMbnSignalEvents_Vtbl {
     pub OnSignalStateChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMbnSignalEvents_Impl: windows_core::IUnknownImpl {
-    fn OnSignalStateChange(&self, newinterface: windows_core::Ref<IMbnSignal>) -> windows_core::Result<()>;
+    fn OnSignalStateChange(&self, newinterface: Option<&IMbnSignal>) -> windows_core::Result<()>;
 }
 impl IMbnSignalEvents_Vtbl {
     pub const fn new<Identity: IMbnSignalEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnSignalStateChange<Identity: IMbnSignalEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newinterface: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSignalEvents_Impl::OnSignalStateChange(this, core::mem::transmute_copy(&newinterface)).into()
+                IMbnSignalEvents_Impl::OnSignalStateChange(this, windows_core::Ref::option_from_abi(&newinterface)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSignalStateChange: OnSignalStateChange::<Identity, OFFSET> }
@@ -3407,7 +3407,7 @@ impl IMbnSms {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetSmsConfiguration)(windows_core::Interface::as_raw(self), smsconfiguration.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).SetSmsConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&smsconfiguration.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn SmsSendPdu<P0>(&self, pdudata: P0, size: u8) -> windows_core::Result<u32>
@@ -3416,7 +3416,7 @@ impl IMbnSms {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SmsSendPdu)(windows_core::Interface::as_raw(self), pdudata.param().abi(), size, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).SmsSendPdu)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pdudata.param().borrow()), size, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3426,7 +3426,7 @@ impl IMbnSms {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SmsSendCdma)(windows_core::Interface::as_raw(self), address.param().abi(), encoding, language, sizeincharacters, message, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).SmsSendCdma)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&address.param().borrow()), encoding, language, sizeincharacters, message, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3477,7 +3477,7 @@ pub struct IMbnSms_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSms_Impl: windows_core::IUnknownImpl {
     fn GetSmsConfiguration(&self) -> windows_core::Result<IMbnSmsConfiguration>;
-    fn SetSmsConfiguration(&self, smsconfiguration: windows_core::Ref<IMbnSmsConfiguration>) -> windows_core::Result<u32>;
+    fn SetSmsConfiguration(&self, smsconfiguration: Option<&IMbnSmsConfiguration>) -> windows_core::Result<u32>;
     fn SmsSendPdu(&self, pdudata: &windows_core::PCWSTR, size: u8) -> windows_core::Result<u32>;
     fn SmsSendCdma(&self, address: &windows_core::PCWSTR, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32>;
     fn SmsSendCdmaPdu(&self, message: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<u32>;
@@ -3503,7 +3503,7 @@ impl IMbnSms_Vtbl {
         unsafe extern "system" fn SetSmsConfiguration<Identity: IMbnSms_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smsconfiguration: *mut core::ffi::c_void, requestid: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMbnSms_Impl::SetSmsConfiguration(this, core::mem::transmute_copy(&smsconfiguration)) {
+                match IMbnSms_Impl::SetSmsConfiguration(this, windows_core::Ref::option_from_abi(&smsconfiguration)) {
                     Ok(ok__) => {
                         requestid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3615,7 +3615,7 @@ impl IMbnSmsConfiguration {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetServiceCenterAddress)(windows_core::Interface::as_raw(self), scaddress.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetServiceCenterAddress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&scaddress.param().borrow())).ok() }
     }
     pub unsafe fn MaxMessageIndex(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3742,45 +3742,45 @@ impl IMbnSmsEvents {
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsConfigurationChange)(windows_core::Interface::as_raw(self), sms.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsConfigurationChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sms.param().borrow())).ok() }
     }
     pub unsafe fn OnSetSmsConfigurationComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetSmsConfigurationComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetSmsConfigurationComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sms.param().borrow()), requestid, status).ok() }
     }
     pub unsafe fn OnSmsSendComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsSendComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsSendComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sms.param().borrow()), requestid, status).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSmsReadComplete<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsReadComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), smsformat, readmsgs, moremsgs, requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsReadComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sms.param().borrow()), smsformat, readmsgs, moremsgs, requestid, status).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSmsNewClass0Message<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsNewClass0Message)(windows_core::Interface::as_raw(self), sms.param().abi(), smsformat, readmsgs).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsNewClass0Message)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sms.param().borrow()), smsformat, readmsgs).ok() }
     }
     pub unsafe fn OnSmsDeleteComplete<P0>(&self, sms: P0, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsDeleteComplete)(windows_core::Interface::as_raw(self), sms.param().abi(), requestid, status).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsDeleteComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sms.param().borrow()), requestid, status).ok() }
     }
     pub unsafe fn OnSmsStatusChange<P0>(&self, sms: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnSms>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSmsStatusChange)(windows_core::Interface::as_raw(self), sms.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSmsStatusChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sms.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -3803,13 +3803,13 @@ pub struct IMbnSmsEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnSmsEvents_Impl: windows_core::IUnknownImpl {
-    fn OnSmsConfigurationChange(&self, sms: windows_core::Ref<IMbnSms>) -> windows_core::Result<()>;
-    fn OnSetSmsConfigurationComplete(&self, sms: windows_core::Ref<IMbnSms>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnSmsSendComplete(&self, sms: windows_core::Ref<IMbnSms>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnSmsReadComplete(&self, sms: windows_core::Ref<IMbnSms>, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnSmsNewClass0Message(&self, sms: windows_core::Ref<IMbnSms>, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn OnSmsDeleteComplete(&self, sms: windows_core::Ref<IMbnSms>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn OnSmsStatusChange(&self, sms: windows_core::Ref<IMbnSms>) -> windows_core::Result<()>;
+    fn OnSmsConfigurationChange(&self, sms: Option<&IMbnSms>) -> windows_core::Result<()>;
+    fn OnSetSmsConfigurationComplete(&self, sms: Option<&IMbnSms>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnSmsSendComplete(&self, sms: Option<&IMbnSms>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnSmsReadComplete(&self, sms: Option<&IMbnSms>, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnSmsNewClass0Message(&self, sms: Option<&IMbnSms>, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn OnSmsDeleteComplete(&self, sms: Option<&IMbnSms>, requestid: u32, status: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn OnSmsStatusChange(&self, sms: Option<&IMbnSms>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnSmsEvents_Vtbl {
@@ -3817,43 +3817,43 @@ impl IMbnSmsEvents_Vtbl {
         unsafe extern "system" fn OnSmsConfigurationChange<Identity: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sms: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSmsEvents_Impl::OnSmsConfigurationChange(this, core::mem::transmute_copy(&sms)).into()
+                IMbnSmsEvents_Impl::OnSmsConfigurationChange(this, windows_core::Ref::option_from_abi(&sms)).into()
             }
         }
         unsafe extern "system" fn OnSetSmsConfigurationComplete<Identity: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sms: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSmsEvents_Impl::OnSetSmsConfigurationComplete(this, core::mem::transmute_copy(&sms), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnSmsEvents_Impl::OnSetSmsConfigurationComplete(this, windows_core::Ref::option_from_abi(&sms), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnSmsSendComplete<Identity: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sms: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSmsEvents_Impl::OnSmsSendComplete(this, core::mem::transmute_copy(&sms), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnSmsEvents_Impl::OnSmsSendComplete(this, windows_core::Ref::option_from_abi(&sms), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnSmsReadComplete<Identity: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sms: *mut core::ffi::c_void, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSmsEvents_Impl::OnSmsReadComplete(this, core::mem::transmute_copy(&sms), core::mem::transmute_copy(&smsformat), core::mem::transmute_copy(&readmsgs), core::mem::transmute_copy(&moremsgs), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnSmsEvents_Impl::OnSmsReadComplete(this, windows_core::Ref::option_from_abi(&sms), core::mem::transmute_copy(&smsformat), core::mem::transmute_copy(&readmsgs), core::mem::transmute_copy(&moremsgs), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnSmsNewClass0Message<Identity: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sms: *mut core::ffi::c_void, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSmsEvents_Impl::OnSmsNewClass0Message(this, core::mem::transmute_copy(&sms), core::mem::transmute_copy(&smsformat), core::mem::transmute_copy(&readmsgs)).into()
+                IMbnSmsEvents_Impl::OnSmsNewClass0Message(this, windows_core::Ref::option_from_abi(&sms), core::mem::transmute_copy(&smsformat), core::mem::transmute_copy(&readmsgs)).into()
             }
         }
         unsafe extern "system" fn OnSmsDeleteComplete<Identity: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sms: *mut core::ffi::c_void, requestid: u32, status: windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSmsEvents_Impl::OnSmsDeleteComplete(this, core::mem::transmute_copy(&sms), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
+                IMbnSmsEvents_Impl::OnSmsDeleteComplete(this, windows_core::Ref::option_from_abi(&sms), core::mem::transmute_copy(&requestid), core::mem::transmute_copy(&status)).into()
             }
         }
         unsafe extern "system" fn OnSmsStatusChange<Identity: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sms: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnSmsEvents_Impl::OnSmsStatusChange(this, core::mem::transmute_copy(&sms)).into()
+                IMbnSmsEvents_Impl::OnSmsStatusChange(this, windows_core::Ref::option_from_abi(&sms)).into()
             }
         }
         Self {
@@ -4283,14 +4283,14 @@ impl IMbnVendorSpecificEvents {
     where
         P0: windows_core::Param<IMbnVendorSpecificOperation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), vendoroperation.param().abi(), vendorspecificdata).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnEventNotification)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&vendoroperation.param().borrow()), vendorspecificdata).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSetVendorSpecificComplete<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMbnVendorSpecificOperation>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnSetVendorSpecificComplete)(windows_core::Interface::as_raw(self), vendoroperation.param().abi(), vendorspecificdata, requestid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnSetVendorSpecificComplete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&vendoroperation.param().borrow()), vendorspecificdata, requestid).ok() }
     }
 }
 #[repr(C)]
@@ -4308,8 +4308,8 @@ pub struct IMbnVendorSpecificEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMbnVendorSpecificEvents_Impl: windows_core::IUnknownImpl {
-    fn OnEventNotification(&self, vendoroperation: windows_core::Ref<IMbnVendorSpecificOperation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn OnSetVendorSpecificComplete(&self, vendoroperation: windows_core::Ref<IMbnVendorSpecificOperation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> windows_core::Result<()>;
+    fn OnEventNotification(&self, vendoroperation: Option<&IMbnVendorSpecificOperation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn OnSetVendorSpecificComplete(&self, vendoroperation: Option<&IMbnVendorSpecificOperation>, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnVendorSpecificEvents_Vtbl {
@@ -4317,13 +4317,13 @@ impl IMbnVendorSpecificEvents_Vtbl {
         unsafe extern "system" fn OnEventNotification<Identity: IMbnVendorSpecificEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendoroperation: *mut core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnVendorSpecificEvents_Impl::OnEventNotification(this, core::mem::transmute_copy(&vendoroperation), core::mem::transmute_copy(&vendorspecificdata)).into()
+                IMbnVendorSpecificEvents_Impl::OnEventNotification(this, windows_core::Ref::option_from_abi(&vendoroperation), core::mem::transmute_copy(&vendorspecificdata)).into()
             }
         }
         unsafe extern "system" fn OnSetVendorSpecificComplete<Identity: IMbnVendorSpecificEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendoroperation: *mut core::ffi::c_void, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMbnVendorSpecificEvents_Impl::OnSetVendorSpecificComplete(this, core::mem::transmute_copy(&vendoroperation), core::mem::transmute_copy(&vendorspecificdata), core::mem::transmute_copy(&requestid)).into()
+                IMbnVendorSpecificEvents_Impl::OnSetVendorSpecificComplete(this, windows_core::Ref::option_from_abi(&vendoroperation), core::mem::transmute_copy(&vendorspecificdata), core::mem::transmute_copy(&requestid)).into()
             }
         }
         Self {

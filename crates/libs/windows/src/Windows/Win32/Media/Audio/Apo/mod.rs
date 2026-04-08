@@ -494,7 +494,7 @@ impl IApoAuxiliaryInputConfiguration {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&prequestedinputformat.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -509,7 +509,7 @@ pub struct IApoAuxiliaryInputConfiguration_Vtbl {
 pub trait IApoAuxiliaryInputConfiguration_Impl: windows_core::IUnknownImpl {
     fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> windows_core::Result<()>;
     fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> windows_core::Result<()>;
-    fn IsInputFormatSupported(&self, prequestedinputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn IsInputFormatSupported(&self, prequestedinputformat: Option<&IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
 }
 impl IApoAuxiliaryInputConfiguration_Vtbl {
     pub const fn new<Identity: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>() -> Self {
@@ -528,7 +528,7 @@ impl IApoAuxiliaryInputConfiguration_Vtbl {
         unsafe extern "system" fn IsInputFormatSupported<Identity: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequestedinputformat: *mut core::ffi::c_void, ppsupportedinputformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IApoAuxiliaryInputConfiguration_Impl::IsInputFormatSupported(this, core::mem::transmute_copy(&prequestedinputformat)) {
+                match IApoAuxiliaryInputConfiguration_Impl::IsInputFormatSupported(this, windows_core::Ref::option_from_abi(&prequestedinputformat)) {
                     Ok(ok__) => {
                         ppsupportedinputformat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -587,7 +587,7 @@ impl IAudioDeviceModulesClient {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAudioDeviceModulesManager)(windows_core::Interface::as_raw(self), paudiodevicemodulesmanager.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetAudioDeviceModulesManager)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&paudiodevicemodulesmanager.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -597,14 +597,14 @@ pub struct IAudioDeviceModulesClient_Vtbl {
     pub SetAudioDeviceModulesManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAudioDeviceModulesClient_Impl: windows_core::IUnknownImpl {
-    fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IAudioDeviceModulesClient_Vtbl {
     pub const fn new<Identity: IAudioDeviceModulesClient_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetAudioDeviceModulesManager<Identity: IAudioDeviceModulesClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paudiodevicemodulesmanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioDeviceModulesClient_Impl::SetAudioDeviceModulesManager(this, core::mem::transmute_copy(&paudiodevicemodulesmanager)).into()
+                IAudioDeviceModulesClient_Impl::SetAudioDeviceModulesManager(this, windows_core::Ref::option_from_abi(&paudiodevicemodulesmanager)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetAudioDeviceModulesManager: SetAudioDeviceModulesManager::<Identity, OFFSET> }
@@ -629,7 +629,7 @@ impl IAudioMediaType {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), piaudiotype.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&piaudiotype.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
@@ -650,7 +650,7 @@ pub struct IAudioMediaType_Vtbl {
 }
 pub trait IAudioMediaType_Impl: windows_core::IUnknownImpl {
     fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsEqual(&self, piaudiotype: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<u32>;
+    fn IsEqual(&self, piaudiotype: Option<&IAudioMediaType>) -> windows_core::Result<u32>;
     fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX;
     fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> windows_core::Result<()>;
 }
@@ -671,7 +671,7 @@ impl IAudioMediaType_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piaudiotype: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioMediaType_Impl::IsEqual(this, core::mem::transmute_copy(&piaudiotype)) {
+                match IAudioMediaType_Impl::IsEqual(this, windows_core::Ref::option_from_abi(&piaudiotype)) {
                     Ok(ok__) => {
                         pdwflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -733,7 +733,7 @@ impl IAudioProcessingObject {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&poppositeformat.param().borrow()), core::mem::transmute_copy(&prequestedinputformat.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> windows_core::Result<IAudioMediaType>
@@ -743,7 +743,7 @@ impl IAudioProcessingObject {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedoutputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&poppositeformat.param().borrow()), core::mem::transmute_copy(&prequestedoutputformat.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputChannelCount(&self) -> windows_core::Result<u32> {
@@ -770,8 +770,8 @@ pub trait IAudioProcessingObject_Impl: windows_core::IUnknownImpl {
     fn GetLatency(&self) -> windows_core::Result<i64>;
     fn GetRegistrationProperties(&self) -> windows_core::Result<*mut APO_REG_PROPERTIES>;
     fn Initialize(&self, cbdatasize: u32, pbydata: *const u8) -> windows_core::Result<()>;
-    fn IsInputFormatSupported(&self, poppositeformat: windows_core::Ref<IAudioMediaType>, prequestedinputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
-    fn IsOutputFormatSupported(&self, poppositeformat: windows_core::Ref<IAudioMediaType>, prequestedoutputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn IsInputFormatSupported(&self, poppositeformat: Option<&IAudioMediaType>, prequestedinputformat: Option<&IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn IsOutputFormatSupported(&self, poppositeformat: Option<&IAudioMediaType>, prequestedoutputformat: Option<&IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
     fn GetInputChannelCount(&self) -> windows_core::Result<u32>;
 }
 impl IAudioProcessingObject_Vtbl {
@@ -815,7 +815,7 @@ impl IAudioProcessingObject_Vtbl {
         unsafe extern "system" fn IsInputFormatSupported<Identity: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poppositeformat: *mut core::ffi::c_void, prequestedinputformat: *mut core::ffi::c_void, ppsupportedinputformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioProcessingObject_Impl::IsInputFormatSupported(this, core::mem::transmute_copy(&poppositeformat), core::mem::transmute_copy(&prequestedinputformat)) {
+                match IAudioProcessingObject_Impl::IsInputFormatSupported(this, windows_core::Ref::option_from_abi(&poppositeformat), windows_core::Ref::option_from_abi(&prequestedinputformat)) {
                     Ok(ok__) => {
                         ppsupportedinputformat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -827,7 +827,7 @@ impl IAudioProcessingObject_Vtbl {
         unsafe extern "system" fn IsOutputFormatSupported<Identity: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poppositeformat: *mut core::ffi::c_void, prequestedoutputformat: *mut core::ffi::c_void, ppsupportedoutputformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioProcessingObject_Impl::IsOutputFormatSupported(this, core::mem::transmute_copy(&poppositeformat), core::mem::transmute_copy(&prequestedoutputformat)) {
+                match IAudioProcessingObject_Impl::IsOutputFormatSupported(this, windows_core::Ref::option_from_abi(&poppositeformat), windows_core::Ref::option_from_abi(&prequestedoutputformat)) {
                     Ok(ok__) => {
                         ppsupportedoutputformat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -917,7 +917,7 @@ impl IAudioProcessingObjectLoggingService {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, format.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, core::mem::transmute_copy(&format.param().borrow())) }
     }
 }
 #[repr(C)]
@@ -1049,7 +1049,7 @@ impl IAudioProcessingObjectPreferredFormatSupport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreferredInputFormat)(windows_core::Interface::as_raw(self), outputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreferredInputFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&outputformat.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPreferredOutputFormat<P0>(&self, inputformat: P0) -> windows_core::Result<IAudioMediaType>
@@ -1058,7 +1058,7 @@ impl IAudioProcessingObjectPreferredFormatSupport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreferredOutputFormat)(windows_core::Interface::as_raw(self), inputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreferredOutputFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&inputformat.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1070,15 +1070,15 @@ pub struct IAudioProcessingObjectPreferredFormatSupport_Vtbl {
     pub GetPreferredOutputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAudioProcessingObjectPreferredFormatSupport_Impl: windows_core::IUnknownImpl {
-    fn GetPreferredInputFormat(&self, outputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
-    fn GetPreferredOutputFormat(&self, inputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn GetPreferredInputFormat(&self, outputformat: Option<&IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn GetPreferredOutputFormat(&self, inputformat: Option<&IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
 }
 impl IAudioProcessingObjectPreferredFormatSupport_Vtbl {
     pub const fn new<Identity: IAudioProcessingObjectPreferredFormatSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPreferredInputFormat<Identity: IAudioProcessingObjectPreferredFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputformat: *mut core::ffi::c_void, preferredformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioProcessingObjectPreferredFormatSupport_Impl::GetPreferredInputFormat(this, core::mem::transmute_copy(&outputformat)) {
+                match IAudioProcessingObjectPreferredFormatSupport_Impl::GetPreferredInputFormat(this, windows_core::Ref::option_from_abi(&outputformat)) {
                     Ok(ok__) => {
                         preferredformat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1090,7 +1090,7 @@ impl IAudioProcessingObjectPreferredFormatSupport_Vtbl {
         unsafe extern "system" fn GetPreferredOutputFormat<Identity: IAudioProcessingObjectPreferredFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputformat: *mut core::ffi::c_void, preferredformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAudioProcessingObjectPreferredFormatSupport_Impl::GetPreferredOutputFormat(this, core::mem::transmute_copy(&inputformat)) {
+                match IAudioProcessingObjectPreferredFormatSupport_Impl::GetPreferredOutputFormat(this, windows_core::Ref::option_from_abi(&inputformat)) {
                     Ok(ok__) => {
                         preferredformat.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

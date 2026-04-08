@@ -230,7 +230,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AvailableNetworksChanged)(windows_core::Interface::as_raw(this), args.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AvailableNetworksChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&args.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAvailableNetworksChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
@@ -244,7 +244,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), availablenetwork.param().abi(), reconnectionkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&availablenetwork.param().borrow()), reconnectionkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -256,7 +256,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(windows_core::Interface::as_raw(this), availablenetwork.param().abi(), reconnectionkind, passwordcredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&availablenetwork.param().borrow()), reconnectionkind, core::mem::transmute_copy(&passwordcredential.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -268,7 +268,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(windows_core::Interface::as_raw(this), availablenetwork.param().abi(), reconnectionkind, passwordcredential.param().abi(), core::mem::transmute_copy(ssid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&availablenetwork.param().borrow()), reconnectionkind, core::mem::transmute_copy(&passwordcredential.param().borrow()), core::mem::transmute_copy(ssid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Disconnect(&self) -> windows_core::Result<()> {
@@ -282,7 +282,7 @@ impl WiFiAdapter {
         let this = &windows_core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWpsConfigurationAsync)(windows_core::Interface::as_raw(this), availablenetwork.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetWpsConfigurationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&availablenetwork.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -294,7 +294,7 @@ impl WiFiAdapter {
         let this = &windows_core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(windows_core::Interface::as_raw(this), availablenetwork.param().abi(), reconnectionkind, passwordcredential.param().abi(), core::mem::transmute_copy(ssid), connectionmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&availablenetwork.param().borrow()), reconnectionkind, core::mem::transmute_copy(&passwordcredential.param().borrow()), core::mem::transmute_copy(ssid), connectionmethod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FindAllAdaptersAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WiFiAdapter>>> {
@@ -682,7 +682,7 @@ impl WiFiOnDemandHotspotNetwork {
         P0: windows_core::Param<WiFiOnDemandHotspotNetworkProperties>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateProperties)(windows_core::Interface::as_raw(this), newproperties.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&newproperties.param().borrow())).ok() }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -753,7 +753,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CellularBars(&self) -> windows_core::Result<super::super::Foundation::IReference<WiFiOnDemandHotspotCellularBars>> {
         let this = self;
@@ -767,7 +767,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
         P0: windows_core::Param<super::super::Foundation::IReference<WiFiOnDemandHotspotCellularBars>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCellularBars)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetCellularBars)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IsMetered(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -805,7 +805,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPassword)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPassword)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
 }
 impl windows_core::RuntimeType for WiFiOnDemandHotspotNetworkProperties {

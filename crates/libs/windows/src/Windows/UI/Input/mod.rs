@@ -177,7 +177,7 @@ impl EdgeGesture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStarting(&self, token: i64) -> windows_core::Result<()> {
@@ -191,7 +191,7 @@ impl EdgeGesture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -205,7 +205,7 @@ impl EdgeGesture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCanceled(&self, token: i64) -> windows_core::Result<()> {
@@ -490,7 +490,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanBeDoubleTap)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CanBeDoubleTap)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn ProcessDownEvent<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -498,28 +498,28 @@ impl GestureRecognizer {
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProcessMoveEvents<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IVector<PointerPoint>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProcessUpEvent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProcessMouseWheelEvent<P0>(&self, value: P0, isshiftkeydown: bool, iscontrolkeydown: bool) -> windows_core::Result<()>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessMouseWheelEvent)(windows_core::Interface::as_raw(this), value.param().abi(), isshiftkeydown, iscontrolkeydown).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessMouseWheelEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), isshiftkeydown, iscontrolkeydown).ok() }
     }
     pub fn ProcessInertia(&self) -> windows_core::Result<()> {
         let this = self;
@@ -536,7 +536,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTapped(&self, token: i64) -> windows_core::Result<()> {
@@ -550,7 +550,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RightTapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RightTapped)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRightTapped(&self, token: i64) -> windows_core::Result<()> {
@@ -564,7 +564,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHolding(&self, token: i64) -> windows_core::Result<()> {
@@ -578,7 +578,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dragging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Dragging)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDragging(&self, token: i64) -> windows_core::Result<()> {
@@ -592,7 +592,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationStarted(&self, token: i64) -> windows_core::Result<()> {
@@ -606,7 +606,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -620,7 +620,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationInertiaStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationInertiaStarting)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationInertiaStarting(&self, token: i64) -> windows_core::Result<()> {
@@ -634,7 +634,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -648,7 +648,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CrossSliding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CrossSliding)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveCrossSliding(&self, token: i64) -> windows_core::Result<()> {
@@ -2065,7 +2065,7 @@ impl InputActivationListener {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputActivationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputActivationChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInputActivationChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2149,7 +2149,7 @@ impl KeyboardDeliveryInterceptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyDown(&self, token: i64) -> windows_core::Result<()> {
@@ -2164,7 +2164,7 @@ impl KeyboardDeliveryInterceptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveKeyUp(&self, token: i64) -> windows_core::Result<()> {
@@ -2633,21 +2633,21 @@ impl PhysicalGestureRecognizer {
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProcessMoveEvents<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IVector<PointerPoint>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ProcessUpEvent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CompleteGesture(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2660,7 +2660,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationStarted(&self, token: i64) -> windows_core::Result<()> {
@@ -2674,7 +2674,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationUpdated(&self, token: i64) -> windows_core::Result<()> {
@@ -2688,7 +2688,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveManipulationCompleted(&self, token: i64) -> windows_core::Result<()> {
@@ -2702,7 +2702,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveTapped(&self, token: i64) -> windows_core::Result<()> {
@@ -2716,7 +2716,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHolding(&self, token: i64) -> windows_core::Result<()> {
@@ -2828,7 +2828,7 @@ impl PointerPoint {
     {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentPointTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCurrentPointTransformed)(windows_core::Interface::as_raw(this), pointerid, core::mem::transmute_copy(&transform.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<windows_collections::IVector<PointerPoint>>
@@ -2837,7 +2837,7 @@ impl PointerPoint {
     {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIntermediatePointsTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetIntermediatePointsTransformed)(windows_core::Interface::as_raw(this), pointerid, core::mem::transmute_copy(&transform.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3159,7 +3159,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactStarted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScreenContactStarted(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3173,7 +3173,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactEnded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactEnded)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScreenContactEnded(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3187,7 +3187,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactContinued)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactContinued)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveScreenContactContinued(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3201,7 +3201,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ControlLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ControlLost)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveControlLost(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3215,7 +3215,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RotationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RotationChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRotationChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -3229,7 +3229,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonClicked)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonClicked(&self, token: i64) -> windows_core::Result<()> {
@@ -3243,7 +3243,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ControlAcquired)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ControlAcquired)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveControlAcquired(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3257,7 +3257,7 @@ impl RadialController {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonPressed(&self, token: i64) -> windows_core::Result<()> {
@@ -3271,7 +3271,7 @@ impl RadialController {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonHolding(&self, token: i64) -> windows_core::Result<()> {
@@ -3285,7 +3285,7 @@ impl RadialController {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveButtonReleased(&self, token: i64) -> windows_core::Result<()> {
@@ -3463,7 +3463,7 @@ impl RadialControllerConfiguration {
         P0: windows_core::Param<windows_collections::IIterable<RadialControllerSystemMenuItemKind>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultMenuItems)(windows_core::Interface::as_raw(this), buttons.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultMenuItems)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&buttons.param().borrow())).ok() }
     }
     pub fn ResetToDefaultMenuItems(&self) -> windows_core::Result<()> {
         let this = self;
@@ -3481,7 +3481,7 @@ impl RadialControllerConfiguration {
         P0: windows_core::Param<RadialController>,
     {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetActiveControllerWhenMenuIsSuppressed)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetActiveControllerWhenMenuIsSuppressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ActiveControllerWhenMenuIsSuppressed(&self) -> windows_core::Result<RadialController> {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
@@ -3511,7 +3511,7 @@ impl RadialControllerConfiguration {
     where
         P0: windows_core::Param<RadialController>,
     {
-        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetAppController)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
+        Self::IRadialControllerConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetAppController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() })
     }
     pub fn AppController() -> windows_core::Result<RadialController> {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe {
@@ -3624,7 +3624,7 @@ impl RadialControllerMenu {
         P0: windows_core::Param<RadialControllerMenuItem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SelectMenuItem)(windows_core::Interface::as_raw(this), menuitem.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SelectMenuItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&menuitem.param().borrow())).ok() }
     }
     pub fn TrySelectPreviouslySelectedMenuItem(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -3670,7 +3670,7 @@ impl RadialControllerMenuItem {
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn Invoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
@@ -3679,7 +3679,7 @@ impl RadialControllerMenuItem {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveInvoked(&self, token: i64) -> windows_core::Result<()> {
@@ -3693,7 +3693,7 @@ impl RadialControllerMenuItem {
     {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), icon.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(&icon.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFromKnownIcon(displaytext: &windows_core::HSTRING, value: RadialControllerMenuKnownIcon) -> windows_core::Result<RadialControllerMenuItem> {
@@ -3714,7 +3714,7 @@ impl RadialControllerMenuItem {
     {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), core::mem::transmute_copy(&fonturi.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4021,7 +4021,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionButtonPressed(&self, token: i64) -> windows_core::Result<()> {
@@ -4035,7 +4035,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionButtonReleased(&self, token: i64) -> windows_core::Result<()> {
@@ -4049,7 +4049,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionLockChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionLockChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionLockChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -4063,7 +4063,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSystemFunctionLockIndicatorChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -4077,7 +4077,7 @@ impl SystemButtonEventController {
     {
         Self::ISystemButtonEventControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForDispatcherQueue)(windows_core::Interface::as_raw(this), queue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForDispatcherQueue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&queue.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -4299,7 +4299,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, token: i64) -> windows_core::Result<()> {
@@ -4314,7 +4314,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, token: i64) -> windows_core::Result<()> {
@@ -4329,7 +4329,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, token: i64) -> windows_core::Result<()> {
@@ -4343,7 +4343,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GlobalActionPerformed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GlobalActionPerformed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveGlobalActionPerformed(&self, token: i64) -> windows_core::Result<()> {

@@ -12,7 +12,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ualapi.dll" "system" fn UalRegisterProduct(wszproductname : windows_core::PCWSTR, wszrolename : windows_core::PCWSTR, wszguid : windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { UalRegisterProduct(wszproductname.param().abi(), wszrolename.param().abi(), wszguid.param().abi()).ok() }
+    unsafe { UalRegisterProduct(core::mem::transmute_copy(&wszproductname.param().borrow()), core::mem::transmute_copy(&wszrolename.param().borrow()), core::mem::transmute_copy(&wszguid.param().borrow())).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]

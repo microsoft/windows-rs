@@ -7,7 +7,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn BackupPerfRegistryToFileW(szfilename : windows_core::PCWSTR, szcommentstring : windows_core::PCWSTR) -> u32);
-    unsafe { BackupPerfRegistryToFileW(szfilename.param().abi(), szcommentstring.param().abi()) }
+    unsafe { BackupPerfRegistryToFileW(core::mem::transmute_copy(&szfilename.param().borrow()), core::mem::transmute_copy(&szcommentstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn InstallPerfDllA<P0, P1>(szcomputername: P0, lpinifile: P1, dwflags: usize) -> u32
@@ -16,7 +16,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn InstallPerfDllA(szcomputername : windows_core::PCSTR, lpinifile : windows_core::PCSTR, dwflags : usize) -> u32);
-    unsafe { InstallPerfDllA(szcomputername.param().abi(), lpinifile.param().abi(), dwflags) }
+    unsafe { InstallPerfDllA(core::mem::transmute_copy(&szcomputername.param().borrow()), core::mem::transmute_copy(&lpinifile.param().borrow()), dwflags) }
 }
 #[inline]
 pub unsafe fn InstallPerfDllW<P0, P1>(szcomputername: P0, lpinifile: P1, dwflags: usize) -> u32
@@ -25,7 +25,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn InstallPerfDllW(szcomputername : windows_core::PCWSTR, lpinifile : windows_core::PCWSTR, dwflags : usize) -> u32);
-    unsafe { InstallPerfDllW(szcomputername.param().abi(), lpinifile.param().abi(), dwflags) }
+    unsafe { InstallPerfDllW(core::mem::transmute_copy(&szcomputername.param().borrow()), core::mem::transmute_copy(&lpinifile.param().borrow()), dwflags) }
 }
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsA<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
@@ -33,7 +33,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn LoadPerfCounterTextStringsA(lpcommandline : windows_core::PCSTR, bquietmodearg : windows_core::BOOL) -> u32);
-    unsafe { LoadPerfCounterTextStringsA(lpcommandline.param().abi(), bquietmodearg.into()) }
+    unsafe { LoadPerfCounterTextStringsA(core::mem::transmute_copy(&lpcommandline.param().borrow()), bquietmodearg.into()) }
 }
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsW<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
@@ -41,7 +41,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn LoadPerfCounterTextStringsW(lpcommandline : windows_core::PCWSTR, bquietmodearg : windows_core::BOOL) -> u32);
-    unsafe { LoadPerfCounterTextStringsW(lpcommandline.param().abi(), bquietmodearg.into()) }
+    unsafe { LoadPerfCounterTextStringsW(core::mem::transmute_copy(&lpcommandline.param().borrow()), bquietmodearg.into()) }
 }
 #[inline]
 pub unsafe fn PdhAddCounterA<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
@@ -49,7 +49,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhAddCounterA(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    unsafe { PdhAddCounterA(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
+    unsafe { PdhAddCounterA(hquery, core::mem::transmute_copy(&szfullcounterpath.param().borrow()), dwuserdata, phcounter as _) }
 }
 #[inline]
 pub unsafe fn PdhAddCounterW<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
@@ -57,7 +57,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhAddCounterW(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCWSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    unsafe { PdhAddCounterW(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
+    unsafe { PdhAddCounterW(hquery, core::mem::transmute_copy(&szfullcounterpath.param().borrow()), dwuserdata, phcounter as _) }
 }
 #[inline]
 pub unsafe fn PdhAddEnglishCounterA<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
@@ -65,7 +65,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhAddEnglishCounterA(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    unsafe { PdhAddEnglishCounterA(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
+    unsafe { PdhAddEnglishCounterA(hquery, core::mem::transmute_copy(&szfullcounterpath.param().borrow()), dwuserdata, phcounter as _) }
 }
 #[inline]
 pub unsafe fn PdhAddEnglishCounterW<P1>(hquery: PDH_HQUERY, szfullcounterpath: P1, dwuserdata: usize, phcounter: *mut PDH_HCOUNTER) -> u32
@@ -73,7 +73,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhAddEnglishCounterW(hquery : PDH_HQUERY, szfullcounterpath : windows_core::PCWSTR, dwuserdata : usize, phcounter : *mut PDH_HCOUNTER) -> u32);
-    unsafe { PdhAddEnglishCounterW(hquery, szfullcounterpath.param().abi(), dwuserdata, phcounter as _) }
+    unsafe { PdhAddEnglishCounterW(hquery, core::mem::transmute_copy(&szfullcounterpath.param().borrow()), dwuserdata, phcounter as _) }
 }
 #[inline]
 pub unsafe fn PdhBindInputDataSourceA<P1>(phdatasource: *mut PDH_HLOG, logfilenamelist: P1) -> u32
@@ -81,7 +81,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhBindInputDataSourceA(phdatasource : *mut PDH_HLOG, logfilenamelist : windows_core::PCSTR) -> u32);
-    unsafe { PdhBindInputDataSourceA(phdatasource as _, logfilenamelist.param().abi()) }
+    unsafe { PdhBindInputDataSourceA(phdatasource as _, core::mem::transmute_copy(&logfilenamelist.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhBindInputDataSourceW<P1>(phdatasource: *mut PDH_HLOG, logfilenamelist: P1) -> u32
@@ -89,7 +89,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhBindInputDataSourceW(phdatasource : *mut PDH_HLOG, logfilenamelist : windows_core::PCWSTR) -> u32);
-    unsafe { PdhBindInputDataSourceW(phdatasource as _, logfilenamelist.param().abi()) }
+    unsafe { PdhBindInputDataSourceW(phdatasource as _, core::mem::transmute_copy(&logfilenamelist.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> u32 {
@@ -152,7 +152,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhConnectMachineA(szmachinename : windows_core::PCSTR) -> u32);
-    unsafe { PdhConnectMachineA(szmachinename.param().abi()) }
+    unsafe { PdhConnectMachineA(core::mem::transmute_copy(&szmachinename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhConnectMachineW<P0>(szmachinename: P0) -> u32
@@ -160,7 +160,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhConnectMachineW(szmachinename : windows_core::PCWSTR) -> u32);
-    unsafe { PdhConnectMachineW(szmachinename.param().abi()) }
+    unsafe { PdhConnectMachineW(core::mem::transmute_copy(&szmachinename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhCreateSQLTablesA<P0>(szdatasource: P0) -> u32
@@ -168,7 +168,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhCreateSQLTablesA(szdatasource : windows_core::PCSTR) -> u32);
-    unsafe { PdhCreateSQLTablesA(szdatasource.param().abi()) }
+    unsafe { PdhCreateSQLTablesA(core::mem::transmute_copy(&szdatasource.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhCreateSQLTablesW<P0>(szdatasource: P0) -> u32
@@ -176,7 +176,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhCreateSQLTablesW(szdatasource : windows_core::PCWSTR) -> u32);
-    unsafe { PdhCreateSQLTablesW(szdatasource.param().abi()) }
+    unsafe { PdhCreateSQLTablesW(core::mem::transmute_copy(&szdatasource.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhEnumLogSetNamesA<P0>(szdatasource: P0, mszdatasetnamelist: Option<windows_core::PSTR>, pcchbufferlength: *mut u32) -> u32
@@ -184,7 +184,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumLogSetNamesA(szdatasource : windows_core::PCSTR, mszdatasetnamelist : windows_core::PSTR, pcchbufferlength : *mut u32) -> u32);
-    unsafe { PdhEnumLogSetNamesA(szdatasource.param().abi(), mszdatasetnamelist.unwrap_or(core::mem::zeroed()) as _, pcchbufferlength as _) }
+    unsafe { PdhEnumLogSetNamesA(core::mem::transmute_copy(&szdatasource.param().borrow()), mszdatasetnamelist.unwrap_or(core::mem::zeroed()) as _, pcchbufferlength as _) }
 }
 #[inline]
 pub unsafe fn PdhEnumLogSetNamesW<P0>(szdatasource: P0, mszdatasetnamelist: Option<windows_core::PWSTR>, pcchbufferlength: *mut u32) -> u32
@@ -192,7 +192,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumLogSetNamesW(szdatasource : windows_core::PCWSTR, mszdatasetnamelist : windows_core::PWSTR, pcchbufferlength : *mut u32) -> u32);
-    unsafe { PdhEnumLogSetNamesW(szdatasource.param().abi(), mszdatasetnamelist.unwrap_or(core::mem::zeroed()) as _, pcchbufferlength as _) }
+    unsafe { PdhEnumLogSetNamesW(core::mem::transmute_copy(&szdatasource.param().borrow()), mszdatasetnamelist.unwrap_or(core::mem::zeroed()) as _, pcchbufferlength as _) }
 }
 #[inline]
 pub unsafe fn PdhEnumMachinesA<P0>(szdatasource: P0, mszmachinelist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
@@ -200,7 +200,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumMachinesA(szdatasource : windows_core::PCSTR, mszmachinelist : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhEnumMachinesA(szdatasource.param().abi(), mszmachinelist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhEnumMachinesA(core::mem::transmute_copy(&szdatasource.param().borrow()), mszmachinelist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhEnumMachinesHA(hdatasource: Option<PDH_HLOG>, mszmachinelist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32 {
@@ -218,7 +218,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumMachinesW(szdatasource : windows_core::PCWSTR, mszmachinelist : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhEnumMachinesW(szdatasource.param().abi(), mszmachinelist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhEnumMachinesW(core::mem::transmute_copy(&szdatasource.param().borrow()), mszmachinelist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectItemsA<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
@@ -228,7 +228,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectItemsA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, mszcounterlist : windows_core::PSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    unsafe { PdhEnumObjectItemsA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
+    unsafe { PdhEnumObjectItemsA(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHA<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
@@ -237,7 +237,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectItemsHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, mszcounterlist : windows_core::PSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    unsafe { PdhEnumObjectItemsHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szobjectname.param().abi(), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
+    unsafe { PdhEnumObjectItemsHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHW<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PWSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PWSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
@@ -246,7 +246,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectItemsHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, mszcounterlist : windows_core::PWSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PWSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    unsafe { PdhEnumObjectItemsHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szobjectname.param().abi(), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
+    unsafe { PdhEnumObjectItemsHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectItemsW<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: Option<windows_core::PWSTR>, pcchcounterlistlength: *mut u32, mszinstancelist: Option<windows_core::PWSTR>, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32
@@ -256,7 +256,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectItemsW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, mszcounterlist : windows_core::PWSTR, pcchcounterlistlength : *mut u32, mszinstancelist : windows_core::PWSTR, pcchinstancelistlength : *mut u32, dwdetaillevel : PERF_DETAIL, dwflags : u32) -> u32);
-    unsafe { PdhEnumObjectItemsW(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
+    unsafe { PdhEnumObjectItemsW(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), mszcounterlist.unwrap_or(core::mem::zeroed()) as _, pcchcounterlistlength as _, mszinstancelist.unwrap_or(core::mem::zeroed()) as _, pcchinstancelistlength as _, dwdetaillevel, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectsA<P0, P1>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
@@ -265,7 +265,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectsA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, mszobjectlist : windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : windows_core::BOOL) -> u32);
-    unsafe { PdhEnumObjectsA(szdatasource.param().abi(), szmachinename.param().abi(), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
+    unsafe { PdhEnumObjectsA(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectsHA<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
@@ -273,7 +273,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectsHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, mszobjectlist : windows_core::PSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : windows_core::BOOL) -> u32);
-    unsafe { PdhEnumObjectsHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
+    unsafe { PdhEnumObjectsHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectsHW<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
@@ -281,7 +281,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectsHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, mszobjectlist : windows_core::PWSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : windows_core::BOOL) -> u32);
-    unsafe { PdhEnumObjectsHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
+    unsafe { PdhEnumObjectsHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
 }
 #[inline]
 pub unsafe fn PdhEnumObjectsW<P0, P1>(szdatasource: P0, szmachinename: P1, mszobjectlist: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: bool) -> u32
@@ -290,7 +290,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhEnumObjectsW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, mszobjectlist : windows_core::PWSTR, pcchbuffersize : *mut u32, dwdetaillevel : PERF_DETAIL, brefresh : windows_core::BOOL) -> u32);
-    unsafe { PdhEnumObjectsW(szdatasource.param().abi(), szmachinename.param().abi(), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
+    unsafe { PdhEnumObjectsW(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), mszobjectlist.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _, dwdetaillevel, brefresh.into()) }
 }
 #[inline]
 pub unsafe fn PdhExpandCounterPathA<P0>(szwildcardpath: P0, mszexpandedpathlist: Option<windows_core::PSTR>, pcchpathlistlength: *mut u32) -> u32
@@ -298,7 +298,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhExpandCounterPathA(szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : windows_core::PSTR, pcchpathlistlength : *mut u32) -> u32);
-    unsafe { PdhExpandCounterPathA(szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _) }
+    unsafe { PdhExpandCounterPathA(core::mem::transmute_copy(&szwildcardpath.param().borrow()), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _) }
 }
 #[inline]
 pub unsafe fn PdhExpandCounterPathW<P0>(szwildcardpath: P0, mszexpandedpathlist: Option<windows_core::PWSTR>, pcchpathlistlength: *mut u32) -> u32
@@ -306,7 +306,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhExpandCounterPathW(szwildcardpath : windows_core::PCWSTR, mszexpandedpathlist : windows_core::PWSTR, pcchpathlistlength : *mut u32) -> u32);
-    unsafe { PdhExpandCounterPathW(szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _) }
+    unsafe { PdhExpandCounterPathW(core::mem::transmute_copy(&szwildcardpath.param().borrow()), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _) }
 }
 #[inline]
 pub unsafe fn PdhExpandWildCardPathA<P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
@@ -315,7 +315,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhExpandWildCardPathA(szdatasource : windows_core::PCSTR, szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : windows_core::PSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    unsafe { PdhExpandWildCardPathA(szdatasource.param().abi(), szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
+    unsafe { PdhExpandWildCardPathA(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szwildcardpath.param().borrow()), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHA<P1>(hdatasource: Option<PDH_HLOG>, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
@@ -323,7 +323,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhExpandWildCardPathHA(hdatasource : PDH_HLOG, szwildcardpath : windows_core::PCSTR, mszexpandedpathlist : windows_core::PSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    unsafe { PdhExpandWildCardPathHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
+    unsafe { PdhExpandWildCardPathHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szwildcardpath.param().borrow()), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHW<P1>(hdatasource: Option<PDH_HLOG>, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PWSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
@@ -331,7 +331,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhExpandWildCardPathHW(hdatasource : PDH_HLOG, szwildcardpath : windows_core::PCWSTR, mszexpandedpathlist : windows_core::PWSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    unsafe { PdhExpandWildCardPathHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
+    unsafe { PdhExpandWildCardPathHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szwildcardpath.param().borrow()), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhExpandWildCardPathW<P0, P1>(szdatasource: P0, szwildcardpath: P1, mszexpandedpathlist: Option<windows_core::PWSTR>, pcchpathlistlength: *mut u32, dwflags: u32) -> u32
@@ -340,7 +340,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhExpandWildCardPathW(szdatasource : windows_core::PCWSTR, szwildcardpath : windows_core::PCWSTR, mszexpandedpathlist : windows_core::PWSTR, pcchpathlistlength : *mut u32, dwflags : u32) -> u32);
-    unsafe { PdhExpandWildCardPathW(szdatasource.param().abi(), szwildcardpath.param().abi(), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
+    unsafe { PdhExpandWildCardPathW(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szwildcardpath.param().borrow()), mszexpandedpathlist.unwrap_or(core::mem::zeroed()) as _, pcchpathlistlength as _, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: Option<*const i64>, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32 {
@@ -368,7 +368,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDataSourceTimeRangeA(szdatasource : windows_core::PCSTR, pdwnumentries : *mut u32, pinfo : *mut PDH_TIME_INFO, pdwbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDataSourceTimeRangeA(szdatasource.param().abi(), pdwnumentries as _, pinfo as _, pdwbuffersize as _) }
+    unsafe { PdhGetDataSourceTimeRangeA(core::mem::transmute_copy(&szdatasource.param().borrow()), pdwnumentries as _, pinfo as _, pdwbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: Option<PDH_HLOG>, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32 {
@@ -381,7 +381,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDataSourceTimeRangeW(szdatasource : windows_core::PCWSTR, pdwnumentries : *mut u32, pinfo : *mut PDH_TIME_INFO, pdwbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDataSourceTimeRangeW(szdatasource.param().abi(), pdwnumentries as _, pinfo as _, pdwbuffersize as _) }
+    unsafe { PdhGetDataSourceTimeRangeW(core::mem::transmute_copy(&szdatasource.param().borrow()), pdwnumentries as _, pinfo as _, pdwbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterA<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
@@ -391,7 +391,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, szdefaultcountername : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfCounterA(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfCounterA(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHA<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
@@ -400,7 +400,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szobjectname : windows_core::PCSTR, szdefaultcountername : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfCounterHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szobjectname.param().abi(), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfCounterHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHW<P1, P2>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
@@ -409,7 +409,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, szdefaultcountername : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfCounterHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szobjectname.param().abi(), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfCounterHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterW<P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, szdefaultcountername: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
@@ -419,7 +419,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfCounterW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, szobjectname : windows_core::PCWSTR, szdefaultcountername : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfCounterW(szdatasource.param().abi(), szmachinename.param().abi(), szobjectname.param().abi(), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfCounterW(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&szobjectname.param().borrow()), szdefaultcountername.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectA<P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
@@ -428,7 +428,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectA(szdatasource : windows_core::PCSTR, szmachinename : windows_core::PCSTR, szdefaultobjectname : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfObjectA(szdatasource.param().abi(), szmachinename.param().abi(), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfObjectA(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHA<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szdefaultobjectname: Option<windows_core::PSTR>, pcchbuffersize: *mut u32) -> u32
@@ -436,7 +436,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectHA(hdatasource : PDH_HLOG, szmachinename : windows_core::PCSTR, szdefaultobjectname : windows_core::PSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfObjectHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfObjectHA(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHW<P1>(hdatasource: Option<PDH_HLOG>, szmachinename: P1, szdefaultobjectname: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
@@ -444,7 +444,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectHW(hdatasource : PDH_HLOG, szmachinename : windows_core::PCWSTR, szdefaultobjectname : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfObjectHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, szmachinename.param().abi(), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfObjectHW(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szmachinename.param().borrow()), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectW<P0, P1>(szdatasource: P0, szmachinename: P1, szdefaultobjectname: Option<windows_core::PWSTR>, pcchbuffersize: *mut u32) -> u32
@@ -453,7 +453,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhGetDefaultPerfObjectW(szdatasource : windows_core::PCWSTR, szmachinename : windows_core::PCWSTR, szdefaultobjectname : windows_core::PWSTR, pcchbuffersize : *mut u32) -> u32);
-    unsafe { PdhGetDefaultPerfObjectW(szdatasource.param().abi(), szmachinename.param().abi(), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
+    unsafe { PdhGetDefaultPerfObjectW(core::mem::transmute_copy(&szdatasource.param().borrow()), core::mem::transmute_copy(&szmachinename.param().borrow()), szdefaultobjectname.unwrap_or(core::mem::zeroed()) as _, pcchbuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhGetDllVersion(lpdwversion: Option<*mut PDH_DLL_VERSION>) -> u32 {
@@ -512,7 +512,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhLookupPerfIndexByNameA(szmachinename : windows_core::PCSTR, sznamebuffer : windows_core::PCSTR, pdwindex : *mut u32) -> u32);
-    unsafe { PdhLookupPerfIndexByNameA(szmachinename.param().abi(), sznamebuffer.param().abi(), pdwindex as _) }
+    unsafe { PdhLookupPerfIndexByNameA(core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&sznamebuffer.param().borrow()), pdwindex as _) }
 }
 #[inline]
 pub unsafe fn PdhLookupPerfIndexByNameW<P0, P1>(szmachinename: P0, sznamebuffer: P1, pdwindex: *mut u32) -> u32
@@ -521,7 +521,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhLookupPerfIndexByNameW(szmachinename : windows_core::PCWSTR, sznamebuffer : windows_core::PCWSTR, pdwindex : *mut u32) -> u32);
-    unsafe { PdhLookupPerfIndexByNameW(szmachinename.param().abi(), sznamebuffer.param().abi(), pdwindex as _) }
+    unsafe { PdhLookupPerfIndexByNameW(core::mem::transmute_copy(&szmachinename.param().borrow()), core::mem::transmute_copy(&sznamebuffer.param().borrow()), pdwindex as _) }
 }
 #[inline]
 pub unsafe fn PdhLookupPerfNameByIndexA<P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: Option<windows_core::PSTR>, pcchnamebuffersize: *mut u32) -> u32
@@ -529,7 +529,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhLookupPerfNameByIndexA(szmachinename : windows_core::PCSTR, dwnameindex : u32, sznamebuffer : windows_core::PSTR, pcchnamebuffersize : *mut u32) -> u32);
-    unsafe { PdhLookupPerfNameByIndexA(szmachinename.param().abi(), dwnameindex, sznamebuffer.unwrap_or(core::mem::zeroed()) as _, pcchnamebuffersize as _) }
+    unsafe { PdhLookupPerfNameByIndexA(core::mem::transmute_copy(&szmachinename.param().borrow()), dwnameindex, sznamebuffer.unwrap_or(core::mem::zeroed()) as _, pcchnamebuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhLookupPerfNameByIndexW<P0>(szmachinename: P0, dwnameindex: u32, sznamebuffer: Option<windows_core::PWSTR>, pcchnamebuffersize: *mut u32) -> u32
@@ -537,7 +537,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhLookupPerfNameByIndexW(szmachinename : windows_core::PCWSTR, dwnameindex : u32, sznamebuffer : windows_core::PWSTR, pcchnamebuffersize : *mut u32) -> u32);
-    unsafe { PdhLookupPerfNameByIndexW(szmachinename.param().abi(), dwnameindex, sznamebuffer.unwrap_or(core::mem::zeroed()) as _, pcchnamebuffersize as _) }
+    unsafe { PdhLookupPerfNameByIndexW(core::mem::transmute_copy(&szmachinename.param().borrow()), dwnameindex, sznamebuffer.unwrap_or(core::mem::zeroed()) as _, pcchnamebuffersize as _) }
 }
 #[inline]
 pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: Option<windows_core::PSTR>, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32 {
@@ -556,7 +556,7 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhOpenLogA(szlogfilename : windows_core::PCSTR, dwaccessflags : PDH_LOG, lpdwlogtype : *mut PDH_LOG_TYPE, hquery : PDH_HQUERY, dwmaxsize : u32, szusercaption : windows_core::PCSTR, phlog : *mut PDH_HLOG) -> u32);
-    unsafe { PdhOpenLogA(szlogfilename.param().abi(), dwaccessflags, lpdwlogtype as _, hquery.unwrap_or(core::mem::zeroed()) as _, dwmaxsize, szusercaption.param().abi(), phlog as _) }
+    unsafe { PdhOpenLogA(core::mem::transmute_copy(&szlogfilename.param().borrow()), dwaccessflags, lpdwlogtype as _, hquery.unwrap_or(core::mem::zeroed()) as _, dwmaxsize, core::mem::transmute_copy(&szusercaption.param().borrow()), phlog as _) }
 }
 #[inline]
 pub unsafe fn PdhOpenLogW<P0, P5>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: Option<PDH_HQUERY>, dwmaxsize: u32, szusercaption: P5, phlog: *mut PDH_HLOG) -> u32
@@ -565,7 +565,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhOpenLogW(szlogfilename : windows_core::PCWSTR, dwaccessflags : PDH_LOG, lpdwlogtype : *mut PDH_LOG_TYPE, hquery : PDH_HQUERY, dwmaxsize : u32, szusercaption : windows_core::PCWSTR, phlog : *mut PDH_HLOG) -> u32);
-    unsafe { PdhOpenLogW(szlogfilename.param().abi(), dwaccessflags, lpdwlogtype as _, hquery.unwrap_or(core::mem::zeroed()) as _, dwmaxsize, szusercaption.param().abi(), phlog as _) }
+    unsafe { PdhOpenLogW(core::mem::transmute_copy(&szlogfilename.param().borrow()), dwaccessflags, lpdwlogtype as _, hquery.unwrap_or(core::mem::zeroed()) as _, dwmaxsize, core::mem::transmute_copy(&szusercaption.param().borrow()), phlog as _) }
 }
 #[inline]
 pub unsafe fn PdhOpenQueryA<P0>(szdatasource: P0, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> u32
@@ -573,7 +573,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhOpenQueryA(szdatasource : windows_core::PCSTR, dwuserdata : usize, phquery : *mut PDH_HQUERY) -> u32);
-    unsafe { PdhOpenQueryA(szdatasource.param().abi(), dwuserdata, phquery as _) }
+    unsafe { PdhOpenQueryA(core::mem::transmute_copy(&szdatasource.param().borrow()), dwuserdata, phquery as _) }
 }
 #[inline]
 pub unsafe fn PdhOpenQueryH(hdatasource: Option<PDH_HLOG>, dwuserdata: usize, phquery: *mut PDH_HQUERY) -> u32 {
@@ -586,7 +586,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhOpenQueryW(szdatasource : windows_core::PCWSTR, dwuserdata : usize, phquery : *mut PDH_HQUERY) -> u32);
-    unsafe { PdhOpenQueryW(szdatasource.param().abi(), dwuserdata, phquery as _) }
+    unsafe { PdhOpenQueryW(core::mem::transmute_copy(&szdatasource.param().borrow()), dwuserdata, phquery as _) }
 }
 #[inline]
 pub unsafe fn PdhParseCounterPathA<P0>(szfullpathbuffer: P0, pcounterpathelements: Option<*mut PDH_COUNTER_PATH_ELEMENTS_A>, pdwbuffersize: *mut u32, dwflags: u32) -> u32
@@ -594,7 +594,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhParseCounterPathA(szfullpathbuffer : windows_core::PCSTR, pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize : *mut u32, dwflags : u32) -> u32);
-    unsafe { PdhParseCounterPathA(szfullpathbuffer.param().abi(), pcounterpathelements.unwrap_or(core::mem::zeroed()) as _, pdwbuffersize as _, dwflags) }
+    unsafe { PdhParseCounterPathA(core::mem::transmute_copy(&szfullpathbuffer.param().borrow()), pcounterpathelements.unwrap_or(core::mem::zeroed()) as _, pdwbuffersize as _, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhParseCounterPathW<P0>(szfullpathbuffer: P0, pcounterpathelements: Option<*mut PDH_COUNTER_PATH_ELEMENTS_W>, pdwbuffersize: *mut u32, dwflags: u32) -> u32
@@ -602,7 +602,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhParseCounterPathW(szfullpathbuffer : windows_core::PCWSTR, pcounterpathelements : *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize : *mut u32, dwflags : u32) -> u32);
-    unsafe { PdhParseCounterPathW(szfullpathbuffer.param().abi(), pcounterpathelements.unwrap_or(core::mem::zeroed()) as _, pdwbuffersize as _, dwflags) }
+    unsafe { PdhParseCounterPathW(core::mem::transmute_copy(&szfullpathbuffer.param().borrow()), pcounterpathelements.unwrap_or(core::mem::zeroed()) as _, pdwbuffersize as _, dwflags) }
 }
 #[inline]
 pub unsafe fn PdhParseInstanceNameA<P0>(szinstancestring: P0, szinstancename: Option<windows_core::PSTR>, pcchinstancenamelength: *mut u32, szparentname: Option<windows_core::PSTR>, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32
@@ -610,7 +610,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhParseInstanceNameA(szinstancestring : windows_core::PCSTR, szinstancename : windows_core::PSTR, pcchinstancenamelength : *mut u32, szparentname : windows_core::PSTR, pcchparentnamelength : *mut u32, lpindex : *mut u32) -> u32);
-    unsafe { PdhParseInstanceNameA(szinstancestring.param().abi(), szinstancename.unwrap_or(core::mem::zeroed()) as _, pcchinstancenamelength as _, szparentname.unwrap_or(core::mem::zeroed()) as _, pcchparentnamelength as _, lpindex as _) }
+    unsafe { PdhParseInstanceNameA(core::mem::transmute_copy(&szinstancestring.param().borrow()), szinstancename.unwrap_or(core::mem::zeroed()) as _, pcchinstancenamelength as _, szparentname.unwrap_or(core::mem::zeroed()) as _, pcchparentnamelength as _, lpindex as _) }
 }
 #[inline]
 pub unsafe fn PdhParseInstanceNameW<P0>(szinstancestring: P0, szinstancename: Option<windows_core::PWSTR>, pcchinstancenamelength: *mut u32, szparentname: Option<windows_core::PWSTR>, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32
@@ -618,7 +618,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhParseInstanceNameW(szinstancestring : windows_core::PCWSTR, szinstancename : windows_core::PWSTR, pcchinstancenamelength : *mut u32, szparentname : windows_core::PWSTR, pcchparentnamelength : *mut u32, lpindex : *mut u32) -> u32);
-    unsafe { PdhParseInstanceNameW(szinstancestring.param().abi(), szinstancename.unwrap_or(core::mem::zeroed()) as _, pcchinstancenamelength as _, szparentname.unwrap_or(core::mem::zeroed()) as _, pcchparentnamelength as _, lpindex as _) }
+    unsafe { PdhParseInstanceNameW(core::mem::transmute_copy(&szinstancestring.param().borrow()), szinstancename.unwrap_or(core::mem::zeroed()) as _, pcchinstancenamelength as _, szparentname.unwrap_or(core::mem::zeroed()) as _, pcchparentnamelength as _, lpindex as _) }
 }
 #[inline]
 pub unsafe fn PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> u32 {
@@ -666,7 +666,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhUpdateLogA(hlog : PDH_HLOG, szuserstring : windows_core::PCSTR) -> u32);
-    unsafe { PdhUpdateLogA(hlog, szuserstring.param().abi()) }
+    unsafe { PdhUpdateLogA(hlog, core::mem::transmute_copy(&szuserstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhUpdateLogFileCatalog(hlog: PDH_HLOG) -> u32 {
@@ -679,7 +679,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhUpdateLogW(hlog : PDH_HLOG, szuserstring : windows_core::PCWSTR) -> u32);
-    unsafe { PdhUpdateLogW(hlog, szuserstring.param().abi()) }
+    unsafe { PdhUpdateLogW(hlog, core::mem::transmute_copy(&szuserstring.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhValidatePathA<P0>(szfullpathbuffer: P0) -> u32
@@ -687,7 +687,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhValidatePathA(szfullpathbuffer : windows_core::PCSTR) -> u32);
-    unsafe { PdhValidatePathA(szfullpathbuffer.param().abi()) }
+    unsafe { PdhValidatePathA(core::mem::transmute_copy(&szfullpathbuffer.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhValidatePathExA<P1>(hdatasource: Option<PDH_HLOG>, szfullpathbuffer: P1) -> u32
@@ -695,7 +695,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhValidatePathExA(hdatasource : PDH_HLOG, szfullpathbuffer : windows_core::PCSTR) -> u32);
-    unsafe { PdhValidatePathExA(hdatasource.unwrap_or(core::mem::zeroed()) as _, szfullpathbuffer.param().abi()) }
+    unsafe { PdhValidatePathExA(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szfullpathbuffer.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhValidatePathExW<P1>(hdatasource: Option<PDH_HLOG>, szfullpathbuffer: P1) -> u32
@@ -703,7 +703,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhValidatePathExW(hdatasource : PDH_HLOG, szfullpathbuffer : windows_core::PCWSTR) -> u32);
-    unsafe { PdhValidatePathExW(hdatasource.unwrap_or(core::mem::zeroed()) as _, szfullpathbuffer.param().abi()) }
+    unsafe { PdhValidatePathExW(hdatasource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&szfullpathbuffer.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhValidatePathW<P0>(szfullpathbuffer: P0) -> u32
@@ -711,7 +711,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhValidatePathW(szfullpathbuffer : windows_core::PCWSTR) -> u32);
-    unsafe { PdhValidatePathW(szfullpathbuffer.param().abi()) }
+    unsafe { PdhValidatePathW(core::mem::transmute_copy(&szfullpathbuffer.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhVerifySQLDBA<P0>(szdatasource: P0) -> u32
@@ -719,7 +719,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhVerifySQLDBA(szdatasource : windows_core::PCSTR) -> u32);
-    unsafe { PdhVerifySQLDBA(szdatasource.param().abi()) }
+    unsafe { PdhVerifySQLDBA(core::mem::transmute_copy(&szdatasource.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PdhVerifySQLDBW<P0>(szdatasource: P0) -> u32
@@ -727,7 +727,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("pdh.dll" "system" fn PdhVerifySQLDBW(szdatasource : windows_core::PCWSTR) -> u32);
-    unsafe { PdhVerifySQLDBW(szdatasource.param().abi()) }
+    unsafe { PdhVerifySQLDBW(core::mem::transmute_copy(&szdatasource.param().borrow())) }
 }
 #[inline]
 pub unsafe fn PerfAddCounters(hquery: super::super::Foundation::HANDLE, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
@@ -745,7 +745,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn PerfCreateInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
-    unsafe { PerfCreateInstance(providerhandle, countersetguid, name.param().abi(), id) }
+    unsafe { PerfCreateInstance(providerhandle, countersetguid, core::mem::transmute_copy(&name.param().borrow()), id) }
 }
 #[inline]
 pub unsafe fn PerfDecrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
@@ -773,7 +773,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn PerfEnumerateCounterSet(szmachine : windows_core::PCWSTR, pcountersetids : *mut windows_core::GUID, ccountersetids : u32, pccountersetidsactual : *mut u32) -> u32);
-    unsafe { PerfEnumerateCounterSet(szmachine.param().abi(), core::mem::transmute(pcountersetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcountersetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pccountersetidsactual as _) }
+    unsafe { PerfEnumerateCounterSet(core::mem::transmute_copy(&szmachine.param().borrow()), core::mem::transmute(pcountersetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcountersetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pccountersetidsactual as _) }
 }
 #[inline]
 pub unsafe fn PerfEnumerateCounterSetInstances<P0>(szmachine: P0, pcountersetid: *const windows_core::GUID, pinstances: Option<*mut PERF_INSTANCE_HEADER>, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32
@@ -781,7 +781,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn PerfEnumerateCounterSetInstances(szmachine : windows_core::PCWSTR, pcountersetid : *const windows_core::GUID, pinstances : *mut PERF_INSTANCE_HEADER, cbinstances : u32, pcbinstancesactual : *mut u32) -> u32);
-    unsafe { PerfEnumerateCounterSetInstances(szmachine.param().abi(), pcountersetid, pinstances.unwrap_or(core::mem::zeroed()) as _, cbinstances, pcbinstancesactual as _) }
+    unsafe { PerfEnumerateCounterSetInstances(core::mem::transmute_copy(&szmachine.param().borrow()), pcountersetid, pinstances.unwrap_or(core::mem::zeroed()) as _, cbinstances, pcbinstancesactual as _) }
 }
 #[inline]
 pub unsafe fn PerfIncrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
@@ -799,7 +799,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn PerfOpenQueryHandle(szmachine : windows_core::PCWSTR, phquery : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { PerfOpenQueryHandle(szmachine.param().abi(), phquery as _) }
+    unsafe { PerfOpenQueryHandle(core::mem::transmute_copy(&szmachine.param().borrow()), phquery as _) }
 }
 #[inline]
 pub unsafe fn PerfQueryCounterData(hquery: super::super::Foundation::HANDLE, pcounterblock: Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32 {
@@ -817,7 +817,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn PerfQueryCounterSetRegistrationInfo(szmachine : windows_core::PCWSTR, pcountersetid : *const windows_core::GUID, requestcode : PerfRegInfoType, requestlangid : u32, pbreginfo : *mut u8, cbreginfo : u32, pcbreginfoactual : *mut u32) -> u32);
-    unsafe { PerfQueryCounterSetRegistrationInfo(szmachine.param().abi(), pcountersetid, requestcode, requestlangid, core::mem::transmute(pbreginfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbreginfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbreginfoactual as _) }
+    unsafe { PerfQueryCounterSetRegistrationInfo(core::mem::transmute_copy(&szmachine.param().borrow()), pcountersetid, requestcode, requestlangid, core::mem::transmute(pbreginfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbreginfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbreginfoactual as _) }
 }
 #[inline]
 pub unsafe fn PerfQueryInstance<P2>(providerhandle: super::super::Foundation::HANDLE, countersetguid: *const windows_core::GUID, name: P2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE
@@ -825,7 +825,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn PerfQueryInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
-    unsafe { PerfQueryInstance(providerhandle, countersetguid, name.param().abi(), id) }
+    unsafe { PerfQueryInstance(providerhandle, countersetguid, core::mem::transmute_copy(&name.param().borrow()), id) }
 }
 #[inline]
 pub unsafe fn PerfSetCounterRefValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const core::ffi::c_void) -> u32 {
@@ -879,7 +879,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn RestorePerfRegistryFromFileW(szfilename : windows_core::PCWSTR, szlangid : windows_core::PCWSTR) -> u32);
-    unsafe { RestorePerfRegistryFromFileW(szfilename.param().abi(), szlangid.param().abi()) }
+    unsafe { RestorePerfRegistryFromFileW(core::mem::transmute_copy(&szfilename.param().borrow()), core::mem::transmute_copy(&szlangid.param().borrow())) }
 }
 #[inline]
 pub unsafe fn SetServiceAsTrustedA<P0, P1>(szreserved: P0, szservicename: P1) -> u32
@@ -888,7 +888,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn SetServiceAsTrustedA(szreserved : windows_core::PCSTR, szservicename : windows_core::PCSTR) -> u32);
-    unsafe { SetServiceAsTrustedA(szreserved.param().abi(), szservicename.param().abi()) }
+    unsafe { SetServiceAsTrustedA(core::mem::transmute_copy(&szreserved.param().borrow()), core::mem::transmute_copy(&szservicename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn SetServiceAsTrustedW<P0, P1>(szreserved: P0, szservicename: P1) -> u32
@@ -897,7 +897,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn SetServiceAsTrustedW(szreserved : windows_core::PCWSTR, szservicename : windows_core::PCWSTR) -> u32);
-    unsafe { SetServiceAsTrustedW(szreserved.param().abi(), szservicename.param().abi()) }
+    unsafe { SetServiceAsTrustedW(core::mem::transmute_copy(&szreserved.param().borrow()), core::mem::transmute_copy(&szservicename.param().borrow())) }
 }
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsA<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
@@ -905,7 +905,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn UnloadPerfCounterTextStringsA(lpcommandline : windows_core::PCSTR, bquietmodearg : windows_core::BOOL) -> u32);
-    unsafe { UnloadPerfCounterTextStringsA(lpcommandline.param().abi(), bquietmodearg.into()) }
+    unsafe { UnloadPerfCounterTextStringsA(core::mem::transmute_copy(&lpcommandline.param().borrow()), bquietmodearg.into()) }
 }
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsW<P0>(lpcommandline: P0, bquietmodearg: bool) -> u32
@@ -913,7 +913,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn UnloadPerfCounterTextStringsW(lpcommandline : windows_core::PCWSTR, bquietmodearg : windows_core::BOOL) -> u32);
-    unsafe { UnloadPerfCounterTextStringsW(lpcommandline.param().abi(), bquietmodearg.into()) }
+    unsafe { UnloadPerfCounterTextStringsW(core::mem::transmute_copy(&lpcommandline.param().borrow()), bquietmodearg.into()) }
 }
 #[inline]
 pub unsafe fn UpdatePerfNameFilesA<P0, P1, P2>(sznewctrfilepath: P0, sznewhlpfilepath: P1, szlanguageid: P2, dwmodes: usize) -> u32
@@ -923,7 +923,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn UpdatePerfNameFilesA(sznewctrfilepath : windows_core::PCSTR, sznewhlpfilepath : windows_core::PCSTR, szlanguageid : windows_core::PCSTR, dwmodes : usize) -> u32);
-    unsafe { UpdatePerfNameFilesA(sznewctrfilepath.param().abi(), sznewhlpfilepath.param().abi(), szlanguageid.param().abi(), dwmodes) }
+    unsafe { UpdatePerfNameFilesA(core::mem::transmute_copy(&sznewctrfilepath.param().borrow()), core::mem::transmute_copy(&sznewhlpfilepath.param().borrow()), core::mem::transmute_copy(&szlanguageid.param().borrow()), dwmodes) }
 }
 #[inline]
 pub unsafe fn UpdatePerfNameFilesW<P0, P1, P2>(sznewctrfilepath: P0, sznewhlpfilepath: P1, szlanguageid: P2, dwmodes: usize) -> u32
@@ -933,7 +933,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("loadperf.dll" "system" fn UpdatePerfNameFilesW(sznewctrfilepath : windows_core::PCWSTR, sznewhlpfilepath : windows_core::PCWSTR, szlanguageid : windows_core::PCWSTR, dwmodes : usize) -> u32);
-    unsafe { UpdatePerfNameFilesW(sznewctrfilepath.param().abi(), sznewhlpfilepath.param().abi(), szlanguageid.param().abi(), dwmodes) }
+    unsafe { UpdatePerfNameFilesW(core::mem::transmute_copy(&sznewctrfilepath.param().borrow()), core::mem::transmute_copy(&sznewhlpfilepath.param().borrow()), core::mem::transmute_copy(&szlanguageid.param().borrow()), dwmodes) }
 }
 pub const AppearPropPage: windows_core::GUID = windows_core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
 #[repr(transparent)]
@@ -2540,7 +2540,7 @@ impl IDataCollector {
     where
         P0: windows_core::Param<IDataCollectorSet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDataCollectorSet)(windows_core::Interface::as_raw(self), group.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetDataCollectorSet)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&group.param().borrow())).ok() }
     }
     pub unsafe fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType> {
         unsafe {
@@ -2688,7 +2688,7 @@ pub struct IDataCollector_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollector_Impl: super::Com::IDispatch_Impl {
     fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet>;
-    fn SetDataCollectorSet(&self, group: windows_core::Ref<IDataCollectorSet>) -> windows_core::Result<()>;
+    fn SetDataCollectorSet(&self, group: Option<&IDataCollectorSet>) -> windows_core::Result<()>;
     fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType>;
     fn FileName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetFileName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -2731,7 +2731,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetDataCollectorSet<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, group: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollector_Impl::SetDataCollectorSet(this, core::mem::transmute_copy(&group)).into()
+                IDataCollector_Impl::SetDataCollectorSet(this, windows_core::Ref::option_from_abi(&group)).into()
             }
         }
         unsafe extern "system" fn DataCollectorType<Identity: IDataCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut DataCollectorType) -> windows_core::HRESULT {
@@ -3027,7 +3027,7 @@ impl IDataCollectorCollection {
     where
         P0: windows_core::Param<IDataCollector>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), collector.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&collector.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, collector: &super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -3040,7 +3040,7 @@ impl IDataCollectorCollection {
     where
         P0: windows_core::Param<IDataCollectorCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), collectors.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&collectors.param().borrow())).ok() }
     }
     pub unsafe fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: *mut Option<IValueMap>, pcollector: *mut Option<IDataCollector>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CreateDataCollectorFromXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), core::mem::transmute(pvalidation), core::mem::transmute(pcollector)).ok() }
@@ -3078,10 +3078,10 @@ pub trait IDataCollectorCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollector>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, collector: windows_core::Ref<IDataCollector>) -> windows_core::Result<()>;
+    fn Add(&self, collector: Option<&IDataCollector>) -> windows_core::Result<()>;
     fn Remove(&self, collector: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, collectors: windows_core::Ref<IDataCollectorCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, collectors: Option<&IDataCollectorCollection>) -> windows_core::Result<()>;
     fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: windows_core::OutRef<IValueMap>, pcollector: windows_core::OutRef<IDataCollector>) -> windows_core::Result<()>;
     fn CreateDataCollector(&self, r#type: DataCollectorType) -> windows_core::Result<IDataCollector>;
 }
@@ -3127,7 +3127,7 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collector: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorCollection_Impl::Add(this, core::mem::transmute_copy(&collector)).into()
+                IDataCollectorCollection_Impl::Add(this, windows_core::Ref::option_from_abi(&collector)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collector: super::Variant::VARIANT) -> windows_core::HRESULT {
@@ -3145,7 +3145,7 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collectors: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorCollection_Impl::AddRange(this, core::mem::transmute_copy(&collectors)).into()
+                IDataCollectorCollection_Impl::AddRange(this, windows_core::Ref::option_from_abi(&collectors)).into()
             }
         }
         unsafe extern "system" fn CreateDataCollectorFromXml<Identity: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void, pvalidation: *mut *mut core::ffi::c_void, pcollector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4283,7 +4283,7 @@ impl IDataCollectorSetCollection {
     where
         P0: windows_core::Param<IDataCollectorSet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), set.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&set.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, set: &super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -4296,7 +4296,7 @@ impl IDataCollectorSetCollection {
     where
         P0: windows_core::Param<IDataCollectorSetCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), sets.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&sets.param().borrow())).ok() }
     }
     pub unsafe fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDataCollectorSets)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(server), core::mem::transmute_copy(filter)).ok() }
@@ -4327,10 +4327,10 @@ pub trait IDataCollectorSetCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollectorSet>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, set: windows_core::Ref<IDataCollectorSet>) -> windows_core::Result<()>;
+    fn Add(&self, set: Option<&IDataCollectorSet>) -> windows_core::Result<()>;
     fn Remove(&self, set: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, sets: windows_core::Ref<IDataCollectorSetCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, sets: Option<&IDataCollectorSetCollection>) -> windows_core::Result<()>;
     fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4375,7 +4375,7 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, set: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::Add(this, core::mem::transmute_copy(&set)).into()
+                IDataCollectorSetCollection_Impl::Add(this, windows_core::Ref::option_from_abi(&set)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, set: super::Variant::VARIANT) -> windows_core::HRESULT {
@@ -4393,7 +4393,7 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sets: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDataCollectorSetCollection_Impl::AddRange(this, core::mem::transmute_copy(&sets)).into()
+                IDataCollectorSetCollection_Impl::AddRange(this, windows_core::Ref::option_from_abi(&sets)).into()
             }
         }
         unsafe extern "system" fn GetDataCollectorSets<Identity: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: *mut core::ffi::c_void, filter: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5077,7 +5077,7 @@ impl IFolderActionCollection {
     where
         P0: windows_core::Param<IFolderAction>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), action.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&action.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -5090,7 +5090,7 @@ impl IFolderActionCollection {
     where
         P0: windows_core::Param<IFolderActionCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), actions.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&actions.param().borrow())).ok() }
     }
     pub unsafe fn CreateFolderAction(&self) -> windows_core::Result<IFolderAction> {
         unsafe {
@@ -5124,10 +5124,10 @@ pub trait IFolderActionCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<u32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IFolderAction>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, action: windows_core::Ref<IFolderAction>) -> windows_core::Result<()>;
+    fn Add(&self, action: Option<&IFolderAction>) -> windows_core::Result<()>;
     fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, actions: windows_core::Ref<IFolderActionCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, actions: Option<&IFolderActionCollection>) -> windows_core::Result<()>;
     fn CreateFolderAction(&self) -> windows_core::Result<IFolderAction>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5172,7 +5172,7 @@ impl IFolderActionCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, action: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderActionCollection_Impl::Add(this, core::mem::transmute_copy(&action)).into()
+                IFolderActionCollection_Impl::Add(this, windows_core::Ref::option_from_abi(&action)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::Variant::VARIANT) -> windows_core::HRESULT {
@@ -5190,7 +5190,7 @@ impl IFolderActionCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, actions: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFolderActionCollection_Impl::AddRange(this, core::mem::transmute_copy(&actions)).into()
+                IFolderActionCollection_Impl::AddRange(this, windows_core::Ref::option_from_abi(&actions)).into()
             }
         }
         unsafe extern "system" fn CreateFolderAction<Identity: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, folderaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5832,7 +5832,7 @@ impl IScheduleCollection {
     where
         P0: windows_core::Param<ISchedule>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pschedule.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pschedule.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, vschedule: &super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -5845,7 +5845,7 @@ impl IScheduleCollection {
     where
         P0: windows_core::Param<IScheduleCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pschedules.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pschedules.param().borrow())).ok() }
     }
     pub unsafe fn CreateSchedule(&self) -> windows_core::Result<ISchedule> {
         unsafe {
@@ -5879,10 +5879,10 @@ pub trait IScheduleCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ISchedule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pschedule: windows_core::Ref<ISchedule>) -> windows_core::Result<()>;
+    fn Add(&self, pschedule: Option<&ISchedule>) -> windows_core::Result<()>;
     fn Remove(&self, vschedule: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, pschedules: windows_core::Ref<IScheduleCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, pschedules: Option<&IScheduleCollection>) -> windows_core::Result<()>;
     fn CreateSchedule(&self) -> windows_core::Result<ISchedule>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5927,7 +5927,7 @@ impl IScheduleCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pschedule: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScheduleCollection_Impl::Add(this, core::mem::transmute_copy(&pschedule)).into()
+                IScheduleCollection_Impl::Add(this, windows_core::Ref::option_from_abi(&pschedule)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vschedule: super::Variant::VARIANT) -> windows_core::HRESULT {
@@ -5945,7 +5945,7 @@ impl IScheduleCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pschedules: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IScheduleCollection_Impl::AddRange(this, core::mem::transmute_copy(&pschedules)).into()
+                IScheduleCollection_Impl::AddRange(this, windows_core::Ref::option_from_abi(&pschedules)).into()
             }
         }
         unsafe extern "system" fn CreateSchedule<Identity: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, schedule: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6029,7 +6029,7 @@ impl ISystemMonitor {
     where
         P0: windows_core::Param<super::Ole::IFontDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfont.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> windows_core::Result<ICounters> {
@@ -6174,7 +6174,7 @@ impl ISystemMonitor {
     where
         P0: windows_core::Param<ICounterItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteCounter)(windows_core::Interface::as_raw(self), pctr.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteCounter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pctr.param().borrow())).ok() }
     }
     pub unsafe fn BackColorCtl(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -6432,7 +6432,7 @@ pub trait ISystemMonitor_Impl: windows_core::IUnknownImpl {
     fn ForeColor(&self) -> windows_core::Result<u32>;
     fn SetForeColor(&self, color: u32) -> windows_core::Result<()>;
     fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: windows_core::Ref<super::Ole::IFontDisp>) -> windows_core::Result<()>;
+    fn putref_Font(&self, pfont: Option<&super::Ole::IFontDisp>) -> windows_core::Result<()>;
     fn Counters(&self) -> windows_core::Result<ICounters>;
     fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -6464,7 +6464,7 @@ pub trait ISystemMonitor_Impl: windows_core::IUnknownImpl {
     fn DisplayProperties(&self) -> windows_core::Result<()>;
     fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem>;
     fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: windows_core::Ref<ICounterItem>) -> windows_core::Result<()>;
+    fn DeleteCounter(&self, pctr: Option<&ICounterItem>) -> windows_core::Result<()>;
     fn BackColorCtl(&self) -> windows_core::Result<u32>;
     fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()>;
     fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -6590,7 +6590,7 @@ impl ISystemMonitor_Vtbl {
         unsafe extern "system" fn putref_Font<Identity: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfont: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemMonitor_Impl::putref_Font(this, core::mem::transmute_copy(&pfont)).into()
+                ISystemMonitor_Impl::putref_Font(this, windows_core::Ref::option_from_abi(&pfont)).into()
             }
         }
         unsafe extern "system" fn Counters<Identity: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicounters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6872,7 +6872,7 @@ impl ISystemMonitor_Vtbl {
         unsafe extern "system" fn DeleteCounter<Identity: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemMonitor_Impl::DeleteCounter(this, core::mem::transmute_copy(&pctr)).into()
+                ISystemMonitor_Impl::DeleteCounter(this, windows_core::Ref::option_from_abi(&pctr)).into()
             }
         }
         unsafe extern "system" fn BackColorCtl<Identity: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolor: *mut u32) -> windows_core::HRESULT {
@@ -8471,7 +8471,7 @@ impl ITraceDataProvider {
     where
         P0: windows_core::Param<super::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), pfrom.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfrom.param().borrow())).ok() }
     }
     pub unsafe fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sddl)).ok() }
@@ -8531,7 +8531,7 @@ pub trait ITraceDataProvider_Impl: super::Com::IDispatch_Impl {
     fn FilterData(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
     fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Resolve(&self, pfrom: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Resolve(&self, pfrom: Option<&super::Com::IDispatch>) -> windows_core::Result<()>;
     fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetSecurity(&self, securityinfo: u32) -> windows_core::Result<windows_core::BSTR>;
     fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap>;
@@ -8686,7 +8686,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn Resolve<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrom: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProvider_Impl::Resolve(this, core::mem::transmute_copy(&pfrom)).into()
+                ITraceDataProvider_Impl::Resolve(this, windows_core::Ref::option_from_abi(&pfrom)).into()
             }
         }
         unsafe extern "system" fn SetSecurity<Identity: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sddl: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8784,7 +8784,7 @@ impl ITraceDataProviderCollection {
     where
         P0: windows_core::Param<ITraceDataProvider>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pprovider.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pprovider.param().borrow())).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, vprovider: &super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -8797,7 +8797,7 @@ impl ITraceDataProviderCollection {
     where
         P0: windows_core::Param<ITraceDataProviderCollection>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), providers.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&providers.param().borrow())).ok() }
     }
     pub unsafe fn CreateTraceDataProvider(&self) -> windows_core::Result<ITraceDataProvider> {
         unsafe {
@@ -8839,10 +8839,10 @@ pub trait ITraceDataProviderCollection_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ITraceDataProvider>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pprovider: windows_core::Ref<ITraceDataProvider>) -> windows_core::Result<()>;
+    fn Add(&self, pprovider: Option<&ITraceDataProvider>) -> windows_core::Result<()>;
     fn Remove(&self, vprovider: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, providers: windows_core::Ref<ITraceDataProviderCollection>) -> windows_core::Result<()>;
+    fn AddRange(&self, providers: Option<&ITraceDataProviderCollection>) -> windows_core::Result<()>;
     fn CreateTraceDataProvider(&self) -> windows_core::Result<ITraceDataProvider>;
     fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> windows_core::Result<()>;
@@ -8889,7 +8889,7 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovider: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::Add(this, core::mem::transmute_copy(&pprovider)).into()
+                ITraceDataProviderCollection_Impl::Add(this, windows_core::Ref::option_from_abi(&pprovider)).into()
             }
         }
         unsafe extern "system" fn Remove<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vprovider: super::Variant::VARIANT) -> windows_core::HRESULT {
@@ -8907,7 +8907,7 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providers: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITraceDataProviderCollection_Impl::AddRange(this, core::mem::transmute_copy(&providers)).into()
+                ITraceDataProviderCollection_Impl::AddRange(this, windows_core::Ref::option_from_abi(&providers)).into()
             }
         }
         unsafe extern "system" fn CreateTraceDataProvider<Identity: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, provider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9030,7 +9030,7 @@ impl IValueMap {
     where
         P0: windows_core::Param<IValueMap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), map.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&map.param().borrow())).ok() }
     }
     pub unsafe fn CreateValueMapItem(&self) -> windows_core::Result<IValueMapItem> {
         unsafe {
@@ -9088,7 +9088,7 @@ pub trait IValueMap_Impl: super::Com::IDispatch_Impl {
     fn Add(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Remove(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, map: windows_core::Ref<IValueMap>) -> windows_core::Result<()>;
+    fn AddRange(&self, map: Option<&IValueMap>) -> windows_core::Result<()>;
     fn CreateValueMapItem(&self) -> windows_core::Result<IValueMapItem>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9205,7 +9205,7 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn AddRange<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, map: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IValueMap_Impl::AddRange(this, core::mem::transmute_copy(&map)).into()
+                IValueMap_Impl::AddRange(this, windows_core::Ref::option_from_abi(&map)).into()
             }
         }
         unsafe extern "system" fn CreateValueMapItem<Identity: IValueMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10817,7 +10817,7 @@ impl _ISystemMonitorUnion {
     where
         P0: windows_core::Param<super::Ole::IFontDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pfont.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> windows_core::Result<ICounters> {
@@ -10962,7 +10962,7 @@ impl _ISystemMonitorUnion {
     where
         P0: windows_core::Param<ICounterItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteCounter)(windows_core::Interface::as_raw(self), pctr.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteCounter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pctr.param().borrow())).ok() }
     }
     pub unsafe fn BackColorCtl(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -11321,7 +11321,7 @@ pub trait _ISystemMonitorUnion_Impl: windows_core::IUnknownImpl {
     fn ForeColor(&self) -> windows_core::Result<u32>;
     fn SetForeColor(&self, color: u32) -> windows_core::Result<()>;
     fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: windows_core::Ref<super::Ole::IFontDisp>) -> windows_core::Result<()>;
+    fn putref_Font(&self, pfont: Option<&super::Ole::IFontDisp>) -> windows_core::Result<()>;
     fn Counters(&self) -> windows_core::Result<ICounters>;
     fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -11353,7 +11353,7 @@ pub trait _ISystemMonitorUnion_Impl: windows_core::IUnknownImpl {
     fn DisplayProperties(&self) -> windows_core::Result<()>;
     fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem>;
     fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: windows_core::Ref<ICounterItem>) -> windows_core::Result<()>;
+    fn DeleteCounter(&self, pctr: Option<&ICounterItem>) -> windows_core::Result<()>;
     fn BackColorCtl(&self) -> windows_core::Result<u32>;
     fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()>;
     fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -11499,7 +11499,7 @@ impl _ISystemMonitorUnion_Vtbl {
         unsafe extern "system" fn putref_Font<Identity: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfont: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _ISystemMonitorUnion_Impl::putref_Font(this, core::mem::transmute_copy(&pfont)).into()
+                _ISystemMonitorUnion_Impl::putref_Font(this, windows_core::Ref::option_from_abi(&pfont)).into()
             }
         }
         unsafe extern "system" fn Counters<Identity: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicounters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11781,7 +11781,7 @@ impl _ISystemMonitorUnion_Vtbl {
         unsafe extern "system" fn DeleteCounter<Identity: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctr: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _ISystemMonitorUnion_Impl::DeleteCounter(this, core::mem::transmute_copy(&pctr)).into()
+                _ISystemMonitorUnion_Impl::DeleteCounter(this, windows_core::Ref::option_from_abi(&pctr)).into()
             }
         }
         unsafe extern "system" fn BackColorCtl<Identity: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolor: *mut u32) -> windows_core::HRESULT {

@@ -6,7 +6,7 @@ where
 {
     windows_core::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { CreatePresentationFactory(d3ddevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { CreatePresentationFactory(core::mem::transmute_copy(&d3ddevice.param().borrow()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -484,7 +484,7 @@ impl IPresentationManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), resource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&resource.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> windows_core::Result<IPresentationSurface> {
@@ -559,7 +559,7 @@ pub struct IPresentationManager_Vtbl {
     pub GetNextPresentStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPresentationManager_Impl: windows_core::IUnknownImpl {
-    fn AddBufferFromResource(&self, resource: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IPresentationBuffer>;
+    fn AddBufferFromResource(&self, resource: Option<&windows_core::IUnknown>) -> windows_core::Result<IPresentationBuffer>;
     fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> windows_core::Result<IPresentationSurface>;
     fn GetNextPresentId(&self) -> u64;
     fn SetTargetTime(&self, targettime: &SystemInterruptTime) -> windows_core::Result<()>;
@@ -578,7 +578,7 @@ impl IPresentationManager_Vtbl {
         unsafe extern "system" fn AddBufferFromResource<Identity: IPresentationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resource: *mut core::ffi::c_void, presentationbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPresentationManager_Impl::AddBufferFromResource(this, core::mem::transmute_copy(&resource)) {
+                match IPresentationManager_Impl::AddBufferFromResource(this, windows_core::Ref::option_from_abi(&resource)) {
                     Ok(ok__) => {
                         presentationbuffer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -718,7 +718,7 @@ impl IPresentationSurface {
     where
         P0: windows_core::Param<IPresentationBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), presentationbuffer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&presentationbuffer.param().borrow())).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()> {
@@ -738,7 +738,7 @@ impl IPresentationSurface {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RestrictToOutput)(windows_core::Interface::as_raw(self), output.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RestrictToOutput)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&output.param().borrow())).ok() }
     }
     pub unsafe fn SetDisableReadback(&self, value: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDisableReadback)(windows_core::Interface::as_raw(self), value).ok() }
@@ -768,12 +768,12 @@ pub struct IPresentationSurface_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IPresentationSurface_Impl: IPresentationContent_Impl {
-    fn SetBuffer(&self, presentationbuffer: windows_core::Ref<IPresentationBuffer>) -> windows_core::Result<()>;
+    fn SetBuffer(&self, presentationbuffer: Option<&IPresentationBuffer>) -> windows_core::Result<()>;
     fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()>;
     fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> windows_core::Result<()>;
     fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn SetTransform(&self, transform: *const PresentationTransform) -> windows_core::Result<()>;
-    fn RestrictToOutput(&self, output: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RestrictToOutput(&self, output: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetDisableReadback(&self, value: u8) -> windows_core::Result<()>;
     fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> windows_core::Result<()>;
 }
@@ -783,7 +783,7 @@ impl IPresentationSurface_Vtbl {
         unsafe extern "system" fn SetBuffer<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presentationbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPresentationSurface_Impl::SetBuffer(this, core::mem::transmute_copy(&presentationbuffer)).into()
+                IPresentationSurface_Impl::SetBuffer(this, windows_core::Ref::option_from_abi(&presentationbuffer)).into()
             }
         }
         unsafe extern "system" fn SetColorSpace<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT {
@@ -813,7 +813,7 @@ impl IPresentationSurface_Vtbl {
         unsafe extern "system" fn RestrictToOutput<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPresentationSurface_Impl::RestrictToOutput(this, core::mem::transmute_copy(&output)).into()
+                IPresentationSurface_Impl::RestrictToOutput(this, windows_core::Ref::option_from_abi(&output)).into()
             }
         }
         unsafe extern "system" fn SetDisableReadback<Identity: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u8) -> windows_core::HRESULT {

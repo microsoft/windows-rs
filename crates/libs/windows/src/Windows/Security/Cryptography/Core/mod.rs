@@ -165,7 +165,7 @@ impl AsymmetricKeyAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportDefaultPrivateKeyBlob)(windows_core::Interface::as_raw(this), keyblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportDefaultPrivateKeyBlob)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keyblob.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -176,7 +176,7 @@ impl AsymmetricKeyAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportKeyPairWithBlobType)(windows_core::Interface::as_raw(this), keyblob.param().abi(), blobtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportKeyPairWithBlobType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keyblob.param().borrow()), blobtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -187,7 +187,7 @@ impl AsymmetricKeyAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportDefaultPublicKeyBlob)(windows_core::Interface::as_raw(this), keyblob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportDefaultPublicKeyBlob)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keyblob.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -198,7 +198,7 @@ impl AsymmetricKeyAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImportPublicKeyWithBlobType)(windows_core::Interface::as_raw(this), keyblob.param().abi(), blobtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ImportPublicKeyWithBlobType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keyblob.param().borrow()), blobtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateKeyPairWithCurveName(&self, curvename: &windows_core::HSTRING) -> windows_core::Result<CryptographicKey> {
@@ -262,7 +262,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Encrypt)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), iv.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Encrypt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&iv.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -274,7 +274,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Decrypt)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), iv.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Decrypt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&iv.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -287,7 +287,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EncryptAndAuthenticate)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), nonce.param().abi(), authenticateddata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EncryptAndAuthenticate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&nonce.param().borrow()), core::mem::transmute_copy(&authenticateddata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -301,7 +301,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DecryptAndAuthenticate)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), nonce.param().abi(), authenticationtag.param().abi(), authenticateddata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DecryptAndAuthenticate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&nonce.param().borrow()), core::mem::transmute_copy(&authenticationtag.param().borrow()), core::mem::transmute_copy(&authenticateddata.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -312,7 +312,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Sign)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Sign)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -324,7 +324,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VerifySignature)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), signature.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VerifySignature)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&signature.param().borrow()), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -335,7 +335,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeriveKeyMaterial)(windows_core::Interface::as_raw(this), key.param().abi(), parameters.param().abi(), desiredkeysize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeriveKeyMaterial)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&parameters.param().borrow()), desiredkeysize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -346,7 +346,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignHashedData)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SignHashedData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -358,7 +358,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VerifySignatureWithHashInput)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), signature.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).VerifySignatureWithHashInput)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&signature.param().borrow()), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -370,7 +370,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DecryptAsync)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), iv.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DecryptAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), core::mem::transmute_copy(&iv.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -381,7 +381,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignAsync)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SignAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -392,7 +392,7 @@ impl CryptographicEngine {
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SignHashedDataAsync)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SignHashedDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&key.param().borrow()), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ICryptographicEngineStatics<R, F: FnOnce(&ICryptographicEngineStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -418,7 +418,7 @@ impl CryptographicHash {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), data.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&data.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetValueAndReset(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -932,7 +932,7 @@ impl HashAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HashData)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).HashData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&data.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateHash(&self) -> windows_core::Result<CryptographicHash> {
@@ -1672,7 +1672,7 @@ impl KeyDerivationAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateKey)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keymaterial.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<KeyDerivationAlgorithmProvider> {
@@ -1717,7 +1717,7 @@ impl KeyDerivationParameters {
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetKdfGenericBinary)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetKdfGenericBinary)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn IterationCount(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1744,7 +1744,7 @@ impl KeyDerivationParameters {
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildForPbkdf2)(windows_core::Interface::as_raw(this), pbkdf2salt.param().abi(), iterationcount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildForPbkdf2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pbkdf2salt.param().borrow()), iterationcount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1755,7 +1755,7 @@ impl KeyDerivationParameters {
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildForSP800108)(windows_core::Interface::as_raw(this), label.param().abi(), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildForSP800108)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&label.param().borrow()), core::mem::transmute_copy(&context.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1769,7 +1769,7 @@ impl KeyDerivationParameters {
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildForSP80056a)(windows_core::Interface::as_raw(this), algorithmid.param().abi(), partyuinfo.param().abi(), partyvinfo.param().abi(), supppubinfo.param().abi(), suppprivinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildForSP80056a)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&algorithmid.param().borrow()), core::mem::transmute_copy(&partyuinfo.param().borrow()), core::mem::transmute_copy(&partyvinfo.param().borrow()), core::mem::transmute_copy(&supppubinfo.param().borrow()), core::mem::transmute_copy(&suppprivinfo.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> windows_core::Result<KeyDerivationParameters> {
@@ -1872,7 +1872,7 @@ impl MacAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateKey)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keymaterial.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1883,7 +1883,7 @@ impl MacAlgorithmProvider {
         let this = &windows_core::Interface::cast::<IMacAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateHash)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateHash)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keymaterial.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<MacAlgorithmProvider> {
@@ -1918,7 +1918,7 @@ impl PersistedKeyProvider {
     {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(windows_core::Interface::as_raw(this), certificate.param().abi(), core::mem::transmute_copy(hashalgorithmname), padding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&certificate.param().borrow()), core::mem::transmute_copy(hashalgorithmname), padding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -1928,7 +1928,7 @@ impl PersistedKeyProvider {
     {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenPublicKeyFromCertificate)(windows_core::Interface::as_raw(this), certificate.param().abi(), core::mem::transmute_copy(hashalgorithmname), padding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenPublicKeyFromCertificate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&certificate.param().borrow()), core::mem::transmute_copy(hashalgorithmname), padding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPersistedKeyProviderStatics<R, F: FnOnce(&IPersistedKeyProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2090,7 +2090,7 @@ impl SymmetricKeyAlgorithmProvider {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSymmetricKey)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSymmetricKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&keymaterial.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<SymmetricKeyAlgorithmProvider> {

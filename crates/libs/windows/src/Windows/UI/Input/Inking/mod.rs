@@ -385,7 +385,7 @@ impl IInkPresenterRulerFactory {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), inkpresenter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inkpresenter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -393,14 +393,14 @@ impl windows_core::RuntimeName for IInkPresenterRulerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRulerFactory";
 }
 pub trait IInkPresenterRulerFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, inkPresenter: windows_core::Ref<InkPresenter>) -> windows_core::Result<InkPresenterRuler>;
+    fn Create(&self, inkPresenter: Option<&InkPresenter>) -> windows_core::Result<InkPresenterRuler>;
 }
 impl IInkPresenterRulerFactory_Vtbl {
     pub const fn new<Identity: IInkPresenterRulerFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Create<Identity: IInkPresenterRulerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkpresenter: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPresenterRulerFactory_Impl::Create(this, core::mem::transmute_copy(&inkpresenter)) {
+                match IInkPresenterRulerFactory_Impl::Create(this, windows_core::Ref::option_from_abi(&inkpresenter)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -644,7 +644,7 @@ impl IInkRecognizerContainer {
         P0: windows_core::Param<InkRecognizer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), recognizer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&recognizer.param().borrow())).ok() }
     }
     pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
     where
@@ -653,7 +653,7 @@ impl IInkRecognizerContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), strokecollection.param().abi(), recognitiontarget, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&strokecollection.param().borrow()), recognitiontarget, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetRecognizers(&self) -> windows_core::Result<windows_collections::IVectorView<InkRecognizer>> {
@@ -668,8 +668,8 @@ impl windows_core::RuntimeName for IInkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkRecognizerContainer";
 }
 pub trait IInkRecognizerContainer_Impl: windows_core::IUnknownImpl {
-    fn SetDefaultRecognizer(&self, recognizer: windows_core::Ref<InkRecognizer>) -> windows_core::Result<()>;
-    fn RecognizeAsync(&self, strokeCollection: windows_core::Ref<InkStrokeContainer>, recognitionTarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>;
+    fn SetDefaultRecognizer(&self, recognizer: Option<&InkRecognizer>) -> windows_core::Result<()>;
+    fn RecognizeAsync(&self, strokeCollection: Option<&InkStrokeContainer>, recognitionTarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>;
     fn GetRecognizers(&self) -> windows_core::Result<windows_collections::IVectorView<InkRecognizer>>;
 }
 impl IInkRecognizerContainer_Vtbl {
@@ -677,13 +677,13 @@ impl IInkRecognizerContainer_Vtbl {
         unsafe extern "system" fn SetDefaultRecognizer<Identity: IInkRecognizerContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContainer_Impl::SetDefaultRecognizer(this, core::mem::transmute_copy(&recognizer)).into()
+                IInkRecognizerContainer_Impl::SetDefaultRecognizer(this, windows_core::Ref::option_from_abi(&recognizer)).into()
             }
         }
         unsafe extern "system" fn RecognizeAsync<Identity: IInkRecognizerContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokecollection: *mut core::ffi::c_void, recognitiontarget: InkRecognitionTarget, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContainer_Impl::RecognizeAsync(this, core::mem::transmute_copy(&strokecollection), recognitiontarget) {
+                match IInkRecognizerContainer_Impl::RecognizeAsync(this, windows_core::Ref::option_from_abi(&strokecollection), recognitiontarget) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -830,7 +830,7 @@ impl IInkStrokeContainer {
         P0: windows_core::Param<InkStroke>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddStroke)(windows_core::Interface::as_raw(this), stroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stroke.param().borrow())).ok() }
     }
     pub fn DeleteSelected(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -853,7 +853,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&polyline.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
@@ -889,7 +889,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -900,7 +900,7 @@ impl IInkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&outputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> windows_core::Result<()>
@@ -908,7 +908,7 @@ impl IInkStrokeContainer {
         P0: windows_core::Param<windows_collections::IVectorView<InkRecognitionResult>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateRecognitionResults)(windows_core::Interface::as_raw(this), recognitionresults.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateRecognitionResults)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&recognitionresults.param().borrow())).ok() }
     }
     pub fn GetStrokes(&self) -> windows_core::Result<windows_collections::IVectorView<InkStroke>> {
         let this = self;
@@ -932,17 +932,17 @@ impl windows_core::RuntimeName for IInkStrokeContainer {
 #[cfg(feature = "Storage_Streams")]
 pub trait IInkStrokeContainer_Impl: windows_core::IUnknownImpl {
     fn BoundingRect(&self) -> windows_core::Result<super::super::super::Foundation::Rect>;
-    fn AddStroke(&self, stroke: windows_core::Ref<InkStroke>) -> windows_core::Result<()>;
+    fn AddStroke(&self, stroke: Option<&InkStroke>) -> windows_core::Result<()>;
     fn DeleteSelected(&self) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn MoveSelected(&self, translation: &super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect>;
-    fn SelectWithPolyLine(&self, polyline: windows_core::Ref<windows_collections::IIterable<super::super::super::Foundation::Point>>) -> windows_core::Result<super::super::super::Foundation::Rect>;
+    fn SelectWithPolyLine(&self, polyline: Option<&windows_collections::IIterable<super::super::super::Foundation::Point>>) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn SelectWithLine(&self, from: &super::super::super::Foundation::Point, to: &super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn CopySelectedToClipboard(&self) -> windows_core::Result<()>;
     fn PasteFromClipboard(&self, position: &super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect>;
     fn CanPasteFromClipboard(&self) -> windows_core::Result<bool>;
-    fn LoadAsync(&self, inputStream: windows_core::Ref<super::super::super::Storage::Streams::IInputStream>) -> windows_core::Result<windows_future::IAsyncActionWithProgress<u64>>;
-    fn SaveAsync(&self, outputStream: windows_core::Ref<super::super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>;
-    fn UpdateRecognitionResults(&self, recognitionResults: windows_core::Ref<windows_collections::IVectorView<InkRecognitionResult>>) -> windows_core::Result<()>;
+    fn LoadAsync(&self, inputStream: Option<&super::super::super::Storage::Streams::IInputStream>) -> windows_core::Result<windows_future::IAsyncActionWithProgress<u64>>;
+    fn SaveAsync(&self, outputStream: Option<&super::super::super::Storage::Streams::IOutputStream>) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>;
+    fn UpdateRecognitionResults(&self, recognitionResults: Option<&windows_collections::IVectorView<InkRecognitionResult>>) -> windows_core::Result<()>;
     fn GetStrokes(&self) -> windows_core::Result<windows_collections::IVectorView<InkStroke>>;
     fn GetRecognitionResults(&self) -> windows_core::Result<windows_collections::IVectorView<InkRecognitionResult>>;
 }
@@ -964,7 +964,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn AddStroke<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stroke: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokeContainer_Impl::AddStroke(this, core::mem::transmute_copy(&stroke)).into()
+                IInkStrokeContainer_Impl::AddStroke(this, windows_core::Ref::option_from_abi(&stroke)).into()
             }
         }
         unsafe extern "system" fn DeleteSelected<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT {
@@ -994,7 +994,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn SelectWithPolyLine<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, polyline: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Rect) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeContainer_Impl::SelectWithPolyLine(this, core::mem::transmute_copy(&polyline)) {
+                match IInkStrokeContainer_Impl::SelectWithPolyLine(this, windows_core::Ref::option_from_abi(&polyline)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         windows_core::HRESULT(0)
@@ -1048,7 +1048,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn LoadAsync<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputstream: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeContainer_Impl::LoadAsync(this, core::mem::transmute_copy(&inputstream)) {
+                match IInkStrokeContainer_Impl::LoadAsync(this, windows_core::Ref::option_from_abi(&inputstream)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1061,7 +1061,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn SaveAsync<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputstream: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeContainer_Impl::SaveAsync(this, core::mem::transmute_copy(&outputstream)) {
+                match IInkStrokeContainer_Impl::SaveAsync(this, windows_core::Ref::option_from_abi(&outputstream)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
@@ -1074,7 +1074,7 @@ impl IInkStrokeContainer_Vtbl {
         unsafe extern "system" fn UpdateRecognitionResults<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognitionresults: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkStrokeContainer_Impl::UpdateRecognitionResults(this, core::mem::transmute_copy(&recognitionresults)).into()
+                IInkStrokeContainer_Impl::UpdateRecognitionResults(this, windows_core::Ref::option_from_abi(&recognitionresults)).into()
             }
         }
         unsafe extern "system" fn GetStrokes<Identity: IInkStrokeContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1679,7 +1679,7 @@ impl InkManager {
         P0: windows_core::Param<super::PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ProcessPointerDown)(windows_core::Interface::as_raw(this), pointerpoint.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ProcessPointerDown)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pointerpoint.param().borrow())).ok() }
     }
     pub fn ProcessPointerUpdate<P0>(&self, pointerpoint: P0) -> windows_core::Result<windows_core::IInspectable>
     where
@@ -1688,7 +1688,7 @@ impl InkManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProcessPointerUpdate)(windows_core::Interface::as_raw(this), pointerpoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProcessPointerUpdate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pointerpoint.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ProcessPointerUp<P0>(&self, pointerpoint: P0) -> windows_core::Result<super::super::super::Foundation::Rect>
@@ -1698,7 +1698,7 @@ impl InkManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProcessPointerUp)(windows_core::Interface::as_raw(this), pointerpoint.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProcessPointerUp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pointerpoint.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SetDefaultDrawingAttributes<P0>(&self, drawingattributes: P0) -> windows_core::Result<()>
@@ -1706,7 +1706,7 @@ impl InkManager {
         P0: windows_core::Param<InkDrawingAttributes>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), drawingattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&drawingattributes.param().borrow())).ok() }
     }
     pub fn RecognizeAsync(&self, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>> {
         let this = self;
@@ -1720,7 +1720,7 @@ impl InkManager {
         P0: windows_core::Param<InkRecognizer>,
     {
         let this = &windows_core::Interface::cast::<IInkRecognizerContainer>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), recognizer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&recognizer.param().borrow())).ok() }
     }
     pub fn RecognizeAsync2<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
     where
@@ -1729,7 +1729,7 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkRecognizerContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), strokecollection.param().abi(), recognitiontarget, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&strokecollection.param().borrow()), recognitiontarget, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetRecognizers(&self) -> windows_core::Result<windows_collections::IVectorView<InkRecognizer>> {
@@ -1751,7 +1751,7 @@ impl InkManager {
         P0: windows_core::Param<InkStroke>,
     {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddStroke)(windows_core::Interface::as_raw(this), stroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stroke.param().borrow())).ok() }
     }
     pub fn DeleteSelected(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
@@ -1774,7 +1774,7 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&polyline.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
@@ -1810,7 +1810,7 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1821,7 +1821,7 @@ impl InkManager {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&outputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> windows_core::Result<()>
@@ -1829,7 +1829,7 @@ impl InkManager {
         P0: windows_core::Param<windows_collections::IVectorView<InkRecognitionResult>>,
     {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).UpdateRecognitionResults)(windows_core::Interface::as_raw(this), recognitionresults.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateRecognitionResults)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&recognitionresults.param().borrow())).ok() }
     }
     pub fn GetStrokes(&self) -> windows_core::Result<windows_collections::IVectorView<InkStroke>> {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer>(self)?;
@@ -2070,7 +2070,7 @@ impl InkPresenter {
         P0: windows_core::Param<InkStrokeContainer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStrokeContainer)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStrokeContainer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn CopyDefaultDrawingAttributes(&self) -> windows_core::Result<InkDrawingAttributes> {
         let this = self;
@@ -2084,7 +2084,7 @@ impl InkPresenter {
         P0: windows_core::Param<InkDrawingAttributes>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ActivateCustomDrying(&self) -> windows_core::Result<InkSynchronizer> {
         let this = self;
@@ -2104,7 +2104,7 @@ impl InkPresenter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StrokesCollected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StrokesCollected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStrokesCollected(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2118,7 +2118,7 @@ impl InkPresenter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StrokesErased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StrokesErased)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStrokesErased(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2258,7 +2258,7 @@ impl InkPresenterProtractor {
     {
         Self::IInkPresenterProtractorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), inkpresenter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inkpresenter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Kind(&self) -> windows_core::Result<InkPresenterStencilKind> {
@@ -2385,7 +2385,7 @@ impl InkPresenterRuler {
     {
         Self::IInkPresenterRulerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), inkpresenter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inkpresenter.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Kind(&self) -> windows_core::Result<InkPresenterStencilKind> {
@@ -2563,7 +2563,7 @@ impl InkRecognizerContainer {
         P0: windows_core::Param<InkRecognizer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), recognizer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultRecognizer)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&recognizer.param().borrow())).ok() }
     }
     pub fn RecognizeAsync<P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<InkRecognitionResult>>>
     where
@@ -2572,7 +2572,7 @@ impl InkRecognizerContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), strokecollection.param().abi(), recognitiontarget, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RecognizeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&strokecollection.param().borrow()), recognitiontarget, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetRecognizers(&self) -> windows_core::Result<windows_collections::IVectorView<InkRecognizer>> {
@@ -2610,7 +2610,7 @@ impl InkStroke {
         P0: windows_core::Param<InkDrawingAttributes>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDrawingAttributes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDrawingAttributes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2688,7 +2688,7 @@ impl InkStroke {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetStrokeStartedTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStrokeStartedTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn StrokeDuration(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
@@ -2702,7 +2702,7 @@ impl InkStroke {
         P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetStrokeDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStrokeDuration)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn PointerId(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<IInkStroke4>(self)?;
@@ -2741,7 +2741,7 @@ impl InkStrokeBuilder {
         P0: windows_core::Param<super::PointerPoint>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).BeginStroke)(windows_core::Interface::as_raw(this), pointerpoint.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).BeginStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pointerpoint.param().borrow())).ok() }
     }
     pub fn AppendToStroke<P0>(&self, pointerpoint: P0) -> windows_core::Result<super::PointerPoint>
     where
@@ -2750,7 +2750,7 @@ impl InkStrokeBuilder {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppendToStroke)(windows_core::Interface::as_raw(this), pointerpoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppendToStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pointerpoint.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn EndStroke<P0>(&self, pointerpoint: P0) -> windows_core::Result<InkStroke>
@@ -2760,7 +2760,7 @@ impl InkStrokeBuilder {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EndStroke)(windows_core::Interface::as_raw(this), pointerpoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).EndStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&pointerpoint.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateStroke<P0>(&self, points: P0) -> windows_core::Result<InkStroke>
@@ -2770,7 +2770,7 @@ impl InkStrokeBuilder {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStroke)(windows_core::Interface::as_raw(this), points.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&points.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDefaultDrawingAttributes<P0>(&self, drawingattributes: P0) -> windows_core::Result<()>
@@ -2778,7 +2778,7 @@ impl InkStrokeBuilder {
         P0: windows_core::Param<InkDrawingAttributes>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), drawingattributes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&drawingattributes.param().borrow())).ok() }
     }
     pub fn CreateStrokeFromInkPoints<P0>(&self, inkpoints: P0, transform: windows_numerics::Matrix3x2) -> windows_core::Result<InkStroke>
     where
@@ -2787,7 +2787,7 @@ impl InkStrokeBuilder {
         let this = &windows_core::Interface::cast::<IInkStrokeBuilder2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(windows_core::Interface::as_raw(this), inkpoints.param().abi(), transform, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inkpoints.param().borrow()), transform, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateStrokeFromInkPoints2<P0, P2, P3>(&self, inkpoints: P0, transform: windows_numerics::Matrix3x2, strokestartedtime: P2, strokeduration: P3) -> windows_core::Result<InkStroke>
@@ -2799,7 +2799,7 @@ impl InkStrokeBuilder {
         let this = &windows_core::Interface::cast::<IInkStrokeBuilder3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(windows_core::Interface::as_raw(this), inkpoints.param().abi(), transform, strokestartedtime.param().abi(), strokeduration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateStrokeFromInkPoints)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inkpoints.param().borrow()), transform, core::mem::transmute_copy(&strokestartedtime.param().borrow()), core::mem::transmute_copy(&strokeduration.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2837,7 +2837,7 @@ impl InkStrokeContainer {
         P0: windows_core::Param<InkStroke>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).AddStroke)(windows_core::Interface::as_raw(this), stroke.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddStroke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&stroke.param().borrow())).ok() }
     }
     pub fn DeleteSelected(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -2860,7 +2860,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), polyline.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SelectWithPolyLine)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&polyline.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn SelectWithLine(&self, from: super::super::super::Foundation::Point, to: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Rect> {
@@ -2896,7 +2896,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), inputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&inputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2907,7 +2907,7 @@ impl InkStrokeContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&outputstream.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateRecognitionResults<P0>(&self, recognitionresults: P0) -> windows_core::Result<()>
@@ -2915,7 +2915,7 @@ impl InkStrokeContainer {
         P0: windows_core::Param<windows_collections::IVectorView<InkRecognitionResult>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateRecognitionResults)(windows_core::Interface::as_raw(this), recognitionresults.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateRecognitionResults)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&recognitionresults.param().borrow())).ok() }
     }
     pub fn GetStrokes(&self) -> windows_core::Result<windows_collections::IVectorView<InkStroke>> {
         let this = self;
@@ -2936,7 +2936,7 @@ impl InkStrokeContainer {
         P0: windows_core::Param<windows_collections::IIterable<InkStroke>>,
     {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).AddStrokes)(windows_core::Interface::as_raw(this), strokes.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).AddStrokes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&strokes.param().borrow())).ok() }
     }
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer2>(self)?;
@@ -2950,7 +2950,7 @@ impl InkStrokeContainer {
         let this = &windows_core::Interface::cast::<IInkStrokeContainer3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveWithFormatAsync)(windows_core::Interface::as_raw(this), outputstream.param().abi(), inkpersistenceformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SaveWithFormatAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&outputstream.param().borrow()), inkpersistenceformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetStrokeById(&self, id: u32) -> windows_core::Result<InkStroke> {
@@ -2984,7 +2984,7 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StrokeStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StrokeStarted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStrokeStarted(&self, cookie: i64) -> windows_core::Result<()> {
@@ -2999,7 +2999,7 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StrokeContinued)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StrokeContinued)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStrokeContinued(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3014,7 +3014,7 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StrokeEnded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StrokeEnded)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStrokeEnded(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3029,7 +3029,7 @@ impl InkStrokeInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StrokeCanceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).StrokeCanceled)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStrokeCanceled(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3209,7 +3209,7 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerEntered)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerEntered(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3224,7 +3224,7 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerHovered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerHovered)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerHovered(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3239,7 +3239,7 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerExited)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerExited(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3254,7 +3254,7 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerPressed(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3269,7 +3269,7 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerMoved(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3284,7 +3284,7 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerReleased(&self, cookie: i64) -> windows_core::Result<()> {
@@ -3299,7 +3299,7 @@ impl InkUnprocessedInput {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerLost)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePointerLost(&self, cookie: i64) -> windows_core::Result<()> {

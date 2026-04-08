@@ -165,7 +165,7 @@ impl windows_core::RuntimeType for DeploymentSessionHeartbeatRequested {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeploymentSessionHeartbeatRequested {
-    pub fn new<F: Fn(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(Option<&DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeploymentSessionHeartbeatRequestedBox { vtable: &DeploymentSessionHeartbeatRequestedBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -174,7 +174,7 @@ impl DeploymentSessionHeartbeatRequested {
         P0: windows_core::Param<DeploymentSessionHeartbeatRequestedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), eventargs.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&eventargs.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -184,12 +184,12 @@ pub struct DeploymentSessionHeartbeatRequested_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeploymentSessionHeartbeatRequestedBox<F: Fn(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct DeploymentSessionHeartbeatRequestedBox<F: Fn(Option<&DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const DeploymentSessionHeartbeatRequested_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> DeploymentSessionHeartbeatRequestedBox<F> {
+impl<F: Fn(Option<&DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_core::Result<()> + Send + 'static> DeploymentSessionHeartbeatRequestedBox<F> {
     const VTABLE: DeploymentSessionHeartbeatRequested_Vtbl = DeploymentSessionHeartbeatRequested_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -232,7 +232,7 @@ impl<F: Fn(windows_core::Ref<DeploymentSessionHeartbeatRequestedEventArgs>) -> w
     unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-            (this.invoke)(core::mem::transmute_copy(&eventargs)).into()
+            (this.invoke)(windows_core::Ref::option_from_abi(&eventargs)).into()
         }
     }
 }
@@ -342,7 +342,7 @@ impl DeploymentWorkload {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn EndTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -356,7 +356,7 @@ impl DeploymentWorkload {
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetEndTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEndTime)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn ErrorCode(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -725,7 +725,7 @@ impl MachineProvisioningProgressReporter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SessionStateChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSessionStateChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -739,7 +739,7 @@ impl MachineProvisioningProgressReporter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionConnectionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SessionConnectionChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&handler.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSessionConnectionChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -751,7 +751,7 @@ impl MachineProvisioningProgressReporter {
         P0: windows_core::Param<AgentProvisioningProgressReport>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportProgress)(windows_core::Interface::as_raw(this), updatereport.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReportProgress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&updatereport.param().borrow())).ok() }
     }
     pub fn GetDevicePreparationExecutionContextAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DevicePreparationExecutionContext>> {
         let this = self;
@@ -767,7 +767,7 @@ impl MachineProvisioningProgressReporter {
     {
         Self::IMachineProvisioningProgressReporterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), heartbeathandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&launchuri.param().borrow()), core::mem::transmute_copy(&heartbeathandler.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMachineProvisioningProgressReporterStatics<R, F: FnOnce(&IMachineProvisioningProgressReporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

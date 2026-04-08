@@ -223,7 +223,7 @@ impl NamedResource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResolveForContext)(windows_core::Interface::as_raw(this), resourcecontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResolveForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&resourcecontext.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ResolveAll(&self) -> windows_core::Result<windows_collections::IVectorView<ResourceCandidate>> {
@@ -240,7 +240,7 @@ impl NamedResource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResolveAllForContext)(windows_core::Interface::as_raw(this), resourcecontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ResolveAllForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&resourcecontext.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -387,7 +387,7 @@ impl ResourceCandidateVectorView {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceCandidate>]) -> windows_core::Result<u32> {
@@ -453,14 +453,14 @@ impl ResourceContext {
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ResetQualifierValues)(windows_core::Interface::as_raw(this), qualifiernames.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ResetQualifierValues)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&qualifiernames.param().borrow())).ok() }
     }
     pub fn OverrideToMatch<P0>(&self, result: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<ResourceQualifier>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).OverrideToMatch)(windows_core::Interface::as_raw(this), result.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).OverrideToMatch)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&result.param().borrow())).ok() }
     }
     pub fn Clone(&self) -> windows_core::Result<ResourceContext> {
         let this = self;
@@ -481,7 +481,7 @@ impl ResourceContext {
         P0: windows_core::Param<windows_collections::IVectorView<windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetLanguages)(windows_core::Interface::as_raw(this), languages.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetLanguages)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&languages.param().borrow())).ok() }
     }
     pub fn CreateMatchingContext<P0>(result: P0) -> windows_core::Result<ResourceContext>
     where
@@ -489,7 +489,7 @@ impl ResourceContext {
     {
         Self::IResourceContextStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMatchingContext)(windows_core::Interface::as_raw(this), result.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMatchingContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&result.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetForCurrentView() -> windows_core::Result<ResourceContext> {
@@ -508,7 +508,7 @@ impl ResourceContext {
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
-        Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ResetGlobalQualifierValuesForSpecifiedQualifiers)(windows_core::Interface::as_raw(this), qualifiernames.param().abi()).ok() })
+        Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ResetGlobalQualifierValuesForSpecifiedQualifiers)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&qualifiernames.param().borrow())).ok() })
     }
     pub fn GetForViewIndependentUse() -> windows_core::Result<ResourceContext> {
         Self::IResourceContextStatics2(|this| unsafe {
@@ -526,7 +526,7 @@ impl ResourceContext {
     {
         Self::IResourceContextStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&context.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IResourceContextStatics<R, F: FnOnce(&IResourceContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -673,7 +673,7 @@ impl ResourceManager {
         P0: windows_core::Param<windows_collections::IIterable<super::super::super::Storage::IStorageFile>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LoadPriFiles)(windows_core::Interface::as_raw(this), files.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).LoadPriFiles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&files.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn UnloadPriFiles<P0>(&self, files: P0) -> windows_core::Result<()>
@@ -681,7 +681,7 @@ impl ResourceManager {
         P0: windows_core::Param<windows_collections::IIterable<super::super::super::Storage::IStorageFile>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UnloadPriFiles)(windows_core::Interface::as_raw(this), files.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UnloadPriFiles)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&files.param().borrow())).ok() }
     }
     pub fn GetAllNamedResourcesForPackage(&self, packagename: &windows_core::HSTRING, resourcelayoutinfo: ResourceLayoutInfo) -> windows_core::Result<windows_collections::IVectorView<NamedResource>> {
         let this = &windows_core::Interface::cast::<IResourceManager2>(self)?;
@@ -785,7 +785,7 @@ impl ResourceMap {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetValueForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetValueForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), core::mem::transmute_copy(&context.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> windows_core::Result<ResourceMap> {
@@ -1164,7 +1164,7 @@ impl ResourceQualifierObservableMap {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&vhnd.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -1252,7 +1252,7 @@ impl ResourceQualifierVectorView {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceQualifier>]) -> windows_core::Result<u32> {

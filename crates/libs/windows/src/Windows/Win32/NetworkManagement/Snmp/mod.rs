@@ -180,7 +180,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mgmtapi.dll" "system" fn SnmpMgrOpen(lpagentaddress : windows_core::PCSTR, lpagentcommunity : windows_core::PCSTR, ntimeout : i32, nretries : i32) -> *mut core::ffi::c_void);
-    unsafe { SnmpMgrOpen(lpagentaddress.param().abi(), lpagentcommunity.param().abi(), ntimeout, nretries) }
+    unsafe { SnmpMgrOpen(core::mem::transmute_copy(&lpagentaddress.param().borrow()), core::mem::transmute_copy(&lpagentcommunity.param().borrow()), ntimeout, nretries) }
 }
 #[inline]
 pub unsafe fn SnmpMgrRequest(session: *mut core::ffi::c_void, requesttype: u8, variablebindings: *mut SnmpVarBindList, errorstatus: *mut SNMP_ERROR_STATUS, errorindex: *mut i32) -> i32 {
@@ -193,7 +193,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mgmtapi.dll" "system" fn SnmpMgrStrToOid(string : windows_core::PCSTR, oid : *mut AsnObjectIdentifier) -> windows_core::BOOL);
-    unsafe { SnmpMgrStrToOid(string.param().abi(), oid as _) }
+    unsafe { SnmpMgrStrToOid(core::mem::transmute_copy(&string.param().borrow()), oid as _) }
 }
 #[inline]
 pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -291,7 +291,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, string : windows_core::PCSTR) -> isize);
-    unsafe { SnmpStrToEntity(session, string.param().abi()) }
+    unsafe { SnmpStrToEntity(session, core::mem::transmute_copy(&string.param().borrow())) }
 }
 #[inline]
 pub unsafe fn SnmpStrToOid<P0>(string: P0, dstoid: *mut smiOID) -> u32
@@ -299,7 +299,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : windows_core::PCSTR, dstoid : *mut smiOID) -> u32);
-    unsafe { SnmpStrToOid(string.param().abi(), dstoid as _) }
+    unsafe { SnmpStrToOid(core::mem::transmute_copy(&string.param().borrow()), dstoid as _) }
 }
 #[inline]
 pub unsafe fn SnmpSvcGetUptime() -> u32 {
@@ -332,7 +332,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("snmpapi.dll" "C" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_core::PCSTR));
-    unsafe { SnmpUtilDbgPrint(nloglevel, szformat.param().abi()) }
+    unsafe { SnmpUtilDbgPrint(nloglevel, core::mem::transmute_copy(&szformat.param().borrow())) }
 }
 #[inline]
 pub unsafe fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> windows_core::PSTR {

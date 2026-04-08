@@ -435,7 +435,7 @@ impl JsonArray {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), index, &mut result__).map(|| result__)
         }
     }
     pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
@@ -443,14 +443,14 @@ impl JsonArray {
         P1: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
@@ -461,7 +461,7 @@ impl JsonArray {
         P0: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
@@ -577,7 +577,7 @@ impl JsonObject {
         P1: windows_core::Param<IJsonValue>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     pub fn GetNamedObject(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonObject> {
         let this = self;
@@ -633,7 +633,7 @@ impl JsonObject {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNamedValueOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNamedValueOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(&defaultvalue.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNamedObjectOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> windows_core::Result<JsonObject>
@@ -643,7 +643,7 @@ impl JsonObject {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNamedObjectOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNamedObjectOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(&defaultvalue.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNamedStringOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -660,7 +660,7 @@ impl JsonObject {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNamedArrayOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetNamedArrayOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(&defaultvalue.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNamedNumberOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: f64) -> windows_core::Result<f64> {
@@ -761,7 +761,7 @@ impl JsonObject {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {

@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<ISecurityInformation>,
 {
     windows_core::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
-    let result__ = unsafe { CreateSecurityPage(psi.param().abi()) };
+    let result__ = unsafe { CreateSecurityPage(core::mem::transmute_copy(&psi.param().borrow())) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
@@ -14,7 +14,7 @@ where
     P1: windows_core::Param<ISecurityInformation>,
 {
     windows_core::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { EditSecurity(hwndowner, psi.param().abi()).ok() }
+    unsafe { EditSecurity(hwndowner, core::mem::transmute_copy(&psi.param().borrow())).ok() }
 }
 #[inline]
 pub unsafe fn EditSecurityAdvanced<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1, usipage: SI_PAGE_TYPE) -> windows_core::Result<()>
@@ -22,7 +22,7 @@ where
     P1: windows_core::Param<ISecurityInformation>,
 {
     windows_core::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
-    unsafe { EditSecurityAdvanced(hwndowner, psi.param().abi(), usipage).ok() }
+    unsafe { EditSecurityAdvanced(hwndowner, core::mem::transmute_copy(&psi.param().borrow()), usipage).ok() }
 }
 pub const CFSTR_ACLUI_SID_INFO_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_ACLUI_SID_INFO_LIST");
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
@@ -50,7 +50,7 @@ impl IEffectivePermission {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, pszservername.param().abi(), psd, ppobjecttypelist as _, pcobjecttypelistlength as _, ppgrantedaccesslist as _, pcgrantedaccesslistlength as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetEffectivePermission)(windows_core::Interface::as_raw(self), pguidobjecttype, pusersid, core::mem::transmute_copy(&pszservername.param().borrow()), psd, ppobjecttypelist as _, pcobjecttypelistlength as _, ppgrantedaccesslist as _, pcgrantedaccesslistlength as _).ok() }
     }
 }
 #[repr(C)]
@@ -105,7 +105,7 @@ impl IEffectivePermission2 {
                 windows_core::Interface::as_raw(self),
                 psid,
                 pdevicesid.unwrap_or(core::mem::zeroed()) as _,
-                pszservername.param().abi(),
+                core::mem::transmute_copy(&pszservername.param().borrow()),
                 psecurityobjects as _,
                 dwsecurityobjectcount,
                 pusergroups.unwrap_or(core::mem::zeroed()) as _,

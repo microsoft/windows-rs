@@ -29,7 +29,7 @@ impl IGeometrySource2DInterop {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetGeometryUsingFactory)(windows_core::Interface::as_raw(self), factory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetGeometryUsingFactory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&factory.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -49,7 +49,7 @@ pub struct IGeometrySource2DInterop_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 pub trait IGeometrySource2DInterop_Impl: windows_core::IUnknownImpl {
     fn GetGeometry(&self) -> windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
-    fn TryGetGeometryUsingFactory(&self, factory: windows_core::Ref<super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
+    fn TryGetGeometryUsingFactory(&self, factory: Option<&super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 impl IGeometrySource2DInterop_Vtbl {
@@ -69,7 +69,7 @@ impl IGeometrySource2DInterop_Vtbl {
         unsafe extern "system" fn TryGetGeometryUsingFactory<Identity: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factory: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGeometrySource2DInterop_Impl::TryGetGeometryUsingFactory(this, core::mem::transmute_copy(&factory)) {
+                match IGeometrySource2DInterop_Impl::TryGetGeometryUsingFactory(this, windows_core::Ref::option_from_abi(&factory)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -103,7 +103,7 @@ impl IGraphicsEffectD2D1Interop {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetNamedPropertyMapping)(windows_core::Interface::as_raw(self), name.param().abi(), index as _, mapping as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetNamedPropertyMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&name.param().borrow()), index as _, mapping as _).ok() }
     }
     pub unsafe fn GetPropertyCount(&self) -> windows_core::Result<u32> {
         unsafe {

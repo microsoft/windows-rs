@@ -253,7 +253,7 @@ impl IVssComponent {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBackupMetadata)(windows_core::Interface::as_raw(self), wszdata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetBackupMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszdata.param().borrow())).ok() }
     }
     pub unsafe fn GetBackupMetadata(&self, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBackupMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrdata)).ok() }
@@ -265,7 +265,7 @@ impl IVssComponent {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddPartialFile)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilename.param().abi(), wszranges.param().abi(), wszmetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddPartialFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilename.param().borrow()), core::mem::transmute_copy(&wszranges.param().borrow()), core::mem::transmute_copy(&wszmetadata.param().borrow())).ok() }
     }
     pub unsafe fn GetPartialFileCount(&self, pcpartialfiles: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPartialFileCount)(windows_core::Interface::as_raw(self), pcpartialfiles as _).ok() }
@@ -297,7 +297,7 @@ impl IVssComponent {
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDirectedTarget)(windows_core::Interface::as_raw(self), wszsourcepath.param().abi(), wszsourcefilename.param().abi(), wszsourcerangelist.param().abi(), wszdestinationpath.param().abi(), wszdestinationfilename.param().abi(), wszdestinationrangelist.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddDirectedTarget)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszsourcepath.param().borrow()), core::mem::transmute_copy(&wszsourcefilename.param().borrow()), core::mem::transmute_copy(&wszsourcerangelist.param().borrow()), core::mem::transmute_copy(&wszdestinationpath.param().borrow()), core::mem::transmute_copy(&wszdestinationfilename.param().borrow()), core::mem::transmute_copy(&wszdestinationrangelist.param().borrow())).ok() }
     }
     pub unsafe fn GetDirectedTargetCount(&self, pcdirectedtarget: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDirectedTargetCount)(windows_core::Interface::as_raw(self), pcdirectedtarget as _).ok() }
@@ -309,7 +309,7 @@ impl IVssComponent {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRestoreMetadata)(windows_core::Interface::as_raw(self), wszrestoremetadata.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRestoreMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszrestoremetadata.param().borrow())).ok() }
     }
     pub unsafe fn GetRestoreMetadata(&self, pbstrrestoremetadata: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRestoreMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrrestoremetadata)).ok() }
@@ -324,7 +324,7 @@ impl IVssComponent {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPreRestoreFailureMsg)(windows_core::Interface::as_raw(self), wszprerestorefailuremsg.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPreRestoreFailureMsg)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszprerestorefailuremsg.param().borrow())).ok() }
     }
     pub unsafe fn GetPreRestoreFailureMsg(&self, pbstrprerestorefailuremsg: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPreRestoreFailureMsg)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrprerestorefailuremsg)).ok() }
@@ -333,7 +333,7 @@ impl IVssComponent {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPostRestoreFailureMsg)(windows_core::Interface::as_raw(self), wszpostrestorefailuremsg.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPostRestoreFailureMsg)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszpostrestorefailuremsg.param().borrow())).ok() }
     }
     pub unsafe fn GetPostRestoreFailureMsg(&self, pbstrpostrestorefailuremsg: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPostRestoreFailureMsg)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrpostrestorefailuremsg)).ok() }
@@ -342,7 +342,7 @@ impl IVssComponent {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBackupStamp)(windows_core::Interface::as_raw(self), wszbackupstamp.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetBackupStamp)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszbackupstamp.param().borrow())).ok() }
     }
     pub unsafe fn GetBackupStamp(&self, pbstrbackupstamp: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBackupStamp)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrbackupstamp)).ok() }
@@ -370,14 +370,14 @@ impl IVssComponent {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyTime)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.into(), core::mem::transmute(ftlastmodifytime)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), brecursive.into(), core::mem::transmute(ftlastmodifytime)).ok() }
     }
     pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: bool, bstrlsnstring: &windows_core::BSTR) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyLSN)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.into(), core::mem::transmute_copy(bstrlsnstring)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyLSN)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), brecursive.into(), core::mem::transmute_copy(bstrlsnstring)).ok() }
     }
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDifferencedFilesCount)(windows_core::Interface::as_raw(self), pcdifferencedfiles as _).ok() }
@@ -771,13 +771,13 @@ impl IVssComponentEx {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPrepareForBackupFailureMsg)(windows_core::Interface::as_raw(self), wszfailuremsg.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPrepareForBackupFailureMsg)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszfailuremsg.param().borrow())).ok() }
     }
     pub unsafe fn SetPostSnapshotFailureMsg<P0>(&self, wszfailuremsg: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPostSnapshotFailureMsg)(windows_core::Interface::as_raw(self), wszfailuremsg.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetPostSnapshotFailureMsg)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszfailuremsg.param().borrow())).ok() }
     }
     pub unsafe fn GetPrepareForBackupFailureMsg(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -925,7 +925,7 @@ impl IVssComponentEx2 {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetFailure)(windows_core::Interface::as_raw(self), hr, hrapplication, wszapplicationmessage.param().abi(), dwreserved).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetFailure)(windows_core::Interface::as_raw(self), hr, hrapplication, core::mem::transmute_copy(&wszapplicationmessage.param().borrow()), dwreserved).ok() }
     }
     pub unsafe fn GetFailure(&self, phr: *mut windows_core::HRESULT, phrapplication: *mut windows_core::HRESULT, pbstrapplicationmessage: *mut windows_core::BSTR, pdwreserved: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFailure)(windows_core::Interface::as_raw(self), phr as _, phrapplication as _, core::mem::transmute(pbstrapplicationmessage), pdwreserved as _).ok() }
@@ -971,7 +971,7 @@ impl IVssCreateExpressWriterMetadata {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExcludeFiles)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExcludeFiles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), brecursive).ok() }
     }
     pub unsafe fn AddComponent<P1, P2, P3>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P1, wszcomponentname: P2, wszcaption: P3, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>
     where
@@ -979,7 +979,7 @@ impl IVssCreateExpressWriterMetadata {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszcaption.param().abi(), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), ct, core::mem::transmute_copy(&wszlogicalpath.param().borrow()), core::mem::transmute_copy(&wszcomponentname.param().borrow()), core::mem::transmute_copy(&wszcaption.param().borrow()), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok() }
     }
     pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P5>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P5, dwbackuptypemask: u32) -> windows_core::Result<()>
     where
@@ -989,14 +989,14 @@ impl IVssCreateExpressWriterMetadata {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFilesToFileGroup)(windows_core::Interface::as_raw(self), wszlogicalpath.param().abi(), wszgroupname.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszalternatelocation.param().abi(), dwbackuptypemask).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddFilesToFileGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszlogicalpath.param().borrow()), core::mem::transmute_copy(&wszgroupname.param().borrow()), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), brecursive, core::mem::transmute_copy(&wszalternatelocation.param().borrow()), dwbackuptypemask).ok() }
     }
     pub unsafe fn SetRestoreMethod<P1, P2>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P1, wszuserprocedure: P2, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRestoreMethod)(windows_core::Interface::as_raw(self), method, wszservice.param().abi(), wszuserprocedure.param().abi(), writerrestore, brebootrequired).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRestoreMethod)(windows_core::Interface::as_raw(self), method, core::mem::transmute_copy(&wszservice.param().borrow()), core::mem::transmute_copy(&wszuserprocedure.param().borrow()), writerrestore, brebootrequired).ok() }
     }
     pub unsafe fn AddComponentDependency<P0, P1, P3, P4>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: windows_core::GUID, wszonlogicalpath: P3, wszoncomponentname: P4) -> windows_core::Result<()>
     where
@@ -1005,7 +1005,7 @@ impl IVssCreateExpressWriterMetadata {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), core::mem::transmute(onwriterid), wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszforlogicalpath.param().borrow()), core::mem::transmute_copy(&wszforcomponentname.param().borrow()), core::mem::transmute(onwriterid), core::mem::transmute_copy(&wszonlogicalpath.param().borrow()), core::mem::transmute_copy(&wszoncomponentname.param().borrow())).ok() }
     }
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBackupSchema)(windows_core::Interface::as_raw(self), dwschemamask).ok() }
@@ -1112,14 +1112,14 @@ impl IVssCreateWriterMetadata {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddIncludeFiles)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszalternatelocation.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddIncludeFiles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), brecursive, core::mem::transmute_copy(&wszalternatelocation.param().borrow())).ok() }
     }
     pub unsafe fn AddExcludeFiles<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddExcludeFiles)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddExcludeFiles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), brecursive).ok() }
     }
     pub unsafe fn AddComponent<P1, P2, P3>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P1, wszcomponentname: P2, wszcaption: P3, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>
     where
@@ -1127,7 +1127,7 @@ impl IVssCreateWriterMetadata {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszcaption.param().abi(), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), ct, core::mem::transmute_copy(&wszlogicalpath.param().borrow()), core::mem::transmute_copy(&wszcomponentname.param().borrow()), core::mem::transmute_copy(&wszcaption.param().borrow()), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok() }
     }
     pub unsafe fn AddDatabaseFiles<P0, P1, P2, P3>(&self, wszlogicalpath: P0, wszdatabasename: P1, wszpath: P2, wszfilespec: P3, dwbackuptypemask: u32) -> windows_core::Result<()>
     where
@@ -1136,7 +1136,7 @@ impl IVssCreateWriterMetadata {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDatabaseFiles)(windows_core::Interface::as_raw(self), wszlogicalpath.param().abi(), wszdatabasename.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), dwbackuptypemask).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddDatabaseFiles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszlogicalpath.param().borrow()), core::mem::transmute_copy(&wszdatabasename.param().borrow()), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), dwbackuptypemask).ok() }
     }
     pub unsafe fn AddDatabaseLogFiles<P0, P1, P2, P3>(&self, wszlogicalpath: P0, wszdatabasename: P1, wszpath: P2, wszfilespec: P3, dwbackuptypemask: u32) -> windows_core::Result<()>
     where
@@ -1145,7 +1145,7 @@ impl IVssCreateWriterMetadata {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDatabaseLogFiles)(windows_core::Interface::as_raw(self), wszlogicalpath.param().abi(), wszdatabasename.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), dwbackuptypemask).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddDatabaseLogFiles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszlogicalpath.param().borrow()), core::mem::transmute_copy(&wszdatabasename.param().borrow()), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), dwbackuptypemask).ok() }
     }
     pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P5>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P5, dwbackuptypemask: u32) -> windows_core::Result<()>
     where
@@ -1155,14 +1155,14 @@ impl IVssCreateWriterMetadata {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddFilesToFileGroup)(windows_core::Interface::as_raw(self), wszlogicalpath.param().abi(), wszgroupname.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszalternatelocation.param().abi(), dwbackuptypemask).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddFilesToFileGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszlogicalpath.param().borrow()), core::mem::transmute_copy(&wszgroupname.param().borrow()), core::mem::transmute_copy(&wszpath.param().borrow()), core::mem::transmute_copy(&wszfilespec.param().borrow()), brecursive, core::mem::transmute_copy(&wszalternatelocation.param().borrow()), dwbackuptypemask).ok() }
     }
     pub unsafe fn SetRestoreMethod<P1, P2>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P1, wszuserprocedure: P2, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRestoreMethod)(windows_core::Interface::as_raw(self), method, wszservice.param().abi(), wszuserprocedure.param().abi(), writerrestore, brebootrequired).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRestoreMethod)(windows_core::Interface::as_raw(self), method, core::mem::transmute_copy(&wszservice.param().borrow()), core::mem::transmute_copy(&wszuserprocedure.param().borrow()), writerrestore, brebootrequired).ok() }
     }
     pub unsafe fn AddAlternateLocationMapping<P0, P1, P3>(&self, wszsourcepath: P0, wszsourcefilespec: P1, brecursive: u8, wszdestination: P3) -> windows_core::Result<()>
     where
@@ -1170,7 +1170,7 @@ impl IVssCreateWriterMetadata {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAlternateLocationMapping)(windows_core::Interface::as_raw(self), wszsourcepath.param().abi(), wszsourcefilespec.param().abi(), brecursive, wszdestination.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddAlternateLocationMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszsourcepath.param().borrow()), core::mem::transmute_copy(&wszsourcefilespec.param().borrow()), brecursive, core::mem::transmute_copy(&wszdestination.param().borrow())).ok() }
     }
     pub unsafe fn AddComponentDependency<P0, P1, P3, P4>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: windows_core::GUID, wszonlogicalpath: P3, wszoncomponentname: P4) -> windows_core::Result<()>
     where
@@ -1179,7 +1179,7 @@ impl IVssCreateWriterMetadata {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), core::mem::transmute(onwriterid), wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&wszforlogicalpath.param().borrow()), core::mem::transmute_copy(&wszforcomponentname.param().borrow()), core::mem::transmute(onwriterid), core::mem::transmute_copy(&wszonlogicalpath.param().borrow()), core::mem::transmute_copy(&wszoncomponentname.param().borrow())).ok() }
     }
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBackupSchema)(windows_core::Interface::as_raw(self), dwschemamask).ok() }
@@ -1804,14 +1804,14 @@ impl IVssExpressWriter {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), writername.param().abi(), usagetype, versionmajor, versionminor, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), core::mem::transmute_copy(&writername.param().borrow()), usagetype, versionmajor, versionminor, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn LoadMetadata<P0>(&self, metadata: P0, reserved: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LoadMetadata)(windows_core::Interface::as_raw(self), metadata.param().abi(), reserved).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LoadMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&metadata.param().borrow()), reserved).ok() }
     }
     pub unsafe fn Register(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Register)(windows_core::Interface::as_raw(self)).ok() }
@@ -2366,7 +2366,7 @@ impl IVssProviderNotifications {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), pcallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&pcallback.param().borrow())).ok() }
     }
     pub unsafe fn OnUnload(&self, bforceunload: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.into()).ok() }
@@ -2380,7 +2380,7 @@ pub struct IVssProviderNotifications_Vtbl {
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVssProviderNotifications_Impl: windows_core::IUnknownImpl {
-    fn OnLoad(&self, pcallback: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnLoad(&self, pcallback: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnUnload(&self, bforceunload: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IVssProviderNotifications_Vtbl {
@@ -2388,7 +2388,7 @@ impl IVssProviderNotifications_Vtbl {
         unsafe extern "system" fn OnLoad<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVssProviderNotifications_Impl::OnLoad(this, core::mem::transmute_copy(&pcallback)).into()
+                IVssProviderNotifications_Impl::OnLoad(this, windows_core::Ref::option_from_abi(&pcallback)).into()
             }
         }
         unsafe extern "system" fn OnUnload<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bforceunload: windows_core::BOOL) -> windows_core::HRESULT {

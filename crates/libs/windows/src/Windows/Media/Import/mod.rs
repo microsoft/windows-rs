@@ -667,7 +667,7 @@ impl PhotoImportFindItemsResult {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectionChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SelectionChanged)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSelectionChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -688,7 +688,7 @@ impl PhotoImportFindItemsResult {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ItemImported)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ItemImported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveItemImported(&self, token: i64) -> windows_core::Result<()> {
@@ -1161,7 +1161,7 @@ impl PhotoImportSession {
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetDestinationFolder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDestinationFolder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&value.param().borrow())).ok() }
     }
     #[cfg(feature = "Storage")]
     pub fn DestinationFolder(&self) -> windows_core::Result<super::super::Storage::IStorageFolder> {
@@ -1423,7 +1423,7 @@ impl PhotoImportSource {
     {
         Self::IPhotoImportSourceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromFolderAsync)(windows_core::Interface::as_raw(this), sourcerootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(&sourcerootfolder.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPhotoImportSourceStatics<R, F: FnOnce(&IPhotoImportSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

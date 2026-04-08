@@ -7,7 +7,7 @@ where
     windows_core::link!("d3d11.dll" "system" fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice : * mut core::ffi::c_void, graphicsdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateDirect3D11DeviceFromDXGIDevice(core::mem::transmute_copy(&dxgidevice.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -19,7 +19,7 @@ where
     windows_core::link!("d3d11.dll" "system" fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface : * mut core::ffi::c_void, graphicssurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateDirect3D11SurfaceFromDXGISurface(core::mem::transmute_copy(&dgxisurface.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 windows_core::imp::define_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);

@@ -5,7 +5,7 @@ where
     P3: windows_core::Param<super::Com::IMalloc>,
 {
     windows_core::link!("mapi32.dll" "system" fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut * mut core::ffi::c_void, lpptbldata : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { BuildDisplayTable(lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.param().abi(), hinstance, cpages, lppage as _, ulflags, core::mem::transmute(lpptable), core::mem::transmute(lpptbldata)).ok() }
+    unsafe { BuildDisplayTable(lpallocatebuffer, lpallocatemore, lpfreebuffer, core::mem::transmute_copy(&lpmalloc.param().borrow()), hinstance, cpages, lppage as _, ulflags, core::mem::transmute(lpptable), core::mem::transmute(lpptbldata)).ok() }
 }
 #[inline]
 pub unsafe fn ChangeIdleRoutine(ftg: *mut core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
@@ -60,7 +60,7 @@ where
     P0: windows_core::Param<IMAPIProp>,
 {
     windows_core::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : * mut core::ffi::c_void, ulproptag : u32) -> windows_core::BOOL);
-    unsafe { FPropExists(lpmapiprop.param().abi(), ulproptag) }
+    unsafe { FPropExists(core::mem::transmute_copy(&lpmapiprop.param().borrow()), ulproptag) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -110,7 +110,7 @@ where
     P0: windows_core::Param<IMAPITable>,
 {
     windows_core::link!("mapi32.dll" "system" fn HrAddColumns(lptbl : * mut core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER) -> windows_core::HRESULT);
-    unsafe { HrAddColumns(lptbl.param().abi(), lpproptagcolumnsnew as _, lpallocatebuffer, lpfreebuffer).ok() }
+    unsafe { HrAddColumns(core::mem::transmute_copy(&lptbl.param().borrow()), lpproptagcolumnsnew as _, lpallocatebuffer, lpfreebuffer).ok() }
 }
 #[inline]
 pub unsafe fn HrAddColumnsEx<P0>(lptbl: P0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, lpfnfiltercolumns: isize) -> windows_core::Result<()>
@@ -118,7 +118,7 @@ where
     P0: windows_core::Param<IMAPITable>,
 {
     windows_core::link!("mapi32.dll" "system" fn HrAddColumnsEx(lptbl : * mut core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, lpfnfiltercolumns : isize) -> windows_core::HRESULT);
-    unsafe { HrAddColumnsEx(lptbl.param().abi(), lpproptagcolumnsnew as _, lpallocatebuffer, lpfreebuffer, lpfnfiltercolumns).ok() }
+    unsafe { HrAddColumnsEx(core::mem::transmute_copy(&lptbl.param().borrow()), lpproptagcolumnsnew as _, lpallocatebuffer, lpfreebuffer, lpfnfiltercolumns).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -138,7 +138,7 @@ where
     P0: windows_core::Param<IMAPIProp>,
 {
     windows_core::link!("mapi32.dll" "system" fn HrGetOneProp(lpmapiprop : * mut core::ffi::c_void, ulproptag : u32, lppprop : *mut *mut SPropValue) -> windows_core::HRESULT);
-    unsafe { HrGetOneProp(lpmapiprop.param().abi(), ulproptag, lppprop as _).ok() }
+    unsafe { HrGetOneProp(core::mem::transmute_copy(&lpmapiprop.param().borrow()), ulproptag, lppprop as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
@@ -147,7 +147,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("mapi32.dll" "system" fn HrIStorageFromStream(lpunkin : * mut core::ffi::c_void, lpinterface : *mut windows_core::GUID, ulflags : u32, lppstorageout : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { HrIStorageFromStream(lpunkin.param().abi(), lpinterface as _, ulflags, core::mem::transmute(lppstorageout)).ok() }
+    unsafe { HrIStorageFromStream(core::mem::transmute_copy(&lpunkin.param().borrow()), lpinterface as _, ulflags, core::mem::transmute(lppstorageout)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -156,7 +156,7 @@ where
     P0: windows_core::Param<IMAPITable>,
 {
     windows_core::link!("mapi32.dll" "system" fn HrQueryAllRows(lptable : * mut core::ffi::c_void, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> windows_core::HRESULT);
-    unsafe { HrQueryAllRows(lptable.param().abi(), lpproptags as _, lprestriction as _, lpsortorderset as _, crowsmax, lpprows as _).ok() }
+    unsafe { HrQueryAllRows(core::mem::transmute_copy(&lptable.param().borrow()), lpproptags as _, lprestriction as _, lpsortorderset as _, crowsmax, lpprows as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -165,7 +165,7 @@ where
     P0: windows_core::Param<IMAPIProp>,
 {
     windows_core::link!("mapi32.dll" "system" fn HrSetOneProp(lpmapiprop : * mut core::ffi::c_void, lpprop : *mut SPropValue) -> windows_core::HRESULT);
-    unsafe { HrSetOneProp(lpmapiprop.param().abi(), lpprop as _).ok() }
+    unsafe { HrSetOneProp(core::mem::transmute_copy(&lpmapiprop.param().borrow()), lpprop as _).ok() }
 }
 #[inline]
 pub unsafe fn HrThisThreadAdviseSink<P0>(lpadvisesink: P0) -> windows_core::Result<IMAPIAdviseSink>
@@ -175,7 +175,7 @@ where
     windows_core::link!("mapi32.dll" "system" fn HrThisThreadAdviseSink(lpadvisesink : * mut core::ffi::c_void, lppadvisesink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HrThisThreadAdviseSink(lpadvisesink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        HrThisThreadAdviseSink(core::mem::transmute_copy(&lpadvisesink.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -233,7 +233,7 @@ where
     P0: windows_core::Param<IMessage>,
 {
     windows_core::link!("mapi32.dll" "system" fn RTFSync(lpmessage : * mut core::ffi::c_void, ulflags : u32, lpfmessageupdated : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { RTFSync(lpmessage.param().abi(), ulflags, lpfmessageupdated as _).ok() }
+    unsafe { RTFSync(core::mem::transmute_copy(&lpmessage.param().borrow()), ulflags, lpfmessageupdated as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -281,7 +281,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mapi32.dll" "system" fn ScLocalPathFromUNC(lpszunc : windows_core::PCSTR, lpszlocal : windows_core::PCSTR, cchlocal : u32) -> i32);
-    unsafe { ScLocalPathFromUNC(lpszunc.param().abi(), core::mem::transmute(lpszlocal.as_ptr()), lpszlocal.len().try_into().unwrap()) }
+    unsafe { ScLocalPathFromUNC(core::mem::transmute_copy(&lpszunc.param().borrow()), core::mem::transmute(lpszlocal.as_ptr()), lpszlocal.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -301,7 +301,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mapi32.dll" "system" fn ScUNCFromLocalPath(lpszlocal : windows_core::PCSTR, lpszunc : windows_core::PCSTR, cchunc : u32) -> i32);
-    unsafe { ScUNCFromLocalPath(lpszlocal.param().abi(), core::mem::transmute(lpszunc.as_ptr()), lpszunc.len().try_into().unwrap()) }
+    unsafe { ScUNCFromLocalPath(core::mem::transmute_copy(&lpszlocal.param().borrow()), core::mem::transmute(lpszunc.as_ptr()), lpszunc.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
@@ -348,7 +348,7 @@ where
     windows_core::link!("mapi32.dll" "system" fn WrapCompressedRTFStream(lpcompressedrtfstream : * mut core::ffi::c_void, ulflags : u32, lpuncompressedrtfstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WrapCompressedRTFStream(lpcompressedrtfstream.param().abi(), ulflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        WrapCompressedRTFStream(core::mem::transmute_copy(&lpcompressedrtfstream.param().borrow()), ulflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -752,7 +752,7 @@ impl IABContainer {
     where
         P2: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyEntries)(windows_core::Interface::as_raw(self), lpentries, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyEntries)(windows_core::Interface::as_raw(self), lpentries, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteEntries)(windows_core::Interface::as_raw(self), lpentries, ulflags).ok() }
@@ -780,7 +780,7 @@ pub struct IABContainer_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IABContainer_Impl: IMAPIContainer_Impl {
     fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> windows_core::Result<IMAPIProp>;
-    fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
     fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> windows_core::Result<()>;
     fn ResolveNames(&self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> windows_core::Result<FlagList>;
 }
@@ -802,7 +802,7 @@ impl IABContainer_Vtbl {
         unsafe extern "system" fn CopyEntries<Identity: IABContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IABContainer_Impl::CopyEntries(this, core::mem::transmute_copy(&lpentries), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IABContainer_Impl::CopyEntries(this, core::mem::transmute_copy(&lpentries), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn DeleteEntries<Identity: IABContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> windows_core::HRESULT {
@@ -856,7 +856,7 @@ impl IAddrBook {
     where
         P3: windows_core::Param<IMAPIAdviseSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), cbentryid, lpentryid as _, uleventmask, lpadvisesink.param().abi(), lpulconnection as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), cbentryid, lpentryid as _, uleventmask, core::mem::transmute_copy(&lpadvisesink.param().borrow()), lpulconnection as _).ok() }
     }
     pub unsafe fn Unadvise(&self, ulconnection: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), ulconnection).ok() }
@@ -959,7 +959,7 @@ pub struct IAddrBook_Vtbl {
 pub trait IAddrBook_Impl: IMAPIProp_Impl {
     fn OpenEntry(&self, cbentryid: u32, lpentryid: *mut ENTRYID, lpinterface: *mut windows_core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *mut ENTRYID, cbentryid2: u32, lpentryid2: *mut ENTRYID, ulflags: u32, lpulresult: *mut u32) -> windows_core::Result<()>;
-    fn Advise(&self, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: windows_core::Ref<IMAPIAdviseSink>, lpulconnection: *mut u32) -> windows_core::Result<()>;
+    fn Advise(&self, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: Option<&IMAPIAdviseSink>, lpulconnection: *mut u32) -> windows_core::Result<()>;
     fn Unadvise(&self, ulconnection: u32) -> windows_core::Result<()>;
     fn CreateOneOff(&self, lpszname: *mut i8, lpszadrtype: *mut i8, lpszaddress: *mut i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> windows_core::Result<()>;
     fn NewEntry(&self, uluiparam: u32, ulflags: u32, cbeidcontainer: u32, lpeidcontainer: *mut ENTRYID, cbeidnewentrytpl: u32, lpeidnewentrytpl: *mut ENTRYID, lpcbeidnewentry: *mut u32, lppeidnewentry: *mut *mut ENTRYID) -> windows_core::Result<()>;
@@ -994,7 +994,7 @@ impl IAddrBook_Vtbl {
         unsafe extern "system" fn Advise<Identity: IAddrBook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: *mut core::ffi::c_void, lpulconnection: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAddrBook_Impl::Advise(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uleventmask), core::mem::transmute_copy(&lpadvisesink), core::mem::transmute_copy(&lpulconnection)).into()
+                IAddrBook_Impl::Advise(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uleventmask), windows_core::Ref::option_from_abi(&lpadvisesink), core::mem::transmute_copy(&lpulconnection)).into()
             }
         }
         unsafe extern "system" fn Unadvise<Identity: IAddrBook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulconnection: u32) -> windows_core::HRESULT {
@@ -1160,7 +1160,7 @@ impl IDistList {
     where
         P2: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyEntries)(windows_core::Interface::as_raw(self), lpentries, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyEntries)(windows_core::Interface::as_raw(self), lpentries, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DeleteEntries)(windows_core::Interface::as_raw(self), lpentries, ulflags).ok() }
@@ -1188,7 +1188,7 @@ pub struct IDistList_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDistList_Impl: IMAPIContainer_Impl {
     fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> windows_core::Result<IMAPIProp>;
-    fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
     fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> windows_core::Result<()>;
     fn ResolveNames(&self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> windows_core::Result<FlagList>;
 }
@@ -1210,7 +1210,7 @@ impl IDistList_Vtbl {
         unsafe extern "system" fn CopyEntries<Identity: IDistList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDistList_Impl::CopyEntries(this, core::mem::transmute_copy(&lpentries), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IDistList_Impl::CopyEntries(this, core::mem::transmute_copy(&lpentries), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn DeleteEntries<Identity: IDistList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> windows_core::HRESULT {
@@ -1483,13 +1483,13 @@ impl IMAPIFolder {
     where
         P4: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyMessages)(windows_core::Interface::as_raw(self), lpmsglist, lpinterface.unwrap_or(core::mem::zeroed()) as _, lpdestfolder, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyMessages)(windows_core::Interface::as_raw(self), lpmsglist, lpinterface.unwrap_or(core::mem::zeroed()) as _, lpdestfolder, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn DeleteMessages<P2>(&self, lpmsglist: *const SBinaryArray, uluiparam: Option<usize>, lpprogress: P2, ulflags: u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteMessages)(windows_core::Interface::as_raw(self), lpmsglist, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteMessages)(windows_core::Interface::as_raw(self), lpmsglist, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: Option<*const i8>, lpinterface: Option<*const windows_core::GUID>, ulflags: u32) -> windows_core::Result<IMAPIFolder> {
         unsafe {
@@ -1501,19 +1501,19 @@ impl IMAPIFolder {
     where
         P6: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyFolder)(windows_core::Interface::as_raw(self), cbentryid, lpentryid, lpinterface.unwrap_or(core::mem::zeroed()) as _, lpdestfolder, lpsznewfoldername, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyFolder)(windows_core::Interface::as_raw(self), cbentryid, lpentryid, lpinterface.unwrap_or(core::mem::zeroed()) as _, lpdestfolder, lpsznewfoldername, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn DeleteFolder<P3>(&self, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: Option<usize>, lpprogress: P3, ulflags: u32) -> windows_core::Result<()>
     where
         P3: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteFolder)(windows_core::Interface::as_raw(self), cbentryid, lpentryid, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteFolder)(windows_core::Interface::as_raw(self), cbentryid, lpentryid, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn SetReadFlags<P2>(&self, lpmsglist: *const SBinaryArray, uluiparam: Option<usize>, lpprogress: P2, ulflags: u32) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetReadFlags)(windows_core::Interface::as_raw(self), lpmsglist, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetReadFlags)(windows_core::Interface::as_raw(self), lpmsglist, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn GetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -1534,7 +1534,7 @@ impl IMAPIFolder {
     where
         P1: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EmptyFolder)(windows_core::Interface::as_raw(self), uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).EmptyFolder)(windows_core::Interface::as_raw(self), uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
 }
 #[repr(C)]
@@ -1556,16 +1556,16 @@ pub struct IMAPIFolder_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPIFolder_Impl: IMAPIContainer_Impl {
     fn CreateMessage(&self, lpinterface: *mut windows_core::GUID, ulflags: u32, lppmessage: windows_core::OutRef<IMessage>) -> windows_core::Result<()>;
-    fn CopyMessages(&self, lpmsglist: *const SBinaryArray, lpinterface: *const windows_core::GUID, lpdestfolder: *const core::ffi::c_void, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
-    fn DeleteMessages(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn CopyMessages(&self, lpmsglist: *const SBinaryArray, lpinterface: *const windows_core::GUID, lpdestfolder: *const core::ffi::c_void, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn DeleteMessages(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
     fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: *const i8, lpinterface: *const windows_core::GUID, ulflags: u32) -> windows_core::Result<IMAPIFolder>;
-    fn CopyFolder(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const windows_core::GUID, lpdestfolder: *const core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
-    fn DeleteFolder(&self, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
-    fn SetReadFlags(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn CopyFolder(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const windows_core::GUID, lpdestfolder: *const core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn DeleteFolder(&self, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn SetReadFlags(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
     fn GetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> windows_core::Result<u32>;
     fn SetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulnewstatus: u32, ulnewstatusmask: u32) -> windows_core::Result<u32>;
     fn SaveContentsSort(&self, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> windows_core::Result<()>;
-    fn EmptyFolder(&self, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn EmptyFolder(&self, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMAPIFolder_Vtbl {
@@ -1579,13 +1579,13 @@ impl IMAPIFolder_Vtbl {
         unsafe extern "system" fn CopyMessages<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsglist: *const SBinaryArray, lpinterface: *const windows_core::GUID, lpdestfolder: *const core::ffi::c_void, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIFolder_Impl::CopyMessages(this, core::mem::transmute_copy(&lpmsglist), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestfolder), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IMAPIFolder_Impl::CopyMessages(this, core::mem::transmute_copy(&lpmsglist), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestfolder), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn DeleteMessages<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIFolder_Impl::DeleteMessages(this, core::mem::transmute_copy(&lpmsglist), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IMAPIFolder_Impl::DeleteMessages(this, core::mem::transmute_copy(&lpmsglist), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn CreateFolder<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: *const i8, lpinterface: *const windows_core::GUID, ulflags: u32, lppfolder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1603,19 +1603,19 @@ impl IMAPIFolder_Vtbl {
         unsafe extern "system" fn CopyFolder<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const windows_core::GUID, lpdestfolder: *const core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIFolder_Impl::CopyFolder(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestfolder), core::mem::transmute_copy(&lpsznewfoldername), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IMAPIFolder_Impl::CopyFolder(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestfolder), core::mem::transmute_copy(&lpsznewfoldername), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn DeleteFolder<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIFolder_Impl::DeleteFolder(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IMAPIFolder_Impl::DeleteFolder(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn SetReadFlags<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIFolder_Impl::SetReadFlags(this, core::mem::transmute_copy(&lpmsglist), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IMAPIFolder_Impl::SetReadFlags(this, core::mem::transmute_copy(&lpmsglist), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn GetMessageStatus<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32, lpulmessagestatus: *mut u32) -> windows_core::HRESULT {
@@ -1651,7 +1651,7 @@ impl IMAPIFolder_Vtbl {
         unsafe extern "system" fn EmptyFolder<Identity: IMAPIFolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIFolder_Impl::EmptyFolder(this, core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IMAPIFolder_Impl::EmptyFolder(this, core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         Self {
@@ -1787,13 +1787,13 @@ impl IMAPIProp {
     where
         P4: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), ciidexclude, rgiidexclude as _, lpexcludeprops as _, uluiparam, lpprogress.param().abi(), lpinterface as _, lpdestobj as _, ulflags, lppproblems as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), ciidexclude, rgiidexclude as _, lpexcludeprops as _, uluiparam, core::mem::transmute_copy(&lpprogress.param().borrow()), lpinterface as _, lpdestobj as _, ulflags, lppproblems as _).ok() }
     }
     pub unsafe fn CopyProps<P2>(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: P2, lpinterface: *mut windows_core::GUID, lpdestobj: *mut core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> windows_core::Result<()>
     where
         P2: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyProps)(windows_core::Interface::as_raw(self), lpincludeprops as _, uluiparam, lpprogress.param().abi(), lpinterface as _, lpdestobj as _, ulflags, lppproblems as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyProps)(windows_core::Interface::as_raw(self), lpincludeprops as _, uluiparam, core::mem::transmute_copy(&lpprogress.param().borrow()), lpinterface as _, lpdestobj as _, ulflags, lppproblems as _).ok() }
     }
     pub unsafe fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut windows_core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetNamesFromIDs)(windows_core::Interface::as_raw(self), lppproptags as _, lppropsetguid as _, ulflags, lpcpropnames as _, lppppropnames as _).ok() }
@@ -1833,8 +1833,8 @@ pub trait IMAPIProp_Impl: windows_core::IUnknownImpl {
     fn OpenProperty(&self, ulproptag: u32, lpiid: *mut windows_core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> windows_core::Result<()>;
     fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> windows_core::Result<()>;
-    fn CopyTo(&self, ciidexclude: u32, rgiidexclude: *mut windows_core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, lpinterface: *mut windows_core::GUID, lpdestobj: *mut core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> windows_core::Result<()>;
-    fn CopyProps(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, lpinterface: *mut windows_core::GUID, lpdestobj: *mut core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> windows_core::Result<()>;
+    fn CopyTo(&self, ciidexclude: u32, rgiidexclude: *mut windows_core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, lpinterface: *mut windows_core::GUID, lpdestobj: *mut core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> windows_core::Result<()>;
+    fn CopyProps(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, lpinterface: *mut windows_core::GUID, lpdestobj: *mut core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> windows_core::Result<()>;
     fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut windows_core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> windows_core::Result<()>;
     fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> windows_core::Result<()>;
 }
@@ -1886,13 +1886,13 @@ impl IMAPIProp_Vtbl {
         unsafe extern "system" fn CopyTo<Identity: IMAPIProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ciidexclude: u32, rgiidexclude: *mut windows_core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: *mut core::ffi::c_void, lpinterface: *mut windows_core::GUID, lpdestobj: *mut core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIProp_Impl::CopyTo(this, core::mem::transmute_copy(&ciidexclude), core::mem::transmute_copy(&rgiidexclude), core::mem::transmute_copy(&lpexcludeprops), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestobj), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lppproblems)).into()
+                IMAPIProp_Impl::CopyTo(this, core::mem::transmute_copy(&ciidexclude), core::mem::transmute_copy(&rgiidexclude), core::mem::transmute_copy(&lpexcludeprops), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestobj), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lppproblems)).into()
             }
         }
         unsafe extern "system" fn CopyProps<Identity: IMAPIProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: *mut core::ffi::c_void, lpinterface: *mut windows_core::GUID, lpdestobj: *mut core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPIProp_Impl::CopyProps(this, core::mem::transmute_copy(&lpincludeprops), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestobj), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lppproblems)).into()
+                IMAPIProp_Impl::CopyProps(this, core::mem::transmute_copy(&lpincludeprops), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&lpinterface), core::mem::transmute_copy(&lpdestobj), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lppproblems)).into()
             }
         }
         unsafe extern "system" fn GetNamesFromIDs<Identity: IMAPIProp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut windows_core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> windows_core::HRESULT {
@@ -2017,7 +2017,7 @@ impl IMAPITable {
     where
         P1: windows_core::Param<IMAPIAdviseSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), uleventmask, lpadvisesink.param().abi(), lpulconnection as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), uleventmask, core::mem::transmute_copy(&lpadvisesink.param().borrow()), lpulconnection as _).ok() }
     }
     pub unsafe fn Unadvise(&self, ulconnection: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), ulconnection).ok() }
@@ -2130,7 +2130,7 @@ pub struct IMAPITable_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPITable_Impl: windows_core::IUnknownImpl {
     fn GetLastError(&self, hresult: windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> windows_core::Result<()>;
-    fn Advise(&self, uleventmask: u32, lpadvisesink: windows_core::Ref<IMAPIAdviseSink>, lpulconnection: *mut u32) -> windows_core::Result<()>;
+    fn Advise(&self, uleventmask: u32, lpadvisesink: Option<&IMAPIAdviseSink>, lpulconnection: *mut u32) -> windows_core::Result<()>;
     fn Unadvise(&self, ulconnection: u32) -> windows_core::Result<()>;
     fn GetStatus(&self, lpultablestatus: *mut u32, lpultabletype: *mut u32) -> windows_core::Result<()>;
     fn SetColumns(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32) -> windows_core::Result<()>;
@@ -2165,7 +2165,7 @@ impl IMAPITable_Vtbl {
         unsafe extern "system" fn Advise<Identity: IMAPITable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uleventmask: u32, lpadvisesink: *mut core::ffi::c_void, lpulconnection: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMAPITable_Impl::Advise(this, core::mem::transmute_copy(&uleventmask), core::mem::transmute_copy(&lpadvisesink), core::mem::transmute_copy(&lpulconnection)).into()
+                IMAPITable_Impl::Advise(this, core::mem::transmute_copy(&uleventmask), windows_core::Ref::option_from_abi(&lpadvisesink), core::mem::transmute_copy(&lpulconnection)).into()
             }
         }
         unsafe extern "system" fn Unadvise<Identity: IMAPITable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulconnection: u32) -> windows_core::HRESULT {
@@ -2443,7 +2443,7 @@ impl IMessage {
     where
         P2: windows_core::Param<IMAPIProgress>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeleteAttach)(windows_core::Interface::as_raw(self), ulattachmentnum, uluiparam.unwrap_or(core::mem::zeroed()) as _, lpprogress.param().abi(), ulflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).DeleteAttach)(windows_core::Interface::as_raw(self), ulattachmentnum, uluiparam.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpprogress.param().borrow()), ulflags).ok() }
     }
     pub unsafe fn GetRecipientTable(&self, ulflags: u32) -> windows_core::Result<IMAPITable> {
         unsafe {
@@ -2483,7 +2483,7 @@ pub trait IMessage_Impl: IMAPIProp_Impl {
     fn GetAttachmentTable(&self, ulflags: u32) -> windows_core::Result<IMAPITable>;
     fn OpenAttach(&self, ulattachmentnum: u32, lpinterface: *const windows_core::GUID, ulflags: u32) -> windows_core::Result<IAttach>;
     fn CreateAttach(&self, lpinterface: *const windows_core::GUID, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: windows_core::OutRef<IAttach>) -> windows_core::Result<()>;
-    fn DeleteAttach(&self, ulattachmentnum: u32, uluiparam: usize, lpprogress: windows_core::Ref<IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
+    fn DeleteAttach(&self, ulattachmentnum: u32, uluiparam: usize, lpprogress: Option<&IMAPIProgress>, ulflags: u32) -> windows_core::Result<()>;
     fn GetRecipientTable(&self, ulflags: u32) -> windows_core::Result<IMAPITable>;
     fn ModifyRecipients(&self, ulflags: u32, lpmods: *const ADRLIST) -> windows_core::Result<()>;
     fn SubmitMessage(&self, ulflags: u32) -> windows_core::Result<()>;
@@ -2525,7 +2525,7 @@ impl IMessage_Vtbl {
         unsafe extern "system" fn DeleteAttach<Identity: IMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulattachmentnum: u32, uluiparam: usize, lpprogress: *mut core::ffi::c_void, ulflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMessage_Impl::DeleteAttach(this, core::mem::transmute_copy(&ulattachmentnum), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
+                IMessage_Impl::DeleteAttach(this, core::mem::transmute_copy(&ulattachmentnum), core::mem::transmute_copy(&uluiparam), windows_core::Ref::option_from_abi(&lpprogress), core::mem::transmute_copy(&ulflags)).into()
             }
         }
         unsafe extern "system" fn GetRecipientTable<Identity: IMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, lpptable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2591,7 +2591,7 @@ impl IMsgStore {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), cbentryid, lpentryid.unwrap_or(core::mem::zeroed()) as _, uleventmask, lpadvisesink.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), cbentryid, lpentryid.unwrap_or(core::mem::zeroed()) as _, uleventmask, core::mem::transmute_copy(&lpadvisesink.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Unadvise(&self, ulconnection: u32) -> windows_core::Result<()> {
@@ -2634,7 +2634,7 @@ impl IMsgStore {
     where
         P0: windows_core::Param<IMessage>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLockState)(windows_core::Interface::as_raw(self), lpmessage.param().abi(), ullockstate).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetLockState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpmessage.param().borrow()), ullockstate).ok() }
     }
     pub unsafe fn FinishedMsg(&self, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FinishedMsg)(windows_core::Interface::as_raw(self), ulflags, cbentryid, lpentryid).ok() }
@@ -2667,7 +2667,7 @@ pub struct IMsgStore_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMsgStore_Impl: IMAPIProp_Impl {
-    fn Advise(&self, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: windows_core::Ref<IMAPIAdviseSink>) -> windows_core::Result<u32>;
+    fn Advise(&self, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: Option<&IMAPIAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, ulconnection: u32) -> windows_core::Result<()>;
     fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32) -> windows_core::Result<u32>;
     fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const windows_core::GUID, ulflags: u32, lpulobjtype: *mut u32, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -2677,7 +2677,7 @@ pub trait IMsgStore_Impl: IMAPIProp_Impl {
     fn StoreLogoff(&self, lpulflags: *mut u32) -> windows_core::Result<()>;
     fn AbortSubmit(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> windows_core::Result<()>;
     fn GetOutgoingQueue(&self, ulflags: u32) -> windows_core::Result<IMAPITable>;
-    fn SetLockState(&self, lpmessage: windows_core::Ref<IMessage>, ullockstate: u32) -> windows_core::Result<()>;
+    fn SetLockState(&self, lpmessage: Option<&IMessage>, ullockstate: u32) -> windows_core::Result<()>;
     fn FinishedMsg(&self, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> windows_core::Result<()>;
     fn NotifyNewMail(&self, lpnotification: *const NOTIFICATION) -> windows_core::Result<()>;
 }
@@ -2687,7 +2687,7 @@ impl IMsgStore_Vtbl {
         unsafe extern "system" fn Advise<Identity: IMsgStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: *mut core::ffi::c_void, lpulconnection: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMsgStore_Impl::Advise(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uleventmask), core::mem::transmute_copy(&lpadvisesink)) {
+                match IMsgStore_Impl::Advise(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uleventmask), windows_core::Ref::option_from_abi(&lpadvisesink)) {
                     Ok(ok__) => {
                         lpulconnection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2771,7 +2771,7 @@ impl IMsgStore_Vtbl {
         unsafe extern "system" fn SetLockState<Identity: IMsgStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmessage: *mut core::ffi::c_void, ullockstate: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMsgStore_Impl::SetLockState(this, core::mem::transmute_copy(&lpmessage), core::mem::transmute_copy(&ullockstate)).into()
+                IMsgStore_Impl::SetLockState(this, windows_core::Ref::option_from_abi(&lpmessage), core::mem::transmute_copy(&ullockstate)).into()
             }
         }
         unsafe extern "system" fn FinishedMsg<Identity: IMsgStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> windows_core::HRESULT {
@@ -3254,26 +3254,26 @@ impl IWABObject {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Backup)(windows_core::Interface::as_raw(self), lpfilename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Backup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpfilename.param().borrow())).ok() }
     }
     pub unsafe fn Import<P0>(&self, lpwip: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), lpwip.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpwip.param().borrow())).ok() }
     }
     pub unsafe fn Find<P0>(&self, lpiab: P0, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAddrBook>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Find)(windows_core::Interface::as_raw(self), lpiab.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Find)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpiab.param().borrow()), hwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn VCardDisplay<P0, P2>(&self, lpiab: P0, hwnd: Option<super::super::Foundation::HWND>, lpszfilename: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAddrBook>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).VCardDisplay)(windows_core::Interface::as_raw(self), lpiab.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _, lpszfilename.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).VCardDisplay)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpiab.param().borrow()), hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(&lpszfilename.param().borrow())).ok() }
     }
     pub unsafe fn LDAPUrl<P0, P3>(&self, lpiab: P0, hwnd: Option<super::super::Foundation::HWND>, ulflags: u32, lpszurl: P3) -> windows_core::Result<IMailUser>
     where
@@ -3282,7 +3282,7 @@ impl IWABObject {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LDAPUrl)(windows_core::Interface::as_raw(self), lpiab.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _, ulflags, lpszurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LDAPUrl)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpiab.param().borrow()), hwnd.unwrap_or(core::mem::zeroed()) as _, ulflags, core::mem::transmute_copy(&lpszurl.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn VCardCreate<P0, P2, P3>(&self, lpiab: P0, ulflags: u32, lpszvcard: P2, lpmailuser: P3) -> windows_core::Result<()>
@@ -3291,7 +3291,7 @@ impl IWABObject {
         P2: windows_core::Param<windows_core::PCSTR>,
         P3: windows_core::Param<IMailUser>,
     {
-        unsafe { (windows_core::Interface::vtable(self).VCardCreate)(windows_core::Interface::as_raw(self), lpiab.param().abi(), ulflags, lpszvcard.param().abi(), lpmailuser.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).VCardCreate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpiab.param().borrow()), ulflags, core::mem::transmute_copy(&lpszvcard.param().borrow()), core::mem::transmute_copy(&lpmailuser.param().borrow())).ok() }
     }
     pub unsafe fn VCardRetrieve<P0, P2>(&self, lpiab: P0, ulflags: u32, lpszvcard: P2) -> windows_core::Result<IMailUser>
     where
@@ -3300,20 +3300,20 @@ impl IWABObject {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VCardRetrieve)(windows_core::Interface::as_raw(self), lpiab.param().abi(), ulflags, lpszvcard.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).VCardRetrieve)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpiab.param().borrow()), ulflags, core::mem::transmute_copy(&lpszvcard.param().borrow()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetMe<P0>(&self, lpiab: P0, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAddrBook>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMe)(windows_core::Interface::as_raw(self), lpiab.param().abi(), ulflags, lpdwaction as _, lpsbeid as _, hwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetMe)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpiab.param().borrow()), ulflags, lpdwaction as _, lpsbeid as _, hwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetMe<P0>(&self, lpiab: P0, ulflags: u32, sbeid: SBinary, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAddrBook>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMe)(windows_core::Interface::as_raw(self), lpiab.param().abi(), ulflags, core::mem::transmute(sbeid), hwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetMe)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&lpiab.param().borrow()), ulflags, core::mem::transmute(sbeid), hwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -3341,13 +3341,13 @@ pub trait IWABObject_Impl: windows_core::IUnknownImpl {
     fn FreeBuffer(&self, lpbuffer: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn Backup(&self, lpfilename: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn Import(&self, lpwip: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn Find(&self, lpiab: windows_core::Ref<IAddrBook>, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn VCardDisplay(&self, lpiab: windows_core::Ref<IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn LDAPUrl(&self, lpiab: windows_core::Ref<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: &windows_core::PCSTR) -> windows_core::Result<IMailUser>;
-    fn VCardCreate(&self, lpiab: windows_core::Ref<IAddrBook>, ulflags: u32, lpszvcard: &windows_core::PCSTR, lpmailuser: windows_core::Ref<IMailUser>) -> windows_core::Result<()>;
-    fn VCardRetrieve(&self, lpiab: windows_core::Ref<IAddrBook>, ulflags: u32, lpszvcard: &windows_core::PCSTR) -> windows_core::Result<IMailUser>;
-    fn GetMe(&self, lpiab: windows_core::Ref<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn SetMe(&self, lpiab: windows_core::Ref<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn Find(&self, lpiab: Option<&IAddrBook>, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn VCardDisplay(&self, lpiab: Option<&IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn LDAPUrl(&self, lpiab: Option<&IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: &windows_core::PCSTR) -> windows_core::Result<IMailUser>;
+    fn VCardCreate(&self, lpiab: Option<&IAddrBook>, ulflags: u32, lpszvcard: &windows_core::PCSTR, lpmailuser: Option<&IMailUser>) -> windows_core::Result<()>;
+    fn VCardRetrieve(&self, lpiab: Option<&IAddrBook>, ulflags: u32, lpszvcard: &windows_core::PCSTR) -> windows_core::Result<IMailUser>;
+    fn GetMe(&self, lpiab: Option<&IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn SetMe(&self, lpiab: Option<&IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 impl IWABObject_Vtbl {
     pub const fn new<Identity: IWABObject_Impl, const OFFSET: isize>() -> Self {
@@ -3390,19 +3390,19 @@ impl IWABObject_Vtbl {
         unsafe extern "system" fn Find<Identity: IWABObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiab: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWABObject_Impl::Find(this, core::mem::transmute_copy(&lpiab), core::mem::transmute_copy(&hwnd)).into()
+                IWABObject_Impl::Find(this, windows_core::Ref::option_from_abi(&lpiab), core::mem::transmute_copy(&hwnd)).into()
             }
         }
         unsafe extern "system" fn VCardDisplay<Identity: IWABObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiab: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, lpszfilename: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWABObject_Impl::VCardDisplay(this, core::mem::transmute_copy(&lpiab), core::mem::transmute_copy(&hwnd), core::mem::transmute(&lpszfilename)).into()
+                IWABObject_Impl::VCardDisplay(this, windows_core::Ref::option_from_abi(&lpiab), core::mem::transmute_copy(&hwnd), core::mem::transmute(&lpszfilename)).into()
             }
         }
         unsafe extern "system" fn LDAPUrl<Identity: IWABObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiab: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: windows_core::PCSTR, lppmailuser: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWABObject_Impl::LDAPUrl(this, core::mem::transmute_copy(&lpiab), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszurl)) {
+                match IWABObject_Impl::LDAPUrl(this, windows_core::Ref::option_from_abi(&lpiab), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszurl)) {
                     Ok(ok__) => {
                         lppmailuser.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3414,13 +3414,13 @@ impl IWABObject_Vtbl {
         unsafe extern "system" fn VCardCreate<Identity: IWABObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiab: *mut core::ffi::c_void, ulflags: u32, lpszvcard: windows_core::PCSTR, lpmailuser: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWABObject_Impl::VCardCreate(this, core::mem::transmute_copy(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszvcard), core::mem::transmute_copy(&lpmailuser)).into()
+                IWABObject_Impl::VCardCreate(this, windows_core::Ref::option_from_abi(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszvcard), windows_core::Ref::option_from_abi(&lpmailuser)).into()
             }
         }
         unsafe extern "system" fn VCardRetrieve<Identity: IWABObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiab: *mut core::ffi::c_void, ulflags: u32, lpszvcard: windows_core::PCSTR, lppmailuser: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWABObject_Impl::VCardRetrieve(this, core::mem::transmute_copy(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszvcard)) {
+                match IWABObject_Impl::VCardRetrieve(this, windows_core::Ref::option_from_abi(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute(&lpszvcard)) {
                     Ok(ok__) => {
                         lppmailuser.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3432,13 +3432,13 @@ impl IWABObject_Vtbl {
         unsafe extern "system" fn GetMe<Identity: IWABObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiab: *mut core::ffi::c_void, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWABObject_Impl::GetMe(this, core::mem::transmute_copy(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lpdwaction), core::mem::transmute_copy(&lpsbeid), core::mem::transmute_copy(&hwnd)).into()
+                IWABObject_Impl::GetMe(this, windows_core::Ref::option_from_abi(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lpdwaction), core::mem::transmute_copy(&lpsbeid), core::mem::transmute_copy(&hwnd)).into()
             }
         }
         unsafe extern "system" fn SetMe<Identity: IWABObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiab: *mut core::ffi::c_void, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWABObject_Impl::SetMe(this, core::mem::transmute_copy(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute(&sbeid), core::mem::transmute_copy(&hwnd)).into()
+                IWABObject_Impl::SetMe(this, windows_core::Ref::option_from_abi(&lpiab), core::mem::transmute_copy(&ulflags), core::mem::transmute(&sbeid), core::mem::transmute_copy(&hwnd)).into()
             }
         }
         Self {

@@ -41,7 +41,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_core::PCSTR, buf : windows_core::PSTR, cchsize : u16) -> i16);
-    unsafe { GetFileTitleA(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { GetFileTitleA(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
@@ -49,7 +49,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : windows_core::PCWSTR, buf : windows_core::PWSTR, cchsize : u16) -> i16);
-    unsafe { GetFileTitleW(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { GetFileTitleW(core::mem::transmute_copy(&param0.param().borrow()), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> windows_core::BOOL {

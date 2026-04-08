@@ -125,7 +125,7 @@ impl IDedupBackupSupport {
     where
         P2: windows_core::Param<IDedupReadFileCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RestoreFiles)(windows_core::Interface::as_raw(self), numberoffiles, core::mem::transmute(filefullpaths), store.param().abi(), flags, fileresults as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RestoreFiles)(windows_core::Interface::as_raw(self), numberoffiles, core::mem::transmute(filefullpaths), core::mem::transmute_copy(&store.param().borrow()), flags, fileresults as _).ok() }
     }
 }
 #[repr(C)]
@@ -135,14 +135,14 @@ pub struct IDedupBackupSupport_Vtbl {
     pub RestoreFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IDedupBackupSupport_Impl: windows_core::IUnknownImpl {
-    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: windows_core::Ref<IDedupReadFileCallback>, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: Option<&IDedupReadFileCallback>, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IDedupBackupSupport_Vtbl {
     pub const fn new<Identity: IDedupBackupSupport_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RestoreFiles<Identity: IDedupBackupSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numberoffiles: u32, filefullpaths: *const *mut core::ffi::c_void, store: *mut core::ffi::c_void, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDedupBackupSupport_Impl::RestoreFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&filefullpaths), core::mem::transmute_copy(&store), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&fileresults)).into()
+                IDedupBackupSupport_Impl::RestoreFiles(this, core::mem::transmute_copy(&numberoffiles), core::mem::transmute_copy(&filefullpaths), windows_core::Ref::option_from_abi(&store), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&fileresults)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, OFFSET> }
@@ -263,7 +263,7 @@ impl IDedupDataPort {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertChunksWithStream)(windows_core::Interface::as_raw(self), pchunkmetadata.len().try_into().unwrap(), core::mem::transmute(pchunkmetadata.as_ptr()), databytecount, pchunkdatastream.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).InsertChunksWithStream)(windows_core::Interface::as_raw(self), pchunkmetadata.len().try_into().unwrap(), core::mem::transmute(pchunkmetadata.as_ptr()), databytecount, core::mem::transmute_copy(&pchunkdatastream.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CommitStreams(&self, pstreams: &[DedupStream], pentries: &[DedupStreamEntry]) -> windows_core::Result<windows_core::GUID> {
@@ -279,7 +279,7 @@ impl IDedupDataPort {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CommitStreamsWithStream)(windows_core::Interface::as_raw(self), pstreams.len().try_into().unwrap(), core::mem::transmute(pstreams.as_ptr()), entrycount, pentriesstream.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CommitStreamsWithStream)(windows_core::Interface::as_raw(self), pstreams.len().try_into().unwrap(), core::mem::transmute(pstreams.as_ptr()), entrycount, core::mem::transmute_copy(&pentriesstream.param().borrow()), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetStreams(&self, pstreampaths: &[windows_core::BSTR]) -> windows_core::Result<windows_core::GUID> {
@@ -338,9 +338,9 @@ pub trait IDedupDataPort_Impl: windows_core::IUnknownImpl {
     fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> windows_core::Result<()>;
     fn LookupChunks(&self, count: u32, phashes: *const DedupHash) -> windows_core::Result<windows_core::GUID>;
     fn InsertChunks(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdata: *const u8) -> windows_core::Result<windows_core::GUID>;
-    fn InsertChunksWithStream(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
+    fn InsertChunksWithStream(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
     fn CommitStreams(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry) -> windows_core::Result<windows_core::GUID>;
-    fn CommitStreamsWithStream(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
+    fn CommitStreamsWithStream(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: Option<&super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
     fn GetStreams(&self, streamcount: u32, pstreampaths: *const windows_core::BSTR) -> windows_core::Result<windows_core::GUID>;
     fn GetStreamsResults(&self, requestid: &windows_core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetChunks(&self, count: u32, phashes: *const DedupHash) -> windows_core::Result<windows_core::GUID>;
@@ -384,7 +384,7 @@ impl IDedupDataPort_Vtbl {
         unsafe extern "system" fn InsertChunksWithStream<Identity: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: *mut core::ffi::c_void, prequestid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDedupDataPort_Impl::InsertChunksWithStream(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), core::mem::transmute_copy(&pchunkdatastream)) {
+                match IDedupDataPort_Impl::InsertChunksWithStream(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), windows_core::Ref::option_from_abi(&pchunkdatastream)) {
                     Ok(ok__) => {
                         prequestid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -408,7 +408,7 @@ impl IDedupDataPort_Vtbl {
         unsafe extern "system" fn CommitStreamsWithStream<Identity: IDedupDataPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: *mut core::ffi::c_void, prequestid: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDedupDataPort_Impl::CommitStreamsWithStream(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), core::mem::transmute_copy(&pentriesstream)) {
+                match IDedupDataPort_Impl::CommitStreamsWithStream(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), windows_core::Ref::option_from_abi(&pentriesstream)) {
                     Ok(ok__) => {
                         prequestid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)

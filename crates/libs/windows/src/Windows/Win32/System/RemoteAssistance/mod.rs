@@ -39,7 +39,7 @@ impl IRendezvousApplication {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRendezvousSession)(windows_core::Interface::as_raw(self), prendezvoussession.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetRendezvousSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(&prendezvoussession.param().borrow())).ok() }
     }
 }
 #[repr(C)]
@@ -49,14 +49,14 @@ pub struct IRendezvousApplication_Vtbl {
     pub SetRendezvousSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRendezvousApplication_Impl: windows_core::IUnknownImpl {
-    fn SetRendezvousSession(&self, prendezvoussession: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetRendezvousSession(&self, prendezvoussession: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IRendezvousApplication_Vtbl {
     pub const fn new<Identity: IRendezvousApplication_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetRendezvousSession<Identity: IRendezvousApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendezvoussession: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRendezvousApplication_Impl::SetRendezvousSession(this, core::mem::transmute_copy(&prendezvoussession)).into()
+                IRendezvousApplication_Impl::SetRendezvousSession(this, windows_core::Ref::option_from_abi(&prendezvoussession)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, OFFSET> }
