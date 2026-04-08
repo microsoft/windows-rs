@@ -17,7 +17,7 @@
 //! Requires `libclang` at build and run time.  On Ubuntu 22.04+ set
 //! `LIBCLANG_PATH=/usr/lib/llvm-18/lib` (or the installed LLVM version).
 
-use clang::{Clang, Entity, EntityKind, Index, TypeKind};
+use clang::{diagnostic::Severity, Clang, Entity, EntityKind, Index, TypeKind};
 use std::collections::BTreeSet;
 
 // ---------------------------------------------------------------------------
@@ -215,6 +215,16 @@ fn generate(c: &Converter) -> Result<String, String> {
             .arguments(&clang_arg_refs)
             .parse()
             .map_err(|_| format!("failed to parse `{input}`"))?;
+
+        let errors: Vec<String> = tu
+            .get_diagnostics()
+            .into_iter()
+            .filter(|d| matches!(d.get_severity(), Severity::Error | Severity::Fatal))
+            .map(|d| d.get_text())
+            .collect();
+        if !errors.is_empty() {
+            return Err(errors.join("\n"));
+        }
 
         collect(tu.get_entity(), &mut collector);
     }
