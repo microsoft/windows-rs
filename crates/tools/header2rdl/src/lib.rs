@@ -732,13 +732,13 @@ fn emit_fn(f: &RdlFn, library: &str) -> String {
         format!(" -> {}", f.ret)
     };
 
-    let link = if library.is_empty() {
+    let lib_attr = if library.is_empty() {
         String::new()
     } else {
-        format!("#[link(name = \"{library}\", abi = \"system\")] ")
+        format!("#[library(\"{library}\")] ")
     };
 
-    format!("{link}fn {}({params}){ret};", f.name)
+    format!("{lib_attr}extern fn {}({params}){ret};", f.name)
 }
 
 fn emit_interface(iface: &RdlInterface) -> String {

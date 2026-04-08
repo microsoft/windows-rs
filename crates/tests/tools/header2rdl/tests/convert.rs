@@ -1,6 +1,10 @@
 /// For each `tests/*.h` file, run the `tool_header2rdl` converter and compare
 /// the output against the matching `tests/*.rdl` golden file.
 ///
+/// After converting, the RDL is also roundtripped through `windows_rdl::reader`
+/// (`.rdl` → `.winmd`) and `windows_rdl::writer` (`.winmd` → `.rdl`) to verify
+/// validity.  The golden files store the writer's canonical output.
+///
 /// A `tests/<name>.h.args` sidecar file may supply extra options
 /// (whitespace-separated): the only currently recognised token is `--cpp`.
 /// All tests use `namespace("Test")` by default.
@@ -51,9 +55,33 @@ fn convert() {
             }
         }
 
-        let actual = c
+        let raw = c
             .convert()
             .unwrap_or_else(|e| panic!("convert failed for {stem}.h: {e}"));
+
+        // Roundtrip through the windows-rdl reader and writer to validate the
+        // generated RDL and produce the canonical (writer-normalised) output.
+        let tmp_winmd = std::env::temp_dir().join(format!("header2rdl_{stem}.winmd"));
+        let tmp_rdl = std::env::temp_dir().join(format!("header2rdl_{stem}_out.rdl"));
+
+        windows_rdl::reader()
+            .input_str(&raw)
+            .output(tmp_winmd.to_str().unwrap())
+            .write()
+            .unwrap_or_else(|e| panic!("rdl reader failed for {stem}: {e}"));
+
+        windows_rdl::writer()
+            .input(tmp_winmd.to_str().unwrap())
+            .filter("Test")
+            .output(tmp_rdl.to_str().unwrap())
+            .write()
+            .unwrap_or_else(|e| panic!("rdl writer failed for {stem}: {e}"));
+
+        let actual = std::fs::read_to_string(&tmp_rdl)
+            .unwrap_or_else(|e| panic!("failed to read roundtrip output for {stem}: {e}"));
+
+        let _ = std::fs::remove_file(&tmp_winmd);
+        let _ = std::fs::remove_file(&tmp_rdl);
 
         let rdl_path = tests_dir.join(format!("{stem}.rdl"));
 
