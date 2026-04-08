@@ -110,6 +110,27 @@ impl Encoder<'_> {
         Ok(())
     }
 
+    /// Encode a sequence of simple synthesized parameters that carry no custom
+    /// attributes.  Each element is `(name, ty)`.  Direction flags are inferred
+    /// from the type (mutable references / mutable pointers → Out, everything
+    /// else → In), matching the behaviour of [`Self::parse_param_attributes`].
+    pub fn encode_simple_params(
+        &mut self,
+        params: &[(&str, &metadata::Type)],
+    ) -> Result<(), Error> {
+        for (sequence, (name, ty)) in params.iter().enumerate() {
+            let attributes = if matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+            {
+                metadata::ParamAttributes::Out
+            } else {
+                metadata::ParamAttributes::In
+            };
+            self.output
+                .Param(name, (sequence + 1).try_into().unwrap(), attributes);
+        }
+        Ok(())
+    }
+
     pub fn collect_params(&mut self, sig: &syn::Signature) -> Result<Vec<Param>, Error> {
         let mut params = vec![];
         let mut param_names = HashSet::new();

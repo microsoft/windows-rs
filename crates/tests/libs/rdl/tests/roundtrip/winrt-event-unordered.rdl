@@ -1,0 +1,11 @@
+#[winrt]
+mod Test {
+    interface IFoo {
+        #[special]
+        fn remove_Foo(&self, token: i32);
+        #[special]
+        fn add_Foo(&self, handler: i32) -> i32;
+        #[special]
+        fn add_Bar(&self, handler: i32) -> i32;
+    }
+}
