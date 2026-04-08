@@ -1,9 +1,7 @@
 //! Unit tests for `windows_core::StaticComObject`
 
 use std::sync::atomic::{AtomicU32, Ordering::SeqCst};
-use windows_core::{
-    implement, interface, ComObject, IUnknown, IUnknownImpl, InterfaceRef, StaticComObject,
-};
+use windows_core::{implement, interface, ComObject, IUnknown, IUnknownImpl, StaticComObject};
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]
 unsafe trait INumberFactory: IUnknown {
@@ -35,7 +33,8 @@ static NUMBER_FACTORY_INSTANCE: StaticComObject<MyFactory> = MyFactory {
 #[test]
 fn as_interface() {
     let factory_outer: &MyFactory_Impl = NUMBER_FACTORY_INSTANCE.get();
-    let ifactory: InterfaceRef<INumberFactory> = factory_outer.as_interface::<INumberFactory>();
+    let ifactory = factory_outer.as_interface::<INumberFactory>();
+    let ifactory = ifactory.unwrap();
 
     // Produce the next number. We don't verify the value since tests are multi-threaded.
     // This just demonstrates that you can have shared state with interior mutability (such as

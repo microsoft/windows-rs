@@ -534,7 +534,7 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
     items.push(parse_quote! {
         impl #generics ::windows_core::ComObjectInterface<::windows_core::IUnknown> for #impl_ident::#generics_idents where #constraints {
             #[inline(always)]
-            fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IUnknown> {
+            fn as_interface_ref(&self) -> ::windows_core::Ref<'_, ::windows_core::IUnknown> {
                 unsafe {
                     let interface_ptr = &self.identity;
                     ::core::mem::transmute(interface_ptr)
@@ -546,7 +546,7 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
     items.push(parse_quote! {
         impl #generics ::windows_core::ComObjectInterface<::windows_core::IInspectable> for #impl_ident::#generics_idents where #constraints {
             #[inline(always)]
-            fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IInspectable> {
+            fn as_interface_ref(&self) -> ::windows_core::Ref<'_, ::windows_core::IInspectable> {
                 unsafe {
                     let interface_ptr = &self.identity;
                     ::core::mem::transmute(interface_ptr)
@@ -561,10 +561,9 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
 
         items.push(parse_quote_spanned! {
             interface_chain.implement.span =>
-            #[allow(clippy::needless_lifetimes)]
             impl #generics ::windows_core::ComObjectInterface<#interface_ident> for #impl_ident::#generics_idents where #constraints {
                 #[inline(always)]
-                fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, #interface_ident> {
+                fn as_interface_ref(&self) -> ::windows_core::Ref<'_, #interface_ident> {
                     unsafe {
                         ::core::mem::transmute(&self.#chain_field)
                     }

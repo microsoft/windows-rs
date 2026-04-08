@@ -73,30 +73,30 @@ fn test() {
     unsafe {
         let test: ITest = Test.into();
 
-        assert_eq!(test.usize(0, None), E_POINTER);
-        assert_eq!(test.hstring(h!("hello"), None), E_POINTER);
-        assert_eq!(test.interface(None, None), E_POINTER);
-        assert_eq!(test.required_input(None, None), E_INVALIDARG);
+        assert_eq!(test.usize(0, OutRef::null()), E_POINTER);
+        assert_eq!(test.hstring(h!("hello"), OutRef::null()), E_POINTER);
+        assert_eq!(test.interface(None, OutRef::null()), E_POINTER);
+        assert_eq!(test.required_input(None, OutRef::null()), E_INVALIDARG);
 
         let mut output = 0;
-        assert_eq!(test.usize(123, &mut output), S_OK);
+        assert_eq!(test.usize(123, (&mut output).into()), S_OK);
         assert_eq!(output, 123);
 
         let mut output = HSTRING::from("will be dropped");
         // `output` will be dropped before receiving value, avoiding a leak.
-        assert_eq!(test.hstring(h!("hello"), &mut output), S_OK);
+        assert_eq!(test.hstring(h!("hello"), (&mut output).into()), S_OK);
         assert_eq!(&output, h!("hello"));
 
         let mut output = None;
-        assert_eq!(test.interface(&test, &mut output), S_OK);
+        assert_eq!(test.interface(&test, (&mut output).into()), S_OK);
         assert_eq!(output.as_ref(), Some(&test));
 
         // `output` will be dropped before receiving next value, avoiding a leak.
-        assert_eq!(test.required_input(&test, &mut output), S_OK);
+        assert_eq!(test.required_input(&test, (&mut output).into()), S_OK);
         assert_eq!(output.as_ref(), Some(&test));
 
-        assert_eq!(test.optional_output(&test, None), S_FALSE);
-        assert_eq!(test.optional_output(&test, &mut output), S_OK);
+        assert_eq!(test.optional_output(&test, OutRef::null()), S_FALSE);
+        assert_eq!(test.optional_output(&test, (&mut output).into()), S_OK);
         assert_eq!(output, Some(test));
     }
 }
@@ -106,26 +106,38 @@ fn test_result() {
     unsafe {
         let test: ITest = Test.into();
 
-        assert_eq!(test.result_usize(0, None), E_POINTER.ok());
-        assert_eq!(test.result_hstring(h!("hello"), None), E_POINTER.ok());
-        assert_eq!(test.result_interface(None, None), E_POINTER.ok());
-        assert_eq!(test.result_required_input(None, None), E_INVALIDARG.ok());
+        assert_eq!(test.result_usize(0, OutRef::null()), E_POINTER.ok());
+        assert_eq!(
+            test.result_hstring(h!("hello"), OutRef::null()),
+            E_POINTER.ok()
+        );
+        assert_eq!(test.result_interface(None, OutRef::null()), E_POINTER.ok());
+        assert_eq!(
+            test.result_required_input(None, OutRef::null()),
+            E_INVALIDARG.ok()
+        );
 
         let mut output = 0;
-        assert_eq!(test.result_usize(123, &mut output), Ok(()));
+        assert_eq!(test.result_usize(123, (&mut output).into()), Ok(()));
         assert_eq!(output, 123);
 
         let mut output = HSTRING::from("will be dropped");
         // `output` will be dropped before receiving value, avoiding a leak.
-        assert_eq!(test.result_hstring(h!("hello"), &mut output), Ok(()));
+        assert_eq!(
+            test.result_hstring(h!("hello"), (&mut output).into()),
+            Ok(())
+        );
         assert_eq!(&output, h!("hello"));
 
         let mut output = None;
-        assert_eq!(test.result_interface(&test, &mut output), Ok(()));
+        assert_eq!(test.result_interface(&test, (&mut output).into()), Ok(()));
         assert_eq!(output.as_ref(), Some(&test));
 
         // `output` will be dropped before receiving next value, avoiding a leak.
-        assert_eq!(test.result_required_input(&test, &mut output), Ok(()));
+        assert_eq!(
+            test.result_required_input(&test, (&mut output).into()),
+            Ok(())
+        );
         assert_eq!(output, Some(test));
     }
 }

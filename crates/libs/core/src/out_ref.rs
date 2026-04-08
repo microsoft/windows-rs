@@ -12,6 +12,11 @@ impl<T: Type<T>> OutRef<'_, T> {
         self.0.is_null()
     }
 
+    /// Creates a null `OutRef`, representing an absent or not-required output.
+    pub fn null() -> Self {
+        Default::default()
+    }
+
     /// Overwrites a memory location with the given value without reading or dropping the old value.
     pub fn write(self, value: T::Default) -> Result<()> {
         if self.0.is_null() {
