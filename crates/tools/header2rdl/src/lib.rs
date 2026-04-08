@@ -233,6 +233,11 @@ struct RdlEnum {
     variants: Vec<(String, i64)>,
 }
 
+struct RdlTypedef {
+    name: String,
+    value: String,
+}
+
 struct RdlStruct {
     name: String,
     is_union: bool,
@@ -258,6 +263,7 @@ struct RdlInterface {
 #[derive(Default)]
 struct Collector {
     enums: Vec<RdlEnum>,
+    typedefs: Vec<RdlTypedef>,
     structs: Vec<RdlStruct>,
     functions: Vec<RdlFn>,
     interfaces: Vec<RdlInterface>,
@@ -392,7 +398,12 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
         }
     }
 
-    collector.seen.insert(name);
+    collector.seen.insert(name.clone());
+
+    if let Some(underlying) = entity.get_typedef_underlying_type() {
+        let value = map_type(&underlying);
+        collector.typedefs.push(RdlTypedef { name, value });
+    }
 }
 
 fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<RdlStruct> {
@@ -643,6 +654,9 @@ fn emit(c: &Converter, collector: &Collector) -> String {
     for e in &collector.enums {
         body.push_str(&emit_enum(e));
     }
+    for t in &collector.typedefs {
+        body.push_str(&emit_typedef(t));
+    }
     for s in &collector.structs {
         body.push_str(&emit_struct(s));
     }
@@ -663,6 +677,10 @@ fn emit_enum(e: &RdlEnum) -> String {
     }
     out.push('}');
     out
+}
+
+fn emit_typedef(t: &RdlTypedef) -> String {
+    format!("#[typedef] struct {} {{ value: {}, }}", t.name, t.value)
 }
 
 fn emit_struct(s: &RdlStruct) -> String {
