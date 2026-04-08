@@ -1,0 +1,6 @@
+#[winrt]
+mod Test {
+    class Foo {}
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFoo {}
+}

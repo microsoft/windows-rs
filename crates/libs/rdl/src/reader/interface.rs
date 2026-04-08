@@ -120,22 +120,10 @@ impl syn::parse::Parse for Interface {
 
 impl Encoder<'_> {
     pub fn encode_interface(&mut self, item: &Interface) -> Result<(), Error> {
-        let has_exclusive_to = item.attrs.iter().any(|attr| {
-            let segments: Vec<_> = attr
-                .path()
-                .segments
-                .iter()
-                .map(|s| s.ident.to_string())
-                .collect();
-            matches!(
-                segments.as_slice(),
-                [a, b, c, d]
-                    if a == "Windows"
-                        && b == "Foundation"
-                        && c == "Metadata"
-                        && d == "ExclusiveTo"
-            )
-        });
+        let has_exclusive_to = item
+            .attrs
+            .iter()
+            .any(|attr| self.is_exclusive_to_attribute(attr));
 
         let mut flags = metadata::TypeAttributes::Abstract | metadata::TypeAttributes::Interface;
 
