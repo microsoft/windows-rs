@@ -490,6 +490,13 @@ fn write_custom_attributes_except<'a>(
             !namespace_starts_with(attr.namespace(), "System") && !exclude.contains(&attr.name())
         })
         .map(|attr| {
+            // `NativeTypedefAttribute` is written back as the `#[typedef]` pseudo-attribute.
+            if attr.namespace() == "Windows.Win32.Foundation.Metadata"
+                && attr.name() == "NativeTypedefAttribute"
+            {
+                return Ok(quote! { #[typedef] });
+            }
+
             let attr_ns = attr.namespace();
             let attr_short = attr
                 .name()

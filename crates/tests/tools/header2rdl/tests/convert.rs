@@ -42,10 +42,17 @@ fn convert() {
         if sidecar.exists() {
             let content = std::fs::read_to_string(&sidecar)
                 .unwrap_or_else(|e| panic!("failed to read {}: {e}", sidecar.display()));
-            for token in content.split_whitespace() {
+            let mut tokens = content.split_whitespace();
+            while let Some(token) = tokens.next() {
                 match token {
                     "--cpp" => {
                         c.cpp(true);
+                    }
+                    "--library" => {
+                        let name = tokens.next().unwrap_or_else(|| {
+                            panic!("`--library` requires a name in {}", sidecar.display())
+                        });
+                        c.library(name);
                     }
                     other => panic!(
                         "unrecognised sidecar token `{other}` in {}",
@@ -80,6 +87,8 @@ fn convert() {
         let actual = std::fs::read_to_string(&tmp_rdl)
             .unwrap_or_else(|e| panic!("failed to read roundtrip output for {stem}: {e}"));
 
+        // Best-effort cleanup; leftover temp files are harmless and will be
+        // overwritten on the next run.
         let _ = std::fs::remove_file(&tmp_winmd);
         let _ = std::fs::remove_file(&tmp_rdl);
 
