@@ -220,7 +220,16 @@ fn generate(c: &Converter) -> Result<String, String> {
             .get_diagnostics()
             .into_iter()
             .filter(|d| matches!(d.get_severity(), Severity::Error | Severity::Fatal))
-            .map(|d| d.get_text())
+            .map(|d| {
+                let loc = d.get_location().get_file_location();
+                let file = loc
+                    .file
+                    .map(|f| f.get_path().to_string_lossy().into_owned())
+                    .unwrap_or_default();
+                let line = loc.line;
+                let col = loc.column;
+                format!("error: {}\n --> {file}:{line}:{col}", d.get_text())
+            })
             .collect();
         if !errors.is_empty() {
             return Err(errors.join("\n"));
