@@ -763,6 +763,25 @@ mod Test {
 }
 
 #[test]
+#[should_panic(
+    expected = "error: property cannot have both `#[get]` and `#[set]` attributes\n --> .rdl:7:9"
+)]
+fn property_get_and_set_errors() {
+    should_panic(
+        r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        #[get]
+        #[set]
+        Value: i32;
+    }
+}
+        "#,
+    );
+}
+
+#[test]
 #[should_panic(expected = "error: WinRT types cannot refer to non-WinRT types\n --> .rdl:5:12")]
 fn winrt_struct_field_non_winrt_type_errors() {
     should_panic(
@@ -798,6 +817,24 @@ mod Test {
 }
 "#,
     )
+}
+
+#[test]
+#[should_panic(
+    expected = "error: only `#[get]` and `#[set]` attributes are supported on properties\n --> .rdl:5:9"
+)]
+fn property_unknown_attr_errors() {
+    should_panic(
+        r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        #[special]
+        Value: i32;
+    }
+}
+        "#,
+    );
 }
 
 #[test]
