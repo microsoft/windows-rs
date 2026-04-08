@@ -10,10 +10,11 @@ impl<'a, T: Type<T>> Ref<'a, T> {
     ///
     /// # Safety
     ///
-    /// The caller must ensure that `abi` points to a valid `T::Abi` value for the duration of the returned reference.
+    /// The caller must ensure that `abi` contains a valid COM interface pointer (potentially null)
+    /// whose vtable and data remain valid for the duration of the returned reference `'a`.
     #[doc(hidden)]
     pub unsafe fn option_from_abi(abi: &'a T::Abi) -> Option<&'a T> {
-        let ref_: &'a Self = unsafe { &*(abi as *const T::Abi as *const Self) };
+        let ref_: &'a Self = unsafe { &*core::ptr::from_ref(abi).cast::<Self>() };
         ref_.as_ref()
     }
 }

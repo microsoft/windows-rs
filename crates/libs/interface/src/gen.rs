@@ -426,6 +426,8 @@ impl InterfaceMethod {
                         let generic_ident = quote::format_ident!("P{generic_index}");
                         Some(quote! { #generic_ident: ::windows_core::Param<#ty> })
                     } else {
+                        // OutRef<T> params use a concrete type in the caller signature rather than
+                        // a generic, so no generic constraint is needed here.
                         None
                     }
                 } else {

@@ -46,8 +46,11 @@ impl Method {
                 } else if param.is_primitive(reader) {
                     quote! { #name }
                 } else if param.is_const_ref() {
+                    // Const-ref params (structs, value types) are passed by transmute_copy.
                     quote! { core::mem::transmute_copy(&#name) }
                 } else if param.is_interface() || matches!(&param.ty, Type::Generic(_)) {
+                    // Interface and generic params are converted to Option<&T> for the safe _Impl
+                    // trait signature. option_from_abi handles the ABI null check.
                     quote! { windows_core::Ref::option_from_abi(&#name) }
                 } else {
                     quote! { core::mem::transmute(&#name) }
