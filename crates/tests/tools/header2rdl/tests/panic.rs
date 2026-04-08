@@ -4,8 +4,7 @@ static COUNTER: AtomicU32 = AtomicU32::new(0);
 /// Write `contents` to a temporary header file and return its path.
 fn temp_header(contents: &str) -> std::path::PathBuf {
     let n = COUNTER.fetch_add(1, Ordering::Relaxed);
-    let path = std::env::temp_dir()
-        .join(format!("header2rdl_panic_{}_{n}.h", std::process::id()));
+    let path = std::env::temp_dir().join(format!("header2rdl_panic_{}_{n}.h", std::process::id()));
     std::fs::write(&path, contents).unwrap();
     path
 }
