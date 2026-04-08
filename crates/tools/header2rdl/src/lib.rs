@@ -226,7 +226,8 @@ fn generate(c: &Converter) -> Result<String, String> {
                     .file
                     .map(|f| {
                         // Normalize the path: collect components to remove any redundant
-                        // separators that libclang sometimes produces (e.g. `dir\\file`).
+                        // separators that libclang sometimes produces on Windows
+                        // (e.g. `C:\Windows Kits\10\\include\...`).
                         let normalized: std::path::PathBuf = f.get_path().components().collect();
                         normalized.to_string_lossy().into_owned()
                     })
