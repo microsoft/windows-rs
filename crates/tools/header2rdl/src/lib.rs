@@ -451,7 +451,11 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
     }
 
     // Nested types must be emitted before the type that references them.
-    nested.push(RdlStruct { name, is_union, fields });
+    nested.push(RdlStruct {
+        name,
+        is_union,
+        fields,
+    });
     Some(nested)
 }
 
