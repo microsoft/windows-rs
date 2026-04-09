@@ -6,7 +6,8 @@
 /// simply run this test and commit the result.
 ///
 /// A `tests/<name>.h.args` sidecar file may supply extra options
-/// (whitespace-separated): supported tokens are `--cpp` and `--library NAME`.
+/// (whitespace-separated): supported tokens are `--cpp`, `--library NAME`,
+/// and `--include PATH` (resolved relative to the `tests/` directory).
 /// All tests use `namespace("Test")` by default.
 #[test]
 fn convert() {
@@ -48,6 +49,12 @@ fn convert() {
                             panic!("`--library` requires a name in {}", sidecar.display())
                         });
                         c.library(name);
+                    }
+                    "--include" => {
+                        let path = tokens.next().unwrap_or_else(|| {
+                            panic!("`--include` requires a path in {}", sidecar.display())
+                        });
+                        c.include(tests_dir.join(path));
                     }
                     other => panic!(
                         "unrecognised sidecar token `{other}` in {}",

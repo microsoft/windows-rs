@@ -1,21 +1,13 @@
-/* Self-contained test exercising the MIDL-generated COM interface pattern.
+/* Test exercising the MIDL-generated COM interface pattern against the
+ * Windows SDK macro conventions.
  *
- * Real MIDL headers (e.g. WebView2.h) use the same conventions: forward
- * declarations via `typedef struct X X;` followed by interface definitions
- * via the MIDL_INTERFACE() macro.  Define the necessary macros inline here so
- * the test does not require the Windows SDK.
+ * The definitions of MIDL_INTERFACE, STDMETHOD, STDMETHOD_, PURE and IUnknown
+ * are pulled in from <windows.h>.  In the test suite this resolves to the
+ * lightweight shim at tests/include/windows.h, which is added to the include
+ * path via the `--include include` sidecar option in midl.h.args.
  */
 
-#define MIDL_INTERFACE(x) struct __declspec(uuid(x))
-#define STDMETHOD(m) virtual long __stdcall m
-#define STDMETHOD_(t, m) virtual t __stdcall m
-#define PURE = 0
-
-struct IUnknown {
-    virtual long QueryInterface(const void* riid, void** ppv) = 0;
-    virtual unsigned long AddRef(void) = 0;
-    virtual unsigned long Release(void) = 0;
-};
+#include <windows.h>
 
 /* Forward declarations (the pattern used by MIDL-generated headers).
  * These must not poison the `seen` set and block the actual definitions. */
