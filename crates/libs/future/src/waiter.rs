@@ -5,11 +5,11 @@ pub struct WaiterSignaler(HANDLE);
 unsafe impl Send for WaiterSignaler {}
 
 impl Waiter {
-    pub fn new() -> crate::Result<(Self, WaiterSignaler)> {
+    pub fn new() -> Result<(Self, WaiterSignaler)> {
         unsafe {
             let handle = CreateEventW(core::ptr::null(), 1, 0, core::ptr::null());
             if handle.is_null() {
-                Err(crate::Error::from_thread())
+                Err(Error::from_thread())
             } else {
                 Ok((Self(handle), WaiterSignaler(handle)))
             }

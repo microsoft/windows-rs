@@ -95,7 +95,7 @@ impl IInspectable_Vtbl {
 
                 #[cfg(not(windows))]
                 {
-                    *value = core::ptr::null_mut();
+                    *value = null_mut();
                 }
 
                 HRESULT(0)

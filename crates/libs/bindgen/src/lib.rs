@@ -757,7 +757,7 @@ where
                 expand = false;
             }
             if expand {
-                for args in io::read_file_lines(&arg) {
+                for args in read_file_lines(&arg) {
                     if !args.starts_with("//") {
                         from_string(result, &args);
                     }
