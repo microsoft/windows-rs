@@ -18,19 +18,19 @@ Marshal.ThrowExceptionForHR(CreateRobotFromHandle(0x1c8, out IntPtr handyAbi));
 var handyRobot = MarshalInspectable<Robot>.FromAbi(handyAbi);
 handyRobot.Speak("Hello handy");
 
-// CsWinRT projected classes support COM QI, so casting to a ComImport interface
-// performs a QueryInterface on the underlying COM object.
-var interop = (IRobotInterop)handyRobot;
-var handle = interop.Handle();
+// CsWinRT's ComWrappers projects all IInspectable pointers as WinRT types, so casting
+// a projected class to a [ComImport] interface doesn't compile.  Instead, QueryInterface
+// the raw ABI pointer directly and invoke Handle() through the COM vtable.
+Guid iid = new Guid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed");
+Marshal.ThrowExceptionForHR(Marshal.QueryInterface(handyAbi, ref iid, out IntPtr interopPtr));
+nint vtable = Marshal.ReadIntPtr(interopPtr);
+nint handleFnPtr = Marshal.ReadIntPtr(vtable + 3 * IntPtr.Size);
+nint handle = Marshal.GetDelegateForFunctionPointer<HandleFunc>(handleFnPtr)(interopPtr);
+Marshal.Release(interopPtr);
 Console.WriteLine($"interop handle: 0x{handle:x}");
 
-// IRobotInterop is a COM interface (not WinRT), so we declare it with ComImport
-// and obtain it via a COM QI cast from the projected Robot object.
+// HandleFunc matches IRobotInterop::Handle() — vtable slot 3 after
+// QueryInterface/AddRef/Release from IUnknown.
 // Type declarations must follow all top-level statements in C#.
-[ComImport]
-[Guid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed")]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-interface IRobotInterop
-{
-    nint Handle();
-}
+[UnmanagedFunctionPointer(CallingConvention.StdCall)]
+delegate nint HandleFunc(IntPtr self);
