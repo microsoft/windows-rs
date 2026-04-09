@@ -83,7 +83,7 @@ impl Key {
     pub fn set_hstring<T: AsRef<str>>(
         &self,
         name: T,
-        value: &windows_strings::HSTRING,
+        value: &HSTRING,
     ) -> Result<()> {
         self.set_bytes(name, Type::String, as_bytes(value))
     }
@@ -97,7 +97,7 @@ impl Key {
     pub fn set_expand_hstring<T: AsRef<str>>(
         &self,
         name: T,
-        value: &windows_strings::HSTRING,
+        value: &HSTRING,
     ) -> Result<()> {
         self.set_bytes(name, Type::ExpandString, as_bytes(value))
     }
@@ -226,7 +226,7 @@ impl Key {
                 name.as_ref().as_ptr(),
                 null(),
                 &mut ty,
-                core::ptr::null_mut(),
+                null_mut(),
                 &mut len,
             )
         };

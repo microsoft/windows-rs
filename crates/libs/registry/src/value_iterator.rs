@@ -57,7 +57,7 @@ impl Iterator for ValueIterator<'_> {
                     index as u32,
                     self.name.as_mut_ptr(),
                     &mut name_len,
-                    core::ptr::null(),
+                    null(),
                     &mut ty,
                     self.data.as_mut_ptr(),
                     &mut data_len,

@@ -87,7 +87,7 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
         // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
         // automatically so that it "just works" for apartment-agnostic code.
         if code == CO_E_NOTINITIALIZED {
-            let mut cookie = core::ptr::null_mut();
+            let mut cookie = null_mut();
             CoIncrementMTAUsage(&mut cookie);
 
             // Now try a second time to get the activation factory via the OS.
@@ -159,7 +159,7 @@ unsafe fn delay_load<T>(library: crate::PCSTR, function: crate::PCSTR) -> Option
     unsafe {
         let library = LoadLibraryExA(
             library.0,
-            core::ptr::null_mut(),
+            null_mut(),
             LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
         );
 
@@ -170,7 +170,7 @@ unsafe fn delay_load<T>(library: crate::PCSTR, function: crate::PCSTR) -> Option
         let address = GetProcAddress(library, function.0);
 
         if address.is_some() {
-            return Some(core::mem::transmute_copy(&address));
+            return Some(transmute_copy(&address));
         }
 
         FreeLibrary(library);
