@@ -80,11 +80,7 @@ impl Key {
     }
 
     /// Sets the name and value in the registry key.
-    pub fn set_hstring<T: AsRef<str>>(
-        &self,
-        name: T,
-        value: &windows_strings::HSTRING,
-    ) -> Result<()> {
+    pub fn set_hstring<T: AsRef<str>>(&self, name: T, value: &HSTRING) -> Result<()> {
         self.set_bytes(name, Type::String, as_bytes(value))
     }
 
@@ -94,11 +90,7 @@ impl Key {
     }
 
     /// Sets the name and value in the registry key.
-    pub fn set_expand_hstring<T: AsRef<str>>(
-        &self,
-        name: T,
-        value: &windows_strings::HSTRING,
-    ) -> Result<()> {
+    pub fn set_expand_hstring<T: AsRef<str>>(&self, name: T, value: &HSTRING) -> Result<()> {
         self.set_bytes(name, Type::ExpandString, as_bytes(value))
     }
 
@@ -226,7 +218,7 @@ impl Key {
                 name.as_ref().as_ptr(),
                 null(),
                 &mut ty,
-                core::ptr::null_mut(),
+                null_mut(),
                 &mut len,
             )
         };

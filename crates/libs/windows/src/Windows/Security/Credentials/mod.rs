@@ -10,7 +10,7 @@ impl windows_core::RuntimeType for AttestationChallengeHandler {
 impl AttestationChallengeHandler {
     pub fn new<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<super::super::Storage::Streams::IBuffer> + Send + 'static>(invoke: F) -> Self {
         let com = AttestationChallengeHandlerBox { vtable: &AttestationChallengeHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, challenge: P0) -> windows_core::Result<super::super::Storage::Streams::IBuffer>
     where
@@ -73,7 +73,7 @@ impl<F: Fn(windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> window
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             let remaining = (*this).count.release();
             if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
+                let _ = Box::from_raw(this);
             }
             remaining
         }

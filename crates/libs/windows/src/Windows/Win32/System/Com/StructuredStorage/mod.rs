@@ -1918,7 +1918,7 @@ impl<T: IMemoryAllocator_Impl> IMemoryAllocator_ImplVtbl<T> {
 impl IMemoryAllocator {
     pub fn new<'a, T: IMemoryAllocator_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IMemoryAllocator_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(windows_core::imp::Box::new(this));
+        let this = core::mem::ManuallyDrop::new(Box::new(this));
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }

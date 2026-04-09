@@ -615,7 +615,7 @@ impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
 impl ApplicationDataSetVersionHandler {
     pub fn new<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ApplicationDataSetVersionHandlerBox { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, setversionrequest: P0) -> windows_core::Result<()>
     where
@@ -672,7 +672,7 @@ impl<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + S
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             let remaining = (*this).count.release();
             if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
+                let _ = Box::from_raw(this);
             }
             remaining
         }
@@ -5696,7 +5696,7 @@ impl windows_core::RuntimeType for StreamedFileDataRequestedHandler {
 impl StreamedFileDataRequestedHandler {
     pub fn new<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = StreamedFileDataRequestedHandlerBox { vtable: &StreamedFileDataRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, stream: P0) -> windows_core::Result<()>
     where
@@ -5756,7 +5756,7 @@ impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<(
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             let remaining = (*this).count.release();
             if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
+                let _ = Box::from_raw(this);
             }
             remaining
         }

@@ -63,7 +63,7 @@ fn write_members(
     let count = methods.len();
     let mut consumed = vec![false; count];
     let mut tokens = Vec::with_capacity(count);
-    let event_kw = proc_macro2::Ident::new("event", proc_macro2::Span::call_site());
+    let event_kw = Ident::new("event", Span::call_site());
 
     for i in 0..count {
         if consumed[i] {

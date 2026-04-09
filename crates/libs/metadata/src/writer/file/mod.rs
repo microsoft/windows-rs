@@ -18,14 +18,14 @@ pub struct File {
     strings: Strings,
     blobs: Blobs,
     records: rec::Records,
-    reference: Option<crate::reader::TypeIndex>,
+    reference: Option<reader::TypeIndex>,
 
     // Indexes for fast lookup of preexisting rows.
-    TypeRef: HashMap<String, HashMap<String, id::TypeRef>>,
-    TypeSpec: HashMap<id::BlobId, id::TypeSpec>,
-    AssemblyRef: HashMap<String, id::AssemblyRef>,
-    ModuleRef: HashMap<String, id::ModuleRef>,
-    MemberRef: HashMap<rec::MemberRef, id::MemberRef>,
+    TypeRef: HashMap<String, HashMap<String, TypeRef>>,
+    TypeSpec: HashMap<BlobId, TypeSpec>,
+    AssemblyRef: HashMap<String, AssemblyRef>,
+    ModuleRef: HashMap<String, ModuleRef>,
+    MemberRef: HashMap<rec::MemberRef, MemberRef>,
 
     // Staging for sorted rows before these records can be written. BTreeMap is used rather than HashMap to allow reproducible builds.
     Constant: BTreeMap<HasConstant, rec::Constant>,
@@ -68,21 +68,21 @@ impl File {
 
     /// Sets the reference `TypeIndex` used to resolve whether a `TypeRef` refers to a type
     /// defined locally in this file or in an external assembly.
-    pub fn set_reference(&mut self, reference: crate::reader::TypeIndex) {
+    pub fn set_reference(&mut self, reference: reader::TypeIndex) {
         self.reference = Some(reference);
     }
 
     /// Returns the reference `TypeIndex`, if one has been set via [`Self::set_reference`].
-    pub fn reference(&self) -> Option<&crate::reader::TypeIndex> {
+    pub fn reference(&self) -> Option<&reader::TypeIndex> {
         self.reference.as_ref()
     }
 
-    fn ModuleRef(&mut self, name: &str) -> id::ModuleRef {
+    fn ModuleRef(&mut self, name: &str) -> ModuleRef {
         if let Some(pos) = self.ModuleRef.get(name) {
             return *pos;
         }
 
-        let pos = id::ModuleRef(self.records.ModuleRef.push_pos(rec::ModuleRef {
+        let pos = ModuleRef(self.records.ModuleRef.push_pos(rec::ModuleRef {
             Name: self.strings.insert(name),
         }));
 
@@ -92,7 +92,7 @@ impl File {
 
     pub fn ImplMap(
         &mut self,
-        method: id::MethodDef,
+        method: MethodDef,
         flags: PInvokeAttributes,
         import_name: &str,
         import_scope: &str,
@@ -108,12 +108,12 @@ impl File {
     }
 
     /// Adds an `AssemblyRef` row for the given assembly name, returning the row offset.
-    fn AssemblyRef(&mut self, assembly_name: &str) -> id::AssemblyRef {
+    fn AssemblyRef(&mut self, assembly_name: &str) -> AssemblyRef {
         if let Some(pos) = self.AssemblyRef.get(assembly_name) {
             return *pos;
         }
 
-        let pos = id::AssemblyRef(if assembly_name == "System" {
+        let pos = AssemblyRef(if assembly_name == "System" {
             self.records.AssemblyRef.push_pos(rec::AssemblyRef {
                 Name: self.strings.insert("mscorlib"),
                 MajorVersion: 4,
@@ -145,8 +145,8 @@ impl File {
         name: &str,
         extends: TypeDefOrRef,
         flags: TypeAttributes,
-    ) -> id::TypeDef {
-        id::TypeDef(self.records.TypeDef.push_pos(rec::TypeDef {
+    ) -> TypeDef {
+        TypeDef(self.records.TypeDef.push_pos(rec::TypeDef {
             TypeName: self.strings.insert(name),
             TypeNamespace: self.strings.insert(namespace),
             Flags: flags,
@@ -157,7 +157,7 @@ impl File {
     }
 
     /// Adds a `TypeRef` row to the file, returning the row offset.
-    pub fn TypeRef(&mut self, namespace: &str, name: &str) -> id::TypeRef {
+    pub fn TypeRef(&mut self, namespace: &str, name: &str) -> TypeRef {
         if let Some(key) = self.TypeRef.get(namespace) {
             if let Some(pos) = key.get(name) {
                 return *pos;
@@ -166,7 +166,7 @@ impl File {
 
         let pos = if let Some((parent, leaf)) = name.rsplit_once('/') {
             let enclosing = self.TypeRef(namespace, parent);
-            id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
+            TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
                 TypeName: self.strings.insert(leaf),
                 TypeNamespace: self.strings.insert(""),
                 ResolutionScope: ResolutionScope::TypeRef(enclosing),
@@ -183,10 +183,10 @@ impl File {
             } else if namespace == "System" {
                 ResolutionScope::AssemblyRef(self.AssemblyRef("System"))
             } else {
-                ResolutionScope::Module(id::Module(0))
+                ResolutionScope::Module(Module(0))
             };
 
-            id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
+            TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
                 TypeName: self.strings.insert(name),
                 TypeNamespace: self.strings.insert(namespace),
                 ResolutionScope: scope,
@@ -201,7 +201,7 @@ impl File {
         pos
     }
 
-    pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> id::TypeSpec {
+    pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> TypeSpec {
         debug_assert!(!generics.is_empty());
         // Generic type references use the backtick-suffix convention per ECMA-335 §II.10.7.2.
         let name = format!("{name}`{}", generics.len());
@@ -223,7 +223,7 @@ impl File {
             return *pos;
         }
 
-        let pos = id::TypeSpec(self.records.TypeSpec.push_pos(rec::TypeSpec {
+        let pos = TypeSpec(self.records.TypeSpec.push_pos(rec::TypeSpec {
             Signature: signature,
         }));
         self.TypeSpec.insert(signature, pos);
@@ -231,10 +231,10 @@ impl File {
     }
 
     /// Adds a `Field` row to the file, returning the row offset.
-    pub fn Field(&mut self, name: &str, ty: &Type, flags: FieldAttributes) -> id::Field {
+    pub fn Field(&mut self, name: &str, ty: &Type, flags: FieldAttributes) -> Field {
         let signature = self.FieldSig(ty);
 
-        id::Field(self.records.Field.push_pos(rec::Field {
+        Field(self.records.Field.push_pos(rec::Field {
             Name: self.strings.insert(name),
             Flags: flags,
             Signature: signature,
@@ -248,10 +248,10 @@ impl File {
         signature: &Signature,
         flags: MethodAttributes,
         impl_flags: MethodImplAttributes,
-    ) -> id::MethodDef {
+    ) -> MethodDef {
         let signature = self.MethodDefSig(signature);
 
-        id::MethodDef(self.records.MethodDef.push_pos(rec::MethodDef {
+        MethodDef(self.records.MethodDef.push_pos(rec::MethodDef {
             RVA: 0,
             ImplFlags: impl_flags,
             Flags: flags,
@@ -266,7 +266,7 @@ impl File {
         name: &str,
         signature: &Signature,
         parent: MemberRefParent,
-    ) -> id::MemberRef {
+    ) -> MemberRef {
         let signature = self.MethodDefSig(signature);
 
         let record = rec::MemberRef {
@@ -279,14 +279,14 @@ impl File {
             return *pos;
         }
 
-        let pos = id::MemberRef(self.records.MemberRef.push_pos(record));
+        let pos = MemberRef(self.records.MemberRef.push_pos(record));
         self.MemberRef.insert(record, pos);
         pos
     }
 
     /// Adds a `Param` row to the file, returning the row offset.
-    pub fn Param(&mut self, name: &str, sequence: u16, flags: ParamAttributes) -> id::Param {
-        id::Param(self.records.Param.push_pos(rec::Param {
+    pub fn Param(&mut self, name: &str, sequence: u16, flags: ParamAttributes) -> Param {
+        Param(self.records.Param.push_pos(rec::Param {
             Flags: flags,
             Sequence: sequence,
             Name: self.strings.insert(name),
@@ -344,7 +344,7 @@ impl File {
             });
     }
 
-    pub fn ClassLayout(&mut self, parent: id::TypeDef, packing_size: u16, class_size: u32) {
+    pub fn ClassLayout(&mut self, parent: TypeDef, packing_size: u16, class_size: u32) {
         self.records.ClassLayout.push(rec::ClassLayout {
             PackingSize: packing_size,
             ClassSize: class_size,
@@ -352,14 +352,14 @@ impl File {
         })
     }
 
-    pub fn FieldLayout(&mut self, field: id::Field, offset: u32) {
+    pub fn FieldLayout(&mut self, field: Field, offset: u32) {
         self.records.FieldLayout.push(rec::FieldLayout {
             Offset: offset,
             Field: field.0,
         })
     }
 
-    pub fn NestedClass(&mut self, inner: id::TypeDef, outer: id::TypeDef) {
+    pub fn NestedClass(&mut self, inner: TypeDef, outer: TypeDef) {
         debug_assert!(inner.0 > outer.0);
 
         self.records.NestedClass.push(rec::NestedClass {
@@ -368,7 +368,7 @@ impl File {
         })
     }
 
-    pub fn InterfaceImpl(&mut self, class: id::TypeDef, interface: &Type) -> id::InterfaceImpl {
+    pub fn InterfaceImpl(&mut self, class: TypeDef, interface: &Type) -> InterfaceImpl {
         let Type::ClassName(interface) = interface else {
             panic!("invalid interface type");
         };
@@ -383,7 +383,7 @@ impl File {
             ))
         };
 
-        id::InterfaceImpl(self.records.InterfaceImpl.push_pos(rec::InterfaceImpl {
+        InterfaceImpl(self.records.InterfaceImpl.push_pos(rec::InterfaceImpl {
             Class: class,
             Interface: interface,
         }))
@@ -505,14 +505,14 @@ impl File {
     }
 
     /// Writes the `Type` into a `FileSig` buffer and stores it in the file, returning the blob offset.
-    fn FieldSig(&mut self, ty: &Type) -> id::BlobId {
+    fn FieldSig(&mut self, ty: &Type) -> BlobId {
         let mut buffer = vec![0x6]; // FIELD
         self.Type(ty, &mut buffer);
         self.blobs.insert(&buffer)
     }
 
     /// Writes the method signature into a `MethodDefSig` buffer and stores it in the file, returning the blob offset.
-    fn MethodDefSig(&mut self, signature: &Signature) -> id::BlobId {
+    fn MethodDefSig(&mut self, signature: &Signature) -> BlobId {
         let mut buffer = vec![signature.flags.0];
         buffer.write_compressed(signature.types.len());
         self.Type(&signature.return_type, &mut buffer);
@@ -524,13 +524,13 @@ impl File {
         self.blobs.insert(&buffer)
     }
 
-    fn ConstantValue(&mut self, value: &Value) -> id::BlobId {
+    fn ConstantValue(&mut self, value: &Value) -> BlobId {
         let mut buffer = vec![];
         buffer.write_value(value);
         self.blobs.insert(&buffer)
     }
 
-    fn AttributeValue(&mut self, values: &[(String, Value)]) -> id::BlobId {
+    fn AttributeValue(&mut self, values: &[(String, Value)]) -> BlobId {
         let mut buffer = vec![];
         buffer.write_u16(1); // prolog
 

@@ -208,7 +208,7 @@ fn write_type(
     }
 }
 
-fn write_attributes<'a, R: reader::HasAttributes<'a>>(
+fn write_attributes<'a, R: HasAttributes<'a>>(
     writer: &mut writer::File,
     parent: writer::HasAttribute,
     row: R,

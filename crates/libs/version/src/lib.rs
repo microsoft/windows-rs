@@ -95,7 +95,7 @@ pub fn revision() -> u32 {
 impl OSVERSIONINFOEXW {
     fn new() -> Self {
         Self {
-            dwOSVersionInfoSize: core::mem::size_of::<Self>() as u32,
+            dwOSVersionInfoSize: size_of::<Self>() as u32,
             ..Default::default()
         }
     }

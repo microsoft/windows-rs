@@ -25,7 +25,7 @@ impl<T: Type<T>> Array<T> {
     pub fn with_len(len: usize) -> Self {
         assert!(len < u32::MAX as usize);
         let bytes_amount = len
-            .checked_mul(core::mem::size_of::<T>())
+            .checked_mul(size_of::<T>())
             .expect("Attempted to allocate too large an Array");
 
         // WinRT arrays must be allocated with CoTaskMemAlloc.

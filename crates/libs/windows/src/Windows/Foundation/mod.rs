@@ -64,7 +64,7 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
 impl DeferralCompletedHandler {
     pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeferralCompletedHandlerBox { vtable: &DeferralCompletedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
@@ -118,7 +118,7 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHand
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             let remaining = (*this).count.release();
             if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
+                let _ = Box::from_raw(this);
             }
             remaining
         }
@@ -145,7 +145,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = EventHandlerBox { vtable: &EventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -214,7 +214,7 @@ impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<windows_cor
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             let remaining = (*this).count.release();
             if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
+                let _ = Box::from_raw(this);
             }
             remaining
         }
@@ -2466,7 +2466,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
 impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
     pub fn new<F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TypedEventHandlerBox { vtable: &TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+        unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
     where
@@ -2539,7 +2539,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             let remaining = (*this).count.release();
             if remaining == 0 {
-                let _ = windows_core::imp::Box::from_raw(this);
+                let _ = Box::from_raw(this);
             }
             remaining
         }

@@ -382,7 +382,7 @@ where
     }
 }
 
-impl<T> core::ops::Deref for StaticComObject<T>
+impl<T> Deref for StaticComObject<T>
 where
     T: ComObjectInner,
 {

@@ -81,7 +81,7 @@ impl Clone for BSTR {
 
 impl From<&str> for BSTR {
     fn from(value: &str) -> Self {
-        let value: alloc::vec::Vec<u16> = value.encode_utf16().collect();
+        let value: Vec<u16> = value.encode_utf16().collect();
         Self::from_wide(&value)
     }
 }
@@ -101,7 +101,7 @@ impl From<&String> for BSTR {
 impl TryFrom<&BSTR> for String {
     type Error = alloc::string::FromUtf16Error;
 
-    fn try_from(value: &BSTR) -> core::result::Result<Self, Self::Error> {
+    fn try_from(value: &BSTR) -> Result<Self, Self::Error> {
         Self::from_utf16(value)
     }
 }
@@ -109,7 +109,7 @@ impl TryFrom<&BSTR> for String {
 impl TryFrom<BSTR> for String {
     type Error = alloc::string::FromUtf16Error;
 
-    fn try_from(value: BSTR) -> core::result::Result<Self, Self::Error> {
+    fn try_from(value: BSTR) -> Result<Self, Self::Error> {
         Self::try_from(&value)
     }
 }

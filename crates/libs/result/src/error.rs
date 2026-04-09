@@ -274,7 +274,7 @@ mod error_info {
         pub(crate) fn from_thread() -> Self {
             unsafe {
                 let mut ptr = core::mem::MaybeUninit::zeroed();
-                crate::bindings::GetErrorInfo(0, ptr.as_mut_ptr() as *mut _);
+                GetErrorInfo(0, ptr.as_mut_ptr() as *mut _);
                 Self {
                     ptr: ptr.assume_init(),
                 }
@@ -284,7 +284,7 @@ mod error_info {
         pub(crate) fn into_thread(self) {
             if let Some(ptr) = self.ptr {
                 unsafe {
-                    crate::bindings::SetErrorInfo(0, ptr.as_raw());
+                    SetErrorInfo(0, ptr.as_raw());
                 }
             }
         }

@@ -265,14 +265,14 @@ impl From<IDispatch> for VARIANT {
 }
 
 impl TryFrom<&VARIANT> for IDispatch {
-    type Error = windows_core::Error;
-    fn try_from(from: &VARIANT) -> windows_core::Result<Self> {
+    type Error = Error;
+    fn try_from(from: &VARIANT) -> Result<Self> {
         unsafe {
             if from.Anonymous.Anonymous.vt == VT_DISPATCH && !from.Anonymous.Anonymous.Anonymous.pdispVal.is_none() {
                 let dispatch: &Self = transmute(&from.Anonymous.Anonymous.Anonymous.pdispVal);
                 Ok(dispatch.clone())
             } else {
-                Err(windows_core::Error::from_hresult(TYPE_E_TYPEMISMATCH))
+                Err(Error::from_hresult(TYPE_E_TYPEMISMATCH))
             }
         }
     }
