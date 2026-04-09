@@ -930,34 +930,3 @@ mod Test {
     )
 }
 
-#[test]
-#[should_panic(expected = "error: duplicate symbol\n --> .rdl:6:9")]
-fn property_duplicate_errors() {
-    should_panic(
-        r#"
-#[winrt]
-mod Test {
-    interface ITest {
-        foo: u32;
-        foo: u32;
-    }
-}
-        "#,
-    )
-}
-
-#[test]
-#[should_panic(expected = "error: duplicate symbol\n --> .rdl:6:12")]
-fn method_duplicate_errors() {
-    should_panic(
-        r#"
-#[winrt]
-mod Test {
-    interface ITest {
-        fn Method(&self);
-        fn Method(&self);
-    }
-}
-        "#,
-    )
-}

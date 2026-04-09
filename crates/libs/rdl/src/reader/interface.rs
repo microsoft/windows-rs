@@ -197,9 +197,6 @@ impl Encoder<'_> {
 
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
 
-        // Track method names within the interface to detect duplicate symbols.
-        let mut method_names: std::collections::HashSet<String> =
-            std::collections::HashSet::new();
         // Track getter-only and setter-only properties for type-consistency and
         // canonical-representation checks.  Each entry is (member_index, encoded_type).
         let mut getter_only: std::collections::HashMap<String, (usize, metadata::Type)> =
@@ -246,15 +243,9 @@ impl Encoder<'_> {
                         }
                     }
 
-                    // Check for duplicate method names.
-                    let name_str = method.sig.ident.to_string();
-                    if !method_names.insert(name_str.clone()) {
-                        return self.err(&method.sig.ident, "duplicate symbol");
-                    }
-
                     if !already_has_guid {
                         method_signatures.push((
-                            name_str,
+                            method.sig.ident.to_string(),
                             types.clone(),
                             return_type.clone(),
                         ));
@@ -358,9 +349,6 @@ impl Encoder<'_> {
 
                     if !is_set_only {
                         let get_name = format!("get_{}", prop.name);
-                        if !method_names.insert(get_name.clone()) {
-                            return self.err(&prop.name, "duplicate symbol");
-                        }
                         let signature = metadata::Signature {
                             flags: metadata::MethodCallAttributes::HASTHIS,
                             return_type: ty.clone(),
@@ -380,9 +368,6 @@ impl Encoder<'_> {
 
                     if !is_get_only {
                         let put_name = format!("put_{}", prop.name);
-                        if !method_names.insert(put_name.clone()) {
-                            return self.err(&prop.name, "duplicate symbol");
-                        }
                         let signature = metadata::Signature {
                             flags: metadata::MethodCallAttributes::HASTHIS,
                             return_type: metadata::Type::Void,
@@ -412,9 +397,6 @@ impl Encoder<'_> {
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
 
                     let add_name = format!("add_{}", evt.name);
-                    if !method_names.insert(add_name.clone()) {
-                        return self.err(&evt.name, "duplicate symbol");
-                    }
                     let add_signature = metadata::Signature {
                         flags: metadata::MethodCallAttributes::HASTHIS,
                         return_type: token_ty.clone(),
@@ -436,9 +418,6 @@ impl Encoder<'_> {
                     self.encode_simple_params(&[("handler", &handler_ty)])?;
 
                     let remove_name = format!("remove_{}", evt.name);
-                    if !method_names.insert(remove_name.clone()) {
-                        return self.err(&evt.name, "duplicate symbol");
-                    }
                     let remove_signature = metadata::Signature {
                         flags: metadata::MethodCallAttributes::HASTHIS,
                         return_type: metadata::Type::Void,
