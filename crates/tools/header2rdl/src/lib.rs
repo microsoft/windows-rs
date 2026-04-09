@@ -495,11 +495,10 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
             }
         }
 
-        collector.seen.insert(name.clone());
-        collector.typedefs.push(RdlTypedef { name, value });
-    } else {
-        collector.seen.insert(name.clone());
+        collector.typedefs.push(RdlTypedef { name: name.clone(), value });
     }
+
+    collector.seen.insert(name);
 }
 
 fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<RdlStruct>> {
