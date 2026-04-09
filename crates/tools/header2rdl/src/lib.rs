@@ -495,7 +495,10 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
             }
         }
 
-        collector.typedefs.push(RdlTypedef { name: name.clone(), value });
+        collector.typedefs.push(RdlTypedef {
+            name: name.clone(),
+            value,
+        });
     }
 
     collector.seen.insert(name);
