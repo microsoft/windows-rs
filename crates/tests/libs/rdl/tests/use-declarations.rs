@@ -1,5 +1,5 @@
-use windows_metadata::TypeAttributes;
 use windows_metadata::reader::TypeIndex;
+use windows_metadata::TypeAttributes;
 use windows_rdl::*;
 
 #[test]
