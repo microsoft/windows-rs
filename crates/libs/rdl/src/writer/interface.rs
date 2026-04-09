@@ -99,8 +99,7 @@ fn write_members(
                     // unconsumed methods between them).  Combining non-adjacent
                     // getter/setter pairs reorders vtable slots on round-trip,
                     // breaking the ABI contract.
-                    let adjacent = (i + 1..j).all(|k| consumed[k]);
-                    if no_attrs && put_no_attrs && adjacent {
+                    if no_attrs && put_no_attrs && (i + 1..j).all(|k| consumed[k]) {
                         let ty = write_type(namespace, &sig.return_type);
                         let prop_ident = write_ident(prop_name);
                         consumed[i] = true;
@@ -109,6 +108,9 @@ fn write_members(
                         continue;
                     }
                 }
+                // Either no matching put_ exists, or it cannot be combined (non-adjacent
+                // or has custom attributes).  Emit just the getter; when j is Some, the
+                // put_ method will be emitted separately when the loop reaches it.
                 if no_attrs {
                     let ty = write_type(namespace, &sig.return_type);
                     let prop_ident = write_ident(prop_name);
@@ -138,8 +140,7 @@ fn write_members(
                     let remove_no_attrs = methods[j].attributes().next().is_none();
                     // Only use event shorthand when remove_ immediately follows add_
                     // in vtable order; non-adjacent pairs must be preserved verbatim.
-                    let adjacent = (i + 1..j).all(|k| consumed[k]);
-                    if no_attrs && remove_no_attrs && adjacent {
+                    if no_attrs && remove_no_attrs && (i + 1..j).all(|k| consumed[k]) {
                         let sig = method.signature(generics);
                         if let Some(handler_ty) = sig.types.first() {
                             let handler_ty = write_type(namespace, handler_ty);
