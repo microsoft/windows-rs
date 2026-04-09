@@ -1,3 +1,5 @@
+use windows_metadata::TypeAttributes;
+use windows_metadata::reader::TypeIndex;
 use windows_rdl::*;
 
 #[test]
@@ -33,25 +35,39 @@ pub fn parse_with_reference() {
         .unwrap();
 }
 
+// Verify that `#[ExclusiveTo(Foo)]` written with a `use` glob import correctly suppresses
+// `TypeAttributes::Public` on the exclusive interface (while the class remains public).
 #[test]
 pub fn exclusive_to_with_use() {
     reader()
-        .input("tests/exclusive-to-use.rdl")
+        .input_str(
+            r#"
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Test {
+    class Foo {}
+    #[ExclusiveTo(Foo)]
+    interface IFoo {}
+}
+"#,
+        )
         .input("../../../libs/bindgen/default/Windows.winmd")
         .output("tests/exclusive-to-use.winmd")
         .write()
         .unwrap();
 
-    writer()
-        .input("tests/exclusive-to-use.winmd")
-        .output("tests/exclusive-to-use-out.rdl")
-        .filter("Test")
-        .write()
-        .unwrap();
+    let index = TypeIndex::read("tests/exclusive-to-use.winmd").expect("failed to read winmd");
 
-    let expected = std::fs::read_to_string("tests/exclusive-to-use-out.rdl").unwrap();
+    let foo = index.expect("Test", "Foo");
     assert!(
-        expected.contains("ExclusiveTo"),
-        "expected ExclusiveTo attribute in output"
+        foo.flags().contains(TypeAttributes::Public),
+        "class Foo should be Public"
+    );
+
+    let ifoo = index.expect("Test", "IFoo");
+    assert!(
+        !ifoo.flags().contains(TypeAttributes::Public),
+        "exclusive interface IFoo should not be Public"
     );
 }

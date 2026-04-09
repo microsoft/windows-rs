@@ -1,8 +1,0 @@
-use Windows::Foundation::Metadata::*;
-
-#[winrt]
-mod Test {
-    class Foo {}
-    #[ExclusiveTo(Foo)]
-    interface IFoo {}
-}
