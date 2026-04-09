@@ -22,7 +22,7 @@ handyRobot.Speak("Hello handy");
 // a projected class to a [ComImport] interface doesn't compile.  Instead, QueryInterface
 // the raw ABI pointer directly and invoke Handle() through the COM vtable.
 Guid iid = new Guid("ae60832b-0bc8-57b0-8a69-f82ebc1560ed");
-Marshal.ThrowExceptionForHR(Marshal.QueryInterface(handyAbi, ref iid, out IntPtr interopPtr));
+Marshal.ThrowExceptionForHR(Marshal.QueryInterface(handyAbi, iid, out IntPtr interopPtr));
 nint vtable = Marshal.ReadIntPtr(interopPtr);
 nint handleFnPtr = Marshal.ReadIntPtr(vtable + 3 * IntPtr.Size);
 nint handle = Marshal.GetDelegateForFunctionPointer<HandleFunc>(handleFnPtr)(interopPtr);
