@@ -120,9 +120,16 @@ impl syn::parse::Parse for Interface {
 
 impl Encoder<'_> {
     pub fn encode_interface(&mut self, item: &Interface) -> Result<(), Error> {
-        let mut flags = metadata::TypeAttributes::Public
-            | metadata::TypeAttributes::Abstract
-            | metadata::TypeAttributes::Interface;
+        let has_exclusive_to = item
+            .attrs
+            .iter()
+            .any(|attr| self.is_exclusive_to_attribute(attr));
+
+        let mut flags = metadata::TypeAttributes::Abstract | metadata::TypeAttributes::Interface;
+
+        if !has_exclusive_to {
+            flags |= metadata::TypeAttributes::Public;
+        }
 
         if item.winrt {
             flags |= metadata::TypeAttributes::WindowsRuntime;
