@@ -12,7 +12,7 @@ fn temp_header(contents: &str) -> std::path::PathBuf {
 fn should_panic(header: &str) {
     let path = temp_header(header);
     tool_header2rdl::converter()
-        .input(path.to_str().unwrap())
+        .file(&path)
         .namespace("Test")
         .convert()
         .unwrap();

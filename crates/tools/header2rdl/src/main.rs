@@ -29,7 +29,12 @@ fn cli_run(args: impl Iterator<Item = String>) -> Result<(), String> {
             }
             "--define" => {
                 idx += 1;
-                c.define(args.get(idx).ok_or("expected value for --define")?);
+                let d = args.get(idx).ok_or("expected value for --define")?;
+                if let Some(eq) = d.find('=') {
+                    c.define(&d[..eq], Some(&d[eq + 1..]));
+                } else {
+                    c.define(d, None);
+                }
             }
             "--arch" => {
                 idx += 1;
@@ -43,7 +48,7 @@ fn cli_run(args: impl Iterator<Item = String>) -> Result<(), String> {
                 c.split(true);
             }
             arg if !arg.starts_with('-') => {
-                c.input(arg);
+                c.file(arg);
             }
             arg => return Err(format!("unknown argument: {arg}")),
         }

@@ -30,7 +30,7 @@ fn convert() {
         let stem = h_path.file_stem().unwrap().to_string_lossy();
 
         let mut c = tool_header2rdl::converter();
-        c.input(h_path.to_str().unwrap()).namespace("Test");
+        c.file(h_path).namespace("Test");
 
         // Load optional sidecar options from `<name>.h.args`.
         let sidecar = h_path.with_extension("h.args");

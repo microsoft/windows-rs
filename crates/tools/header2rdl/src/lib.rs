@@ -4,7 +4,7 @@
 //!
 //! ```no_run
 //! tool_header2rdl::converter()
-//!     .input("widget.h")
+//!     .file("widget.h")
 //!     .namespace("Contoso.Widgets")
 //!     .library("contoso.dll")
 //!     .output("contoso.rdl")
@@ -19,6 +19,7 @@
 
 use clang::{diagnostic::Severity, Clang, Entity, EntityKind, Index, TypeKind};
 use std::collections::BTreeSet;
+use std::path::{Path, PathBuf};
 
 // ---------------------------------------------------------------------------
 // Public builder
@@ -36,14 +37,14 @@ pub fn converter() -> Converter {
 /// [`write`](Converter::write) to write directly to a file.
 #[derive(Default)]
 pub struct Converter {
-    inputs: Vec<String>,
+    files: Vec<PathBuf>,
     namespace: String,
     library: String,
     cpp: bool,
-    includes: Vec<String>,
-    defines: Vec<String>,
+    includes: Vec<PathBuf>,
+    defines: Vec<(String, Option<String>)>,
     arch: String,
-    output: String,
+    output: PathBuf,
     split: bool,
 }
 
@@ -57,19 +58,19 @@ impl Converter {
     }
 
     /// Add one input header file.
-    pub fn input(&mut self, input: &str) -> &mut Self {
-        self.inputs.push(input.to_string());
+    pub fn file<P: AsRef<Path>>(&mut self, file: P) -> &mut Self {
+        self.files.push(file.as_ref().into());
         self
     }
 
     /// Add multiple input header files.
-    pub fn inputs<I, S>(&mut self, inputs: I) -> &mut Self
+    pub fn files<I>(&mut self, files: I) -> &mut Self
     where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+        I: IntoIterator,
+        I::Item: AsRef<Path>,
     {
-        for input in inputs {
-            self.inputs.push(input.as_ref().to_string());
+        for f in files {
+            self.files.push(f.as_ref().into());
         }
         self
     }
@@ -97,15 +98,25 @@ impl Converter {
     }
 
     /// Add one extra include directory passed to clang as `-I<dir>`.
-    pub fn include(&mut self, include: &str) -> &mut Self {
-        self.includes.push(include.to_string());
+    pub fn include<P: AsRef<Path>>(&mut self, dir: P) -> &mut Self {
+        self.includes.push(dir.as_ref().into());
         self
     }
 
-    /// Add one preprocessor definition passed to clang as `-D<def>`.
-    /// The value may include `=value` (e.g. `"MY_DEFINE=1"`).
-    pub fn define(&mut self, define: &str) -> &mut Self {
-        self.defines.push(define.to_string());
+    /// Add a preprocessor definition passed to clang as `-D<var>` or `-D<var>=<val>`.
+    ///
+    /// ```no_run
+    /// tool_header2rdl::converter()
+    ///     .file("my.h")
+    ///     .namespace("My")
+    ///     .define("MY_FLAG", None)
+    ///     .define("MY_VALUE", "42")
+    ///     .write()
+    ///     .unwrap();
+    /// ```
+    pub fn define<'a, V: Into<Option<&'a str>>>(&mut self, var: &str, val: V) -> &mut Self {
+        self.defines
+            .push((var.to_string(), val.into().map(|v| v.to_string())));
         self
     }
 
@@ -117,8 +128,8 @@ impl Converter {
 
     /// Set the output file path (used by [`write`](Converter::write)).
     /// When [`split`](Converter::split) is `true` this is treated as a directory.
-    pub fn output(&mut self, output: &str) -> &mut Self {
-        self.output = output.to_string();
+    pub fn output<P: AsRef<Path>>(&mut self, output: P) -> &mut Self {
+        self.output = output.as_ref().into();
         self
     }
 
@@ -132,7 +143,7 @@ impl Converter {
 
     /// Parse the input headers and return the formatted RDL source string.
     pub fn convert(&self) -> Result<String, String> {
-        if self.inputs.is_empty() {
+        if self.files.is_empty() {
             return Err("no input files specified".into());
         }
         if self.namespace.is_empty() {
@@ -149,20 +160,20 @@ impl Converter {
         if self.split {
             let dir = &self.output;
             std::fs::create_dir_all(dir)
-                .map_err(|e| format!("failed to create directory `{dir}`: {e}"))?;
+                .map_err(|e| format!("failed to create directory `{}`: {e}", dir.display()))?;
             let filename = format!("{}.rdl", self.namespace);
-            let path = std::path::Path::new(dir).join(&filename);
+            let path = dir.join(&filename);
             std::fs::write(&path, &rdl)
                 .map_err(|e| format!("failed to write `{}`: {e}", path.display()))?;
         } else {
-            if let Some(parent) = std::path::Path::new(&self.output).parent() {
+            if let Some(parent) = self.output.parent() {
                 if !parent.as_os_str().is_empty() {
                     std::fs::create_dir_all(parent)
                         .map_err(|e| format!("failed to create parent directory: {e}"))?;
                 }
             }
             std::fs::write(&self.output, &rdl)
-                .map_err(|e| format!("failed to write `{}`: {e}", self.output))?;
+                .map_err(|e| format!("failed to write `{}`: {e}", self.output.display()))?;
         }
 
         Ok(())
@@ -194,10 +205,14 @@ fn generate(c: &Converter) -> Result<String, String> {
     ];
 
     for inc in &c.includes {
-        clang_args.push(format!("-I{inc}"));
+        clang_args.push(format!("-I{}", inc.to_string_lossy()));
     }
-    for def in &c.defines {
-        clang_args.push(format!("-D{def}"));
+    for (name, val) in &c.defines {
+        if let Some(v) = val {
+            clang_args.push(format!("-D{name}={v}"));
+        } else {
+            clang_args.push(format!("-D{name}"));
+        }
     }
 
     if c.cpp {
@@ -209,12 +224,13 @@ fn generate(c: &Converter) -> Result<String, String> {
     let clang_arg_refs: Vec<&str> = clang_args.iter().map(String::as_str).collect();
     let mut collector = Collector::new(c.cpp);
 
-    for input in &c.inputs {
+    for input in &c.files {
+        let input_str = input.to_string_lossy();
         let tu = index
-            .parser(input.as_str())
+            .parser(&*input_str)
             .arguments(&clang_arg_refs)
             .parse()
-            .map_err(|_| format!("failed to parse `{input}`"))?;
+            .map_err(|_| format!("failed to parse `{}`", input.display()))?;
 
         let errors: Vec<String> = tu
             .get_diagnostics()
@@ -227,9 +243,12 @@ fn generate(c: &Converter) -> Result<String, String> {
                     .map(|f| {
                         // Normalize the path: collect components to remove any redundant
                         // separators that libclang sometimes produces on Windows
-                        // (e.g. `C:\Windows Kits\10\\include\...`).
-                        let normalized: std::path::PathBuf = f.get_path().components().collect();
-                        normalized.to_string_lossy().into_owned()
+                        // (e.g. `C:\Windows Kits\10\\include\...`), then convert to
+                        // forward slashes so that VS Code terminal link detection works
+                        // correctly even for paths containing spaces
+                        // (e.g. `C:\Program Files (x86)\...`).
+                        let normalized: PathBuf = f.get_path().components().collect();
+                        normalized.to_string_lossy().replace('\\', "/")
                     })
                     .unwrap_or_default();
                 let line = loc.line;
