@@ -7,7 +7,8 @@
 ///
 /// A `tests/<name>.h.args` sidecar file may supply extra options
 /// (whitespace-separated): supported tokens are `--cpp`, `--library NAME`,
-/// and `--include PATH` (resolved relative to the `tests/` directory).
+/// `--include PATH` (resolved relative to the `tests/` directory), and
+/// `--windows-only` (skip the test on non-Windows platforms).
 /// All tests use `namespace("Test")` by default.
 #[test]
 fn convert() {
@@ -35,6 +36,7 @@ fn convert() {
 
         // Load optional sidecar options from `<name>.h.args`.
         let sidecar = h_path.with_extension("h.args");
+        let mut windows_only = false;
         if sidecar.exists() {
             let content = std::fs::read_to_string(&sidecar)
                 .unwrap_or_else(|e| panic!("failed to read {}: {e}", sidecar.display()));
@@ -56,12 +58,19 @@ fn convert() {
                         });
                         c.include(tests_dir.join(path));
                     }
+                    "--windows-only" => {
+                        windows_only = true;
+                    }
                     other => panic!(
                         "unrecognised sidecar token `{other}` in {}",
                         sidecar.display()
                     ),
                 }
             }
+        }
+
+        if windows_only && !cfg!(target_os = "windows") {
+            continue;
         }
 
         let rdl = c

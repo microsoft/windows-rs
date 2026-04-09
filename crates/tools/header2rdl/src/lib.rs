@@ -207,6 +207,20 @@ fn generate(c: &Converter) -> Result<String, String> {
     for inc in &c.includes {
         clang_args.push(format!("-I{}", inc.to_string_lossy()));
     }
+
+    // On Windows the INCLUDE environment variable contains the semicolon-separated
+    // list of SDK/VC++ header directories (set by vcvarsall.bat or the VS build
+    // environment).  libclang does not consult INCLUDE automatically, so we add
+    // each path explicitly so that `#include <windows.h>` and its transitive
+    // includes resolve correctly.
+    if let Ok(include_env) = std::env::var("INCLUDE") {
+        for path in include_env.split(';') {
+            let path = path.trim();
+            if !path.is_empty() {
+                clang_args.push(format!("-I{path}"));
+            }
+        }
+    }
     for (name, val) in &c.defines {
         if let Some(v) = val {
             clang_args.push(format!("-D{name}={v}"));
