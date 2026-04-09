@@ -1,4 +1,5 @@
 use super::*;
+use core::mem::size_of;
 use core::{marker::PhantomData, ops::Deref};
 
 /// A `Pool` object represents a private thread pool with its own thread limits.
@@ -13,7 +14,7 @@ impl Pool {
         let mut e = TP_CALLBACK_ENVIRON_V3 {
             Version: 3,
             CallbackPriority: TP_CALLBACK_PRIORITY_NORMAL,
-            Size: core::mem::size_of::<TP_CALLBACK_ENVIRON_V3>() as u32,
+            Size: size_of::<TP_CALLBACK_ENVIRON_V3>() as u32,
             ..Default::default()
         };
 

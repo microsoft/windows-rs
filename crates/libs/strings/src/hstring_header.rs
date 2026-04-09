@@ -1,4 +1,5 @@
 use super::*;
+use core::mem::size_of;
 
 pub const HSTRING_REFERENCE_FLAG: u32 = 1;
 
@@ -21,7 +22,7 @@ impl HStringHeader {
 
         // Allocate enough space for header and two bytes per character.
         // The space for the terminating null character is already accounted for inside of `HStringHeader`.
-        let bytes = core::mem::size_of::<Self>() + 2 * len as usize;
+        let bytes = size_of::<Self>() + 2 * len as usize;
 
         let header =
             unsafe { bindings::HeapAlloc(bindings::GetProcessHeap(), 0, bytes) } as *mut Self;

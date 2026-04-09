@@ -1,4 +1,5 @@
 use super::*;
+use alloc::vec::Vec;
 use core::ops::Deref;
 
 /// A BSTR string ([BSTR](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/automat/string-manipulation-functions))
