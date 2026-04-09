@@ -53,6 +53,10 @@ runs:
             "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.26100.0\arm64" >> $env:GITHUB_PATH
             ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx64\arm64")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+            $msvc_inc = ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\include")
+              | Sort-Object -Descending | Select-Object -First 1).ToString()
+            $wk = "${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.26100.0"
+            "INCLUDE=$msvc_inc;$wk\ucrt;$wk\um;$wk\shared" >> $env:GITHUB_ENV
           }
           "*"
           {
