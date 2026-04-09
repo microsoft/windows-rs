@@ -329,7 +329,7 @@ impl Encoder<'_> {
                                     .err(&prop.name, "getter and setter types do not match");
                             }
                         }
-                        getter_only.insert(prop_name_str.clone(), (member_idx, ty.clone()));
+                        getter_only.insert(prop_name_str, (member_idx, ty.clone()));
                     } else if is_set_only {
                         if let Some((get_idx, get_ty)) = getter_only.get(&prop_name_str) {
                             if *get_ty != ty {
@@ -344,7 +344,7 @@ impl Encoder<'_> {
                                 );
                             }
                         }
-                        setter_only.insert(prop_name_str.clone(), (member_idx, ty.clone()));
+                        setter_only.insert(prop_name_str, (member_idx, ty.clone()));
                     }
 
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
