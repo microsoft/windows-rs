@@ -874,26 +874,6 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = "error: redundant `#[get]`/`#[set]` split; use `name: type;` syntax\n --> .rdl:8:9"
-)]
-fn property_get_then_set_consecutive_errors() {
-    should_panic(
-        r#"
-#[winrt]
-mod Test {
-    interface ITest {
-        #[get]
-        foo: u32;
-        #[set]
-        foo: u32;
-    }
-}
-        "#,
-    )
-}
-
-#[test]
 #[should_panic(expected = "error: getter and setter types do not match\n --> .rdl:8:9")]
 fn property_get_set_type_mismatch_errors() {
     should_panic(

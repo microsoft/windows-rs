@@ -197,14 +197,13 @@ impl Encoder<'_> {
 
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
 
-        // Track getter-only and setter-only properties for type-consistency and
-        // canonical-representation checks.  Each entry is (member_index, encoded_type).
-        let mut getter_only: std::collections::HashMap<String, (usize, metadata::Type)> =
+        // Track getter-only and setter-only properties by name for type-consistency checks.
+        let mut getter_only: std::collections::HashMap<String, metadata::Type> =
             std::collections::HashMap::new();
-        let mut setter_only: std::collections::HashMap<String, (usize, metadata::Type)> =
+        let mut setter_only: std::collections::HashMap<String, metadata::Type> =
             std::collections::HashMap::new();
 
-        for (member_idx, member) in item.members.iter().enumerate() {
+        for member in item.members.iter() {
             match member {
                 InterfaceMember::Method(method) => {
                     let mut params = vec![];
@@ -317,32 +316,25 @@ impl Encoder<'_> {
                     let ty = self.encode_type(&prop.ty)?;
                     let prop_name_str = prop.name.to_string();
 
-                    // Validate type consistency and canonical representation.
+                    // Validate type consistency between getter and setter.
                     if is_get_only {
                         // A setter for this property was already seen.  Verify that
                         // the types match (setter-then-getter ordering is valid).
-                        if let Some((_set_idx, set_ty)) = setter_only.get(&prop_name_str) {
+                        if let Some(set_ty) = setter_only.get(&prop_name_str) {
                             if *set_ty != ty {
                                 return self
                                     .err(&prop.name, "getter and setter types do not match");
                             }
                         }
-                        getter_only.insert(prop_name_str, (member_idx, ty.clone()));
+                        getter_only.insert(prop_name_str, ty.clone());
                     } else if is_set_only {
-                        if let Some((get_idx, get_ty)) = getter_only.get(&prop_name_str) {
+                        if let Some(get_ty) = getter_only.get(&prop_name_str) {
                             if *get_ty != ty {
                                 return self
                                     .err(&prop.name, "getter and setter types do not match");
                             }
-                            // Consecutive getter-then-setter is redundant: use `name: type;`.
-                            if get_idx + 1 == member_idx {
-                                return self.err(
-                                    &prop.name,
-                                    "redundant `#[get]`/`#[set]` split; use `name: type;` syntax",
-                                );
-                            }
                         }
-                        setter_only.insert(prop_name_str, (member_idx, ty.clone()));
+                        setter_only.insert(prop_name_str, ty.clone());
                     }
 
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
