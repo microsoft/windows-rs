@@ -1,14 +1,12 @@
 #[win32]
 mod Test {
     #[no_guid]
-    interface IUnknown {}
-    #[no_guid]
     interface ICoreWebView2: IUnknown {
-        fn Navigate(&self, uri: *const u16) -> i32;
+        fn Navigate(&self, uri: *const u16) -> HRESULT;
         fn GetId(&self) -> u32;
     }
     #[no_guid]
     interface ICoreWebView2Environment: IUnknown {
-        fn CreateWebView(&self, out: *mut *mut ICoreWebView2) -> i32;
+        fn CreateWebView(&self, out: *mut *mut ICoreWebView2) -> HRESULT;
     }
 }
