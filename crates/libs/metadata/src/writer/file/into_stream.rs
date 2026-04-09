@@ -193,8 +193,7 @@ impl File {
             clr.MetaData.VirtualAddress =
                 SECTION_ALIGNMENT + size_of::<IMAGE_COR20_HEADER>() as u32;
 
-            clr.MetaData.Size =
-                section.Misc.VirtualSize - size_of::<IMAGE_COR20_HEADER>() as u32;
+            clr.MetaData.Size = section.Misc.VirtualSize - size_of::<IMAGE_COR20_HEADER>() as u32;
 
             let mut buffer = Vec::<u8>::new();
             buffer.write_header(&dos);

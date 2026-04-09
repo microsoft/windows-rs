@@ -58,7 +58,7 @@ impl PWSTR {
     /// # Safety
     ///
     /// See the safety information for `PWSTR::as_wide`.
-    pub unsafe fn to_string(&self) -> core::result::Result<String, alloc::string::FromUtf16Error> {
+    pub unsafe fn to_string(&self) -> Result<String, alloc::string::FromUtf16Error> {
         unsafe { String::from_utf16(self.as_wide()) }
     }
 
