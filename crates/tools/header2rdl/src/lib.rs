@@ -336,6 +336,12 @@ fn collect(entity: Entity, collector: &mut Collector) {
 
         match child.get_kind() {
             EntityKind::StructDecl | EntityKind::UnionDecl => {
+                // Skip forward declarations: they must not claim the name in
+                // `seen` before the real definition (possibly a StructDecl
+                // produced by the MIDL_INTERFACE macro) is processed.
+                if !child.is_definition() {
+                    continue;
+                }
                 let is_union = child.get_kind() == EntityKind::UnionDecl;
                 if collector.cpp && is_com_interface(&child) {
                     if let Some(name) = non_underscore_name(&child) {
@@ -354,6 +360,10 @@ fn collect(entity: Entity, collector: &mut Collector) {
                 }
             }
             EntityKind::ClassDecl if collector.cpp => {
+                // Skip forward declarations for the same reason as StructDecl above.
+                if !child.is_definition() {
+                    continue;
+                }
                 if let Some(name) = non_underscore_name(&child) {
                     if collector.seen.insert(name.clone()) {
                         if is_com_interface(&child) {
@@ -428,6 +438,25 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
                 }
                 return;
             }
+            EntityKind::ClassDecl => {
+                // In C++ mode, `typedef interface X X;` creates a ClassDecl
+                // child.  If it is a forward declaration (not yet defined),
+                // return without inserting into `seen` so the actual definition
+                // (which may arrive as a StructDecl from a MIDL_INTERFACE macro
+                // expansion) can be collected later.
+                if !child.is_definition() {
+                    return;
+                }
+                // Inline class definition (`typedef class { … } X;`).
+                if let Some(structs) = collect_struct(&child, name.clone(), false) {
+                    if let Some(inner) = child.get_name() {
+                        collector.seen.insert(inner);
+                    }
+                    collector.seen.insert(name);
+                    collector.structs.extend(structs);
+                }
+                return;
+            }
             EntityKind::EnumDecl => {
                 if let Some(e) = collect_enum(&child, name.clone()) {
                     if let Some(inner) = child.get_name() {
@@ -442,11 +471,34 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
         }
     }
 
-    collector.seen.insert(name.clone());
-
+    // Reached if no StructDecl/ClassDecl/EnumDecl child was found in the TypedefDecl
+    // children.  In C++ mode a forward-declaration alias such as
+    // `typedef struct X X;` arrives here with an underlying type whose display
+    // name equals the alias name itself.  Don't add the name to `seen` or emit a
+    // typedef in that case — the real definition will be collected later.
     if let Some(underlying) = entity.get_typedef_underlying_type() {
         let value = map_type(&underlying);
+        if value == name {
+            // Self-referential forward-declaration alias: skip it.
+            return;
+        }
+
+        // Also guard against the case where the underlying canonical type is an
+        // *incomplete* record — this covers typedef aliases with a different name
+        // for a not-yet-defined struct/class.
+        let canonical = underlying.get_canonical_type();
+        if canonical.get_kind() == TypeKind::Record {
+            if let Some(decl) = canonical.get_declaration() {
+                if !decl.is_definition() {
+                    return;
+                }
+            }
+        }
+
+        collector.seen.insert(name.clone());
         collector.typedefs.push(RdlTypedef { name, value });
+    } else {
+        collector.seen.insert(name.clone());
     }
 }
 
@@ -632,6 +684,7 @@ fn map_type(ty: &clang::Type) -> String {
         TypeKind::ULongLong => "u64".into(),
         TypeKind::Float => "f32".into(),
         TypeKind::Double => "f64".into(),
+        TypeKind::WChar => "u16".into(),
         TypeKind::Pointer => map_pointer(ty),
         TypeKind::ConstantArray => {
             let size = ty.get_size().unwrap_or(0);
