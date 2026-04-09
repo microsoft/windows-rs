@@ -1,0 +1,10 @@
+#[winrt]
+mod Test {
+    interface IFoo {
+        #[get]
+        Foo: i32;
+        Bar: i32;
+        #[set]
+        Foo: i32;
+    }
+}

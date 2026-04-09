@@ -190,7 +190,17 @@ impl Encoder<'_> {
 
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
 
-        for member in &item.members {
+        // Track method names within the interface to detect duplicate symbols.
+        let mut method_names: std::collections::HashSet<String> =
+            std::collections::HashSet::new();
+        // Track getter-only and setter-only properties for type-consistency and
+        // canonical-representation checks.  Each entry is (member_index, encoded_type).
+        let mut getter_only: std::collections::HashMap<String, (usize, metadata::Type)> =
+            std::collections::HashMap::new();
+        let mut setter_only: std::collections::HashMap<String, (usize, metadata::Type)> =
+            std::collections::HashMap::new();
+
+        for (member_idx, member) in item.members.iter().enumerate() {
             match member {
                 InterfaceMember::Method(method) => {
                     let mut params = vec![];
@@ -229,9 +239,15 @@ impl Encoder<'_> {
                         }
                     }
 
+                    // Check for duplicate method names.
+                    let name_str = method.sig.ident.to_string();
+                    if !method_names.insert(name_str.clone()) {
+                        return self.err(&method.sig.ident, "duplicate symbol");
+                    }
+
                     if !already_has_guid {
                         method_signatures.push((
-                            method.sig.ident.to_string(),
+                            name_str,
                             types.clone(),
                             return_type.clone(),
                         ));
@@ -301,10 +317,43 @@ impl Encoder<'_> {
                     }
 
                     let ty = self.encode_type(&prop.ty)?;
+                    let prop_name_str = prop.name.to_string();
+
+                    // Validate type consistency and canonical representation.
+                    if is_get_only {
+                        // A setter for this property was already seen.  Verify that
+                        // the types match (setter-then-getter ordering is valid).
+                        if let Some((_set_idx, set_ty)) = setter_only.get(&prop_name_str) {
+                            if *set_ty != ty {
+                                return self
+                                    .err(&prop.name, "getter and setter types do not match");
+                            }
+                        }
+                        getter_only.insert(prop_name_str.clone(), (member_idx, ty.clone()));
+                    } else if is_set_only {
+                        if let Some((get_idx, get_ty)) = getter_only.get(&prop_name_str) {
+                            if *get_ty != ty {
+                                return self
+                                    .err(&prop.name, "getter and setter types do not match");
+                            }
+                            // Consecutive getter-then-setter is redundant: use `name: type;`.
+                            if get_idx + 1 == member_idx {
+                                return self.err(
+                                    &prop.name,
+                                    "redundant `#[get]`/`#[set]` split; use `name: type;` syntax",
+                                );
+                            }
+                        }
+                        setter_only.insert(prop_name_str.clone(), (member_idx, ty.clone()));
+                    }
+
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
 
                     if !is_set_only {
                         let get_name = format!("get_{}", prop.name);
+                        if !method_names.insert(get_name.clone()) {
+                            return self.err(&prop.name, "duplicate symbol");
+                        }
                         let signature = metadata::Signature {
                             flags: metadata::MethodCallAttributes::HASTHIS,
                             return_type: ty.clone(),
@@ -324,6 +373,9 @@ impl Encoder<'_> {
 
                     if !is_get_only {
                         let put_name = format!("put_{}", prop.name);
+                        if !method_names.insert(put_name.clone()) {
+                            return self.err(&prop.name, "duplicate symbol");
+                        }
                         let signature = metadata::Signature {
                             flags: metadata::MethodCallAttributes::HASTHIS,
                             return_type: metadata::Type::Void,
@@ -353,6 +405,9 @@ impl Encoder<'_> {
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
 
                     let add_name = format!("add_{}", evt.name);
+                    if !method_names.insert(add_name.clone()) {
+                        return self.err(&evt.name, "duplicate symbol");
+                    }
                     let add_signature = metadata::Signature {
                         flags: metadata::MethodCallAttributes::HASTHIS,
                         return_type: token_ty.clone(),
@@ -374,6 +429,9 @@ impl Encoder<'_> {
                     self.encode_simple_params(&[("handler", &handler_ty)])?;
 
                     let remove_name = format!("remove_{}", evt.name);
+                    if !method_names.insert(remove_name.clone()) {
+                        return self.err(&evt.name, "duplicate symbol");
+                    }
                     let remove_signature = metadata::Signature {
                         flags: metadata::MethodCallAttributes::HASTHIS,
                         return_type: metadata::Type::Void,

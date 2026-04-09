@@ -152,18 +152,23 @@ fn write_members(
     Ok(tokens)
 }
 
-/// Find an unconsumed method with the given name.  The search starts just after
-/// `from` and wraps around so that nearby methods are checked first.
+/// Find an unconsumed method with the given name at the position immediately
+/// after `from`.  The search does **not** wrap around, ensuring that
+/// getter/setter (and adder/remover) pairs are only collapsed into shorthand
+/// syntax when they are adjacent in the v-table.  Non-adjacent pairs are
+/// written out as separate `#[get]`/`#[set]` entries to preserve the ABI.
 fn find_unconsumed(
     methods: &[metadata::reader::MethodDef],
     consumed: &[bool],
     from: usize,
     name: &str,
 ) -> Option<usize> {
-    let len = methods.len();
-    ((from + 1)..len)
-        .chain(0..from)
-        .find(|&j| !consumed[j] && methods[j].name() == name)
+    let j = from + 1;
+    if j < methods.len() && !consumed[j] && methods[j].name() == name {
+        Some(j)
+    } else {
+        None
+    }
 }
 
 fn write_method(
