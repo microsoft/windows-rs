@@ -56,7 +56,8 @@ runs:
             $msvc_inc = ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\include")
               | Sort-Object -Descending | Select-Object -First 1).ToString()
             $wk = "${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.26100.0"
-            "INCLUDE=$msvc_inc;$wk\ucrt;$wk\um;$wk\shared" >> $env:GITHUB_ENV
+            "INCLUDE=$msvc_inc;$wk\ucrt;$wk\um;$wk\shared;$wk\winrt;$wk\cppwinrt" >> $env:GITHUB_ENV
+            break
           }
           "*"
           {
