@@ -1,12 +1,3 @@
-/* Test exercising the MIDL-generated COM interface pattern against the
- * Windows SDK macro conventions.
- *
- * The definitions of MIDL_INTERFACE, STDMETHOD, STDMETHOD_, PURE and IUnknown
- * are pulled in from <windows.h>.  In the test suite this resolves to the
- * lightweight shim at tests/include/windows.h, which is added to the include
- * path via the `--include include` sidecar option in midl.h.args.
- */
-
 #include <windows.h>
 
 /* Forward declarations (the pattern used by MIDL-generated headers).
