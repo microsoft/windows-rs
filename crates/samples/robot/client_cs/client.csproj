@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CsWinRTIncludes>Robotics</CsWinRTIncludes>
+    <CsWinRTWindowsMetadata>local</CsWinRTWindowsMetadata>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
