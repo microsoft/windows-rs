@@ -424,6 +424,13 @@ fn collect(entity: Entity, collector: &mut Collector) {
                 collect_typedef(&child, collector);
             }
             EntityKind::FunctionDecl => {
+                // Skip inline functions (functions with bodies) — they cannot
+                // be represented in RDL.  This is important because macros like
+                // DEFINE_ENUM_FLAG_OPERATORS expand to inline operator
+                // overloads that must not be collected.
+                if child.is_definition() {
+                    continue;
+                }
                 if let Some(name) = child.get_name() {
                     if collector.seen.insert(name.clone()) {
                         if let Some(f) = collect_function(&child, name) {

@@ -18,9 +18,42 @@
 #endif
 
 /* -------------------------------------------------------------------------
+ * Helpers required by the DEFINE_ENUM_FLAG_OPERATORS expansion (matching the
+ * definitions from the real Windows SDK <winnt.h>).
+ * ---------------------------------------------------------------------- */
+#ifndef WIN_NOEXCEPT
+#  ifdef __cplusplus
+#    define WIN_NOEXCEPT noexcept
+#  else
+#    define WIN_NOEXCEPT
+#  endif
+#endif
+
+#ifndef _ENUM_FLAG_CONSTEXPR
+#  define _ENUM_FLAG_CONSTEXPR constexpr
+#endif
+
+#ifdef __cplusplus
+template <__SIZE_TYPE__ S>
+struct _ENUM_FLAG_INTEGER_FOR_SIZE;
+template <>
+struct _ENUM_FLAG_INTEGER_FOR_SIZE<1> { typedef unsigned char type; };
+template <>
+struct _ENUM_FLAG_INTEGER_FOR_SIZE<2> { typedef unsigned short type; };
+template <>
+struct _ENUM_FLAG_INTEGER_FOR_SIZE<4> { typedef unsigned int type; };
+template <>
+struct _ENUM_FLAG_INTEGER_FOR_SIZE<8> { typedef unsigned long long type; };
+template <typename T>
+struct _ENUM_FLAG_SIZED_INTEGER {
+    typedef typename _ENUM_FLAG_INTEGER_FOR_SIZE<sizeof(T)>::type type;
+};
+#endif
+
+/* -------------------------------------------------------------------------
  * DEFINE_ENUM_FLAG_OPERATORS — bitwise operators for scoped enum types.
- * In C++ mode this expands to inline operator overloads; we just define it
- * as a no-op so it doesn't produce any AST nodes that confuse the collector.
+ * The expansion produces inline functions with bodies; the collector skips
+ * those since they cannot be represented in RDL.
  * ---------------------------------------------------------------------- */
 #ifndef DEFINE_ENUM_FLAG_OPERATORS
 #define DEFINE_ENUM_FLAG_OPERATORS(ENUMTYPE) \
