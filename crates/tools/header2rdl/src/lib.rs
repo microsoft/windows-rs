@@ -832,12 +832,34 @@ fn map_type(ty: &clang::Type) -> String {
     }
 }
 
+/// Returns `true` if `ty` is (or resolves to) a COM interface type —
+/// i.e. a C++ class / struct that has at least one pure-virtual method.
+fn is_com_interface_type(ty: &clang::Type) -> bool {
+    let canonical = ty.get_canonical_type();
+    if canonical.get_kind() != TypeKind::Record {
+        return false;
+    }
+    if let Some(decl) = canonical.get_declaration() {
+        is_com_interface(&decl)
+    } else {
+        false
+    }
+}
+
 fn map_pointer(ty: &clang::Type) -> String {
     let inner = match ty.get_pointee_type() {
         Some(t) => t,
         None => return "*mut u8".into(),
     };
     let is_const = inner.is_const_qualified();
+
+    // COM interfaces are reference types in RDL/metadata: one level of pointer
+    // indirection is always implied.  Strip it here so that:
+    //   IFoo*  → IFoo          (single pointer to interface → bare interface)
+    //   IFoo** → *mut IFoo     (double pointer → one *mut remaining)
+    if is_com_interface_type(&inner) {
+        return map_type(&inner);
+    }
 
     match inner.get_kind() {
         TypeKind::Void => {

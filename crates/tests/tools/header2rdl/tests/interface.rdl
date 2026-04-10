@@ -9,6 +9,6 @@ mod Test {
     }
     #[no_guid]
     interface IWidgetFactory: IUnknown {
-        fn CreateWidget(&self, name: *const i8, out: *mut *mut IWidget) -> i32;
+        fn CreateWidget(&self, name: *const i8, out: *mut IWidget) -> i32;
     }
 }

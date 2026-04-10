@@ -9,23 +9,23 @@ mod Test {
     }
     #[guid(0x4e8a3389c9d84bd2b6b5124fee6cc14d)]
     interface ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler: IUnknown {
-        fn Invoke(&self, errorCode: HRESULT, createdEnvironment: *mut ICoreWebView2Environment) -> HRESULT;
+        fn Invoke(&self, errorCode: HRESULT, createdEnvironment: ICoreWebView2Environment) -> HRESULT;
     }
     #[guid(0x6c4819f3c9b742608127c9f5bde7f68c)]
     interface ICoreWebView2CreateCoreWebView2ControllerCompletedHandler: IUnknown {
-        fn Invoke(&self, errorCode: HRESULT, createdController: *mut ICoreWebView2Controller) -> HRESULT;
+        fn Invoke(&self, errorCode: HRESULT, createdController: ICoreWebView2Controller) -> HRESULT;
     }
     #[guid(0x57213f1900a649f295417de229f185c7)]
     interface ICoreWebView2WebMessageReceivedEventHandler: IUnknown {
-        fn Invoke(&self, sender: *mut ICoreWebView2, args: *mut ICoreWebView2WebMessageReceivedEventArgs) -> HRESULT;
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2WebMessageReceivedEventArgs) -> HRESULT;
     }
     #[guid(0xd33a35bf1c494f9893ab006e0533fe1c)]
     interface ICoreWebView2NavigationCompletedEventHandler: IUnknown {
-        fn Invoke(&self, sender: *mut ICoreWebView2, args: *mut ICoreWebView2NavigationCompletedEventArgs) -> HRESULT;
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2NavigationCompletedEventArgs) -> HRESULT;
     }
     #[guid(0x364471e7f2f94718aae1d0a44a748277)]
     interface ICoreWebView2ContentLoadingEventHandler: IUnknown {
-        fn Invoke(&self, sender: *mut ICoreWebView2, args: *mut ICoreWebView2ContentLoadingEventArgs) -> HRESULT;
+        fn Invoke(&self, sender: ICoreWebView2, args: ICoreWebView2ContentLoadingEventArgs) -> HRESULT;
     }
     #[guid(0x0f99a40ce96242079e92e97542d7b0cb)]
     interface ICoreWebView2WebMessageReceivedEventArgs: IUnknown {
@@ -67,59 +67,59 @@ mod Test {
     }
     #[guid(0x76eceacb04624d94ac83423a6793775e)]
     interface ICoreWebView2: IUnknown {
-        fn get_Settings(&self, settings: *mut *mut ICoreWebView2Settings) -> HRESULT;
+        fn get_Settings(&self, settings: *mut ICoreWebView2Settings) -> HRESULT;
         fn get_Source(&self, uri: *mut LPWSTR) -> HRESULT;
         fn Navigate(&self, uri: LPCWSTR) -> HRESULT;
         fn NavigateToString(&self, htmlContent: LPCWSTR) -> HRESULT;
-        fn add_NavigationStarting(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_NavigationStarting(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_NavigationStarting(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_ContentLoading(&self, eventHandler: *mut ICoreWebView2ContentLoadingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_ContentLoading(&self, eventHandler: ICoreWebView2ContentLoadingEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_ContentLoading(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_SourceChanged(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_SourceChanged(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_SourceChanged(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_HistoryChanged(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_HistoryChanged(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_HistoryChanged(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_NavigationCompleted(&self, eventHandler: *mut ICoreWebView2NavigationCompletedEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_NavigationCompleted(&self, eventHandler: ICoreWebView2NavigationCompletedEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_NavigationCompleted(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_FrameNavigationStarting(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_FrameNavigationStarting(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_FrameNavigationStarting(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_FrameNavigationCompleted(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_FrameNavigationCompleted(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_FrameNavigationCompleted(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_ScriptDialogOpening(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_ScriptDialogOpening(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_ScriptDialogOpening(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_PermissionRequested(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_PermissionRequested(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_PermissionRequested(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_ProcessFailed(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_ProcessFailed(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_ProcessFailed(&self, token: EventRegistrationToken) -> HRESULT;
-        fn AddScriptToExecuteOnDocumentCreated(&self, javaScript: LPCWSTR, handler: *mut IUnknown) -> HRESULT;
+        fn AddScriptToExecuteOnDocumentCreated(&self, javaScript: LPCWSTR, handler: IUnknown) -> HRESULT;
         fn RemoveScriptToExecuteOnDocumentCreated(&self, id: LPCWSTR) -> HRESULT;
-        fn ExecuteScript(&self, javaScript: LPCWSTR, handler: *mut IUnknown) -> HRESULT;
-        fn CapturePreview(&self, imageFormat: i32, imageStream: *mut IStream, handler: *mut IUnknown) -> HRESULT;
+        fn ExecuteScript(&self, javaScript: LPCWSTR, handler: IUnknown) -> HRESULT;
+        fn CapturePreview(&self, imageFormat: i32, imageStream: IStream, handler: IUnknown) -> HRESULT;
         fn Reload(&self) -> HRESULT;
         fn PostWebMessageAsJson(&self, webMessageAsJson: LPCWSTR) -> HRESULT;
         fn PostWebMessageAsString(&self, webMessageAsString: LPCWSTR) -> HRESULT;
-        fn add_WebMessageReceived(&self, handler: *mut ICoreWebView2WebMessageReceivedEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_WebMessageReceived(&self, handler: ICoreWebView2WebMessageReceivedEventHandler, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_WebMessageReceived(&self, token: EventRegistrationToken) -> HRESULT;
-        fn CallDevToolsProtocolMethod(&self, methodName: LPCWSTR, parametersAsJson: LPCWSTR, handler: *mut IUnknown) -> HRESULT;
+        fn CallDevToolsProtocolMethod(&self, methodName: LPCWSTR, parametersAsJson: LPCWSTR, handler: IUnknown) -> HRESULT;
         fn get_BrowserProcessId(&self, value: *mut UINT32) -> HRESULT;
         fn get_CanGoBack(&self, canGoBack: *mut BOOL) -> HRESULT;
         fn get_CanGoForward(&self, canGoForward: *mut BOOL) -> HRESULT;
         fn GoBack(&self) -> HRESULT;
         fn GoForward(&self) -> HRESULT;
-        fn GetDevToolsProtocolEventReceiver(&self, eventName: LPCWSTR, receiver: *mut *mut IUnknown) -> HRESULT;
+        fn GetDevToolsProtocolEventReceiver(&self, eventName: LPCWSTR, receiver: *mut IUnknown) -> HRESULT;
         fn Stop(&self) -> HRESULT;
-        fn add_NewWindowRequested(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_NewWindowRequested(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_NewWindowRequested(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_DocumentTitleChanged(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_DocumentTitleChanged(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_DocumentTitleChanged(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_ContainsFullScreenElementChanged(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_ContainsFullScreenElementChanged(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_ContainsFullScreenElementChanged(&self, token: EventRegistrationToken) -> HRESULT;
         fn get_ContainsFullScreenElement(&self, containsFullScreenElement: *mut BOOL) -> HRESULT;
-        fn add_WebResourceRequested(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_WebResourceRequested(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_WebResourceRequested(&self, token: EventRegistrationToken) -> HRESULT;
         fn AddWebResourceRequestedFilter(&self, uri: LPCWSTR, resourceContext: i32) -> HRESULT;
         fn RemoveWebResourceRequestedFilter(&self, uri: LPCWSTR, resourceContext: i32) -> HRESULT;
-        fn add_WindowCloseRequested(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_WindowCloseRequested(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_WindowCloseRequested(&self, token: EventRegistrationToken) -> HRESULT;
     }
     #[guid(0x4d00c0d194344eb680788697a560334f)]
@@ -130,30 +130,30 @@ mod Test {
         fn put_Bounds(&self, bounds: RECT) -> HRESULT;
         fn get_ZoomFactor(&self, zoomFactor: *mut f64) -> HRESULT;
         fn put_ZoomFactor(&self, zoomFactor: f64) -> HRESULT;
-        fn add_ZoomFactorChanged(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_ZoomFactorChanged(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_ZoomFactorChanged(&self, token: EventRegistrationToken) -> HRESULT;
         fn SetBoundsAndZoomFactor(&self, bounds: RECT, zoomFactor: f64) -> HRESULT;
         fn MoveFocus(&self, reason: i32) -> HRESULT;
-        fn add_MoveFocusRequested(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_MoveFocusRequested(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_MoveFocusRequested(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_GotFocus(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_GotFocus(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_GotFocus(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_LostFocus(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_LostFocus(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_LostFocus(&self, token: EventRegistrationToken) -> HRESULT;
-        fn add_AcceleratorKeyPressed(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_AcceleratorKeyPressed(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_AcceleratorKeyPressed(&self, token: EventRegistrationToken) -> HRESULT;
         fn get_ParentWindow(&self, parentWindow: *mut HWND) -> HRESULT;
         fn put_ParentWindow(&self, parentWindow: HWND) -> HRESULT;
         fn NotifyParentWindowPositionChanged(&self) -> HRESULT;
         fn Close(&self) -> HRESULT;
-        fn get_CoreWebView2(&self, coreWebView2: *mut *mut ICoreWebView2) -> HRESULT;
+        fn get_CoreWebView2(&self, coreWebView2: *mut ICoreWebView2) -> HRESULT;
     }
     #[guid(0xb96d755e03194e92a29623436f46a1fc)]
     interface ICoreWebView2Environment: IUnknown {
-        fn CreateCoreWebView2Controller(&self, parentWindow: HWND, handler: *mut ICoreWebView2CreateCoreWebView2ControllerCompletedHandler) -> HRESULT;
-        fn CreateWebResourceResponse(&self, content: *mut IStream, statusCode: i32, reasonPhrase: LPCWSTR, headers: LPCWSTR, response: *mut *mut IUnknown) -> HRESULT;
+        fn CreateCoreWebView2Controller(&self, parentWindow: HWND, handler: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler) -> HRESULT;
+        fn CreateWebResourceResponse(&self, content: IStream, statusCode: i32, reasonPhrase: LPCWSTR, headers: LPCWSTR, response: *mut IUnknown) -> HRESULT;
         fn get_BrowserVersionString(&self, versionInfo: *mut LPWSTR) -> HRESULT;
-        fn add_NewBrowserVersionAvailable(&self, eventHandler: *mut IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
+        fn add_NewBrowserVersionAvailable(&self, eventHandler: IUnknown, token: *mut EventRegistrationToken) -> HRESULT;
         fn remove_NewBrowserVersionAvailable(&self, token: EventRegistrationToken) -> HRESULT;
     }
 }
