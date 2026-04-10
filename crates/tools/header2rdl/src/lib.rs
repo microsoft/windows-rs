@@ -755,16 +755,13 @@ fn parse_guid_str(s: &str) -> Option<u128> {
     if parts.len() != 5 {
         return None;
     }
-    let lens = [8, 4, 4, 4, 12];
+    // Verify each part has exactly the right number of hex characters.
+    let lens = [8usize, 4, 4, 4, 12];
     if parts.iter().zip(lens.iter()).any(|(p, &l)| p.len() != l) {
         return None;
     }
-    // Rebuild as a 32-char hex string: data1 + data2 + data3 + data4a + data4b
-    let hex: String = parts.concat();
-    if hex.len() != 32 {
-        return None;
-    }
-    u128::from_str_radix(&hex, 16).ok()
+    // Rebuild as a 32-char hex string and parse.
+    u128::from_str_radix(&parts.concat(), 16).ok()
 }
 
 // ---------------------------------------------------------------------------
@@ -950,7 +947,7 @@ fn emit_interface(iface: &RdlInterface) -> String {
     let base_part = iface
         .base
         .as_deref()
-        .map(|b| format!(": {b}"))
+        .map(|b| format!(" : {b}"))
         .unwrap_or_default();
 
     let guid_attr = match iface.guid {
@@ -958,11 +955,7 @@ fn emit_interface(iface: &RdlInterface) -> String {
         None => "#[no_guid] ".to_string(),
     };
 
-    let base_sep = if base_part.is_empty() { "" } else { " " };
-    let mut out = format!(
-        "{guid_attr}interface {}{base_sep}{base_part} {{",
-        iface.name
-    );
+    let mut out = format!("{guid_attr}interface {}{base_part} {{", iface.name);
 
     for m in &iface.methods {
         let mut param_str = "&self".to_string();

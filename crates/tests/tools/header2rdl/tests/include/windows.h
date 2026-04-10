@@ -68,7 +68,7 @@ typedef struct _GUID {
 } GUID;
 typedef GUID  IID;
 typedef GUID  CLSID;
-typedef const IID  &REFIID;
+typedef const IID &REFIID;
 typedef const CLSID &REFCLSID;
 
 /* -------------------------------------------------------------------------
