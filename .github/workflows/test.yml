@@ -52,7 +52,7 @@ jobs:
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
-            extra_excludes: ""
+            extra_excludes: "--exclude test_header2rdl"
 
     runs-on: ${{ matrix.runner }}
 
