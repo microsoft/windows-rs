@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 # This tool requires libclang at runtime.
-# On Ubuntu, set LIBCLANG_PATH=/usr/lib/llvm-18/lib (or whichever LLVM version
+# On Ubuntu, set LIBCLANG_PATH=/usr/lib/llvm-20/lib (or whichever LLVM version
 # is installed) before running `cargo run` or the tests.
 
 [lib]

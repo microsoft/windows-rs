@@ -15,7 +15,7 @@
 //! # Notes
 //!
 //! Requires `libclang` at build and run time.  On Ubuntu 22.04+ set
-//! `LIBCLANG_PATH=/usr/lib/llvm-18/lib` (or the installed LLVM version).
+//! `LIBCLANG_PATH=/usr/lib/llvm-20/lib` (or the installed LLVM version).
 
 use clang::{diagnostic::Severity, Clang, Entity, EntityKind, Index, TypeKind};
 use std::collections::BTreeSet;
