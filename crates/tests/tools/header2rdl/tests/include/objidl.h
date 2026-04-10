@@ -1,6 +1,16 @@
 #pragma once
-/* Shim for <objidl.h> — provides ISequentialStream and IStream. */
+/* Shim for <objidl.h> — provides ISequentialStream, IStream, and IDataObject. */
 #include <unknwn.h>
+
+/* -------------------------------------------------------------------------
+ * Signed integer types (not in all windows.h versions)
+ * ---------------------------------------------------------------------- */
+#ifndef INT32
+typedef int          INT32;
+#endif
+#ifndef INT64
+typedef long long    INT64;
+#endif
 
 /* -------------------------------------------------------------------------
  * ISequentialStream
@@ -20,6 +30,8 @@ public:
 /* -------------------------------------------------------------------------
  * STATSTG
  * ---------------------------------------------------------------------- */
+#ifndef _STATSTG_DEFINED_
+#define _STATSTG_DEFINED_
 typedef struct tagSTATSTG {
     LPWSTR  pwcsName;
     DWORD   type;
@@ -33,6 +45,7 @@ typedef struct tagSTATSTG {
     DWORD   grfStateBits;
     DWORD   reserved;
 } STATSTG;
+#endif /* _STATSTG_DEFINED_ */
 
 /* -------------------------------------------------------------------------
  * IStream
@@ -59,3 +72,11 @@ public:
     virtual HRESULT STDMETHODCALLTYPE Clone(IStream **ppstm) = 0;
 };
 #endif /* __IStream_INTERFACE_DEFINED__ */
+
+/* -------------------------------------------------------------------------
+ * IDataObject — forward declare; full definition not needed for WebView2.
+ * ---------------------------------------------------------------------- */
+#ifndef __IDataObject_FWD_DEFINED__
+#define __IDataObject_FWD_DEFINED__
+typedef struct IDataObject IDataObject;
+#endif

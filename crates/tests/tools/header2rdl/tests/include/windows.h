@@ -14,6 +14,7 @@
  * ---------------------------------------------------------------------- */
 typedef long                HRESULT;
 typedef int                 BOOL;
+typedef int                 INT;
 typedef unsigned int        UINT;
 typedef unsigned int        UINT32;
 typedef unsigned long long  UINT64;
@@ -32,6 +33,7 @@ typedef void               *LPVOID;
 typedef wchar_t             WCHAR;
 typedef WCHAR              *LPWSTR;
 typedef const WCHAR        *LPCWSTR;
+typedef const WCHAR        *PCWSTR;
 typedef WCHAR              *BSTR;
 
 /* -------------------------------------------------------------------------

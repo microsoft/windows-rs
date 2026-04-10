@@ -432,6 +432,12 @@ fn collect(entity: Entity, collector: &mut Collector) {
                     }
                 }
             }
+            // Recurse into `extern "C" { }` linkage-specification blocks so
+            // that types defined inside them (as in the MIDL-generated style
+            // used by WebView2.h) are collected.
+            EntityKind::LinkageSpec => {
+                collect(child, collector);
+            }
             _ => {}
         }
     }
