@@ -27,6 +27,10 @@ fn cli_run(args: impl Iterator<Item = String>) -> Result<(), String> {
                 idx += 1;
                 c.include(args.get(idx).ok_or("expected value for --include")?);
             }
+            "--system-include" => {
+                idx += 1;
+                c.system_include(args.get(idx).ok_or("expected value for --system-include")?);
+            }
             "--define" => {
                 idx += 1;
                 let d = args.get(idx).ok_or("expected value for --define")?;

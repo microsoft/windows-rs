@@ -42,6 +42,7 @@ pub struct Converter {
     library: String,
     cpp: bool,
     includes: Vec<PathBuf>,
+    system_includes: Vec<PathBuf>,
     defines: Vec<(String, Option<String>)>,
     arch: String,
     output: PathBuf,
@@ -100,6 +101,18 @@ impl Converter {
     /// Add one extra include directory passed to clang as `-I<dir>`.
     pub fn include<P: AsRef<Path>>(&mut self, dir: P) -> &mut Self {
         self.includes.push(dir.as_ref().into());
+        self
+    }
+
+    /// Add an include directory passed to clang as `-isystem<dir>`.
+    ///
+    /// Entities defined in headers under this directory are treated as
+    /// system-header definitions and are **not** emitted in the RDL output.
+    /// Use this for shim/compatibility headers (e.g. a minimal `windows.h`)
+    /// that need to be visible to the parsed header but should not generate
+    /// new type declarations.
+    pub fn system_include<P: AsRef<Path>>(&mut self, dir: P) -> &mut Self {
+        self.system_includes.push(dir.as_ref().into());
         self
     }
 
@@ -208,16 +221,23 @@ fn generate(c: &Converter) -> Result<String, String> {
         clang_args.push(format!("-I{}", inc.to_string_lossy()));
     }
 
+    // System-include directories (-isystem): headers found there are treated as
+    // system headers and their definitions are suppressed in the RDL output.
+    for inc in &c.system_includes {
+        clang_args.push(format!("-isystem{}", inc.to_string_lossy()));
+    }
+
     // On Windows the INCLUDE environment variable contains the semicolon-separated
     // list of SDK/VC++ header directories (set by vcvarsall.bat or the VS build
     // environment).  libclang does not consult INCLUDE automatically, so we add
     // each path explicitly so that `#include <windows.h>` and its transitive
-    // includes resolve correctly.
+    // includes resolve correctly.  Windows SDK paths are added as system includes
+    // so that SDK types are not emitted in the RDL output.
     if let Ok(include_env) = std::env::var("INCLUDE") {
         for path in include_env.split(';') {
             let path = path.trim();
             if !path.is_empty() {
-                clang_args.push(format!("-I{path}"));
+                clang_args.push(format!("-isystem{path}"));
             }
         }
     }
@@ -310,6 +330,7 @@ struct RdlFn {
 
 struct RdlInterface {
     name: String,
+    guid: Option<u128>,
     base: Option<String>,
     methods: Vec<RdlFn>,
 }
@@ -635,6 +656,25 @@ fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
     }
 
     let children = entity.get_children();
+
+    // Extract the GUID from an `UnexposedAttr` child whose source text contains
+    // a `__declspec(uuid("..."))` or `MIDL_INTERFACE("...")` macro expansion.
+    let guid = children
+        .iter()
+        .find(|c| c.get_kind() == EntityKind::UnexposedAttr)
+        .and_then(|attr| attr.get_range())
+        .and_then(|r| {
+            let start = r.get_start().get_file_location();
+            let end = r.get_end().get_file_location();
+            let file = start.file?;
+            let path = file.get_path();
+            let source = std::fs::read_to_string(&path).ok()?;
+            let text = source
+                .get(start.offset as usize..end.offset as usize)
+                .unwrap_or("");
+            parse_guid_from_attr(text)
+        });
+
     let base = children
         .iter()
         .find(|c| c.get_kind() == EntityKind::BaseSpecifier)
@@ -674,9 +714,57 @@ fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
 
     Some(RdlInterface {
         name,
+        guid,
         base,
         methods,
     })
+}
+
+/// Parse a GUID string from an attribute's source text.
+///
+/// Handles several common forms:
+/// - `MIDL_INTERFACE("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX")`
+/// - `__declspec(uuid("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"))`
+/// - Any quoted 36-character UUID string like `"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"`
+fn parse_guid_from_attr(text: &str) -> Option<u128> {
+    // Find the first quoted string that looks like a GUID (36 chars: 8-4-4-4-12)
+    for (i, ch) in text.char_indices() {
+        if ch != '"' {
+            continue;
+        }
+        // Collect the contents of this quoted string
+        let start = i + 1;
+        let mut end = start;
+        for (j, c) in text[start..].char_indices() {
+            if c == '"' {
+                end = start + j;
+                break;
+            }
+        }
+        let candidate = &text[start..end];
+        if let Some(guid) = parse_guid_str(candidate) {
+            return Some(guid);
+        }
+    }
+    None
+}
+
+/// Convert a `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` UUID string to u128.
+fn parse_guid_str(s: &str) -> Option<u128> {
+    let parts: Vec<&str> = s.split('-').collect();
+    if parts.len() != 5 {
+        return None;
+    }
+    let lens = [8, 4, 4, 4, 12];
+    if parts.iter().zip(lens.iter()).any(|(p, &l)| p.len() != l) {
+        return None;
+    }
+    // Rebuild as a 32-char hex string: data1 + data2 + data3 + data4a + data4b
+    let hex: String = parts.concat();
+    if hex.len() != 32 {
+        return None;
+    }
+    u128::from_str_radix(&hex, 16).ok()
 }
 
 // ---------------------------------------------------------------------------
@@ -862,10 +950,19 @@ fn emit_interface(iface: &RdlInterface) -> String {
     let base_part = iface
         .base
         .as_deref()
-        .map(|b| format!(" : {b}"))
+        .map(|b| format!(": {b}"))
         .unwrap_or_default();
 
-    let mut out = format!("#[no_guid] interface {}{} {{", iface.name, base_part);
+    let guid_attr = match iface.guid {
+        Some(g) => format!("#[guid({g:#034x})] "),
+        None => "#[no_guid] ".to_string(),
+    };
+
+    let base_sep = if base_part.is_empty() { "" } else { " " };
+    let mut out = format!(
+        "{guid_attr}interface {}{base_sep}{base_part} {{",
+        iface.name
+    );
 
     for m in &iface.methods {
         let mut param_str = "&self".to_string();

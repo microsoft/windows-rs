@@ -7,7 +7,9 @@
 ///
 /// A `tests/<name>.h.args` sidecar file may supply extra options
 /// (whitespace-separated): supported tokens are `--cpp`, `--library NAME`,
-/// `--include PATH` (resolved relative to the `tests/` directory), and
+/// `--include PATH` (resolved relative to the `tests/` directory),
+/// `--system-include PATH` (resolved relative to `tests/`; adds the directory
+/// as a system include so types defined there are NOT emitted in the RDL), and
 /// `--windows-only` (skip the test on non-Windows platforms).
 /// All tests use `namespace("Test")` by default.
 #[test]
@@ -57,6 +59,15 @@ fn convert() {
                             panic!("`--include` requires a path in {}", sidecar.display())
                         });
                         c.include(tests_dir.join(path));
+                    }
+                    "--system-include" => {
+                        let path = tokens.next().unwrap_or_else(|| {
+                            panic!(
+                                "`--system-include` requires a path in {}",
+                                sidecar.display()
+                            )
+                        });
+                        c.system_include(tests_dir.join(path));
                     }
                     "--windows-only" => {
                         windows_only = true;
