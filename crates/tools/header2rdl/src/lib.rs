@@ -30,6 +30,15 @@ pub fn converter() -> Converter {
     Converter::new()
 }
 
+/// Returns `true` if `libclang` can be successfully loaded.
+///
+/// Use this to gracefully skip tests on platforms where `libclang` is not
+/// available (e.g. 32-bit runners where only a 64-bit DLL is present, or
+/// ARM64 runners where no supported `libclang` build is available).
+pub fn is_available() -> bool {
+    Clang::new().is_ok()
+}
+
 /// Builder for converting C/C++ header files to Windows RDL source.
 ///
 /// Call builder methods to configure the conversion, then call

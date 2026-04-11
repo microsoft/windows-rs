@@ -40,7 +40,7 @@ jobs:
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
             runner: windows-2025
-            extra_excludes: "--exclude test_header2rdl"
+            extra_excludes: ""
           - name: nightly gnu
             version: nightly
             host: x86_64-pc-windows-gnu
@@ -52,7 +52,7 @@ jobs:
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
             runner: windows-11-arm
-            extra_excludes: "--exclude test_header2rdl"
+            extra_excludes: ""
 
     runs-on: ${{ matrix.runner }}
 
@@ -70,10 +70,12 @@ jobs:
         with:
           target: ${{ matrix.target }}
       - name: Install LLVM and Clang
+        if: matrix.host != 'aarch64-pc-windows-msvc'
         uses: KyleMayes/install-llvm-action@v2
         with:
           version: "18"
       - name: Set LIBCLANG_PATH
+        if: matrix.host != 'aarch64-pc-windows-msvc'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
         shell: bash
       - name: Test

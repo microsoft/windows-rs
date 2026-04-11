@@ -14,6 +14,10 @@
 /// All tests use `namespace("Test")` by default.
 #[test]
 fn convert() {
+    if !tool_header2rdl::is_available() {
+        return;
+    }
+
     let tests_dir = std::path::Path::new("tests");
 
     let mut headers: Vec<_> = std::fs::read_dir(tests_dir)

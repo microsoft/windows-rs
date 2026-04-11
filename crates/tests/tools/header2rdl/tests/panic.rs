@@ -9,17 +9,24 @@ fn temp_header(contents: &str) -> std::path::PathBuf {
     path
 }
 
-fn should_panic(header: &str) {
+fn expect_error(header: &str) -> String {
     let path = temp_header(header);
     tool_header2rdl::converter()
         .file(&path)
         .namespace("Test")
         .convert()
-        .unwrap();
+        .expect_err("convert should have failed but succeeded")
 }
 
 #[test]
-#[should_panic(expected = "error: unknown type name 'typodef'\\n --> ")]
 fn typo_in_typedef_errors() {
-    should_panic("typodef int FOO;\n");
+    if !tool_header2rdl::is_available() {
+        return;
+    }
+    let err = expect_error("typodef int FOO;\n");
+    assert!(
+        err.contains("error: unknown type name 'typodef'"),
+        "unexpected error: {err}"
+    );
+    assert!(err.contains(" --> "), "error missing location: {err}");
 }
