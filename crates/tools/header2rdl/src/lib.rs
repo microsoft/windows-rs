@@ -466,7 +466,14 @@ fn non_underscore_name(entity: &Entity) -> Option<String> {
 }
 
 fn is_com_interface(entity: &Entity) -> bool {
-    entity
+    // Follow forward declarations to the full definition.  When a COM interface
+    // type is used as a parameter before its definition appears in the header,
+    // `get_declaration()` may return the incomplete forward-declaration entity,
+    // which has no children.  Resolving to the definition ensures we detect
+    // pure-virtual methods regardless of declaration order or platform.
+    let def = entity.get_definition();
+    let target = def.as_ref().unwrap_or(entity);
+    target
         .get_children()
         .iter()
         .any(|c| c.get_kind() == EntityKind::Method && c.is_pure_virtual_method())
