@@ -1,5 +1,13 @@
 #[win32]
 mod Test {
+    union LARGE_INTEGER {
+        u: LARGE_INTEGER_0,
+        QuadPart: i64,
+    }
+    struct LARGE_INTEGER_0 {
+        LowPart: u32,
+        HighPart: i32,
+    }
     struct POINT {
         X: i32,
         Y: i32,
@@ -9,13 +17,5 @@ mod Test {
         top: i32,
         right: i32,
         bottom: i32,
-    }
-    struct LARGE_INTEGER_0 {
-        LowPart: u32,
-        HighPart: i32,
-    }
-    union LARGE_INTEGER {
-        u: LARGE_INTEGER_0,
-        QuadPart: i64,
     }
 }

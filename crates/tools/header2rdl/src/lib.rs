@@ -35,7 +35,16 @@ pub fn converter() -> Converter {
 /// Use this to gracefully skip tests on platforms where `libclang` is not
 /// available (e.g. 32-bit runners where only a 64-bit DLL is present, or
 /// ARM64 runners where no supported `libclang` build is available).
+///
+/// This function only attempts to load libclang when `LIBCLANG_PATH` is
+/// explicitly set in the environment.  On platforms where libclang is not
+/// installed (and `LIBCLANG_PATH` is therefore unset) this avoids a potential
+/// crash that can occur when the dynamic loader encounters an incompatible
+/// system libclang binary.
 pub fn is_available() -> bool {
+    if std::env::var("LIBCLANG_PATH").is_err() {
+        return false;
+    }
     Clang::new().is_ok()
 }
 
@@ -926,6 +935,26 @@ fn strip_elaboration(name: &str) -> String {
 // RDL emission
 // ---------------------------------------------------------------------------
 
+/// Escape a name that is a Rust keyword by prepending `r#`.
+///
+/// C allows identifiers like `type` that are reserved in Rust.  When we emit
+/// RDL (which is parsed as Rust source), we must use the raw-identifier form
+/// `r#type` so that the RDL reader can parse the output without errors.
+fn escape_ident(name: &str) -> String {
+    // Strict and reserved Rust keywords (edition 2021).
+    const KEYWORDS: &[&str] = &[
+        "as", "async", "await", "break", "const", "continue", "crate", "dyn", "else", "enum",
+        "extern", "false", "fn", "for", "if", "impl", "in", "let", "loop", "match", "mod", "move",
+        "mut", "pub", "ref", "return", "self", "static", "struct", "super", "trait", "true",
+        "type", "union", "unsafe", "use", "where", "while",
+    ];
+    if KEYWORDS.contains(&name) {
+        format!("r#{name}")
+    } else {
+        name.to_string()
+    }
+}
+
 fn emit(c: &Converter, collector: &Collector) -> String {
     let mut body = String::new();
 
@@ -965,7 +994,7 @@ fn emit_struct(s: &RdlStruct) -> String {
     let kw = if s.is_union { "union" } else { "struct" };
     let mut out = format!("{kw} {} {{", s.name);
     for (name, ty) in &s.fields {
-        out.push_str(&format!("{name}: {ty},"));
+        out.push_str(&format!("{}: {ty},", escape_ident(name)));
     }
     out.push('}');
     out
@@ -975,7 +1004,7 @@ fn emit_fn(f: &RdlFn, library: &str) -> String {
     let params = f
         .params
         .iter()
-        .map(|(n, t)| format!("{n}: {t}"))
+        .map(|(n, t)| format!("{}: {t}", escape_ident(n)))
         .collect::<Vec<_>>()
         .join(", ");
 
@@ -1011,7 +1040,7 @@ fn emit_interface(iface: &RdlInterface) -> String {
     for m in &iface.methods {
         let mut param_str = "&self".to_string();
         for (n, t) in &m.params {
-            param_str.push_str(&format!(", {n}: {t}"));
+            param_str.push_str(&format!(", {}: {t}", escape_ident(n)));
         }
         let ret = if m.ret == "()" {
             String::new()

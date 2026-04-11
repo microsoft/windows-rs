@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies]
 tool_header2rdl = { path = "../../../tools/header2rdl" }
+windows-rdl = { workspace = true }
 
 [lints]
 workspace = true

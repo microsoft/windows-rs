@@ -74,9 +74,21 @@ public:
 #endif /* __IStream_INTERFACE_DEFINED__ */
 
 /* -------------------------------------------------------------------------
- * IDataObject — forward declare; full definition not needed for WebView2.
+ * IDataObject — minimal stub so its name resolves as a COM interface.
  * ---------------------------------------------------------------------- */
-#ifndef __IDataObject_FWD_DEFINED__
-#define __IDataObject_FWD_DEFINED__
-typedef struct IDataObject IDataObject;
-#endif
+#ifndef __IDataObject_INTERFACE_DEFINED__
+#define __IDataObject_INTERFACE_DEFINED__
+MIDL_INTERFACE("0000010e-0000-0000-C000-000000000046")
+IDataObject : public IUnknown {
+public:
+    virtual HRESULT STDMETHODCALLTYPE GetData(void *pformatetcIn, void *pmedium) = 0;
+    virtual HRESULT STDMETHODCALLTYPE GetDataHere(void *pformatetc, void *pmedium) = 0;
+    virtual HRESULT STDMETHODCALLTYPE QueryGetData(void *pformatetc) = 0;
+    virtual HRESULT STDMETHODCALLTYPE GetCanonicalFormatEtc(void *pformatectIn, void *pformatetcOut) = 0;
+    virtual HRESULT STDMETHODCALLTYPE SetData(void *pformatetc, void *pmedium, BOOL fRelease) = 0;
+    virtual HRESULT STDMETHODCALLTYPE EnumFormatEtc(DWORD dwDirection, void **ppenumFormatEtc) = 0;
+    virtual HRESULT STDMETHODCALLTYPE DAdvise(void *pformatetc, DWORD advf, void *pAdvSink, DWORD *pdwConnection) = 0;
+    virtual HRESULT STDMETHODCALLTYPE DUnadvise(DWORD dwConnection) = 0;
+    virtual HRESULT STDMETHODCALLTYPE EnumDAdvise(void **ppenumAdvise) = 0;
+};
+#endif /* __IDataObject_INTERFACE_DEFINED__ */

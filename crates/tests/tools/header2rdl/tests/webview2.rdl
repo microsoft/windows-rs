@@ -1012,10 +1012,10 @@ mod Test {
     }
     #[guid(0x9570570e4d7643619ee1f04d0dbdfb1e)]
     interface ICoreWebView2CompositionController3: ICoreWebView2CompositionController2 {
-        fn DragEnter(&self, dataObject: *mut IDataObject, keyState: DWORD, point: POINT, effect: *mut DWORD) -> HRESULT;
+        fn DragEnter(&self, dataObject: IDataObject, keyState: DWORD, point: POINT, effect: *mut DWORD) -> HRESULT;
         fn DragLeave(&self) -> HRESULT;
         fn DragOver(&self, keyState: DWORD, point: POINT, effect: *mut DWORD) -> HRESULT;
-        fn Drop(&self, dataObject: *mut IDataObject, keyState: DWORD, point: POINT, effect: *mut DWORD) -> HRESULT;
+        fn Drop(&self, dataObject: IDataObject, keyState: DWORD, point: POINT, effect: *mut DWORD) -> HRESULT;
     }
     #[guid(0x7c367b9b3d2b450f9e58d61a20f486aa)]
     interface ICoreWebView2CompositionController4: ICoreWebView2CompositionController3 {
@@ -1303,7 +1303,7 @@ mod Test {
     #[guid(0x8b8d9c7e2f1a4e6b9d5a3c8f7b9e1a2d)]
     interface ICoreWebView2DragStartingEventArgs: IUnknown {
         fn get_AllowedDropEffects(&self, value: *mut DWORD) -> HRESULT;
-        fn get_Data(&self, value: *mut *mut IDataObject) -> HRESULT;
+        fn get_Data(&self, value: *mut IDataObject) -> HRESULT;
         fn get_Handled(&self, value: *mut BOOL) -> HRESULT;
         fn put_Handled(&self, value: BOOL) -> HRESULT;
         fn get_Position(&self, value: *mut POINT) -> HRESULT;
