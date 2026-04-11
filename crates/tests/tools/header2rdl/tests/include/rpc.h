@@ -11,10 +11,26 @@
 
 /* -------------------------------------------------------------------------
  * Opaque RPC types used in Proxy/Stub function signatures.
- * We declare them as forward-declared structs so clang can parse the
- * function declarations without needing the full definitions.
+ * These are defined as minimal structs so they are emitted in the RDL and
+ * the generated output can roundtrip through the windows-rdl reader/writer.
+ * PRPC_MESSAGE avoids the underscore-prefixed _RPC_MESSAGE name since
+ * header2rdl filters out leading-underscore identifiers.
  * ---------------------------------------------------------------------- */
-typedef struct _RPC_MESSAGE       *PRPC_MESSAGE;
-typedef struct IRpcStubBuffer     IRpcStubBuffer;
-typedef struct IRpcChannelBuffer  IRpcChannelBuffer;
-typedef struct IRpcProxyBuffer    IRpcProxyBuffer;
+struct RPC_MESSAGE {
+    HANDLE  Handle;
+    ULONG   DataRepresentation;
+    void   *Buffer;
+    UINT    BufferLength;
+    UINT    ProcNum;
+    void   *TransferSyntax;
+    void   *RpcInterfaceInformation;
+    void   *ReservedForRuntime;
+    void   *ManagerEpv;
+    void   *ImportContext;
+    ULONG   RpcFlags;
+};
+typedef RPC_MESSAGE *PRPC_MESSAGE;
+
+struct IRpcStubBuffer    { void *lpVtbl; };
+struct IRpcChannelBuffer { void *lpVtbl; };
+struct IRpcProxyBuffer   { void *lpVtbl; };

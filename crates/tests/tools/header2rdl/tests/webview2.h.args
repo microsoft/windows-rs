@@ -1,4 +1,3 @@
 --cpp
---system-include include
+--include include
 --library WebView2
---no-roundtrip
