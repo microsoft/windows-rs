@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CsWinRTIncludes>Robotics</CsWinRTIncludes>
+    <CsWinRTWindowsMetadata>local</CsWinRTWindowsMetadata>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <CsWinRTInputs Include="../component/robot.winmd" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+[package]
+name = "robot_client_cs"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.robot]
+path = "../component"
+
+[lints]
+workspace = true
