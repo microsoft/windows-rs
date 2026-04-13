@@ -12,9 +12,11 @@
 /// `--include PATH` (resolved relative to the `tests/` directory),
 /// `--system-include PATH` (resolved relative to `tests/`; adds the directory
 /// as a system include so types defined there are NOT emitted in the RDL),
-/// `--no-roundtrip` (skip the windows-rdl reader/writer roundtrip for headers
-/// that reference external system types not present in the RDL output), and
-/// `--windows-only` (skip the test on non-Windows platforms).
+/// `--reference PATH` (resolved relative to `tests/`; reference WINMD passed
+/// to both the header2rdl converter and the windows-rdl reader during
+/// roundtrip), `--no-roundtrip` (skip the windows-rdl reader/writer roundtrip
+/// for headers that reference external system types not present in the RDL
+/// output), and `--windows-only` (skip the test on non-Windows platforms).
 /// All tests use `namespace("Test")` by default.
 #[test]
 fn convert() {
@@ -48,6 +50,7 @@ fn convert() {
         let sidecar = h_path.with_extension("h.args");
         let mut windows_only = false;
         let mut no_roundtrip = false;
+        let mut references: Vec<std::path::PathBuf> = vec![];
         if sidecar.exists() {
             let content = std::fs::read_to_string(&sidecar)
                 .unwrap_or_else(|e| panic!("failed to read {}: {e}", sidecar.display()));
@@ -82,7 +85,9 @@ fn convert() {
                         let path = tokens.next().unwrap_or_else(|| {
                             panic!("`--reference` requires a path in {}", sidecar.display())
                         });
-                        c.reference(tests_dir.join(path));
+                        let full_path = tests_dir.join(path);
+                        c.reference(&full_path);
+                        references.push(full_path);
                     }
                     "--no-roundtrip" => {
                         no_roundtrip = true;
@@ -123,9 +128,13 @@ fn convert() {
             std::fs::write(&rdl_path, &raw_rdl)
                 .unwrap_or_else(|e| panic!("failed to write {}: {e}", rdl_path.display()));
 
-            // reader: .rdl → .winmd
-            windows_rdl::reader()
-                .input(rdl_path.to_str().unwrap())
+            // reader: .rdl → .winmd  (also pass any reference WINMDs)
+            let mut reader = windows_rdl::reader();
+            reader.input(rdl_path.to_str().unwrap());
+            for reference in &references {
+                reader.input(reference.to_str().unwrap());
+            }
+            reader
                 .output(winmd_path.to_str().unwrap())
                 .write()
                 .unwrap_or_else(|e| panic!("rdl reader failed for {stem}.rdl: {e}"));

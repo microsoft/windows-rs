@@ -1,6 +1,6 @@
 #[win32]
 mod Test {
-    #[guid(0x12345678123412341234123456789abc)]
+    #[guid(0x12345678_1234_1234_1234_123456789abc)]
     interface IWidget: Windows::Win32::System::Com::IUnknown {
         fn GetId(&self, id: *mut i32) -> i32;
         fn SetName(&self, name: *const i8) -> i32;
