@@ -94,7 +94,12 @@ fn write_members(
 
                 if let Some(j) = j {
                     let put_no_attrs = methods[j].attributes().next().is_none();
-                    if no_attrs && put_no_attrs {
+                    // Only combine get_/put_ into a single `X: type` entry when the
+                    // setter immediately follows the getter in vtable order (no
+                    // unconsumed methods between them).  Combining non-adjacent
+                    // getter/setter pairs reorders vtable slots on round-trip,
+                    // breaking the ABI contract.
+                    if no_attrs && put_no_attrs && (i + 1..j).all(|k| consumed[k]) {
                         let ty = write_type(namespace, &sig.return_type);
                         let prop_ident = write_ident(prop_name);
                         consumed[i] = true;
@@ -102,7 +107,11 @@ fn write_members(
                         tokens.push(quote! { #prop_ident: #ty; });
                         continue;
                     }
-                } else if no_attrs {
+                }
+                // Either no matching put_ exists, or it cannot be combined (non-adjacent
+                // or has custom attributes).  Emit just the getter; when j is Some, the
+                // put_ method will be emitted separately when the loop reaches it.
+                if no_attrs {
                     let ty = write_type(namespace, &sig.return_type);
                     let prop_ident = write_ident(prop_name);
                     consumed[i] = true;
@@ -129,7 +138,9 @@ fn write_members(
 
                 if let Some(j) = j {
                     let remove_no_attrs = methods[j].attributes().next().is_none();
-                    if no_attrs && remove_no_attrs {
+                    // Only use event shorthand when remove_ immediately follows add_
+                    // in vtable order; non-adjacent pairs must be preserved verbatim.
+                    if no_attrs && remove_no_attrs && (i + 1..j).all(|k| consumed[k]) {
                         let sig = method.signature(generics);
                         if let Some(handler_ty) = sig.types.first() {
                             let handler_ty = write_type(namespace, handler_ty);
