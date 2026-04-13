@@ -6,3 +6,6 @@ rustflags = [
     # "--cfg", "windows_slim_errors",
     # "-C", "target-feature=+crt-static",
 ]
+
+[target.x86_64-pc-windows-gnu]
+rustflags = ["-C", "link-arg=-Wl,--allow-multiple-definition"]
