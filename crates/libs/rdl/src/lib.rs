@@ -1,7 +1,7 @@
 #![doc = include_str!("../readme.md")]
 
 mod error;
-mod formatter;
+pub mod formatter;
 mod reader;
 mod writer;
 

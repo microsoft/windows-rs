@@ -53,12 +53,20 @@ runs:
             "${env:ProgramFiles(x86)}\Windows Kits\10\bin\10.0.26100.0\arm64" >> $env:GITHUB_PATH
             ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\bin\Hostx64\arm64")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+            $msvc_inc = ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\include")
+              | Sort-Object -Descending | Select-Object -First 1).ToString()
+            $wk = "${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.26100.0"
+            "INCLUDE=$msvc_inc;$wk\ucrt;$wk\um;$wk\shared;$wk\winrt;$wk\cppwinrt" >> $env:GITHUB_ENV
+            break
           }
           "*"
           {
             (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
             (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
-            "INCLUDE=${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.26100.0\winrt;${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.26100.0\cppwinrt" `
+            $msvc_inc = ((Resolve-Path "$vs_root\VC\Tools\MSVC\*\include")
+              | Sort-Object -Descending | Select-Object -First 1).ToString()
+            $wk = "${env:ProgramFiles(x86)}\Windows Kits\10\include\10.0.26100.0"
+            "INCLUDE=$msvc_inc;$wk\ucrt;$wk\um;$wk\shared;$wk\winrt;$wk\cppwinrt" `
               >> $env:GITHUB_ENV
           }
         }

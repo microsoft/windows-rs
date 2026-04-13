@@ -1,0 +1,14 @@
+#[win32]
+mod Test {
+    #[no_guid]
+    interface IUnknown {}
+    #[no_guid]
+    interface IWidget: IUnknown {
+        fn GetId(&self, id: *mut i32) -> i32;
+        fn SetName(&self, name: *const i8) -> i32;
+    }
+    #[no_guid]
+    interface IWidgetFactory: IUnknown {
+        fn CreateWidget(&self, name: *const i8, out: *mut IWidget) -> i32;
+    }
+}

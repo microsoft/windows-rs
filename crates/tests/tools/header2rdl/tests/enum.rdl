@@ -1,0 +1,16 @@
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum FLAGS {
+        FLAG_NONE = 0,
+        FLAG_READ = 1,
+        FLAG_WRITE = 2,
+        FLAG_EXECUTE = 4,
+    }
+    #[repr(i32)]
+    enum STATUS {
+        STATUS_IDLE = 0,
+        STATUS_RUNNING = 1,
+        STATUS_ERROR = -1,
+    }
+}
