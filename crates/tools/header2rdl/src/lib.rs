@@ -556,8 +556,7 @@ fn collect(entity: Entity, collector: &mut Collector) {
                         continue;
                     }
                     if collector.seen.insert(name.clone()) {
-                        if let Some(f) =
-                            collect_function(&child, name, &collector.reference_types)
+                        if let Some(f) = collect_function(&child, name, &collector.reference_types)
                         {
                             collector.functions.push(f);
                         }
