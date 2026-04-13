@@ -18,8 +18,9 @@
 //! `LIBCLANG_PATH=/usr/lib/llvm-20/lib` (or the installed LLVM version).
 
 use clang::{diagnostic::Severity, Clang, Entity, EntityKind, Index, TypeKind};
-use std::collections::BTreeSet;
+use std::collections::{BTreeSet, HashMap};
 use std::path::{Path, PathBuf};
+use windows_metadata::reader::TypeIndex;
 
 // ---------------------------------------------------------------------------
 // Public builder
@@ -56,6 +57,7 @@ pub fn is_available() -> bool {
 #[derive(Default)]
 pub struct Converter {
     files: Vec<PathBuf>,
+    references: Vec<PathBuf>,
     namespace: String,
     library: String,
     cpp: bool,
@@ -90,6 +92,29 @@ impl Converter {
     {
         for f in files {
             self.files.push(f.as_ref().into());
+        }
+        self
+    }
+
+    /// Add one reference WINMD file.
+    ///
+    /// Types found in reference WINMD files are suppressed from the RDL output
+    /// (they are already defined in the metadata) and their names are
+    /// fully-qualified with the namespace from the WINMD when they appear as
+    /// type references in the generated RDL.
+    pub fn reference<P: AsRef<Path>>(&mut self, file: P) -> &mut Self {
+        self.references.push(file.as_ref().into());
+        self
+    }
+
+    /// Add multiple reference WINMD files.
+    pub fn references<I>(&mut self, files: I) -> &mut Self
+    where
+        I: IntoIterator,
+        I::Item: AsRef<Path>,
+    {
+        for f in files {
+            self.references.push(f.as_ref().into());
         }
         self
     }
@@ -274,7 +299,31 @@ fn generate(c: &Converter) -> Result<String, String> {
     }
 
     let clang_arg_refs: Vec<&str> = clang_args.iter().map(String::as_str).collect();
-    let mut collector = Collector::new(c.cpp);
+
+    // Build a lookup table from reference WINMD files: maps each type's simple
+    // name to the `::`-separated fully-qualified name (e.g. "IUnknown" →
+    // "Windows::Win32::System::Com::IUnknown").  When the same simple name
+    // appears in more than one namespace the entry is set to `None` so that
+    // ambiguous names are left unqualified while still being suppressed from
+    // the generated RDL.
+    let reference_types: HashMap<String, Option<String>> = {
+        let winmd_files: Vec<_> = c
+            .references
+            .iter()
+            .filter_map(windows_metadata::reader::File::read)
+            .collect();
+        let index = TypeIndex::new(winmd_files);
+        let mut map: HashMap<String, Option<String>> = HashMap::new();
+        for (namespace, name, _) in index.iter() {
+            let qualified = format!("{}::{}", namespace.replace('.', "::"), name);
+            map.entry(name.to_string())
+                .and_modify(|e| *e = None) // mark ambiguous if already present
+                .or_insert(Some(qualified));
+        }
+        map
+    };
+
+    let mut collector = Collector::new(c.cpp, reference_types);
 
     for input in &c.files {
         let input_str = input.to_string_lossy();
@@ -357,7 +406,6 @@ struct RdlInterface {
 // Collector
 // ---------------------------------------------------------------------------
 
-#[derive(Default)]
 struct Collector {
     enums: Vec<RdlEnum>,
     typedefs: Vec<RdlTypedef>,
@@ -366,13 +414,23 @@ struct Collector {
     interfaces: Vec<RdlInterface>,
     seen: BTreeSet<String>,
     cpp: bool,
+    /// Maps a type's simple name to its fully-qualified `::` path from the
+    /// reference WINMD files.  `None` means the name is ambiguous (found in
+    /// more than one namespace) and will be suppressed but left unqualified.
+    reference_types: HashMap<String, Option<String>>,
 }
 
 impl Collector {
-    fn new(cpp: bool) -> Self {
+    fn new(cpp: bool, reference_types: HashMap<String, Option<String>>) -> Self {
         Self {
             cpp,
-            ..Default::default()
+            reference_types,
+            enums: Vec::new(),
+            typedefs: Vec::new(),
+            structs: Vec::new(),
+            functions: Vec::new(),
+            interfaces: Vec::new(),
+            seen: BTreeSet::new(),
         }
     }
 }
@@ -380,6 +438,15 @@ impl Collector {
 // ---------------------------------------------------------------------------
 // AST collection
 // ---------------------------------------------------------------------------
+
+/// Returns the fully-qualified `::` path for `name` if it is uniquely
+/// identified in the reference WINMD index, or `name` unchanged otherwise.
+fn qualify_name(name: &str, refs: &HashMap<String, Option<String>>) -> String {
+    match refs.get(name) {
+        Some(Some(qualified)) => qualified.clone(),
+        _ => name.to_string(),
+    }
+}
 
 fn collect(entity: Entity, collector: &mut Collector) {
     for child in entity.get_children() {
@@ -398,15 +465,29 @@ fn collect(entity: Entity, collector: &mut Collector) {
                 let is_union = child.get_kind() == EntityKind::UnionDecl;
                 if collector.cpp && is_com_interface(&child) {
                     if let Some(name) = non_underscore_name(&child) {
+                        // Types already defined in the reference WINMD are
+                        // suppressed: mark as seen so no duplicate is emitted.
+                        if collector.reference_types.contains_key(&name) {
+                            collector.seen.insert(name);
+                            continue;
+                        }
                         if collector.seen.insert(name.clone()) {
-                            if let Some(iface) = collect_interface(&child, name) {
+                            if let Some(iface) =
+                                collect_interface(&child, name, &collector.reference_types)
+                            {
                                 collector.interfaces.push(iface);
                             }
                         }
                     }
                 } else if let Some(name) = non_underscore_name(&child) {
+                    if collector.reference_types.contains_key(&name) {
+                        collector.seen.insert(name);
+                        continue;
+                    }
                     if collector.seen.insert(name.clone()) {
-                        if let Some(structs) = collect_struct(&child, name, is_union) {
+                        if let Some(structs) =
+                            collect_struct(&child, name, is_union, &collector.reference_types)
+                        {
                             collector.structs.extend(structs);
                         }
                     }
@@ -418,12 +499,20 @@ fn collect(entity: Entity, collector: &mut Collector) {
                     continue;
                 }
                 if let Some(name) = non_underscore_name(&child) {
+                    if collector.reference_types.contains_key(&name) {
+                        collector.seen.insert(name);
+                        continue;
+                    }
                     if collector.seen.insert(name.clone()) {
                         if is_com_interface(&child) {
-                            if let Some(iface) = collect_interface(&child, name) {
+                            if let Some(iface) =
+                                collect_interface(&child, name, &collector.reference_types)
+                            {
                                 collector.interfaces.push(iface);
                             }
-                        } else if let Some(s) = collect_struct(&child, name, false) {
+                        } else if let Some(s) =
+                            collect_struct(&child, name, false, &collector.reference_types)
+                        {
                             collector.structs.extend(s);
                         }
                     }
@@ -431,6 +520,10 @@ fn collect(entity: Entity, collector: &mut Collector) {
             }
             EntityKind::EnumDecl => {
                 if let Some(name) = non_underscore_name(&child) {
+                    if collector.reference_types.contains_key(&name) {
+                        collector.seen.insert(name);
+                        continue;
+                    }
                     if collector.seen.insert(name.clone()) {
                         if let Some(e) = collect_enum(&child, name) {
                             collector.enums.push(e);
@@ -450,8 +543,14 @@ fn collect(entity: Entity, collector: &mut Collector) {
                     continue;
                 }
                 if let Some(name) = child.get_name() {
+                    if collector.reference_types.contains_key(&name) {
+                        collector.seen.insert(name);
+                        continue;
+                    }
                     if collector.seen.insert(name.clone()) {
-                        if let Some(f) = collect_function(&child, name) {
+                        if let Some(f) =
+                            collect_function(&child, name, &collector.reference_types)
+                        {
                             collector.functions.push(f);
                         }
                     }
@@ -498,11 +597,19 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
         return;
     }
 
+    // Types already defined in the reference WINMD are suppressed.
+    if collector.reference_types.contains_key(&name) {
+        collector.seen.insert(name);
+        return;
+    }
+
     for child in entity.get_children() {
         match child.get_kind() {
             EntityKind::StructDecl | EntityKind::UnionDecl => {
                 let is_union = child.get_kind() == EntityKind::UnionDecl;
-                if let Some(structs) = collect_struct(&child, name.clone(), is_union) {
+                if let Some(structs) =
+                    collect_struct(&child, name.clone(), is_union, &collector.reference_types)
+                {
                     if let Some(inner) = child.get_name() {
                         collector.seen.insert(inner);
                     }
@@ -521,7 +628,9 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
                     return;
                 }
                 // Inline class definition (`typedef class { … } X;`).
-                if let Some(structs) = collect_struct(&child, name.clone(), false) {
+                if let Some(structs) =
+                    collect_struct(&child, name.clone(), false, &collector.reference_types)
+                {
                     if let Some(inner) = child.get_name() {
                         collector.seen.insert(inner);
                     }
@@ -550,7 +659,7 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
     // name equals the alias name itself.  Don't add the name to `seen` or emit a
     // typedef in that case — the real definition will be collected later.
     if let Some(underlying) = entity.get_typedef_underlying_type() {
-        let value = map_type(&underlying);
+        let value = map_type(&underlying, &collector.reference_types);
         if value == name {
             // Self-referential forward-declaration alias: skip it.
             return;
@@ -577,7 +686,12 @@ fn collect_typedef(entity: &Entity, collector: &mut Collector) {
     collector.seen.insert(name);
 }
 
-fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<RdlStruct>> {
+fn collect_struct(
+    entity: &Entity,
+    name: String,
+    is_union: bool,
+    refs: &HashMap<String, Option<String>>,
+) -> Option<Vec<RdlStruct>> {
     if !entity.is_definition() {
         return None;
     }
@@ -607,7 +721,7 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
                         let nested_name = format!("{}_{}", name, nested_index);
                         let is_nested_union = decl.get_kind() == EntityKind::UnionDecl;
                         if let Some(nested_structs) =
-                            collect_struct(&decl, nested_name.clone(), is_nested_union)
+                            collect_struct(&decl, nested_name.clone(), is_nested_union, refs)
                         {
                             fields.push((field_name, nested_name));
                             nested.extend(nested_structs);
@@ -616,7 +730,7 @@ fn collect_struct(entity: &Entity, name: String, is_union: bool) -> Option<Vec<R
                         }
                     }
                 }
-                fields.push((field_name, map_type(&ty)));
+                fields.push((field_name, map_type(&ty, refs)));
             }
         }
     }
@@ -668,10 +782,14 @@ fn collect_enum(entity: &Entity, name: String) -> Option<RdlEnum> {
     })
 }
 
-fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
+fn collect_function(
+    entity: &Entity,
+    name: String,
+    refs: &HashMap<String, Option<String>>,
+) -> Option<RdlFn> {
     let ty = entity.get_type()?;
     let ret_ty = ty.get_result_type()?;
-    let ret = map_type(&ret_ty);
+    let ret = map_type(&ret_ty, refs);
 
     let mut params = vec![];
     for (i, child) in entity.get_children().iter().enumerate() {
@@ -680,7 +798,7 @@ fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
                 .get_name()
                 .unwrap_or_else(|| format!("param_{}", i + 1));
             if let Some(pty) = child.get_type() {
-                params.push((pname, map_type(&pty)));
+                params.push((pname, map_type(&pty, refs)));
             }
         }
     }
@@ -688,7 +806,11 @@ fn collect_function(entity: &Entity, name: String) -> Option<RdlFn> {
     Some(RdlFn { name, params, ret })
 }
 
-fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
+fn collect_interface(
+    entity: &Entity,
+    name: String,
+    refs: &HashMap<String, Option<String>>,
+) -> Option<RdlInterface> {
     if !entity.is_definition() {
         return None;
     }
@@ -716,7 +838,9 @@ fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
     let base = children
         .iter()
         .find(|c| c.get_kind() == EntityKind::BaseSpecifier)
-        .and_then(|c| c.get_name());
+        .and_then(|c| c.get_name())
+        // Qualify the base interface name if it is present in the reference WINMD.
+        .map(|b| qualify_name(&b, refs));
 
     const IUNKNOWN: [&str; 3] = ["QueryInterface", "AddRef", "Release"];
 
@@ -731,14 +855,14 @@ fn collect_interface(entity: &Entity, name: String) -> Option<RdlInterface> {
         };
         let fn_type = child.get_type()?;
         let ret_ty = fn_type.get_result_type()?;
-        let ret = map_type(&ret_ty);
+        let ret = map_type(&ret_ty, refs);
 
         let mut params = vec![];
         for (i, p) in child.get_children().iter().enumerate() {
             if p.get_kind() == EntityKind::ParmDecl {
                 let pname = p.get_name().unwrap_or_else(|| format!("param_{}", i + 1));
                 if let Some(pty) = p.get_type() {
-                    params.push((pname, map_type(&pty)));
+                    params.push((pname, map_type(&pty, refs)));
                 }
             }
         }
@@ -806,7 +930,7 @@ fn parse_guid_str(s: &str) -> Option<u128> {
 // Type mapping  (clang type → RDL type string)
 // ---------------------------------------------------------------------------
 
-fn map_type(ty: &clang::Type) -> String {
+fn map_type(ty: &clang::Type, refs: &HashMap<String, Option<String>>) -> String {
     match ty.get_kind() {
         TypeKind::Void => "()".into(),
         TypeKind::Bool => "bool".into(),
@@ -824,13 +948,13 @@ fn map_type(ty: &clang::Type) -> String {
         TypeKind::Float => "f32".into(),
         TypeKind::Double => "f64".into(),
         TypeKind::WChar => "u16".into(),
-        TypeKind::Pointer => map_pointer(ty),
+        TypeKind::Pointer => map_pointer(ty, refs),
         TypeKind::ConstantArray => {
             let size = ty.get_size().unwrap_or(0);
             let elem = ty
                 .get_element_type()
                 .as_ref()
-                .map(map_non_void)
+                .map(|t| map_non_void(t, refs))
                 .unwrap_or_else(|| "u8".into());
             format!("[{elem}; {size}]")
         }
@@ -841,7 +965,7 @@ fn map_type(ty: &clang::Type) -> String {
             if name.starts_with('(') {
                 "*mut u8".into()
             } else {
-                name
+                qualify_name(&name, refs)
             }
         }
         TypeKind::Record | TypeKind::Enum => {
@@ -850,13 +974,13 @@ fn map_type(ty: &clang::Type) -> String {
             if name.starts_with('(') {
                 "*mut u8".into()
             } else {
-                name
+                qualify_name(&name, refs)
             }
         }
         _ => {
             let canon = ty.get_canonical_type();
             if canon.get_kind() != ty.get_kind() {
-                map_type(&canon)
+                map_type(&canon, refs)
             } else {
                 "*mut u8".into()
             }
@@ -878,7 +1002,7 @@ fn is_com_interface_type(ty: &clang::Type) -> bool {
     }
 }
 
-fn map_pointer(ty: &clang::Type) -> String {
+fn map_pointer(ty: &clang::Type, refs: &HashMap<String, Option<String>>) -> String {
     let inner = match ty.get_pointee_type() {
         Some(t) => t,
         None => return "*mut u8".into(),
@@ -890,7 +1014,7 @@ fn map_pointer(ty: &clang::Type) -> String {
     //   IFoo*  → IFoo          (single pointer to interface → bare interface)
     //   IFoo** → *mut IFoo     (double pointer → one *mut remaining)
     if is_com_interface_type(&inner) {
-        return map_type(&inner);
+        return map_type(&inner, refs);
     }
 
     match inner.get_kind() {
@@ -903,7 +1027,7 @@ fn map_pointer(ty: &clang::Type) -> String {
         }
         TypeKind::FunctionPrototype | TypeKind::FunctionNoPrototype => "*mut u8".into(),
         _ => {
-            let inner_str = map_non_void(&inner);
+            let inner_str = map_non_void(&inner, refs);
             if is_const {
                 format!("*const {inner_str}")
             } else {
@@ -913,8 +1037,8 @@ fn map_pointer(ty: &clang::Type) -> String {
     }
 }
 
-fn map_non_void(ty: &clang::Type) -> String {
-    let s = map_type(ty);
+fn map_non_void(ty: &clang::Type, refs: &HashMap<String, Option<String>>) -> String {
+    let s = map_type(ty, refs);
     if s == "()" {
         "u8".into()
     } else {

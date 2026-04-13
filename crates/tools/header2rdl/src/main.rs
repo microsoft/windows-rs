@@ -51,6 +51,10 @@ fn cli_run(args: impl Iterator<Item = String>) -> Result<(), String> {
             "--split" => {
                 c.split(true);
             }
+            "--reference" => {
+                idx += 1;
+                c.reference(args.get(idx).ok_or("expected value for --reference")?);
+            }
             arg if !arg.starts_with('-') => {
                 c.file(arg);
             }

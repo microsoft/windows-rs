@@ -78,6 +78,12 @@ fn convert() {
                         });
                         c.system_include(tests_dir.join(path));
                     }
+                    "--reference" => {
+                        let path = tokens.next().unwrap_or_else(|| {
+                            panic!("`--reference` requires a path in {}", sidecar.display())
+                        });
+                        c.reference(tests_dir.join(path));
+                    }
                     "--no-roundtrip" => {
                         no_roundtrip = true;
                     }
