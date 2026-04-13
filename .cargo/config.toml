@@ -6,3 +6,9 @@ rustflags = [
     # "--cfg", "windows_slim_errors",
     # "-C", "target-feature=+crt-static",
 ]
+
+# GCC 15.x (mingw-w64) changed weak symbol handling, causing multiple-definition
+# errors for `.weak.__rustc_debug_gdb_scripts_section__` during linking. This
+# flag works around the regression until the upstream toolchain is fixed.
+[target.x86_64-pc-windows-gnu]
+rustflags = ["-C", "link-arg=-Wl,--allow-multiple-definition"]
