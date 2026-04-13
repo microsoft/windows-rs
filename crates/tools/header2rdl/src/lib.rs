@@ -307,11 +307,19 @@ fn generate(c: &Converter) -> Result<String, String> {
     // ambiguous names are left unqualified while still being suppressed from
     // the generated RDL.
     let reference_types: HashMap<String, Option<String>> = {
-        let winmd_files: Vec<_> = c
-            .references
-            .iter()
-            .filter_map(windows_metadata::reader::File::read)
-            .collect();
+        let mut winmd_files: Vec<windows_metadata::reader::File> =
+            Vec::with_capacity(c.references.len());
+        for path in &c.references {
+            match windows_metadata::reader::File::read(path) {
+                Some(file) => winmd_files.push(file),
+                None => {
+                    return Err(format!(
+                        "failed to read reference WINMD file `{}`",
+                        path.display()
+                    ))
+                }
+            }
+        }
         let index = TypeIndex::new(winmd_files);
         let mut map: HashMap<String, Option<String>> = HashMap::new();
         for (namespace, name, _) in index.iter() {
