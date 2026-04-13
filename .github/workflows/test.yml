@@ -39,11 +39,6 @@ jobs:
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
             runner: windows-2025
-          - name: nightly gnu
-            version: nightly
-            host: x86_64-pc-windows-gnu
-            target: x86_64-pc-windows-gnu
-            runner: windows-2025
           - name: stable arm64
             version: stable
             host: aarch64-pc-windows-msvc
