@@ -491,6 +491,12 @@ impl Encoder<'_> {
             .unwrap_or(false)
     }
 
+    pub fn is_exclusive_to_attribute(&self, attr: &syn::Attribute) -> bool {
+        self.find_attribute_type(attr.path())
+            .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "ExclusiveToAttribute"))
+            .unwrap_or(false)
+    }
+
     /// Processes `#[guid(0x…)]` and `#[no_guid]` pseudo-attributes in `attrs`, emitting a
     /// `GuidAttribute` on `target` when an explicit GUID is supplied.  Returns `true` when the
     /// attribute list already carries GUID information (explicit `#[guid]`, `#[no_guid]`, or an

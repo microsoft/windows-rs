@@ -1,0 +1,10 @@
+#[winrt]
+mod Test {
+    interface IFoo {
+        Value: i32;
+        #[get]
+        ReadOnly: bool;
+        #[set]
+        WriteOnly: bool;
+    }
+}

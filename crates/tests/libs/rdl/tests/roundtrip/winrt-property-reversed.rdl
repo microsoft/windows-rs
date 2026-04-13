@@ -1,0 +1,9 @@
+#[winrt]
+mod Test {
+    interface IFoo {
+        #[set]
+        Reversed: i32;
+        #[get]
+        Reversed: i32;
+    }
+}
