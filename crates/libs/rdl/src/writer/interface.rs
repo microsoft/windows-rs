@@ -99,7 +99,12 @@ fn write_members(
                     // unconsumed methods between them).  Combining non-adjacent
                     // getter/setter pairs reorders vtable slots on round-trip,
                     // breaking the ABI contract.
-                    if no_attrs && put_no_attrs && (i + 1..j).all(|k| consumed[k]) {
+                    // Also only combine when the getter's return type matches the
+                    // setter's parameter type; otherwise the types must be preserved
+                    // separately using `#[get]`/`#[set]` shorthands.
+                    let put_sig = methods[j].signature(generics);
+                    let types_match = put_sig.types.first() == Some(&sig.return_type);
+                    if no_attrs && put_no_attrs && types_match && (i + 1..j).all(|k| consumed[k]) {
                         let ty = write_type(namespace, &sig.return_type);
                         let prop_ident = write_ident(prop_name);
                         consumed[i] = true;
