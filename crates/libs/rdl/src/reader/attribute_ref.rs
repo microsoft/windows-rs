@@ -546,6 +546,23 @@ impl Encoder<'_> {
                 continue;
             }
 
+            // `#[typedef]` is a pseudo-attribute that maps to the Win32 metadata
+            // `Windows.Win32.Foundation.Metadata.NativeTypedefAttribute`.
+            if path.is_ident("typedef") {
+                if !matches!(attr.meta, syn::Meta::Path(_)) {
+                    return self.err(attr, "`#[typedef]` does not accept arguments");
+                }
+                let attr_ref = AttributeRef {
+                    type_name: metadata::TypeName::named(
+                        "Windows.Win32.Foundation.Metadata",
+                        "NativeTypedefAttribute",
+                    ),
+                    args: vec![],
+                };
+                self.encode_named_attribute(has_attribute, &attr_ref);
+                continue;
+            }
+
             let attr_ref = self.resolve_attribute_ref(attr)?;
             self.encode_named_attribute(has_attribute, &attr_ref);
         }
