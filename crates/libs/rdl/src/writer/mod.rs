@@ -497,6 +497,15 @@ fn write_custom_attributes_except<'a>(
                 return Ok(quote! { #[typedef] });
             }
 
+            // `OverloadAttribute` is written back as the `#[overload("Name")]` pseudo-attribute.
+            if attr.namespace() == "Windows.Foundation.Metadata"
+                && attr.name() == "OverloadAttribute"
+            {
+                if let Some((_, metadata::Value::Utf8(name))) = attr.value().first() {
+                    return Ok(quote! { #[overload(#name)] });
+                }
+            }
+
             let attr_ns = attr.namespace();
             let attr_short = attr
                 .name()

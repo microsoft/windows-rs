@@ -301,6 +301,33 @@ mod Contoso {
 }
 ```
 
+**Method Overloads (WinRT):**
+
+WinRT interfaces may contain overloaded methods — multiple methods that share a logical name but have unique WINMD names. The `#[overload("Name")]` pseudo-attribute records the shared logical name (the value of `Windows.Foundation.Metadata.OverloadAttribute` in the binary metadata), while the actual method name is the unique identifier used in the vtable.
+
+**Syntax:**
+
+```rust
+#[overload("LogicalName")]
+fn UniqueName(&self, ...) -> ReturnType;
+```
+
+**Example:**
+
+```rust
+#[winrt]
+mod Contoso {
+    mod Sprockets {
+        interface ISprocketFactory {
+            #[overload("Create")]
+            fn CreateDefault(&self) -> Sprocket;
+            #[overload("Create")]
+            fn CreateWithOptions(&self, options: SprocketOptions) -> Sprocket;
+        }
+    }
+}
+```
+
 ---
 
 #### Delegates

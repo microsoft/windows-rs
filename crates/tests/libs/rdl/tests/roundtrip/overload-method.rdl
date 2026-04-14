@@ -1,0 +1,13 @@
+#[winrt]
+mod Test {
+    interface IFoo {
+        #[overload("Method")]
+        fn MethodOne(&self) -> i32;
+        #[overload("Method")]
+        fn MethodTwo(&self, a: i32) -> i32;
+        #[overload("Other")]
+        fn OtherVariantA(&self, x: f32, y: f32) -> bool;
+        #[overload("Other")]
+        fn OtherVariantB(&self, x: f32, y: f32, z: f32) -> bool;
+    }
+}
