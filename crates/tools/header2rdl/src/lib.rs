@@ -89,18 +89,6 @@ impl Converter {
         self
     }
 
-    /// Add multiple reference WINMD files.
-    pub fn references<I>(&mut self, files: I) -> &mut Self
-    where
-        I: IntoIterator,
-        I::Item: AsRef<Path>,
-    {
-        for f in files {
-            self.references.push(f.as_ref().into());
-        }
-        self
-    }
-
     /// Set the target namespace (dot-separated, e.g. `"Contoso.Widgets"`).
     /// This is required; [`write`](Converter::write) and
     /// [`convert`](Converter::convert) return an error if it is empty.
