@@ -8,7 +8,7 @@
 /// simply run this test and commit the result.
 ///
 /// All headers are converted with the same options: C++ mode, library name
-/// `test.dll`, the `tests/include` directory on the include path, and the
+/// `test.dll`, the Windows SDK include directories on the include path, and the
 /// `Windows.Win32.winmd` reference metadata.  The reference WINMD is also
 /// passed to the `windows_rdl` reader and writer during the roundtrip so that
 /// types defined there (e.g. `Windows::Win32::System::Com::IUnknown`) are
@@ -17,6 +17,7 @@
 #[test]
 fn convert() {
     let tests_dir = std::path::Path::new("tests");
+    let include_dir = tests_dir.join("include");
     let reference = std::path::Path::new("../../../libs/bindgen/default/Windows.Win32.winmd");
 
     let mut headers: Vec<_> = std::fs::read_dir(tests_dir)
@@ -41,7 +42,11 @@ fn convert() {
             .namespace("Test")
             .cpp(true)
             .library("test.dll")
-            .include(tests_dir.join("include"))
+            .include(include_dir.join("um"))
+            .include(include_dir.join("shared"))
+            .include(include_dir.join("ucrt"))
+            .include(include_dir.join("msvc"))
+            .include(include_dir.join("winrt"))
             .reference(reference)
             .convert()
             .unwrap_or_else(|e| panic!("convert failed for {stem}.h: {e}"));
