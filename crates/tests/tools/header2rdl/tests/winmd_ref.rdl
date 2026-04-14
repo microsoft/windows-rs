@@ -1,14 +1,6 @@
 #[win32]
 mod Test {
     #[typedef]
-    struct BOOL {
-        value: i32,
-    }
-    #[typedef]
-    struct BSTR {
-        value: *mut WCHAR,
-    }
-    #[typedef]
     struct BYTE {
         value: u8,
     }
@@ -35,50 +27,6 @@ mod Test {
         Data4: [u8; 8],
     }
     #[typedef]
-    struct HANDLE {
-        value: *mut u8,
-    }
-    #[typedef]
-    struct HBITMAP {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HBRUSH {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HCURSOR {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HDC {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HICON {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HINSTANCE {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HMENU {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HMODULE {
-        value: HANDLE,
-    }
-    #[typedef]
-    struct HRESULT {
-        value: i32,
-    }
-    #[typedef]
-    struct HWND {
-        value: HANDLE,
-    }
-    #[typedef]
     struct IID {
         value: GUID,
     }
@@ -86,10 +34,8 @@ mod Test {
     struct INT {
         value: i32,
     }
-    #[guid(0x00000000_0000_0000_c000_000000000046)]
-    interface IUnknown {}
     #[guid(0x12345678_1234_1234_1234_123456789abc)]
-    interface IWidget: IUnknown {
+    interface IWidget: Windows::Win32::System::Com::IUnknown {
         fn GetId(&self, id: *mut i32) -> i32;
         fn SetName(&self, name: *const i8) -> i32;
     }
@@ -99,7 +45,7 @@ mod Test {
     }
     #[typedef]
     struct LPCRECT {
-        value: *const RECT,
+        value: *const Windows::Win32::Foundation::RECT,
     }
     #[typedef]
     struct LPCWSTR {
@@ -107,7 +53,7 @@ mod Test {
     }
     #[typedef]
     struct LPRECT {
-        value: *mut RECT,
+        value: *mut Windows::Win32::Foundation::RECT,
     }
     #[typedef]
     struct LPVOID {
@@ -121,16 +67,6 @@ mod Test {
     struct PCWSTR {
         value: *const WCHAR,
     }
-    struct POINT {
-        x: LONG,
-        y: LONG,
-    }
-    struct RECT {
-        left: LONG,
-        top: LONG,
-        right: LONG,
-        bottom: LONG,
-    }
     #[typedef]
     struct REFCLSID {
         value: *mut u8,
@@ -138,10 +74,6 @@ mod Test {
     #[typedef]
     struct REFIID {
         value: *mut u8,
-    }
-    struct SIZE {
-        cx: LONG,
-        cy: LONG,
     }
     #[typedef]
     struct UINT {

@@ -3,21 +3,13 @@ mod Test {
     #[library("test.dll")]
     extern fn Add(a: i32, b: i32) -> i32;
     #[library("test.dll")]
-    extern fn CloseHandle(handle: HANDLE);
+    extern fn CloseHandle(handle: Windows::Win32::Foundation::HANDLE);
     #[library("test.dll")]
-    extern fn CreateHandle(flags: DWORD, out: *mut HANDLE) -> HRESULT;
+    extern fn CreateHandle(flags: DWORD, out: *mut Windows::Win32::Foundation::HANDLE) -> Windows::Win32::Foundation::HRESULT;
     #[typedef]
     struct DWORD {
         value: u32,
     }
     #[library("test.dll")]
     extern fn GetCount(data: *const u8, length: DWORD) -> DWORD;
-    #[typedef]
-    struct HANDLE {
-        value: *mut u8,
-    }
-    #[typedef]
-    struct HRESULT {
-        value: i32,
-    }
 }

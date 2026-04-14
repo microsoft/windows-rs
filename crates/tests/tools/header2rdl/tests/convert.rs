@@ -8,7 +8,11 @@
 /// simply run this test and commit the result.
 ///
 /// All headers are converted with the same options: C++ mode, library name
-/// `test.dll`, and the `tests/include` directory on the include path.
+/// `test.dll`, the `tests/include` directory on the include path, and the
+/// `Windows.Win32.winmd` reference metadata.  The reference WINMD is also
+/// passed to the `windows_rdl` reader and writer during the roundtrip so that
+/// types defined there (e.g. `Windows::Win32::System::Com::IUnknown`) are
+/// resolved correctly.
 #[test]
 fn convert() {
     if !tool_header2rdl::is_available() {
@@ -16,6 +20,7 @@ fn convert() {
     }
 
     let tests_dir = std::path::Path::new("tests");
+    let reference = std::path::Path::new("../../../libs/bindgen/default/Windows.Win32.winmd");
 
     let mut headers: Vec<_> = std::fs::read_dir(tests_dir)
         .expect("tests directory not found – run tests from the crate root")
@@ -40,6 +45,7 @@ fn convert() {
             .cpp(true)
             .library("test.dll")
             .include(tests_dir.join("include"))
+            .reference(reference)
             .convert()
             .unwrap_or_else(|e| panic!("convert failed for {stem}.h: {e}"));
 
@@ -51,12 +57,14 @@ fn convert() {
 
         windows_rdl::reader()
             .input(rdl_path.to_str().unwrap())
+            .input(reference.to_str().unwrap())
             .output(winmd_path.to_str().unwrap())
             .write()
             .unwrap_or_else(|e| panic!("rdl reader failed for {stem}.rdl: {e}"));
 
         windows_rdl::writer()
             .input(winmd_path.to_str().unwrap())
+            .input(reference.to_str().unwrap())
             .output(rdl_path.to_str().unwrap())
             .filter("Test")
             .write()

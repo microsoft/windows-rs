@@ -8,14 +8,4 @@ mod Test {
         LowPart: u32,
         HighPart: i32,
     }
-    struct POINT {
-        X: i32,
-        Y: i32,
-    }
-    struct RECT {
-        left: i32,
-        top: i32,
-        right: i32,
-        bottom: i32,
-    }
 }
