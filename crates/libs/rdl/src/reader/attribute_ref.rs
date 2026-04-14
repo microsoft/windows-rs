@@ -563,26 +563,6 @@ impl Encoder<'_> {
                 continue;
             }
 
-            // `#[overload("Name")]` is a pseudo-attribute that maps to the WinRT metadata
-            // `Windows.Foundation.Metadata.OverloadAttribute`.
-            if path.is_ident("overload") {
-                let name: syn::LitStr = attr.parse_args().map_err(|_| {
-                    self.error(
-                        attr,
-                        "`#[overload]` requires a single string literal argument",
-                    )
-                })?;
-                let attr_ref = AttributeRef {
-                    type_name: metadata::TypeName::named(
-                        "Windows.Foundation.Metadata",
-                        "OverloadAttribute",
-                    ),
-                    args: vec![("".to_string(), metadata::Value::Utf8(name.value()))],
-                };
-                self.encode_named_attribute(has_attribute, &attr_ref);
-                continue;
-            }
-
             let attr_ref = self.resolve_attribute_ref(attr)?;
             self.encode_named_attribute(has_attribute, &attr_ref);
         }

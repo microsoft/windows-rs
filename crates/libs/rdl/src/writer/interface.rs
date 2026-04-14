@@ -187,7 +187,35 @@ fn write_method(
     item: &metadata::reader::MethodDef,
     generics: &[metadata::Type],
 ) -> Result<TokenStream, Error> {
-    let name = write_ident(item.name());
+    // In WINMD, OverloadAttribute.value is the *unique* vtable name and
+    // MethodDef.Name is the *common* logical name.  In RDL we invert this so
+    // that the `fn` name is the unique name and `#[overload("common")]` carries
+    // the common name — a more natural reading.
+    //
+    // OverloadAttribute has exactly one positional constructor argument: the
+    // unique method name (a string).  `next()` extracts that single value.
+    let overload_unique_name = item
+        .find_attribute("OverloadAttribute")
+        .and_then(|attr| attr.value().into_iter().next())
+        .and_then(|(_, v)| {
+            if let metadata::Value::Utf8(s) = v {
+                Some(s)
+            } else {
+                None
+            }
+        });
+
+    let (fn_name_str, overload_attr_token) = match &overload_unique_name {
+        Some(unique) => {
+            // fn name = unique name from OverloadAttribute
+            // #[overload("common")] = MethodDef.Name (the common logical name)
+            let common = item.name();
+            (unique.as_str(), quote! { #[overload(#common)] })
+        }
+        None => (item.name(), quote! {}),
+    };
+
+    let name = write_ident(fn_name_str);
     let signature = item.signature(generics);
 
     let return_type = write_return_type(namespace, item, &signature)?;
@@ -199,7 +227,11 @@ fn write_method(
         )
         .collect::<Result<Vec<_>, Error>>()?;
 
-    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    // Exclude OverloadAttribute — it is represented by the #[overload] token above.
+    let method_attrs =
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), &[
+            "OverloadAttribute",
+        ])?;
 
     // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
     // preserving properties and events on round-trip.
@@ -214,6 +246,7 @@ fn write_method(
 
     Ok(quote! {
         #special_attr
+        #overload_attr_token
         #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
     })

@@ -1,3 +1,4 @@
+use super::attribute_ref::AttributeRef;
 use super::guid;
 use super::*;
 
@@ -236,9 +237,36 @@ impl Encoder<'_> {
                         }
                     }
 
+                    // Detect `#[overload("CommonName")]`.
+                    //
+                    // In WINMD the MethodDef.Name stores the *common* logical name and
+                    // OverloadAttribute.value stores the *unique* vtable name. RDL inverts
+                    // this so that the `fn` identifier is the unique name and
+                    // `#[overload("common")]` carries the common name.
+                    let overload_common_name: Option<String> = method
+                        .attrs
+                        .iter()
+                        .find(|a| a.path().is_ident("overload"))
+                        .map(|a| {
+                            let lit: syn::LitStr = a.parse_args().map_err(|_| {
+                                self.error(
+                                    a,
+                                    "`#[overload]` requires a single string literal argument",
+                                )
+                            })?;
+                            Ok::<String, Error>(lit.value())
+                        })
+                        .transpose()?;
+
+                    // MethodDef.Name: common logical name when overloaded, fn ident otherwise.
+                    let sig_ident = method.sig.ident.to_string();
+                    let method_def_name =
+                        overload_common_name.as_deref().unwrap_or(sig_ident.as_str());
+
                     if !already_has_guid {
+                        // GUID derivation uses MethodDef.Name (the common/logical name).
                         method_signatures.push((
-                            method.sig.ident.to_string(),
+                            method_def_name.to_string(),
                             types.clone(),
                             return_type.clone(),
                         ));
@@ -267,17 +295,36 @@ impl Encoder<'_> {
                     }
 
                     let method_def = self.output.MethodDef(
-                        &method.sig.ident.to_string(),
+                        method_def_name,
                         &signature,
                         flags,
                         Default::default(),
                     );
 
+                    // Skip `#[overload]` in encode_attrs — it is handled below.
                     self.encode_attrs(
                         metadata::writer::HasAttribute::MethodDef(method_def),
                         &method.attrs,
-                        &["special"],
+                        &["special", "overload"],
                     )?;
+
+                    // If overloaded, emit OverloadAttribute with the fn ident (unique name).
+                    if overload_common_name.is_some() {
+                        let attr_ref = AttributeRef {
+                            type_name: metadata::TypeName::named(
+                                "Windows.Foundation.Metadata",
+                                "OverloadAttribute",
+                            ),
+                            args: vec![(
+                                String::new(),
+                                metadata::Value::Utf8(sig_ident.clone()),
+                            )],
+                        };
+                        self.encode_named_attribute(
+                            metadata::writer::HasAttribute::MethodDef(method_def),
+                            &attr_ref,
+                        );
+                    }
 
                     self.encode_return_attrs(&method.return_attrs)?;
                     self.encode_params(&params)?;
