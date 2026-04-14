@@ -1,16 +1,16 @@
 #[win32]
 mod Test {
-    #[library("test")]
+    #[library("test.dll")]
     extern fn Add(a: i32, b: i32) -> i32;
-    #[library("test")]
+    #[library("test.dll")]
     extern fn CloseHandle(handle: HANDLE);
-    #[library("test")]
+    #[library("test.dll")]
     extern fn CreateHandle(flags: DWORD, out: *mut HANDLE) -> HRESULT;
     #[typedef]
     struct DWORD {
         value: u32,
     }
-    #[library("test")]
+    #[library("test.dll")]
     extern fn GetCount(data: *const u8, length: DWORD) -> DWORD;
     #[typedef]
     struct HANDLE {

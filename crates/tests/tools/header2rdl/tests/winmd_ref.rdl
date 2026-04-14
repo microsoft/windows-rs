@@ -1,8 +1,184 @@
 #[win32]
 mod Test {
+    #[typedef]
+    struct BOOL {
+        value: i32,
+    }
+    #[typedef]
+    struct BSTR {
+        value: *mut WCHAR,
+    }
+    #[typedef]
+    struct BYTE {
+        value: u8,
+    }
+    #[typedef]
+    struct CLSID {
+        value: GUID,
+    }
+    #[typedef]
+    struct DOUBLE {
+        value: f64,
+    }
+    #[typedef]
+    struct DWORD {
+        value: u32,
+    }
+    #[typedef]
+    struct FLOAT {
+        value: f32,
+    }
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    #[typedef]
+    struct HANDLE {
+        value: *mut u8,
+    }
+    #[typedef]
+    struct HBITMAP {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HBRUSH {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HCURSOR {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HDC {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HICON {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HINSTANCE {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HMENU {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HMODULE {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct HRESULT {
+        value: i32,
+    }
+    #[typedef]
+    struct HWND {
+        value: HANDLE,
+    }
+    #[typedef]
+    struct IID {
+        value: GUID,
+    }
+    #[typedef]
+    struct INT {
+        value: i32,
+    }
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {}
     #[guid(0x12345678_1234_1234_1234_123456789abc)]
-    interface IWidget: Windows::Win32::System::Com::IUnknown {
+    interface IWidget: IUnknown {
         fn GetId(&self, id: *mut i32) -> i32;
         fn SetName(&self, name: *const i8) -> i32;
+    }
+    #[typedef]
+    struct LONG {
+        value: i32,
+    }
+    #[typedef]
+    struct LPCRECT {
+        value: *const RECT,
+    }
+    #[typedef]
+    struct LPCWSTR {
+        value: *const WCHAR,
+    }
+    #[typedef]
+    struct LPRECT {
+        value: *mut RECT,
+    }
+    #[typedef]
+    struct LPVOID {
+        value: *mut u8,
+    }
+    #[typedef]
+    struct LPWSTR {
+        value: *mut WCHAR,
+    }
+    #[typedef]
+    struct PCWSTR {
+        value: *const WCHAR,
+    }
+    struct POINT {
+        x: LONG,
+        y: LONG,
+    }
+    struct RECT {
+        left: LONG,
+        top: LONG,
+        right: LONG,
+        bottom: LONG,
+    }
+    #[typedef]
+    struct REFCLSID {
+        value: *mut u8,
+    }
+    #[typedef]
+    struct REFIID {
+        value: *mut u8,
+    }
+    struct SIZE {
+        cx: LONG,
+        cy: LONG,
+    }
+    #[typedef]
+    struct UINT {
+        value: u32,
+    }
+    #[typedef]
+    struct UINT32 {
+        value: u32,
+    }
+    #[typedef]
+    struct UINT64 {
+        value: u64,
+    }
+    #[typedef]
+    struct ULONG {
+        value: u32,
+    }
+    #[typedef]
+    struct WCHAR {
+        value: u16,
+    }
+    #[typedef]
+    struct WORD {
+        value: u16,
+    }
+    struct tagPOINT {
+        x: LONG,
+        y: LONG,
+    }
+    struct tagRECT {
+        left: LONG,
+        top: LONG,
+        right: LONG,
+        bottom: LONG,
+    }
+    struct tagSIZE {
+        cx: LONG,
+        cy: LONG,
     }
 }
