@@ -356,6 +356,12 @@ struct RdlEnum {
     variants: Vec<(String, i64)>,
 }
 
+struct RdlConst {
+    name: String,
+    repr: &'static str,
+    value: i64,
+}
+
 struct RdlTypedef {
     name: String,
     value: String,
@@ -385,6 +391,7 @@ struct RdlInterface {
 // ---------------------------------------------------------------------------
 
 struct Collector {
+    consts: Vec<RdlConst>,
     enums: Vec<RdlEnum>,
     typedefs: Vec<RdlTypedef>,
     structs: Vec<RdlStruct>,
@@ -403,6 +410,7 @@ impl Collector {
         Self {
             cpp,
             reference_types,
+            consts: Vec::new(),
             enums: Vec::new(),
             typedefs: Vec::new(),
             structs: Vec::new(),
@@ -497,7 +505,7 @@ fn collect(entity: Entity, collector: &mut Collector) {
                 }
             }
             EntityKind::EnumDecl => {
-                if let Some(name) = non_underscore_name(&child) {
+                if let Some(name) = named_entity(&child) {
                     if collector.reference_types.contains_key(&name) {
                         collector.seen.insert(name);
                         continue;
@@ -507,6 +515,11 @@ fn collect(entity: Entity, collector: &mut Collector) {
                             collector.enums.push(e);
                         }
                     }
+                } else {
+                    // Unnamed enum (e.g. `enum { Foo = 1 }`): promote each
+                    // member to a top-level constant instead of emitting an
+                    // anonymous enum with a compiler-generated name.
+                    collect_unnamed_enum_consts(&child, collector);
                 }
             }
             EntityKind::TypedefDecl => {
@@ -548,6 +561,14 @@ fn non_underscore_name(entity: &Entity) -> Option<String> {
     entity
         .get_name()
         .filter(|n| !n.is_empty() && !n.starts_with('_'))
+}
+
+/// Like `non_underscore_name`, but also rejects compiler-generated names for
+/// anonymous types such as `"(unnamed enum at foo.h:1:1)"`.
+fn named_entity(entity: &Entity) -> Option<String> {
+    entity
+        .get_name()
+        .filter(|n| !n.is_empty() && !n.starts_with('_') && !n.starts_with('('))
 }
 
 fn is_com_interface(entity: &Entity) -> bool {
@@ -726,20 +747,7 @@ fn collect_enum(entity: &Entity, name: String) -> Option<RdlEnum> {
         return None;
     }
 
-    let repr = match entity.get_enum_underlying_type() {
-        Some(ty) => match ty.get_kind() {
-            TypeKind::Int | TypeKind::Long => "i32",
-            TypeKind::UInt | TypeKind::ULong => "u32",
-            TypeKind::Short => "i16",
-            TypeKind::UShort => "u16",
-            TypeKind::CharS | TypeKind::SChar => "i8",
-            TypeKind::CharU | TypeKind::UChar => "u8",
-            TypeKind::LongLong => "i64",
-            TypeKind::ULongLong => "u64",
-            _ => "i32",
-        },
-        None => "i32",
-    };
+    let repr = enum_underlying_repr(entity);
 
     let mut variants = vec![];
     for child in entity.get_children() {
@@ -757,6 +765,47 @@ fn collect_enum(entity: &Entity, name: String) -> Option<RdlEnum> {
         repr,
         variants,
     })
+}
+
+/// Collect the constants of an unnamed `enum { … }` block as individual
+/// top-level constants rather than as a single anonymous enum.
+fn collect_unnamed_enum_consts(entity: &Entity, collector: &mut Collector) {
+    if !entity.is_definition() {
+        return;
+    }
+    let repr = enum_underlying_repr(entity);
+    for child in entity.get_children() {
+        if child.get_kind() == EntityKind::EnumConstantDecl {
+            if let (Some(name), Some((signed, _))) =
+                (child.get_name(), child.get_enum_constant_value())
+            {
+                if !name.starts_with('_') && collector.seen.insert(name.clone()) {
+                    collector.consts.push(RdlConst {
+                        name,
+                        repr,
+                        value: signed,
+                    });
+                }
+            }
+        }
+    }
+}
+
+fn enum_underlying_repr(entity: &Entity) -> &'static str {
+    match entity.get_enum_underlying_type() {
+        Some(ty) => match ty.get_kind() {
+            TypeKind::Int | TypeKind::Long => "i32",
+            TypeKind::UInt | TypeKind::ULong => "u32",
+            TypeKind::Short => "i16",
+            TypeKind::UShort => "u16",
+            TypeKind::CharS | TypeKind::SChar => "i8",
+            TypeKind::CharU | TypeKind::UChar => "u8",
+            TypeKind::LongLong => "i64",
+            TypeKind::ULongLong => "u64",
+            _ => "i32",
+        },
+        None => "i32",
+    }
 }
 
 fn collect_function(
@@ -1059,6 +1108,9 @@ fn escape_ident(name: &str) -> String {
 fn emit(c: &Converter, collector: &Collector) -> String {
     let mut body = String::new();
 
+    for co in &collector.consts {
+        body.push_str(&emit_const(co));
+    }
     for e in &collector.enums {
         body.push_str(&emit_enum(e));
     }
@@ -1076,6 +1128,10 @@ fn emit(c: &Converter, collector: &Collector) -> String {
     }
 
     wrap_namespace(&c.namespace, &body)
+}
+
+fn emit_const(c: &RdlConst) -> String {
+    format!("const {}: {} = {};", c.name, c.repr, c.value)
 }
 
 fn emit_enum(e: &RdlEnum) -> String {
