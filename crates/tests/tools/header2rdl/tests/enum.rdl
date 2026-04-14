@@ -7,10 +7,17 @@ mod Test {
         FLAG_WRITE = 2,
         FLAG_EXECUTE = 4,
     }
+    const FLAG_EXECUTE: i32 = 4;
+    const FLAG_NONE: i32 = 0;
+    const FLAG_READ: i32 = 1;
+    const FLAG_WRITE: i32 = 2;
     #[repr(i32)]
     enum STATUS {
         STATUS_IDLE = 0,
         STATUS_RUNNING = 1,
         STATUS_ERROR = -1,
     }
+    const STATUS_ERROR: i32 = -1;
+    const STATUS_IDLE: i32 = 0;
+    const STATUS_RUNNING: i32 = 1;
 }
