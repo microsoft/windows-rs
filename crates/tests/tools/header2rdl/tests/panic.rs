@@ -18,11 +18,9 @@ fn expect_error(header: &str) -> String {
         .expect_err("convert should have failed but succeeded")
 }
 
+#[cfg(target_arch = "x86_64")]
 #[test]
 fn typo_in_typedef_errors() {
-    if !tool_header2rdl::is_available() {
-        return;
-    }
     let err = expect_error("typodef int FOO;\n");
     assert!(
         err.contains("error: unknown type name 'typodef'"),

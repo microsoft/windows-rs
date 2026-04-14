@@ -31,24 +31,6 @@ pub fn converter() -> Converter {
     Converter::new()
 }
 
-/// Returns `true` if `libclang` can be successfully loaded.
-///
-/// Use this to gracefully skip tests on platforms where `libclang` is not
-/// available (e.g. 32-bit runners where only a 64-bit DLL is present, or
-/// ARM64 runners where no supported `libclang` build is available).
-///
-/// This function only attempts to load libclang when `LIBCLANG_PATH` is
-/// explicitly set in the environment.  On platforms where libclang is not
-/// installed (and `LIBCLANG_PATH` is therefore unset) this avoids a potential
-/// crash that can occur when the dynamic loader encounters an incompatible
-/// system libclang binary.
-pub fn is_available() -> bool {
-    if std::env::var("LIBCLANG_PATH").is_err() {
-        return false;
-    }
-    Clang::new().is_ok()
-}
-
 /// Builder for converting C/C++ header files to Windows RDL source.
 ///
 /// Call builder methods to configure the conversion, then call

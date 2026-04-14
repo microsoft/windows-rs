@@ -13,12 +13,9 @@
 /// passed to the `windows_rdl` reader and writer during the roundtrip so that
 /// types defined there (e.g. `Windows::Win32::System::Com::IUnknown`) are
 /// resolved correctly.
+#[cfg(target_arch = "x86_64")]
 #[test]
 fn convert() {
-    if !tool_header2rdl::is_available() {
-        return;
-    }
-
     let tests_dir = std::path::Path::new("tests");
     let reference = std::path::Path::new("../../../libs/bindgen/default/Windows.Win32.winmd");
 
